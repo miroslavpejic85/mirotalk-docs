@@ -21,4 +21,6 @@ nav:
   - mirotalk-web:
     - ngrok: mirotalk-web/ngrok.md
     - self-hosting: mirotalk-web/self-hosting.md
+  - ngrok:
+    - ngrok: ngrok/ngrok.md
 theme: readthedocs
