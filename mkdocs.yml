@@ -1,0 +1,24 @@
+site_name: MiroTalk docs v1.0
+nav:
+  - Home: index.md
+  - coturn:
+    - stun-turn: coturn/stun-turn.md
+    - installation: coturn/installation.md
+  - license:
+    - licensing-options: license/licensing-options.md
+  - mirotalk-bro:
+    - ngrok: mirotalk-bro/ngrok.md
+    - self-hosting: mirotalk-bro/self-hosting.md
+  - mirotalk-c2c:
+    - ngrok: mirotalk-c2c/ngrok.md
+    - self-hosting: mirotalk-c2c/self-hosting.md
+  - mirotalk-p2p:
+    - ngrok: mirotalk-p2p/ngrok.md
+    - self-hosting: mirotalk-p2p/self-hosting.md
+  - mirotalk-sfu:
+    - ngrok: mirotalk-sfu/ngrok.md
+    - self-hosting: mirotalk-sfu/self-hosting.md
+  - mirotalk-web:
+    - ngrok: mirotalk-web/ngrok.md
+    - self-hosting: mirotalk-web/self-hosting.md
+theme: readthedocs

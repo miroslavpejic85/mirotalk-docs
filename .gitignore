@@ -1,0 +1,8 @@
+# git folder
+.git
+
+# mkdocs build folder
+site/
+
+# mac
+.DS_Store
