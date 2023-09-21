@@ -2,7 +2,7 @@
 
 ![ngrok](../images/ngrok.png)
 
-Ngrok is a popular and widely used software tool that provides a secure tunneling service, allowing you to expose your local development server, typically running on your computer, to the internet. It creates a secure tunnel from a public endpoint to a locally running web service or application, which can be helpful for various purposes, including:
+[Ngrok](https://ngrok.com) is a popular and widely used software tool that provides a secure tunneling service, allowing you to expose your local development server, typically running on your computer, to the internet. It creates a secure tunnel from a public endpoint to a locally running web service or application, which can be helpful for various purposes, including:
 
 1. Development and Testing: Developers often use Ngrok to test web applications or APIs in a development environment. It allows them to share their work with colleagues or clients without deploying it to a public server.
 
