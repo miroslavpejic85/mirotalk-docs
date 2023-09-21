@@ -1,5 +1,7 @@
 # Exposing MiroTalk P2P with Ngrok
 
+![ngrok](../images/ngrok.png)
+
 To make MiroTalk accessible from outside your `local PC` via `HTTPS` using `Ngrok`, follow these steps:
 
 **Step 1: Configure Ngrok**
