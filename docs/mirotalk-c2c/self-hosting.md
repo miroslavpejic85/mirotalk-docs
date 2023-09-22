@@ -247,8 +247,8 @@ To keep your MiroTalk C2C instance up to date, create an update script:
 
 ```bash
 $ cd
-# Create a file mirotalkc2cUpdate.sh
-$ vim mirotalkc2cUpdate.sh
+# Create a file c2cUpdate.sh
+$ vim c2cUpdate.sh
 ```
 
 ---
@@ -285,13 +285,13 @@ docker-compose up -d
 Make the script executable:
 
 ```bash
-$ chmod +x mirotalkc2cUpdate.sh
+$ chmod +x c2cUpdate.sh
 ```
 
 To update your MiroTalk C2C instance to the latest version, run the script:
 
 ```bash
-./mirotalkc2cUpdate.sh
+./c2cUpdate.sh
 ```
 
 ## Changelogs

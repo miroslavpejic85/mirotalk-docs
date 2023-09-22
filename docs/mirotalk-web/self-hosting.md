@@ -277,8 +277,8 @@ To keep your MiroTalk WEB instance up to date, create an update script:
 
 ```bash
 $ cd
-# Create a file mirotalkwebrtcUpdate.sh
-$ vim mirotalkwebrtcUpdate.sh
+# Create a file webUpdate.sh
+$ vim webUpdate.sh
 ```
 
 ---
@@ -315,13 +315,13 @@ docker-compose up -d
 Make the script executable
 
 ```bash
-$ chmod +x mirotalkwebrtcUpdate.sh
+$ chmod +x webUpdate.sh
 ```
 
 To update your MiroTalk WEB instance to the latest version, run the script:
 
 ```bash
-./mirotalkwebrtcUpdate.sh
+./webUpdate.sh
 ```
 
 ## Changelogs
