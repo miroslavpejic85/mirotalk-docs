@@ -40,7 +40,7 @@ $ sudo mv /root/mirotalk-docs/site /var/www/
 
 ## Configuring Nginx & Certbot
 
-![nginx](./docs/images/nginx.png)
+![nginx](../images/nginx.png)
 
 In order to have encrypted communications (https), we going to install [nginx](https://www.nginx.com) and [certbot](https://certbot.eff.org)
 
@@ -129,7 +129,7 @@ Check Your MiroTalk DOCS instance: [https://your.domain.name](https://your.domai
 
 ## Apache Virtual Host (Alternative to Nginx)
 
-![apache](./docs/images/apache.png)
+![apache](../images/apache.png)
 
 If you prefer `Apache`, configure it with the equivalent settings provided in this guide.
 
