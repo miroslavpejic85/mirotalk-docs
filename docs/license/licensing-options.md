@@ -2,10 +2,6 @@
 
 ![license](../images/license.png)
 
-Purchasing a MiroTalk license ensures you have the necessary rights and support to maximize your video conferencing experience while also supporting the developers.
-
----
-
 ## AGPLv3 License
 
 MiroTalk is free and open source, subject to the conditions of the `AGPLv3` (GNU Affero General Public License v3.0). This license allows modification and forking of the software, with the requirement that `any modifications must also be made freely available to the public`.
