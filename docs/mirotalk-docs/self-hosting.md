@@ -2,10 +2,10 @@
 
 ## Requirements
 
--  Server Selection (Recommended: [Hetzner](https://www.hetzner.com/cloud) CX11, OS: Ubuntu 20.04 LTS / 22.04 LTS).
--  Use my [personal link](https://hetzner.cloud/?ref=XdRifCzCK3bn) to receive `€⁠20 in cloud credits`.
--  Mandatory [MkDocs](https://www.mkdocs.org/)
--  Domain Name (e.g., `your.domain.name`) with a DNS A record pointing to your server's IPv4 address.
+- Server Selection (Recommended: [Hetzner](https://www.hetzner.com/cloud) CX11, OS: Ubuntu 20.04 LTS / 22.04 LTS).
+- Use my [personal link](https://hetzner.cloud/?ref=XdRifCzCK3bn) to receive `€⁠20 in cloud credits`.
+- Mandatory [MkDocs](https://www.mkdocs.org/)
+- Domain Name (e.g., `your.domain.name`) with a DNS A record pointing to your server's IPv4 address.
 
 ---
 
@@ -89,14 +89,14 @@ Add the following:
 ```bash
 # MiroTalk P2P - HTTPS — proxy all requests to the Node app
 server {
-	# Enable HTTP/2
-	listen 443 ssl http2;
-	listen [::]:443 ssl http2;
-	server_name your.domain.name;
+    # Enable HTTP/2
+    listen 443 ssl http2;
+    listen [::]:443 ssl http2;
+    server_name your.domain.name;
 
-	# Use the Let’s Encrypt certificates
-	ssl_certificate /etc/letsencrypt/live/your.domain.name/fullchain.pem;
-	ssl_certificate_key /etc/letsencrypt/live/your.domain.name/privkey.pem;
+    # Use the Let’s Encrypt certificates
+    ssl_certificate /etc/letsencrypt/live/your.domain.name/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/your.domain.name/privkey.pem;
 
     # Directory where the website is located
     root /var/www/site;
@@ -137,7 +137,7 @@ If you prefer `Apache`, configure it with the equivalent settings provided in th
 # Edit the apache sites
 vim /etc/apache2/sites-enabled/your.domain.name.conf
 
-# HTTP — redirect all traffic to HTTPS                                          
+# HTTP — redirect all traffic to HTTPS
 <VirtualHost *:80>
     ServerName your.domain.name
     Redirect permanent / https://your.domain.name
@@ -214,6 +214,10 @@ To update your MiroTalk DOCS instance to the latest version, run the script:
 ./docsUpdate.sh
 ```
 
+---
+
 ## Changelogs
 
 Stay informed about project updates by following the commits of the MiroTalk P2P project [here](https://github.com/miroslavpejic85/mirotalk-docs/commits/main)
+
+---

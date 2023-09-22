@@ -2,14 +2,14 @@
 
 ## Requirements
 
--  Server Selection (Recommended: [Hetzner](https://www.hetzner.com/cloud) CX11, OS: Ubuntu 20.04 LTS / 22.04 LTS).
--  Use my [personal link](https://hetzner.cloud/?ref=XdRifCzCK3bn) to receive `€⁠20 in cloud credits`.
--  [Node.js](https://nodejs.org/en/) (LTS) and npm
--  Domain Name (e.g., `your.domain.name`) with a DNS A record pointing to your server's IPv4 address.
+- Server Selection (Recommended: [Hetzner](https://www.hetzner.com/cloud) CX11, OS: Ubuntu 20.04 LTS / 22.04 LTS).
+- Use my [personal link](https://hetzner.cloud/?ref=XdRifCzCK3bn) to receive `€⁠20 in cloud credits`.
+- [Node.js](https://nodejs.org/en/) (LTS) and npm
+- Domain Name (e.g., `your.domain.name`) with a DNS A record pointing to your server's IPv4 address.
 
 ---
 
-## Installation 
+## Installation
 
 Install `Node.js` and `npm`:
 
@@ -150,23 +150,23 @@ Add the following:
 ```bash
 # MiroTalk C2C - HTTPS — proxy all requests to the Node app
 server {
-	# Enable HTTP/2
-	listen 443 ssl http2;
-	listen [::]:443 ssl http2;
-	server_name your.domain.name;
+    # Enable HTTP/2
+    listen 443 ssl http2;
+    listen [::]:443 ssl http2;
+    server_name your.domain.name;
 
-	# Use the Let’s Encrypt certificates
-	ssl_certificate /etc/letsencrypt/live/your.domain.name/fullchain.pem;
-	ssl_certificate_key /etc/letsencrypt/live/your.domain.name/privkey.pem;
+    # Use the Let’s Encrypt certificates
+    ssl_certificate /etc/letsencrypt/live/your.domain.name/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/your.domain.name/privkey.pem;
 
-	location / {
-		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-		proxy_set_header Host $host;
-		proxy_pass http://localhost:8080/;
-		proxy_http_version 1.1;
-		proxy_set_header Upgrade $http_upgrade;
-		proxy_set_header Connection "upgrade";
-	}
+    location / {
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header Host $host;
+        proxy_pass http://localhost:8080/;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+    }
 }
 ```
 
@@ -199,7 +199,7 @@ If you prefer `Apache`, configure it with the equivalent settings provided in th
 # Edit the apache sites
 vim /etc/apache2/sites-enabled/your.domain.name.conf
 
-# HTTP — redirect all traffic to HTTPS                                          
+# HTTP — redirect all traffic to HTTPS
 <VirtualHost *:80>
     ServerName your.domain.name
     Redirect permanent / https://your.domain.name
@@ -219,7 +219,7 @@ vim /etc/apache2/sites-enabled/your.domain.name.conf
     Protocols h2 http/1.1
 
     <Location />
-		# Proxy Configuration for Node.js App
+        # Proxy Configuration for Node.js App
         ProxyPass http://localhost:8080/
         ProxyPassReverse http://localhost:8080/
 
@@ -233,7 +233,7 @@ vim /etc/apache2/sites-enabled/your.domain.name.conf
         RewriteEngine On
         RewriteCond %{HTTP:Upgrade} =websocket [NC]
         RewriteRule /(.*) ws://localhost:8080/socket.io/$1 [P,L]
-		# Adjust the WebSocket path according to your Socket.IO configuration
+        # Adjust the WebSocket path according to your Socket.IO configuration
         # For Socket.IO 3.x or higher, use /socket.io/?EIO=4&transport=websocket
     </Location>
 </VirtualHost>
@@ -294,6 +294,10 @@ To update your MiroTalk C2C instance to the latest version, run the script:
 ./c2cUpdate.sh
 ```
 
+---
+
 ## Changelogs
 
 Stay informed about project updates by following the commits of the MiroTalk C2C project [here](https://github.com/miroslavpejic85/mirotalkc2c/commits/main).
+
+---

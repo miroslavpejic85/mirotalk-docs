@@ -22,10 +22,10 @@ announcedIp: 'Your-Public-Static-IPv4-here', // Obtain from [ipify.org](https://
 
 Configure port forwarding on your router as follows:
 
-| Name          | Protocol  | Port Wan    | Port Lan    | IP Destination    |
-| ------------- | --------- | ----------- | ----------- | ----------------- |
-| MiroTalkSfu   | TCP/UDP   | 40000:40100 | 40000:40100 | Your Local IPv4   |
-| MiroTalkSfu   | TCP       | 3010        | 3010        | Your Local IPv4   |
+| Name        | Protocol | Port Wan    | Port Lan    | IP Destination  |
+| ----------- | -------- | ----------- | ----------- | --------------- |
+| MiroTalkSfu | TCP/UDP  | 40000:40100 | 40000:40100 | Your Local IPv4 |
+| MiroTalkSfu | TCP      | 3010        | 3010        | Your Local IPv4 |
 
 Ensure that your firewall is not blocking the range of RTC ports with the range `40000:40100`.
 

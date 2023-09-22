@@ -7,15 +7,19 @@ nav:
   - license:
     - licensing-options: license/licensing-options.md
   - mirotalk-bro:
+    - join-room: mirotalk-bro/join-room.md
     - ngrok: mirotalk-bro/ngrok.md
     - self-hosting: mirotalk-bro/self-hosting.md
   - mirotalk-c2c:
+    - join-room: mirotalk-c2c/join-room.md
     - ngrok: mirotalk-c2c/ngrok.md
     - self-hosting: mirotalk-c2c/self-hosting.md
   - mirotalk-p2p:
+    - join-room: mirotalk-p2p/join-room.md
     - ngrok: mirotalk-p2p/ngrok.md
     - self-hosting: mirotalk-p2p/self-hosting.md
   - mirotalk-sfu:
+    - join-room: mirotalk-sfu/join-room.md
     - ngrok: mirotalk-sfu/ngrok.md
     - self-hosting: mirotalk-sfu/self-hosting.md
   - mirotalk-web:
