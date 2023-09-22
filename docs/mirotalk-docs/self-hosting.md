@@ -187,6 +187,8 @@ $ vim docsUpdate.sh
 
 ---
 
+Add the following:
+
 ```bash
 #!/bin/bash
 
