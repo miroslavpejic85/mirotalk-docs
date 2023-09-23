@@ -10,6 +10,14 @@ Welcome to MiroTalk documentations!
 - `MiroTalk BRO`: [https://bro.mirotalk.com](https://bro.mirotalk.com)
 - `MiroTalk WEB`: [https://webrtc.mirotalk.com](https://webrtc.mirotalk.com)
 
+---
+
+## Join for Questions & Support
+
+To engage in `questions`, `discussions`, or seek `assistance and support`, we invite you to join us on our [Discord server](https://discord.gg/rgGYfeYW3N).
+
+---
+
 ## Fast integration
 
 Easily incorporate MiroTalk into your website or app with a straightforward iframe and just a few lines of code!
@@ -18,9 +26,9 @@ Easily incorporate MiroTalk into your website or app with a straightforward ifra
 
 ```html
 <iframe
-		allow="camera; microphone; display-capture; fullscreen; clipboard-read; clipboard-write; autoplay"
-		src="https://sfu.mirotalk.com/newroom"
-		style="width: 100vh; height: 100vw; border: 0px;"
+  allow="camera; microphone; display-capture; fullscreen; clipboard-read; clipboard-write; autoplay"
+  src="https://sfu.mirotalk.com/newroom"
+  style="width: 100vh; height: 100vw; border: 0px;"
 ></iframe>
 ```
 
@@ -28,9 +36,9 @@ Easily incorporate MiroTalk into your website or app with a straightforward ifra
 
 ```html
 <iframe
-		allow="camera; microphone; display-capture; fullscreen; clipboard-read; clipboard-write; autoplay"
-		src="https://p2p.mirotalk.com/newcall"
-		style="width: 100vh; height: 100vw; border: 0px;"
+  allow="camera; microphone; display-capture; fullscreen; clipboard-read; clipboard-write; autoplay"
+  src="https://p2p.mirotalk.com/newcall"
+  style="width: 100vh; height: 100vw; border: 0px;"
 ></iframe>
 ```
 
@@ -38,9 +46,9 @@ Easily incorporate MiroTalk into your website or app with a straightforward ifra
 
 ```html
 <iframe
-		allow="camera; microphone; display-capture; fullscreen; clipboard-read; clipboard-write; autoplay"
-		src="https://c2c.mirotalk.com"
-		style="width: 100vh; height: 100vw; border: 0px;"
+  allow="camera; microphone; display-capture; fullscreen; clipboard-read; clipboard-write; autoplay"
+  src="https://c2c.mirotalk.com"
+  style="width: 100vh; height: 100vw; border: 0px;"
 ></iframe>
 ```
 
@@ -48,9 +56,9 @@ Easily incorporate MiroTalk into your website or app with a straightforward ifra
 
 ```html
 <iframe
-		allow="camera; microphone; display-capture; fullscreen; clipboard-read; clipboard-write; autoplay"
-		src="https://bro.mirotalk.com"
-		style="width: 100vh; height: 100vw; border: 0px;"
+  allow="camera; microphone; display-capture; fullscreen; clipboard-read; clipboard-write; autoplay"
+  src="https://bro.mirotalk.com"
+  style="width: 100vh; height: 100vw; border: 0px;"
 ></iframe>
 ```
 
@@ -58,15 +66,17 @@ Easily incorporate MiroTalk into your website or app with a straightforward ifra
 
 ```html
 <iframe
-		allow="camera; microphone; display-capture; fullscreen; clipboard-read; clipboard-write; autoplay"
-		src="https://webrtc.mirotalk.com"
-		style="width: 100vh; height: 100vw; border: 0px;"
+  allow="camera; microphone; display-capture; fullscreen; clipboard-read; clipboard-write; autoplay"
+  src="https://webrtc.mirotalk.com"
+  style="width: 100vh; height: 100vw; border: 0px;"
 ></iframe>
 ```
 
 An example of how to integrate MiroTalk with a [React application](https://playcode.io/1600830)
 
 After setting up your MiroTalk instances, please update the `src` attribute with your custom domain or subdomain name.
+
+---
 
 ## Custom integration
 
@@ -85,7 +95,9 @@ Here the `PHP` version
 ```html
 <!-- Your HTML form -->
 <form method="post">
-		<button type="submit" name="startConferenceButton" id="startConferenceButton">Start Conference></button>
+  <button type="submit" name="startConferenceButton" id="startConferenceButton">
+    Start Conference>
+  </button>
 </form>
 ```
 
@@ -94,9 +106,11 @@ Here the `PHP` version
 Incorporate JavaScript to handle the button click event and open a new window or tab where the video conference will take place:
 
 ```javascript
-document.getElementById('startConferenceButton').addEventListener('click', function () {
-	window.open('videoConference.html', '_blank');
-});
+document
+  .getElementById("startConferenceButton")
+  .addEventListener("click", function () {
+    window.open("videoConference.html", "_blank");
+  });
 ```
 
 Or You can use PHP to manage the button click event, enabling the opening of a new window or tab for the video conference to take place:
@@ -116,20 +130,22 @@ Video Conference HTML Page: Create a new HTML page, let's call it `videoConferen
 <!-- videoConference.html -->
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
 
-	<head>
-		<meta charset="utf-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	</head>
+  <body>
+    <!-- HTML container for the video conference -->
+    <iframe
+      allow="camera; microphone; display-capture; fullscreen; clipboard-read; clipboard-write; autoplay"
+      src="https://sfu.mirotalk.com/newroom"
+      style="height: 100vh; width: 100vw; border: 0px;"
+    ></iframe>
+  </body>
 
-	<body>
-		<!-- HTML container for the video conference -->
-		<iframe allow="camera; microphone; display-capture; fullscreen; clipboard-read; clipboard-write; autoplay"
-			src="https://sfu.mirotalk.com/newroom" style="height: 100vh; width: 100vw; border: 0px;"></iframe>
-	</body>
-
-	<!--
+  <!--
 	The iframe 'src' attribute can be any of:
 		- https://sfu.mirotalk.com
 		- https://p2p.mirotalk.com
