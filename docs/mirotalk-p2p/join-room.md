@@ -1,7 +1,5 @@
 # Joining Room Options
 
-![globe](../images/globe.png)
-
 ---
 
 **URL**: [https://your.domain.com/join?room=test&name=mirotalk&audio=0&video=0&screen=0&notify=0](https://p2p.mirotalk.com/join?room=test&name=mirotalk&audio=0&video=0&screen=0&notify=0)

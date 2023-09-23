@@ -1,7 +1,5 @@
 # Joining Room Options
 
-![globe](../images/globe.png)
-
 ---
 
 **URL**: [https://your.domain.com](https://bro.mirotalk.com)
