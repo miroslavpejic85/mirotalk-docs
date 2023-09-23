@@ -13,6 +13,8 @@ Upon a successful request, the API response will provide a Meeting Entry Point o
 ```javascript
 "use strict";
 
+// npm i node-fetch
+
 try {
   // Dynamically import 'node-fetch' with 'await'
   const { default: fetch } = await import("node-fetch");
@@ -70,6 +72,8 @@ echo "Meeting: ", $data->{'meeting'}, "\n";
 ## Python Example
 
 ```python
+# pip3 install requests
+
 import requests
 import json
 
