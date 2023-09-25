@@ -72,7 +72,7 @@ Easily incorporate MiroTalk into your website or app with a straightforward ifra
 ></iframe>
 ```
 
-An example of how to integrate MiroTalk with a [React application](https://playcode.io/1600830)
+An example of how to integrate MiroTalk with a [React application](https://codepen.io/Miroslav-Pejic/pen/QWzmGaZ)
 
 After setting up your MiroTalk instances, please update the `src` attribute with your custom domain or subdomain name.
 
