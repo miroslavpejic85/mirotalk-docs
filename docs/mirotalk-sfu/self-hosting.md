@@ -246,7 +246,11 @@ If you prefer `Apache`, configure it with the equivalent settings provided in th
 ```bash
 # Edit the apache sites
 vim /etc/apache2/sites-enabled/your.domain.name.conf
+```
 
+Add the following:
+
+```bash
 # HTTP — redirect all traffic to HTTPS
 <VirtualHost *:80>
     ServerName your.domain.name
