@@ -6,7 +6,6 @@
 
 -  Server Selection (Recommended: [Hetzner](https://www.hetzner.com/cloud) CX11, OS: Ubuntu 20.04 LTS / 22.04 LTS).
 -  Use my [personal link](https://hetzner.cloud/?ref=XdRifCzCK3bn) to receive `€⁠20 in cloud credits`.
--  [Node.js](https://nodejs.org/en/) (LTS) and npm
 -  Domain Name (e.g., `your.domain.name`) with a DNS A record pointing to your server's IPv4 address.
 -   [Certbot](https://certbot.eff.org/) to generate `cert` & `pkey`.
 
