@@ -74,6 +74,36 @@ $ sudo service coturn start
 $ sudo service coturn restart
 ```
 
+---
+
+## Using Docker
+
+![docker](../images/docker.png)
+
+```bash
+# Step 1: Pull the Coturn Docker image from Docker Hub (https://hub.docker.com/r/coturn/coturn)
+$ docker pull coturn/coturn
+
+# Step 2: Run a Coturn container in detached mode with host network mode
+# and mount a local configuration file into the container
+$ docker run -d --network=host \
+           -v $(pwd)/my.conf:/etc/coturn/turnserver.conf \
+       coturn/coturn
+```
+
+Useful commands:
+
+```bash
+# List the currently running Docker containers
+$ docker ps
+
+# Stop the Coturn container with the name "compassionate_swanson"
+$ docker stop compassionate_swanson
+
+# Start the Coturn container with the name "compassionate_swanson"
+$ docker start compassionate_swanson
+```
+
 # Test
 
 Test if it's working:
