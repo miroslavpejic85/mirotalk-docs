@@ -18,6 +18,34 @@ To engage in `questions`, `discussions`, or seek `assistance and support`, we in
 
 ---
 
+## About
+
+MiroTalk WebRTC is a real-time communication technology that enables audio and video communication over the internet through web browsers without the need for additional plugins or software installations. It stands out as a core component of many web-based video conferencing and communication platforms, offering several advantages:
+
+Pros of MiroTalk WebRTC:
+
+1. `Ease of Use:` MiroTalk WebRTC simplifies online communication by allowing users to connect via web browsers, eliminating the need for complex setups or downloads.
+
+2. `Low Latency:` It provides low-latency audio and video transmission, ensuring a smooth and near-instantaneous conversation experience, crucial for real-time interactions.
+
+3. `Security:` WebRTC offers end-to-end encryption, enhancing the security and privacy of your online conversations, making it suitable for confidential or sensitive discussions.
+
+4. `Cross-Platform Compatibility:` MiroTalk WebRTC works on various platforms, including Windows, macOS, Linux, Android, and iOS, ensuring broad accessibility.
+
+5. `Scalability:` It is highly scalable, making it suitable for both one-on-one conversations and large-scale conferences, adapting to your communication needs.
+
+6. `Integration:` Many communication platforms and applications integrate MiroTalk WebRTC, enabling seamless communication within existing software or services.
+
+7. `Flexible and Extensible:` MiroTalk WebRTC's allows developers to tap into code, facilitating innovation and enabling tailored solutions to meet specific communication requirements.
+
+8. `Reduced Costs:` Since it doesn't require dedicated hardware or software licenses, it can be a cost-effective solution for businesses and individuals.
+
+9. `Versatile Applications:` Besides video conferencing, MiroTalk WebRTC can be used for various applications like online gaming, customer support, and live streaming.
+
+Overall, MiroTalk WebRTC is a versatile, user-friendly, and secure technology that has revolutionized online communication by providing high-quality, real-time audio and video capabilities directly through web browsers. Its widespread adoption has made it a fundamental tool for businesses, organizations, and individuals seeking efficient and effective online interactions.
+
+---
+
 ## Fast integration
 
 Easily incorporate MiroTalk into your website or app with a straightforward iframe and just a few lines of code!
@@ -117,10 +145,10 @@ Or You can use PHP to manage the button click event, enabling the opening of a n
 
 ```php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-	// Check if the button was clicked (you can adjust the condition as needed)
-	if (isset($_POST['startConferenceButton'])) {
-		echo '<script> window.open("videoConference.html", "_blank"); </script>';
-	}
+ // Check if the button was clicked (you can adjust the condition as needed)
+ if (isset($_POST['startConferenceButton'])) {
+  echo '<script> window.open("videoConference.html", "_blank"); </script>';
+ }
 }
 ```
 
