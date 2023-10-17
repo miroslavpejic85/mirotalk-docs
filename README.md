@@ -1,13 +1,29 @@
-# MiroTalk DOCS
+<h1 align="center">MiroTalk DOCS</h1>
 
-Welcome to MiroTalk documentations!
+<br />
+
+<p align="center">MiroTalk WebRTC is a real-time communication technology that enables audio and video communication over the internet through web browsers without the need for additional plugins or software installations. It stands out as a core component of many web-based video conferencing and communication platforms. Here you will find all the necessary documentations.</p>
+
+<hr />
+
+<p align="center">
+    <a href="https://docs.mirotalk.com">Explore MiroTalk DOCS</a>
+</p>
+
+<hr />
+
+<p align="center">
+    <a href="https://docs.mirotalk.com"><img src="mirotalk.gif"></a>
+</p>
+
+<hr />
 
 ## Installation
 
 To install `MkDocs`, run the following command from the command line:
 
 ```bash
-$ pip install mkdocs
+pip install mkdocs
 ```
 
 ---
@@ -37,4 +53,4 @@ Open up [http://127.0.0.1:8000](http://127.0.0.1:8000/) in your browser.
 
 ## Credits
 
-`MkDocs`: https://github.com/mkdocs/mkdocs
+`MkDocs`: <https://github.com/mkdocs/mkdocs>
