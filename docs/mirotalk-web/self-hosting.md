@@ -42,14 +42,20 @@ $ cp .env.template .env
 $ cp backend/config.template.js backend/config.js
 ```
 
-- `Local MongoDb` Deployment using [Docker-Compose](https://docs.docker.com/compose/install/): If you prefer to run MongoDB locally using Docker-Compose, execute the following command::
+---
+
+### MongoDb
+
+![mongo-db](../images/mongodb.png)
+
+`Local MongoDb` deployment using [docker-compose](https://docs.docker.com/compose/install/): If you prefer to run MongoDb locally using docker-compose, execute the following command::
 
 ```bash
 $ npm run mongo:up
 # npm run mongo:down to stop container
 ```
 
-- `Cloud MongoDb` Deployment (Optional): Alternatively, you have the option to deploy MongoDB in the cloud, specifically through [MongoDB Atlas](https://www.mongodb.com/). Please remember to update the credentials in the `.env` file accordingly.
+`Cloud MongoDb` deployment (Optional): Alternatively, you have the option to deploy MongoDb in the cloud, specifically through [MongoDb Atlas](https://www.mongodb.com/). Please remember to update the credentials in the `.env` file accordingly.
 
 ```bash
 # MongoDB Configuration (https://www.mongodb.com/)
@@ -57,7 +63,13 @@ MONGO_URL=mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOST}:${MONGO_PO
 MONGO_DATABASE=mirotalk
 ```
 
-- `Setup user email verification` (Optional): By `default`, user email verification is `enabled`. If you prefer to disable it, set `EMAIL_VERIFICATION` to `false` in the `.env` file. If you choose to enable it, configure the email settings as follows:
+---
+
+### Email verification
+
+![email](../images/email.png)
+
+`User email verification` (Optional): By default, user email verification is `enabled`. If you prefer to disable it, set `EMAIL_VERIFICATION` to `false` in the `.env` file. If you choose to keep enabled, configure the email settings as follows:
 
 ```bash
 # Email Configuration (https://support.google.com/mail/answer/185833?hl=en)
@@ -68,7 +80,9 @@ EMAIL_USERNAME=emailUsername
 EMAIL_PASSWORD=emailPassword
 ```
 
-- `Install dependencies and start the server`
+---
+
+### Install dependencies and start the server
 
 ```bash
 # Install dependencies
