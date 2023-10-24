@@ -80,7 +80,7 @@ If you want to set a default Node.js version to be used in new shell sessions, y
 nvm alias default X.X.X
 ```
 
-For example, to set version 18.18.2 as the default:
+For example, to set version `18.18.2` as the default:
 
 ```bash
 nvm alias default 18.18.2
