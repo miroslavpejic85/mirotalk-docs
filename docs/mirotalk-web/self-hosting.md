@@ -42,30 +42,33 @@ $ cp .env.template .env
 $ cp backend/config.template.js backend/config.js
 ```
 
-Customize `.env` according to your needs:
+- `Local MongoDb` Deployment using [Docker-Compose](https://docs.docker.com/compose/install/): If you prefer to run MongoDB locally using Docker-Compose, execute the following command::
+
+```bash
+$ npm run mongo:up
+# npm run mongo:down to stop container
+```
+
+- `Cloud MongoDb` Deployment (Optional): Alternatively, you have the option to deploy MongoDB in the cloud, specifically through [MongoDB Atlas](https://www.mongodb.com/). Please remember to update the credentials in the `.env` file accordingly.
 
 ```bash
 # MongoDB Configuration (https://www.mongodb.com/)
 MONGO_URL=mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOST}:${MONGO_PORT}
 MONGO_DATABASE=mirotalk
+```
 
+- `Setup user email verification` (Optional): By `default`, user email verification is `enabled`. If you prefer to disable it, set `EMAIL_VERIFICATION` to `false` in the `.env` file. If you choose to enable it, configure the email settings as follows:
+
+```bash
 # Email Configuration (https://support.google.com/mail/answer/185833?hl=en)
-# If you disable user email verification, set EMAIL_VERIFICATION to false
 EMAIL_VERIFICATION=true
-
-# Email Server Settings (Skip if EMAIL_VERIFICATION is set to false)
 EMAIL_HOST=emailHost
 EMAIL_PORT=emailPort
 EMAIL_USERNAME=emailUsername
 EMAIL_PASSWORD=emailPassword
 ```
 
-If you have Docker and Docker Compose installed and you only want to set up MongoDB, you can do the following:
-
-```bash
-$ npm run mongo:up
-# npm run mongo:down to stop container
-```
+- `Install dependencies and start the server`
 
 ```bash
 # Install dependencies
