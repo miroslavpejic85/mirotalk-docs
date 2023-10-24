@@ -22,6 +22,8 @@ $ sudo apt-get install -y nodejs
 $ npm install -g npm@latest
 ```
 
+Or use [Node Version Manager](../nvm/nvm.md)
+
 ---
 
 ## Quick start

@@ -32,6 +32,8 @@ $ apt-get install -y nodejs
 $ npm install -g npm@latest
 ```
 
+For `NodeJS` you can use [Node Version Manager](../nvm/nvm.md)
+
 ---
 
 ## Quick start
