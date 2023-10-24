@@ -67,11 +67,13 @@ nvm use 18.18.2
 ```
 
 You can check the current Node.js version in use with:
+
 ```bash
 node -v
 ```
 
 ## Set a Default Node.js Version (Optional)
+
 If you want to set a default Node.js version to be used in new shell sessions, you can type:
 
 ```bash
