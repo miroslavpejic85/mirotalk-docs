@@ -4,6 +4,8 @@ site_author: Miroslav Pejic (miroslav.pejic.85@gmail.com)
 copyright: © 2023 MiroTalk, all rights reserved
 nav:
   - Home: index.md
+  - changelogs: 
+    - changelogs: changelogs/changelogs.md
   - coturn:
     - stun-turn: coturn/stun-turn.md
     - installation: coturn/installation.md
