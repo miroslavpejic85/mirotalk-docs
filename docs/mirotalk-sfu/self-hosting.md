@@ -51,6 +51,8 @@ $ cp app/src/config.template.js app/src/config.js
 
 ---
 
+### Config.js
+
 Change the `announcedIp` with your `Server public IPv4` on `app/src/config.js`
 
 ```js
@@ -59,6 +61,8 @@ Change the `announcedIp` with your `Server public IPv4` on `app/src/config.js`
     announcedIp: 'Server Public IPv4', // 'xx.xxx.xxx.xx'
 }
 ```
+
+### FireWall
 
 Set the `inbound rules` if you have the Firewall enabled
 
@@ -84,6 +88,8 @@ ufw allow 443/tcp
 ```
 
 ---
+
+### Install dependencies and start the server
 
 ```bash
 # Install dependencies - be patient, the first time will take a few minutes, in the meantime have a good coffee ;)
