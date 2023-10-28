@@ -58,13 +58,13 @@ Change the `announcedIp` with your `Server public IPv4` on `app/src/config.js`
 ```js
 {
     ip: '0.0.0.0',
-    announcedIp: 'Server Public IPv4', // 'xx.xxx.xxx.xx'
+    announcedIp: 'Server Public IPv4', // 'xx.xxx.xxx.xx' note: on aws-ec2 must be the Elastic IP
 }
 ```
 
 ### FireWall
 
-Set the `inbound rules` if you have the Firewall enabled
+Set the `inbound rules` if needed
 
 | Port range  | Protocol | Source    | Description         |
 | ----------- | -------- | --------- | ------------------- |
