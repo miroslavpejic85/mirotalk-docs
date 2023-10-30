@@ -11,7 +11,7 @@
 
 ## Installation
 
-Install `MkDocs`:
+Install [MkDocs](https://www.mkdocs.org/getting-started/)
 
 ```bash
 $ pip install mkdocs
@@ -222,6 +222,6 @@ To update your MiroTalk DOCS instance to the latest version, run the script:
 
 ## Changelogs
 
-Stay informed about project updates by following the commits of the MiroTalk P2P project [here](https://github.com/miroslavpejic85/mirotalk-docs/commits/main)
+Stay informed about project updates by following the commits of the MiroTalk DOCS project [here](https://github.com/miroslavpejic85/mirotalk-docs/commits/main)
 
 ---
