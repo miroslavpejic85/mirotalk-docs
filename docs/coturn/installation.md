@@ -18,9 +18,9 @@ $ sudo apt-get -y update
 $ sudo apt-get -y install coturn
 ```
 
-![certbot](../images/certbot.png)
-
 Install [Certbot](https://certbot.eff.org/)
+
+![certbot](../images/certbot.png)
 
 ```bash
 $ sudo apt-get -y update
