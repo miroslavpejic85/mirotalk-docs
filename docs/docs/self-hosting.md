@@ -1,5 +1,7 @@
 # MiroTalk DOCS - Self Hosting
 
+![docs](../images/docs.png)
+
 ## Requirements
 
 - Server Selection (Recommended: [Hetzner](https://www.hetzner.com/cloud) CX11, OS: Ubuntu 20.04 LTS / 22.04 LTS).
