@@ -20,10 +20,31 @@
 
 ## Installation
 
-To install `MkDocs`, run the following command from the command line:
+To install `MkDocs`, you can use one of this method:
+
+### Using `pip`
 
 ```bash
-pip install mkdocs
+$ pip install mkdocs
+```
+
+---
+
+### Using `apt`
+
+```bash
+$ sudo apt update
+$ sudo apt install mkdocs
+```
+
+---
+
+### Using `snap`
+
+```bash
+$ sudo apt update
+$ sudo apt install snapd
+$ sudo snap install mkdocs
 ```
 
 ---
