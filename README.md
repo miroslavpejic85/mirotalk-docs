@@ -68,7 +68,7 @@ Open up [http://127.0.0.1:8000](http://127.0.0.1:8000/) in your browser.
 
 ## Self hosting
 
-[Here the documentation](./docs/mirotalk-docs/self-hosting.md)
+[Here the documentation](./docs/docs/self-hosting.md)
 
 ---
 
