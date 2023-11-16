@@ -353,7 +353,7 @@ To update your MiroTalk SFU instance to the latest version, run the script:
 
 ---
 
-## Cgangelogs
+## Changelogs
 
 Stay informed about project updates by following the commits of the MiroTalk SFU project [here](https://github.com/miroslavpejic85/mirotalksfu/commits/main)
 
