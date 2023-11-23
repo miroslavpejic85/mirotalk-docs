@@ -135,7 +135,7 @@ try {
     },
     body: JSON.stringify({
       room: "test",
-      password: false,
+      roomPassword: false,
       name: "mirotalksfu",
       audio: true,
       video: true,
@@ -175,13 +175,13 @@ $headers = [
 curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
 $data = array(
-    "room"      => "test",
-    "password"  => false,
-    "name"      => "mirotalksfu",
-    "audio"     => true,
-    "video"     => true,
-    "screen"    => true,
-    "notify"    => true,
+    "room"          => "test",
+    "roomPassword"  => false,
+    "name"          => "mirotalksfu",
+    "audio"         => true,
+    "video"         => true,
+    "screen"        => true,
+    "notify"        => true,
 );
 $data_string = json_encode($data);
 
@@ -216,7 +216,7 @@ headers = {
 
 data = {
     "room": "test",
-    "password": "false",
+    "roomPassword": "false",
     "name": "mirotalksfu",
     "audio": "true",
     "video": "true",
@@ -248,7 +248,7 @@ MIROTALK_URL="https://sfu.mirotalk.com/api/v1/join"
 curl $MIROTALK_URL \
     --header "authorization: $API_KEY_SECRET" \
     --header "Content-Type: application/json" \
-    --data '{"room":"test","password":"false","name":"mirotalksfu","audio":"true","video":"true","screen":"false","notify":"true"}' \
+    --data '{"room":"test","roomPassword":"false","name":"mirotalksfu","audio":"true","video":"true","screen":"false","notify":"true"}' \
     --request POST
 ```
 
