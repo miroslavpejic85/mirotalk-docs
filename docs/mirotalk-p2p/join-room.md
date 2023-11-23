@@ -24,6 +24,6 @@
 
 ---
 
-By utilizing these URLs and parameters, you can seamlessly customize your room entry experience, including your identity, audio and video preferences, screen sharing options, and welcome messages on the respective platforms.
+By utilizing these URLs and parameters, you can seamlessly customize your room entry experience, including your identity, audio and video preferences, screen sharing options, hide myself, and welcome messages on the respective platforms.
 
 ---
