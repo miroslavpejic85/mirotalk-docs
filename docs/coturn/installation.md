@@ -124,7 +124,7 @@ $ docker stop compassionate_swanson
 $ docker start compassionate_swanson
 ```
 
-# Test
+## Test
 
 Test if it's working:
 
