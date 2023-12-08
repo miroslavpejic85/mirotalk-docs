@@ -52,11 +52,7 @@ Customize the `backend/config.js` according to your needs:
 "use-strict";
 
 module.exports = {
-  Author: {
-    Email: "miroslav.pejic.85@gmail.com",
-    Profile: "https://www.linkedin.com/in/miroslav-pejic-976a07101/",
-    Support: "https://codecanyon.net/user/miroslavpejic85",
-  },
+  //...
   MiroTalk: {
     P2P: {
       Visible: true,
@@ -89,6 +85,19 @@ module.exports = {
   //...
 };
 ```
+
+---
+
+Here's a breakdown of the structure:
+
+**MiroTalk Instance Configuration:**
+
+- `Visible`: Boolean indicating whether MiroTalk is visible.
+- `Home`: URL for the MiroTalk home page.
+- `Room`: URL for creating a new MiroTalk call/room.
+- `Join`: URL for joining an existing MiroTalk call/room.
+
+---
 
 To use this configuration file, you would replace the placeholder values like `'https://P2P-DOMAIN-NAME'` with the actual domain or subdomain names where your MiroTalk instances are hosted. This ensures that the application correctly generates the URLs for different MiroTalk functionalities.
 
