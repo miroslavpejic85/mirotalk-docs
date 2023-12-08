@@ -88,9 +88,7 @@ module.exports = {
 
 ---
 
-Here's a breakdown of the structure:
-
-**MiroTalk Configuration:**
+**Here's a breakdown of the structure:**
 
 - `Visible`: Display on MiroTalk WEB dashboard (boolean).
 - `Home`: Homepage URL.
