@@ -44,6 +44,58 @@ $ cp backend/config.template.js backend/config.js
 
 ---
 
+### Config.js
+
+Customize the `backend/config.js` according to your needs:
+
+```js
+"use-strict";
+
+module.exports = {
+  Author: {
+    Email: "miroslav.pejic.85@gmail.com",
+    Profile: "https://www.linkedin.com/in/miroslav-pejic-976a07101/",
+    Support: "https://codecanyon.net/user/miroslavpejic85",
+  },
+  MiroTalk: {
+    P2P: {
+      Visible: true,
+      Home: "https://P2P-DOMAIN-NAME",
+      Room: "https://P2P-DOMAIN-NAME/newcall",
+      Join: "https://P2P-DOMAIN-NAME/join/",
+      //...
+    },
+    SFU: {
+      Visible: true,
+      Home: "https://SFU-DOMAIN-NAME",
+      Room: "https://SFU-DOMAIN-NAME/newroom",
+      Join: "https://SFU-DOMAIN-NAME/join/",
+      //...
+    },
+    C2C: {
+      Visible: true,
+      Home: "https://C2C-DOMAIN-NAME",
+      Room: "https://C2C-DOMAIN-NAME/?room=",
+      //...
+    },
+    BRO: {
+      Visible: true,
+      Home: "https://BRO-DOMAIN-NAME",
+      Broadcast: "https://BRO-DOMAIN-NAME/broadcast?id=",
+      Viewer: "https://BRO-DOMAIN-NAME/viewer?id=",
+      //...
+    },
+  },
+  //...
+};
+```
+
+To use this configuration file, you would replace the placeholder values like `'https://P2P-DOMAIN-NAME'` with the actual domain or subdomain names where your MiroTalk instances are hosted. This ensures that the application correctly generates the URLs for different MiroTalk functionalities.
+
+For example, if your P2P instance is hosted at `https://mirotalk-p2p.example.com`, you would replace `'https://P2P-DOMAIN-NAME'` with `'https://mirotalk-p2p.example.com'` in the `config.js` file. Repeat this process for each component and its corresponding URLs.
+
+---
+
 ### MongoDb
 
 ![mongo-db](../images/mongodb.png)
