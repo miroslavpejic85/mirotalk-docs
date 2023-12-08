@@ -90,12 +90,14 @@ module.exports = {
 
 Here's a breakdown of the structure:
 
-**MiroTalk Instance Configuration:**
+**MiroTalk Configuration:**
 
-- `Visible`: Boolean indicating whether MiroTalk is visible.
-- `Home`: URL for the MiroTalk home page.
-- `Room`: URL for creating a new MiroTalk call/room.
-- `Join`: URL for joining an existing MiroTalk call/room.
+- `Visible`: Display on MiroTalk WEB dashboard (boolean).
+- `Home`: Homepage URL.
+- `Room`: URL for creating a new call/room.
+- `Join`: URL for joining an existing call/room.
+- `Broadcast`: URL for broadcasting.
+- `Viewer`: URL for viewing a broadcast.
 
 ---
 
