@@ -29,6 +29,8 @@ $ sudo apt-get -y install certbot
 
 ## Request SSL Certificate
 
+Replace `your.domain.name` with your real domain or subdomain name.
+
 ```bash
 # The certificates can be found in /etc/letsencrypt/live/your.domain.name/
 $ sudo certbot certonly --standalone -d your.domain.name
@@ -39,7 +41,7 @@ $ sudo certbot renew
 
 ## Turn_Server config
 
-Open `/etc/turnserver.conf` and add the following:
+Open `/etc/turnserver.conf` and add the following by replacing `your.domain.name` with your real domain or subdomain name.
 
 ```ini
 listening-port=3478
