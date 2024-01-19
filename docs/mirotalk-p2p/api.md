@@ -120,6 +120,8 @@ Upon a successful request, the API response will provide a Meeting Entry Point f
 ```js
 "use strict";
 
+// npm i node-fetch
+
 try {
   // Use dynamic import with await
   const { default: fetch } = await import("node-fetch");
