@@ -18,6 +18,7 @@ nav:
     - ngrok: mirotalk-bro/ngrok.md
     - self-hosting: mirotalk-bro/self-hosting.md
   - mirotalk-c2c:
+    - api: mirotalk-c2c/api.md
     - join-room: mirotalk-c2c/join-room.md
     - ngrok: mirotalk-c2c/ngrok.md
     - self-hosting: mirotalk-c2c/self-hosting.md
