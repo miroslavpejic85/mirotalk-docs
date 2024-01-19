@@ -138,6 +138,7 @@ try {
       name: "mirotalk",
       audio: true,
       video: true,
+      screen: false,
       hide: false,
       notify: true,
     }),
@@ -178,6 +179,7 @@ $data = array(
     "name"          => "mirotalk",
     "audio"         => true,
     "video"         => true,
+    "screen":       => false,
     "hide"          => false,
     "notify"        => true,
 );
@@ -217,6 +219,7 @@ data = {
     "name": "mirotalk",
     "audio": "true",
     "video": "true",
+    "screen": "false",
     "hide": "false",
     "notify": "true",
 }
@@ -245,7 +248,7 @@ MIROTALK_URL="https://sfu.mirotalk.com/api/v1/join"
 curl $MIROTALK_URL \
     --header "authorization: $API_KEY_SECRET" \
     --header "Content-Type: application/json" \
-    --data '{"room":"test","name":"mirotalksfu","audio":"true","video":"true","hide":"false","notify":"true"}' \
+    --data '{"room":"test","name":"mirotalksfu","audio":"true","video":"true","screen":"false","hide":"false","notify":"true"}' \
     --request POST
 ```
 
