@@ -8,7 +8,7 @@ The REST API is comprehensively documented using [Swagger](https://swagger.io/),
 
 Upon a successful request, the API response will provide a Meeting Entry Point or Room URL. The authorization for this request is determined by the `api.keySecret` configuration specified in your `config.js` file.
 
-## JavaScript Example
+### JavaScript Example
 
 ```javascript
 "use strict";
@@ -42,7 +42,7 @@ try {
 }
 ```
 
-## PHP Example
+### PHP Example
 
 ```php
 $API_KEY_SECRET = "mirotalksfu_default_secret";
@@ -69,7 +69,7 @@ $data = json_decode($response);
 echo "Meeting: ", $data->{'meeting'}, "\n";
 ```
 
-## Python Example
+### Python Example
 
 ```python
 # pip3 install requests
@@ -95,7 +95,7 @@ data = json.loads(response.text)
 print("Meeting:", data["meeting"])
 ```
 
-## Bash Example
+### Bash Example
 
 ```bash
 #!/bin/bash
@@ -115,7 +115,7 @@ curl $MIROTALK_URL \
 
 Upon a successful request, the API response will provide a Meeting Entry Point for the direct join to the room. The authorization for this request is determined by the `api.keySecret` configuration specified in your `config.js` file.
 
-## JavaScript Join example
+### JavaScript Join example
 
 ```js
 "use strict";
@@ -156,7 +156,7 @@ try {
 
 ---
 
-## PHP Join example
+### PHP Join example
 
 ```php
 $API_KEY_SECRET = "mirotalksfu_default_secret";
@@ -198,7 +198,7 @@ echo "join: ", $data->{'join'}, "\n";
 
 ---
 
-## Python Join example
+### Python Join example
 
 ```py
 # pip3 install requests
@@ -237,7 +237,7 @@ print("join:", data["join"])
 
 ---
 
-## Bash Join example
+### Bash Join example
 
 ```bash
 #!/bin/bash
