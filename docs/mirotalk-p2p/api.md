@@ -1,5 +1,7 @@
 # REST API
 
+![api](../images/api.png)
+
 The REST API is comprehensively documented using [Swagger](https://swagger.io/), accessible at [https://your.domain.com/api/v1/docs](https://p2p.mirotalk.com/api/v1/docs).
 
 ---
