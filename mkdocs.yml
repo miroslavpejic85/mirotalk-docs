@@ -14,6 +14,7 @@ nav:
   - license:
     - licensing-options: license/licensing-options.md
   - mirotalk-bro:
+    - api: mirotalk-bro/api.md
     - join-room: mirotalk-bro/join-room.md
     - ngrok: mirotalk-bro/ngrok.md
     - self-hosting: mirotalk-bro/self-hosting.md
