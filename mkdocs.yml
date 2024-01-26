@@ -41,4 +41,6 @@ nav:
     - ngrok: ngrok/ngrok.md
   - nvm:
     - nvm: nvm/nvm.md
+  - webrtc:
+    - architectures: webrtc/architectures.md
 theme: readthedocs
