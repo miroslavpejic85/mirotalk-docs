@@ -12,6 +12,12 @@ Welcome to MiroTalk documentations!
 
 ---
 
+## License
+
+Choose a license other than `AGPLv3` to support ongoing development and adapt MiroTalk to your unique needs. 🌐 [Check our licensing option](./license/licensing-options.md)
+
+---
+
 ## Join for Questions & Support
 
 To engage in `questions`, `discussions`, or seek `assistance and support`, we invite you to join us on our [Discord server](https://discord.gg/rgGYfeYW3N).
