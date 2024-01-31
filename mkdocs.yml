@@ -31,6 +31,7 @@ nav:
     - self-hosting: mirotalk-p2p/self-hosting.md
   - mirotalk-sfu:
     - api: mirotalk-sfu/api.md
+    - host-protection: mirotalk-sfu/host-protection.md 
     - join-room: mirotalk-sfu/join-room.md
     - ngrok: mirotalk-sfu/ngrok.md
     - self-hosting: mirotalk-sfu/self-hosting.md

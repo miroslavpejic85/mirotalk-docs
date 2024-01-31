@@ -36,7 +36,7 @@ If `HOST_USER_AUTH` is set to `true`, additional authentication is required thro
 
 To bypass the login page and join a room, use the following URL with parameters:
 
-- [https://p2p.mirotalk.com/join/?room=test&username=username&password=password](https://p2p.mirotalk.com/join/?room=test&username=username&password=password)
+- [https://your.domain.com/join/?room=test&username=username&password=password](https://p2p.mirotalk.com/join/?room=test&username=username&password=password)
 
 ---
 
@@ -46,8 +46,8 @@ To bypass the login page and join a room, use the following URL with parameters:
 
 Participants can join using:
 
-- [https://p2p.mirotalk.com/join/test](https://p2p.mirotalk.com/join/test)
-- [https://p2p.mirotalk.com/join/?room=test&name=mirotalk&audio=0&video=0&screen=0&hide=0&notify=0](https://p2p.mirotalk.com/join/?room=test&name=mirotalk&audio=0&video=0&screen=0&hide=0&notify=0)
+- [https://your.domain.com/join/test](https://p2p.mirotalk.com/join/test)
+- [https://your.domain.com/join/?room=test&name=mirotalk&audio=0&video=0&screen=0&hide=0&notify=0](https://p2p.mirotalk.com/join/?room=test&name=mirotalk&audio=0&video=0&screen=0&hide=0&notify=0)
 
 ---
 
@@ -55,7 +55,7 @@ Participants can join using:
 
 Participants can join with mandatory credentials:
 
-- [https://p2p.mirotalk.com/join/?room=test&username=username&password=password](https://p2p.mirotalk.com/join/?room=test&username=username&password=password)
-- [https://p2p.mirotalk.com/join/?room=test&name=mirotalk&audio=0&video=0&screen=0&hide=0&notify=0&username=username&password=password](https://p2p.mirotalk.com/join/?room=test&name=mirotalk&audio=0&video=0&screen=0&hide=0&notify=0&username=username&password=password)
+- [https://your.domain.com/join/?room=test&username=username&password=password](https://p2p.mirotalk.com/join/?room=test&username=username&password=password)
+- [https://your.domain.com/join/?room=test&name=mirotalk&audio=0&video=0&screen=0&hide=0&notify=0&username=username&password=password](https://p2p.mirotalk.com/join/?room=test&name=mirotalk&audio=0&video=0&screen=0&hide=0&notify=0&username=username&password=password)
 
 ---
