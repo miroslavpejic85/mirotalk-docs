@@ -25,7 +25,7 @@ nav:
     - self-hosting: mirotalk-c2c/self-hosting.md
   - mirotalk-p2p:
     - api: mirotalk-p2p/api.md
-    - host-protection: mirotalk-p2p/self-hosting.md 
+    - host-protection: mirotalk-p2p/host-protection.md 
     - join-room: mirotalk-p2p/join-room.md
     - ngrok: mirotalk-p2p/ngrok.md
     - self-hosting: mirotalk-p2p/self-hosting.md
