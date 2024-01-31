@@ -14,7 +14,7 @@ Welcome to MiroTalk documentations!
 
 ## License
 
-Choose a license other than `AGPLv3` to support ongoing development and adapt MiroTalk to your unique needs. 🌐 [Check our licensing option](./license/licensing-options.md)
+Choose a license other than `AGPLv3` to support ongoing development and adapt MiroTalk to your unique needs. 🌐 [Check our licensing options](./license/licensing-options.md)
 
 ---
 

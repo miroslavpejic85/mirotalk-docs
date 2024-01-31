@@ -35,7 +35,8 @@ If `host.protected` is set to `true`, the following logic applies:
 4. All guests can join until the host logs out.
 5. When the host leaves the room or exits the browser, their IP is removed from valid auth IPs to prevent unauthorized access.
 6. To access it again, the host needs to provide a username and password.
-7. If `host.user_auth` is set to `true`, additional authentication is required through URL parameters.
+
+If `host.user_auth` is set to `true`, additional authentication is required through URL parameters.
 
 ---
 
