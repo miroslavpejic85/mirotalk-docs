@@ -27,19 +27,21 @@ host: {
 
 ## Host Protection Logic:
 
-1. When host protection is enabled, hosts must log in using their username and password.
-2. Upon successful login, the host's IP is recorded as a valid authentication IP.
-3. Once logged in, the host gains the ability to create a room, join a room, and share the room link.
-4. Guests are allowed to join the room while the host is logged in.
-5. Upon host logout or browser exit, the host's IP is removed from the valid authentication IP list. This measure prevents unauthorized access.
-6. After host logout, guests lose the ability to perform any actions within the room.
-7. To regain access after host logout, the host needs to provide their username and password again.
+If `host.protected` is set to `true`, the following logic applies:
+
+1. Host login with username and password is required.
+2. Upon successful login, the IP is saved as a valid authentication IP.
+3. After authentication, the host can create a room, join a room, and share the room link.
+4. All guests can join until the host logs out.
+5. When the host leaves the room or exits the browser, their IP is removed from valid auth IPs to prevent unauthorized access.
+6. To access it again, the host needs to provide a username and password.
+7. If `host.user_auth` is set to `true`, additional authentication is required through URL parameters.
 
 ---
 
 ## Room Initialization
 
-To bypass the login page during room initialization, use URL parameters like this:
+To bypass the login page and join a room, use the following URL with parameters:
 
 - [https://your.domain.com/join/?room=test&username=username&password=password](https://sfu.mirotalk.com/join/?room=test&username=username&password=password)
 
@@ -47,7 +49,9 @@ To bypass the login page during room initialization, use URL parameters like thi
 
 ## Participant Room Entry
 
-If `host.protected` is `enabled`, participants can join after host authentication using the URL path:
+### When `host.protected` is enabled:
+
+Participants can join after host authentication using the URL path:
 
 - [https://sfu.mirotalk.com/join/test](https://sfu.mirotalk.com/join/test)
 
@@ -59,7 +63,9 @@ Alternatively, use query parameters for additional settings:
 
 ## User Authentication for Participants:
 
-If `host.user_auth` is `enabled`, participants must join with mandatory credentials using the URL path:
+### When `host.user_auth` is enabled:
+
+Participants must join with mandatory credentials using the URL path:
 
 - [https://your.domain.com/join/?room=test&username=username&password=password](https://sfu.mirotalk.com/join/?room=test&username=username&password=password)
 
