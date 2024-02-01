@@ -1,7 +1,7 @@
-site_name: MiroTalk docs v1.0
+site_name: MiroTalk docs v1.1.01
 site_description: MiroTalk WebRTC documentations
 site_author: Miroslav Pejic (miroslav.pejic.85@gmail.com)
-copyright: © 2023 MiroTalk, all rights reserved
+copyright: © 2024 MiroTalk, all rights reserved
 nav:
   - Home: index.md
   - changelogs: 

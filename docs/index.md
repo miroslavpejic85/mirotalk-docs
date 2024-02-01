@@ -116,17 +116,21 @@ After setting up your MiroTalk instances, please update the `src` attribute with
 
 ## Custom integration
 
-Integrating MiroTalk into existing platforms like `Perfex, PlayTube, Sngine, Wowonder` and other web applications can be relatively straightforward. Let's break down the process in a more detailed and structured manner:
+Let's refine and organize the steps for integrating MiroTalk into existing platforms like `Perfex, PlayTube, Sngine, Wowonder`, or other web applications in a more polished manner:
 
-`Initial Setup`: In your existing application, determine where you want to include the video conferencing feature. This could be within a specific module or page. For the sake of illustration, let's assume you want to provide a video conferencing option.
+### Initial Setup:
 
-`HTML Button`: In the HTML of your target page, create a button element that users can click to initiate a video conference session. This button acts as a trigger to start the video conference.
+1. `Define Integration Point:`
+   In your existing application, identify where you want to integrate the video conferencing feature. This could be within a specific module or page.
+
+2. `HTML Button:`
+   Create a button element in the HTML of your chosen page to serve as the trigger for starting a video conference session.
 
 ```html
 <button id="startConferenceButton">Start Video Conference></button>
 ```
 
-Here the `PHP` version
+PHP Version:
 
 ```html
 <!-- Your HTML form -->
@@ -137,9 +141,10 @@ Here the `PHP` version
 </form>
 ```
 
-`JavaScript or PHP Function`:
+3. `JavaScript or PHP Function:`
+   Use JavaScript or PHP to handle the button click event, opening a new window or tab for the video conference.
 
-Incorporate JavaScript to handle the button click event and open a new window or tab where the video conference will take place:
+JavaScript:
 
 ```javascript
 document
@@ -149,22 +154,23 @@ document
   });
 ```
 
-Or You can use PHP to manage the button click event, enabling the opening of a new window or tab for the video conference to take place:
+PHP:
 
 ```php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
- // Check if the button was clicked (you can adjust the condition as needed)
  if (isset($_POST['startConferenceButton'])) {
   echo '<script> window.open("videoConference.html", "_blank"); </script>';
  }
 }
 ```
 
-Video Conference HTML Page: Create a new HTML page, let's call it `videoConference.html`. This page will host the video conferencing functionality.
+### Video Conference HTML Page:
+
+Create a dedicated HTML page, named `videoConference.html`, to host the video conferencing functionality.
 
 ```html
 <!-- videoConference.html -->
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <meta charset="utf-8" />
@@ -182,12 +188,13 @@ Video Conference HTML Page: Create a new HTML page, let's call it `videoConferen
   </body>
 
   <!--
-	The iframe 'src' attribute can be any of:
-		- https://sfu.mirotalk.com
-		- https://p2p.mirotalk.com
-		- https://c2c.mirotalk.com
-		- https://bro.mirotalk.com
-		- https://webrtc.mirotalk.com
+    The iframe 'src' attribute can be any of:
+      - https://sfu.mirotalk.com
+      - https://p2p.mirotalk.com
+      - https://c2c.mirotalk.com
+      - https://bro.mirotalk.com
+      - https://webrtc.mirotalk.com
+      - ...
 	-->
 </html>
 ```
