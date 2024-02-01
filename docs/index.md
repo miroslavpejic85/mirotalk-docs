@@ -2,7 +2,7 @@
 
 Welcome to MiroTalk documentations!
 
-![mirotalk](../mirotalk.gif)
+![mirotalk](./images/mirotalk.gif)
 
 ## Live demos
 
