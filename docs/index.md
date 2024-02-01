@@ -2,6 +2,8 @@
 
 Welcome to MiroTalk documentations!
 
+![mirotalk](../mirotalk.gif)
+
 ## Live demos
 
 - `MiroTalk SFU`: [https://sfu.mirotalk.com](https://sfu.mirotalk.com)
