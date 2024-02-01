@@ -80,6 +80,7 @@ Alternatively, use query parameters for additional participant settings:
 ---
 
 > **Caution**
+> 
 > It is strongly advised against including usernames and passwords in URL parameters for security reasons.
 
 ---
