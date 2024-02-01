@@ -116,9 +116,7 @@ After setting up your MiroTalk instances, please update the `src` attribute with
 
 ## Custom integration
 
-`Initial Setup:` Let's refine and organize the steps for integrating MiroTalk into existing platforms like `Perfex, PlayTube, Sngine, Wowonder`, or other web applications in a more polished manner.
-
-`Define Integration Point:` In your existing application, identify where you want to integrate the video conferencing feature. This could be within a specific module or page.
+Refine and organize the steps for integrating MiroTalk into your existing application. Identify the specific module or page where you intend to integrate the video conferencing feature. This integration can be implemented into existing platforms such as `Perfex, PlayTube, Sngine, Wowonder`, or other web applications.
 
 #### HTML Button:
 
@@ -140,7 +138,8 @@ PHP Version:
 ```
 
 #### JavaScript or PHP Function:
-   Use JavaScript or PHP to handle the button click event, opening a new window or tab for the video conference.
+
+Use JavaScript or PHP to handle the button click event, opening a new window or tab for the video conference.
 
 JavaScript:
 
