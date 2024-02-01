@@ -6,7 +6,6 @@ In the configuration file `app/src/config.js`, you can enable security measures 
 
 - `host.protected`: Set to `true` to require the host to provide a valid username and password during room initialization. Default is `false`.
 - `host.user_auth`: Set to `true` to enable user authentication for hosts. Default is `false`.
-
 - `host.users`: A JSON array containing user objects with usernames and passwords for valid host users.
 
 Example Configuration:
@@ -36,7 +35,7 @@ If `host.protected` is set to `true`, the following logic applies:
 5. When the host leaves the room or exits the browser, their IP is removed from valid auth IPs to prevent unauthorized access.
 6. To access it again, the host needs to provide a username and password.
 
-If `host.user_auth` is set to `true`, additional authentication is required through URL parameters.
+If `host.user_auth` is set to `true`, additional authentication is required.
 
 ---
 
@@ -66,7 +65,7 @@ Alternatively, use query parameters for additional settings:
 
 ### When `host.user_auth` is enabled:
 
-Participants must join with mandatory credentials using the URL path:
+Participants can join with credentials using the URL path:
 
 - [https://your.domain.com/join/?room=test&username=username&password=password](https://sfu.mirotalk.com/join/?room=test&username=username&password=password)
 

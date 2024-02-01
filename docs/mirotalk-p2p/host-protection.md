@@ -8,7 +8,7 @@ In the `.env` file set `HOST_PROTECTED` to `true` and add the valid users, ident
 # When HOST_PROTECTED is set to true, valid username and password from the HOST_USERS list are required to initialize or join a room.
 HOST_PROTECTED=true # true or false
 
-# When HOST_USER_AUTH is set to true, valid username and password in URL parameters are required for authentication.
+# When HOST_USER_AUTH is set to true, valid username and password are required for authentication.
 HOST_USER_AUTH=false # true or false
 
 # List of valid host users along with their credentials in JSON format.
@@ -28,7 +28,7 @@ If `HOST_PROTECTED` is set to `true`, the following logic applies:
 5. When the host leaves the room or exits the browser, their IP is removed from valid auth IPs to prevent unauthorized access.
 6. To access it again, the host needs to provide a username and password.
 
-If `HOST_USER_AUTH` is set to `true`, additional authentication is required through URL parameters.
+If `HOST_USER_AUTH` is set to `true`, additional authentication is required.
 
 ---
 
@@ -56,7 +56,7 @@ Alternatively, use query parameters for additional settings:
 
 ### When `HOST_USER_AUTH` is enabled:
 
-Participants must join with mandatory credentials using the URL path:
+Participants can join with credentials using the URL path:
 
 - [https://your.domain.com/join/?room=test&username=username&password=password](https://p2p.mirotalk.com/join/?room=test&username=username&password=password)
 
