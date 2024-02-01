@@ -56,12 +56,21 @@ Alternatively, use query parameters for additional settings:
 
 ### When `HOST_USER_AUTH` is enabled:
 
-Participants can join with credentials using the URL path:
+Participants will be prompted to log in before accessing the room
+
+![user-auth](../images/user-auth.png)
+
+Participants can also join by directly accessing the URL path, bypassing the need for login credentials using the URL path:
 
 - [https://your.domain.com/join/?room=test&username=username&password=password](https://p2p.mirotalk.com/join/?room=test&username=username&password=password)
 
 Alternatively, use query parameters for additional participant settings:
 
 - [https://your.domain.com/join/?room=test&name=mirotalk&audio=0&video=0&screen=0&hide=0&notify=0&username=username&password=password](https://p2p.mirotalk.com/join/?room=test&name=mirotalk&audio=0&video=0&screen=0&hide=0&notify=0&username=username&password=password)
+
+---
+
+> **Caution**
+> It is strongly advised against including usernames and passwords in URL parameters for security reasons.
 
 ---
