@@ -114,7 +114,7 @@ After setting up your MiroTalk instances, please update the `src` attribute with
 
 ---
 
-## Custom integration
+## Quick custom integration
 
 Refine and organize the steps for integrating MiroTalk into your existing application. Identify the specific module or page where you intend to integrate the video conferencing feature. This integration can be implemented into existing platforms such as `Perfex, PlayTube, Sngine, Wowonder`, or other web applications.
 
