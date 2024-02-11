@@ -145,6 +145,12 @@ try {
       screen: false,
       hide: false,
       notify: true,
+      token: {
+          username: 'username',
+          password: 'password',
+          presenter: true,
+          expire: '1h',
+      },
     }),
   });
   const data = await response.json();
@@ -186,6 +192,12 @@ $data = array(
     "screen":       => false,
     "hide"          => false,
     "notify"        => true,
+    "token"         => array(
+        "username"      => "username",
+        "password"      => "password",
+        "presenter"     => true,
+        "expire"        => "1h",
+    ),
 );
 $data_string = json_encode($data);
 
@@ -226,6 +238,12 @@ data = {
     "screen": "false",
     "hide": "false",
     "notify": "true",
+    "token": {
+        "username": "username",
+        "password": "password",
+        "presenter": "true",
+        "expire": "1h",
+    }
 }
 
 response = requests.post(
@@ -252,7 +270,7 @@ MIROTALK_URL="https://sfu.mirotalk.com/api/v1/join"
 curl $MIROTALK_URL \
     --header "authorization: $API_KEY_SECRET" \
     --header "Content-Type: application/json" \
-    --data '{"room":"test","name":"mirotalksfu","audio":"true","video":"true","screen":"false","hide":"false","notify":"true"}' \
+    --data '{"room":"test","name":"mirotalksfu","audio":"true","video":"true","screen":"false","hide":"false","notify":"true","token":{"username":"username","password":"password","presenter":"true", "expire":"1h"}}' \
     --request POST
 ```
 
