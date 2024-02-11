@@ -70,6 +70,6 @@ Participants can also join by directly accessing the URL path, bypassing the nee
 
 Alternatively, use query parameters for additional participant settings:
 
-- [https://your.domain.com/join/?room=test&name=mirotalk&audio=0&video=0&screen=0&hide=0&notify=0&username=username&password=password](https://p2p.mirotalk.com/join/?room=test&name=mirotalk&audio=0&video=0&screen=0&hide=0&notify=0&token=token)
+- [https://your.domain.com/join/?room=test&name=mirotalk&audio=0&video=0&screen=0&hide=0&notify=0&token=token](https://p2p.mirotalk.com/join/?room=test&name=mirotalk&audio=0&video=0&screen=0&hide=0&notify=0&token=token)
 
 ---
