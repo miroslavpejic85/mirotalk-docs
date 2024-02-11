@@ -196,4 +196,24 @@ Create a dedicated HTML page, named `videoConference.html`, to host the video co
 </html>
 ```
 
-After setting up your MiroTalk instances, please update the `src` attribute with your custom domain or subdomain name.
+After setting up your MiroTalk instances, please update the `src` attribute with your custom `domain` or `subdomain name`.
+
+#### Customize your iframe scr attribute:
+
+You can customize the URL for the `src` attribute using query parameters, as explained in the "join-room" section for each MiroTalk variant:
+
+- [MiroTalk SFU direct join](./mirotalk-sfu/join-room.md)
+- [MiroTalk P2P direct join](./mirotalk-p2p/join-room.md)
+- [MiroTalk C2C direct join](./mirotalk-c2c/join-room.md)
+- [MiroTalk BRO direct join](./mirotalk-bro/join-room.md)
+
+---
+
+Additionally, you have the option to generate the URL through our RestAPI:
+
+- [MiroTalk SFU REST API](./mirotalk-sfu/api.md)
+- [MiroTalk P2P REST API](./mirotalk-p2p/api.md)
+- [MiroTalk C2C REST API](./mirotalk-c2c/api.md)
+- [MiroTalk BRO REST API](./mirotalk-bro/api.md)
+
+---
