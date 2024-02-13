@@ -145,6 +145,7 @@ try {
       video: true,
       screen: true,
       notify: true,
+      // Provide token configuration only if host is protected or user authentication is required
       token: {
           username: 'username',
           password: 'password',
@@ -192,6 +193,7 @@ $data = array(
     "video"         => true,
     "screen"        => true,
     "notify"        => true,
+    // Provide token configuration only if host is protected or user authentication is required
     "token"         => array(
         "username"      => "username",
         "password"      => "password",
@@ -238,6 +240,7 @@ data = {
     "video": "true",
     "screen": "true",
     "notify": "true",
+    # Provide token configuration only if host is protected or user authentication is required
     "token": {
         "username": "username",
         "password": "password",
@@ -266,6 +269,8 @@ print("join:", data["join"])
 
 API_KEY_SECRET="mirotalksfu_default_secret"
 MIROTALK_URL="https://sfu.mirotalk.com/api/v1/join"
+
+# Provide token configuration only if host is protected or user authentication is required
 
 curl $MIROTALK_URL \
     --header "authorization: $API_KEY_SECRET" \
