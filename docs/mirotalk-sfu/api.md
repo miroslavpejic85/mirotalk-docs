@@ -6,6 +6,128 @@ The REST API is comprehensively documented using [Swagger](https://swagger.io/),
 
 ---
 
+## Meetings Entry Point
+
+Upon a successful request, the API response will provide a Meeting Entry Point or Room URL. The authorization for this request is determined by the `api.keySecret` configuration specified in your `config.js` file.
+
+```javascript
+"use strict";
+
+// npm i node-fetch
+
+async function getMeetings() {
+  try {
+    // Use dynamic import with await
+    const { default: fetch } = await import("node-fetch");
+
+    const API_KEY_SECRET = "mirotalksfu_default_secret";
+    const MIROTALK_URL = "https://sfu.mirotalk.com/api/v1/meetings";
+
+    const response = await fetch(MIROTALK_URL, {
+      method: "GET",
+      headers: {
+        authorization: API_KEY_SECRET,
+        "Content-Type": "application/json",
+      },
+    });
+    const data = await response.json();
+    if (data.error) {
+      console.log("Error:", data.error);
+    } else {
+      if (data && data.meetings) {
+        const meetings = data.meetings;
+        const formattedData = JSON.stringify({ meetings }, null, 2);
+        console.log(formattedData);
+      }
+    }
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+}
+
+getMeetings();
+```
+
+### PHP Example
+
+```php
+<?php
+
+$API_KEY_SECRET = "mirotalksfu_default_secret";
+$MIROTALK_URL = "https://sfu.mirotalk.com/api/v1/meetings";
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $MIROTALK_URL);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_HTTPGET, true);
+
+$headers = [
+    'authorization:' . $API_KEY_SECRET,
+    'Content-Type: application/json'
+];
+
+curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+$response = curl_exec($ch);
+$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+curl_close($ch);
+
+echo "Status code: $httpcode \n";
+
+if ($response) {
+    echo json_encode(json_decode($response), JSON_PRETTY_PRINT);
+} else {
+    echo "Failed to retrieve data.\n";
+}
+```
+
+### Python Example
+
+```python
+# pip3 install requests
+import requests
+import json
+
+API_KEY_SECRET = "mirotalksfu_default_secret"
+MIROTALK_URL = "https://sfu.mirotalk.com/api/v1/meetings"
+
+headers = {
+    "authorization": API_KEY_SECRET,
+    "Content-Type": "application/json",
+}
+
+response = requests.get(
+    MIROTALK_URL,
+    headers=headers
+)
+
+print("Status code:", response.status_code)
+
+if response.status_code == 200:
+    data = response.json()
+    pretty_printed_data = json.dumps(data, indent=4)
+    print(data)
+else:
+    print("Failed to retrieve data. Error:", response.text)
+```
+
+### Bash Example
+
+```bash
+#!/bin/bash
+
+API_KEY_SECRET="mirotalksfu_default_secret"
+MIROTALK_URL="https://sfu.mirotalk.com/api/v1/meetings"
+#MIROTALK_URL="http://localhost:3010/api/v1/meetings"
+
+curl $MIROTALK_URL \
+    --header "authorization: $API_KEY_SECRET" \
+    --header "Content-Type: application/json" \
+    --request GET
+```
+
+---
+
 ## Meeting Entry Point
 
 Upon a successful request, the API response will provide a Meeting Entry Point or Room URL. The authorization for this request is determined by the `api.keySecret` configuration specified in your `config.js` file.
@@ -147,11 +269,11 @@ try {
       notify: true,
       // Provide token configuration only if host is protected or user authentication is required
       token: {
-          username: 'username',
-          password: 'password',
-          presenter: true,
-          expire: '1h',
-      }
+        username: "username",
+        password: "password",
+        presenter: true,
+        expire: "1h",
+      },
     }),
   });
   const data = await response.json();
@@ -281,6 +403,23 @@ curl $MIROTALK_URL \
 
 ---
 
-**Note:** Replace `sfu.mirotalk.com` in the code snippets with `your.domain.com`.
+**Note:**
+
+- Replace `sfu.mirotalk.com` in the code snippets with `your.domain.com`.
+- In the `app/src/config` under the `api` section, you can enable or disable these endpoints in the `allowed` section.
+
+```js
+api: {
+    // Default secret key for app/api
+    keySecret: 'mirotalksfu_default_secret',
+    // Define which endpoints are allowed
+    allowed: {
+        meetings: true,
+        meeting: true,
+        join: true,
+        // Add more endpoints here as needed
+    },
+},
+```
 
 ---
