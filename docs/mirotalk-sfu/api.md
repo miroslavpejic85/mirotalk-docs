@@ -402,7 +402,7 @@ curl $MIROTALK_URL \
 
 ---
 
-**Note:**
+## Note
 
 - Replace `sfu.mirotalk.com` in the code snippets with `your.domain.com`.
 - In the `app/src/config` under the `api` section, you can enable or disable these endpoints in the `allowed` section.
