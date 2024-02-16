@@ -8,7 +8,7 @@ The REST API is comprehensively documented using [Swagger](https://swagger.io/),
 
 ## Meetings Entry Point
 
-Upon a successful request, the API response will provide a Meeting Entry Point or Room URL. The authorization for this request is determined by the `api.keySecret` configuration specified in your `config.js` file.
+Upon a successful request, the API response will provide the active Meetings. The authorization for this request is determined by the `api.keySecret` configuration specified in your `config.js` file.
 
 ```javascript
 "use strict";
@@ -118,7 +118,6 @@ else:
 
 API_KEY_SECRET="mirotalksfu_default_secret"
 MIROTALK_URL="https://sfu.mirotalk.com/api/v1/meetings"
-#MIROTALK_URL="http://localhost:3010/api/v1/meetings"
 
 curl $MIROTALK_URL \
     --header "authorization: $API_KEY_SECRET" \
