@@ -406,7 +406,7 @@ curl $MIROTALK_URL \
 
 Upon a successful request, the API response will provide a valid Token for the meeting. The authorization for this request is determined by the `api.keySecret` configuration specified in your `config.js` file.
 
-### JavaScript Join example
+### JavaScript Token example
 
 ```js
 "use strict";
@@ -446,7 +446,7 @@ try {
 
 ---
 
-### PHP Join example
+### PHP Token example
 
 ```php
 $API_KEY_SECRET = "mirotalksfu_default_secret";
@@ -487,7 +487,7 @@ echo "token: ", $data->{'token'}, "\n";
 
 ---
 
-### Python Join example
+### Python Token example
 
 ```py
 # pip3 install requests
@@ -523,7 +523,7 @@ print("token:", data["token"])
 
 ---
 
-### Bash Join example
+### Bash Token example
 
 ```bash
 #!/bin/bash
