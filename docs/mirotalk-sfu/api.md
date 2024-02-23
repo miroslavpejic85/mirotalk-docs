@@ -402,6 +402,144 @@ curl $MIROTALK_URL \
 
 ---
 
+## Token Entry Point
+
+Upon a successful request, the API response will provide a valid Token for the meeting. The authorization for this request is determined by the `api.keySecret` configuration specified in your `config.js` file.
+
+### JavaScript Join example
+
+```js
+"use strict";
+
+// npm i node-fetch
+
+try {
+  // Use dynamic import with await
+  const { default: fetch } = await import("node-fetch");
+
+  const API_KEY_SECRET = "mirotalksfu_default_secret";
+  const MIROTALK_URL = "https://sfu.mirotalk.com/api/v1/token";
+
+  const response = await fetch(MIROTALK_URL, {
+    method: "POST",
+    headers: {
+      authorization: API_KEY_SECRET,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      username: "username",
+      password: "password",
+      presenter: true,
+      expire: "1h",
+    }),
+  });
+  const data = await response.json();
+  if (data.error) {
+    console.log("Error:", data.error);
+  } else {
+    console.log("token:", data.token);
+  }
+} catch (error) {
+  console.error("Error fetching data:", error);
+}
+```
+
+---
+
+### PHP Join example
+
+```php
+$API_KEY_SECRET = "mirotalksfu_default_secret";
+$MIROTALK_URL = "https://sfu.mirotalk.com/api/v1/token";
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $MIROTALK_URL);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_POST, 1);
+
+$headers = [
+    'authorization:' . $API_KEY_SECRET,
+    'Content-Type: application/json'
+];
+
+curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+$data = array(
+    "username"      => "username",
+    "password"      => "password",
+    "presenter"     => true,
+    "expire"        => "1h",
+);
+
+$data_string = json_encode($data);
+
+curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
+
+$response = curl_exec($ch);
+$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+curl_close($ch);
+
+echo "Status code: $httpcode \n";
+$data = json_decode($response);
+echo "token: ", $data->{'token'}, "\n";
+```
+
+---
+
+### Python Join example
+
+```py
+# pip3 install requests
+
+import requests
+import json
+
+API_KEY_SECRET = "mirotalksfu_default_secret"
+MIROTALK_URL = "https://sfu.mirotalk.com/api/v1/token"
+
+headers = {
+    "authorization": API_KEY_SECRET,
+    "Content-Type": "application/json",
+}
+
+data = {
+    "username": "username",
+    "password": "password",
+    "presenter": "true",
+    "expire": "1h"
+}
+
+response = requests.post(
+    MIROTALK_URL, 
+    headers=headers, 
+    json=data
+)
+
+print("Status code:", response.status_code)
+data = json.loads(response.text)
+print("token:", data["token"])
+```
+
+---
+
+### Bash Join example
+
+```bash
+#!/bin/bash
+
+API_KEY_SECRET="mirotalksfu_default_secret"
+MIROTALK_URL="https://sfu.mirotalk.com/api/v1/token"
+
+curl $MIROTALK_URL \
+    --header "authorization: $API_KEY_SECRET" \
+    --header "Content-Type: application/json" \
+    --data '{"username":"username","password":"password","presenter":"true", "expire":"1h"}' \
+    --request POST
+```
+
+---
+
 ## Note
 
 - Replace `sfu.mirotalk.com` in the code snippets with `your.domain.com`.
@@ -416,6 +554,7 @@ api: {
         meetings: true,
         meeting: true,
         join: true,
+        token: true,
         // Add more endpoints here as needed
     },
 },

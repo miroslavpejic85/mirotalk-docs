@@ -21,7 +21,7 @@ try {
   // Dynamically import 'node-fetch' with 'await'
   const { default: fetch } = await import("node-fetch");
 
-  const API_KEY_SECRET = "mirotalk_default_secret";
+  const API_KEY_SECRET = "mirotalkp2p_default_secret";
   const MIROTALK_URL = "https://p2p.mirotalk.com/api/v1/meeting";
 
   const response = await fetch(MIROTALK_URL, {
@@ -47,7 +47,7 @@ try {
 ### PHP Example
 
 ```php
-$API_KEY_SECRET = "mirotalk_default_secret";
+$API_KEY_SECRET = "mirotalkp2p_default_secret";
 $MIROTALK_URL = "https://p2p.mirotalk.com/api/v1/meeting";
 
 $ch = curl_init();
@@ -79,7 +79,7 @@ echo "Meeting: ", $data->{'meeting'}, "\n";
 import requests
 import json
 
-API_KEY_SECRET = "mirotalk_default_secret"
+API_KEY_SECRET = "mirotalkp2p_default_secret"
 MIROTALK_URL = "https://p2p.mirotalk.com/api/v1/meeting"
 
 headers = {
@@ -102,7 +102,7 @@ print("Meeting:", data["meeting"])
 ```bash
 #!/bin/bash
 
-API_KEY_SECRET="mirotalk_default_secret"
+API_KEY_SECRET="mirotalkp2p_default_secret"
 MIROTALK_URL="https://p2p.mirotalk.com/api/v1/meeting"
 
 curl $MIROTALK_URL \
@@ -128,7 +128,7 @@ try {
   // Use dynamic import with await
   const { default: fetch } = await import("node-fetch");
 
-  const API_KEY = "mirotalk_default_secret";
+  const API_KEY = "mirotalkp2p_default_secret";
   const MIROTALK_URL = "https://p2p.mirotalk.com/api/v1/join";
 
   const response = await fetch(MIROTALK_URL, {
@@ -170,7 +170,7 @@ try {
 ### PHP Join example
 
 ```php
-$API_KEY_SECRET = "mirotalk_default_secret";
+$API_KEY_SECRET = "mirotalkp2p_default_secret";
 $MIROTALK_URL = "https://p2p.mirotalk.com/api/v1/join";
 
 $ch = curl_init();
@@ -224,7 +224,7 @@ echo "join: ", $data->{'join'}, "\n";
 import requests
 import json
 
-API_KEY_SECRET = "mirotalk_default_secret"
+API_KEY_SECRET = "mirotalkp2p_default_secret"
 MIROTALK_URL = "https://p2p.mirotalk.com/api/v1/join"
 
 headers = {
