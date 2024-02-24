@@ -264,7 +264,8 @@ try {
       name: "mirotalksfu",
       audio: true,
       video: true,
-      screen: true,
+      screen: false,
+      hide: false,
       notify: true,
       // Provide token configuration only if host is protected or user authentication is required
       token: {
@@ -312,7 +313,8 @@ $data = array(
     "name"          => "mirotalksfu",
     "audio"         => true,
     "video"         => true,
-    "screen"        => true,
+    "screen"        => false,
+    "hide"          => false,
     "notify"        => true,
     // Provide token configuration only if host is protected or user authentication is required
     "token"         => array(
@@ -359,7 +361,8 @@ data = {
     "name": "mirotalksfu",
     "audio": "true",
     "video": "true",
-    "screen": "true",
+    "screen": "false",
+    "hide": "false",
     "notify": "true",
     # Provide token configuration only if host is protected or user authentication is required
     "token": {
