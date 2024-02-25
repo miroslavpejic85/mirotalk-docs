@@ -110,7 +110,7 @@ $ sudo vim /etc/nginx/sites-enabled/default
 Add the following:
 
 ```bash
-# MiroTalk P2P - HTTPS — proxy all requests to the Node app
+# MiroTalk DOCS - HTTPS — proxy all requests to the Node app
 server {
     # Enable HTTP/2
     listen 443 ssl http2;
