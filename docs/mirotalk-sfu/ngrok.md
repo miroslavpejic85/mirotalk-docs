@@ -15,7 +15,7 @@ Open the `app/src/config.js` file and update the following settings:
 ```javascript
 ngrokAuthToken: 'YourNgrokAuthToken', // Paste your Ngrok Auth Token here
 
-announcedIp: 'Your-Public-Static-IPv4-here', // Obtain from [ipify.org](https://api.ipify.org). Leave empty ('') for auto-detection.
+announcedAddress: 'Your-Public-Static-IPv4-here', // Obtain from [ipify.org](https://api.ipify.org). Leave empty ('') for auto-detection.
 ```
 
 **Step 2: Router Port Forwarding**

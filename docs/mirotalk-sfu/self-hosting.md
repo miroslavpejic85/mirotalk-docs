@@ -53,13 +53,14 @@ $ cp app/src/config.template.js app/src/config.js
 
 ### Config.js
 
-Change the `announcedIp` with your `Server public IPv4` on `app/src/config.js`
+Change the `announcedAddress` with your `Server public IPv4` on `app/src/config.js`
 
 ```js
-{
-    ip: '0.0.0.0',
-    announcedIp: 'Server Public IPv4', // 'xx.xxx.xxx.xx' note: on aws-ec2 must be the Elastic IP
-}
+// announcedAddress: on aws-ec2 must be the Elastic IP
+listenInfos: [
+  { protocol: "udp", ip: "0.0.0.0", announcedAddress: "Server Public IPv4" },
+  { protocol: "tcp", ip: "0.0.0.0", announcedAddress: "Server Public IPv4" },
+];
 ```
 
 ### FireWall
