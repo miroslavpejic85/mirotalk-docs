@@ -9,7 +9,7 @@ In the `.env` file set `HOST_PROTECTED` to `true` and add the valid users, ident
 HOST_PROTECTED=true # true or false
 # When HOST_USER_AUTH is set to true, valid username and password are required for authentication.
 HOST_USER_AUTH=false # true or false
-# List of valid host users along with their credentials in JSON format.
+# List of valid users along with their credentials in JSON format.
 HOST_USERS='[{"username": "username", "password": "password"},{"username": "username2", "password": "password2"}]'
 ```
 

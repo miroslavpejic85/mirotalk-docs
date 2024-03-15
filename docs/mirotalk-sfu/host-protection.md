@@ -6,7 +6,7 @@ In the configuration file `app/src/config.js`, you can enable security measures 
 
 - `host.protected`: Set to `true` to require the host to provide a valid username and password during room initialization. Default is `false`.
 - `host.user_auth`: Set to `true` to enable user authentication for hosts. Default is `false`.
-- `host.users`: A JSON array containing user objects with usernames and passwords for valid host users.
+- `host.users`: A JSON array containing user objects with usernames and passwords for valid users.
 
 Example Configuration:
 
