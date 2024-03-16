@@ -6,6 +6,7 @@
 - Use my [personal link](https://hetzner.cloud/?ref=XdRifCzCK3bn) to receive `€⁠20 in cloud credits` on Hetzner.
 - [Node.js](https://nodejs.org/en/) (LTS) and npm
 - Domain or Subdomain Name (e.g., `your.domain.name`) with a DNS A record pointing to your server's IPv4 address.
+- `Recommend` utilizing a [Turn Server](../coturn/stun-turn.md) the installation documentation accessible [here](../coturn/installation.md).
 
 ---
 
