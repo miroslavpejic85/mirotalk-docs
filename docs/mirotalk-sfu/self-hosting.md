@@ -299,25 +299,18 @@ Add the following:
 ```
 
 ```bash
-# check configuration
+# Check configuration
 sudo apache2ctl configtest
-```
 
----
+sudo a2enmod proxy # Enables the `mod_proxy` module, which is essential for proxying HTTP and WebSocket connections.
+sudo a2enmod proxy_http # Enables the `mod_proxy_http` module, which adds support for proxying HTTP connections.
+sudo a2enmod proxy_wstunnel # Enables the `mod_proxy_wstunnel` module, which provides support for tunneling WebSocket connections
 
-```bash
-sudo a2enmod proxy # This command enables the `mod_proxy` module, which is essential for proxying HTTP and WebSocket connections.
-sudo a2enmod proxy_http # This command enables the `mod_proxy_http` module, which adds support for proxying HTTP connections.
-sudo a2enmod proxy_wstunnel # This command enables the `mod_proxy_wstunnel` module, which provides support for tunneling WebSocket connections
-```
-
-After running these commands, Apache will load these modules, allowing it to handle proxying of both HTTP and WebSocket connections. Make sure to `restart Apache` for the changes to take effect:
-
-```bash
+# Restart apache
 sudo systemctl restart apache2
 ```
 
-With these modules enabled, your Apache server should now be capable of properly proxying WebSocket connections as configured in your Apache VirtualHost configuration.
+---
 
 ## Updating Your Instance
 
