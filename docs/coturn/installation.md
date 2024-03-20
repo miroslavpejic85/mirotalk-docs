@@ -36,7 +36,9 @@ Replace `your.domain.name` with your real domain or subdomain name.
 $ sudo certbot certonly --standalone -d your.domain.name
 
 # Automatically renew the certificates
-$ sudo certbot renew
+$ sudo certbot renew 
+# OR if you have running Nginx
+$ sudo certbot renew --nginx
 ```
 
 ## Turn_Server config
