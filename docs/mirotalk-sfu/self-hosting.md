@@ -59,6 +59,9 @@ Change the `announcedAddress` with your `Server public IPv4` on `app/src/config.
 // announcedAddress: on aws-ec2 must be the Elastic IP
 { protocol: "udp", ip: "0.0.0.0", announcedAddress: "Server Public IPv4" },
 { protocol: "tcp", ip: "0.0.0.0", announcedAddress: "Server Public IPv4" },
+// If you are not behind a NAT
+{ protocol: "udp", ip: "Server Public IPv4" },
+{ protocol: "tcp", ip: "Server Public IPv4" },
 ```
 
 ### FireWall
@@ -85,6 +88,19 @@ ufw allow 22/tcp
 ufw allow 80/tcp
 ufw allow 443/tcp
 ```
+
+---
+
+### WebRTCServer
+
+You can activate the `WebRTCServer` option by setting `webRtcServerActive: true` in the `app/src/config.js`.
+
+Here's how it works:
+
+- MiroTalk instantiates a `Worker` for each `CPU`.
+- Each `Worker` has its own `WebRTCServer`, which listens on a single port starting from `44444`.
+- By default, each `WebRTCServer` internally manages the `rtcMinPort` and `rtcMaxPort`.
+- This setup simplifies port management because you only need to open ports for the number of `Workers` you have, rather than dealing with a range of ports for each `Worker`.
 
 ---
 
