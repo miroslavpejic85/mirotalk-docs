@@ -24,15 +24,11 @@ $ apt install -y software-properties-common
 $ add-apt-repository -y ppa:deadsnakes/ppa
 $ apt update
 $ apt install -y python3.8 python3-pip
-
-# NodeJS 18.X and npm
-$ apt install -y curl dirmngr apt-transport-https lsb-release ca-certificates
-$ curl -sL https://deb.nodesource.com/setup_18.x | bash -
-$ apt-get install -y nodejs
-$ npm install -g npm@latest
 ```
 
-For `NodeJS` you can use [Node Version Manager](../nvm/nvm.md)
+---
+
+Install `NodeJS 18.X` and `npm` using [Node Version Manager](../nvm/nvm.md)
 
 ---
 
@@ -55,10 +51,11 @@ $ cp app/src/config.template.js app/src/config.js
 
 Change the `announcedAddress` with your `Server public IPv4` on `app/src/config.js`
 
-```js
+```javascript
 // announcedAddress: on aws-ec2 must be the Elastic IP
 { protocol: "udp", ip: "0.0.0.0", announcedAddress: "Server Public IPv4" },
 { protocol: "tcp", ip: "0.0.0.0", announcedAddress: "Server Public IPv4" },
+
 // If you are not behind a NAT
 { protocol: "udp", ip: "Server Public IPv4" },
 { protocol: "tcp", ip: "Server Public IPv4" },

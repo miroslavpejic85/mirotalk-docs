@@ -47,6 +47,8 @@ try {
 ### PHP Example
 
 ```php
+<?php
+
 $API_KEY_SECRET = "mirotalkp2p_default_secret";
 $MIROTALK_URL = "https://p2p.mirotalk.com/api/v1/meeting";
 
@@ -119,7 +121,7 @@ Upon a successful request, the API response will provide a Meeting Entry Point f
 
 ### JavaScript Join example
 
-```js
+```javascript
 "use strict";
 
 // npm i node-fetch
@@ -170,6 +172,8 @@ try {
 ### PHP Join example
 
 ```php
+<?php
+
 $API_KEY_SECRET = "mirotalkp2p_default_secret";
 $MIROTALK_URL = "https://p2p.mirotalk.com/api/v1/join";
 
@@ -287,7 +291,7 @@ Upon a successful request, the API response will provide a valid Token for the m
 
 ### JavaScript Token example
 
-```js
+```javascript
 "use strict";
 
 // npm i node-fetch
@@ -328,6 +332,8 @@ try {
 ### PHP Token example
 
 ```php
+<?php
+
 $API_KEY_SECRET = "mirotalkp2p_default_secret";
 $MIROTALK_URL = "https://p2p.mirotalk.com/api/v1/token";
 

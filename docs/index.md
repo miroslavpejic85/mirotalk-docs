@@ -16,7 +16,9 @@ Welcome to MiroTalk documentations!
 
 ## License
 
-`Support` the ongoing `development` and adapt MiroTalk to your unique needs. 🌐 [Check our licensing options](./license/licensing-options.md)
+`Support` the ongoing `development` and adapt MiroTalk to your unique needs. 
+
+🌐 [Check our licensing options](./license/licensing-options.md)
 
 ---
 
@@ -125,13 +127,12 @@ Refine and organize the steps for integrating MiroTalk into your existing applic
 Create a button element in the HTML of your chosen page to serve as the trigger for starting a video conference session.
 
 ```html
+<!-- Button for Javascript -->
+
 <button id="startConferenceButton">Start Video Conference></button>
-```
 
-PHP Version:
+<!-- Button for PHP-->
 
-```html
-<!-- Your HTML form -->
 <form method="post">
   <button type="submit" name="startConferenceButton" id="startConferenceButton">
     Start Conference>
@@ -143,7 +144,7 @@ PHP Version:
 
 Use JavaScript or PHP to handle the button click event, opening a new window or tab for the video conference.
 
-JavaScript:
+JavaScript button click event:
 
 ```javascript
 document
@@ -153,9 +154,10 @@ document
   });
 ```
 
-PHP:
+PHP button click event:
 
 ```php
+<?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
  if (isset($_POST['startConferenceButton'])) {
   echo '<script> window.open("videoConference.html", "_blank"); </script>';
@@ -217,5 +219,6 @@ Additionally, you have the option to generate the URL through our RestAPI:
 - [MiroTalk P2P REST API](./mirotalk-p2p/api.md)
 - [MiroTalk C2C REST API](./mirotalk-c2c/api.md)
 - [MiroTalk BRO REST API](./mirotalk-bro/api.md)
+- [MiroTalk WEB REST API](./mirotalk-web/api.md)
 
 ---

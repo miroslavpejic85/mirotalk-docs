@@ -168,6 +168,8 @@ try {
 ### PHP Example
 
 ```php
+<?php
+
 $API_KEY_SECRET = "mirotalksfu_default_secret";
 $MIROTALK_URL = "https://sfu.mirotalk.com/api/v1/meeting";
 
@@ -240,7 +242,7 @@ Upon a successful request, the API response will provide a Meeting Entry Point f
 
 ### JavaScript Join example
 
-```js
+```javascript
 "use strict";
 
 // npm i node-fetch
@@ -292,6 +294,8 @@ try {
 ### PHP Join example
 
 ```php
+<?php
+
 $API_KEY_SECRET = "mirotalksfu_default_secret";
 $MIROTALK_URL = "https://sfu.mirotalk.com/api/v1/join";
 
@@ -411,7 +415,7 @@ Upon a successful request, the API response will provide a valid Token for the m
 
 ### JavaScript Token example
 
-```js
+```javascript
 "use strict";
 
 // npm i node-fetch
@@ -452,6 +456,8 @@ try {
 ### PHP Token example
 
 ```php
+<?php
+
 $API_KEY_SECRET = "mirotalksfu_default_secret";
 $MIROTALK_URL = "https://sfu.mirotalk.com/api/v1/token";
 
@@ -548,7 +554,7 @@ curl $MIROTALK_URL \
 - Replace `sfu.mirotalk.com` in the code snippets with `your.domain.com`.
 - In the `app/src/config` under the `api` section, you can enable or disable these endpoints in the `allowed` section.
 
-```js
+```javascript
 api: {
     // Default secret key for app/api
     keySecret: 'mirotalksfu_default_secret',

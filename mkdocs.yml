@@ -1,7 +1,8 @@
-site_name: MiroTalk docs v1.1.15
+site_name: MiroTalk docs v1.1.16
 site_description: MiroTalk WebRTC documentations
 site_author: Miroslav Pejic (miroslav.pejic.85@gmail.com)
 copyright: © 2024 MiroTalk, all rights reserved
+# Navigation Bar
 nav:
   - Home: index.md
   - changelogs: 
@@ -45,4 +46,33 @@ nav:
     - nvm: nvm/nvm.md
   - webrtc:
     - architectures: webrtc/architectures.md
-theme: readthedocs
+# theme: #readthedocs #material
+theme:
+  name: material
+  palette:
+    primary: 'blue'
+    accent: 'light blue'
+    background: 'grey'
+    text: 'grey'
+    code: 'monokai'
+  favicon: 'images/icon.svg'
+  logo: 'images/icon.svg'
+  font:
+    text: 'Roboto'
+    code: 'Roboto Mono'
+  logo_link: 'Home'
+  extra:
+    meta:
+      description: 'MiroTalk WebRTC Ultimate Bundle'
+      keywords: 'WebRTC'
+# Extensions
+markdown_extensions:
+  - pymdownx.highlight:
+      use_pygments: true
+      pygments_lang_class: true
+      auto_title: true
+      linenums: true
+      anchor_linenums: true
+      line_spans: __span
+      linenums_style: pymdownx-inline
+  - pymdownx.superfences

@@ -11,18 +11,7 @@
 
 ## Installation
 
-Install `Node.js` and `npm`:
-
-```bash
-# Install NodeJS 18.X and npm
-$ sudo apt update
-$ sudo apt -y install curl dirmngr apt-transport-https lsb-release ca-certificates
-$ curl -sL https://deb.nodesource.com/setup_18.x | sudo -E bash -
-$ sudo apt-get install -y nodejs
-$ npm install -g npm@latest
-```
-
-Or use [Node Version Manager](../nvm/nvm.md)
+Install `NodeJS 18.X` and `npm` using [Node Version Manager](../nvm/nvm.md)
 
 ---
 
@@ -48,7 +37,7 @@ $ cp backend/config.template.js backend/config.js
 
 Customize the `backend/config.js` according to your needs:
 
-```js
+```javascript
 "use-strict";
 
 module.exports = {

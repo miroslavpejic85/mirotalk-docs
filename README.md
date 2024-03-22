@@ -26,6 +26,7 @@ To install `MkDocs`, you can use one of this method:
 
 ```bash
 $ pip install mkdocs
+$ pip install mkdocs-material
 ```
 
 ---
