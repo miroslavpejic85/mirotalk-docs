@@ -13,7 +13,7 @@
 <hr />
 
 <p align="center">
-    <a href="https://docs.mirotalk.com"><img src="mirotalk.gif"></a>
+    <a href="https://docs.mirotalk.com"><img src="docs/images/mirotalk.gif"></a>
 </p>
 
 <hr />

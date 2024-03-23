@@ -1,7 +1,5 @@
 # MiroTalk Home
 
-Welcome to MiroTalk documentations!
-
 ![mirotalk](./images/mirotalk.gif)
 
 ## Live demos

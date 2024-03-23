@@ -55,8 +55,8 @@ theme:
     background: 'grey'
     text: 'grey'
     code: 'monokai'
-  favicon: 'images/icon.svg'
-  logo: 'images/icon.svg'
+  favicon: 'images/favicon.ico'
+  logo: 'images/logo.svg'
   font:
     text: 'Roboto'
     code: 'Roboto Mono'
