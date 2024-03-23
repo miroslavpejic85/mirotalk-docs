@@ -46,15 +46,32 @@ nav:
     - nvm: nvm/nvm.md
   - webrtc:
     - architectures: webrtc/architectures.md
-# theme: # material || readthedocs ||  mkdocs, 
+# theme: # material || readthedocs || mkdocs
 theme:
   name: material
   palette:
-    primary: 'blue'
-    accent: 'light blue'
-    background: 'grey'
-    text: 'grey'
-    code: 'monokai'
+    # Light mode palette
+    - media: "(prefers-color-scheme: light)"
+      scheme: 'default'
+      primary: 'blue'
+      accent: 'light blue'
+      background: 'grey'
+      text: 'black'
+      code: 'monokai'
+      toggle:
+        icon: 'material/brightness-7'
+        name: 'Switch to dark mode'
+    # Dark mode palette
+    - media: "(prefers-color-scheme: dark)"
+      scheme: 'slate'
+      primary: 'black'
+      accent: 'dark blue'
+      background: 'black'
+      text: 'white'
+      code: 'monokai'
+      toggle:
+        icon: 'material/brightness-4'
+        name: 'Switch to system preference'
   favicon: 'images/favicon.ico'
   logo: 'images/logo.svg'
   font:
