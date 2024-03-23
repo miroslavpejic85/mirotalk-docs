@@ -75,4 +75,5 @@ Open up [http://127.0.0.1:8000](http://127.0.0.1:8000/) in your browser.
 
 ## Credits
 
-`MkDocs`: <https://github.com/mkdocs/mkdocs>
+- **[MkDocs](https://github.com/mkdocs/mkdocs)**
+- **[MkDocs-material](https://github.com/squidfunk/mkdocs-material)**
