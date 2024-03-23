@@ -46,7 +46,7 @@ nav:
     - nvm: nvm/nvm.md
   - webrtc:
     - architectures: webrtc/architectures.md
-# theme: #readthedocs #material
+# theme: # material || readthedocs ||  mkdocs, 
 theme:
   name: material
   palette:
