@@ -149,6 +149,7 @@ document
   .getElementById("startConferenceButton")
   .addEventListener("click", function () {
     window.open("videoConference.html", "_blank");
+    // toggleMiroTalk();
   });
 ```
 
@@ -159,6 +160,7 @@ PHP button click event:
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
  if (isset($_POST['startConferenceButton'])) {
   echo '<script> window.open("videoConference.html", "_blank"); </script>';
+  // echo '<script> toggleMiroTalk(); </script>';
  }
 }
 ```
