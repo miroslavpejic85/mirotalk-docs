@@ -180,6 +180,7 @@ Create a dedicated HTML page, named `videoConference.html`, to host the video co
   <body>
     <!-- HTML container for the video conference -->
     <iframe
+      id="mirotalkIframe"
       allow="camera; microphone; display-capture; fullscreen; clipboard-read; clipboard-write; autoplay"
       src="https://sfu.mirotalk.com/newroom"
       style="height: 100vh; width: 100vw; border: 0px;"
@@ -196,6 +197,15 @@ Create a dedicated HTML page, named `videoConference.html`, to host the video co
       - ...
 	-->
 </html>
+```
+
+Another approach is to embed the iframe within your current website or application page and control its visibility through toggling.
+
+```javascript
+function toggleMiroTalk() {
+    const mirotalkIframe = document.getElementById('mirotalkIframe');
+    mirotalkIframe.style.display = (mirotalkIframe.style.display === 'none' || mirotalkIframe.style.display === '') ? 'block' : 'none';
+}
 ```
 
 After setting up your MiroTalk instances, please update the `src` attribute with your custom `domain` or `subdomain name`.
