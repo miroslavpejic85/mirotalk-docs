@@ -66,7 +66,7 @@ Easily incorporate MiroTalk into your website or app with a straightforward ifra
 <iframe
   allow="camera; microphone; display-capture; fullscreen; clipboard-read; clipboard-write; autoplay"
   src="https://sfu.mirotalk.com/newroom"
-  style="width: 100vh; height: 100vw; border: 0px;"
+  style="width: 100vw; height: 100vh; border: 0px;"
 ></iframe>
 ```
 
@@ -76,7 +76,7 @@ Easily incorporate MiroTalk into your website or app with a straightforward ifra
 <iframe
   allow="camera; microphone; display-capture; fullscreen; clipboard-read; clipboard-write; autoplay"
   src="https://p2p.mirotalk.com/newcall"
-  style="width: 100vh; height: 100vw; border: 0px;"
+  style="width: 100vw; height: 100vh; border: 0px;"
 ></iframe>
 ```
 
@@ -86,7 +86,7 @@ Easily incorporate MiroTalk into your website or app with a straightforward ifra
 <iframe
   allow="camera; microphone; display-capture; fullscreen; clipboard-read; clipboard-write; autoplay"
   src="https://c2c.mirotalk.com"
-  style="width: 100vh; height: 100vw; border: 0px;"
+  style="width: 100vw; height: 100vh; border: 0px;"
 ></iframe>
 ```
 
@@ -96,7 +96,7 @@ Easily incorporate MiroTalk into your website or app with a straightforward ifra
 <iframe
   allow="camera; microphone; display-capture; fullscreen; clipboard-read; clipboard-write; autoplay"
   src="https://bro.mirotalk.com"
-  style="width: 100vh; height: 100vw; border: 0px;"
+  style="width: 100vw; height: 100vh; border: 0px;"
 ></iframe>
 ```
 
@@ -106,7 +106,7 @@ Easily incorporate MiroTalk into your website or app with a straightforward ifra
 <iframe
   allow="camera; microphone; display-capture; fullscreen; clipboard-read; clipboard-write; autoplay"
   src="https://webrtc.mirotalk.com"
-  style="width: 100vh; height: 100vw; border: 0px;"
+  style="width: 100vw; height: 100vh; border: 0px;"
 ></iframe>
 ```
 
