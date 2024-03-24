@@ -82,6 +82,8 @@ theme:
     meta:
       description: 'MiroTalk WebRTC Ultimate Bundle'
       keywords: 'WebRTC'
+  features:
+    - content.code.copy
 # Extensions
 markdown_extensions:
   - pymdownx.highlight:
