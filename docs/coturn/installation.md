@@ -36,7 +36,7 @@ Replace `your.domain.name` with your real domain or subdomain name.
 $ sudo certbot certonly --standalone -d your.domain.name
 
 # Automatically renew the certificates
-$ sudo certbot renew 
+$ sudo certbot renew
 # OR if you have running Nginx
 $ sudo certbot renew --nginx
 ```
@@ -112,7 +112,12 @@ $ docker pull coturn/coturn
 
 # Step 2: Run a Coturn container in detached mode with host network mode
 # and mount a local configuration file into the container
-$ docker run -d --network=host -v $(pwd)/my.conf:/etc/coturn/turnserver.conf coturn/coturn
+docker run -d \
+  --network=host \
+  -v /etc/turnserver.conf:/etc/turnserver.conf \
+  -v /etc/letsencrypt/live/your.domain.name/fullchain.pem:/etc/letsencrypt/live/your.domain.name/fullchain.pem \
+  -v /etc/letsencrypt/live/your.domain.name/privkey.pem:/etc/letsencrypt/live/your.domain.name/privkey.pem \
+  coturn/coturn
 ```
 
 Useful commands:

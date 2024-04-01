@@ -24,6 +24,8 @@ Selecting the appropriate license is crucial for `legal compliance` and to `supp
 
 Obtain your license at 👉 [https://codecanyon.net/user/miroslavpejic85](https://codecanyon.net/user/miroslavpejic85).
 
+---
+
 Thank you for your support! We can't wait to see how MiroTalk elevates your projects. ❤️
 
 ---
