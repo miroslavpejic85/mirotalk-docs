@@ -239,13 +239,11 @@ Add the following:
 ```bash
 # HTTP — redirect all traffic to HTTPS
 server {
-    if ($host = your.domain.name) {
-        return 301 https://$host$request_uri;
-    }
-        listen 80;
-        listen [::]:80  ;
+    listen 80;
+    listen [::]:80;
     server_name your.domain.name;
-    return 404;
+
+    return 301 https://$host$request_uri;
 }
 ```
 
