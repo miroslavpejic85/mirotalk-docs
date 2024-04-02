@@ -100,6 +100,16 @@ For example, if your P2P instance is hosted at `https://mirotalk-p2p.example.com
 
 #### Local MongoDB Deployment
 
+Install `Docker` and `Docker Compose`:
+
+```bash
+# Install docker
+$ sudo apt install docker.io
+
+# Instal docker-compose
+$ sudo apt install docker-compose
+```
+
 To run MongoDB locally with [Docker Compose](https://docs.docker.com/compose/install/), you can use the following commands:
 
 Start the MongoDB container:
