@@ -88,7 +88,7 @@ ufw allow 443/tcp
 
 ---
 
-### WebRTCServer
+### WebRTCServer (optional)
 
 You can activate the `WebRTCServer` option by setting `webRtcServerActive: true` in the `app/src/config.js`.
 
@@ -96,8 +96,12 @@ Here's how it works:
 
 - MiroTalk instantiates a `Worker` for each `CPU`.
 - Each `Worker` has its own `WebRTCServer`, which listens on a single port starting from `44444`.
-- By default, each `WebRTCServer` internally manages the `rtcMinPort` and `rtcMaxPort`.
-- This setup simplifies port management because you only need to open ports for the number of `Workers` you have, rather than dealing with a range of ports for each `Worker`.
+- This setup simplifies port management because you only need to open ports for the number of `Workers` you have.
+
+```javascript
+{ protocol: 'udp', ip: '0.0.0.0', announcedAddress: IPv4, portRange: { min: 44444, max: 44444 + numWorkers }},
+{ protocol: 'tcp', ip: '0.0.0.0', announcedAddress: IPv4, portRange: { min: 44444, max: 44444 + numWorkers }},
+```
 
 ---
 
