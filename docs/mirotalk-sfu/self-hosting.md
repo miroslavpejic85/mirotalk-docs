@@ -53,12 +53,12 @@ Change the `announcedAddress` with your `Server public IPv4` on `app/src/config.
 
 ```javascript
 // announcedAddress: on aws-ec2 must be the Elastic IP
-{ protocol: "udp", ip: "0.0.0.0", announcedAddress: "Server Public IPv4" },
-{ protocol: "tcp", ip: "0.0.0.0", announcedAddress: "Server Public IPv4" },
+{ protocol: "udp", ip: "0.0.0.0", announcedAddress: "Server Public IPv4", portRange: { min: 40000, max: 40100 } },
+{ protocol: "tcp", ip: "0.0.0.0", announcedAddress: "Server Public IPv4", portRange: { min: 40000, max: 40100 } },
 
 // If you are not behind a NAT
-{ protocol: "udp", ip: "Server Public IPv4" },
-{ protocol: "tcp", ip: "Server Public IPv4" },
+{ protocol: "udp", ip: "Server Public IPv4", portRange: { min: 40000, max: 40100 } },
+{ protocol: "tcp", ip: "Server Public IPv4", portRange: { min: 40000, max: 40100 } },
 ```
 
 ### FireWall
