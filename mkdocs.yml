@@ -1,4 +1,4 @@
-site_name: MiroTalk docs v1.1.22
+site_name: MiroTalk docs v1.1.23
 site_description: MiroTalk WebRTC documentations
 site_author: Miroslav Pejic (miroslav.pejic.85@gmail.com)
 copyright: © 2024 MiroTalk, all rights reserved
@@ -25,7 +25,7 @@ nav:
     - ngrok: mirotalk-c2c/ngrok.md
     - self-hosting: mirotalk-c2c/self-hosting.md
   - mirotalk-p2p:
-    - about: https://codecanyon.net/item/mirotalk-c2c-webrtc-real-time-cam-2-cam-video-conferences-and-screen-sharing/43383005
+    - about: https://codecanyon.net/item/mirotalk-p2p-webrtc-realtime-video-conferences/38376661
     - api: mirotalk-p2p/api.md
     - host-protection: mirotalk-p2p/host-protection.md 
     - join-room: mirotalk-p2p/join-room.md
