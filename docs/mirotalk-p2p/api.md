@@ -268,7 +268,7 @@ try {
       screen: false,
       hide: false,
       notify: true,
-      // Provide token configuration only if host is protected or user authentication is required
+      // Token configuration is required if the host system is protected, user authentication is needed, or a room presenter is specified
       token: {
         username: "username",
         password: "password",
@@ -318,7 +318,7 @@ $data = array(
     "screen":       => false,
     "hide"          => false,
     "notify"        => true,
-    // Provide token configuration only if host is protected or user authentication is required
+    // Token configuration is required if the host system is protected, user authentication is needed, or a room presenter is specified
     "token"         => array(
         "username"      => "username",
         "password"      => "password",
@@ -365,7 +365,7 @@ data = {
     "screen": "false",
     "hide": "false",
     "notify": "true",
-    # Provide token configuration only if host is protected or user authentication is required
+    # Token configuration is required if the host system is protected, user authentication is needed, or a room presenter is specified
     "token": {
         "username": "username",
         "password": "password",
@@ -395,7 +395,7 @@ print("join:", data["join"])
 API_KEY_SECRET="mirotalksfu_default_secret"
 MIROTALK_URL="https://p2p.mirotalk.com/api/v1/join"
 
-# Provide token configuration only if host is protected or user authentication is required
+# Token configuration is required if the host system is protected, user authentication is needed, or a room presenter is specified
 
 curl $MIROTALK_URL \
     --header "authorization: $API_KEY_SECRET" \
