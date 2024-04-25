@@ -149,10 +149,10 @@ Install `Docker` and `Docker Compose`:
 
 ```bash
 # Install docker
-$ sudo apt install docker.io
+$ sudo apt install -y docker.io
 
 # Instal docker-compose
-$ sudo apt install docker-compose
+$ sudo apt install -y docker-compose
 
 # Copy app/src/config.template.js in app/src/config.js IMPORTANT (edit it according to your needs)
 $ cp app/src/config.template.js app/src/config.js
@@ -179,10 +179,10 @@ In order to use it without the port number and to have encrypted communications 
 
 ```bash
 # Install Nginx
-$ sudo apt-get install nginx
+$ sudo apt-get install -y nginx
 
 # Install Certbot (SSL certificates)
-$ sudo apt install snapd
+$ sudo apt install -y snapd
 $ sudo snap install core; sudo snap refresh core
 $ sudo snap install --classic certbot
 $ sudo ln -s /snap/bin/certbot /usr/bin/certbot
