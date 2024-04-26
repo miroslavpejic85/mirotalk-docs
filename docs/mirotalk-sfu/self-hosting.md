@@ -53,12 +53,29 @@ Change the `announcedAddress` with your `Server public IPv4` on `app/src/config.
 
 ```javascript
 // announcedAddress: on aws-ec2 must be the Elastic IP
-{ protocol: "udp", ip: "0.0.0.0", announcedAddress: "Server Public IPv4", portRange: { min: 40000, max: 40100 } },
-{ protocol: "tcp", ip: "0.0.0.0", announcedAddress: "Server Public IPv4", portRange: { min: 40000, max: 40100 } },
+{ 
+    protocol: "udp", 
+    ip: "0.0.0.0", 
+    announcedAddress: "Server Public IPv4", 
+    portRange: { min: 40000, max: 40100 } },
+{ 
+    protocol: "tcp", 
+    ip: "0.0.0.0", 
+    announcedAddress: "Server Public IPv4", 
+    portRange: { min: 40000, max: 40100 } 
+},
 
 // If you are not behind a NAT
-{ protocol: "udp", ip: "Server Public IPv4", portRange: { min: 40000, max: 40100 } },
-{ protocol: "tcp", ip: "Server Public IPv4", portRange: { min: 40000, max: 40100 } },
+{ 
+    protocol: "udp", 
+    ip: "Server Public IPv4", 
+    portRange: { min: 40000, max: 40100 } 
+},
+{ 
+    protocol: "tcp", 
+    ip: "Server Public IPv4", 
+    portRange: { min: 40000, max: 40100 } 
+},
 ```
 
 ### FireWall
@@ -95,12 +112,22 @@ You can activate the `WebRTCServer` option by setting `webRtcServerActive: true`
 Here's how it works:
 
 - MiroTalk instantiates a `Worker` for each `CPU`.
-- Each `Worker` has its own `WebRTCServer`, which listens on a single port starting from `44444`.
+- Each `Worker` has its own `WebRTCServer`, which listens on a single port starting from `40000`.
 - This setup simplifies port management because you only need to open ports for the number of `Workers` you have.
 
 ```javascript
-{ protocol: 'udp', ip: '0.0.0.0', announcedAddress: IPv4, portRange: { min: 44444, max: 44444 + numWorkers }},
-{ protocol: 'tcp', ip: '0.0.0.0', announcedAddress: IPv4, portRange: { min: 44444, max: 44444 + numWorkers }},
+{ 
+    protocol: 'udp', 
+    ip: '0.0.0.0', 
+    announcedAddress: "Server Public IPv4", 
+    portRange: { min: 40000, max: 40000 + numWorkers }
+},
+{ 
+    protocol: 'tcp', 
+    ip: '0.0.0.0', 
+    announcedAddress: "Server Public IPv4", 
+    portRange: { min: 40000, max: 40000 + numWorkers }
+},
 ```
 
 ---
