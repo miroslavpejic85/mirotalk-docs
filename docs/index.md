@@ -56,7 +56,7 @@ Overall, MiroTalk WebRTC is a versatile, user-friendly, and secure technology th
 
 ## Fast integration
 
-![iframe](./images/iframe.jpg)
+![iframe](./images/iframe.png)
 
 Easily incorporate MiroTalk into your website or app with a straightforward iframe and just a few lines of code!
 
