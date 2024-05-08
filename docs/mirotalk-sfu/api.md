@@ -549,24 +549,23 @@ curl $MIROTALK_URL \
 
 ---
 
-## Note
+!!! note
 
-- Replace `sfu.mirotalk.com` in the code snippets with `your.domain.com`.
-- In the `app/src/config` under the `api` section, you can enable or disable these endpoints in the `allowed` section.
+    - Replace `sfu.mirotalk.com` in the code snippets with `your.domain.com`.
+    - In the `app/src/config` under the `api` section, you can enable or disable these endpoints in the `allowed` section.
 
-```javascript
-api: {
-    // Default secret key for app/api
-    keySecret: 'mirotalksfu_default_secret',
-    // Define which endpoints are allowed
-    allowed: {
-        meetings: true,
-        meeting: true,
-        join: true,
-        token: true,
-        // Add more endpoints here as needed
+    ```javascript
+    api: {
+        // Default secret key for app/api
+        keySecret: 'mirotalksfu_default_secret',
+        // Define which endpoints are allowed
+        allowed: {
+            meetings: true,
+            meeting: true,
+            join: true,
+            token: true,
+            // Add more endpoints here as needed
+        },
     },
-},
-```
-
+    ```
 ---

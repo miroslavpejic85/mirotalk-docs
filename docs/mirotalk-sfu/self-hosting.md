@@ -11,7 +11,9 @@
 
 ## Installation
 
-Note: Many of the installation steps require `root` or `sudo` access
+!!! note
+
+    Many of the installation steps require `root` or `sudo` access
 
 ```bash
 # Gcc g++ make

@@ -247,6 +247,8 @@ curl $MIROTALK_URL \
 
 ---
 
-**Note:** Replace `c2c.mirotalk.com` in the code snippets with `your.domain.com`.
+!!! note
+
+    Replace `c2c.mirotalk.com` in the code snippets with `your.domain.com`.
 
 ---

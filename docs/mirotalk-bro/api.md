@@ -135,6 +135,8 @@ curl $MIROTALK_URL \
 
 ---
 
-**Note:** Replace `bro.mirotalk.com` in the code snippets with `your.domain.com`.
+!!! note
+
+    Replace `bro.mirotalk.com` in the code snippets with `your.domain.com`.
 
 ---

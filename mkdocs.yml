@@ -1,4 +1,4 @@
-site_name: MiroTalk docs v1.1.25
+site_name: MiroTalk docs v1.1.26
 site_description: MiroTalk WebRTC documentations
 site_author: Miroslav Pejic (miroslav.pejic.85@gmail.com)
 copyright: © 2024 MiroTalk, all rights reserved
@@ -95,4 +95,6 @@ markdown_extensions:
       anchor_linenums: true
       line_spans: __span
       linenums_style: pymdownx-inline
+  - admonition
+  - pymdownx.details
   - pymdownx.superfences

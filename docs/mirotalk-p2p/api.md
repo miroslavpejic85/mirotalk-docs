@@ -546,10 +546,10 @@ curl $MIROTALK_URL \
 
 ---
 
-## Note
+!!! note
 
-- Replace `p2p.mirotalk.com` in the code snippets with `your.domain.com`.
-- In the `.env` file, you can specify a list of disabled endpoints using the `API_DISABLED` variable.
+    - Replace `p2p.mirotalk.com` in the code snippets with `your.domain.com`.
+    - In the `.env` file, you can specify a list of disabled endpoints using the `API_DISABLED` variable.
 
 ```bash
 # Put the endpoint that you want to be disabled
