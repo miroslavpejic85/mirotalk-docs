@@ -2,8 +2,10 @@
 
 ## Requirements
 
-- Server Selection: Recommended [Hetzner](https://www.hetzner.com/cloud) (CPX11) or [Contabo](https://www.dpbolvw.net/click-101027391-14462707) (VPS-S) OS: Ubuntu 22.04 LTS.
-- Use my [personal link](https://hetzner.cloud/?ref=XdRifCzCK3bn) to receive `€⁠20 in cloud credits` on Hetzner.
+- Server Selection:
+    - [Hetzner](https://www.hetzner.com/cloud) (CPX11) - Use [this link](https://hetzner.cloud/?ref=XdRifCzCK3bn) to receive `€⁠20 in cloud credits`
+    - [Contabo](https://www.dpbolvw.net/click-101027391-14462707) (VPS-1)
+- OS: Ubuntu 22.04 LTS.
 - [Node.js](https://nodejs.org/en/) (LTS) and npm
 - Domain or Subdomain Name (e.g., `your.domain.name`) with a DNS A record pointing to your server's IPv4 address.
 

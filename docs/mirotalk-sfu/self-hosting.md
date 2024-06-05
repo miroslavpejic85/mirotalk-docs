@@ -2,8 +2,10 @@
 
 ## Requirements
 
-- Server Selection: Recommended [Hetzner](https://www.hetzner.com/cloud) (CPX11) or [Contabo](https://www.dpbolvw.net/click-101027391-14462707) (VPS-S) OS: Ubuntu 22.04 LTS.
-- Use my [personal link](https://hetzner.cloud/?ref=XdRifCzCK3bn) to receive `€⁠20 in cloud credits` on Hetzner.
+- Server Selection:
+    - [Hetzner](https://www.hetzner.com/cloud) (CPX11) - Use [this link](https://hetzner.cloud/?ref=XdRifCzCK3bn) to receive `€⁠20 in cloud credits`
+    - [Contabo](https://www.dpbolvw.net/click-101027391-14462707) (VPS-1)
+- OS: Ubuntu 22.04 LTS.
 - [Node.js](https://nodejs.org/en/) (LTS) and npm
 - Domain or Subdomain Name (e.g., `your.domain.name`) with a DNS A record pointing to your server's IPv4 address.
 
@@ -55,28 +57,28 @@ Change the `announcedAddress` with your `Server public IPv4` on `app/src/config.
 
 ```javascript
 // announcedAddress: on aws-ec2 must be the Elastic IP
-{ 
-    protocol: "udp", 
-    ip: "0.0.0.0", 
-    announcedAddress: "Server Public IPv4", 
+{
+    protocol: "udp",
+    ip: "0.0.0.0",
+    announcedAddress: "Server Public IPv4",
     portRange: { min: 40000, max: 40100 } },
-{ 
-    protocol: "tcp", 
-    ip: "0.0.0.0", 
-    announcedAddress: "Server Public IPv4", 
-    portRange: { min: 40000, max: 40100 } 
+{
+    protocol: "tcp",
+    ip: "0.0.0.0",
+    announcedAddress: "Server Public IPv4",
+    portRange: { min: 40000, max: 40100 }
 },
 
 // If you are not behind a NAT
-{ 
-    protocol: "udp", 
-    ip: "Server Public IPv4", 
-    portRange: { min: 40000, max: 40100 } 
+{
+    protocol: "udp",
+    ip: "Server Public IPv4",
+    portRange: { min: 40000, max: 40100 }
 },
-{ 
-    protocol: "tcp", 
-    ip: "Server Public IPv4", 
-    portRange: { min: 40000, max: 40100 } 
+{
+    protocol: "tcp",
+    ip: "Server Public IPv4",
+    portRange: { min: 40000, max: 40100 }
 },
 ```
 
@@ -118,16 +120,16 @@ Here's how it works:
 - This setup simplifies port management because you only need to open ports for the number of `Workers` you have.
 
 ```javascript
-{ 
-    protocol: 'udp', 
-    ip: '0.0.0.0', 
-    announcedAddress: "Server Public IPv4", 
+{
+    protocol: 'udp',
+    ip: '0.0.0.0',
+    announcedAddress: "Server Public IPv4",
     portRange: { min: 40000, max: 40000 + numWorkers }
 },
-{ 
-    protocol: 'tcp', 
-    ip: '0.0.0.0', 
-    announcedAddress: "Server Public IPv4", 
+{
+    protocol: 'tcp',
+    ip: '0.0.0.0',
+    announcedAddress: "Server Public IPv4",
     portRange: { min: 40000, max: 40000 + numWorkers }
 },
 ```
@@ -148,11 +150,9 @@ Check if is correctly installed: [http://your.domain.name:3010](http://your.doma
 
 ---
 
-## Using PM2 (Process Manager)
+## Using [PM2](https://pm2.keymetrics.io) (Process Manager)
 
 ![pm2](../images/pm2.png)
-
-Install [PM2](https://pm2.keymetrics.io):
 
 ```bash
 # Install pm2
@@ -173,8 +173,6 @@ $ pm2 startup
 ## Using Docker
 
 ![docker](../images/docker.png)
-
-Install `Docker` and `Docker Compose`:
 
 ```bash
 # Install docker
