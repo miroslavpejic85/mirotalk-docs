@@ -1,4 +1,4 @@
-site_name: MiroTalk docs v1.1.27
+site_name: MiroTalk docs v1.1.30
 site_description: MiroTalk WebRTC documentations
 site_author: Miroslav Pejic (miroslav.pejic.85@gmail.com)
 copyright: © 2024 MiroTalk, all rights reserved
@@ -37,6 +37,7 @@ nav:
     - host-protection: mirotalk-sfu/host-protection.md 
     - join-room: mirotalk-sfu/join-room.md
     - ngrok: mirotalk-sfu/ngrok.md
+    - rtmp: mirotalk-sfu/rtmp.md
     - self-hosting: mirotalk-sfu/self-hosting.md
   - mirotalk-web:
     - about: https://codecanyon.net/item/a-selfhosted-mirotalks-webrtc-rooms-scheduler-server/42643313
