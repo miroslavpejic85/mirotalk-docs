@@ -7,11 +7,16 @@ We introduced two types of RTMP (Real-Time Messaging Protocol) servers: **[Node 
 ## Prerequisites
 
 ```bash
+$ sudo apt update
+
 # Install docker
 $ sudo apt install -y docker.io
 
 # Instal docker-compose
 $ sudo apt install -y docker-compose
+
+# Install ffmpeg
+$ sudo apt install -y ffmpeg
 ```
 
 ## Node Media Server
