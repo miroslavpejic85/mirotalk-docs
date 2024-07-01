@@ -7,6 +7,7 @@
     - [Contabo](https://www.dpbolvw.net/click-101027391-14462707) (VPS-1)
 - OS: Ubuntu 22.04 LTS.
 - [Node.js](https://nodejs.org/en/) (LTS) and npm
+- [FFmpeg](https://ffmpeg.org/download.html) for optional `RTMP` streaming support.
 - Domain or Subdomain Name (e.g., `your.domain.name`) with a DNS A record pointing to your server's IPv4 address.
 
 ---
@@ -28,6 +29,9 @@ $ apt install -y software-properties-common
 $ add-apt-repository -y ppa:deadsnakes/ppa
 $ apt update
 $ apt install -y python3.8 python3-pip
+
+# FFmpeg
+$ apt install -y ffmpeg
 ```
 
 ---
