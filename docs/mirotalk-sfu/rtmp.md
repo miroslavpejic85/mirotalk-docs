@@ -59,9 +59,9 @@ Node Media Server uses Node.js to handle RTMP streaming efficiently, suitable fo
    $ npm run nms-logs
    ```
 
-5. **Admin dashboard**: `https://your-domain-name:8443/admin`  
-   **Api server**: `https://your-domain-name:8443/api/server`  
-   **Api streams**: `https://your-domain-name:8443/api/streams`
+5. **Admin dashboard**: `https://your-domain-name:8043/admin`  
+   **Api server**: `https://your-domain-name:8043/api/server`  
+   **Api streams**: `https://your-domain-name:8043/api/streams`
 
 ## Nginx RTMP
 
