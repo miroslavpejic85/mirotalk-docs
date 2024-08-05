@@ -2,19 +2,21 @@
 
 ![mirotalk](./images/mirotalk.gif)
 
-## Live demos
+## MiroTalk projects
 
-- `🏆 MiroTalk SFU`: [https://sfu.mirotalk.com](https://sfu.mirotalk.com)
-- `🚀 MiroTalk P2P`: [https://p2p.mirotalk.com](https://p2p.mirotalk.com)
-- `✨ MiroTalk C2C`: [https://c2c.mirotalk.com](https://c2c.mirotalk.com)
-- `📡 MiroTalk BRO`: [https://bro.mirotalk.com](https://bro.mirotalk.com)
-- `🛠 MiroTalk WEB`: [https://webrtc.mirotalk.com](https://webrtc.mirotalk.com)
+| Project           | Live demo                                                  |
+| ----------------- | ---------------------------------------------------------- |
+| `🏆 MiroTalk SFU` | [https://sfu.mirotalk.com](https://sfu.mirotalk.com)       |
+| `🚀 MiroTalk P2P` | [https://p2p.mirotalk.com](https://p2p.mirotalk.com)       |
+| `✨ MiroTalk C2C` | [https://c2c.mirotalk.com](https://c2c.mirotalk.com)       |
+| `📡 MiroTalk BRO` | [https://bro.mirotalk.com](https://bro.mirotalk.com)       |
+| `🛠 MiroTalk WEB` | [https://webrtc.mirotalk.com](https://webrtc.mirotalk.com) |
 
 ---
 
 ## License
 
-`Support` the ongoing `development` and adapt MiroTalk to your unique needs. 
+`Support` the ongoing `development` and adapt MiroTalk to your unique needs.
 
 🌐 [Check our licensing options](./license/licensing-options.md)
 
@@ -32,23 +34,17 @@ MiroTalk WebRTC is a real-time communication technology that enables audio and v
 
 Pros of MiroTalk WebRTC:
 
-1. `🌐 Ease of Use:` MiroTalk WebRTC simplifies online communication by allowing users to connect via web browsers, eliminating the need for complex setups or downloads.
-
-2. `⚡ Low Latency:` It provides low-latency audio and video transmission, ensuring a smooth and near-instantaneous conversation experience, crucial for real-time interactions.
-
-3. `🔒 Security:` WebRTC offers end-to-end encryption, enhancing the security and privacy of your online conversations, making it suitable for confidential or sensitive discussions.
-
-4. `💻 Cross-Platform Compatibility:` MiroTalk WebRTC works on various platforms, including Windows, macOS, Linux, Android, and iOS, ensuring broad accessibility.
-
-5. `📈 Scalability:` It is highly scalable, making it suitable for both one-on-one conversations and large-scale conferences, adapting to your communication needs.
-
-6. `🔗 Integration:` Many communication platforms and applications integrate MiroTalk WebRTC, enabling seamless communication within existing software or services.
-
-7. ` 🛠️ Flexible and Extensible:` MiroTalk WebRTC's allows developers to tap into code, facilitating innovation and enabling tailored solutions to meet specific communication requirements.
-
-8. `💰 Reduced Costs:` Since it doesn't require dedicated hardware or software licenses, it can be a cost-effective solution for businesses and individuals.
-
-9. `🎮 Versatile Applications:` Besides video conferencing, MiroTalk WebRTC can be used for various applications like online gaming, customer support, and live streaming.
+| PROS                               | Description                                                                                                                                                         |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `🌐 Ease of Use:`                  | MiroTalk WebRTC simplifies online communication by allowing users to connect via web browsers, eliminating the need for complex setups or downloads.                |
+| `⚡ Low Latency:`                  | It provides low-latency audio and video transmission, ensuring a smooth and near-instantaneous conversation experience, crucial for real-time interactions.         |
+| `🔒 Security:`                     | WebRTC offers end-to-end encryption, enhancing the security and privacy of your online conversations, making it suitable for confidential or sensitive discussions. |
+| `💻 Cross-Platform Compatibility:` | MiroTalk WebRTC works on various platforms, including Windows, macOS, Linux, Android, and iOS, ensuring broad accessibility.                                        |
+| `📈 Scalability:`                  | It is highly scalable, making it suitable for both one-on-one conversations and large-scale conferences, adapting to your communication needs.                      |
+| `🔗 Integration:`                  | Many communication platforms and applications integrate MiroTalk WebRTC, enabling seamless communication within existing software or services.                      |
+| ` 🛠️ Flexible and Extensible:`     | MiroTalk WebRTC's allows developers to tap into code, facilitating innovation and enabling tailored solutions to meet specific communication requirements.          |
+| `💰 Reduced Costs:`                | Since it doesn't require dedicated hardware or software licenses, it can be a cost-effective solution for businesses and individuals.                               |
+| `🎮 Versatile Applications:`       | Besides video conferencing, MiroTalk WebRTC can be used for various applications like online gaming, customer support, and live streaming.                          |
 
 Overall, MiroTalk WebRTC is a versatile, user-friendly, and secure technology that has revolutionized online communication by providing high-quality, real-time audio and video capabilities directly through web browsers. Its widespread adoption has made it a fundamental tool for businesses, organizations, and individuals seeking efficient and effective online interactions.
 
@@ -205,8 +201,12 @@ Another approach is to embed the iframe within your current website or applicati
 
 ```javascript
 function toggleMiroTalk() {
-    const mirotalkIframe = document.getElementById('mirotalkIframe');
-    mirotalkIframe.style.display = (mirotalkIframe.style.display === 'none' || mirotalkIframe.style.display === '') ? 'block' : 'none';
+  const mirotalkIframe = document.getElementById("mirotalkIframe");
+  mirotalkIframe.style.display =
+    mirotalkIframe.style.display === "none" ||
+    mirotalkIframe.style.display === ""
+      ? "block"
+      : "none";
 }
 ```
 
