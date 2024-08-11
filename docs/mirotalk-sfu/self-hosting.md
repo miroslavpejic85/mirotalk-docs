@@ -7,7 +7,7 @@
     - [Contabo](https://www.dpbolvw.net/click-101027391-14462707) (VPS-1)
 - OS: Ubuntu 22.04 LTS.
 - [Node.js](https://nodejs.org/en/) (LTS) and npm
-- [FFmpeg](https://ffmpeg.org/download.html) for optional `RTMP` streaming support.
+- [FFmpeg](https://ffmpeg.org/download.html) for optional [RTMP](../mirotalk-sfu/rtmp.md) streaming support.
 - Domain or Subdomain Name (e.g., `your.domain.name`) with a DNS A record pointing to your server's IPv4 address.
 
 ---
