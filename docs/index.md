@@ -60,7 +60,7 @@ Easily incorporate MiroTalk into your website or app with a straightforward ifra
 
 ```html
 <iframe
-  allow="camera; microphone; display-capture; fullscreen; clipboard-read; clipboard-write; autoplay"
+  allow="camera; microphone; display-capture; fullscreen; clipboard-read; clipboard-write; web-share; autoplay"
   src="https://sfu.mirotalk.com/newroom"
   style="width: 100vw; height: 100vh; border: 0px;"
 ></iframe>
@@ -70,7 +70,7 @@ Easily incorporate MiroTalk into your website or app with a straightforward ifra
 
 ```html
 <iframe
-  allow="camera; microphone; display-capture; fullscreen; clipboard-read; clipboard-write; autoplay"
+  allow="camera; microphone; display-capture; fullscreen; clipboard-read; clipboard-write; web-share; autoplay"
   src="https://p2p.mirotalk.com/newcall"
   style="width: 100vw; height: 100vh; border: 0px;"
 ></iframe>
@@ -80,7 +80,7 @@ Easily incorporate MiroTalk into your website or app with a straightforward ifra
 
 ```html
 <iframe
-  allow="camera; microphone; display-capture; fullscreen; clipboard-read; clipboard-write; autoplay"
+  allow="camera; microphone; display-capture; fullscreen; clipboard-read; clipboard-write; web-share; autoplay"
   src="https://c2c.mirotalk.com"
   style="width: 100vw; height: 100vh; border: 0px;"
 ></iframe>
@@ -90,7 +90,7 @@ Easily incorporate MiroTalk into your website or app with a straightforward ifra
 
 ```html
 <iframe
-  allow="camera; microphone; display-capture; fullscreen; clipboard-read; clipboard-write; autoplay"
+  allow="camera; microphone; display-capture; fullscreen; clipboard-read; clipboard-write; web-share; autoplay"
   src="https://bro.mirotalk.com"
   style="width: 100vw; height: 100vh; border: 0px;"
 ></iframe>
@@ -100,7 +100,7 @@ Easily incorporate MiroTalk into your website or app with a straightforward ifra
 
 ```html
 <iframe
-  allow="camera; microphone; display-capture; fullscreen; clipboard-read; clipboard-write; autoplay"
+  allow="camera; microphone; display-capture; fullscreen; clipboard-read; clipboard-write; web-share; autoplay"
   src="https://webrtc.mirotalk.com"
   style="width: 100vw; height: 100vh; border: 0px;"
 ></iframe>
@@ -179,7 +179,7 @@ Create a dedicated HTML page, named `videoConference.html`, to host the video co
     <!-- HTML container for the video conference -->
     <iframe
       id="mirotalkIframe"
-      allow="camera; microphone; display-capture; fullscreen; clipboard-read; clipboard-write; autoplay"
+      allow="camera; microphone; display-capture; fullscreen; clipboard-read; clipboard-write; web-share; autoplay"
       src="https://sfu.mirotalk.com/newroom"
       style="height: 100vh; width: 100vw; border: 0px;"
     ></iframe>
