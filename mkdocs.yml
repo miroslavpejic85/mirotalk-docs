@@ -1,4 +1,4 @@
-site_name: MiroTalk docs v1.1.35
+site_name: MiroTalk docs v1.1.36
 site_description: MiroTalk WebRTC documentations
 site_author: Miroslav Pejic (miroslav.pejic.85@gmail.com)
 copyright: © 2024 MiroTalk, all rights reserved
@@ -45,7 +45,9 @@ nav:
     - ngrok: mirotalk-web/ngrok.md
     - self-hosting: mirotalk-web/self-hosting.md
   - ngrok: ngrok/ngrok.md
-  - nvm: nvm/nvm.md
+  - utility:
+    - ftp: utility/ftp.md
+    - nvm: utility/nvm.md 
   - webrtc:
     - architectures: webrtc/architectures.md
 # theme: # material || readthedocs || mkdocs

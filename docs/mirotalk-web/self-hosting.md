@@ -13,7 +13,7 @@
 
 ## Installation
 
-Install `NodeJS 18.X` and `npm` using [Node Version Manager](../nvm/nvm.md)
+Install `NodeJS 18.X` and `npm` using [Node Version Manager](../utility/nvm.md)
 
 ---
 
