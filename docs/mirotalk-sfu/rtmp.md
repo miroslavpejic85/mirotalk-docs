@@ -32,7 +32,7 @@ Node Media Server uses Node.js to handle RTMP streaming efficiently, suitable fo
 
 2. **Configure Server:**
    ```bash
-   $ cp config.template.js config.js
+   $ cp src/config.template.js src/config.js
    ```
 
 3. **Set Up Docker:**
