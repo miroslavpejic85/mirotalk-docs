@@ -24,7 +24,7 @@
 
 ## Join for Questions & Support
 
-To engage in `questions`, `discussions`, or seek `assistance and support`, we invite you to join us on our [Discord server](https://discord.gg/rgGYfeYW3N).
+To engage in `questions`, `discussions`, or seek `assistance and support`, we invite you to join us on our [MiroTalk Community Forum](https://discord.gg/rgGYfeYW3N).
 
 ---
 
