@@ -185,6 +185,12 @@ $ sudo apt install -y docker.io
 # Instal docker-compose
 $ sudo apt install -y docker-compose
 
+# Clone this repo
+$ git clone https://github.com/miroslavpejic85/mirotalksfu.git
+
+# Go to to dir mirotalksfu
+$ cd mirotalksfu
+
 # Copy app/src/config.template.js in app/src/config.js IMPORTANT (edit it according to your needs)
 $ cp app/src/config.template.js app/src/config.js
 

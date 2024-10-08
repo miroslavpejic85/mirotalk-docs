@@ -72,6 +72,12 @@ $ sudo apt install -y docker.io
 # Instal docker-compose
 $ sudo apt install -y docker-compose
 
+# Clone the project repo
+$ git clone https://github.com/miroslavpejic85/mirotalkc2c.git
+
+# Go to project dir
+$ cd mirotalkc2c
+
 # Copy .env.template in .env and customize it according to your needs if needed
 $ cp .env.template .env
 

@@ -206,6 +206,12 @@ $ sudo apt install -y docker.io
 # Install docker-compose
 $ sudo apt install -y docker-compose
 
+# Clone the project repo
+$ git clone https://github.com/miroslavpejic85/mirotalkwebrtc.git
+
+# Go to project dir
+$ cd mirotalkwebrtc
+
 # Copy env.template to .env and customize it according to your needs
 $ cp .env.template .env
 

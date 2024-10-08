@@ -72,6 +72,12 @@ $ sudo apt install -y docker.io
 # Instal docker-compose
 $ sudo apt install -y docker-compose
 
+# Clone MiroTalk P2P repo
+$ git clone https://github.com/miroslavpejic85/mirotalk.git
+
+# Go to mirotalk dir
+$ cd mirotalk
+
 # Copy .env.template to .env and customize it according to your needs if needed
 $ cp .env.template .env
 
