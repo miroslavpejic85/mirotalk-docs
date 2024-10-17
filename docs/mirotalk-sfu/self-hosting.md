@@ -57,31 +57,34 @@ $ cp app/src/config.template.js app/src/config.js
 
 ### Config.js
 
-Change the `announcedAddress` with your `Server public IPv4` on `app/src/config.js`
+Change the `IPv4` with your `Server public IPv4` in `app/src/config.js`
+
+```js
+const IPv4 = 'Your Server IPv4'; // This is your server's public IP address. If you're using AWS EC2, you'll use the Elastic IP associated with your instance, as this is the public IP that's persistent across reboots.
+```
 
 ```javascript
-// announcedAddress: on aws-ec2 must be the Elastic IP
 {
     protocol: "udp",
     ip: "0.0.0.0",
-    announcedAddress: "Server Public IPv4",
+    announcedAddress: IPv4,
     portRange: { min: 40000, max: 40100 } },
 {
     protocol: "tcp",
     ip: "0.0.0.0",
-    announcedAddress: "Server Public IPv4",
+    announcedAddress: IPv4,
     portRange: { min: 40000, max: 40100 }
 },
 
 // If you are not behind a NAT
 {
     protocol: "udp",
-    ip: "Server Public IPv4",
+    ip: IPv4,
     portRange: { min: 40000, max: 40100 }
 },
 {
     protocol: "tcp",
-    ip: "Server Public IPv4",
+    ip: IPv4,
     portRange: { min: 40000, max: 40100 }
 },
 ```
@@ -127,13 +130,13 @@ Here's how it works:
 {
     protocol: 'udp',
     ip: '0.0.0.0',
-    announcedAddress: "Server Public IPv4",
+    announcedAddress: IPv4,
     portRange: { min: 40000, max: 40000 + numWorkers }
 },
 {
     protocol: 'tcp',
     ip: '0.0.0.0',
-    announcedAddress: "Server Public IPv4",
+    announcedAddress: IPv4,
     portRange: { min: 40000, max: 40000 + numWorkers }
 },
 ```
