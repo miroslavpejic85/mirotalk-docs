@@ -3,8 +3,8 @@
 ## Requirements
 
 - Server Selection:
-    - [Hetzner](https://www.hetzner.com/cloud) (CPX11) - Use [this link](https://hetzner.cloud/?ref=XdRifCzCK3bn) to receive `€⁠20 in cloud credits`
-    - [Contabo](https://www.dpbolvw.net/click-101027391-14462707) (VPS-1)
+  - [Hetzner](https://www.hetzner.com/cloud) (CPX11) - Use [this link](https://hetzner.cloud/?ref=XdRifCzCK3bn) to receive `€⁠20 in cloud credits`
+  - [Contabo](https://www.dpbolvw.net/click-101027391-14462707) (VPS-1)
 - OS: Ubuntu 22.04 LTS.
 - [Node.js](https://nodejs.org/en/) (LTS) and npm
 - Domain or Subdomain Name (e.g., `your.domain.name`) with a DNS A record pointing to your server's IPv4 address.
@@ -126,36 +126,42 @@ Stop the MongoDB container:
 $ npm run mongo:down
 ```
 
-#### Cloud MongoDB Deployment (Optional)
+<details>
+<summary>Cloud MongoDB Deployment (Optional)</summary>
 
-If you prefer to deploy MongoDB in the cloud, especially through [MongoDb Atlas](https://www.mongodb.com/).
+<br />
 
-Please remember to update the credentials in the `.env` file accordingly.
+For cloud MongoDB deployments, such as with <a href="https://www.mongodb.com/" target="_blank">MongoDB Atlas</a>, make sure to update the credentials in the `.env` file accordingly.
 
 ```bash
-# MongoDB Configuration (https://www.mongodb.com/)
+# MongoDB Configuration (See: https://www.mongodb.com/)
 MONGO_URL=mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOST}:${MONGO_PORT}
 MONGO_DATABASE=mirotalk
 ```
 
----
+</details>
 
-### User Email Verification (Optional)
+<details>
+<summary>User Email Verification (Optional)</summary>
 
-![email](../images/email.png)
+<br />
 
-By default, user email verification is enabled. If you wish to disable it, set `EMAIL_VERIFICATION` to `false` in the `.env` file. If you choose to keep email verification enabled, make sure to configure the email settings in the `.env` file accordingly.
+<img src="/../images/email.png" alt="email configuration" />
+
+<br /><br />
+
+By default, email verification is disabled. To enable it, set <strong>EMAIL_VERIFICATION</strong> to <strong>true</strong> in the <strong>.env</strong> file, and ensure the email settings are properly configured.
 
 ```bash
-# Email Configuration (https://support.google.com/mail/answer/185833?hl=en)
+# Email Configuration (See: https://support.google.com/mail/answer/185833?hl=en)
 EMAIL_VERIFICATION=true
-EMAIL_HOST=emailHost
-EMAIL_PORT=emailPort
-EMAIL_USERNAME=emailUsername
-EMAIL_PASSWORD=emailPassword
+EMAIL_HOST=yourEmailHost
+EMAIL_PORT=yourEmailPort
+EMAIL_USERNAME=yourEmailUsername
+EMAIL_PASSWORD=yourEmailPassword
 ```
 
----
+</details>
 
 ### Install dependencies and start the server
 
