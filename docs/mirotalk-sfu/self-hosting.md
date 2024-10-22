@@ -57,11 +57,13 @@ $ cp app/src/config.template.js app/src/config.js
 
 ### Config.js
 
-Change the `IPv4` with your `Server public IPv4` in `app/src/config.js`
+Change the `IPv4` with `Your Server public IPv4` in `app/src/config.js`
 
 ```js
-const IPv4 = 'Server Public IPv4'; // This is your server's public IP address. If you're using AWS EC2, you'll use the Elastic IP associated with your instance, as this is the public IP that's persistent across reboots.
+const IPv4 = 'Your Server Public IPv4'; // This is your server's public IP address. If you're using AWS EC2, you'll use the Elastic IP associated with your instance, as this is the public IP that's persistent across reboots.
 ```
+
+<br /> 
 
 ```javascript
 {
