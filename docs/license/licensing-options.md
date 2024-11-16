@@ -29,8 +29,6 @@ For `commercial projects` (**closed-source**) where you `intend to charge end us
 | [MiroTalk BRO](https://codecanyon.net/item/mirotalk-bro-webrtc-p2p-live-broadcast/45887113)                                       | $ 59            | $ 249            |
 | [MiroTalk WEB](https://codecanyon.net/item/a-selfhosted-mirotalks-webrtc-rooms-scheduler-server/42643313)                         | $ 39            | $ 199            |
 
----
-
 Selecting the appropriate license is crucial for `legal compliance` and to `support the ongoing maintenance` of the MiroTalk project itself. 
 
 Obtain your license at 👉 [https://codecanyon.net/user/miroslavpejic85](https://codecanyon.net/user/miroslavpejic85).
