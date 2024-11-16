@@ -20,6 +20,17 @@ For `commercial projects` (**closed-source**) where you `intend to charge end us
 
 ---
 
+| Product                                                                                                                           | Regular | Extended |
+| --------------------------------------------------------------------------------------------------------------------------------- | --------------- | ---------------- |
+| [MiroTalk ULTIMATE](https://codecanyon.net/item/mirotalk-webrtc-ultimate-bundle-for-seamless-live-smart-communication/47976343)   | $ 299           | $ 1499           |
+| [MiroTalk SFU](https://codecanyon.net/item/mirotalk-sfu-webrtc-realtime-video-conferences/40769970)                               | $ 99            | $ 499            |
+| [MiroTalk P2P](https://codecanyon.net/item/mirotalk-p2p-webrtc-realtime-video-conferences/38376661)                               | $ 79            | $ 499            |
+| [MiroTalk C2C](https://codecanyon.net/item/mirotalk-c2c-webrtc-real-time-cam-2-cam-video-conferences-and-screen-sharing/43383005) | $ 69            | $ 249            |
+| [MiroTalk BRO](https://codecanyon.net/item/mirotalk-bro-webrtc-p2p-live-broadcast/45887113)                                       | $ 59            | $ 249            |
+| [MiroTalk WEB](https://codecanyon.net/item/a-selfhosted-mirotalks-webrtc-rooms-scheduler-server/42643313)                         | $ 39            | $ 199            |
+
+---
+
 Selecting the appropriate license is crucial for `legal compliance` and to `support the ongoing maintenance` of the MiroTalk project itself. 
 
 Obtain your license at 👉 [https://codecanyon.net/user/miroslavpejic85](https://codecanyon.net/user/miroslavpejic85).
