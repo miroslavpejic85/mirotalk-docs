@@ -36,6 +36,8 @@ $ apt install -y ffmpeg
 
 ---
 
+![nodejs](../images/nodejs.png)
+
 Install `NodeJS 18.X` and `npm` using [Node Version Manager](../utility/nvm.md)
 
 ---
