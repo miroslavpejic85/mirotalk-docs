@@ -10,6 +10,8 @@ The REST API is comprehensively documented using [Swagger](https://swagger.io/),
 
 Upon a successful request, the API response will provide the active Meetings. The authorization for this request is determined by the `API_KEY_SECRET` configuration specified in your `.env` file.
 
+### JavaScript Example
+
 ```javascript
 "use strict";
 
