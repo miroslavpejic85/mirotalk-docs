@@ -310,8 +310,14 @@ Check Your MiroTalk SFU instance: [http://your.domain.name](http://your.domain.n
 If you prefer `Apache`, configure it with the equivalent settings provided in this guide.
 
 ```bash
+# Install apache with certbot
+$ apt install python3-certbot-apache -y
+
+# Setting up ssl
+$ certbot --apache --non-interactive --agree-tos -d your.domain.name -m your.email.address
+
 # Edit the apache sites
-vim /etc/apache2/sites-enabled/your.domain.name.conf
+$ sudo vim /etc/apache2/sites-enabled/your.domain.name.conf
 ```
 
 Add the following:
