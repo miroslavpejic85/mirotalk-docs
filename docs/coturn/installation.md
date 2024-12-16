@@ -134,6 +134,26 @@ $ docker stop compassionate_swanson
 $ docker start compassionate_swanson
 ```
 
+## Docker compose
+
+If you prefer `docker-compose.yml`:
+
+```yml
+services:
+  coturn:
+    image: coturn/coturn
+    container_name: coturn
+    network_mode: "host"
+    user: "root"
+    restart: unless-stopped
+    volumes:
+      - /etc/turnserver.conf:/etc/coturn/turnserver.conf
+      - /etc/letsencrypt/live/your.domain.name/fullchain.pem:/etc/letsencrypt/live/your.domain.name/fullchain.pem
+      - /etc/letsencrypt/live/your.domain.name/privkey.pem:/etc/letsencrypt/live/your.domain.name/privkey.pem
+```
+
+Then run `docker-compose up -d`
+
 ## Test
 
 Test if it's working:
