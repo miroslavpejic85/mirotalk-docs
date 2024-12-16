@@ -114,7 +114,7 @@ $ docker pull coturn/coturn
 # and mount a local configuration file into the container
 docker run -d \
   --network=host \
-  -v /etc/turnserver.conf:/etc/turnserver.conf \
+  -v /etc/turnserver.conf:/etc/coturn/turnserver.conf \
   -v /etc/letsencrypt/live/your.domain.name/fullchain.pem:/etc/letsencrypt/live/your.domain.name/fullchain.pem \
   -v /etc/letsencrypt/live/your.domain.name/privkey.pem:/etc/letsencrypt/live/your.domain.name/privkey.pem \
   coturn/coturn
