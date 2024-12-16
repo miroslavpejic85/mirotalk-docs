@@ -138,7 +138,7 @@ $ docker start compassionate_swanson
 
 If you prefer `docker-compose.yml`:
 
-```yml
+```yaml
 services:
   coturn:
     image: coturn/coturn
