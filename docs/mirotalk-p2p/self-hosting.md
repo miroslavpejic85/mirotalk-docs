@@ -32,6 +32,9 @@ $ cd mirotalk
 # Copy .env.template to .env and customize it according to your needs if needed
 $ cp .env.template .env
 
+# Copy app/src/config.template.js in app/src/config.js (edit it according to your needs)
+$ cp app/src/config.template.js app/src/config.js
+
 # Install dependencies
 $ npm install
 
@@ -82,6 +85,9 @@ $ cd mirotalk
 
 # Copy .env.template to .env and customize it according to your needs if needed
 $ cp .env.template .env
+
+# Copy app/src/config.template.js in app/src/config.js (edit it according to your needs)
+$ cp app/src/config.template.js app/src/config.js
 
 # Copy docker-compose.template.yml in docker-compose.yml (edit it according to your needs)
 $ cp docker-compose.template.yml docker-compose.yml
