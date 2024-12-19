@@ -165,8 +165,8 @@ You can also utilize the built-in MiroTalk service by simply replacing `your.dom
 
 ```ini
 # Default listening port
-https://p2p.mirotalk.com/test?iceServers=[{"urls":"stun:your.domain.name:3478"},{"urls":"turn:your.domain.name:3478","username":"your.username","credential":"your.password"}]
+https://p2p.mirotalk.com/icetest?iceServers=[{"urls":"stun:your.domain.name:3478"},{"urls":"turn:your.domain.name:3478","username":"your.username","credential":"your.password"}]
 
 # Tls listening port
-https://p2p.mirotalk.com/test?iceServers=[{"urls":"stun:your.domain.name:5349"},{"urls":"turn:your.domain.name:5349","username":"your.username","credential":"your.password"}]
+https://p2p.mirotalk.com/icetest?iceServers=[{"urls":"stun:your.domain.name:5349"},{"urls":"turn:your.domain.name:5349","username":"your.username","credential":"your.password"}]
 ```
