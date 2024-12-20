@@ -65,6 +65,23 @@ Change the `IPv4` with `Your Server public IPv4` in `app/src/config.js`
 const IPv4 = 'Your Server Public IPv4'; // This is your server's public IP address. If you're using AWS EC2, you'll use the Elastic IP associated with your instance, as this is the public IP that's persistent across reboots.
 ```
 
+Set the port range for WebRTC communication. This range is used for the dynamic allocation of UDP ports for media streams.
+
+```js
+/*
+    About:
+    - Each participant requires 2 ports: one for audio and one for video.
+    - The default configuration supports up to 50 participants (50 * 2 ports = 100 ports).
+    - To support more participants, simply increase the port range.
+
+    Note: 
+    - When running in Docker, use 'network mode: host' for improved performance.
+    - Alternatively, enable 'webRtcServerActive: true' mode for better scalability.
+*/
+const rtcMinPort = 40000;
+const rtcMaxPort = 40100;
+```
+
 <br /> 
 
 ```javascript
@@ -72,24 +89,24 @@ const IPv4 = 'Your Server Public IPv4'; // This is your server's public IP addre
     protocol: "udp",
     ip: "0.0.0.0",
     announcedAddress: IPv4,
-    portRange: { min: 40000, max: 40100 } },
+    portRange: { min: rtcMinPort, max: rtcMaxPort } },
 {
     protocol: "tcp",
     ip: "0.0.0.0",
     announcedAddress: IPv4,
-    portRange: { min: 40000, max: 40100 }
+    portRange: { min: rtcMinPort, max: rtcMaxPort }
 },
 
 // If you are not behind a NAT
 {
     protocol: "udp",
     ip: IPv4,
-    portRange: { min: 40000, max: 40100 }
+    portRange: { min: rtcMinPort, max: rtcMaxPort }
 },
 {
     protocol: "tcp",
     ip: IPv4,
-    portRange: { min: 40000, max: 40100 }
+    portRange: { min: rtcMinPort, max: rtcMaxPort }
 },
 ```
 
@@ -135,13 +152,13 @@ Here's how it works:
     protocol: 'udp',
     ip: '0.0.0.0',
     announcedAddress: IPv4,
-    portRange: { min: 40000, max: 40000 + numWorkers }
+    portRange: { min: rtcMinPort, max: rtcMinPort + numWorkers }
 },
 {
     protocol: 'tcp',
     ip: '0.0.0.0',
     announcedAddress: IPv4,
-    portRange: { min: 40000, max: 40000 + numWorkers }
+    portRange: { min: rtcMinPort, max: rtcMinPort + numWorkers }
 },
 ```
 
