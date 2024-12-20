@@ -411,7 +411,6 @@ For `Docker`:
 cd mirotalksfu
 git pull
 docker pull mirotalk/sfu:latest
-docker-compose up -d
 docker images |grep '<none>' |awk '{print $3}' |xargs docker rmi
 docker-compose up -d
 ```
