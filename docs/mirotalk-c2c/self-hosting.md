@@ -7,7 +7,7 @@
     - [Contabo](https://www.dpbolvw.net/click-101027391-14462707) (VPS-1)
 - OS: Ubuntu 22.04 LTS.
 - [Node.js](https://nodejs.org/en/) (LTS) and npm
-- Domain or Subdomain Name (e.g., `your.domain.name`) with a DNS A record pointing to your server's IPv4 address.
+- Domain or Subdomain Name (e.g., `YOUR.DOMAIN.NAME`) with a DNS A record pointing to your server's IPv4 address.
 - `Recommend` utilizing a [Turn Server](../coturn/stun-turn.md) the installation documentation accessible [here](../coturn/installation.md).
 
 ---
@@ -39,7 +39,7 @@ $ npm install
 $ npm start
 ```
 
-Check if is correctly installed: [http://your.domain.name:8080](http://your.domain.name:8080)
+Check if is correctly installed: [http://YOUR.DOMAIN.NAME:8080](http://YOUR.DOMAIN.NAME:8080)
 
 ---
 
@@ -93,7 +93,7 @@ $ docker pull mirotalk/c2c:latest
 $ docker-compose up
 ```
 
-Check if is correctly installed: [http://your.domain.name:8080](http://your.domain.name:8080)
+Check if is correctly installed: [http://YOUR.DOMAIN.NAME:8080](http://YOUR.DOMAIN.NAME:8080)
 
 ---
 
@@ -124,7 +124,7 @@ Add the following:
 server {
     listen 80;
     listen [::]:80;
-    server_name your.domain.name;
+    server_name YOUR.DOMAIN.NAME;
 
     return 301 https://$host$request_uri;
 }
@@ -149,11 +149,11 @@ server {
     # Enable HTTP/2
     listen 443 ssl http2;
     listen [::]:443 ssl http2;
-    server_name your.domain.name;
+    server_name YOUR.DOMAIN.NAME;
 
     # Use the Let’s Encrypt certificates
-    ssl_certificate /etc/letsencrypt/live/your.domain.name/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/your.domain.name/privkey.pem;
+    ssl_certificate /etc/letsencrypt/live/YOUR.DOMAIN.NAME/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/YOUR.DOMAIN.NAME/privkey.pem;
 
     location / {
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -181,7 +181,7 @@ $ sudo certbot renew --dry-run
 $ sudo certbot certificates
 ```
 
-Check Your MiroTalk C2C instance: [https://your.domain.name](https://your.domain.name)
+Check Your MiroTalk C2C instance: [https://YOUR.DOMAIN.NAME](https://YOUR.DOMAIN.NAME)
 
 ---
 
@@ -196,10 +196,10 @@ If you prefer `Apache`, configure it with the equivalent settings provided in th
 $ apt install python3-certbot-apache -y
 
 # Setting up ssl
-$ certbot --apache --non-interactive --agree-tos -d your.domain.name -m your.email.address
+$ certbot --apache --non-interactive --agree-tos -d YOUR.DOMAIN.NAME -m your.email.address
 
 # Edit the apache sites
-$ sudo vim /etc/apache2/sites-enabled/your.domain.name.conf
+$ sudo vim /etc/apache2/sites-enabled/YOUR.DOMAIN.NAME.conf
 ```
 
 Add the following:
@@ -207,18 +207,18 @@ Add the following:
 ```bash
 # HTTP — redirect all traffic to HTTPS
 <VirtualHost *:80>
-    ServerName your.domain.name
-    Redirect permanent / https://your.domain.name
+    ServerName YOUR.DOMAIN.NAME
+    Redirect permanent / https://YOUR.DOMAIN.NAME
 </VirtualHost>
 
 # MiroTalk C2C - HTTPS — proxy all requests to the Node app
 <VirtualHost *:443>
-    ServerName your.domain.name
+    ServerName YOUR.DOMAIN.NAME
 
     # SSL Configuration
     SSLEngine on
-    SSLCertificateFile /etc/letsencrypt/live/your.domain.name/fullchain.pem
-    SSLCertificateKeyFile /etc/letsencrypt/live/your.domain.name/privkey.pem
+    SSLCertificateFile /etc/letsencrypt/live/YOUR.DOMAIN.NAME/fullchain.pem
+    SSLCertificateKeyFile /etc/letsencrypt/live/YOUR.DOMAIN.NAME/privkey.pem
     Include /etc/letsencrypt/options-ssl-apache.conf
 
     # Enable HTTP/2 support

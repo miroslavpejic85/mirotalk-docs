@@ -7,7 +7,7 @@
 - Server Selection: Recommended [Hetzner](https://www.hetzner.com/cloud) (CX11) or [Contabo](https://www.dpbolvw.net/click-101027391-14462707) (VPS-S) OS: Ubuntu 22.04 LTS.
 - Use my [personal link](https://hetzner.cloud/?ref=XdRifCzCK3bn) to receive `€⁠20 in cloud credits` on Hetzner.
 - Mandatory [MkDocs](https://www.mkdocs.org/)
-- Domain or Subdomain Name (e.g., `your.domain.name`) with a DNS A record pointing to your server's IPv4 address.
+- Domain or Subdomain Name (e.g., `YOUR.DOMAIN.NAME`) with a DNS A record pointing to your server's IPv4 address.
 
 ---
 
@@ -88,7 +88,7 @@ Add the following:
 server {
     listen 80;
     listen [::]:80;
-    server_name your.domain.name;
+    server_name YOUR.DOMAIN.NAME;
 
     return 301 https://$host$request_uri;
 }
@@ -113,11 +113,11 @@ server {
     # Enable HTTP/2
     listen 443 ssl http2;
     listen [::]:443 ssl http2;
-    server_name your.domain.name;
+    server_name YOUR.DOMAIN.NAME;
 
     # Use the Let’s Encrypt certificates
-    ssl_certificate /etc/letsencrypt/live/your.domain.name/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/your.domain.name/privkey.pem;
+    ssl_certificate /etc/letsencrypt/live/YOUR.DOMAIN.NAME/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/YOUR.DOMAIN.NAME/privkey.pem;
 
     # Directory where the website is located
     root /var/www/site;
@@ -144,7 +144,7 @@ $ sudo certbot renew --dry-run
 $ sudo certbot certificates
 ```
 
-Check Your MiroTalk DOCS instance: [https://your.domain.name](https://your.domain.name)
+Check Your MiroTalk DOCS instance: [https://YOUR.DOMAIN.NAME](https://YOUR.DOMAIN.NAME)
 
 ---
 
@@ -156,7 +156,7 @@ If you prefer `Apache`, configure it with the equivalent settings provided in th
 
 ```bash
 # Edit the apache sites
-vim /etc/apache2/sites-enabled/your.domain.name.conf
+vim /etc/apache2/sites-enabled/YOUR.DOMAIN.NAME.conf
 ```
 
 Add the following:
@@ -164,18 +164,18 @@ Add the following:
 ```bash
 # HTTP — redirect all traffic to HTTPS
 <VirtualHost *:80>
-    ServerName your.domain.name
-    Redirect permanent / https://your.domain.name
+    ServerName YOUR.DOMAIN.NAME
+    Redirect permanent / https://YOUR.DOMAIN.NAME
 </VirtualHost>
 
 # MiroTalk DOCS - HTTPS — proxy all requests to the site Dir
 <VirtualHost *:443>
-    ServerName your.domain.name
+    ServerName YOUR.DOMAIN.NAME
 
     # SSL Configuration
     SSLEngine on
-    SSLCertificateFile /etc/letsencrypt/live/your.domain.name/fullchain.pem
-    SSLCertificateKeyFile /etc/letsencrypt/live/your.domain.name/privkey.pem
+    SSLCertificateFile /etc/letsencrypt/live/YOUR.DOMAIN.NAME/fullchain.pem
+    SSLCertificateKeyFile /etc/letsencrypt/live/YOUR.DOMAIN.NAME/privkey.pem
     Include /etc/letsencrypt/options-ssl-apache.conf
 
     # Enable HTTP/2 support

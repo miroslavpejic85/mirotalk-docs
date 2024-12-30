@@ -6,7 +6,7 @@
 
 - Server Selection: Recommended [Hetzner](https://www.hetzner.com/cloud) (CX11) or [Contabo](https://www.dpbolvw.net/click-101027391-14462707) (VPS-1) OS: Ubuntu 22.04 LTS.
 - Use my [personal link](https://hetzner.cloud/?ref=XdRifCzCK3bn) to receive `€⁠20 in cloud credits` on Hetzner.
-- Domain or Subdomain Name (e.g., `your.domain.name`) with a DNS A record pointing to your server's IPv4 address.
+- Domain or Subdomain Name (e.g., `YOUR.DOMAIN.NAME`) with a DNS A record pointing to your server's IPv4 address.
 - [Certbot](https://certbot.eff.org/) to generate `cert` & `pkey` for `/etc/turnserver.conf`.
 
 ## Installation
@@ -29,11 +29,11 @@ $ sudo apt-get -y install certbot
 
 ## Request SSL Certificate
 
-Replace `your.domain.name` with your real domain or subdomain name.
+Replace `YOUR.DOMAIN.NAME` with your real domain or subdomain name.
 
 ```bash
-# The certificates can be found in /etc/letsencrypt/live/your.domain.name/
-$ sudo certbot certonly --standalone -d your.domain.name
+# The certificates can be found in /etc/letsencrypt/live/YOUR.DOMAIN.NAME/
+$ sudo certbot certonly --standalone -d YOUR.DOMAIN.NAME
 
 # Automatically renew the certificates
 $ sudo certbot renew
@@ -43,7 +43,7 @@ $ sudo certbot renew --nginx
 
 ## Turn_Server config
 
-Open `/etc/turnserver.conf` and add the following by replacing `your.domain.name` with your real domain or subdomain name.
+Open `/etc/turnserver.conf` and add the following by replacing `YOUR.DOMAIN.NAME` with your real domain or subdomain name.
 
 ```ini
 listening-port=3478
@@ -57,14 +57,14 @@ lt-cred-mech
 
 user=your.username:your.password
 
-server-name=your.domain.name
-realm=your.domain.name
+server-name=YOUR.DOMAIN.NAME
+realm=YOUR.DOMAIN.NAME
 
 total-quota=100
 stale-nonce=600
 
-cert=/etc/letsencrypt/live/your.domain.name/fullchain.pem
-pkey=/etc/letsencrypt/live/your.domain.name/privkey.pem
+cert=/etc/letsencrypt/live/YOUR.DOMAIN.NAME/fullchain.pem
+pkey=/etc/letsencrypt/live/YOUR.DOMAIN.NAME/privkey.pem
 
 cipher-list="ECDHE-RSA-AES256-GCM-SHA512:DHE-RSA-AES256-GCM-SHA512:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-SHA384"
 
@@ -116,8 +116,8 @@ docker run -d \
   --network=host \
   --user root \
   -v /etc/turnserver.conf:/etc/coturn/turnserver.conf \
-  -v /etc/letsencrypt/live/your.domain.name/fullchain.pem:/etc/letsencrypt/live/your.domain.name/fullchain.pem \
-  -v /etc/letsencrypt/live/your.domain.name/privkey.pem:/etc/letsencrypt/live/your.domain.name/privkey.pem \
+  -v /etc/letsencrypt/live/YOUR.DOMAIN.NAME/fullchain.pem:/etc/letsencrypt/live/YOUR.DOMAIN.NAME/fullchain.pem \
+  -v /etc/letsencrypt/live/YOUR.DOMAIN.NAME/privkey.pem:/etc/letsencrypt/live/YOUR.DOMAIN.NAME/privkey.pem \
   coturn/coturn
 ```
 
@@ -148,8 +148,8 @@ services:
     restart: unless-stopped
     volumes:
       - /etc/turnserver.conf:/etc/coturn/turnserver.conf
-      - /etc/letsencrypt/live/your.domain.name/fullchain.pem:/etc/letsencrypt/live/your.domain.name/fullchain.pem
-      - /etc/letsencrypt/live/your.domain.name/privkey.pem:/etc/letsencrypt/live/your.domain.name/privkey.pem
+      - /etc/letsencrypt/live/YOUR.DOMAIN.NAME/fullchain.pem:/etc/letsencrypt/live/YOUR.DOMAIN.NAME/fullchain.pem
+      - /etc/letsencrypt/live/YOUR.DOMAIN.NAME/privkey.pem:/etc/letsencrypt/live/YOUR.DOMAIN.NAME/privkey.pem
 ```
 
 Then run `docker-compose up -d`
@@ -161,12 +161,12 @@ Test if it's working:
 - [trickle-ice](https://webrtc.github.io/samples/src/content/peerconnection/trickle-ice/)
 - [icetest](https://icetest.info/)
 
-You can also utilize the built-in MiroTalk service by simply replacing `your.domain.name`, `your.username` and `your.password` with your own values in the following URLs:
+You can also utilize the built-in MiroTalk service by simply replacing `YOUR.DOMAIN.NAME`, `your.username` and `your.password` with your own values in the following URLs:
 
 ```ini
 # Default listening port
-https://p2p.mirotalk.com/icetest?iceServers=[{"urls":"stun:your.domain.name:3478"},{"urls":"turn:your.domain.name:3478","username":"your.username","credential":"your.password"}]
+https://p2p.mirotalk.com/icetest?iceServers=[{"urls":"stun:YOUR.DOMAIN.NAME:3478"},{"urls":"turn:YOUR.DOMAIN.NAME:3478","username":"your.username","credential":"your.password"}]
 
 # Tls listening port
-https://p2p.mirotalk.com/icetest?iceServers=[{"urls":"stun:your.domain.name:5349"},{"urls":"turn:your.domain.name:5349","username":"your.username","credential":"your.password"}]
+https://p2p.mirotalk.com/icetest?iceServers=[{"urls":"stun:YOUR.DOMAIN.NAME:5349"},{"urls":"turn:YOUR.DOMAIN.NAME:5349","username":"your.username","credential":"your.password"}]
 ```
