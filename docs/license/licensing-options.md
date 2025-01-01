@@ -10,13 +10,13 @@ MiroTalk is free and open source, subject to the conditions of the `AGPLv3` (GNU
 
 ## Regular License
 
-If you are using MiroTalk for a `personal project` (**closed-source**) that is `not intended for commercial purposes`, and you don't charge end users, you should purchase the Regular License. This license permits the use of MiroTalk in a single end product without user charges. `Direct support is included.`
+If you are using MiroTalk for a `personal project` (**closed-source**, with the intention to `rebrand` it by changing the logo, name, description, etc.) that is `not intended for commercial purposes`, and you don't charge end users, you should purchase the Regular License. This license permits the use of MiroTalk in a single end product without user charges. `Direct support is included.`
 
 ---
 
 ## Extended License
 
-For `commercial projects` (**closed-source**) where you `intend to charge end users`, the Extended License is required. This license grants the right to use MiroTalk in a single end product that generates revenue from its users. `Direct support is included.`
+For `commercial project` (**closed-source**, with the intention to `rebrand` it by changing the logo, name, description, etc.) where you `intend to charge end users`, the Extended License is required. This license grants the right to use MiroTalk in a single end product that generates revenue from its users. `Direct support is included.`
 
 ---
 
