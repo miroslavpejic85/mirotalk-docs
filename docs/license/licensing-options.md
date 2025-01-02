@@ -31,7 +31,7 @@ For `commercial project` (**closed-source**, with the intention to `rebrand` it 
 
 Selecting the appropriate license is crucial for `legal compliance` and to `support the ongoing maintenance` of the MiroTalk project itself. 
 
-Obtain your license at 👉 [https://codecanyon.net/user/miroslavpejic85](https://codecanyon.net/user/miroslavpejic85).
+Obtain your license at 👉 [https://codecanyon.net/user/miroslavpejic85/portfolio](https://codecanyon.net/user/miroslavpejic85/portfolio).
 
 ---
 
