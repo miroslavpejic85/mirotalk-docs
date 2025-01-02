@@ -436,7 +436,7 @@ cd mirotalkwebrtc
 git pull
 docker-compose down
 docker-compose pull
-docker images |grep '<none>' |awk '{print $3}' |xargs docker rmi
+docker image prune -f
 docker-compose up -d
 ```
 

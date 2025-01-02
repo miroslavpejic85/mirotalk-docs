@@ -299,8 +299,8 @@ For `Docker`:
 cd mirotalk
 git pull
 docker-compose down
-docker pull mirotalk/p2p:latest
-docker images |grep '<none>' |awk '{print $3}' |xargs docker rmi
+docker-compose pull
+docker image prune -f
 docker-compose up -d
 ```
 

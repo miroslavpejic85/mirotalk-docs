@@ -427,8 +427,8 @@ For `Docker`:
 
 cd mirotalksfu
 git pull
-docker pull mirotalk/sfu:latest
-docker images |grep '<none>' |awk '{print $3}' |xargs docker rmi
+docker-compose pull
+docker image prune -f
 docker-compose up -d
 ```
 
