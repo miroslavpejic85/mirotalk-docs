@@ -393,6 +393,7 @@ try {
       screen: false,
       hide: false,
       notify: true,
+      duration: 'unlimited',
       // Token configuration is required if the host system is protected, user authentication is needed, or a room presenter is specified.
       token: {
         username: "username",
@@ -444,6 +445,7 @@ $data = array(
     "screen"        => false,
     "hide"          => false,
     "notify"        => true,
+    "duration"      => "unlimited",
     // Token configuration is required if the host system is protected, user authentication is needed, or a room presenter is specified
     "token"         => array(
         "username"      => "username",
@@ -492,6 +494,7 @@ data = {
     "screen": "false",
     "hide": "false",
     "notify": "true",
+    "duration": "unlimited",
     # Token configuration is required if the host system is protected, user authentication is needed, or a room presenter is specified
     "token": {
         "username": "username",
@@ -527,7 +530,7 @@ MIROTALK_URL="https://sfu.mirotalk.com/api/v1/join"
 curl $MIROTALK_URL \
     --header "authorization: $API_KEY_SECRET" \
     --header "Content-Type: application/json" \
-    --data '{"room":"test","roomPassword":"false","name":"mirotalksfu","audio":"true","video":"true","screen":"false","hide":"false","notify":"true", "token":{"username":"username","password":"password","presenter":"true", "expire":"1h"}}' \
+    --data '{"room":"test","roomPassword":"false","name":"mirotalksfu","audio":"true","video":"true","screen":"false","hide":"false","notify":"true","duration":"unlimited","token":{"username":"username","password":"password","presenter":"true", "expire":"1h"}}' \
     --request POST
 ```
 
