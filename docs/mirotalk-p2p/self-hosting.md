@@ -284,9 +284,8 @@ For `PM2`:
 
 cd mirotalk
 git pull
-pm2 stop app/src/server.js
 sudo npm install
-pm2 start app/src/server.js
+pm2 restart app/src/server.js
 ```
 
 ---

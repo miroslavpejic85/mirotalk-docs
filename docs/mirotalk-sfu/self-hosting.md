@@ -412,10 +412,9 @@ For `PM2`:
 #!/bin/bash
 
 cd mirotalksfu
-git pull
-pm2 stop app/src/Server.js
-sudo npm install
-pm2 start app/src/Server.js
+git pull 
+sudo npm install 
+pm2 restart app/src/Server.js
 ```
 
 ---
