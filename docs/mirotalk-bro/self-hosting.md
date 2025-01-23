@@ -279,7 +279,7 @@ For `PM2`:
 cd mirotalkbro
 git pull
 sudo npm install
-pm2 restart backend/server.js
+pm2 restart app/server.js
 ```
 
 ---
