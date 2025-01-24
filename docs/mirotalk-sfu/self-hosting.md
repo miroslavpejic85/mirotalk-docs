@@ -4,6 +4,7 @@
 
 - Server Selection:
     - [Hetzner](https://www.hetzner.com/cloud) (CPX11) - Use [this link](https://hetzner.cloud/?ref=XdRifCzCK3bn) to receive `€⁠20 in cloud credits`
+    - [Hostinger](https://hostinger.com/?REFERRALCODE=MIROTALK) (KVM 2 or KVM 4)
     - [Contabo](https://www.dpbolvw.net/click-101027391-14462707) (VPS-1)
 - OS: Ubuntu 22.04 LTS.
 - [Node.js](https://nodejs.org/en/) (LTS) and npm
@@ -62,7 +63,7 @@ $ cp app/src/config.template.js app/src/config.js
 Change the `IPv4` with `Your Server public IPv4` in `app/src/config.js`
 
 ```js
-const IPv4 = 'Your Server Public IPv4'; // This is your server's public IP address. If you're using AWS EC2, you'll use the Elastic IP associated with your instance, as this is the public IP that's persistent across reboots.
+const IPv4 = "Your Server Public IPv4"; // This is your server's public IP address. If you're using AWS EC2, you'll use the Elastic IP associated with your instance, as this is the public IP that's persistent across reboots.
 ```
 
 Set the port range for WebRTC communication. This range is used for the dynamic allocation of UDP ports for media streams.
@@ -82,7 +83,7 @@ const rtcMinPort = 40000;
 const rtcMaxPort = 40100;
 ```
 
-<br /> 
+<br />
 
 ```javascript
 {
@@ -412,8 +413,8 @@ For `PM2`:
 #!/bin/bash
 
 cd mirotalksfu
-git pull 
-sudo npm install 
+git pull
+sudo npm install
 pm2 restart app/src/Server.js
 ```
 
