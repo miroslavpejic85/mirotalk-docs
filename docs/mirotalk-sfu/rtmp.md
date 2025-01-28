@@ -25,17 +25,22 @@ Node Media Server uses Node.js to handle RTMP streaming efficiently, suitable fo
 
 ### Setup Instructions
 
-1. **Navigate to Server Directory:**
+1. **Create a rtmp Directory:**
+	```bash
+	$ mkdir app/rtmp
+	```
+
+2. **Navigate to Server Directory:**
 	```bash
 	$ cd rtmpServers/node-media-server
 	```
 
-2. **Configure Server:**
+3. **Configure Server:**
    ```bash
    $ cp src/config.template.js src/config.js
    ```
 
-3. **Set Up Docker:**
+4. **Set Up Docker:**
    ```bash
    $ cp docker-compose.template.yml docker-compose.yml
 
@@ -44,7 +49,7 @@ Node Media Server uses Node.js to handle RTMP streaming efficiently, suitable fo
    $ cd ../..
    ```
 
-4. **Manage Server:**
+5. **Manage Server:**
    ```bash
    # Start Node Media Server
    $ npm run nms-start
@@ -59,7 +64,7 @@ Node Media Server uses Node.js to handle RTMP streaming efficiently, suitable fo
    $ npm run nms-logs
    ```
 
-5. **Admin dashboard**: `https://your-domain-name:8043/admin`  
+6. **Admin dashboard**: `https://your-domain-name:8043/admin`  
    **Api server**: `https://your-domain-name:8043/api/server`  
    **Api streams**: `https://your-domain-name:8043/api/streams`
 
@@ -69,12 +74,17 @@ Nginx RTMP adds RTMP streaming support to the Nginx web server and reverse proxy
 
 ### Setup Instructions
 
-1. **Navigate to Server Directory:**
+1. **Create a rtmp Directory:**
+	```bash
+	$ mkdir app/rtmp
+	```
+
+2. **Navigate to Server Directory:**
    ```bash
    $ cd rtmpServers/nginx-rtmp
    ```
 
-2. **Set Up Docker:**
+3. **Set Up Docker:**
    ```bash
    $ cp docker-compose.template.yml docker-compose.yml
 
@@ -83,7 +93,7 @@ Nginx RTMP adds RTMP streaming support to the Nginx web server and reverse proxy
    $ cd ../..
    ```
 
-3. **Manage Server:**
+4. **Manage Server:**
    ```bash
    # Start Nginx RTMP Server
    $ npm run rtmp-start
@@ -98,7 +108,7 @@ Nginx RTMP adds RTMP streaming support to the Nginx web server and reverse proxy
    $ npm run rtmp-logs
    ```
 
-4. **Check stat:**: `https://your-domain-name:1935/stat`
+5. **Check stat:**: `https://your-domain-name:1935/stat`
 
 ## Demo Projects
 
