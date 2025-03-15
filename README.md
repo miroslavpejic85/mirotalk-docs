@@ -22,6 +22,13 @@
 
 To install `MkDocs`, you can use one of this method:
 
+### Using `brew`
+
+```bash
+$ brew install mkdocs
+$ brew install mkdocs-material
+```
+
 ### Using `pip`
 
 ```bash

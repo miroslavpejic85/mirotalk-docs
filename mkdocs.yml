@@ -1,4 +1,4 @@
-site_name: MiroTalk docs v1.1.64
+site_name: MiroTalk docs v1.1.65
 site_description: MiroTalk WebRTC documentations
 site_author: Miroslav Pejic (miroslav.pejic.85@gmail.com)
 copyright: © 2024 MiroTalk, all rights reserved
@@ -80,8 +80,8 @@ theme:
   favicon: 'images/favicon.ico'
   logo: 'images/logo.svg'
   font:
-    text: 'Roboto'
-    code: 'Roboto Mono'
+    text: 'Inter'
+    code: 'JetBrains Mono'
   logo_link: 'Home'
   extra:
     meta:
