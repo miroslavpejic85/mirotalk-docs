@@ -1,94 +1,88 @@
-site_name: MiroTalk docs v1.1.65
+site_name: MiroTalk docs v1.1.66
 site_description: MiroTalk WebRTC documentations
 site_author: Miroslav Pejic (miroslav.pejic.85@gmail.com)
 copyright: © 2024 MiroTalk, all rights reserved
+
 # Navigation Bar
 nav:
   - Home: index.md
   - changelogs: changelogs/changelogs.md
   - coturn:
-    - stun-turn: coturn/stun-turn.md
-    - installation: coturn/installation.md
+      - stun-turn: coturn/stun-turn.md
+      - installation: coturn/installation.md
   - docs:
-    - self-hosting: docs/self-hosting.md
+      - self-hosting: docs/self-hosting.md
   - licensing-options: license/licensing-options.md
   - mirotalk-bro:
-    - about: https://codecanyon.net/item/mirotalk-bro-webrtc-p2p-live-broadcast/45887113
-    - api: mirotalk-bro/api.md
-    - join-room: mirotalk-bro/join-room.md
-    - ngrok: mirotalk-bro/ngrok.md
-    - self-hosting: mirotalk-bro/self-hosting.md
+      - about: https://codecanyon.net/item/mirotalk-bro-webrtc-p2p-live-broadcast/45887113
+      - api: mirotalk-bro/api.md
+      - join-room: mirotalk-bro/join-room.md
+      - ngrok: mirotalk-bro/ngrok.md
+      - self-hosting: mirotalk-bro/self-hosting.md
   - mirotalk-c2c:
-    - about: https://codecanyon.net/item/mirotalk-c2c-webrtc-real-time-cam-2-cam-video-conferences-and-screen-sharing/43383005
-    - api: mirotalk-c2c/api.md
-    - join-room: mirotalk-c2c/join-room.md
-    - ngrok: mirotalk-c2c/ngrok.md
-    - self-hosting: mirotalk-c2c/self-hosting.md
+      - about: https://codecanyon.net/item/mirotalk-c2c-webrtc-real-time-cam-2-cam-video-conferences-and-screen-sharing/43383005
+      - api: mirotalk-c2c/api.md
+      - join-room: mirotalk-c2c/join-room.md
+      - ngrok: mirotalk-c2c/ngrok.md
+      - self-hosting: mirotalk-c2c/self-hosting.md
   - mirotalk-p2p:
-    - about: https://codecanyon.net/item/mirotalk-p2p-webrtc-realtime-video-conferences/38376661
-    - api: mirotalk-p2p/api.md
-    - host-protection: mirotalk-p2p/host-protection.md 
-    - join-room: mirotalk-p2p/join-room.md
-    - ngrok: mirotalk-p2p/ngrok.md
-    - self-hosting: mirotalk-p2p/self-hosting.md
+      - about: https://codecanyon.net/item/mirotalk-p2p-webrtc-realtime-video-conferences/38376661
+      - api: mirotalk-p2p/api.md
+      - host-protection: mirotalk-p2p/host-protection.md 
+      - join-room: mirotalk-p2p/join-room.md
+      - ngrok: mirotalk-p2p/ngrok.md
+      - self-hosting: mirotalk-p2p/self-hosting.md
   - mirotalk-sfu:
-    - about: https://codecanyon.net/item/mirotalk-sfu-webrtc-realtime-video-conferences/40769970
-    - api: mirotalk-sfu/api.md
-    - host-protection: mirotalk-sfu/host-protection.md 
-    - join-room: mirotalk-sfu/join-room.md
-    - ngrok: mirotalk-sfu/ngrok.md
-    - rtmp: mirotalk-sfu/rtmp.md
-    - self-hosting: mirotalk-sfu/self-hosting.md
+      - about: https://codecanyon.net/item/mirotalk-sfu-webrtc-realtime-video-conferences/40769970
+      - api: mirotalk-sfu/api.md
+      - host-protection: mirotalk-sfu/host-protection.md 
+      - join-room: mirotalk-sfu/join-room.md
+      - ngrok: mirotalk-sfu/ngrok.md
+      - rtmp: mirotalk-sfu/rtmp.md
+      - self-hosting: mirotalk-sfu/self-hosting.md
   - mirotalk-web:
-    - about: https://codecanyon.net/item/a-selfhosted-mirotalks-webrtc-rooms-scheduler-server/42643313
-    - api: mirotalk-web/api.md
-    - ngrok: mirotalk-web/ngrok.md
-    - self-hosting: mirotalk-web/self-hosting.md
+      - about: https://codecanyon.net/item/a-selfhosted-mirotalks-webrtc-rooms-scheduler-server/42643313
+      - api: mirotalk-web/api.md
+      - ngrok: mirotalk-web/ngrok.md
+      - self-hosting: mirotalk-web/self-hosting.md
   - ngrok: ngrok/ngrok.md
   - utility:
-    - docker-compose: utility/docker-compose.md
-    - ftp: utility/ftp.md
-    - nvm: utility/nvm.md 
+      - docker-compose: utility/docker-compose.md
+      - ftp: utility/ftp.md
+      - nvm: utility/nvm.md 
   - webrtc:
-    - architectures: webrtc/architectures.md
-# theme: # material || readthedocs || mkdocs
+      - architectures: webrtc/architectures.md
+
+# Theme Configuration
 theme:
   name: material
   palette:
-    # Light mode palette
     - media: "(prefers-color-scheme: light)"
-      scheme: 'default'
-      primary: 'blue'
-      accent: 'light blue'
-      background: 'grey'
-      text: 'black'
-      code: 'monokai'
+      scheme: default
+      primary: blue
+      accent: light blue
       toggle:
-        icon: 'material/brightness-7'
-        name: 'Switch to dark mode'
-    # Dark mode palette
+        icon: material/brightness-7
+        name: Switch to dark mode
     - media: "(prefers-color-scheme: dark)"
-      scheme: 'slate'
-      primary: 'black'
-      accent: 'dark blue'
-      background: 'black'
-      text: 'white'
-      code: 'monokai'
+      scheme: slate
+      primary: black
+      accent: dark blue
       toggle:
-        icon: 'material/brightness-4'
-        name: 'Switch to system preference'
-  favicon: 'images/favicon.ico'
-  logo: 'images/logo.svg'
+        icon: material/brightness-4
+        name: Switch to system preference
+  favicon: images/favicon.ico
+  logo: images/logo.svg
   font:
-    text: 'Poppins'
-    code: 'Fira Code'
-  logo_link: 'Home'
+    text: Poppins
+    code: Fira Code
   extra:
     meta:
-      description: 'MiroTalk WebRTC Ultimate Bundle'
-      keywords: 'WebRTC'
+      description: MiroTalk WebRTC Ultimate Bundle
+      keywords: WebRTC
   features:
     - content.code.copy
+
 # Extensions
 markdown_extensions:
   - pymdownx.highlight:
