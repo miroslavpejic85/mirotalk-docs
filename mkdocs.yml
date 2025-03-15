@@ -74,8 +74,8 @@ theme:
   favicon: images/favicon.ico
   logo: images/logo.svg
   font:
-    text: Poppins
-    code: Fira Code
+    text: 'Inter'
+    code: 'JetBrains Mono'
   extra:
     meta:
       description: MiroTalk WebRTC Ultimate Bundle
