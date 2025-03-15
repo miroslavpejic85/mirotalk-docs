@@ -80,8 +80,8 @@ theme:
   favicon: 'images/favicon.ico'
   logo: 'images/logo.svg'
   font:
-    text: 'Inter'
-    code: 'JetBrains Mono'
+    text: 'Poppins'
+    code: 'Fira Code'
   logo_link: 'Home'
   extra:
     meta:
