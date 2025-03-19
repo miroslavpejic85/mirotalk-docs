@@ -62,7 +62,7 @@ To integrate MiroTalk P2P via iframe, include the provided HTML and JavaScript s
 | `audio`      | Number      | Enable (1) or disable (0) audio                                                                          |
 | `video`      | Number      | Enable (1) or disable (0) video                                                                          |
 | `screen`     | Number      | Enable (1) or disable (0) screen sharing                                                                 |
-| `hide`       | Number      | Hide UI elements (1 to enable, 0 to disable)                                                             |
+| `hide`       | Number      | Hide Self view (1 to enable, 0 to disable)                                                               |
 | `notify`     | Number      | Enable (1) or disable (0) notifications                                                                  |
 | `token`      | string      | Token for the user. Optional if `HOST_PROTECTED` or `HOST_USER_AUTH` is set to `true` in the `.env` file |
 | `width`      | String      | Set the width of the iframe (e.g., "100vw")                                                              |

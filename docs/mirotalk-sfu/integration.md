@@ -67,7 +67,7 @@ To integrate MiroTalk SFU via iframe, include the provided HTML and JavaScript s
 | `audio`        | Number        | Enable (1) or disable (0) audio                                                                               |
 | `video`        | Number        | Enable (1) or disable (0) video                                                                               |
 | `screen`       | Number        | Enable (1) or disable (0) screen sharing                                                                      |
-| `hide`         | Number        | Hide UI elements (1 to enable, 0 to disable)                                                                  |
+| `hide`         | Number        | Hide Self view (1 to enable, 0 to disable)                                                                    |
 | `notify`       | Number        | Enable (1) or disable (0) notifications                                                                       |
 | `duration`     | String        | Set a session duration (e.g., "01:30:00" for 1.5 hours)                                                       |
 | `token`        | string        | Token for the user. Optional if `host.protected` or `host.user_auth` is set to `true` in the `config.js` file |
