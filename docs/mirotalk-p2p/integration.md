@@ -39,6 +39,7 @@ To integrate MiroTalk P2P via an iframe, add the provided HTML and JavaScript sn
           screen: 0,
           hide: 0,
           notify: 0,
+          token: null,
           width: "100vw",
           height: "100vh",
           parentNode: document.querySelector("#meet"),

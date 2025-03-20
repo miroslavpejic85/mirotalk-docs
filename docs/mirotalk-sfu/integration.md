@@ -28,7 +28,7 @@ To integrate MiroTalk SFU via an iframe, add the provided HTML and JavaScript sn
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MiroTalk SFU Iframe Demo</title>
 
-    <script src="https://YOUR-DOMAIN-NAME/js/iframe.js" defer></script>
+    <script src="https://YOUR-DOMAIN-NAME/js/Iframe.js" defer></script>
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
@@ -43,6 +43,7 @@ To integrate MiroTalk SFU via an iframe, add the provided HTML and JavaScript sn
           hide: 0,
           notify: 0,
           duration: "unlimited", // HH:MM:SS
+          token: null,
           width: "100vw",
           height: "100vh",
           parentNode: document.querySelector("#meet"),
