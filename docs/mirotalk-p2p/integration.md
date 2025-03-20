@@ -14,7 +14,7 @@ This integration allows you to embed MiroTalk P2P into your website using an ifr
 
 ## Usage
 
-To integrate MiroTalk P2P via iframe, include the provided HTML and JavaScript snippet in your webpage.
+To integrate MiroTalk P2P via an iframe, add the provided HTML and JavaScript snippet to your webpage. Replace `YOUR-DOMAIN-NAME` with the URL of your `MiroTalk P2P instance`.
 
 ### Example Implementation
 
