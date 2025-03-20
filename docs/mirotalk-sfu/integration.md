@@ -16,7 +16,7 @@ This integration allows you to embed MiroTalk SFU into your website using an ifr
 
 ## Usage
 
-To integrate MiroTalk SFU via an iframe, add the provided HTML and JavaScript snippet to your webpage. Replace `YOUR-DOMAIN-NAME` with the URL of your `MiroTalk SFU instance`.
+To integrate MiroTalk SFU via an iframe, add the provided HTML and JavaScript snippet to your webpage.
 
 ### Example Implementation
 
