@@ -78,6 +78,7 @@ Set the port range for WebRTC communication. This range is used for the dynamic 
     Note: 
     - When running in Docker, use 'network mode: host' for improved performance.
     - Alternatively, enable 'webRtcServerActive: true' mode for better scalability.
+    - Make sure these port ranges are not blocked by the firewall, if they are, add the necessary rules
 */
 const rtcMinPort = 40000;
 const rtcMaxPort = 40100;
