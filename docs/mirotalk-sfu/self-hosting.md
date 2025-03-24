@@ -63,7 +63,7 @@ $ cp app/src/config.template.js app/src/config.js
 Change the `IPv4` with `Your Server public IPv4` in `app/src/config.js`
 
 ```js
-const IPv4 = 'Your Server Public IPv4'; // This is your server's public IP address (leave it empty '' to be be automatically detected). If you're using AWS EC2, you'll use the Elastic IP associated with your instance, as this is the public IP that's persistent across reboots.
+let IPv4 = 'Your Server Public IPv4'; // This is your server's public IP address (leave it empty '' to be be automatically detected). If you're using AWS EC2, you'll use the Elastic IP associated with your instance, as this is the public IP that's persistent across reboots.
 ```
 
 Set the port range for WebRTC communication. This range is used for the dynamic allocation of UDP ports for media streams.
