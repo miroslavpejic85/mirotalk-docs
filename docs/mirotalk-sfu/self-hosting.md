@@ -3,9 +3,9 @@
 ## Requirements
 
 - Server Selection:
-    - [Hetzner](https://www.hetzner.com/cloud) (CPX11) - Use [this link](https://hetzner.cloud/?ref=XdRifCzCK3bn) to receive `€⁠20 in cloud credits`
-    - [Hostinger](https://hostinger.com/?REFERRALCODE=MIROTALK) (KVM 2 or KVM 4)
-    - [Contabo](https://www.dpbolvw.net/click-101027391-14462707) (VPS-1)
+  - [Hetzner](https://www.hetzner.com/cloud) (CPX11) - Use [this link](https://hetzner.cloud/?ref=XdRifCzCK3bn) to receive `€⁠20 in cloud credits`
+  - [Hostinger](https://hostinger.com/?REFERRALCODE=MIROTALK) (KVM 2 or KVM 4)
+  - [Contabo](https://www.dpbolvw.net/click-101027391-14462707) (VPS-1)
 - OS: Ubuntu 22.04 LTS.
 - [Node.js](https://nodejs.org/en/) (LTS) and npm
 - [FFmpeg](https://ffmpeg.org/download.html) for optional [RTMP](../mirotalk-sfu/rtmp.md) streaming support.
@@ -60,10 +60,11 @@ $ cp app/src/config.template.js app/src/config.js
 
 ### Config.js
 
-Change the `IPv4` with `Your Server public IPv4` in `app/src/config.js`
+Change the `ENVIRONMENT` and the `PUBLIC_IP` in the `app/src/config.js`
 
 ```js
-let IPv4 = 'Your Server Public IPv4'; // This is your server's public IP address (leave it empty '' to be be automatically detected). If you're using AWS EC2, you'll use the Elastic IP associated with your instance, as this is the public IP that's persistent across reboots.
+const ENVIRONMENT = "production";
+const PUBLIC_IP = "Your Server Public IPv4";
 ```
 
 Set the port range for WebRTC communication. This range is used for the dynamic allocation of UDP ports for media streams.
@@ -80,8 +81,8 @@ Set the port range for WebRTC communication. This range is used for the dynamic 
     - Alternatively, enable 'webRtcServerActive: true' mode for better scalability.
     - Make sure these port ranges are not blocked by the firewall, if they are, add the necessary rules
 */
-const rtcMinPort = 40000;
-const rtcMaxPort = 40100;
+const RTC_MIN_PORT = 40000;
+const RTC_MAX_PORT = 40100;
 ```
 
 <br />
@@ -89,26 +90,26 @@ const rtcMaxPort = 40100;
 ```javascript
 {
     protocol: "udp",
-    ip: "0.0.0.0",
+    ip: LISTEN_IP,
     announcedAddress: IPv4,
-    portRange: { min: rtcMinPort, max: rtcMaxPort } },
+    portRange: { min: RTC_MIN_PORT, max: RTC_MAX_PORT } },
 {
     protocol: "tcp",
-    ip: "0.0.0.0",
+    ip: LISTEN_IP,
     announcedAddress: IPv4,
-    portRange: { min: rtcMinPort, max: rtcMaxPort }
+    portRange: { min: RTC_MIN_PORT, max: RTC_MAX_PORT }
 },
 
 // If you are not behind a NAT
 {
     protocol: "udp",
     ip: IPv4,
-    portRange: { min: rtcMinPort, max: rtcMaxPort }
+    portRange: { min: RTC_MIN_PORT, max: RTC_MAX_PORT }
 },
 {
     protocol: "tcp",
     ip: IPv4,
-    portRange: { min: rtcMinPort, max: rtcMaxPort }
+    portRange: { min: RTC_MIN_PORT, max: RTC_MAX_PORT }
 },
 ```
 
@@ -118,9 +119,9 @@ Set the `inbound rules` if needed
 
 | Port range  | Protocol | Source    | Description         |
 | ----------- | -------- | --------- | ------------------- |
-| 3010        | TCP      | 0.0.0.0/0 | App listen on tcp   |
-| 40000-40100 | TCP      | 0.0.0.0/0 | RTC port ranges tcp |
-| 40000-40100 | UDP      | 0.0.0.0/0 | RTC port ranges udp |
+| 3010        | TCP      | 0.0.0.0/0 | APP listen on TCP   |
+| 40000-40100 | TCP      | 0.0.0.0/0 | RTC port ranges TCP |
+| 40000-40100 | UDP      | 0.0.0.0/0 | RTC port ranges UDP |
 
 ```bash
 # Check the firewall Status: (active/inactive)
@@ -152,15 +153,15 @@ Here's how it works:
 ```javascript
 {
     protocol: 'udp',
-    ip: '0.0.0.0',
+    ip: LISTEN_IP,
     announcedAddress: IPv4,
-    portRange: { min: rtcMinPort, max: rtcMinPort + numWorkers }
+    portRange: { min: RTC_MIN_PORT, max: RTC_MIN_PORT + NUM_WORKERS }
 },
 {
     protocol: 'tcp',
-    ip: '0.0.0.0',
+    ip: LISTEN_IP,
     announcedAddress: IPv4,
-    portRange: { min: rtcMinPort, max: rtcMinPort + numWorkers }
+    portRange: { min: RTC_MIN_PORT, max: RTC_MIN_PORT + NUM_WORKERS }
 },
 ```
 
