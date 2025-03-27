@@ -63,8 +63,8 @@ $ cp app/src/config.template.js app/src/config.js
 Change the `ENVIRONMENT` and the `PUBLIC_IP` in the `app/src/config.js`
 
 ```js
-const ENVIRONMENT = "production";
-const PUBLIC_IP = "Your Server Public IPv4";
+const ENVIRONMENT = 'production';
+const PUBLIC_IP = 'Your Server Public IPv4';
 ```
 
 Set the port range for WebRTC communication. This range is used for the dynamic allocation of UDP ports for media streams.
@@ -89,12 +89,12 @@ const RTC_MAX_PORT = 40100;
 
 ```javascript
 {
-    protocol: "udp",
+    protocol: 'udp',
     ip: LISTEN_IP,
     announcedAddress: IPv4,
     portRange: { min: RTC_MIN_PORT, max: RTC_MAX_PORT } },
 {
-    protocol: "tcp",
+    protocol: 'tcp',
     ip: LISTEN_IP,
     announcedAddress: IPv4,
     portRange: { min: RTC_MIN_PORT, max: RTC_MAX_PORT }
@@ -102,12 +102,12 @@ const RTC_MAX_PORT = 40100;
 
 // If you are not behind a NAT
 {
-    protocol: "udp",
+    protocol: 'udp',
     ip: IPv4,
     portRange: { min: RTC_MIN_PORT, max: RTC_MAX_PORT }
 },
 {
-    protocol: "tcp",
+    protocol: 'tcp',
     ip: IPv4,
     portRange: { min: RTC_MIN_PORT, max: RTC_MAX_PORT }
 },
