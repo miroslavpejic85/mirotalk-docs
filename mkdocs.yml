@@ -1,4 +1,4 @@
-site_name: MiroTalk docs v1.1.71
+site_name: MiroTalk docs v1.1.72
 site_description: MiroTalk WebRTC documentations
 site_author: Miroslav Pejic (miroslav.pejic.85@gmail.com)
 copyright: © 2025 MiroTalk, all rights reserved
@@ -16,18 +16,21 @@ nav:
   - mirotalk-bro:
       - about: https://codecanyon.net/item/mirotalk-bro-webrtc-p2p-live-broadcast/45887113
       - api: mirotalk-bro/api.md
+      - configurations: mirotalk-bro/configurations.md
       - join-room: mirotalk-bro/join-room.md
       - ngrok: mirotalk-bro/ngrok.md
       - self-hosting: mirotalk-bro/self-hosting.md
   - mirotalk-c2c:
       - about: https://codecanyon.net/item/mirotalk-c2c-webrtc-real-time-cam-2-cam-video-conferences-and-screen-sharing/43383005
       - api: mirotalk-c2c/api.md
+      - configurations: mirotalk-c2c/configurations.md
       - join-room: mirotalk-c2c/join-room.md
       - ngrok: mirotalk-c2c/ngrok.md
       - self-hosting: mirotalk-c2c/self-hosting.md
   - mirotalk-p2p:
       - about: https://codecanyon.net/item/mirotalk-p2p-webrtc-realtime-video-conferences/38376661
       - api: mirotalk-p2p/api.md
+      - configurations: mirotalk-p2p/configurations.md
       - host-protection: mirotalk-p2p/host-protection.md
       - integration: mirotalk-p2p/integration.md
       - join-room: mirotalk-p2p/join-room.md
@@ -36,6 +39,7 @@ nav:
   - mirotalk-sfu:
       - about: https://codecanyon.net/item/mirotalk-sfu-webrtc-realtime-video-conferences/40769970
       - api: mirotalk-sfu/api.md
+      - configurations: mirotalk-sfu/configurations.md
       - host-protection: mirotalk-sfu/host-protection.md 
       - integration: mirotalk-sfu/integration.md
       - join-room: mirotalk-sfu/join-room.md
@@ -45,6 +49,7 @@ nav:
   - mirotalk-web:
       - about: https://codecanyon.net/item/a-selfhosted-mirotalks-webrtc-rooms-scheduler-server/42643313
       - api: mirotalk-web/api.md
+      - configurations: mirotalk-web/configurations.md
       - ngrok: mirotalk-web/ngrok.md
       - self-hosting: mirotalk-web/self-hosting.md
   - ngrok: ngrok/ngrok.md
