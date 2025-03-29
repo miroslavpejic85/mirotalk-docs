@@ -5,12 +5,12 @@
 This system relies on two primary configuration files for customization:  
 
 1. **[`config.js`](https://github.com/miroslavpejic85/mirotalksfu/blob/main/app/src/config.template.js)**  
-   - Contains all non-sensitive application settings with detailed, in-line documentation.  
-   - Ideal for configuring general application behavior and features.  
+      - Contains all non-sensitive application settings with detailed, in-line documentation.  
+      - Ideal for configuring general application behavior and features.  
 
 2. **[`.env`](https://github.com/miroslavpejic85/mirotalksfu/blob/main/.env.template)**  
-   - Stores sensitive credentials and environment-specific variables.  
-   - Should always be included in `.gitignore` to prevent accidental commits to version control.  
+      - Stores sensitive credentials and environment-specific variables.  
+      - Should always be included in `.gitignore` to prevent accidental commits to version control.  
 
 ## **Best Practices:**  
 - Utilize `config.js` for non-sensitive, general application settings.  
