@@ -2,7 +2,15 @@
 
 ![settings](../images/settings.png)
 
-This system relies on two primary configuration files for customization:  
+This system relies on two primary configuration files for customization:
+
+!!! warning "Configuration Required"
+    **Before proceeding, ensure you've copied these critical files:**  
+
+    - 📄 `app/src/config.template.js` → `app/src/config.js`  
+    - 🔧 `.env.template` → `.env`  
+
+    **Failure to do this will cause application errors.** 
 
 1. **[`config.js`](https://github.com/miroslavpejic85/mirotalk/blob/master/app/src/config.template.js)**  
       - Contains all non-sensitive application settings with detailed, in-line documentation.  

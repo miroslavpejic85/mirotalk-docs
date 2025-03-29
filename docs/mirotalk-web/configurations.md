@@ -4,6 +4,14 @@
 
 This system relies on two primary configuration files for customization:  
 
+!!! warning "Configuration Required"
+    **Before proceeding, ensure you've copied these critical files:**  
+
+    - 📄 `backend/config.template.js` → `backend/config.js`  
+    - 🔧 `.env.template` → `.env`  
+
+    **Failure to do this will cause application errors.** 
+
 1. **[`config.js`](https://github.com/miroslavpejic85/mirotalkwebrtc/blob/master/backend/config.template.js)**  
       - Contains all non-sensitive application settings with detailed, in-line documentation.  
       - Ideal for configuring general application behavior and features.  
