@@ -226,16 +226,7 @@ $ cp app/src/config.template.js app/src/config.js
 
 # Copy .env.template to .env and edit it if needed
 $ cp .env.template .env
-```
 
-Make sure to load the `.env` file in your `docker-compose.yml` by adding:
-
-```yaml
-env_file:
-  - .env
-```
-
-```bash
 # Copy docker-compose.template.yml in docker-compose.yml and customize it according to your needs if needed
 $ cp docker-compose.template.yml docker-compose.yml
 
