@@ -4,6 +4,8 @@
 
 We introduced two types of RTMP (Real-Time Messaging Protocol) servers: **[Node Media Server](https://github.com/illuspas/Node-Media-Server)** and **[Nginx RTMP](https://github.com/tiangolo/nginx-rtmp-docker)**. These servers handle streaming media efficiently, making them suitable for applications like MiroTalk SFU (Selective Forwarding Unit).
 
+---
+
 ## Prerequisites
 
 ```bash
@@ -18,6 +20,8 @@ $ sudo apt install -y docker-compose
 # Install ffmpeg
 $ sudo apt install -y ffmpeg
 ```
+
+---
 
 ## Node Media Server
 
@@ -68,6 +72,8 @@ Node Media Server uses Node.js to handle RTMP streaming efficiently, suitable fo
    **Api server**: `https://your-domain-name:8043/api/server`  
    **Api streams**: `https://your-domain-name:8043/api/streams`
 
+---
+
 ## Nginx RTMP
 
 Nginx RTMP adds RTMP streaming support to the Nginx web server and reverse proxy.
@@ -110,22 +116,23 @@ Nginx RTMP adds RTMP streaming support to the Nginx web server and reverse proxy
 
 5. **Check stat:**: `https://your-domain-name:1935/stat`
 
-## Demo Projects
-
-Explore our 2 demo projects designed to test your RTMP capabilities:
-
-### client-server-axios
-- Method: POST
-- Description: This project utilizes **[Axios](https://axios-http.com)** for communication.
-
-### client-server-socket
-- Technology: **[socket.io](https://socket.io)**
-- Description: This project uses socket.io for real-time communication.
-
-Feel free to try them out and see how they work with your RTMP setup!
-
 ---
 
+## Demo Projects
+
+Explore our **[2 RTMP Servers](https://github.com/miroslavpejic85/mirotalksfu/tree/main/rtmpServers)** to test your RTMP capabilities:
+
+### 1. Client-Server-Axios  
+- **Method:** POST  
+- **Description:** Uses **[Axios](https://axios-http.com)** for HTTP communication.  
+
+### 2. Client-Server-Socket  
+- **Technology:** **[Socket.io](https://socket.io)**  
+- **Description:** Enables real-time communication via WebSockets.  
+
+Try them out to see how they integrate with your RTMP workflow!  
+
+---
 
 ## Using OBS with RTMP Server
 
