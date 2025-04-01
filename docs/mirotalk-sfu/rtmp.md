@@ -4,7 +4,7 @@
 
 ## Overview
 
-MiroTalk offers two [RTMP (Real-Time Messaging Protocol) servers](https://github.com/miroslavpejic85/mirotalksfu/tree/main/rtmpServers):
+MiroTalk offers two **[RTMP (Real-Time Messaging Protocol) servers](https://github.com/miroslavpejic85/mirotalksfu/tree/main/rtmpServers)**:
 
 1. **[Node Media Server](https://github.com/illuspas/Node-Media-Server)** - Node.js-based solution with admin dashboard
 2. **[Nginx RTMP](https://github.com/tiangolo/nginx-rtmp-docker)** - Lightweight Nginx module for RTMP streaming
@@ -15,7 +15,10 @@ Both integrate seamlessly with MiroTalk SFU (Selective Forwarding Unit).
 
 ## 🛠 Prerequisites
 
-Before setup, ensure your system has:
+Before setup, ensure your system has: 
+- **[docker-engine](https://docs.docker.com/engine/install/)** 
+- **[docker-compose](https://docs.docker.com/compose/install/)**
+- **[ffmpeg](https://ffmpeg.org)**
 
 ```bash
 # Update package lists
