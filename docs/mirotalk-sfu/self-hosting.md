@@ -86,6 +86,9 @@ Set the port range for WebRTC communication. This range is used for the dynamic 
 */
 const RTC_MIN_PORT = 40000;
 const RTC_MAX_PORT = 40100;
+
+// Maximum workers should not exceed available CPU cores (e.g., 4 workers max on 4-core CPU)
+const NUM_WORKERS = 1;
 ```
 
 <br />
@@ -93,26 +96,26 @@ const RTC_MAX_PORT = 40100;
 ```javascript
 {
     protocol: 'udp',
-    ip: LISTEN_IP,
-    announcedAddress: IPv4,
+    ip: '0.0.0.0',
+    announcedAddress: 'Your Server Public IPv4',
     portRange: { min: RTC_MIN_PORT, max: RTC_MAX_PORT } },
 {
     protocol: 'tcp',
-    ip: LISTEN_IP,
-    announcedAddress: IPv4,
-    portRange: { min: RTC_MIN_PORT, max: RTC_MAX_PORT }
+    ip: '0.0.0.0',
+    announcedAddress: 'Your Server Public IPv4',
+    portRange: { min: RTC_MIN_PORT, max: RTC_MAX_PORT } },
 },
 
 // If you are not behind a NAT
 {
     protocol: 'udp',
-    ip: IPv4,
-    portRange: { min: RTC_MIN_PORT, max: RTC_MAX_PORT }
+    ip: 'Your Server Public IPv4',
+    portRange: { min: RTC_MIN_PORT, max: RTC_MAX_PORT } },
 },
 {
     protocol: 'tcp',
-    ip: IPv4,
-    portRange: { min: RTC_MIN_PORT, max: RTC_MAX_PORT }
+    ip: 'Your Server Public IPv4',
+    portRange: { min: RTC_MIN_PORT, max: RTC_MAX_PORT } },
 },
 ```
 
@@ -156,14 +159,14 @@ Here's how it works:
 ```javascript
 {
     protocol: 'udp',
-    ip: LISTEN_IP,
-    announcedAddress: IPv4,
+    ip: '0.0.0.0',
+    announcedAddress: 'Your Server Public IPv4',
     portRange: { min: RTC_MIN_PORT, max: RTC_MIN_PORT + NUM_WORKERS }
 },
 {
     protocol: 'tcp',
-    ip: LISTEN_IP,
-    announcedAddress: IPv4,
+    ip: '0.0.0.0',
+    announcedAddress: 'Your Server Public IPv4',
     portRange: { min: RTC_MIN_PORT, max: RTC_MIN_PORT + NUM_WORKERS }
 },
 ```
