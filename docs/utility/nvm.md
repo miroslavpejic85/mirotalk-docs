@@ -9,13 +9,13 @@ Here's a step-by-step guide on how to use [NVM](https://github.com/nvm-sh/nvm) (
 If you haven't already installed NVM, you can do so by running the following command in your terminal:
 
 ```bash
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.2/install.sh | bash
 ```
 
 Or, if you prefer using Wget:
 
 ```bash
-wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.2/install.sh | bash
 ```
 
 This command will install NVM on your system. You may need to restart your terminal or run `source ~/.bashrc` (or `~/.zshrc` if you use Zsh) to start using NVM.
@@ -49,7 +49,7 @@ nvm install X.X.X
 Replace `X.X.X` with the version number you want to install. For example, to install Node.js version `18.18.2`:
 
 ```bash
-nvm install 18.20.5
+nvm install v22.14.0
 ```
 
 ## Use the Installed Node.js Version
@@ -63,7 +63,7 @@ nvm use X.X.X
 For example:
 
 ```bash
-nvm use 18.20.5
+nvm use v22.14.0
 ```
 
 You can check the current Node.js version in use with:
@@ -80,10 +80,10 @@ If you want to set a default Node.js version to be used in new shell sessions, y
 nvm alias default X.X.X
 ```
 
-For example, to set version `18.18.2` as the default:
+For example, to set version `v22.14.0` as the default:
 
 ```bash
-nvm alias default 18.18.2
+nvm alias default v22.14.0
 ```
 
 Now you have successfully installed and managed a specific version of Node.js using NVM.
