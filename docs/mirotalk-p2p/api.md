@@ -388,6 +388,7 @@ try {
     body: JSON.stringify({
       room: "test",
       name: "mirotalk",
+      avatar: false, // https://p2p.mirotalk.com/images/mirotalk-logo.png
       audio: true,
       video: true,
       screen: false,
@@ -438,6 +439,7 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 $data = array(
     "room"          => "test",
     "name"          => "mirotalk",
+    "avatar"        => false, // https://p2p.mirotalk.com/images/mirotalk-logo.png
     "audio"         => true,
     "video"         => true,
     "screen":       => false,
@@ -485,6 +487,7 @@ headers = {
 data = {
     "room": "test",
     "name": "mirotalk",
+    "avatar": "false", # https://p2p.mirotalk.com/images/mirotalk-logo.png
     "audio": "true",
     "video": "true",
     "screen": "false",
@@ -517,16 +520,33 @@ print("join:", data["join"])
 ```bash
 #!/bin/bash
 
-API_KEY_SECRET="mirotalksfu_default_secret"
+# Configuration
+API_KEY_SECRET="mirotalkp2p_default_secret"
 MIROTALK_URL="https://p2p.mirotalk.com/api/v1/join"
 
-# Token configuration is required if the host system is protected, user authentication is needed, or a room presenter is specified
+# Join request data
+REQUEST_DATA='{
+  "room": "test",
+  "name": "mirotalk",
+  "avatar": false,
+  "audio": true,
+  "video": true,
+  "screen": false,
+  "hide": false,
+  "notify": true,
+  "token": { 
+    "username": "username",
+    "password": "password",
+    "presenter": true,
+    "expire": "1h"
+  }
+}' # Token configuration is required if the host system is protected, user authentication is needed, or a room presenter is specified
 
-curl $MIROTALK_URL \
-    --header "authorization: $API_KEY_SECRET" \
-    --header "Content-Type: application/json" \
-    --data '{"room":"test","name":"mirotalksfu","audio":"true","video":"true","screen":"false","hide":"false","notify":"true","token":{"username":"username","password":"password","presenter":"true", "expire":"1h"}}' \
-    --request POST
+# Make the API request
+curl -X POST "$MIROTALK_URL" \
+  -H "authorization: $API_KEY_SECRET" \
+  -H "Content-Type: application/json" \
+  -d "$REQUEST_DATA"
 ```
 
 ---
