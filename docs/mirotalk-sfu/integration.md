@@ -37,6 +37,7 @@ To integrate MiroTalk SFU via an iframe, add the provided HTML and JavaScript sn
           room: "test",
           roomPassword: 0,
           name: "mirotalk",
+          avatar: 0,
           audio: 0,
           video: 0,
           screen: 0,
@@ -65,6 +66,7 @@ To integrate MiroTalk SFU via an iframe, add the provided HTML and JavaScript sn
 | `room`         | String        | The room ID to join                                                                                           |
 | `roomPassword` | String/Number | Password for the room (0 for no password)                                                                     |
 | `name`         | String        | Display name of the participant                                                                               |
+| `avatar`       | Mixed         | Participant's avatar image URL, or 0 to disable the avatar                                                    |
 | `audio`        | Number        | Enable (1) or disable (0) audio                                                                               |
 | `video`        | Number        | Enable (1) or disable (0) video                                                                               |
 | `screen`       | Number        | Enable (1) or disable (0) screen sharing                                                                      |
