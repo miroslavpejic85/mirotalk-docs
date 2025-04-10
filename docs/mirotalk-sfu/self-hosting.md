@@ -63,11 +63,11 @@ $ cp .env.template .env
 
 ### Config.js
 
-Change the `ENVIRONMENT` and the `PUBLIC_IP` in the `app/src/config.js`
+Change the `ENVIRONMENT` and the `ANNOUNCED_IP` in the `app/src/config.js`
 
 ```js
 const ENVIRONMENT = 'production';
-const PUBLIC_IP = 'Your Server Public IPv4';
+const ANNOUNCED_IP = 'Your Server Public IPv4 or Domain';
 ```
 
 Set the port range for WebRTC communication. This range is used for the dynamic allocation of UDP ports for media streams.
