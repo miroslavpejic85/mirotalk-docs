@@ -1,5 +1,5 @@
 
-# MiroTalk Projects – Overview & Comparison
+# MiroTalk Projects Overview
 
 ---
 
