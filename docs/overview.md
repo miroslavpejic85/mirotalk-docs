@@ -12,10 +12,3 @@
 | **MiroTalk WEB**<br>(Scheduler Portal) | **Meeting management hub**<br>(schedule, invite, pick MiroTalk type)<br>Perfect for orgs, schools | 🔐 Varies by meeting type<br>(P2P = E2EE, SFU = not)<br>✅ Portal uses HTTPS for user data | • Registration/login<br>• Dashboard<br>• Room scheduling<br>• Email/SMS invites<br>• Admin/user management<br>• Supports all MiroTalk modes | 🌐 Scales like any modern web app<br>📊 Media load handled externally via selected engine (BRO, C2C, P2P, SFU)<br>Can be deployed for schools, companies, etc. | ✅ Browser-based on all devices<br>📱 Responsive design<br>🚀 Launches meetings in corresponding app<br>📬 Requires email setup | 🧩 Node.js + MongoDB<br>🐳 Docker or PM2<br>🛠️ More complex deployment<br>🔗 [Demo](https://webrtc.mirotalk.com) · [Deploy](./mirotalk-web/self-hosting.md) | 🖥️ **OS:** Ubuntu 20.04/24.04 LTS<br>🧠 **CPU:** 2 Cores<br>💾 **RAM:** 4 GB<br>📂 **Storage:** 20 GB |
 
 ---
-
-## ✅ **Quick Notes**
-- **C2C** is perfect for simple, fast, private video calls.
-- **P2P** delivers secure, lightweight group calls.
-- **SFU** powers webinars and large meetings with moderation tools.
-- **BRO** simplifies live streaming with minimal setup.
-- **WEB** unifies all MiroTalk modes in a single scheduling platform.
