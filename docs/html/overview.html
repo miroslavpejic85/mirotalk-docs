@@ -226,7 +226,7 @@
         position: relative;
     }
     
-    .encryption-badge.e2e {
+    .encryption-badge.e2ee {
         background: #e8f5e9;
         color: #2e7d32;
     }
@@ -521,6 +521,71 @@
         padding: 8px;
     }
 
+    /* Comparison View Styles */
+    .comparison-view-container {
+        display: none;
+        margin: 20px 0;
+        overflow-x: auto;
+    }
+    
+    .comparison-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.95rem;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+    
+    .comparison-table th {
+        background-color: #2094F3;
+        color: white;
+        padding: 15px;
+        text-align: left;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    }
+    
+    .comparison-table td {
+        padding: 12px 15px;
+        border-bottom: 1px solid #e0e0e0;
+        vertical-align: top;
+    }
+    
+    .comparison-table tr:last-child td {
+        border-bottom: none;
+    }
+    
+    .comparison-table tr:hover td {
+        background-color: #f8fafc;
+    }
+    
+    .comparison-table .feature-name {
+        font-weight: 600;
+        background-color: #f5f5f5;
+        width: 200px;
+    }
+    
+    .comparison-table .project-cell {
+        min-width: 250px;
+    }
+    
+    .comparison-project-header {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .comparison-project-header strong {
+        font-size: 1.1rem;
+        color: #2094F3;
+    }
+    
+    .comparison-project-header .project-tag {
+        align-self: flex-start;
+    }
+
     /* Responsive adjustments */
     @media (max-width: 1200px) {
         .mirotalk-table th, 
@@ -539,6 +604,16 @@
         
         .project-cards {
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        }
+        
+        .comparison-table th,
+        .comparison-table td {
+            padding: 10px 8px;
+            font-size: 0.85rem;
+        }
+        
+        .comparison-table .feature-name {
+            width: 150px;
         }
     }
     
@@ -590,6 +665,10 @@
         .card-buttons {
             flex-direction: column;
         }
+        
+        .comparison-table .feature-name {
+            width: 120px;
+        }
     }
     </style>
 </head>
@@ -623,6 +702,7 @@
             <div class="view-toggle">
                 <button class="view-btn active" data-view="table"><i class="fas fa-table"></i> Table View</button>
                 <button class="view-btn" data-view="cards"><i class="fas fa-th-large"></i> Card View</button>
+                <button class="view-btn" data-view="comparison"><i class="fas fa-exchange-alt"></i> Comparison View</button>
             </div>
         </div>
     
@@ -666,12 +746,12 @@
                         </td>
                         <td>
                             <div class="security-column">
-                                <div class="encryption-badge e2e">
+                                <div class="encryption-badge e2ee">
                                     <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
-                                    <span class="badge-text">E2E</span>
+                                    <span class="badge-text">E2EE</span>
                                     <div class="tooltip">Direct P2P connection means true end-to-end encryption between the two callers</div>
                                 </div>
-                                <div class="encryption-badge e2e">
+                                <div class="encryption-badge e2ee">
                                     <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
                                     <span class="badge-text">OIDC</span>
                                     <div class="tooltip">OpenID Connect (OIDC) is a simple identity layer on top of OAuth 2.0, enabling secure authentication for users. It allows applications to verify the identity of users and obtain basic profile information without needing to manage passwords directly.</div>
@@ -683,7 +763,7 @@
                                 <li><i class="fas fa-check-circle"></i> Audio/video/screen share</li>
                                 <li><i class="fas fa-check-circle"></i> Text chat/emoji</li>
                                 <li><i class="fas fa-check-circle"></i> Recording</li>
-                                <li><i class="fas fa-check-circle"></i> iFrame embeddable</li>
+                                <li><i class="fas fa-check-circle"></i> IFrame embeddable</li>
                                 <li><i class="fas fa-check-circle"></i> Minimal UI</li>
                             </ul>
                         </td>
@@ -761,17 +841,17 @@
                         </td>
                         <td>
                             <div class="security-column">
-                                <div class="encryption-badge e2e">
+                                <div class="encryption-badge e2ee">
                                     <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
-                                    <span class="badge-text">E2E</span>
+                                    <span class="badge-text">E2EE</span>
                                     <div class="tooltip">For media (mesh P2P network). TURN relays used if needed but still encrypted</div>
                                 </div>
-                                <div class="encryption-badge e2e">
+                                <div class="encryption-badge e2ee">
                                     <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
                                     <span class="badge-text">OIDC</span>
                                     <div class="tooltip">OpenID Connect (OIDC) is a simple identity layer on top of OAuth 2.0, enabling secure authentication for users. It allows applications to verify the identity of users and obtain basic profile information without needing to manage passwords directly.</div>
                                 </div>
-                                <div class="encryption-badge e2e">
+                                <div class="encryption-badge e2ee">
                                     <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
                                     <span class="badge-text">Host Protection</span>
                                     <div class="tooltip">Host protection using username and password restricts access to host features, requiring authentication before granting permissions like room creation and admin actions.</div>
@@ -788,7 +868,7 @@
                                 <li><i class="fas fa-check-circle"></i> Recording</li>
                                 <li><i class="fas fa-check-circle"></i> YouTube share</li>
                                 <li><i class="fas fa-check-circle"></i> ChatGPT bot</li>
-                                <li><i class="fas fa-check-circle"></i> iFrame embeddable</li>
+                                <li><i class="fas fa-check-circle"></i> IFrame embeddable</li>
                             </ul>
                         </td>
                         <td>
@@ -866,14 +946,14 @@
                                 <div class="encryption-badge transit">
                                     <span class="badge-icon"><i class="fas fa-lock"></i></span>
                                     <span class="badge-text">DTLS/SRTP</span>
-                                    <div class="tooltip">Encrypted in transit using DTLS/SRTP protocols. Server (your) can access media streams.</div>
+                                    <div class="tooltip">In an SFU architecture, media (audio/video) is encrypted in transit using DTLS-SRTP between clients and the server. The SFU decrypts the media to forward it and re-encrypts it before sending it to other clients. This ensures privacy during transmission. Although the SFU can technically access the media temporarily, it's your server and, by default, it doesn't handle, inspect, or store any of this media.</div>
                                 </div>
-                                <div class="encryption-badge e2e">
+                                <div class="encryption-badge e2ee">
                                     <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
                                     <span class="badge-text">OIDC</span>
                                     <div class="tooltip">OpenID Connect (OIDC) is a simple identity layer on top of OAuth 2.0, enabling secure authentication for users. It allows applications to verify the identity of users and obtain basic profile information without needing to manage passwords directly.</div>
                                 </div>
-                                <div class="encryption-badge e2e">
+                                <div class="encryption-badge e2ee">
                                     <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
                                     <span class="badge-text">Host Protection</span>
                                     <div class="tooltip">Host protection using username and password restricts access to host features, requiring authentication before granting permissions like room creation and admin actions.</div>
@@ -968,12 +1048,12 @@
                         </td>
                         <td>
                             <div class="security-column">
-                                <div class="encryption-badge e2e">
+                                <div class="encryption-badge e2ee">
                                     <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
-                                    <span class="badge-text">E2E</span>
+                                    <span class="badge-text">E2EE</span>
                                     <div class="tooltip">P2P encrypted broadcaster-viewer streams</div>
                                 </div>
-                                <div class="encryption-badge e2e">
+                                <div class="encryption-badge e2ee">
                                     <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
                                     <span class="badge-text">OIDC</span>
                                     <div class="tooltip">OpenID Connect (OIDC) is a simple identity layer on top of OAuth 2.0, enabling secure authentication for users. It allows applications to verify the identity of users and obtain basic profile information without needing to manage passwords directly.</div>
@@ -985,7 +1065,7 @@
                                 <li><i class="fas fa-check-circle"></i> Broadcast audio/video/screen</li>
                                 <li><i class="fas fa-check-circle"></i> Viewer audio/video/messages</li>
                                 <li><i class="fas fa-check-circle"></i> Recording</li>
-                                <li><i class="fas fa-check-circle"></i> iFrame embeddable</li>
+                                <li><i class="fas fa-check-circle"></i> IFrame embeddable</li>
                                 <li><i class="fas fa-check-circle"></i> Minimalist UI</li>
                             </ul>
                         </td>
@@ -1063,7 +1143,7 @@
                             <div class="encryption-badge https">
                                 <span class="badge-icon"><i class="fas fa-lock"></i></span>
                                 <span class="badge-text">HTTPS</span>
-                                <div class="tooltip">Varies by meeting type (P2P = E2E, SFU = DTLS/SRTP). Portal uses HTTPS for user data</div>
+                                <div class="tooltip">Varies by meeting type (P2P = E2EE, SFU = DTLS/SRTP). Portal uses HTTPS for user data</div>
                             </div>
                         </td>
                         <td>
@@ -1074,7 +1154,7 @@
                                 <li><i class="fas fa-check-circle"></i> Email/SMS invites</li>
                                 <li><i class="fas fa-check-circle"></i> Admin/user management</li>
                                 <li><i class="fas fa-check-circle"></i> Supports all MiroTalk modes</li>
-                                <li><i class="fas fa-check-circle"></i> iFrame embeddable</li>
+                                <li><i class="fas fa-check-circle"></i> IFrame embeddable</li>
                             </ul>
                         </td>
                         <td>
@@ -1156,12 +1236,12 @@
                         
                         <div class="card-section">
                             <h4><i class="fas fa-lock"></i> Security</h4>
-                            <div class="encryption-badge e2e">
+                            <div class="encryption-badge e2ee">
                                 <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
-                                <span class="badge-text">E2E</span>
+                                <span class="badge-text">E2EE</span>
                                 <div class="tooltip">Direct P2P connection means true end-to-end encryption between the two callers</div>
                             </div>
-                            <div class="encryption-badge e2e">
+                            <div class="encryption-badge e2ee">
                                 <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
                                 <span class="badge-text">OIDC</span>
                                 <div class="tooltip">OpenID Connect (OIDC) is a simple identity layer on top of OAuth 2.0, enabling secure authentication for users. It allows applications to verify the identity of users and obtain basic profile information without needing to manage passwords directly.</div>
@@ -1174,7 +1254,7 @@
                                 <li><i class="fas fa-check-circle"></i> Audio/video/screen share</li>
                                 <li><i class="fas fa-check-circle"></i> Text chat/emoji</li>
                                 <li><i class="fas fa-check-circle"></i> Recording</li>
-                                <li><i class="fas fa-check-circle"></i> iFrame embeddable</li>
+                                <li><i class="fas fa-check-circle"></i> IFrame embeddable</li>
                                 <li><i class="fas fa-check-circle"></i> Minimal UI</li>
                             </ul>
                         </div>
@@ -1256,17 +1336,17 @@
                         
                         <div class="card-section">
                             <h4><i class="fas fa-lock"></i> Security</h4>
-                            <div class="encryption-badge e2e">
+                            <div class="encryption-badge e2ee">
                                 <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
-                                <span class="badge-text">E2E</span>
+                                <span class="badge-text">E2EE</span>
                                 <div class="tooltip">For media (mesh P2P network). TURN relays used if needed but still encrypted</div>
                             </div>
-                            <div class="encryption-badge e2e">
+                            <div class="encryption-badge e2ee">
                                 <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
                                 <span class="badge-text">OIDC</span>
                                 <div class="tooltip">OpenID Connect (OIDC) is a simple identity layer on top of OAuth 2.0, enabling secure authentication for users. It allows applications to verify the identity of users and obtain basic profile information without needing to manage passwords directly.</div>
                             </div>
-                            <div class="encryption-badge e2e">
+                            <div class="encryption-badge e2ee">
                                 <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
                                 <span class="badge-text">Host Protection</span>
                                 <div class="tooltip">Host protection using username and password restricts access to host features, requiring authentication before granting permissions like room creation and admin actions.</div>
@@ -1285,7 +1365,7 @@
                                 <li><i class="fas fa-check-circle"></i> Recording</li>
                                 <li><i class="fas fa-check-circle"></i> YouTube share</li>
                                 <li><i class="fas fa-check-circle"></i> ChatGPT bot</li>
-                                <li><i class="fas fa-check-circle"></i> iFrame embeddable</li>
+                                <li><i class="fas fa-check-circle"></i> IFrame embeddable</li>
                             </ul>
                         </div>
                         
@@ -1368,14 +1448,14 @@
                             <div class="encryption-badge transit">
                                 <span class="badge-icon"><i class="fas fa-lock"></i></span>
                                 <span class="badge-text">DTLS/SRTP</span>
-                                <div class="tooltip">Encrypted in transit using DTLS/SRTP protocols. Server (your) can access media streams.</div>
+                                <div class="tooltip">In an SFU architecture, media (audio/video) is encrypted in transit using DTLS-SRTP between clients and the server. The SFU decrypts the media to forward it and re-encrypts it before sending it to other clients. This ensures privacy during transmission. Although the SFU can technically access the media temporarily, it's your server and, by default, it doesn't handle, inspect, or store any of this media.</div>
                             </div>
-                            <div class="encryption-badge e2e">
+                            <div class="encryption-badge e2ee">
                                 <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
                                 <span class="badge-text">OIDC</span>
                                 <div class="tooltip">OpenID Connect (OIDC) is a simple identity layer on top of OAuth 2.0, enabling secure authentication for users. It allows applications to verify the identity of users and obtain basic profile information without needing to manage passwords directly.</div>
                             </div>
-                            <div class="encryption-badge e2e">
+                            <div class="encryption-badge e2ee">
                                 <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
                                 <span class="badge-text">Host Protection</span>
                                 <div class="tooltip">Host protection using username and password restricts access to host features, requiring authentication before granting permissions like room creation and admin actions.</div>
@@ -1476,12 +1556,12 @@
                         
                         <div class="card-section">
                             <h4><i class="fas fa-lock"></i> Security</h4>
-                            <div class="encryption-badge e2e">
+                            <div class="encryption-badge e2ee">
                                 <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
-                                <span class="badge-text">E2E</span>
+                                <span class="badge-text">E2EE</span>
                                 <div class="tooltip">P2P encrypted broadcaster-viewer streams</div>
                             </div>
-                            <div class="encryption-badge e2e">
+                            <div class="encryption-badge e2ee">
                                 <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
                                 <span class="badge-text">OIDC</span>
                                 <div class="tooltip">OpenID Connect (OIDC) is a simple identity layer on top of OAuth 2.0, enabling secure authentication for users. It allows applications to verify the identity of users and obtain basic profile information without needing to manage passwords directly.</div>
@@ -1494,7 +1574,7 @@
                                 <li><i class="fas fa-check-circle"></i> Broadcast audio/video/screen</li>
                                 <li><i class="fas fa-check-circle"></i> Viewer audio/video/messages</li>
                                 <li><i class="fas fa-check-circle"></i> Recording</li>
-                                <li><i class="fas fa-check-circle"></i> iFrame embeddable</li>
+                                <li><i class="fas fa-check-circle"></i> IFrame embeddable</li>
                                 <li><i class="fas fa-check-circle"></i> Minimalist UI</li>
                             </ul>
                         </div>
@@ -1578,7 +1658,7 @@
                             <div class="encryption-badge https">
                                 <span class="badge-icon"><i class="fas fa-lock"></i></span>
                                 <span class="badge-text">HTTPS</span>
-                                <div class="tooltip">Varies by meeting type (P2P = E2E, SFU = DTLS/SRTP). Portal uses HTTPS for user data</div>
+                                <div class="tooltip">Varies by meeting type (P2P = E2EE, SFU = DTLS/SRTP). Portal uses HTTPS for user data</div>
                             </div>
                         </div>
                         
@@ -1591,7 +1671,7 @@
                                 <li><i class="fas fa-check-circle"></i> Email/SMS invites</li>
                                 <li><i class="fas fa-check-circle"></i> Admin/user management</li>
                                 <li><i class="fas fa-check-circle"></i> Supports all MiroTalk modes</li>
-                                <li><i class="fas fa-check-circle"></i> iFrame embeddable</li>
+                                <li><i class="fas fa-check-circle"></i> IFrame embeddable</li>
                             </ul>
                         </div>
                         
@@ -1651,12 +1731,529 @@
                 </div>
             </div>
         </div>
+        
+        <!-- Comparison View -->
+        <div class="comparison-view-container comparison-view" style="display: none;">
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>MiroTalk C2C</th>
+                        <th>MiroTalk P2P</th>
+                        <th>MiroTalk SFU</th>
+                        <th>MiroTalk BRO</th>
+                        <th>MiroTalk WEB</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="feature-name">Preview</td>
+                        <td class="project-cell">
+                            <a href="https://c2c.mirotalk.com" target="_blank">
+                                <img src="/images/mirotalk/c2c.png" alt="C2C Preview" class="preview-img">
+                            </a>
+                        </td>
+                        <td class="project-cell">
+                            <a href="https://p2p.mirotalk.com" target="_blank">
+                                <img src="/images/mirotalk/p2p.png" alt="P2P Preview" class="preview-img">
+                            </a>
+                        </td>
+                        <td class="project-cell">
+                            <a href="https://sfu.mirotalk.com" target="_blank">
+                                <img src="/images/mirotalk/sfu.png" alt="SFU Preview" class="preview-img">
+                            </a>
+                        </td>
+                        <td class="project-cell">
+                            <a href="https://bro.mirotalk.com" target="_blank">
+                                <img src="/images/mirotalk/bro.png" alt="BRO Preview" class="preview-img">
+                            </a>
+                        </td>
+                        <td class="project-cell">
+                            <a href="https://webrtc.mirotalk.com" target="_blank">
+                                <img src="/images/mirotalk/web.png" alt="WEB Preview" class="preview-img">
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Project</td>
+                        <td class="project-cell">
+                            <div class="comparison-project-header">
+                                <strong>MiroTalk C2C</strong>
+                                <span class="project-tag">Cam-to-Cam</span>
+                            </div>
+                        </td>
+                        <td class="project-cell">
+                            <div class="comparison-project-header">
+                                <strong>MiroTalk P2P</strong>
+                                <span class="project-tag">Peer-to-Peer</span>
+                            </div>
+                        </td>
+                        <td class="project-cell">
+                            <div class="comparison-project-header">
+                                <strong>MiroTalk SFU</strong>
+                                <span class="project-tag">Selective Forwarding Unit</span>
+                            </div>
+                        </td>
+                        <td class="project-cell">
+                            <div class="comparison-project-header">
+                                <strong>MiroTalk BRO</strong>
+                                <span class="project-tag">Broadcast</span>
+                            </div>
+                        </td>
+                        <td class="project-cell">
+                            <div class="comparison-project-header">
+                                <strong>MiroTalk WEB</strong>
+                                <span class="project-tag">Scheduler Portal</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Primary Use Case</td>
+                        <td class="project-cell">
+                            <div class="use-case">
+                                <strong>1:1 video calls</strong>
+                                <span class="tag unlimited">Unlimited rooms</span>
+                                <p class="description">Private chats with end-to-end encryption, easily embeddable in websites.</p>
+                            </div>
+                        </td>
+                        <td class="project-cell">
+                            <div class="use-case">
+                                <strong>Small group calls</strong>
+                                <span class="tag unlimited">Unlimited rooms</span>
+                                <p class="description">For team meetings with 3–8 participants. Direct P2P connections for privacy and low server load.</p>
+                            </div>
+                        </td>
+                        <td class="project-cell">
+                            <div class="use-case">
+                                <strong>Large meetings/classes and webinars</strong>
+                                <span class="tag unlimited">Unlimited rooms</span>
+                                <p class="description">For large gatherings with 8+ participants. Supports up to ~100 participants per CPU with server-side media routing.</p>
+                            </div>
+                        </td>
+                        <td class="project-cell">
+                            <div class="use-case">
+                                <strong>One-to-many live streaming</strong>
+                                <span class="tag unlimited">Unlimited rooms</span>
+                                <p class="description">For webinars and online classes where one broadcaster streams to many viewers with messages interaction.</p>
+                            </div>
+                        </td>
+                        <td class="project-cell">
+                            <div class="use-case">
+                                <strong>Meeting management hub</strong>
+                                <span class="tag unlimited">Unlimited users/dashboards</span>
+                                <p class="description">Central portal for scheduling and organizing MiroTalk meetings. Choose conference type, invite participants, and manage from one dashboard.</p>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Security</td>
+                        <td class="project-cell">
+                            <div class="security-column">
+                                <div class="encryption-badge e2ee">
+                                    <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
+                                    <span class="badge-text">E2EE</span>
+                                    <div class="tooltip">Direct P2P connection means true end-to-end encryption between the two callers</div>
+                                </div>
+                                <div class="encryption-badge e2ee">
+                                    <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
+                                    <span class="badge-text">OIDC</span>
+                                    <div class="tooltip">OpenID Connect (OIDC) is a simple identity layer on top of OAuth 2.0, enabling secure authentication for users. It allows applications to verify the identity of users and obtain basic profile information without needing to manage passwords directly.</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="project-cell">
+                            <div class="security-column">
+                                <div class="encryption-badge e2ee">
+                                    <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
+                                    <span class="badge-text">E2EE</span>
+                                    <div class="tooltip">For media (mesh P2P network). TURN relays used if needed but still encrypted</div>
+                                </div>
+                                <div class="encryption-badge e2ee">
+                                    <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
+                                    <span class="badge-text">OIDC</span>
+                                    <div class="tooltip">OpenID Connect (OIDC) is a simple identity layer on top of OAuth 2.0, enabling secure authentication for users. It allows applications to verify the identity of users and obtain basic profile information without needing to manage passwords directly.</div>
+                                </div>
+                                <div class="encryption-badge e2ee">
+                                    <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
+                                    <span class="badge-text">Host Protection</span>
+                                    <div class="tooltip">Host protection using username and password restricts access to host features, requiring authentication before granting permissions like room creation and admin actions.</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="project-cell">
+                            <div class="security-column">
+                                <div class="encryption-badge transit">
+                                    <span class="badge-icon"><i class="fas fa-lock"></i></span>
+                                    <span class="badge-text">DTLS/SRTP</span>
+                                    <div class="tooltip">In an SFU architecture, media (audio/video) is encrypted in transit using DTLS-SRTP between clients and the server. The SFU decrypts the media to forward it and re-encrypts it before sending it to other clients. This ensures privacy during transmission. Although the SFU can technically access the media temporarily, it's your server and, by default, it doesn't handle, inspect, or store any of this media.</div>
+                                </div>
+                                <div class="encryption-badge e2ee">
+                                    <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
+                                    <span class="badge-text">OIDC</span>
+                                    <div class="tooltip">OpenID Connect (OIDC) is a simple identity layer on top of OAuth 2.0, enabling secure authentication for users. It allows applications to verify the identity of users and obtain basic profile information without needing to manage passwords directly.</div>
+                                </div>
+                                <div class="encryption-badge e2ee">
+                                    <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
+                                    <span class="badge-text">Host Protection</span>
+                                    <div class="tooltip">Host protection using username and password restricts access to host features, requiring authentication before granting permissions like room creation and admin actions.</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="project-cell">
+                            <div class="security-column">
+                                <div class="encryption-badge e2ee">
+                                    <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
+                                    <span class="badge-text">E2EE</span>
+                                    <div class="tooltip">P2P encrypted broadcaster-viewer streams</div>
+                                </div>
+                                <div class="encryption-badge e2ee">
+                                    <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
+                                    <span class="badge-text">OIDC</span>
+                                    <div class="tooltip">OpenID Connect (OIDC) is a simple identity layer on top of OAuth 2.0, enabling secure authentication for users. It allows applications to verify the identity of users and obtain basic profile information without needing to manage passwords directly.</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="project-cell">
+                            <div class="encryption-badge https">
+                                <span class="badge-icon"><i class="fas fa-lock"></i></span>
+                                <span class="badge-text">HTTPS</span>
+                                <div class="tooltip">Varies by meeting type (P2P = E2EE, SFU = DTLS/SRTP). Portal uses HTTPS for user data</div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Key Features</td>
+                        <td class="project-cell">
+                            <ul class="feature-list">
+                                <li><i class="fas fa-check-circle"></i> Audio/video/screen share</li>
+                                <li><i class="fas fa-check-circle"></i> Text chat/emoji</li>
+                                <li><i class="fas fa-check-circle"></i> Recording</li>
+                                <li><i class="fas fa-check-circle"></i> IFrame embeddable</li>
+                                <li><i class="fas fa-check-circle"></i> Minimal UI</li>
+                            </ul>
+                        </td>
+                        <td class="project-cell">
+                            <ul class="feature-list">
+                                <li><i class="fas fa-check-circle"></i> Multi-party audio/video/screen share</li>
+                                <li><i class="fas fa-check-circle"></i> Group/private chat</li>
+                                <li><i class="fas fa-check-circle"></i> Emoji and reactions</li>
+                                <li><i class="fas fa-check-circle"></i> File transfer</li>
+                                <li><i class="fas fa-check-circle"></i> Collaborative Whiteboard</li>
+                                <li><i class="fas fa-check-circle"></i> Recording</li>
+                                <li><i class="fas fa-check-circle"></i> YouTube share</li>
+                                <li><i class="fas fa-check-circle"></i> ChatGPT bot</li>
+                                <li><i class="fas fa-check-circle"></i> IFrame embeddable</li>
+                            </ul>
+                        </td>
+                        <td class="project-cell">
+                            <ul class="feature-list">
+                                <li><i class="fas fa-check-circle"></i> All P2P features +</li>
+                                <li><i class="fas fa-check-circle"></i> Lobby/lock room</li>
+                                <li><i class="fas fa-check-circle"></i> Hand raise</li>
+                                <li><i class="fas fa-check-circle"></i> Polls</li>                                
+                                <li><i class="fas fa-check-circle"></i> Virtual backgrounds</li>
+                                <li><i class="fas fa-check-circle"></i> File transfer</li>
+                                <li><i class="fas fa-check-circle"></i> Collaborative editor</li>
+                                <li><i class="fas fa-check-circle"></i> RTMP stream</li>
+                                <li><i class="fas fa-check-circle"></i> Broadcasting</li>
+                                <li><i class="fas fa-check-circle"></i> AI Avatars</li>
+                                <li><i class="fas fa-check-circle"></i> Webinar tools & roles</li>
+                            </ul>
+                        </td>
+                        <td class="project-cell">
+                            <ul class="feature-list">
+                                <li><i class="fas fa-check-circle"></i> Broadcast audio/video/screen</li>
+                                <li><i class="fas fa-check-circle"></i> Viewer audio/video/messages</li>
+                                <li><i class="fas fa-check-circle"></i> Recording</li>
+                                <li><i class="fas fa-check-circle"></i> IFrame embeddable</li>
+                                <li><i class="fas fa-check-circle"></i> Minimalist UI</li>
+                            </ul>
+                        </td>
+                        <td class="project-cell">
+                            <ul class="feature-list">
+                                <li><i class="fas fa-check-circle"></i> Registration/login</li>
+                                <li><i class="fas fa-check-circle"></i> Dashboard</li>
+                                <li><i class="fas fa-check-circle"></i> Room scheduling</li>
+                                <li><i class="fas fa-check-circle"></i> Email/SMS invites</li>
+                                <li><i class="fas fa-check-circle"></i> Admin/user management</li>
+                                <li><i class="fas fa-check-circle"></i> Supports all MiroTalk modes</li>
+                                <li><i class="fas fa-check-circle"></i> IFrame embeddable</li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Performance</td>
+                        <td class="project-cell">
+                            <div class="performance">
+                                <div class="perf-item"><i class="fas fa-bolt"></i> Ultra-low latency</div>
+                                <div class="perf-item"><i class="fas fa-feather-alt"></i></i> Minimal server load</div>
+                                <div class="perf-item"><i class="fas fa-tachometer-alt"></i> Bandwidth efficient</div>
+                                <div class="perf-item limit"><i class="fas fa-user-times"></i> Limited to 2 participants</div>
+                            </div>
+                        </td>
+                        <td class="project-cell">
+                            <div class="performance">
+                                <div class="perf-item"><i class="fas fa-tachometer-alt"></i> Low latency</div>
+                                <div class="perf-item limit"><i class="fas fa-microchip"></i> CPU increases with participants</div>
+                                <div class="perf-item limit"><i class="fas fa-exclamation-triangle"></i> Limited by client bandwidth</div>
+                            </div>
+                        </td>
+                        <td class="project-cell">
+                            <div class="performance">
+                                <div class="perf-item"><i class="fas fa-expand"></i> Highly scalable</div>
+                                <div class="perf-item"><i class="fas fa-upload"></i> One stream uploaded per user</div>
+                                <div class="perf-item limit"><i class="fas fa-clock"></i> Higher latency than P2P</div>
+                                <div class="perf-item limit"><i class="fas fa-server"></i> Server CPU intensive</div>
+                            </div>
+                        </td>
+                        <td class="project-cell">
+                            <div class="performance">
+                                <div class="perf-item"><i class="fas fa-tachometer-alt"></i> Low latency</div>
+                                <div class="perf-item limit"><i class="fas fa-exclamation-triangle"></i> Broadcaster bandwidth intensive</div>
+                                <div class="perf-item limit"><i class="fas fa-info-circle"></i> Limited by uplink bandwidth</div>
+                            </div>
+                        </td>
+                        <td class="project-cell">
+                            <div class="performance">
+                                <div class="perf-item"><i class="fas fa-tachometer-alt"></i> Fast portal loading</div>
+                                <div class="perf-item"><i class="fas fa-feather-alt"></i> Minimal server load</div>
+                                <div class="perf-item"><i class="fas fa-sliders-h"></i> Meeting performance varies by type</div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Compatibility</td>
+                        <td class="project-cell">
+                            <div class="compatibility">
+                                <div class="comp-item"><i class="fas fa-desktop"></i> All modern browsers</div>
+                                <div class="comp-item"><i class="fas fa-mobile-alt"></i> Mobile responsive</div>
+                                <div class="comp-item"><i class="fas fa-tablet-alt"></i></i> Tablet friendly</div>
+                                <div class="comp-item"><i class="fas fa-video"></i> Up to 8K video</div>
+                            </div>
+                        </td>
+                        <td class="project-cell">
+                            <div class="compatibility">
+                                <div class="comp-item"><i class="fas fa-desktop"></i> All modern browsers</div>
+                                <div class="comp-item"><i class="fas fa-mobile-alt"></i> Mobile responsive</div>
+                                <div class="comp-item"><i class="fas fa-tablet-alt"></i></i> Tablet friendly</div>
+                                <div class="comp-item"><i class="fas fa-video"></i> Up to 8K video</div>
+                            </div>
+                        </td>
+                        <td class="project-cell">
+                            <div class="compatibility">
+                                <div class="comp-item"><i class="fas fa-desktop"></i>All modern browsers</div>
+                                <div class="comp-item"><i class="fas fa-mobile-alt"></i> Mobile responsive</div>
+                                <div class="comp-item"><i class="fas fa-tablet-alt"></i></i> Tablet friendly</div>
+                                <div class="comp-item"><i class="fas fa-video"></i> Up to 8K video</div>
+                            </div>
+                        </td>
+                        <td class="project-cell">
+                            <div class="compatibility">
+                                <div class="comp-item"><i class="fas fa-globe"></i> Viewers: all browsers</div>
+                                <div class="comp-item"><i class="fas fa-desktop"></i> Broadcaster: desktop preferred</div>
+                                <div class="comp-item"><i class="fas fa-plug"></i> No plugins needed</div>
+                                <div class="comp-item"><i class="fas fa-video"></i> Up to 8K video</div>
+                            </div>
+                        </td>
+                        <td class="project-cell">
+                            <div class="compatibility">
+                                <div class="comp-item"><i class="fas fa-desktop"></i> All modern browsers</div>
+                                <div class="comp-item"><i class="fas fa-mobile-alt"></i> Responsive design</div>
+                                <div class="comp-item"><i class="fas fa-rocket"></i> Launches meetings</div>
+                                <div class="comp-item"><i class="fas fa-envelope"></i> Requires email setup</div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Deployment</td>
+                        <td class="project-cell">
+                            <div class="deployment">
+                                <div class="deploy-item"><i class="fab fa-node-js"></i> Node.js</div>
+                                <div class="deploy-item"><i class="fas fa-server"></i> PM2 Manager</div>
+                                <div class="deploy-item"><i class="fab fa-docker"></i> Docker image </div>
+                            </div>
+                        </td>
+                        <td class="project-cell">
+                            <div class="deployment">
+                                <div class="deploy-item"><i class="fab fa-node-js"></i> Node.js</div>
+                                <div class="deploy-item"><i class="fas fa-server"></i> PM2 Manager</div>
+                                <div class="deploy-item"><i class="fab fa-docker"></i> Docker image </div>
+                            </div>
+                        </td>
+                        <td class="project-cell">
+                            <div class="deployment">
+                                <div class="deploy-item"><i class="fab fa-node-js"></i> Node.js</div>
+                                <div class="deploy-item"><i class="fas fa-server"></i> PM2 Manager</div>
+                                <div class="deploy-item"><i class="fab fa-docker"></i> Docker image </div>
+                            </div>
+                        </td>
+                        <td class="project-cell">
+                            <div class="deployment">
+                                <div class="deploy-item"><i class="fab fa-node-js"></i> Node.js</div>
+                                <div class="deploy-item"><i class="fas fa-server"></i> PM2 Manager</div>
+                                <div class="deploy-item"><i class="fab fa-docker"></i> Docker image </div>
+                            </div>
+                        </td>
+                        <td class="project-cell">
+                            <div class="deployment">
+                                <div class="deploy-item"><i class="fab fa-node-js"></i> Node.js</div>
+                                <div class="deploy-item"><i class="fas fa-server"></i> PM2 Manager</div>
+                                <div class="deploy-item"><i class="fab fa-docker"></i> Docker image </div>
+                                <div class="deploy-item warn"><i class="fas fa-exclamation-triangle"></i> More complex setup</div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Requirements</td>
+                        <td class="project-cell">
+                            <div class="requirements">
+                                <div class="req-item"><i class="fas fa-server"></i> Any OS</div>
+                                <div class="req-item"><i class="fas fa-microchip"></i> 2 CPU Cores</div>
+                                <div class="req-item"><i class="fas fa-memory"></i> 2 GB RAM</div>
+                                <div class="req-item"><i class="fas fa-hdd"></i> 5 GB Storage</div>
+                            </div>
+                        </td>
+                        <td class="project-cell">
+                            <div class="requirements">
+                                <div class="req-item"><i class="fas fa-server"></i> Any OS</div>
+                                <div class="req-item"><i class="fas fa-microchip"></i> 2 CPU Cores</div>
+                                <div class="req-item"><i class="fas fa-memory"></i> 2 GB RAM</div>
+                                <div class="req-item"><i class="fas fa-hdd"></i> 10 GB Storage</div>
+                            </div>
+                        </td>
+                        <td class="project-cell">
+                            <div class="requirements">
+                                <div class="req-item"><i class="fab fa-linux"></i> Ubuntu 20.04/24.04</div>
+                                <div class="req-item"><i class="fas fa-microchip"></i> 3 CPU Cores</div>
+                                <div class="req-item"><i class="fas fa-memory"></i> 4 GB RAM</div>
+                                <div class="req-item"><i class="fas fa-hdd"></i> 20 GB Storage</div>
+                            </div>
+                        </td>
+                        <td class="project-cell">
+                            <div class="requirements">
+                                <div class="req-item"><i class="fas fa-server"></i> Any OS</div>
+                                <div class="req-item"><i class="fas fa-microchip"></i> 2 CPU Cores</div>
+                                <div class="req-item"><i class="fas fa-memory"></i> 2 GB RAM</div>
+                                <div class="req-item"><i class="fas fa-hdd"></i> 10 GB Storage</div>
+                            </div>
+                        </td>
+                        <td class="project-cell">
+                            <div class="requirements">
+                                <div class="req-item"><i class="fas fa-server"></i> Any OS</div>
+                                <div class="req-item"><i class="fas fa-microchip"></i> 2 CPU Cores</div>
+                                <div class="req-item"><i class="fas fa-memory"></i> 4 GB RAM</div>
+                                <div class="req-item"><i class="fas fa-hdd"></i> 20 GB Storage</div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Links</td>
+                        <td class="project-cell">
+                            <div class="links-column">
+                                <div class="demo-link">
+                                    <a href="https://c2c.mirotalk.com" target="_blank" class="demo-btn">
+                                        <i class="fas fa-external-link-alt"></i> Live Demo
+                                    </a>
+                                </div>
+                                <div class="buy-link">
+                                    <a href="https://codecanyon.net/item/mirotalk-c2c-webrtc-real-time-cam-2-cam-video-conferences-and-screen-sharing/43383005" class="buy-btn">
+                                        <i class="fas fa-dollar-sign"></i> Purchase
+                                    </a>
+                                </div>
+                                <div class="docs-link">
+                                    <a href="../mirotalk-c2c/self-hosting" class="docs-btn">
+                                        <i class="fas fa-book"></i> Documentation
+                                    </a>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="project-cell">
+                            <div class="links-column">
+                                <div class="demo-link">
+                                    <a href="https://p2p.mirotalk.com" target="_blank" class="demo-btn">
+                                        <i class="fas fa-external-link-alt"></i> Live Demo
+                                    </a>
+                                </div>
+                                <div class="buy-link">
+                                    <a href="https://codecanyon.net/item/mirotalk-p2p-webrtc-realtime-video-conferences/38376661" class="buy-btn">
+                                        <i class="fas fa-dollar-sign"></i> Purchase
+                                    </a>
+                                </div>
+                                <div class="docs-link">
+                                    <a href="../mirotalk-p2p/self-hosting" class="docs-btn">
+                                        <i class="fas fa-book"></i> Documentation
+                                    </a>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="project-cell">
+                            <div class="links-column">
+                                <div class="demo-link">
+                                    <a href="https://sfu.mirotalk.com" target="_blank" class="demo-btn">
+                                        <i class="fas fa-external-link-alt"></i> Live Demo
+                                    </a>
+                                </div>
+                                <div class="buy-link">
+                                    <a href="https://codecanyon.net/item/mirotalk-sfu-webrtc-realtime-video-conferences/40769970" class="buy-btn">
+                                        <i class="fas fa-dollar-sign"></i> Purchase
+                                    </a>
+                                </div>
+                                <div class="docs-link">
+                                    <a href="../mirotalk-sfu/self-hosting" class="docs-btn">
+                                        <i class="fas fa-book"></i> Documentation
+                                    </a>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="project-cell">
+                            <div class="links-column">
+                                <div class="demo-link">
+                                    <a href="https://bro.mirotalk.com" target="_blank" class="demo-btn">
+                                        <i class="fas fa-external-link-alt"></i> Live Demo
+                                    </a>
+                                </div>
+                                <div class="buy-link">
+                                    <a href="https://codecanyon.net/item/mirotalk-bro-webrtc-p2p-live-broadcast/45887113" class="buy-btn">
+                                        <i class="fas fa-dollar-sign"></i> Purchase
+                                    </a>
+                                </div>
+                                <div class="docs-link">
+                                    <a href="../mirotalk-bro/self-hosting" class="docs-btn">
+                                        <i class="fas fa-book"></i> Documentation
+                                    </a>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="project-cell">
+                            <div class="links-column">
+                                <div class="demo-link">
+                                    <a href="https://webrtc.mirotalk.com" target="_blank" class="demo-btn">
+                                        <i class="fas fa-external-link-alt"></i> Live Demo
+                                    </a>
+                                </div>
+                                <div class="buy-link">
+                                    <a href="https://codecanyon.net/item/a-selfhosted-mirotalks-webrtc-rooms-scheduler-server/42643313" class="buy-btn">
+                                        <i class="fas fa-dollar-sign"></i> Purchase
+                                    </a>
+                                </div>
+                                <div class="docs-link">
+                                    <a href="../mirotalk-web/self-hosting" class="docs-btn">
+                                        <i class="fas fa-book"></i> Documentation
+                                    </a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const viewBtns = document.querySelectorAll('.view-btn');
             const tableView = document.querySelector('.table-view');
             const cardView = document.querySelector('.card-view');
+            const comparisonView = document.querySelector('.comparison-view');
             const searchInput = document.getElementById('projectSearch');
             const filterSelect = document.getElementById('projectFilter');
             
@@ -1669,9 +2266,15 @@
                     if (this.dataset.view === 'table') {
                         tableView.style.display = 'block';
                         cardView.style.display = 'none';
-                    } else {
+                        comparisonView.style.display = 'none';
+                    } else if (this.dataset.view === 'cards') {
                         tableView.style.display = 'none';
                         cardView.style.display = 'block';
+                        comparisonView.style.display = 'none';
+                    } else {
+                        tableView.style.display = 'none';
+                        cardView.style.display = 'none';
+                        comparisonView.style.display = 'block';
                     }
                 });
             });
@@ -1702,6 +2305,34 @@
                     
                     card.style.display = (matchesSearch && matchesFilter) ? '' : 'none';
                 });
+                
+                // Filter comparison view columns
+                document.querySelectorAll('.comparison-table th, .comparison-table td').forEach(cell => {
+                    if (cell.classList.contains('feature-name')) return;
+                    
+                    const projectName = cell.closest('td') ? cell.closest('td').parentNode.querySelector('td:not(.feature-name)')?.dataset.project : 
+                                            cell.closest('th') ? cell.closest('th').dataset.project : null;
+                    
+                    if (!projectName) return;
+                    
+                    const cellText = cell.textContent.toLowerCase();
+                    const matchesSearch = cellText.includes(searchTerm);
+                    const matchesFilter = filterValue === 'all' || projectName === filterValue;
+                    
+                    if (!matchesSearch || !matchesFilter) {
+                        cell.style.display = 'none';
+                        // Hide the entire column if all cells in it should be hidden
+                        const colIndex = cell.cellIndex;
+                        const headerCell = document.querySelector(`.comparison-table th:nth-child(${colIndex + 1})`);
+                        if (headerCell) headerCell.style.display = 'none';
+                    } else {
+                        cell.style.display = '';
+                        // Show the header if any cell in the column is visible
+                        const colIndex = cell.cellIndex;
+                        const headerCell = document.querySelector(`.comparison-table th:nth-child(${colIndex + 1})`);
+                        if (headerCell) headerCell.style.display = '';
+                    }
+                });
             }
             
             // Event listeners for search and filter
@@ -1711,7 +2342,3 @@
     </script>
 </body>
 </html>
-
-
-
-
