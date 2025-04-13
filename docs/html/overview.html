@@ -2249,96 +2249,132 @@
         </div>
     </div>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const viewBtns = document.querySelectorAll('.view-btn');
-            const tableView = document.querySelector('.table-view');
-            const cardView = document.querySelector('.card-view');
-            const comparisonView = document.querySelector('.comparison-view');
-            const searchInput = document.getElementById('projectSearch');
-            const filterSelect = document.getElementById('projectFilter');
+    document.addEventListener('DOMContentLoaded', function() {
+        const viewBtns = document.querySelectorAll('.view-btn');
+        const tableView = document.querySelector('.table-view');
+        const cardView = document.querySelector('.card-view');
+        const comparisonView = document.querySelector('.comparison-view');
+        const searchInput = document.getElementById('projectSearch');
+        const filterSelect = document.getElementById('projectFilter');
+        
+        // Store current filter state
+        let currentFilter = 'all';
+        let currentSearch = '';
+        
+        // View toggle functionality
+        viewBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                viewBtns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                if (this.dataset.view === 'table') {
+                    tableView.style.display = 'block';
+                    cardView.style.display = 'none';
+                    comparisonView.style.display = 'none';
+                    filterProjects(); // Refresh filter for table view
+                } else if (this.dataset.view === 'cards') {
+                    tableView.style.display = 'none';
+                    cardView.style.display = 'block';
+                    comparisonView.style.display = 'none';
+                    filterProjects(); // Refresh filter for card view
+                } else {
+                    tableView.style.display = 'none';
+                    cardView.style.display = 'none';
+                    comparisonView.style.display = 'block';
+                    resetComparisonView(); // Reset comparison view first
+                    filterProjects(); // Then apply current filter
+                }
+            });
+        });
+        
+        // Reset comparison view to show all columns
+        function resetComparisonView() {
+            document.querySelectorAll('.comparison-table th, .comparison-table td').forEach(cell => {
+                cell.style.display = '';
+            });
+            document.querySelectorAll('.comparison-table tr').forEach(row => {
+                row.style.display = '';
+            });
+        }
+        
+        // Search and filter functionality
+        function filterProjects() {
+            currentSearch = searchInput.value.toLowerCase();
+            currentFilter = filterSelect.value;
             
-            // View toggle functionality
-            viewBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    viewBtns.forEach(b => b.classList.remove('active'));
-                    this.classList.add('active');
-                    
-                    if (this.dataset.view === 'table') {
-                        tableView.style.display = 'block';
-                        cardView.style.display = 'none';
-                        comparisonView.style.display = 'none';
-                    } else if (this.dataset.view === 'cards') {
-                        tableView.style.display = 'none';
-                        cardView.style.display = 'block';
-                        comparisonView.style.display = 'none';
-                    } else {
-                        tableView.style.display = 'none';
-                        cardView.style.display = 'none';
-                        comparisonView.style.display = 'block';
-                    }
-                });
+            // Filter table rows
+            document.querySelectorAll('.project-row').forEach(row => {
+                const projectName = row.dataset.project;
+                const rowText = row.textContent.toLowerCase();
+                
+                const matchesSearch = rowText.includes(currentSearch);
+                const matchesFilter = currentFilter === 'all' || projectName === currentFilter;
+                
+                row.style.display = (matchesSearch && matchesFilter) ? '' : 'none';
             });
             
-            // Search and filter functionality
-            function filterProjects() {
-                const searchTerm = searchInput.value.toLowerCase();
-                const filterValue = filterSelect.value;
+            // Filter cards
+            document.querySelectorAll('.project-card').forEach(card => {
+                const projectName = card.dataset.project;
+                const cardText = card.textContent.toLowerCase();
                 
-                // Filter table rows
-                document.querySelectorAll('.project-row').forEach(row => {
-                    const projectName = row.dataset.project;
-                    const rowText = row.textContent.toLowerCase();
-                    
-                    const matchesSearch = rowText.includes(searchTerm);
-                    const matchesFilter = filterValue === 'all' || projectName === filterValue;
-                    
-                    row.style.display = (matchesSearch && matchesFilter) ? '' : 'none';
-                });
+                const matchesSearch = cardText.includes(currentSearch);
+                const matchesFilter = currentFilter === 'all' || projectName === currentFilter;
                 
-                // Filter cards
-                document.querySelectorAll('.project-card').forEach(card => {
-                    const projectName = card.dataset.project;
-                    const cardText = card.textContent.toLowerCase();
-                    
-                    const matchesSearch = cardText.includes(searchTerm);
-                    const matchesFilter = filterValue === 'all' || projectName === filterValue;
-                    
-                    card.style.display = (matchesSearch && matchesFilter) ? '' : 'none';
-                });
-                
-                // Filter comparison view columns
-                document.querySelectorAll('.comparison-table th, .comparison-table td').forEach(cell => {
-                    if (cell.classList.contains('feature-name')) return;
-                    
-                    const projectName = cell.closest('td') ? cell.closest('td').parentNode.querySelector('td:not(.feature-name)')?.dataset.project : 
-                                            cell.closest('th') ? cell.closest('th').dataset.project : null;
-                    
-                    if (!projectName) return;
-                    
-                    const cellText = cell.textContent.toLowerCase();
-                    const matchesSearch = cellText.includes(searchTerm);
-                    const matchesFilter = filterValue === 'all' || projectName === filterValue;
-                    
-                    if (!matchesSearch || !matchesFilter) {
-                        cell.style.display = 'none';
-                        // Hide the entire column if all cells in it should be hidden
-                        const colIndex = cell.cellIndex;
-                        const headerCell = document.querySelector(`.comparison-table th:nth-child(${colIndex + 1})`);
-                        if (headerCell) headerCell.style.display = 'none';
-                    } else {
-                        cell.style.display = '';
-                        // Show the header if any cell in the column is visible
-                        const colIndex = cell.cellIndex;
-                        const headerCell = document.querySelector(`.comparison-table th:nth-child(${colIndex + 1})`);
-                        if (headerCell) headerCell.style.display = '';
-                    }
-                });
-            }
+                card.style.display = (matchesSearch && matchesFilter) ? '' : 'none';
+            });
             
-            // Event listeners for search and filter
-            searchInput.addEventListener('input', filterProjects);
-            filterSelect.addEventListener('change', filterProjects);
-        });
+            // Filter comparison view
+            if (comparisonView.style.display !== 'none') {
+                // First reset all columns
+                resetComparisonView();
+                
+                // Then apply current filter
+                if (currentFilter !== 'all') {
+                    const headerCells = document.querySelectorAll('.comparison-table th');
+                    headerCells.forEach((headerCell, index) => {
+                        if (index === 0) return; // Skip the feature name column
+                        
+                        const projectName = headerCell.textContent.toLowerCase().replace('mirotalk ', '').trim();
+                        const matchesFilter = projectName.includes(currentFilter);
+                        
+                        if (!matchesFilter) {
+                            // Hide entire column
+                            const colIndex = index + 1;
+                            document.querySelectorAll(`.comparison-table tr td:nth-child(${colIndex}), .comparison-table tr th:nth-child(${colIndex})`).forEach(cell => {
+                                cell.style.display = 'none';
+                            });
+                        }
+                    });
+                }
+                
+                // Apply search term if any
+                if (currentSearch) {
+                    document.querySelectorAll('.comparison-table tr').forEach(row => {
+                        const cells = row.querySelectorAll('td');
+                        let hasMatch = false;
+                        
+                        cells.forEach((cell, index) => {
+                            if (index === 0) return; // Skip feature name column
+                            
+                            if (cell.style.display !== 'none' && cell.textContent.toLowerCase().includes(currentSearch)) {
+                                hasMatch = true;
+                            }
+                        });
+                        
+                        // Hide feature row if no match found in any visible column
+                        if (!hasMatch && cells.length > 0) {
+                            row.style.display = 'none';
+                        }
+                    });
+                }
+            }
+        }
+        
+        // Event listeners for search and filter
+        searchInput.addEventListener('input', filterProjects);
+        filterSelect.addEventListener('change', filterProjects);
+    });
     </script>
 </body>
 </html>
