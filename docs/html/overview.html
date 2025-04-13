@@ -226,7 +226,7 @@
         position: relative;
     }
     
-    .encryption-badge.e2ee {
+    .encryption-badge.e2e {
         background: #e8f5e9;
         color: #2e7d32;
     }
@@ -262,6 +262,13 @@
     .encryption-badge:hover .tooltip {
         opacity: 1;
         visibility: visible;
+    }
+
+    /* Security column styles */
+    .security-column {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
     }
     
     .feature-list {
@@ -658,17 +665,24 @@
                             </div>
                         </td>
                         <td>
-                            <div class="encryption-badge e2ee">
-                                <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
-                                <span class="badge-text">End-to-End</span>
-                                <div class="tooltip">Direct P2P connection means true end-to-end encryption between the two callers</div>
+                            <div class="security-column">
+                                <div class="encryption-badge e2e">
+                                    <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
+                                    <span class="badge-text">E2E</span>
+                                    <div class="tooltip">Direct P2P connection means true end-to-end encryption between the two callers</div>
+                                </div>
+                                <div class="encryption-badge e2e">
+                                    <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
+                                    <span class="badge-text">OIDC</span>
+                                    <div class="tooltip">OpenID Connect (OIDC) is a simple identity layer on top of OAuth 2.0, enabling secure authentication for users. It allows applications to verify the identity of users and obtain basic profile information without needing to manage passwords directly.</div>
+                                </div>
                             </div>
                         </td>
                         <td>
                             <ul class="feature-list">
-                                <li><i class="fas fa-check-circle"></i> Video, audio, screen share</li>
+                                <li><i class="fas fa-check-circle"></i> Video, audio and screen share</li>
                                 <li><i class="fas fa-check-circle"></i> Text chat</li>
-                                <li><i class="fas fa-check-circle"></i> No login</li>
+                                <li><i class="fas fa-check-circle"></i> Recording</li>
                                 <li><i class="fas fa-check-circle"></i> iFrame embeddable</li>
                                 <li><i class="fas fa-check-circle"></i> Minimal UI</li>
                             </ul>
@@ -746,22 +760,34 @@
                             </div>
                         </td>
                         <td>
-                            <div class="encryption-badge e2ee">
-                                <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
-                                <span class="badge-text">End-to-End</span>
-                                <div class="tooltip">For media (mesh P2P network). TURN relays used if needed but still encrypted</div>
+                            <div class="security-column">
+                                <div class="encryption-badge e2e">
+                                    <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
+                                    <span class="badge-text">E2E</span>
+                                    <div class="tooltip">For media (mesh P2P network). TURN relays used if needed but still encrypted</div>
+                                </div>
+                                <div class="encryption-badge e2e">
+                                    <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
+                                    <span class="badge-text">OIDC</span>
+                                    <div class="tooltip">OpenID Connect (OIDC) is a simple identity layer on top of OAuth 2.0, enabling secure authentication for users. It allows applications to verify the identity of users and obtain basic profile information without needing to manage passwords directly.</div>
+                                </div>
+                                <div class="encryption-badge e2e">
+                                    <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
+                                    <span class="badge-text">Host Protection</span>
+                                    <div class="tooltip">Host protection using username and password restricts access to host features, requiring authentication before granting permissions like room creation and admin actions.</div>
+                                </div>
                             </div>
                         </td>
                         <td>
                             <ul class="feature-list">
-                                <li><i class="fas fa-check-circle"></i> Multi-party audio/video</li>
+                                <li><i class="fas fa-check-circle"></i> Multi-party audio/video/screen share</li>
                                 <li><i class="fas fa-check-circle"></i> Group/private chat</li>
                                 <li><i class="fas fa-check-circle"></i> File transfer</li>
-                                <li><i class="fas fa-check-circle"></i> Screen share</li>
-                                <li><i class="fas fa-check-circle"></i> Whiteboard</li>
+                                <li><i class="fas fa-check-circle"></i> Collaborative Whiteboard</li>
                                 <li><i class="fas fa-check-circle"></i> Recording</li>
                                 <li><i class="fas fa-check-circle"></i> YouTube share</li>
                                 <li><i class="fas fa-check-circle"></i> ChatGPT bot</li>
+                                <li><i class="fas fa-check-circle"></i> iFrame embeddable</li>
                             </ul>
                         </td>
                         <td>
@@ -835,22 +861,36 @@
                             </div>
                         </td>
                         <td>
-                            <div class="encryption-badge transit">
-                                <span class="badge-icon"><i class="fas fa-lock"></i></span>
-                                <span class="badge-text">DTLS/SRTP</span>
-                                <div class="tooltip">Encrypted in transit using DTLS/SRTP protocols. Server (your) can access media streams.</div>
+                            <div class="security-column">
+                                <div class="encryption-badge transit">
+                                    <span class="badge-icon"><i class="fas fa-lock"></i></span>
+                                    <span class="badge-text">DTLS/SRTP</span>
+                                    <div class="tooltip">Encrypted in transit using DTLS/SRTP protocols. Server (your) can access media streams.</div>
+                                </div>
+                                <div class="encryption-badge e2e">
+                                    <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
+                                    <span class="badge-text">OIDC</span>
+                                    <div class="tooltip">OpenID Connect (OIDC) is a simple identity layer on top of OAuth 2.0, enabling secure authentication for users. It allows applications to verify the identity of users and obtain basic profile information without needing to manage passwords directly.</div>
+                                </div>
+                                <div class="encryption-badge e2e">
+                                    <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
+                                    <span class="badge-text">Host Protection</span>
+                                    <div class="tooltip">Host protection using username and password restricts access to host features, requiring authentication before granting permissions like room creation and admin actions.</div>
+                                </div>
                             </div>
                         </td>
                         <td>
                             <ul class="feature-list">
-                                <li><i class="fas fa-check-circle"></i> All P2P features plus:</li>
-                                <li><i class="fas fa-check-circle"></i> Waiting/lock room</li>
+                                <li><i class="fas fa-check-circle"></i> All P2P features +</li>
+                                <li><i class="fas fa-check-circle"></i> Lobby/lock room</li>
                                 <li><i class="fas fa-check-circle"></i> Hand raise</li>
                                 <li><i class="fas fa-check-circle"></i> Polls</li>                                
                                 <li><i class="fas fa-check-circle"></i> Virtual backgrounds</li>
                                 <li><i class="fas fa-check-circle"></i> File transfer</li>
                                 <li><i class="fas fa-check-circle"></i> Collaborative editor</li>
                                 <li><i class="fas fa-check-circle"></i> RTMP stream</li>
+                                <li><i class="fas fa-check-circle"></i> Broadcasting</li>
+                                <li><i class="fas fa-check-circle"></i> AI Avatars</li>
                                 <li><i class="fas fa-check-circle"></i> Webinar tools & roles</li>
                             </ul>
                         </td>
@@ -926,17 +966,26 @@
                             </div>
                         </td>
                         <td>
-                            <div class="encryption-badge e2ee">
-                                <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
-                                <span class="badge-text">End-to-End</span>
-                                <div class="tooltip">P2P encrypted broadcaster-viewer streams</div>
+                            <div class="security-column">
+                                <div class="encryption-badge e2e">
+                                    <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
+                                    <span class="badge-text">E2E</span>
+                                    <div class="tooltip">P2P encrypted broadcaster-viewer streams</div>
+                                </div>
+                                <div class="encryption-badge e2e">
+                                    <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
+                                    <span class="badge-text">OIDC</span>
+                                    <div class="tooltip">OpenID Connect (OIDC) is a simple identity layer on top of OAuth 2.0, enabling secure authentication for users. It allows applications to verify the identity of users and obtain basic profile information without needing to manage passwords directly.</div>
+                                </div>
                             </div>
                         </td>
                         <td>
                             <ul class="feature-list">
-                                <li><i class="fas fa-check-circle"></i> One-way video/audio</li>
-                                <li><i class="fas fa-check-circle"></i> Screen sharing</li>
-                                <li><i class="fas fa-check-circle"></i> Viewer live chat</li>
+                                <li><i class="fas fa-check-circle"></i> Broadcast video/audio/screen</li>
+                                <li><i class="fas fa-check-circle"></i> Viewer audio/video</li>
+                                <li><i class="fas fa-check-circle"></i> Viewer messages</li>
+                                <li><i class="fas fa-check-circle"></i> Recording</li>
+                                <li><i class="fas fa-check-circle"></i> iFrame embeddable</li>
                                 <li><i class="fas fa-check-circle"></i> Minimalist UI</li>
                             </ul>
                         </td>
@@ -1025,6 +1074,7 @@
                                 <li><i class="fas fa-check-circle"></i> Email/SMS invites</li>
                                 <li><i class="fas fa-check-circle"></i> Admin/user management</li>
                                 <li><i class="fas fa-check-circle"></i> Supports all MiroTalk modes</li>
+                                <li><i class="fas fa-check-circle"></i> iFrame embeddable</li>
                             </ul>
                         </td>
                         <td>
@@ -1106,18 +1156,24 @@
                         
                         <div class="card-section">
                             <h4><i class="fas fa-lock"></i> Security</h4>
-                            <div class="encryption-badge e2ee">
+                            <div class="encryption-badge e2e">
                                 <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
-                                <span class="badge-text">End-to-End</span>
+                                <span class="badge-text">E2E</span>
                                 <div class="tooltip">Direct P2P connection means true end-to-end encryption between the two callers</div>
+                            </div>
+                            <div class="encryption-badge e2e">
+                                <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
+                                <span class="badge-text">OIDC</span>
+                                <div class="tooltip">OpenID Connect (OIDC) is a simple identity layer on top of OAuth 2.0, enabling secure authentication for users. It allows applications to verify the identity of users and obtain basic profile information without needing to manage passwords directly.</div>
                             </div>
                         </div>
                         
                         <div class="card-section">
                             <h4><i class="fas fa-star"></i> Key Features</h4>
                             <ul class="feature-list">
-                                <li><i class="fas fa-check-circle"></i> Video, audio, screen share</li>
+                                <li><i class="fas fa-check-circle"></i> Video, audio and screen share</li>
                                 <li><i class="fas fa-check-circle"></i> Text chat</li>
+                                <li><i class="fas fa-check-circle"></i> Recording</li>
                                 <li><i class="fas fa-check-circle"></i> No login</li>
                                 <li><i class="fas fa-check-circle"></i> iFrame embeddable</li>
                                 <li><i class="fas fa-check-circle"></i> Minimal UI</li>
@@ -1201,10 +1257,20 @@
                         
                         <div class="card-section">
                             <h4><i class="fas fa-lock"></i> Security</h4>
-                            <div class="encryption-badge e2ee">
+                            <div class="encryption-badge e2e">
                                 <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
-                                <span class="badge-text">End-to-End</span>
+                                <span class="badge-text">E2E</span>
                                 <div class="tooltip">For media (mesh P2P network). TURN relays used if needed but still encrypted</div>
+                            </div>
+                            <div class="encryption-badge e2e">
+                                <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
+                                <span class="badge-text">OIDC</span>
+                                <div class="tooltip">OpenID Connect (OIDC) is a simple identity layer on top of OAuth 2.0, enabling secure authentication for users. It allows applications to verify the identity of users and obtain basic profile information without needing to manage passwords directly.</div>
+                            </div>
+                            <div class="encryption-badge e2e">
+                                <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
+                                <span class="badge-text">Host Protection</span>
+                                <div class="tooltip">Host protection using username and password restricts access to host features, requiring authentication before granting permissions like room creation and admin actions.</div>
                             </div>
                         </div>
                         
@@ -1219,6 +1285,7 @@
                                 <li><i class="fas fa-check-circle"></i> Recording</li>
                                 <li><i class="fas fa-check-circle"></i> YouTube share</li>
                                 <li><i class="fas fa-check-circle"></i> ChatGPT bot</li>
+                                <li><i class="fas fa-check-circle"></i> iFrame embeddable</li>
                             </ul>
                         </div>
                         
@@ -1303,6 +1370,16 @@
                                 <span class="badge-text">DTLS/SRTP</span>
                                 <div class="tooltip">Encrypted in transit using DTLS/SRTP protocols. Server (your) can access media streams.</div>
                             </div>
+                            <div class="encryption-badge e2e">
+                                <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
+                                <span class="badge-text">OIDC</span>
+                                <div class="tooltip">OpenID Connect (OIDC) is a simple identity layer on top of OAuth 2.0, enabling secure authentication for users. It allows applications to verify the identity of users and obtain basic profile information without needing to manage passwords directly.</div>
+                            </div>
+                            <div class="encryption-badge e2e">
+                                <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
+                                <span class="badge-text">Host Protection</span>
+                                <div class="tooltip">Host protection using username and password restricts access to host features, requiring authentication before granting permissions like room creation and admin actions.</div>
+                            </div>
                         </div>
                         
                         <div class="card-section">
@@ -1316,6 +1393,8 @@
                                 <li><i class="fas fa-check-circle"></i> File transfer</li>
                                 <li><i class="fas fa-check-circle"></i> Collaborative editor</li>
                                 <li><i class="fas fa-check-circle"></i> RTMP stream</li>
+                                <li><i class="fas fa-check-circle"></i> Broadcasting</li>
+                                <li><i class="fas fa-check-circle"></i> Video AI</li>
                                 <li><i class="fas fa-check-circle"></i> Webinar tools & roles</li>
                             </ul>
                         </div>
@@ -1397,19 +1476,26 @@
                         
                         <div class="card-section">
                             <h4><i class="fas fa-lock"></i> Security</h4>
-                            <div class="encryption-badge e2ee">
+                            <div class="encryption-badge e2e">
                                 <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
-                                <span class="badge-text">End-to-End</span>
+                                <span class="badge-text">E2E</span>
                                 <div class="tooltip">P2P encrypted broadcaster-viewer streams</div>
+                            </div>
+                            <div class="encryption-badge e2e">
+                                <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
+                                <span class="badge-text">OIDC</span>
+                                <div class="tooltip">OpenID Connect (OIDC) is a simple identity layer on top of OAuth 2.0, enabling secure authentication for users. It allows applications to verify the identity of users and obtain basic profile information without needing to manage passwords directly.</div>
                             </div>
                         </div>
                         
                         <div class="card-section">
                             <h4><i class="fas fa-star"></i> Key Features</h4>
                             <ul class="feature-list">
-                                <li><i class="fas fa-check-circle"></i> One-way video/audio</li>
-                                <li><i class="fas fa-check-circle"></i> Screen sharing</li>
-                                <li><i class="fas fa-check-circle"></i> Viewer live chat</li>
+                                <li><i class="fas fa-check-circle"></i> Broadcast video/audio/screen</li>
+                                <li><i class="fas fa-check-circle"></i> Viewer audio/video</li>
+                                <li><i class="fas fa-check-circle"></i> Viewer messages</li>
+                                <li><i class="fas fa-check-circle"></i> Recording</li>
+                                <li><i class="fas fa-check-circle"></i> iFrame embeddable</li>
                                 <li><i class="fas fa-check-circle"></i> Minimalist UI</li>
                             </ul>
                         </div>
@@ -1506,6 +1592,7 @@
                                 <li><i class="fas fa-check-circle"></i> Email/SMS invites</li>
                                 <li><i class="fas fa-check-circle"></i> Admin/user management</li>
                                 <li><i class="fas fa-check-circle"></i> Supports all MiroTalk modes</li>
+                                <li><i class="fas fa-check-circle"></i> iFrame embeddable</li>
                             </ul>
                         </div>
                         
