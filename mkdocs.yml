@@ -82,8 +82,8 @@ theme:
   favicon: images/favicon.ico
   logo: images/logo.svg
   font:
-    text: 'Inter'
-    code: 'JetBrains Mono'
+    text: 'Roboto'
+    code: 'Fira Code'
   extra:
     meta:
       description: MiroTalk WebRTC Ultimate Bundle
