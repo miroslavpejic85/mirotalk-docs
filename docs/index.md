@@ -4,13 +4,18 @@
 
 ## MiroTalk projects
 
-| Project           | Live demo                                                  |
-| ----------------- | ---------------------------------------------------------- |
-| `🏆 MiroTalk SFU` | [https://sfu.mirotalk.com](https://sfu.mirotalk.com)       |
-| `🚀 MiroTalk P2P` | [https://p2p.mirotalk.com](https://p2p.mirotalk.com)       |
-| `✨ MiroTalk C2C` | [https://c2c.mirotalk.com](https://c2c.mirotalk.com)       |
-| `📡 MiroTalk BRO` | [https://bro.mirotalk.com](https://bro.mirotalk.com)       |
-| `🛠 MiroTalk WEB` | [https://webrtc.mirotalk.com](https://webrtc.mirotalk.com) |
+
+| MiroTalk | Live demo                                                  | Usage Case Description             |
+| -------- | ---------------------------------------------------------- | ---------------------------------- |
+| `🏆 SFU` | [https://sfu.mirotalk.com](https://sfu.mirotalk.com)       | Scalable group video conferencing  |
+| `🚀 P2P` | [https://p2p.mirotalk.com](https://p2p.mirotalk.com)       | Peer-to-peer video calls           |
+| `✨ C2C` | [https://c2c.mirotalk.com](https://c2c.mirotalk.com)       | Client-to-client communication     |
+| `📡 BRO` | [https://bro.mirotalk.com](https://bro.mirotalk.com)       | Broadcasting one-to-many streaming |
+| `🛠 WEB` | [https://webrtc.mirotalk.com](https://webrtc.mirotalk.com) | Room scheduler and meeting manager |
+
+---
+
+View the complete [MiroTalk projects overview and comparisons](html/overview.html).
 
 ---
 
