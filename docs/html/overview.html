@@ -293,6 +293,28 @@
                 margin-top: 2px;
             }
 
+            .integration-list {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .integration-list li {
+                display: flex;
+                align-items: flex-start;
+                gap: 8px;
+                font-size: 0.9rem;
+            }
+
+            .integration-list i {
+                color: #2094f3;
+                font-size: 0.9rem;
+                margin-top: 2px;
+            }
+
             .performance,
             .compatibility,
             .deployment,
@@ -611,6 +633,7 @@
                 }
 
                 .feature-list li,
+                .integration-list li,
                 .perf-item,
                 .comp-item,
                 .deploy-item,
@@ -735,6 +758,7 @@
                             <th>Primary Use Case</th>
                             <th>Security</th>
                             <th>Key Features</th>
+                            <th>Integrations</th>
                             <th>Performance</th>
                             <th>Compatibility</th>
                             <th>Deployment</th>
@@ -795,6 +819,13 @@
                                     <li><i class="fas fa-check-circle"></i> Email notification</li>
                                     <li><i class="fas fa-check-circle"></i> IFrame embeddable</li>
                                     <li><i class="fas fa-check-circle"></i> Minimal UI</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul class="integration-list">
+                                    <li><i class="fas fa-check-circle"></i> Mattermost</li>
+                                    <li><i class="fas fa-check-circle"></i> Sentry</li>
+                                    <li><i class="fas fa-check-circle"></i> Ngrok</li>
                                 </ul>
                             </td>
                             <td>
@@ -924,6 +955,14 @@
                                     <li><i class="fas fa-check-circle"></i> ChatGPT bot</li>
                                     <li><i class="fas fa-check-circle"></i> Email notification</li>
                                     <li><i class="fas fa-check-circle"></i> IFrame embeddable</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul class="integration-list">
+                                    <li><i class="fas fa-check-circle"></i> Slack</li>
+                                    <li><i class="fas fa-check-circle"></i> Mattermost</li>
+                                    <li><i class="fas fa-check-circle"></i> Sentry</li>
+                                    <li><i class="fas fa-check-circle"></i> Ngrok</li>
                                 </ul>
                             </td>
                             <td>
@@ -1064,6 +1103,15 @@
                                 </ul>
                             </td>
                             <td>
+                                <ul class="integration-list">
+                                    <li><i class="fas fa-check-circle"></i> Slack</li>
+                                    <li><i class="fas fa-check-circle"></i> Mattermost</li>
+                                    <li><i class="fas fa-check-circle"></i> Discord</li>
+                                    <li><i class="fas fa-check-circle"></i> Sentry</li>
+                                    <li><i class="fas fa-check-circle"></i> Ngrok</li>
+                                </ul>
+                            </td>
+                            <td>
                                 <div class="performance">
                                     <div class="perf-item"><i class="fas fa-expand"></i> Highly scalable</div>
                                     <div class="perf-item">
@@ -1177,6 +1225,12 @@
                                 </ul>
                             </td>
                             <td>
+                                <ul class="integration-list">
+                                    <li><i class="fas fa-check-circle"></i> Sentry</li>
+                                    <li><i class="fas fa-check-circle"></i> Ngrok</li>
+                                </ul>
+                            </td>
+                            <td>
                                 <div class="performance">
                                     <div class="perf-item"><i class="fas fa-tachometer-alt"></i> Low latency</div>
                                     <div class="perf-item limit">
@@ -1279,6 +1333,12 @@
                                     <li><i class="fas fa-check-circle"></i> Admin/user management</li>
                                     <li><i class="fas fa-check-circle"></i> Supports all MiroTalk modes</li>
                                     <li><i class="fas fa-check-circle"></i> IFrame embeddable</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul class="integration-list">
+                                    <li><i class="fas fa-check-circle"></i> Sentry</li>
+                                    <li><i class="fas fa-check-circle"></i> Ngrok</li>
                                 </ul>
                             </td>
                             <td>
@@ -1398,6 +1458,15 @@
                                     <li><i class="fas fa-check-circle"></i> Email notification</li>
                                     <li><i class="fas fa-check-circle"></i> IFrame embeddable</li>
                                     <li><i class="fas fa-check-circle"></i> Minimal UI</li>
+                                </ul>
+                            </div>
+
+                            <div class="card-section">
+                                <h4><i class="fas fa-cogs"></i> Integrations</h4>
+                                <ul class="integration-list">
+                                    <li><i class="fas fa-check-circle"></i> Mattermost</li>
+                                    <li><i class="fas fa-check-circle"></i> Sentry</li>
+                                    <li><i class="fas fa-check-circle"></i> Ngrok</li>
                                 </ul>
                             </div>
 
@@ -1532,6 +1601,16 @@
                                     <li><i class="fas fa-check-circle"></i> ChatGPT bot</li>
                                     <li><i class="fas fa-check-circle"></i> Email notification</li>
                                     <li><i class="fas fa-check-circle"></i> IFrame embeddable</li>
+                                </ul>
+                            </div>
+
+                            <div class="card-section">
+                                <h4><i class="fas fa-cogs"></i> Integrations</h4>
+                                <ul class="integration-list">
+                                    <li><i class="fas fa-check-circle"></i> Slack</li>
+                                    <li><i class="fas fa-check-circle"></i> Mattermost</li>
+                                    <li><i class="fas fa-check-circle"></i> Sentry</li>
+                                    <li><i class="fas fa-check-circle"></i> Ngrok</li>
                                 </ul>
                             </div>
 
@@ -1678,6 +1757,17 @@
                             </div>
 
                             <div class="card-section">
+                                <h4><i class="fas fa-cogs"></i> Integrations</h4>
+                                <ul class="integration-list">
+                                    <li><i class="fas fa-check-circle"></i> Slack</li>
+                                    <li><i class="fas fa-check-circle"></i> Mattermost</li>
+                                    <li><i class="fas fa-check-circle"></i> Discord</li>
+                                    <li><i class="fas fa-check-circle"></i> Sentry</li>
+                                    <li><i class="fas fa-check-circle"></i> Ngrok</li>
+                                </ul>
+                            </div>
+
+                            <div class="card-section">
                                 <h4><i class="fas fa-tachometer-alt"></i> Performance</h4>
                                 <div class="performance">
                                     <div class="perf-item"><i class="fas fa-expand"></i> Highly scalable</div>
@@ -1796,6 +1886,14 @@
                             </div>
 
                             <div class="card-section">
+                                <h4><i class="fas fa-cogs"></i> Integrations</h4>
+                                <ul class="integration-list">
+                                    <li><i class="fas fa-check-circle"></i> Sentry</li>
+                                    <li><i class="fas fa-check-circle"></i> Ngrok</li>
+                                </ul>
+                            </div>
+
+                            <div class="card-section">
                                 <h4><i class="fas fa-tachometer-alt"></i> Performance</h4>
                                 <div class="performance">
                                     <div class="perf-item"><i class="fas fa-tachometer-alt"></i> Low latency</div>
@@ -1904,6 +2002,14 @@
                                     <li><i class="fas fa-check-circle"></i> Admin/user management</li>
                                     <li><i class="fas fa-check-circle"></i> Supports all MiroTalk modes</li>
                                     <li><i class="fas fa-check-circle"></i> IFrame embeddable</li>
+                                </ul>
+                            </div>
+
+                            <div class="card-section">
+                                <h4><i class="fas fa-cogs"></i> Integrations</h4>
+                                <ul class="integration-list">
+                                    <li><i class="fas fa-check-circle"></i> Sentry</li>
+                                    <li><i class="fas fa-check-circle"></i> Ngrok</li>
                                 </ul>
                             </div>
 
@@ -2287,6 +2393,47 @@
                                 </ul>
                             </td>
                         </tr>
+
+                        <tr>
+                            <td class="feature-name">Integrations</td>
+                            <td class="project-cell">
+                                <ul class="integration-list">
+                                    <li><i class="fas fa-check-circle"></i> Mattermost</li>
+                                    <li><i class="fas fa-check-circle"></i> Sentry</li>
+                                    <li><i class="fas fa-check-circle"></i> Ngrok</li>
+                                </ul>
+                            </td>
+                            <td class="project-cell">
+                                <ul class="integration-list">
+                                    <li><i class="fas fa-check-circle"></i> Slack</li>
+                                    <li><i class="fas fa-check-circle"></i> Mattermost</li>
+                                    <li><i class="fas fa-check-circle"></i> Sentry</li>
+                                    <li><i class="fas fa-check-circle"></i> Ngrok</li>
+                                </ul>
+                            </td>
+                            <td class="project-cell">
+                                <ul class="integration-list">
+                                    <li><i class="fas fa-check-circle"></i> Slack</li>
+                                    <li><i class="fas fa-check-circle"></i> Mattermost</li>
+                                    <li><i class="fas fa-check-circle"></i> Discord</li>
+                                    <li><i class="fas fa-check-circle"></i> Sentry</li>
+                                    <li><i class="fas fa-check-circle"></i> Ngrok</li>
+                                </ul>
+                            </td>
+                            <td class="project-cell">
+                                <ul class="integration-list">
+                                    <li><i class="fas fa-check-circle"></i> Sentry</li>
+                                    <li><i class="fas fa-check-circle"></i> Ngrok</li>
+                                </ul>
+                            </td>
+                            <td class="project-cell">
+                                <ul class="integration-list">
+                                    <li><i class="fas fa-check-circle"></i> Sentry</li>
+                                    <li><i class="fas fa-check-circle"></i> Ngrok</li>
+                                </ul>
+                            </td>
+                        </tr>
+
                         <tr>
                             <td class="feature-name">Performance</td>
                             <td class="project-cell">
