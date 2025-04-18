@@ -79,7 +79,7 @@ theme:
       toggle:
         icon: material/brightness-4
         name: Switch to system preference
-  favicon: images/favicon.ico
+  favicon: images/icon/favicon.ico
   logo: images/logo.svg
   font:
     text: 'Roboto'
