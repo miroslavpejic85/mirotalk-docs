@@ -191,7 +191,7 @@ Install [PM2](https://pm2.keymetrics.io):
 $ npm install -g pm2
 
 # Start the server
-$ pm2 start backend/server.js
+$ pm2 start backend/server.js --name mirotalkweb
 
 # Takes a snapshot
 $ pm2 save

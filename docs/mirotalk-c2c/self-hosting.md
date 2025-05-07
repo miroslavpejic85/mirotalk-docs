@@ -53,7 +53,7 @@ Check if is correctly installed: [http://YOUR.DOMAIN.NAME:8080](http://YOUR.DOMA
 $ npm install -g pm2
 
 # Start the server
-$ pm2 start backend/server.js
+$ pm2 start backend/server.js --name mirotalkc2c
 
 # Takes a snapshot
 $ pm2 save

@@ -53,7 +53,7 @@ Check if is correctly installed: [http://YOUR.DOMAIN.NAME:3016](http://YOUR.DOMA
 $ npm install -g pm2
 
 # Start the server
-$ pm2 start app/server.js
+$ pm2 start app/server.js --name mirotalkbro
 
 # Takes a snapshot
 $ pm2 save

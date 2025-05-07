@@ -56,7 +56,7 @@ Check if is correctly installed: [http://YOUR.DOMAIN.NAME:3000](http://YOUR.DOMA
 $ npm install -g pm2
 
 # Start the server
-$ pm2 start app/src/server.js
+$ pm2 start app/src/server.js --name mirotalkp2p
 
 # Takes a snapshot
 $ pm2 save
