@@ -757,6 +757,133 @@
                     width: 120px;
                 }
             }
+
+            /* Improved Dark Mode Styles */
+            body.dark-mode {
+                background: #181a1b !important;
+                color: #e0e0e0 !important;
+            }
+            body.dark-mode .mirotalk-overview {
+                background: #181a1b;
+                color: #e0e0e0;
+            }
+            body.dark-mode .mirotalk-table,
+            body.dark-mode .comparison-table,
+            body.dark-mode .project-card {
+                background: #23272a;
+                color: #e0e0e0;
+            }
+            body.dark-mode .mirotalk-table thead tr,
+            body.dark-mode .comparison-table th {
+                background: #263859 !important;
+                color: #fff;
+            }
+            body.dark-mode .mirotalk-table th,
+            body.dark-mode .comparison-table th {
+                border-bottom: 1px solid #333;
+            }
+            body.dark-mode .mirotalk-table td,
+            body.dark-mode .comparison-table td {
+                border-bottom: 1px solid #333;
+            }
+            body.dark-mode .mirotalk-table tbody tr:hover,
+            body.dark-mode .comparison-table tr:hover td {
+                background: #202225;
+            }
+            body.dark-mode .project-card {
+                box-shadow: 0 2px 16px rgba(0,0,0,0.7);
+            }
+            body.dark-mode .card-header {
+                background: #23272a;
+                border-bottom: 1px solid #333;
+            }
+            body.dark-mode .project-tag,
+            body.dark-mode .tag.unlimited {
+                background: #263859;
+                color: #90caf9;
+            }
+            body.dark-mode .description {
+                color: #bbb;
+            }
+            body.dark-mode .encryption-badge.e2ee,
+            body.dark-mode .encryption-badge.https {
+                background: #263859;
+                color: #90caf9;
+            }
+            body.dark-mode .encryption-badge.transit {
+                background: #3e2723;
+                color: #ffb74d;
+            }
+            body.dark-mode .encryption-badge .tooltip {
+                background: #23272a;
+                color: #fff;
+                border: 1px solid #333;
+            }
+            body.dark-mode .back-btn {
+                background: #23272a;
+                color: #e0e0e0;
+                border: 1px solid #333;
+            }
+            body.dark-mode .back-btn:hover {
+                background: #263859;
+                color: #fff;
+            }
+            body.dark-mode .buy-btn {
+                background: #263859;
+                color: #90caf9;
+                border: 1px solid #2094f3;
+            }
+            body.dark-mode .buy-btn:hover {
+                background: #2094f3;
+                color: #fff;
+            }
+            body.dark-mode .demo-btn {
+                background: #2094f3;
+                color: #fff;
+                border: 1px solid #2094f3;
+            }
+            body.dark-mode .demo-btn:hover {
+                background: #1565c0;
+            }
+            body.dark-mode .docs-btn {
+                background: #23272a;
+                color: #90caf9;
+                border: 1px solid #2094f3;
+            }
+            body.dark-mode .docs-btn:hover {
+                background: #263859;
+            }
+            body.dark-mode .filter-select,
+            body.dark-mode .search-input {
+                background: #23272a;
+                color: #e0e0e0;
+                border: 1px solid #333;
+            }
+            body.dark-mode .view-btn {
+                background: #23272a;
+                color: #e0e0e0;
+                border: 1px solid #333;
+            }
+            body.dark-mode .view-btn.active {
+                background: #2094f3;
+                color: #fff;
+                border-color: #2094f3;
+            }
+            body.dark-mode .preview-img,
+            body.dark-mode .card-img {
+                background: #23272a;
+                border: 1px solid #333;
+            }
+            body.dark-mode .card-section {
+                border-bottom: 1px solid #333;
+            }
+            body.dark-mode .comparison-table .feature-name {
+                background: #202225;
+                color: #90caf9;
+            }
+            body.dark-mode .links-column a {
+                box-shadow: none;
+            }
         </style>
     </head>
     <body>
@@ -784,6 +911,7 @@
                         <option value="web">WEB</option>
                     </select>
                 </div>
+
                 <div class="view-toggle">
                     <button class="view-btn active" data-view="table"><i class="fas fa-table"></i> Table</button>
                     <button class="view-btn" data-view="comparison">
@@ -791,6 +919,11 @@
                     </button>
                     <button class="view-btn" data-view="cards"><i class="fas fa-th-large"></i> Card</button>
                 </div>
+
+                <!-- Dark/Light Toggle Button -->
+                <button id="themeToggle" class="view-btn" title="Toggle dark/light mode" style="min-width: 44px;">
+                    <i class="fas fa-moon"></i>
+                </button>
             </div>
 
             <!-- Table View -->
@@ -1780,9 +1913,9 @@
                                     <span class="badge-text">DTLS/SRTP</span>
                                     <div class="tooltip">
                                         In an SFU architecture, media (audio/video) is encrypted in transit using
-                                        DTLS-SRTP between clients and the server. The SFU decrypts the media to forward
-                                        it and re-encrypts it before sending it to other clients. This ensures privacy
-                                        during transmission. Although the SFU can technically access the media
+                                        DTLS-SRTP between clients and the server. The SFU decrypts the media to
+                                        forward it and re-encrypts it before sending it to other clients. This ensures
+                                        privacy during transmission. Although the SFU can technically access the media
                                         temporarily, it's your server and, by default, it doesn't handle, inspect, or
                                         store any of this media.
                                     </div>
@@ -1801,9 +1934,9 @@
                                     <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
                                     <span class="badge-text">HOST</span>
                                     <div class="tooltip">
-                                        Host protection using username and password restricts access to host features,
-                                        requiring authentication before granting permissions like room creation and
-                                        admin actions.
+                                        Host protection using username and password restricts access to host
+                                        features, requiring authentication before granting permissions like room
+                                        creation and admin actions.
                                     </div>
                                 </div>
                             </div>
@@ -2114,7 +2247,7 @@
                             <div class="card-section">
                                 <h4><i class="fas fa-mobile-alt"></i> Compatibility</h4>
                                 <div class="compatibility">
-                                    <div class="comp-item"><i class="fas fa-check-circle"></i> All modern browsers</div>
+                                    <div class="comp-item"><i class="fas fa-desktop"></i> All modern browsers</div>
                                     <div class="comp-item"><i class="fas fa-mobile-alt"></i> Responsive design</div>
                                     <div class="comp-item"><i class="fas fa-rocket"></i> Launches meetings</div>
                                     <div class="comp-item"><i class="fas fa-envelope"></i> Requires email setup</div>
@@ -2869,6 +3002,9 @@
                 // View toggle functionality
                 viewBtns.forEach((btn) => {
                     btn.addEventListener('click', function () {
+                        // If this is the theme toggle button, skip view switching
+                        if (!this.dataset.view) return;
+
                         viewBtns.forEach((b) => b.classList.remove('active'));
                         this.classList.add('active');
 
@@ -2882,7 +3018,7 @@
                             cardView.style.display = 'block';
                             comparisonView.style.display = 'none';
                             filterProjects(); // Refresh filter for card view
-                        } else {
+                        } else if (this.dataset.view === 'comparison') {
                             tableView.style.display = 'none';
                             cardView.style.display = 'none';
                             comparisonView.style.display = 'block';
@@ -2940,11 +3076,21 @@
                             headerCells.forEach((headerCell, index) => {
                                 if (index === 0) return; // Skip the feature name column
 
-                                const projectName = headerCell.textContent
+                                // Map filter value to project name in header
+                                const projectMap = {
+                                    c2c: 'c2c',
+                                    p2p: 'p2p',
+                                    sfu: 'sfu',
+                                    bro: 'bro',
+                                    web: 'web'
+                                };
+                                const headerText = headerCell.textContent
                                     .toLowerCase()
                                     .replace('mirotalk ', '')
+                                    .replace(' ', '')
                                     .trim();
-                                const matchesFilter = projectName.includes(currentFilter);
+
+                                const matchesFilter = headerText.includes(projectMap[currentFilter]);
 
                                 if (!matchesFilter) {
                                     // Hide entire column
@@ -2989,6 +3135,23 @@
                 // Event listeners for search and filter
                 searchInput.addEventListener('input', filterProjects);
                 filterSelect.addEventListener('change', filterProjects);
+
+                // Theme toggle
+                const themeToggle = document.getElementById('themeToggle');
+                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                const savedTheme = localStorage.getItem('mirotalk-theme');
+                if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+                    document.body.classList.add('dark-mode');
+                    themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+                }
+                themeToggle.addEventListener('click', function () {
+                    document.body.classList.toggle('dark-mode');
+                    const isDark = document.body.classList.contains('dark-mode');
+                    themeToggle.innerHTML = isDark
+                        ? '<i class="fas fa-sun"></i>'
+                        : '<i class="fas fa-moon"></i>';
+                    localStorage.setItem('mirotalk-theme', isDark ? 'dark' : 'light');
+                });
             });
         </script>
     </body>
