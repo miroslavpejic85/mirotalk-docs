@@ -1,4 +1,4 @@
-site_name: MiroTalk docs v1.2.17
+site_name: MiroTalk docs v1.2.18
 site_description: MiroTalk WebRTC documentations
 site_author: Miroslav Pejic (miroslav.pejic.85@gmail.com)
 copyright: © 2025 MiroTalk, all rights reserved
@@ -14,6 +14,9 @@ nav:
   - docs:
       - self-hosting: docs/self-hosting.md
   - licensing-options: license/licensing-options.md
+  - mirotalk-admin:
+      - about: https://github.com/miroslavpejic85/mirotalk-admin
+      - quick-start: mirotalk-admin/quick-start.md
   - mirotalk-bro:
       - about: https://codecanyon.net/item/mirotalk-bro-webrtc-p2p-live-broadcast/45887113
       - api: mirotalk-bro/api.md
