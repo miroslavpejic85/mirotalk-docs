@@ -1,5 +1,7 @@
 # MiroTalk BRO - Self hosting
 
+![mirotalk-bro](../images/mirotalk/bro.png)
+
 ## Requirements
 
 - Server Selection:

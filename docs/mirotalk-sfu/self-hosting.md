@@ -1,5 +1,7 @@
 # MiroTalk SFU - Self Hosting
 
+![mirotalk-sfu](../images/mirotalk/sfu.png)
+
 ## Requirements
 
 - Server Selection:

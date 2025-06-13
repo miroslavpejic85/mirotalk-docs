@@ -1,5 +1,7 @@
 # MiroTalk C2C Self-Hosting Guide
 
+![mirotalk-c2c](../images/mirotalk/c2c.png)
+
 ## Requirements
 
 - Server Selection:

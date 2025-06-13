@@ -1,5 +1,7 @@
 # MiroTalk WEB - Self hosting
 
+![mirotalk-web](../images/mirotalk/web.png)
+
 ## Requirements
 
 - Server Selection:

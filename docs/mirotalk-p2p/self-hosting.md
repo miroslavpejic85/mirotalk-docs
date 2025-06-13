@@ -1,5 +1,7 @@
 # MiroTalk P2P - Self Hosting
 
+![mirotalk-p2p](../images/mirotalk/p2p.png)
+
 ## Requirements
 
 - Server Selection:
