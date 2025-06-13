@@ -88,11 +88,11 @@ Choose how you want to manage your MiroTalk instance:
     - `SSH_USERNAME`
     - `SSH_PASSWORD` or `SSH_PRIVATE_KEY`
 
-- **Self-Hosted with Docker:**
-  - Set `APP_MANAGE_MODE=docker`
+  - **Self-Hosted with Docker:**
+    - Set `APP_MANAGE_MODE=docker`
 
-- **Self-Hosted with PM2:**
-  - Set `APP_MANAGE_MODE=pm2`
+  - **Self-Hosted with PM2:**
+    - Set `APP_MANAGE_MODE=pm2`
 
 ---
 
