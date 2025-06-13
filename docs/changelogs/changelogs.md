@@ -2,8 +2,9 @@
 
 Stay informed about project updates by following the commits of the MiroTalk projects!
 
-| Project         | changelogs                                                                  |
-| --------------- | --------------------------------------------------------------------------- |
+| Project            | changelogs                                                                  |
+| ------------------ | --------------------------------------------------------------------------- |
+| `🛡️ MiroTalk ADMIN`| [commits](https://github.com/miroslavpejic85/mirotalk-admin/commits/main)   |
 | `🏆 MiroTalk SFU`  | [commits](https://github.com/miroslavpejic85/mirotalksfu/commits/main)      |
 | `🚀 MiroTalk P2P`  | [commits](https://github.com/miroslavpejic85/mirotalk/commits/master)       |
 | `✨ MiroTalk C2C`  | [commits](https://github.com/miroslavpejic85/mirotalkc2c/commits/main)      |
