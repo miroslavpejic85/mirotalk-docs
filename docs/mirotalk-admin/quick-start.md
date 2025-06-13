@@ -47,6 +47,8 @@ npm start
 **1. Prepare your environment files:**
 
 ```bash
+git clone https://github.com/miroslavpejic85/mirotalk-admin.git
+cd mirotalk-admin
 cp backend/config/index.template.js backend/config/index.js
 cp .env.template .env
 cp docker-compose.template.yml docker-compose.yml
@@ -55,7 +57,7 @@ cp docker-compose.template.yml docker-compose.yml
 **2. Build and run with Docker Compose:**
 
 ```bash
-docker compose build
+docker pull mirotalk/admin:latest
 docker compose up
 ```
 
