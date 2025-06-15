@@ -66,30 +66,6 @@ A secure, modern web dashboard to manage **[MiroTalk](https://docs.mirotalk.com/
 
 ---
 
-## 🐳 Quick Start with Docker (beta)
-
-1. **Prepare Your Environment Files**
-
-    ```bash
-    git clone https://github.com/miroslavpejic85/mirotalk-admin.git
-    cd mirotalk-admin
-    cp backend/config/index.template.js backend/config/index.js
-    cp .env.template .env
-    cp docker-compose.template.yml docker-compose.yml
-    ```
-
-2. **Pull and Run with Docker Compose**
-
-    ```bash
-    docker pull mirotalk/admin:latest
-    docker compose up
-    ```
-
-3. **Access the Dashboard**
-    - Open: [http://localhost:9999/admin](http://localhost:9999/admin)
-
----
-
 ## ⚠️ Security Checklist
 
 > **Important:**  
