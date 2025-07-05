@@ -39,7 +39,7 @@ $ cp .env.template .env
 $ cp app/src/config.template.js app/src/config.js
 
 # Install dependencies
-$ npm install
+$ npm ci
 
 # Start the server
 $ npm start
@@ -55,7 +55,7 @@ Check if is correctly installed: [http://YOUR.DOMAIN.NAME:3000](http://YOUR.DOMA
 
 ```bash
 # Install pm2
-$ npm install -g pm2
+$ npm ci -g pm2
 
 # Start the server
 $ pm2 start app/src/server.js --name mirotalkp2p
@@ -287,7 +287,7 @@ For `PM2`:
 
 cd mirotalk
 git pull
-sudo npm install
+sudo npm ci
 pm2 restart app/src/server.js
 ```
 

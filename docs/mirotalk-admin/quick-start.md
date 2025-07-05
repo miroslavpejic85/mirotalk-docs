@@ -17,7 +17,7 @@ A secure, modern web dashboard to manage **[MiroTalk](https://docs.mirotalk.com/
     cd mirotalk-admin
     cp backend/config/index.template.js backend/config/index.js
     cp .env.template .env
-    npm install
+    npm ci
     npm start
     ```
 
@@ -35,7 +35,7 @@ A secure, modern web dashboard to manage **[MiroTalk](https://docs.mirotalk.com/
 1. **Install PM2 globally (if not already installed):**
 
     ```bash
-    npm install -g pm2
+    npm ci -g pm2
     ```
 
 2. **Clone and set up the project:**
@@ -45,7 +45,7 @@ A secure, modern web dashboard to manage **[MiroTalk](https://docs.mirotalk.com/
     cd mirotalk-admin
     cp backend/config/index.template.js backend/config/index.js
     cp .env.template .env
-    npm install
+    npm ci
     ```
 
 3. **Start the server with PM2:**
