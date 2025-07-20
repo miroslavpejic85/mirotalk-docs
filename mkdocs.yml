@@ -1,4 +1,4 @@
-site_name: MiroTalk docs v1.2.28
+site_name: MiroTalk docs v1.2.29
 site_description: MiroTalk WebRTC documentations
 site_author: Miroslav Pejic (miroslav.pejic.85@gmail.com)
 copyright: © 2025 MiroTalk, all rights reserved
@@ -62,6 +62,7 @@ nav:
       - docker-compose: utility/docker-compose.md
       - ftp: utility/ftp.md
       - nvm: utility/nvm.md 
+      - update: utility/update.md
   - webrtc:
       - architectures: webrtc/architectures.md
 
