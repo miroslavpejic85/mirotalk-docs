@@ -88,9 +88,28 @@ $ cp .env.template .env
 
 # Copy docker-compose.template.yml in docker-compose.yml and customize it according to your needs if needed
 $ cp docker-compose.template.yml docker-compose.yml
+```
 
+Example of `docker-compose.yml`:
+
+```yaml 
+services:
+    mirotalkc2c:
+        image: mirotalk/c2c:latest
+        container_name: mirotalkc2c
+        hostname: mirotalkc2c
+        restart: unless-stopped
+        ports:
+            - '${PORT}:${PORT}'
+        volumes:
+            - .env:/src/.env:ro
+            - ./frontend/:/src/frontend/:ro
+            - ./backend/:/src/backend/:ro
+```
+
+```bash
 # Pull the official Docker image
-$ docker pull mirotalk/c2c:latest
+$ docker-compose pull
 
 # Create and start containers (-d as daemon)
 $ docker-compose up

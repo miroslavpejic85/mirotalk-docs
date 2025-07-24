@@ -88,9 +88,28 @@ $ cp .env.template .env
 
 # Copy docker-compose.template.yml in docker-compose.yml and customize it according to your needs if needed
 $ cp docker-compose.template.yml docker-compose.yml
+```
 
+Example of `docker-compose.yml`:
+
+```yaml 
+services:
+    mirotalkbro:
+        image: mirotalk/bro:latest
+        container_name: mirotalkbro
+        hostname: mirotalkbro
+        restart: unless-stopped
+        ports:
+            - '${PORT}:${PORT}'
+        volumes:
+            - .env:/src/.env:ro
+            - ./app/:/src/app/:ro
+            - ./public/:/src/public/:ro
+```
+
+```bash
 # Pull the official Docker image
-$ docker pull mirotalk/bro:latest
+$ docker-compose pull
 
 # Create and start containers (-d as daemon)
 $ docker-compose up

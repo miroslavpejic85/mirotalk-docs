@@ -94,9 +94,28 @@ $ cp app/src/config.template.js app/src/config.js
 
 # Copy docker-compose.template.yml in docker-compose.yml (edit it according to your needs)
 $ cp docker-compose.template.yml docker-compose.yml
+```
 
+Example of `docker-compose.yml`:
+
+```yaml 
+services:
+    mirotalk:
+        image: mirotalk/p2p:latest
+        container_name: mirotalk
+        hostname: mirotalk
+        restart: unless-stopped
+        ports:
+            - '3000:3000'
+        volumes:
+            - .env:/src/.env:ro
+            - ./app/:/src/app/:ro
+            - ./public/:/src/public/:ro
+```
+
+```bash
 # Pull the official Docker image
-$ docker pull mirotalk/p2p:latest
+$ docker-compose pull
 
 # Create and start containers (-d as daemon)
 $ docker-compose up
