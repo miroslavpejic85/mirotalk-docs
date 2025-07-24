@@ -65,31 +65,32 @@ $ cp .env.template .env
 
 ### Config.js
 
-Change the `ENVIRONMENT` and the `ANNOUNCED_IP` in the `.env`
+Change the `ENVIRONMENT` and the `SFU_ANNOUNCED_IP` in the `.env`
 
 ```bash
 ENVIRONMENT=production
-ANNOUNCED_IP=Your-Server-Public-IPv4-or-Domain
+SFU_ANNOUNCED_IP=Your-Server-Public-IPv4-or-Domain
 ```
 
 Set the port range for WebRTC communication. This range is used for the dynamic allocation of UDP ports for media streams.
 
-```js
-/*
+```bash
+: '
     About:
     - Each participant requires 2 ports: one for audio and one for video.
     - The default configuration supports up to 50 participants (50 * 2 ports = 100 ports).
     - To support more participants, simply increase the port range.
 
     Note: 
-    - When running in Docker, use 'network mode: host' for improved performance.
-    - Alternatively, enable 'SFU_SERVER: true' mode for better scalability.
-    - Make sure these port ranges are not blocked by the firewall, if they are, add the necessary rules
-*/
+    - When running in Docker, use "network mode: host" for improved performance.
+    - Alternatively, enable "SFU_SERVER: true" mode for better scalability.
+    - Make sure these port ranges are not blocked by the firewall; if they are, add the necessary rules.
+'
+
 SFU_MIN_PORT=40000
 SFU_MAX_PORT=40100 
 
-// Maximum workers should not exceed available CPU cores (e.g., 4 workers max on 4-core CPU)
+# Maximum workers should not exceed available CPU cores (e.g., 4 workers max on 4-core CPU)
 SFU_NUM_WORKERS=1
 ```
 
