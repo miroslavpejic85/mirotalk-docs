@@ -90,8 +90,7 @@ Set the port range for WebRTC communication. This range is used for the dynamic 
 SFU_MIN_PORT=40000
 SFU_MAX_PORT=40100 
 
-# Maximum workers should not exceed available CPU cores (e.g., 4 workers max on 4-core CPU)
-SFU_NUM_WORKERS=1
+SFU_NUM_WORKERS=1 # Maximum workers should not exceed available CPU cores (e.g., 4 workers max on 4-core CPU)
 ```
 
 <br />
@@ -125,7 +124,11 @@ ufw allow 443/tcp
 
 ### WebRTCServer (optional)
 
-You can activate the `WebRTCServer` option by setting `SFU_SERVER: true` in the `.env`.
+You can activate the `WebRTCServer` option in the `.env` file:
+
+```bash
+SFU_SERVER=true
+```
 
 Here's how it works:
 
