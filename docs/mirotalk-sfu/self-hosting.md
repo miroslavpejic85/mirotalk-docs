@@ -65,11 +65,11 @@ $ cp .env.template .env
 
 ### Config.js
 
-Change the `ENVIRONMENT` and the `ANNOUNCED_IP` in the `app/src/config.js`
+Change the `ENVIRONMENT` and the `ANNOUNCED_IP` in the `.env`
 
-```js
-const ENVIRONMENT = 'production';
-const ANNOUNCED_IP = 'Your Server Public IPv4 or Domain';
+```bash
+ENVIRONMENT=production;
+ANNOUNCED_IP=Your-Server-Public-IPv4-or-Domain;
 ```
 
 Set the port range for WebRTC communication. This range is used for the dynamic allocation of UDP ports for media streams.
@@ -83,43 +83,17 @@ Set the port range for WebRTC communication. This range is used for the dynamic 
 
     Note: 
     - When running in Docker, use 'network mode: host' for improved performance.
-    - Alternatively, enable 'webRtcServerActive: true' mode for better scalability.
+    - Alternatively, enable 'SFU_SERVER: true' mode for better scalability.
     - Make sure these port ranges are not blocked by the firewall, if they are, add the necessary rules
 */
-const RTC_MIN_PORT = 40000;
-const RTC_MAX_PORT = 40100;
+SFU_MIN_PORT=40000
+SFU_MAX_PORT=40100 
 
 // Maximum workers should not exceed available CPU cores (e.g., 4 workers max on 4-core CPU)
-const NUM_WORKERS = 1;
+SFU_NUM_WORKERS=1
 ```
 
 <br />
-
-```javascript
-{
-    protocol: 'udp',
-    ip: '0.0.0.0',
-    announcedAddress: 'Your Server Public IPv4',
-    portRange: { min: RTC_MIN_PORT, max: RTC_MAX_PORT } },
-{
-    protocol: 'tcp',
-    ip: '0.0.0.0',
-    announcedAddress: 'Your Server Public IPv4',
-    portRange: { min: RTC_MIN_PORT, max: RTC_MAX_PORT } },
-},
-
-// If you are not behind a NAT
-{
-    protocol: 'udp',
-    ip: 'Your Server Public IPv4',
-    portRange: { min: RTC_MIN_PORT, max: RTC_MAX_PORT } },
-},
-{
-    protocol: 'tcp',
-    ip: 'Your Server Public IPv4',
-    portRange: { min: RTC_MIN_PORT, max: RTC_MAX_PORT } },
-},
-```
 
 ### FireWall
 
@@ -150,28 +124,13 @@ ufw allow 443/tcp
 
 ### WebRTCServer (optional)
 
-You can activate the `WebRTCServer` option by setting `webRtcServerActive: true` in the `app/src/config.js`.
+You can activate the `WebRTCServer` option by setting `SFU_SERVER: true` in the `.env`.
 
 Here's how it works:
 
 - MiroTalk instantiates a `Worker` for each `CPU`.
 - Each `Worker` has its own `WebRTCServer`, which listens on a single port starting from `40000`.
 - This setup simplifies port management because you only need to open ports for the number of `Workers` you have.
-
-```javascript
-{
-    protocol: 'udp',
-    ip: '0.0.0.0',
-    announcedAddress: 'Your Server Public IPv4',
-    portRange: { min: RTC_MIN_PORT, max: RTC_MIN_PORT + NUM_WORKERS }
-},
-{
-    protocol: 'tcp',
-    ip: '0.0.0.0',
-    announcedAddress: 'Your Server Public IPv4',
-    portRange: { min: RTC_MIN_PORT, max: RTC_MIN_PORT + NUM_WORKERS }
-},
-```
 
 ---
 
