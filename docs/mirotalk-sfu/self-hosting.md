@@ -63,7 +63,7 @@ $ cp .env.template .env
 
 ---
 
-### Config.js
+### .env
 
 Change the `ENVIRONMENT` and the `SFU_ANNOUNCED_IP` in the `.env`
 
