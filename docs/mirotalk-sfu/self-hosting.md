@@ -68,8 +68,8 @@ $ cp .env.template .env
 Change the `ENVIRONMENT` and the `ANNOUNCED_IP` in the `.env`
 
 ```bash
-ENVIRONMENT=production;
-ANNOUNCED_IP=Your-Server-Public-IPv4-or-Domain;
+ENVIRONMENT=production
+ANNOUNCED_IP=Your-Server-Public-IPv4-or-Domain
 ```
 
 Set the port range for WebRTC communication. This range is used for the dynamic allocation of UDP ports for media streams.
