@@ -164,6 +164,7 @@ EMAIL_HOST=yourEmailHost
 EMAIL_PORT=yourEmailPort
 EMAIL_USERNAME=yourEmailUsername
 EMAIL_PASSWORD=yourEmailPassword
+EMAIL_FROM=yourEmailFrom
 ```
 
 </details>
