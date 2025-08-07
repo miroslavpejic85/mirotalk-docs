@@ -2,11 +2,11 @@
 
 ## Iframe
 
-Easily integrate MiroTalk SFU into your website by embedding it with a simple `iframe`.
+Easily integrate MiroTalk SFU into your website by embedding it with a simple `iframe` as Landing Page Mode.
 
 ```html
 <!doctype html>
-<html>
+<html lang="en">
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -23,6 +23,8 @@ Easily integrate MiroTalk SFU into your website by embedding it with a simple `i
     </body>
 </html>
 ```
+
+> **Important:** Replace `YOUR-DOMAIN-NAME` with your actual MiroTalk SFU server URL.
 
 ## IframeAPI
 
@@ -101,9 +103,8 @@ To integrate MiroTalk SFU via iframe, add the following HTML and JavaScript to y
 ## Installation Steps
 
 1. Replace `YOUR-DOMAIN-NAME` with your MiroTalk SFU domain.
-2. Include the `Iframe.js` script in your HTML.
-3. Adjust the `options` object as needed.
-4. Add a `<div id="meet"></div>` where the iframe should appear.
+2. Adjust the `options` object as needed.
+3. Add a `<div id="meet"></div>` where the iframe should appear.
 
 ## Important Notes
 
