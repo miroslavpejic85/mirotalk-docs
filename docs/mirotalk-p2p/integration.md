@@ -199,7 +199,7 @@ To quickly add a support widget to your site, include the script in your `<head>
                 connectText: 'connect in < 5 seconds',
                 onlineText: 'We are online',
                 offlineText: 'We are offline',
-                poweredBy: 'Powered by MiroTalk SFU',
+                poweredBy: 'Powered by MiroTalk P2P',
               },
             },
           });
