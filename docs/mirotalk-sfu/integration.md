@@ -162,6 +162,7 @@ To quickly add a support widget to your site, include the script in your `<head>
 | `data-widget-state`    | String  | Initial widget state: `normal`, `minimized`, or `closed`.                                     |
 | `data-position`        | String  | Widget position on the page: `bottom-right`, `bottom-left`, `top-right`, or `top-left`.       |
 | `data-check-online`    | Boolean | If `true`, checks if support is online before showing the widget.                             |
+| `data-expert-images`   | String  | Comma-separated URLs of expert images to display as available assistants.                     |
 | `data-heading`         | String  | Main heading text displayed in the widget.                                                    |
 | `data-subheading`      | String  | Subheading text for additional context.                                                       |
 | `data-connect-text`    | String  | Text shown for connection status (supports HTML entities).                                    |
