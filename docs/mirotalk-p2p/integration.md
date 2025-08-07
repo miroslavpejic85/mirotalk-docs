@@ -132,6 +132,7 @@ To quickly add a support widget to your site, include the script in your `<head>
       data-widget-state="normal"
       data-position="bottom-right"
       data-check-online="false"
+      data-expert-images="https://i.pravatar.cc/40?img=1,https://i.pravatar.cc/40?img=2,https://i.pravatar.cc/40?img=3"
       data-heading="Need Help?"
       data-subheading="Get instant support from our expert team!"
       data-connect-text="connect in &lt; 5 seconds"
