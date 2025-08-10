@@ -25,7 +25,7 @@
 
 ---
 
-> **Important:** Replace `YOUR-DOMAIN-NAME` with your actual MiroTalk SFU server URL.
+> **Important:** Replace `YOUR-DOMAIN-NAME` with your actual MiroTalk P2P server URL.
 
 By utilizing these URLs and parameters, you can seamlessly customize your room entry experience, including your identity, audio and video preferences, screen sharing options, hide myself, and welcome messages on the respective platforms.
 
