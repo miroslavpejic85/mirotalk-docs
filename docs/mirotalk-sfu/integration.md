@@ -140,6 +140,7 @@ To quickly add a support widget to your site, include the script in your `<head>
       data-position="bottom-right"
       data-check-online="false"
       data-expert-images="https://i.pravatar.cc/40?img=1,https://i.pravatar.cc/40?img=2,https://i.pravatar.cc/40?img=3"
+      data-buttons="audio,video,screen,chat,join"
       data-heading="Need Help?"
       data-subheading="Get instant support from our expert team!"
       data-connect-text="connect in &lt; 5 seconds"
@@ -150,8 +151,6 @@ To quickly add a support widget to your site, include the script in your `<head>
   </body>
 </html>
 ```
-
-## Widget Configuration Options
 
 | Attribute              | Type    | Description                                                                                   |
 |------------------------|---------|-----------------------------------------------------------------------------------------------|
@@ -165,6 +164,7 @@ To quickly add a support widget to your site, include the script in your `<head>
 | `data-position`        | String  | Widget position on the page: `bottom-right`, `bottom-left`, `top-right`, or `top-left`.       |
 | `data-check-online`    | Boolean | If `true`, checks if support is online before showing the widget.                             |
 | `data-expert-images`   | String  | Comma-separated URLs of expert images to display as available assistants.                     |
+| `data-buttons`         | String  | Comma-separated list of enabled buttons (e.g., `audio,video,screen,chat,join`).               |
 | `data-heading`         | String  | Main heading text displayed in the widget.                                                    |
 | `data-subheading`      | String  | Subheading text for additional context.                                                       |
 | `data-connect-text`    | String  | Text shown for connection status (supports HTML entities).                                    |
@@ -200,6 +200,13 @@ To quickly add a support widget to your site, include the script in your `<head>
                 'https://i.pravatar.cc/40?img=2',
                 'https://i.pravatar.cc/40?img=3',
               ],
+              buttons: {
+                audio: true,
+                video: true,
+                screen: true,
+                chat: true,
+                join: true,
+              },
               checkOnlineStatus: false,
               isOnline: true,
               customMessages: {
@@ -237,6 +244,7 @@ To quickly add a support widget to your site, include the script in your `<head>
 | `position`            | String   | Widget position: `bottom-right`, `bottom-left`, `top-right`, or `top-left`.                   |
 | `expertImages`        | Array    | Array of expert avatar image URLs.                                                            |
 | `checkOnlineStatus`   | Boolean  | If `true`, checks if support is online before showing the widget.                             |
+| `buttons`             | Object   | Object to enable or disable widget buttons.                                                   |
 | `isOnline`            | Boolean  | Sets the online status manually.                                                              |
 | `customMessages`      | Object   | Customizable widget messages (see below).                                                     |
 
