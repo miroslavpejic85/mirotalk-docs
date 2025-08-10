@@ -61,6 +61,7 @@ To integrate MiroTalk P2P via iframe, add the following HTML and JavaScript to y
           audio: 0,
           video: 0,
           screen: 0,
+          chat: 0,
           hide: 0,
           notify: 0,
           token: null,
@@ -84,16 +85,17 @@ To integrate MiroTalk P2P via iframe, add the following HTML and JavaScript to y
 | -------------- | ------------- | ------------------------------------------------------------------------------------------------------------- |
 | `room`         | String        | Room ID to join                                                                                               |
 | `name`         | String        | Participant display name                                                                                      |
-| `avatar`       | Mixed         | Avatar image URL or 0 to disable                                                                             |
-| `audio`        | Number        | Enable (1) or disable (0) audio                                                                              |
-| `video`        | Number        | Enable (1) or disable (0) video                                                                              |
-| `screen`       | Number        | Enable (1) or disable (0) screen sharing                                                                     |
-| `hide`         | Number        | Hide self view (1 to enable, 0 to disable)                                                                   |
-| `notify`       | Number        | Enable (1) or disable (0) notifications                                                                      |
-| `token`        | String        | User token (optional, required if `host.protected` or `host.user_auth` is enabled in `.env`)                 |
-| `width`        | String        | Iframe width (e.g., "100vw")                                                                                 |
-| `height`       | String        | Iframe height (e.g., "100vh")                                                                                |
-| `parentNode`   | DOM Element   | Parent HTML element for the iframe                                                                           |
+| `avatar`       | Mixed         | Avatar image URL or 0 to disable                                                                              |
+| `audio`        | Number        | Enable (1) or disable (0) audio                                                                               |
+| `video`        | Number        | Enable (1) or disable (0) video                                                                               |
+| `screen`       | Number        | Enable (1) or disable (0) screen sharing                                                                      |
+| `chat`         | Number        | Enable (1) or disable (0) chat.                                                                               |
+| `hide`         | Number        | Hide self view (1 to enable, 0 to disable)                                                                    |
+| `notify`       | Number        | Enable (1) or disable (0) notifications                                                                       |
+| `token`        | String        | User token (optional, required if `host.protected` or `host.user_auth` is enabled in `.env`)                  |
+| `width`        | String        | Iframe width (e.g., "100vw")                                                                                  |
+| `height`       | String        | Iframe height (e.g., "100vh")                                                                                 |
+| `parentNode`   | DOM Element   | Parent HTML element for the iframe                                                                            |
 
 ## Installation Steps
 

@@ -392,6 +392,7 @@ try {
       audio: true,
       video: true,
       screen: false,
+      chat: false,
       hide: false,
       notify: true,
       // Token configuration is required if the host system is protected, user authentication is needed, or a room presenter is specified
@@ -443,6 +444,7 @@ $data = array(
     "audio"         => false,
     "video"         => false,
     "screen":       => false,
+    "chat":         => false,
     "hide"          => false,
     "notify"        => true,
     // Token configuration is required if the host system is protected, user authentication is needed, or a room presenter is specified
@@ -491,6 +493,7 @@ data = {
     "audio": "false",
     "video": "false",
     "screen": "false",
+    "chat": "false",
     "hide": "false",
     "notify": "true",
     # Token configuration is required if the host system is protected, user authentication is needed, or a room presenter is specified
@@ -532,6 +535,7 @@ REQUEST_DATA='{
   "audio": false,
   "video": false,
   "screen": false,
+  "chat": false,
   "hide": false,
   "notify": true,
   "token": { 
