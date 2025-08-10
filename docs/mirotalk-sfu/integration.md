@@ -58,7 +58,7 @@ To integrate MiroTalk SFU via iframe, add the following HTML and JavaScript to y
         const options = {
           room: "test",
           roomPassword: 0,
-          name: "mirotalk",
+          name: 'guest-' + Math.floor(Math.random() * 10000),
           avatar: 0,
           audio: 0,
           video: 0,
