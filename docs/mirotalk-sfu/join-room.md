@@ -2,7 +2,7 @@
 
 ---
 
-**URL**: [https://your.domain.com/join?room=test&roomPassword=0&name=mirotalksfu&avatar=0&audio=0&video=0&screen=0&chat=0&hide=0&notify=0&duration=unlimited](https://sfu.mirotalk.com/join?room=test&roomPassword=0&name=mirotalksfu&avatar=0&audio=0&video=0&screen=0&chat=0&hide=0&notify=0&duration=unlimited)
+**URL**: [https://YOUR-DOMAIN-NAME/join?room=test&roomPassword=0&name=mirotalksfu&avatar=0&audio=0&video=0&screen=0&chat=0&hide=0&notify=0&duration=unlimited](https://sfu.mirotalk.com/join?room=test&roomPassword=0&name=mirotalksfu&avatar=0&audio=0&video=0&screen=0&chat=0&hide=0&notify=0&duration=unlimited)
 
 **Description**: This URL allows you to directly enter a `room` named test. You can specify your username using the `name` parameter and avatar image URL using the `avatar` parameter. Additionally, you have the option to set room password, control your audio, video, screen sharing, welcome message and room duration preferences through the `roomPassword`, `audio`, `video`, `screen`, `hide`, `notify` and `duration` parameters.
 
@@ -26,6 +26,8 @@
 | `token`        | string         | Represents the token for the user. Optional if `host.protected` or `host.user_auth` is set to `true` in the `config.js` file                       |
 
 ---
+
+> **Important:** Replace `YOUR-DOMAIN-NAME` with your actual MiroTalk SFU server URL.
 
 By utilizing this URL and its associated parameters, you can seamlessly customize your room entry experience, including your identity, room password, audio and video preferences, screen sharing options, hide myself, and welcome messages.
 
