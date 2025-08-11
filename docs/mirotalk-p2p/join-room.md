@@ -17,8 +17,8 @@
 | `avatar` | Mixed  | This parameter specifies the avatar image that will be displayed when your camera is turned off in the room																	  |
 | `audio`  | boolean | Use this parameter to control your audio stream. Set to `0` for no audio or `1` to enable audio                                              |
 | `video`  | boolean | Control your video stream using this parameter. Set to `0` for no video or `1` to enable video                                               |
-| `screen` | boolean | To control screen sharing, use this parameter. Set to `0` for no screen sharing or `1` to enable screen sharing                              |
-| `chat`   | boolean | To control chat, use this parameter. Set to `0` for no screen sharing or `1` to enable chat                                                  |
+| `screen` | boolean | To start screen sharing, use this parameter. Set to `0` for no start screen sharing or `1` to start screen sharing                           |
+| `chat`   | boolean | To start chat, use this parameter. Set to `0` for no start chat on join or `1` to start chat on join                                         |
 | `hide`   | boolean | Determines whether to hide the user from the room view. Set to `0` to not hide or `1` to hide                                                |
 | `notify` | boolean | You can specify whether or not to display a welcome message upon joining the room by setting this parameter to `0` (disable) or `1` (enable) |
 | `token`  | string  | Represents the token for the user. Optional if `HOST_PROTECTED` or `HOST_USER_AUTH` is set to `true` in the `.env` file                      |
