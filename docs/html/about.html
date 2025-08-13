@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MiroTalk – Self-Hosted WebRTC Suite</title>
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <style>
+        :root {
+            --primary: #2196f3;
+            --primary-dark: #1565c0;
+            --accent: #00bcd4;
+            --bg: #10141a;
+            --card-bg: #181d23;
+            --text: #e3eaf3;
+            --muted: #8a97ad;
+            --shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+            --radius: 12px;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', Arial, sans-serif;
+            margin: 0;
+            line-height: 1.7;
+            font-size: 1.08rem;
+        }
+
+        main {
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(120deg, var(--primary-dark), var(--primary));
+            color: #fff;
+            padding: 3.5rem 1rem 2.5rem 1rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://img.icons8.com/ios-filled/100/ffffff/video-call.png') no-repeat right 2rem bottom 1rem;
+            opacity: 0.07;
+            pointer-events: none;
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+        }
+
+        header p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            color: #b3e5fc;
+            font-weight: 500;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .cta-buttons a,
+        .theme-toggle-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--card-bg);
+            color: var(--primary);
+            padding: 0.85rem 2rem;
+            margin: 0.5rem 0;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.08rem;
+            box-shadow: var(--shadow);
+            border: none;
+            cursor: pointer;
+            transition: transform 0.18s, box-shadow 0.18s, background 0.18s, color 0.18s;
+        }
+
+        .cta-buttons a:hover,
+        .theme-toggle-btn:hover {
+            background: #10141a;
+            color: #fff !important;
+            transform: translateY(-2px) scale(1.04);
+            box-shadow: 0 8px 24px rgba(33,150,243,0.18);
+        }
+
+        section {
+            max-width: 1100px;
+            margin: 2.5rem auto;
+            padding: 0 1.2rem;
+            position: relative;
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (max-width: 900px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .feature-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.18em;
+        }
+
+        .feature-card i.feature-icon {
+            margin-bottom: 1.2rem;
+        }
+
+        .feature-card .feature-muted {
+            color: var(--muted);
+            font-size: 0.98rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 1.2rem 1rem 1rem 1rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+            text-align: center;
+            transition: transform 0.18s, box-shadow 0.18s;
+            min-height: 150px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: 0 8px 24px rgba(33, 150, 243, 0.18);
+            z-index: 2;
+        }
+
+        .feature-card strong {
+            font-size: 1.15rem;
+            color: var(--primary);
+            margin-bottom: 0.2rem;
+            display: block;
+        }
+
+        .feature-card a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 0.5rem;
+            display: inline-block;
+            transition: color 0.18s;
+        }
+
+        .feature-card a:hover {
+            color: #fff !important;
+            text-decoration: underline;
+        }
+
+        .codepen-features-grid {
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .codepen-card {
+            min-height: 160px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+            border: 1px solid #232b36;
+            background: #151a20;
+        }
+
+        .codepen-card .feature-icon {
+            color: #fff;
+            background: var(--primary-dark);
+            border-radius: 50%;
+            font-size: 2.2rem;
+            margin-bottom: 1.1rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+            padding: 0.4em;
+        }
+
+        .demo-box {
+            background: #151a20;
+            padding: 1.2rem 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+            text-align: center;
+            max-width: 420px;
+            margin: 1.5rem auto;
+            font-size: 1.08rem;
+            color: var(--text);
+        }
+
+        .widget-links,
+        .license-info {
+            background: #151a20;
+            padding: 1.1rem 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+            margin-top: 1.2rem;
+        }
+
+        .widget-links a {
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            margin-right: 1.2rem;
+            transition: color 0.18s;
+        }
+
+        .widget-links a:hover {
+            color: #fff !important;
+            background: #10141a !important;
+            text-decoration: underline;
+        }
+
+        .widget-features-grid {
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .widget-card {
+            min-height: 140px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+            border: 1px solid #232b36;
+            background: #151a20;
+        }
+
+        .widget-card .feature-icon {
+            color: var(--primary);
+            background: #232b36;
+            border-radius: 50%;
+            font-size: 2.1rem;
+            margin-bottom: 1.1rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+            padding: 0.4em;
+        }
+
+        .license-info ul {
+            margin: 0.5rem 0 0.5rem 1.2rem;
+            padding: 0;
+        }
+
+        .license-info li {
+            margin-bottom: 0.3rem;
+            color: var(--muted);
+        }
+
+        .license-cards {
+            margin-top: 1.2rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .license-summary {
+            display: flex;
+            align-items: center;
+            background: #151a20;
+            border-radius: 8px;
+            padding: 0.8rem 1rem;
+            font-size: 1.08rem;
+            margin-bottom: 1.2rem;
+            color: var(--primary);
+        }
+
+        .license-features-grid {
+            margin-bottom: 1.2rem;
+        }
+
+        .license-card {
+            min-height: 140px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+            border: 1px solid #232b36;
+            background: #151a20;
+        }
+
+        .license-card .feature-icon {
+            color: var(--primary);
+            background: #232b36;
+            border-radius: 50%;
+            font-size: 2.1rem;
+            margin-bottom: 1.1rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+            padding: 0.4em;
+        }
+
+        .license-actions {
+            display: flex;
+            justify-content: center;
+            gap: 1.2rem;
+            margin-top: 1.2rem;
+        }
+
+        .license-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5em;
+            background: var(--primary);
+            color: #fff;
+            padding: 0.7rem 1.6rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            box-shadow: var(--shadow);
+            border: none;
+            transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+        }
+
+        .license-btn:hover {
+            background: #10141a;
+            color: #fff !important;
+            box-shadow: 0 8px 24px rgba(0, 188, 212, 0.18);
+        }
+
+        section:not(:last-of-type) {
+            border-bottom: 1px solid #232b36;
+            padding-bottom: 2.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 700px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.3rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .demo-box,
+            .widget-links,
+            .license-info {
+                font-size: 0.98rem;
+            }
+
+            section {
+                padding: 0 0.5rem;
+            }
+        }
+
+        .mirotalk-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.2rem;
+            margin-top: 2rem;
+        }
+
+        .mirotalk-card {
+            background: #151a20;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+            padding: 1rem;
+            color: var(--text);
+        }
+
+        .mirotalk-pre {
+            background: #232b36;
+            border-radius: 6px;
+            padding: 0.7rem 0.5rem;
+            overflow: auto;
+            font-size: 0.98rem;
+            margin: 0.7rem 0 0.5rem 0;
+            color: #b3e5fc;
+        }
+
+        /* Alternating section backgrounds */
+        .alt-bg {
+            background: #181d23;
+        }
+
+        /* Fade-in animation for cards */
+        .fadeInUp {
+            animation: fadeInUp 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translate3d(0, 40px, 0);
+            }
+
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        /* Footer improvements */
+        footer {
+            background: #151a20;
+            padding: 2.2rem 0 1.2rem 0;
+            margin-top: 2.5rem;
+            border-top: 1px solid #232b36;
+        }
+
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 0.7rem;
+        }
+
+        .footer-social a {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 1.25rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4em;
+            transition: color 0.18s;
+        }
+
+        .footer-social a:hover {
+            color: #fff !important;
+            background: #10141a !important;
+        }
+
+        .footer-social-margin {
+            margin-top: 0.5rem;
+        }
+
+        .logo-img {
+            vertical-align: middle;
+            margin-right: 0.5rem;
+            filter: drop-shadow(0 2px 8px #00336633);
+            width: 2.2rem;
+            height: 2.2rem;
+        }
+
+        /* Light mode palette */
+        body.light-mode {
+            --primary: #2196f3;
+            --primary-dark: #1565c0;
+            --accent: #00bcd4;
+            --bg: #f6f8fa;
+            --card-bg: #fff;
+            --text: #1a2332;
+            --muted: #6b7a90;
+            --shadow: 0 4px 16px rgba(33, 150, 243, 0.08);
+        }
+
+        body.light-mode header {
+            background: linear-gradient(120deg, var(--primary), var(--primary-dark));
+            color: #fff;
+        }
+
+        body.light-mode .feature-card,
+        body.light-mode section,
+        body.light-mode .codepen-card,
+        body.light-mode .widget-card,
+        body.light-mode .license-card,
+        body.light-mode .demo-box,
+        body.light-mode .widget-links,
+        body.light-mode .license-info,
+        body.light-mode .license-summary,
+        body.light-mode .mirotalk-card {
+            background: var(--card-bg);
+            color: var(--text);
+            box-shadow: var(--shadow);
+        }
+
+        body.light-mode .feature-card strong,
+        body.light-mode h2 {
+            color: var(--primary);
+        }
+
+        body.light-mode .feature-card .feature-muted,
+        body.light-mode .license-info li {
+            color: var(--muted);
+        }
+
+        body.light-mode .mirotalk-pre {
+            background: #f0f4fa;
+            color: #1976d2;
+        }
+
+        body.light-mode .alt-bg {
+            background: #f0f4fa;
+        }
+
+        body.light-mode footer {
+            background: #f0f4fa;
+            border-top: 1px solid #e0e7ef;
+            color: var(--muted);
+        }
+
+        body.light-mode .footer-social a {
+            color: var(--primary);
+        }
+
+        body.light-mode .feature-card a:hover,
+        body.light-mode .widget-links a:hover,
+        body.light-mode .footer-social a:hover {
+            background: transparent !important;
+            color: #10141a !important;
+            text-decoration: none;
+            transform: translateY(-2px) scale(1.04);
+            box-shadow: 0 8px 24px rgba(33, 150, 243, 0.18);
+        }
+
+        body.light-mode .cta-buttons a:hover,
+        body.light-mode .theme-toggle-btn:hover,
+        body.light-mode .license-btn:hover {
+            background: #10141a !important;
+            color: #fff !important;
+            text-decoration: none;
+            transform: translateY(-2px) scale(1.04);
+            box-shadow: 0 8px 24px rgba(33, 150, 243, 0.18);
+        }
+
+        .features-grid.widget-features-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (max-width: 700px) {
+            .features-grid.widget-features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>
+            <img src="https://img.icons8.com/ios-filled/48/ffffff/video-call.png" alt="MiroTalk Logo"
+                class="logo-img">MiroTalk – Self-Hosted WebRTC Suite
+        </h1>
+        <p>From 1:1 calls to massive broadcasts – all in your control, with easy integration.</p>
+        <div class="cta-buttons">
+            <a href="https://github.com/miroslavpejic85" target="_blank" aria-label="Try Free on GitHub">
+                <i class="fa-brands fa-github"></i> Try Free on GitHub
+            </a>
+            <a href="https://codecanyon.net/user/miroslavpejic85" target="_blank" aria-label="Get Commercial License">
+                <i class="fa-solid fa-briefcase"></i> Get Commercial License
+            </a>
+            <button id="themeToggle" aria-label="Toggle dark/light mode"
+                class="theme-toggle-btn">
+                <i class="fa-solid fa-sun"></i>
+            </button>
+        </div>
+    </header>
+
+    <section>
+        <h2>One Platform – Every Mode You Need</h2>
+        <div class="features-grid">
+            <div class="feature-card fadeInUp">
+                <i class="fa-solid fa-phone fa-lg feature-icon"></i>
+                <div class="feature-content">
+                    <strong>P2P</strong>
+                    <span class="feature-muted">Peer-to-peer calls</span>
+                    <a href="https://p2p.mirotalk.com" target="_blank">Live Demo</a>
+                </div>
+            </div>
+            <div class="feature-card fadeInUp">
+                <i class="fa-solid fa-users fa-lg feature-icon"></i>
+                <div class="feature-content">
+                    <strong>SFU</strong>
+                    <span class="feature-muted">Large group meetings</span>
+                    <a href="https://sfu.mirotalk.com" target="_blank">Live Demo</a>
+                </div>
+            </div>
+            <div class="feature-card fadeInUp">
+                <i class="fa-solid fa-video fa-lg feature-icon"></i>
+                <div class="feature-content">
+                    <strong>C2C</strong>
+                    <span class="feature-muted">Simple cam-to-cam</span>
+                    <a href="https://c2c.mirotalk.com" target="_blank">Live Demo</a>
+                </div>
+            </div>
+            <div class="feature-card fadeInUp">
+                <i class="fa-solid fa-broadcast-tower fa-lg feature-icon"></i>
+                <div class="feature-content">
+                    <strong>BRO</strong>
+                    <span class="feature-muted">Broadcasting</span>
+                    <a href="https://bro.mirotalk.com" target="_blank">Live Demo</a>
+                </div>
+            </div>
+            <div class="feature-card fadeInUp">
+                <i class="fa-solid fa-table-columns fa-lg feature-icon"></i>
+                <div class="feature-content">
+                    <strong>WEB</strong>
+                    <span class="feature-muted">Dashboard + scheduler</span>
+                    <a href="https://webrtc.mirotalk.com" target="_blank">Live Demo</a>
+                </div>
+            </div>
+            <div class="feature-card fadeInUp">
+                <i class="fa-solid fa-puzzle-piece fa-lg feature-icon"></i>
+                <div class="feature-content">
+                    <strong>CME</strong>
+                    <span class="feature-muted">Click-to-call widget</span>
+                    <a href="https://cme.mirotalk.com" target="_blank">Live Demo</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="alt-bg">
+        <h2>Try Instantly – No Signup</h2>
+        <div class="demo-box">
+            <p class="demo-login-title"><strong>WEB Dashboard Demo Login</strong></p>
+            <p><i class="fa-solid fa-user"></i> <b>User:</b> <code>demo</code></p>
+            <p><i class="fa-solid fa-envelope"></i> <b>Email:</b> <code>demo@gmail.com</code></p>
+            <p><i class="fa-solid fa-key"></i> <b>Password:</b> <code>Demo@123</code></p>
+            <p class="demo-login-note">No signup required – just copy and login!</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>Widget Integration – Copy, Paste, Go</h2>
+        <div class="features-grid widget-features-grid">
+            <div class="feature-card widget-card">
+                <i class="fa-solid fa-puzzle-piece feature-icon" aria-hidden="true"></i>
+                <div class="feature-content">
+                    <strong>P2P Widget</strong>
+                    <span class="feature-muted">Embed P2P video calls</span>
+                    <a href="https://codepen.io/Miroslav-Pejic/pen/LEpzGXO" target="_blank">View Widget Demo</a>
+                </div>
+            </div>
+            <div class="feature-card widget-card">
+                <i class="fa-solid fa-puzzle-piece feature-icon" aria-hidden="true"></i>
+                <div class="feature-content">
+                    <strong>SFU Widget</strong>
+                    <span class="feature-muted">Embed group meetings</span>
+                    <a href="https://codepen.io/Miroslav-Pejic/pen/Byowjvb" target="_blank">View Widget Demo</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="alt-bg">
+        <h2>Iframe Integration Examples</h2>
+        <div class="integration-desc">
+            <p>Embed MiroTalk in minutes, add live video to your site or app with a single iframe. Fast, easy, and
+                powerful.</p>
+        </div>
+        <div class="mirotalk-grid">
+            <div class="mirotalk-card">
+                <b>MiroTalk SFU iframe</b>
+                <pre
+                    class="mirotalk-pre"><code>&lt;iframe src=&quot;https://sfu.mirotalk.com&quot; width=&quot;100%&quot; height=&quot;500&quot; class=&quot;mirotalk-iframe&quot; allow=&quot;camera; microphone; fullscreen; display-capture&quot;&gt;&lt;/iframe&gt;</code></pre>
+            </div>
+            <div class="mirotalk-card">
+                <b>MiroTalk P2P iframe</b>
+                <pre
+                    class="mirotalk-pre"><code>&lt;iframe src=&quot;https://p2p.mirotalk.com&quot; width=&quot;100%&quot; height=&quot;500&quot; class=&quot;mirotalk-iframe&quot; allow=&quot;camera; microphone; fullscreen; display-capture&quot;&gt;&lt;/iframe&gt;</code></pre>
+            </div>
+            <div class="mirotalk-card">
+                <b>MiroTalk C2C iframe</b>
+                <pre
+                    class="mirotalk-pre"><code>&lt;iframe src=&quot;https://c2c.mirotalk.com&quot; width=&quot;100%&quot; height=&quot;500&quot; class=&quot;mirotalk-iframe&quot; allow=&quot;camera; microphone; fullscreen; display-capture&quot;&gt;&lt;/iframe&gt;</code></pre>
+            </div>
+            <div class="mirotalk-card">
+                <b>MiroTalk BRO iframe</b>
+                <pre
+                    class="mirotalk-pre"><code>&lt;iframe src=&quot;https://bro.mirotalk.com&quot; width=&quot;100%&quot; height=&quot;500&quot; class=&quot;mirotalk-iframe&quot; allow=&quot;camera; microphone; fullscreen; display-capture&quot;&gt;&lt;/iframe&gt;</code></pre>
+            </div>
+            <div class="mirotalk-card">
+                <b>MiroTalk WEB iframe</b>
+                <pre
+                    class="mirotalk-pre"><code>&lt;iframe src=&quot;https://webrtc.mirotalk.com&quot; width=&quot;100%&quot; height=&quot;500&quot; class=&quot;mirotalk-iframe&quot; allow=&quot;camera; microphone; fullscreen; display-capture&quot;&gt;&lt;/iframe&gt;</code></pre>
+            </div>
+            <div class="mirotalk-card">
+                <b>MiroTalk CME iframe</b>
+                <pre
+                    class="mirotalk-pre"><code>&lt;iframe src=&quot;https://cme.mirotalk.com&quot; width=&quot;100%&quot; height=&quot;500&quot; class=&quot;mirotalk-iframe&quot; allow=&quot;camera; microphone; fullscreen; clipboard-read; clipboard-write; web-share; autoplay&quot;&gt;&lt;/iframe&gt;</code></pre>
+            </div>
+        </div>
+        <div class="integration-desc" style="margin-top:2.5rem;">
+            <h3 class="codepen-card-title">Live CodePen Integration Examples</h3>
+            <div class="features-grid codepen-features-grid">
+                <div class="feature-card codepen-card">
+                    <i class="fa-brands fa-codepen feature-icon" aria-hidden="true"></i>
+                    <div class="feature-content">
+                        <strong>SFU</strong>
+                        <span class="feature-muted">MiroTalk SFU example</span>
+                        <a href="https://codepen.io/Miroslav-Pejic/pen/LYXRbmE" target="_blank">View on CodePen</a>
+                    </div>
+                </div>
+                <div class="feature-card codepen-card">
+                    <i class="fa-brands fa-codepen feature-icon" aria-hidden="true"></i>
+                    <div class="feature-content">
+                        <strong>P2P</strong>
+                        <span class="feature-muted">MiroTalk P2P example</span>
+                        <a href="https://codepen.io/Miroslav-Pejic/pen/jOQMVzx" target="_blank">View on CodePen</a>
+                    </div>
+                </div>
+                <div class="feature-card codepen-card">
+                    <i class="fa-brands fa-codepen feature-icon" aria-hidden="true"></i>
+                    <div class="feature-content">
+                        <strong>C2C</strong>
+                        <span class="feature-muted">MiroTalk C2C example</span>
+                        <a href="https://codepen.io/Miroslav-Pejic/pen/ExOgNbJ" target="_blank">View on CodePen</a>
+                    </div>
+                </div>
+                <div class="feature-card codepen-card">
+                    <i class="fa-brands fa-codepen feature-icon" aria-hidden="true"></i>
+                    <div class="feature-content">
+                        <strong>BRO</strong>
+                        <span class="feature-muted">MiroTalk BRO example</span>
+                        <a href="https://codepen.io/Miroslav-Pejic/pen/OJaRbZg" target="_blank">View on CodePen</a>
+                    </div>
+                </div>
+                <div class="feature-card codepen-card">
+                    <i class="fa-brands fa-codepen feature-icon" aria-hidden="true"></i>
+                    <div class="feature-content">
+                        <strong>WEB</strong>
+                        <span class="feature-muted">MiroTalk WEB example</span>
+                        <a href="https://codepen.io/Miroslav-Pejic/pen/jOQMVxx" target="_blank">View on CodePen</a>
+                    </div>
+                </div>
+                <div class="feature-card codepen-card">
+                    <i class="fa-brands fa-codepen feature-icon" aria-hidden="true"></i>
+                    <div class="feature-content">
+                        <strong>CME</strong>
+                        <span class="feature-muted">MiroTalk CME example</span>
+                        <a href="https://codepen.io/Miroslav-Pejic/pen/empeGYJ" target="_blank">View on CodePen</a>
+                    </div>
+                </div>
+                <div class="feature-card codepen-card">
+                    <i class="fa-brands fa-codepen feature-icon" aria-hidden="true"></i>
+                    <div class="feature-content">
+                        <strong>React</strong>
+                        <span class="feature-muted">MiroTalk React integration</span>
+                        <a href="https://codepen.io/Miroslav-Pejic/pen/QWzmGaZ" target="_blank">View on CodePen</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Licensing Made Simple</h2>
+        <div class="license-info license-cards">
+            <div class="license-summary">
+                <i class="fa-solid fa-circle-info" aria-hidden="true"
+                    style="color:var(--primary);font-size:1.3rem;margin-right:0.5rem;"></i>
+                <span>Choose the right license for your needs. MiroTalk is open source for the community, with
+                    commercial options for businesses and proprietary use.</span>
+            </div>
+            <div class="features-grid license-features-grid">
+                <div class="feature-card license-card">
+                    <i class="fa-solid fa-code-branch feature-icon" aria-hidden="true"></i>
+                    <div class="feature-content">
+                        <strong>Open Source (AGPLv3)</strong>
+                        <span class="feature-muted">Free for community and open projects.<br>Perfect for public,
+                            non-commercial use.</span>
+                    </div>
+                </div>
+                <div class="feature-card license-card">
+                    <i class="fa-solid fa-user feature-icon" aria-hidden="true"></i>
+                    <div class="feature-content">
+                        <strong>Personal License</strong>
+                        <span class="feature-muted">For individuals or internal company projects.<br>Use without AGPL
+                            obligations.</span>
+                    </div>
+                </div>
+                <div class="feature-card license-card">
+                    <i class="fa-solid fa-briefcase feature-icon" aria-hidden="true"></i>
+                    <div class="feature-content">
+                        <strong>Commercial License</strong>
+                        <span class="feature-muted">For SaaS, client work, and resale.<br>Full commercial rights, no
+                            AGPL obligations.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="license-actions">
+                <a href="https://github.com/miroslavpejic85" target="_blank" class="license-btn"><i
+                        class="fa-solid fa-rocket" aria-hidden="true"></i> Try Free on GitHub</a>
+                <a href="https://codecanyon.net/user/miroslavpejic85" target="_blank" class="license-btn"><i
+                        class="fa-solid fa-briefcase" aria-hidden="true"></i> Get Commercial License</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div style="text-align:center; color:var(--muted); font-size:1.05rem; margin-bottom:0.5rem;">
+            <span style="margin-right:0.5em;"><i class="fa-regular fa-copyright"></i></span>2025 MiroTalk –
+            <span style="margin-right:0.5em;"><i class="fa-solid fa-user-shield" aria-label="Privacy"></i></span>Privacy
+            <span style="margin-right:0.5em;"><i class="fa-solid fa-arrows-spin"
+                    aria-label="Scalability"></i></span>Scalability
+            <span style="margin-right:0.5em;"><i class="fa-solid fa-plug"
+                    aria-label="Integration"></i></span>Integration
+        </div>
+        <div class="footer-social footer-social-margin">
+            <a href="https://github.com/miroslavpejic85" target="_blank" aria-label="GitHub">
+                <i class="fab fa-github" aria-hidden="true"></i> <span>GitHub</span>
+            </a>
+            <a href="https://www.youtube.com/watch?v=uoiQqCalO4Q" target="_blank" aria-label="YouTube">
+                <i class="fab fa-youtube" aria-hidden="true"></i> <span>YouTube</span>
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+        const savedTheme = localStorage.getItem('mirotalk-theme');
+        // Default to dark mode unless user explicitly chose light
+        if (savedTheme === 'light') {
+            document.body.classList.add('light-mode');
+            themeToggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
+        } else {
+            document.body.classList.remove('light-mode');
+            themeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
+        }
+        themeToggle.addEventListener('click', function () {
+            document.body.classList.toggle('light-mode');
+            const isLight = document.body.classList.contains('light-mode');
+            themeToggle.innerHTML = isLight
+                ? '<i class="fa-solid fa-moon"></i>'
+                : '<i class="fa-solid fa-sun"></i>';
+            localStorage.setItem('mirotalk-theme', isLight ? 'light' : 'dark');
+        });
+    </script>
+</body>
+
+</html>
