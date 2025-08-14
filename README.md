@@ -57,12 +57,6 @@ $ sudo snap install mkdocs
 
 ---
 
-## Plugins
-
-```bash
-$ pip install mkdocs-redirects
-```
-
 ## Quick Start
 
 ```bash

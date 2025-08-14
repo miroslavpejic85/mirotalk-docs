@@ -115,9 +115,3 @@ markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.superfences
-
-# Plugins
-plugins:
-  - search
-  - redirects:
-      redirect_maps: {}
