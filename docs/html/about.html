@@ -102,7 +102,7 @@
             background: #10141a;
             color: #fff !important;
             transform: translateY(-2px) scale(1.04);
-            box-shadow: 0 8px 24px rgba(33,150,243,0.18);
+            box-shadow: 0 8px 24px rgba(33, 150, 243, 0.18);
         }
 
         section {
@@ -209,14 +209,14 @@
             border-radius: 8px;
             background: #151a20;
             border: 1px solid #232b36;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
             padding: 6px;
         }
 
         body.light-mode .feature-img {
             background: #f0f4fa;
             border-color: #e0e7ef;
-            box-shadow: 0 2px 8px rgba(33,150,243,0.08);
+            box-shadow: 0 2px 8px rgba(33, 150, 243, 0.08);
         }
 
         .codepen-features-grid {
@@ -373,6 +373,24 @@
             color: #fff !important;
             box-shadow: 0 8px 24px rgba(0, 188, 212, 0.18);
         }
+
+        .mt-25 { margin-top: 2.5rem; }
+
+        .license-info-icon {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-right: 0.5rem;
+            vertical-align: middle;
+        }
+
+        .footer-topline {
+            text-align: center;
+            color: var(--muted);
+            font-size: 1.05rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .mr-05 { margin-right: 0.5em; }
 
         section:not(:last-of-type) {
             border-bottom: 1px solid #232b36;
@@ -622,7 +640,7 @@
             background: var(--accent);
             color: #fff;
             transform: translateY(-1px);
-            box-shadow: 0 8px 24px rgba(33,150,243,.18);
+            box-shadow: 0 8px 24px rgba(33, 150, 243, .18);
         }
 
         .copy-btn.copied {
@@ -653,8 +671,7 @@
             <a href="https://codecanyon.net/user/miroslavpejic85" target="_blank" aria-label="Get Commercial License">
                 <i class="fa-solid fa-briefcase"></i> Get Commercial License
             </a>
-            <button id="themeToggle" aria-label="Toggle dark/light mode"
-                class="theme-toggle-btn">
+            <button id="themeToggle" aria-label="Toggle dark/light mode" class="theme-toggle-btn">
                 <i class="fa-solid fa-sun"></i>
             </button>
         </div>
@@ -785,7 +802,7 @@
                     class="mirotalk-pre"><code>&lt;iframe src=&quot;https://cme.mirotalk.com&quot;  width=&quot;100vw&quot; height=&quot;100vh&quot; class=&quot;mirotalk-iframe&quot; allow=&quot;camera; microphone; fullscreen; clipboard-read; clipboard-write; web-share; autoplay&quot;&gt;&lt;/iframe&gt;</code></pre>
             </div>
         </div>
-        <div class="integration-desc" style="margin-top:2.5rem;">
+        <div class="integration-desc mt-25">
             <h3 class="codepen-card-title">Live CodePen Integration Examples</h3>
             <div class="features-grid codepen-features-grid">
                 <div class="feature-card codepen-card">
@@ -852,8 +869,7 @@
         <h2>Licensing Made Simple</h2>
         <div class="license-info license-cards">
             <div class="license-summary">
-                <i class="fa-solid fa-circle-info" aria-hidden="true"
-                    style="color:var(--primary);font-size:1.3rem;margin-right:0.5rem;"></i>
+                <i class="fa-solid fa-circle-info feature-icon license-info-icon" aria-hidden="true"></i>
                 <span>Choose the right license for your needs. MiroTalk is open source for the community, with
                     commercial options for businesses and proprietary use.</span>
             </div>
@@ -893,13 +909,11 @@
     </section>
 
     <footer>
-        <div style="text-align:center; color:var(--muted); font-size:1.05rem; margin-bottom:0.5rem;">
-            <span style="margin-right:0.5em;"><i class="fa-regular fa-copyright"></i></span>2025 MiroTalk –
-            <span style="margin-right:0.5em;"><i class="fa-solid fa-user-shield" aria-label="Privacy"></i></span>Privacy
-            <span style="margin-right:0.5em;"><i class="fa-solid fa-arrows-spin"
-                    aria-label="Scalability"></i></span>Scalability
-            <span style="margin-right:0.5em;"><i class="fa-solid fa-plug"
-                    aria-label="Integration"></i></span>Integration
+        <div class="footer-topline">
+            <span class="mr-05"><i class="fa-regular fa-copyright"></i></span>2025 MiroTalk –
+            <span class="mr-05"><i class="fa-solid fa-user-shield" aria-label="Privacy"></i></span>Privacy
+            <span class="mr-05"><i class="fa-solid fa-arrows-spin" aria-label="Scalability"></i></span>Scalability
+            <span class="mr-05"><i class="fa-solid fa-plug" aria-label="Integration"></i></span>Integration
         </div>
         <div class="footer-social footer-social-margin">
             <a href="https://github.com/miroslavpejic85" target="_blank" aria-label="GitHub">
