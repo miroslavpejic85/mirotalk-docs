@@ -49,7 +49,7 @@ The `token` will be stored in your browser's `window.sessionStorage.peer_token` 
 
 To bypass the login page and join a room, use the following URL with parameters:
 
-- [https://your.domain.com/join/?room=test&token=token](https://sfu.mirotalk.com/join/?room=test&token=token)
+- [https://YOUR-DOMAIN-NAME/join/?room=test&token=token](https://sfu.mirotalk.com/join/?room=test&token=token)
 
 ---
 
@@ -63,7 +63,7 @@ Participants can join after host authentication using the URL path:
 
 Alternatively, use query parameters for additional settings:
 
-- [https://your.domain.com/join/?room=test&roomPassword=0&name=mirotalksfu&audio=0&video=0&screen=0&notify=0](https://sfu.mirotalk.com/join/?room=test&roomPassword=0&name=mirotalksfu&audio=0&video=0&screen=0&notify=0)
+- [https://YOUR-DOMAIN-NAME/join/?room=test&roomPassword=0&name=mirotalksfu&audio=0&video=0&screen=0&notify=0](https://sfu.mirotalk.com/join/?room=test&roomPassword=0&name=mirotalksfu&audio=0&video=0&screen=0&notify=0)
 
 ---
 
@@ -77,10 +77,10 @@ Participants will be prompted to log in before accessing the room
 
 Participants can also join by directly accessing the URL path, bypassing the need for login credentials using the URL path:
 
-- [https://your.domain.com/join/?room=test&token=token](https://sfu.mirotalk.com/join/?room=test&token=token)
+- [https://YOUR-DOMAIN-NAME/join/?room=test&token=token](https://sfu.mirotalk.com/join/?room=test&token=token)
 
 Alternatively, use query parameters for additional participant settings:
 
-- [https://your.domain.com/join/?room=test&name=mirotalk&audio=0&video=0&screen=0&notify=0&token=token](https://sfu.mirotalk.com/join/?room=test&name=mirotalk&audio=0&video=0&screen=0&notify=0&token=token)
+- [https://YOUR-DOMAIN-NAME/join/?room=test&name=mirotalk&audio=0&video=0&screen=0&notify=0&token=token](https://sfu.mirotalk.com/join/?room=test&name=mirotalk&audio=0&video=0&screen=0&notify=0&token=token)
 
 ---

@@ -2,7 +2,7 @@
 
 ![api](../images/api.png)
 
-The REST API is comprehensively documented using [Swagger](https://swagger.io/), accessible at [https://your.domain.com/api/v1/docs](https://c2c.mirotalk.com/api/v1/docs).
+The REST API is comprehensively documented using [Swagger](https://swagger.io/), accessible at [https://YOUR-DOMAIN-NAME/api/v1/docs](https://c2c.mirotalk.com/api/v1/docs).
 
 ---
 
@@ -249,6 +249,6 @@ curl $MIROTALK_URL \
 
 !!! note
 
-    Replace `c2c.mirotalk.com` in the code snippets with `your.domain.com`.
+    Replace `c2c.mirotalk.com` in the code snippets with `YOUR-DOMAIN-NAME`.
 
 ---
