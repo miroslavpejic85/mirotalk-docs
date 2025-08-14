@@ -202,6 +202,23 @@
             text-decoration: underline;
         }
 
+        .feature-img {
+            width: 240px;
+            height: auto;
+            object-fit: contain;
+            border-radius: 8px;
+            background: #151a20;
+            border: 1px solid #232b36;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+            padding: 6px;
+        }
+
+        body.light-mode .feature-img {
+            background: #f0f4fa;
+            border-color: #e0e7ef;
+            box-shadow: 0 2px 8px rgba(33,150,243,0.08);
+        }
+
         .codepen-features-grid {
             margin-top: 0.5rem;
             margin-bottom: 0.5rem;
@@ -595,7 +612,7 @@
         <h2>One Platform – Every Mode You Need</h2>
         <div class="features-grid">
             <div class="feature-card fadeInUp">
-                <i class="fa-solid fa-phone fa-lg feature-icon"></i>
+                <img src="../images/mirotalk/p2p.png" alt="P2P Preview" class="feature-icon feature-img">
                 <div class="feature-content">
                     <strong>P2P</strong>
                     <span class="feature-muted">Peer-to-peer calls</span>
@@ -603,7 +620,7 @@
                 </div>
             </div>
             <div class="feature-card fadeInUp">
-                <i class="fa-solid fa-users fa-lg feature-icon"></i>
+                <img src="../images/mirotalk/sfu.png" alt="SFU Preview" class="feature-icon feature-img">
                 <div class="feature-content">
                     <strong>SFU</strong>
                     <span class="feature-muted">Large group meetings</span>
@@ -611,7 +628,7 @@
                 </div>
             </div>
             <div class="feature-card fadeInUp">
-                <i class="fa-solid fa-video fa-lg feature-icon"></i>
+                <img src="../images/mirotalk/c2c.png" alt="C2C Preview" class="feature-icon feature-img">
                 <div class="feature-content">
                     <strong>C2C</strong>
                     <span class="feature-muted">Simple cam-to-cam</span>
@@ -619,7 +636,7 @@
                 </div>
             </div>
             <div class="feature-card fadeInUp">
-                <i class="fa-solid fa-broadcast-tower fa-lg feature-icon"></i>
+                <img src="../images/mirotalk/bro.png" alt="BRO Preview" class="feature-icon feature-img">
                 <div class="feature-content">
                     <strong>BRO</strong>
                     <span class="feature-muted">Broadcasting</span>
@@ -627,7 +644,7 @@
                 </div>
             </div>
             <div class="feature-card fadeInUp">
-                <i class="fa-solid fa-table-columns fa-lg feature-icon"></i>
+                <img src="../images/mirotalk/web.png" alt="WEB Preview" class="feature-icon feature-img">
                 <div class="feature-content">
                     <strong>WEB</strong>
                     <span class="feature-muted">Dashboard + scheduler</span>
@@ -635,7 +652,7 @@
                 </div>
             </div>
             <div class="feature-card fadeInUp">
-                <i class="fa-solid fa-puzzle-piece fa-lg feature-icon"></i>
+                <img src="../images/mirotalk/cme.png" alt="CME Preview" class="feature-icon feature-img">
                 <div class="feature-content">
                     <strong>CME</strong>
                     <span class="feature-muted">Click-to-call widget</span>
