@@ -417,6 +417,7 @@
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
             padding: 1rem;
             color: var(--text);
+            position: relative;
         }
 
         .mirotalk-pre {
@@ -427,6 +428,7 @@
             font-size: 0.98rem;
             margin: 0.7rem 0 0.5rem 0;
             color: #b3e5fc;
+            padding-top: 1.1rem;
         }
 
         /* Alternating section backgrounds */
@@ -582,6 +584,56 @@
             .features-grid.widget-features-grid {
                 grid-template-columns: 1fr;
             }
+        }
+
+        /* Make card a positioning context for the copy button */
+        .mirotalk-card {
+            position: relative;
+        }
+
+        /* Copy button styles */
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: .4rem;
+            height: 36px;
+            padding: 0 .75rem;
+            border: none;
+            border-radius: 8px;
+            background: var(--primary);
+            color: #fff;
+            font-size: .95rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            transition: transform .18s, box-shadow .18s, background .18s, color .18s, opacity .18s;
+            z-index: 2;
+        }
+
+        .copy-btn i {
+            pointer-events: none;
+        }
+
+        .copy-btn:hover {
+            background: var(--accent);
+            color: #fff;
+            transform: translateY(-1px);
+            box-shadow: 0 8px 24px rgba(33,150,243,.18);
+        }
+
+        .copy-btn.copied {
+            background: #14b86a;
+            /* success green */
+        }
+
+        body.light-mode .copy-btn:hover {
+            background: #10141a;
+            /* readable hover on light */
+            color: #fff;
         }
     </style>
 </head>
@@ -878,6 +930,59 @@
                 : '<i class="fa-solid fa-sun"></i>';
             localStorage.setItem('mirotalk-theme', isLight ? 'light' : 'dark');
         });
+
+        // Add "Copy" buttons to each iframe code block
+        (function addCopyButtons() {
+            const cards = document.querySelectorAll('.mirotalk-card');
+            cards.forEach(card => {
+                const codeEl = card.querySelector('.mirotalk-pre code');
+                if (!codeEl) return;
+
+                // Create button
+                const btn = document.createElement('button');
+                btn.className = 'copy-btn';
+                btn.type = 'button';
+                btn.title = 'Copy iframe code';
+                btn.setAttribute('aria-label', 'Copy iframe code');
+                btn.innerHTML = '<i class="fa-regular fa-clipboard"></i> Copy';
+
+                // Append to card
+                card.appendChild(btn);
+
+                // Click handler
+                btn.addEventListener('click', async () => {
+                    const text = codeEl.innerText.replace(/\u00A0/g, ' ');
+                    try {
+                        if (navigator.clipboard && navigator.clipboard.writeText) {
+                            await navigator.clipboard.writeText(text);
+                        } else {
+                            // Fallback for older browsers
+                            const ta = document.createElement('textarea');
+                            ta.value = text;
+                            ta.style.position = 'fixed';
+                            ta.style.top = '-9999px';
+                            document.body.appendChild(ta);
+                            ta.focus();
+                            ta.select();
+                            document.execCommand('copy');
+                            document.body.removeChild(ta);
+                        }
+                        btn.classList.add('copied');
+                        const prev = btn.innerHTML;
+                        btn.innerHTML = '<i class="fa-solid fa-clipboard-check"></i> Copied';
+                        setTimeout(() => {
+                            btn.classList.remove('copied');
+                            btn.innerHTML = prev;
+                        }, 1800);
+                    } catch (e) {
+                        console.error('Copy failed:', e);
+                        const prev = btn.innerHTML;
+                        btn.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> Failed';
+                        setTimeout(() => (btn.innerHTML = prev), 1800);
+                    }
+                });
+            });
+        })();
     </script>
 </body>
 
