@@ -519,14 +519,14 @@
         .footer-social {
             display: flex;
             justify-content: center;
-            gap: 1.5rem;
+            gap: 1rem;
             margin-top: 0.7rem;
         }
 
         .footer-social a {
             color: var(--primary);
             text-decoration: none;
-            font-size: 1.25rem;
+            font-size: 1rem;
             display: inline-flex;
             align-items: center;
             gap: 0.4em;
@@ -540,6 +540,24 @@
 
         .footer-social-margin {
             margin-top: 0.5rem;
+        }
+
+        .footer-social-label {
+            font-size: 0.98em;
+        }
+
+        @media (max-width: 600px) {
+            .footer-social {
+                gap: 0.3rem;
+                flex-wrap: wrap;
+            }
+            .footer-social a {
+                font-size: 0.95rem;
+                padding: 0.2em 0.5em;
+            }
+            .footer-social-label {
+                display: none;
+            }
         }
 
         .logo-img {
@@ -968,16 +986,16 @@
         </div>
         <div class="footer-social footer-social-margin">
             <a href="https://github.com/miroslavpejic85" target="_blank" aria-label="GitHub">
-                <i class="fab fa-github" aria-hidden="true"></i> <span>GitHub</span>
+            <i class="fab fa-github" aria-hidden="true"></i> <span class="footer-social-label">GitHub</span>
             </a>
             <a href="https://www.youtube.com/watch?v=uoiQqCalO4Q" target="_blank" aria-label="YouTube">
-                <i class="fab fa-youtube" aria-hidden="true"></i> <span>YouTube</span>
+            <i class="fab fa-youtube" aria-hidden="true"></i> <span class="footer-social-label">YouTube</span>
             </a>
             <a href="mailto:miroslav.pejic.85@gmail.com" aria-label="Email">
-                <i class="fa-solid fa-envelope" aria-hidden="true"></i> <span>Email</span>
+            <i class="fa-solid fa-envelope" aria-hidden="true"></i> <span class="footer-social-label">Email</span>
             </a>
             <a href="https://codecanyon.net/user/miroslavpejic85/portfolio" target="_blank" aria-label="CodeCanyon">
-                <i class="fa-solid fa-store" aria-hidden="true"></i> <span>CodeCanyon</span>
+            <i class="fa-solid fa-store" aria-hidden="true"></i> <span class="footer-social-label">CodeCanyon</span>
             </a>
         </div>
     </footer>
