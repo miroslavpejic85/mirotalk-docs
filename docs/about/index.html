@@ -720,6 +720,79 @@
             justify-content: center; 
             display: flex;
         }
+
+        .docker-support {
+            background: var(--card-bg);
+            box-shadow: var(--shadow);
+            max-width: 1100px;
+            margin: 2.5rem auto;
+            padding: 2rem 1.5rem 1.5rem 1.5rem;
+            border-radius: var(--radius);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.1rem;
+            color: var(--text);
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+        body.light-mode .docker-support {
+            background: var(--card-bg);
+            color: var(--text);
+        }
+        .docker-icon {
+            font-size: 2.8rem;
+            color: #2496ed;
+            margin-bottom: 0.3rem;
+            display: block;
+            filter: drop-shadow(0 2px 12px #2496ed44);
+        }
+        body.light-mode .docker-icon {
+            color: #1565c0;
+            filter: drop-shadow(0 2px 12px #1565c044);
+        }
+        .docker-title {
+            display: block;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+            text-shadow: 0 2px 8px #1565c088;
+        }
+        body.light-mode .docker-title {
+            color: var(--primary-dark);
+            text-shadow: none;
+        }
+        .docker-support span {
+            font-size: 1.08rem;
+            color: var(--text);
+        }
+        .docker-support a {
+            color: #2496ed;
+            font-weight: 600;
+            text-decoration: underline;
+            transition: color 0.18s, background 0.18s;
+            background: transparent;
+            padding: 0.2em 0.7em;
+            border-radius: 7px;
+            margin-top: 0.7em;
+            display: inline-block;
+        }
+        .docker-support a:hover {
+            color: #fff;
+            background: #2496ed;
+            text-decoration: none;
+        }
+        body.light-mode .docker-support a {
+            color: #1565c0;
+        }
+        body.light-mode .docker-support a:hover {
+            color: #fff;
+            background: #1565c0;
+        }
     </style>
 </head>
 
@@ -944,9 +1017,6 @@
 
     <section>
         <h2>Licensing Made Simple</h2>
-        <span class="feature-content center">
-            <i class="fa-solid fa-circle-info feature-icon license-info-icon" aria-hidden="true"></i>
-        </span>
         <div class="license-info license-cards">
             <div class="license-summary">
                 <span>
@@ -985,6 +1055,14 @@
                         class="fa-solid fa-briefcase" aria-hidden="true"></i> Get Commercial License</a>
             </div>
         </div>
+    </section>
+
+    <section class="demo-box docker-support">
+        <i class="fa-brands fa-docker docker-icon"></i>
+        <strong class="docker-title">Docker Support</strong>
+        <span>
+            MiroTalk is <b>Docker-ready</b> for fast deployment and easy scaling.<br>
+        </span>
     </section>
 
     <footer>
