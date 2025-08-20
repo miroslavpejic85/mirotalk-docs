@@ -721,6 +721,73 @@
             display: flex;
         }
 
+        .purchase-section {
+            background: var(--card-bg);
+            box-shadow: var(--shadow);
+            max-width: 520px;
+            margin: 2.5rem auto 0 auto;
+            padding: 1.5rem 1.2rem 1.2rem 1.2rem;
+            border-radius: var(--radius);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.1rem;
+        }
+        .purchase-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: var(--primary);
+            color: #fff;
+            padding: 0.9rem 2.2rem;
+            border-radius: 10px;
+            font-size: 1.13rem;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: var(--shadow);
+            transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+        }
+        .purchase-btn:hover {
+            background: var(--accent);
+            color: #fff;
+            box-shadow: 0 8px 24px rgba(33,150,243,0.18);
+            text-decoration: none;
+        }
+        .purchase-links {
+            margin-top: 0.7rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem;
+            justify-content: center;
+        }
+        .purchase-links a {
+            background: #232b36;
+            color: var(--primary);
+            font-weight: 600;
+            padding: 0.5em 1.1em;
+            border-radius: 7px;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: background 0.18s, color 0.18s;
+        }
+        .purchase-links a:hover {
+            background: var(--primary);
+            color: #fff;
+        }
+        body.light-mode .purchase-section {
+            background: var(--card-bg);
+        }
+        body.light-mode .purchase-links a {
+            background: #f0f4fa;
+            color: var(--primary-dark);
+        }
+        body.light-mode .purchase-links a:hover {
+            background: var(--primary-dark);
+            color: #fff;
+        }
+
+
         .docker-support {
             background: var(--card-bg);
             box-shadow: var(--shadow);
@@ -1058,10 +1125,20 @@
                     </div>
                 </div>
             </div>
-            <div class="license-actions mt-25 mb-25">
-                <a href="https://codecanyon.net/user/miroslavpejic85" target="_blank" class="license-btn"><i
-                        class="fa-solid fa-briefcase" aria-hidden="true"></i> Get Commercial License</a>
-            </div>
+            <section class="purchase-section">
+                <a href="https://codecanyon.net/item/mirotalk-webrtc-ultimate-bundle-for-seamless-live-smart-communication/47976343"
+                target="_blank" class="purchase-btn">
+                    <i class="fa-solid fa-cart-shopping"></i> Purchase Ultimate Bundle
+                </a>
+                <div class="purchase-links">
+                    <a href="https://codecanyon.net/item/mirotalk-p2p-webrtc-realtime-video-conferences/38376661" target="_blank">P2P</a>
+                    <a href="https://codecanyon.net/item/mirotalk-sfu-webrtc-realtime-video-conferences/40769970" target="_blank">SFU</a>
+                    <a href="https://codecanyon.net/item/mirotalk-c2c-webrtc-real-time-cam-2-cam-video-conferences-and-screen-sharing/43383005" target="_blank">C2C</a>
+                    <a href="https://codecanyon.net/item/mirotalk-bro-webrtc-p2p-live-broadcast/45887113" target="_blank">BRO</a>
+                    <a href="https://codecanyon.net/item/a-selfhosted-mirotalks-webrtc-rooms-scheduler-server/42643313" target="_blank">WEB</a>
+                    <a href="https://codecanyon.net/item/callme-easy-webrtc-video-call-app/55342915" target="_blank">CME</a>
+                </div>
+            </section>
         </div>
     </section>
 
