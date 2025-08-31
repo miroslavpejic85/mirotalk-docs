@@ -8,7 +8,7 @@
 | ---------- | -------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
 | `🏆 SFU`   | [https://sfu.mirotalk.com](https://sfu.mirotalk.com)                                                           | Scalable group video conferencing                      |
 | `🚀 P2P`   | [https://p2p.mirotalk.com](https://p2p.mirotalk.com)                                                           | Peer-to-peer video calls                               |
-| `✨ C2C`   | [https://c2c.mirotalk.com](https://c2c.mirotalk.com)                                                           | Client-to-client communication                         |
+| `✨ C2C`   | [https://c2c.mirotalk.com](https://c2c.mirotalk.com)                                                           | Cam-to-Cam communication                         |
 | `📡 BRO`   | [https://bro.mirotalk.com](https://bro.mirotalk.com)                                                           | Broadcasting one-to-many streaming                     |
 | `🛠 WEB`   | [https://webrtc.mirotalk.com](https://webrtc.mirotalk.com)                                                     | Room scheduler and meeting manager                     |
 | `⚙️ ADMIN` | [https://docs.mirotalk.com/mirotalk-admin/self-hosting](https://docs.mirotalk.com/mirotalk-admin/self-hosting) | Manage MiroTalk updates, configurations, and settings. |
