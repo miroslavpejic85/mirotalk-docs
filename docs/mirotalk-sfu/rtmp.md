@@ -50,6 +50,26 @@ sudo apt install -y docker.io docker-compose ffmpeg
    ```bash
    cp src/config.template.js src/config.js  # Edit if needed
    cp docker-compose.template.yml docker-compose.yml
+   ```  
+   Generate SSL certificates using `Certbot` and `Let's Encrypt` with the following commands:
+   ```bash
+   sudo certbot certonly --standalone --email your-email@example.com --agree-tos -d YOUR-DOMAIN-NAME
+   ```  
+   Certificates will be saved in `/etc/letsencrypt/live/YOUR-DOMAIN-NAME/`. Add it in the `docker-compose.yml` file:
+   ```yaml
+   services:
+     mirotalk-nms:
+       container_name: mirotalk-nms
+       image: mirotalk/nms:latest
+       volumes:
+         - ./src/config.js:/app/src/config.js:ro
+         - /etc/letsencrypt/live/YOUR-DOMAIN-NAME/fullchain.pem:/app/src/cert.pem:ro
+         - /etc/letsencrypt/live/YOUR-DOMAIN-NAME/privkey.pem:/app/src/key.pem:ro
+       ports:
+         - '1935:1935'
+         - '8081:8081'
+         - '8043:8043'
+       restart: unless-stopped
    ```
 
 3. **Pull Docker image**
