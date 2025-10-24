@@ -2,6 +2,10 @@
 
 ![mirotalk-admin](../images/mirotalk/adm.png)
 
+## Description
+
+MiroTalk ADMIN it's a management panel for monitoring, updating, and maintaining MiroTalk instances. Provides tools for user oversight, system updates, and secure deployments.
+
 ## Requirements
 
 - Server Selection:

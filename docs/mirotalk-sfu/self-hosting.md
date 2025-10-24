@@ -2,6 +2,10 @@
 
 ![mirotalk-sfu](../images/mirotalk/sfu.png)
 
+## Description
+
+MiroTalk SFU is a scalable WebRTC solution for multi-party calls, using a Selective Forwarding Unit to forward streams efficiently and reduce bandwidth. Perfect for team meetings, webinars, and online classrooms.
+
 ## Requirements
 
 - Server Selection:

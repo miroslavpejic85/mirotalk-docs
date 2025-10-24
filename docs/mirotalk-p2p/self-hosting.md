@@ -2,6 +2,10 @@
 
 ![mirotalk-p2p](../images/mirotalk/p2p.png)
 
+## Description
+
+MiroTalk P2PA is a lightweight, self-hostable WebRTC solution for real-time audio, video, and screen sharing. Media is transmitted directly between peers (TURN recommended for NAT traversal), making it ideal for small teams, embedded apps, or private instances.
+
 ## Requirements
 
 - Server Selection:
