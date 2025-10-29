@@ -11,6 +11,8 @@ In the configuration file `.env`, you can enable security measures for your vide
 Example Configuration:
 
 ```bash
+HOST_PROTECTED=true
+HOST_USER_AUTH=false
 HOST_USERS="user1:pass1:user-1:*|user2@mail.com:pass2:user-2:*|user3:pass3:user-3:*"
 ```
 
