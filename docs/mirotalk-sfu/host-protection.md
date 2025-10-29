@@ -49,7 +49,7 @@ To bypass the login page and join a room, use the following URL with parameters:
 
 ## Participant Room Entry
 
-### When `host.protected` is enabled:
+### When `HOST_PROTECTED` is enabled:
 
 Participants can join after host authentication using the URL path:
 
@@ -63,7 +63,7 @@ Alternatively, use query parameters for additional settings:
 
 ## User Authentication for Participants:
 
-### When `host.user_auth` is enabled:
+### When `HOST_USER_AUTH` is enabled:
 
 Participants will be prompted to log in before accessing the room
 
