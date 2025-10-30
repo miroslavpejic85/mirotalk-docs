@@ -34,17 +34,21 @@ There are two ways to rebrand MiroTalk P2P:
 You can also hide optional landing page sections:
 
 ```js
-html: {
-	topSponsors: false,
-	features: false,
-	browsers: false,
-	teams: false,
-	tryEasier: false,
-	poweredBy: false,
-	sponsors: false,
-	advertisers: false,
-	footer: false,
-}
+	brand: {
+		//...
+		html: {
+			topSponsors: false,
+			features: false,
+			browsers: false,
+			teams: false,
+			tryEasier: false,
+			poweredBy: false,
+			sponsors: false,
+			advertisers: false,
+			footer: false,
+		},
+		//...
+	}
 ```
 
 ---
