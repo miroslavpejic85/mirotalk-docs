@@ -4,6 +4,8 @@
 
 Rebranding requires at least a 👉 **[Regular License](https://codecanyon.net/item/mirotalk-p2p-webrtc-realtime-video-conferences/38376661)**, available on CodeCanyon.
 
+---
+
 There are two ways to rebrand MiroTalk P2P:
 
 1. **From `config.js` file** with `htmlInjection` enabled (recommended)
