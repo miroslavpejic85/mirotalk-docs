@@ -1,4 +1,4 @@
-site_name: MiroTalk docs v1.2.62
+site_name: MiroTalk docs v1.2.63
 site_description: MiroTalk WebRTC documentations
 site_author: Miroslav Pejic (miroslav.pejic.85@gmail.com)
 copyright: © 2025 MiroTalk, all rights reserved
@@ -45,6 +45,7 @@ nav:
       - integration: mirotalk-p2p/integration.md
       - join-room: mirotalk-p2p/join-room.md
       - ngrok: mirotalk-p2p/ngrok.md
+      - rebranding: mirotalk-p2p/rebranding.md
       - self-hosting: mirotalk-p2p/self-hosting.md
       - webhook: mirotalk-p2p/webhook.md
   - mirotalk-sfu:
