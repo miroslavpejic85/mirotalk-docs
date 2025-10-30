@@ -6,6 +6,8 @@
 
 Rebranding requires at least a 👉 **[Regular License](https://codecanyon.net/item/mirotalk-sfu-webrtc-realtime-video-conferences/40769970)**, available on CodeCanyon.
 
+---
+
 There are two ways to rebrand MiroTalk SFU:
 
 1. **From `.env` file** with `BRAND_HTML_INJECTION` enabled (recommended)
