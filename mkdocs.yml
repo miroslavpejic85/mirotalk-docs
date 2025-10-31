@@ -1,4 +1,4 @@
-site_name: MiroTalk docs v1.2.64
+site_name: MiroTalk docs v1.2.65
 site_description: MiroTalk WebRTC documentations
 site_author: Miroslav Pejic (miroslav.pejic.85@gmail.com)
 copyright: © 2025 MiroTalk, all rights reserved
@@ -47,6 +47,7 @@ nav:
       - ngrok: mirotalk-p2p/ngrok.md
       - rebranding: mirotalk-p2p/rebranding.md
       - self-hosting: mirotalk-p2p/self-hosting.md
+      - updates: mirotalk-p2p/updates.md
       - webhook: mirotalk-p2p/webhook.md
   - mirotalk-sfu:
       - about: https://codecanyon.net/item/mirotalk-sfu-webrtc-realtime-video-conferences/40769970
@@ -59,6 +60,7 @@ nav:
       - rebranding: mirotalk-sfu/rebranding.md
       - rtmp: mirotalk-sfu/rtmp.md
       - self-hosting: mirotalk-sfu/self-hosting.md
+      - updates: mirotalk-sfu/updates.md
       - webhook: mirotalk-sfu/webhook.md
   - mirotalk-web:
       - about: https://codecanyon.net/item/a-selfhosted-mirotalks-webrtc-rooms-scheduler-server/42643313
