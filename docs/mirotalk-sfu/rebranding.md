@@ -79,5 +79,5 @@ The full environment configuration can be found [here](https://github.com/mirosl
 
 MiroTalk SFU uses environment variables defined in `.env` (based on .env.template) to configure all core services: signaling, media transport, and more.
 
-The entry point [config.js]() automatically loads these variables and exposes them to the app.
+The entry point [config.js](https://github.com/miroslavpejic85/mirotalksfu/blob/main/app/src/config.template.js) automatically loads these variables and exposes them to the app.
 You should not modify `config.js`; instead, edit the `.env` file.
