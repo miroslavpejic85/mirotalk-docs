@@ -83,7 +83,7 @@ The full config configuration can be found [here](https://github.com/miroslavpej
 
 ---
 
-## Updates
+## Updates (self-hosted)
 
 When you update to the newest version of MiroTalk SFU using the `./p2pUpdate.sh` script, any customized files (such as your branding in public/views) get overwritten. This happens because the update process replaces the entire base code and can’t automatically preserve client-specific modifications.
 

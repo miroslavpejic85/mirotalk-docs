@@ -84,7 +84,7 @@ You should not modify `config.js`; instead, edit the `.env` file.
 
 ---
 
-## Updates
+## Updates (self-hosted)
 
 When you update to the newest version of MiroTalk SFU using the `./sfuUpdate.sh` script, any customized files (such as your branding in public/views) get overwritten. This happens because the update process replaces the entire base code and can’t automatically preserve client-specific modifications.
 
