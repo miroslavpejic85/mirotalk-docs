@@ -6,27 +6,34 @@ Rebranding requires at least a 👉 **[Regular License](https://codecanyon.net/i
 
 ---
 
-There are two ways to rebrand MiroTalk P2P:
+There are two ways to rebrand MiroTalk P2P from the `app/src/config.js` file:
 
-**From `config.js` file** with `htmlInjection` enabled (recommended)
+### htmlInjection enabled
+
+```js
+brand: {
+		htmlInjection: true, // recommended
+		//...
+}
+```
 
 ---
 
 ## Landing Page
 
 ```js
-    brand: {
-        app: {
-            title: '<h1>MiroTalk</h1>Free browser based Real-time video calls.<br />Simple, Secure, Fast.',
-            description:
-                'Start your next video call with a single click. No download, plug-in, or login is required. Just get straight to talking, messaging, and sharing your screen.',
-            joinDescription: 'Pick a room name.<br />How about this one?',
-            joinButtonLabel: 'JOIN ROOM',
-            joinLastLabel: 'Your recent room:',
-        },
-				//...
-		}
-    //...
+brand: {
+	app: {
+		title: '<h1>MiroTalk</h1>Free browser based Real-time video calls.<br />Simple, Secure, Fast.',
+		description:
+				'Start your next video call with a single click. No download, plug-in, or login is required. Just get straight to talking, messaging, and sharing your screen.',
+		joinDescription: 'Pick a room name.<br />How about this one?',
+		joinButtonLabel: 'JOIN ROOM',
+		joinLastLabel: 'Your recent room:',
+	},
+	//...
+}
+//...
 ```
 
 ![p2p-landing](../images/p2p/landing.png)
@@ -34,21 +41,21 @@ There are two ways to rebrand MiroTalk P2P:
 You can also hide optional landing page sections:
 
 ```js
-	brand: {
-		//...
-		html: {
-			topSponsors: false,
-			features: false,
-			browsers: false,
-			teams: false,
-			tryEasier: false,
-			poweredBy: false,
-			sponsors: false,
-			advertisers: false,
-			footer: false,
-		},
-		//...
-	}
+brand: {
+	//...
+	html: {
+		topSponsors: false,
+		features: false,
+		browsers: false,
+		teams: false,
+		tryEasier: false,
+		poweredBy: false,
+		sponsors: false,
+		advertisers: false,
+		footer: false,
+	},
+	//...
+}
 ```
 
 ---
@@ -61,9 +68,9 @@ You can also hide optional landing page sections:
 brand: {
 	//...
 	site: {
-			newCallRoomTitle: 'Pick name. <br />Share URL. <br />Start conference.',
-			newCallRoomDescription:
-					"Each room has its disposable URL. Just pick a room name and share your custom URL. It's that easy.",
+		newCallRoomTitle: 'Pick name. <br />Share URL. <br />Start conference.',
+		newCallRoomDescription:
+				"Each room has its disposable URL. Just pick a room name and share your custom URL. It's that easy.",
 	}
 	//...
 }
@@ -71,7 +78,14 @@ brand: {
 
 ---
 
-**By modifying the HTML files** with `htmlInjection` disabled
+### htmlInjection disabled
+
+```js
+brand: {
+		htmlInjection: false,
+		//...
+}
+```
 
 In this approach, brand injection is disabled and you can fully customize the project for your needs. The frontend files are located in the `app/public/views` folder.
 

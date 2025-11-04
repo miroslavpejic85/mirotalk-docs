@@ -1,16 +1,18 @@
 # Rebranding
 
-
-
 !!! warning "License Required"
 
 Rebranding requires at least a 👉 **[Regular License](https://codecanyon.net/item/mirotalk-sfu-webrtc-realtime-video-conferences/40769970)**, available on CodeCanyon.
 
 ---
 
-There are two ways to rebrand MiroTalk SFU:
+There are two ways to rebrand MiroTalk SFU from the `.env` file:
 
-**From `.env` file** with `BRAND_HTML_INJECTION` enabled (recommended)
+## BRAND_HTML_INJECTION enabled
+
+```bash
+BRAND_HTML_INJECTION=true # recommended
+```
 
 ---
 
@@ -65,7 +67,11 @@ WHO_ARE_YOU_JOIN_LABEL="JOIN ROOM"
 
 ---
 
-### **By modifying the HTML files** with `BRAND_HTML_INJECTION` disabled
+## BRAND_HTML_INJECTION disabled
+
+```bash
+BRAND_HTML_INJECTION=false
+```
 
 In this approach, brand injection is disabled and you can fully customize the project for your needs. The frontend files are located in the `app/public/views` folder.
 
