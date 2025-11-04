@@ -8,7 +8,7 @@ Rebranding requires at least a 👉 **[Regular License](https://codecanyon.net/i
 
 There are two ways to rebrand MiroTalk P2P:
 
-1. **From `config.js` file** with `htmlInjection` enabled (recommended)
+**From `config.js` file** with `htmlInjection` enabled (recommended)
 
 ---
 
@@ -71,9 +71,32 @@ brand: {
 
 ---
 
-2. **By modifying the HTML files** with `htmlInjection` disabled
+**By modifying the HTML files** with `htmlInjection` disabled
 
 In this approach, brand injection is disabled and you can fully customize the project for your needs. The frontend files are located in the `app/public/views` folder.
+
+---
+
+## OG (Open Graph)
+
+![p2p-og](../images/p2p/og.png)
+
+Open Graph is a protocol used to control how **web pages appear when shared on social media**.
+
+
+```js
+brand: {
+	//...
+	og: {
+			siteName: 'MiroTalk P2P',
+			title: 'Click the link to make a call.',
+			description: 'MiroTalk P2P calling provides real-time HD quality and latency simply not available with traditional technology.',
+			image: 'https://p2p.mirotalk.com/images/preview.png',
+			url: 'https://p2p.mirotalk.com',
+	},
+	//...
+}
+```
 
 ---
 

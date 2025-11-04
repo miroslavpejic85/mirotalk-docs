@@ -10,7 +10,7 @@ Rebranding requires at least a 👉 **[Regular License](https://codecanyon.net/i
 
 There are two ways to rebrand MiroTalk SFU:
 
-1. **From `.env` file** with `BRAND_HTML_INJECTION` enabled (recommended)
+**From `.env` file** with `BRAND_HTML_INJECTION` enabled (recommended)
 
 ---
 
@@ -65,9 +65,26 @@ WHO_ARE_YOU_JOIN_LABEL="JOIN ROOM"
 
 ---
 
-2. **By modifying the HTML files** with `BRAND_HTML_INJECTION` disabled
+### **By modifying the HTML files** with `BRAND_HTML_INJECTION` disabled
 
 In this approach, brand injection is disabled and you can fully customize the project for your needs. The frontend files are located in the `app/public/views` folder.
+
+---
+
+## OG (Open Graph)
+
+![sfu-og](../images/sfu/og.png)
+
+Open Graph is a protocol used to control how **web pages appear when shared on social media**.
+
+
+```bash
+OG_SITE_NAME=MiroTalk SFU
+OG_TITLE='Click the link to make a call.' 
+OG_DESCRIPTION='MiroTalk SFU provides real-time video calls and screen sharing.'
+OG_IMAGE_URL=https://sfu.mirotalk.com/images/mirotalksfu.png
+OG_URL=https://sfu.mirotalk.com
+```
 
 ---
 
