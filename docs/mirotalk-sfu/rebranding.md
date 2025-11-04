@@ -79,10 +79,9 @@ In this approach, brand injection is disabled and you can fully customize the pr
 
 ## OG (Open Graph)
 
-![sfu-og](../images/sfu/og.png)
-
 Open Graph is a protocol used to control how **web pages appear when shared on social media**.
 
+![sfu-og](../images/sfu/og.png)
 
 ```bash
 OG_SITE_NAME=MiroTalk SFU
