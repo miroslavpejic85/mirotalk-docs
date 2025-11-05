@@ -48,6 +48,8 @@ $ sudo certbot renew --nginx
 
 Open `/etc/turnserver.conf` and add the following by replacing `YOUR.DOMAIN.NAME` with your real domain or subdomain name.
 
+For a full configuration example, see the official guide here: https://github.com/coturn/coturn/wiki/turnserver
+
 ```ini
 listening-port=3478
 tls-listening-port=5349
@@ -63,7 +65,7 @@ user=YOUR.USERNAME:YOUR.PASSWORD
 server-name=YOUR.DOMAIN.NAME
 realm=YOUR.DOMAIN.NAME
 
-total-quota=100
+total-quota=500
 stale-nonce=600
 
 cert=/etc/letsencrypt/live/YOUR.DOMAIN.NAME/fullchain.pem
@@ -71,7 +73,10 @@ pkey=/etc/letsencrypt/live/YOUR.DOMAIN.NAME/privkey.pem
 
 cipher-list="ECDHE-RSA-AES256-GCM-SHA512:DHE-RSA-AES256-GCM-SHA512:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-SHA384"
 
-no-stdout-log
+no-loopback-peers
+no-multicast-peers
+
+simple-log
 ```
 
 Uncomment the following line to run Coturn as an automatic system service daemon in `/etc/default/coturn`
