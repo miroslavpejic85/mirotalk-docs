@@ -8,23 +8,23 @@ Web Real-Time Communication (WebRTC) has revolutionized the way we communicate o
 
 ## WebRTC Architectures
 
-1. **Mesh Architecture:**
+### Mesh Architecture
    
-    ![p2p](../images/p2p.png)  
+![p2p](../images/p2p.png)  
 
-    In a Mesh architecture, each participant in a communication session connects directly to every other participant. This creates a fully connected network where data is exchanged directly between peers. While this approach is straightforward and requires minimal infrastructure, it becomes impractical as the number of participants increases. The bandwidth and processing power required for direct connections grow exponentially, leading to performance challenges.
+In a Mesh architecture, each participant in a communication session connects directly to every other participant. This creates a fully connected network where data is exchanged directly between peers. While this approach is straightforward and requires minimal infrastructure, it becomes impractical as the number of participants increases. The bandwidth and processing power required for direct connections grow exponentially, leading to performance challenges.
 
-2. **SFU (Selective Forwarding Unit) Architecture:**
+### SFU (Selective Forwarding Unit) Architecture
   
-    ![sfu](../images/sfu.png)  
+![sfu](../images/sfu.png)  
 
-    SFU architecture addresses the limitations of Mesh by introducing a central server that acts as an intermediary. Instead of sending data to all participants, each user sends their media stream to the SFU, which then selectively forwards it to the intended recipients. This reduces the overall bandwidth requirements and allows for more scalable and efficient communication. SFU is particularly advantageous in scenarios with a larger number of participants.
+SFU architecture addresses the limitations of Mesh by introducing a central server that acts as an intermediary. Instead of sending data to all participants, each user sends their media stream to the SFU, which then selectively forwards it to the intended recipients. This reduces the overall bandwidth requirements and allows for more scalable and efficient communication. SFU is particularly advantageous in scenarios with a larger number of participants.
 
-3. **MCU (Multipoint Control Unit) Architecture:**
+### MCU (Multipoint Control Unit) Architecture
   
-    ![mcu](../images/mcu.png) 
+![mcu](../images/mcu.png) 
 
-    MCU architecture, on the other hand, takes a different approach. It centralizes the processing of media streams by combining them into a single stream that is then distributed to all participants. While this simplifies the communication process, it can be resource-intensive on the server, especially as the number of participants grows. MCU architectures are often employed in scenarios where centralized control and mixing of media streams are essential, such as video conferencing with special effects or overlays.
+MCU architecture, on the other hand, takes a different approach. It centralizes the processing of media streams by combining them into a single stream that is then distributed to all participants. While this simplifies the communication process, it can be resource-intensive on the server, especially as the number of participants grows. MCU architectures are often employed in scenarios where centralized control and mixing of media streams are essential, such as video conferencing with special effects or overlays.
 
 ## Stun/Turn
 
