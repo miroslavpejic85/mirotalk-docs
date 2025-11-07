@@ -48,7 +48,7 @@ $ sudo certbot renew --nginx
 
 Open `/etc/turnserver.conf` and add the following by replacing `YOUR.DOMAIN.NAME` with your real domain or subdomain name.
 
-For a full configuration example, see the official guide here: https://github.com/coturn/coturn/wiki/turnserver
+For a full configuration example, see the official guide [here](https://github.com/coturn/coturn/wiki/turnserver)
 
 ```ini
 listening-port=3478
@@ -175,6 +175,25 @@ You can also utilize the built-in MiroTalk service by simply replacing `YOUR.DOM
 # Default listening port
 https://p2p.mirotalk.com/icetest?iceServers=[{"urls":"stun:YOUR.DOMAIN.NAME:3478"},{"urls":"turn:YOUR.DOMAIN.NAME:3478","username":"your.username","credential":"your.password"}]
 
-# Tls listening port
-https://p2p.mirotalk.com/icetest?iceServers=[{"urls":"stun:YOUR.DOMAIN.NAME:5349"},{"urls":"turn:YOUR.DOMAIN.NAME:5349","username":"your.username","credential":"your.password"}]
+# TLS listening port
+https://p2p.mirotalk.com/icetest?iceServers=[{"urls":"stuns:YOUR.DOMAIN.NAME:5349"},{"urls":"turns:YOUR.DOMAIN.NAME:5349","username":"your.username","credential":"your.password"}]
 ```
+
+## 🔍 STUN vs. STUNS (the `s` suffix)
+
+### 1. `stun:`
+
+→ **Plain STUN over UDP or TCP** (no encryption).
+
+* Default port: **3478**
+* Fastest and most widely supported.
+* Used for discovering your public IP and NAT type.
+* Works great when UDP is allowed.
+
+### 2. `stuns:`
+
+→ **STUN over TLS (encrypted)**, typically on **5349** (or sometimes 443).
+
+* Uses TLS similar to HTTPS for encryption.
+* Useful in **highly restricted networks** or **VPNs** that block plain UDP.
+* But: **not all browsers and clients support `stuns:`** (especially older ones or mobile WebViews).
