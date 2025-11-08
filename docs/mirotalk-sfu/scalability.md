@@ -213,8 +213,8 @@ sudo systemctl restart nginx
 | Hetzner LB | €5.39 | Managed, auto-scaling |
 | Netcup VPS 500 G11 | €4.88 | 4 vCores, 4GB RAM |
 
-### Total Cost Examples
 
+### Total Cost Examples
 
 ![hetzner](../images/providers/hetzner.png)
 
@@ -223,6 +223,7 @@ sudo systemctl restart nginx
 -  3× Hetzner CPX41 (€19.99) = €60
 -  1× Hetzner LB = €5.39
 -  **Total: ~€65/month** for ~2400 users
+-  ⚡ **Best Performance:** Hetzner - Premium network quality, best for production with high traffic
 
 ---
 
@@ -233,6 +234,7 @@ sudo systemctl restart nginx
 -  3× Netcup RS 2000 (€17.99) = €54
 -  1× Netcup VPS 500 (LB) = €4.88
 -  **Total: ~€59/month** for ~2400 users
+-  🏆 **Best Overall:** Netcup - Perfect balance of price, performance, and reliability
 
 ---
 
@@ -243,14 +245,9 @@ sudo systemctl restart nginx
 -  3× Contabo VPS 20 (€14.00) = €42
 -  1× Netcup VPS 500 (LB) = €4.88
 -  **Total: ~€47/month** for ~2400 users
+-  💰 **Lowest Cost:** Contabo - Good for testing or budget-conscious deployments, but slower network
 
 ---
-
-### Recommendation by Use Case
-
--  ⚡ **Best Performance:** Hetzner - Premium network quality, best for production with high traffic
--  🏆 **Best Overall:** Netcup - Perfect balance of price, performance, and reliability
--  💰 **Lowest Cost:** Contabo - Good for testing or budget-conscious deployments, but slower network
 
 **Bandwidth per user:**
 
