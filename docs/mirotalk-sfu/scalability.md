@@ -215,23 +215,36 @@ sudo systemctl restart nginx
 
 ### Total Cost Examples
 
-**Budget Setup (Contabo):**
 
--  3× Contabo VPS 20 (€14.00) = €42
--  1× Netcup VPS 500 (LB) = €4.88
--  **Total: ~€47/month** for ~2400 users
+![hetzner](../images/providers/hetzner.png)
 
-**Balanced Setup (Netcup):**
+**Premium Setup [Hetzner](https://hetzner.cloud/?ref=XdRifCzCK3bn):**
+
+-  3× Hetzner CPX41 (€19.99) = €60
+-  1× Hetzner LB = €5.39
+-  **Total: ~€65/month** for ~2400 users
+
+---
+
+![netcup](../images/providers/netcup.png)
+
+**Balanced Setup [Netcup](https://www.netcup.com/en/?ref=309627):**
 
 -  3× Netcup RS 2000 (€17.99) = €54
 -  1× Netcup VPS 500 (LB) = €4.88
 -  **Total: ~€59/month** for ~2400 users
 
-**Premium Setup (Hetzner):**
+---
 
--  3× Hetzner CPX41 (€19.99) = €60
--  1× Hetzner LB = €5.39
--  **Total: ~€65/month** for ~2400 users
+![contabo](../images/providers/contabo.png)
+
+**Budget Setup [Contabo](https://www.dpbolvw.net/click-101027391-14462707):**
+
+-  3× Contabo VPS 20 (€14.00) = €42
+-  1× Netcup VPS 500 (LB) = €4.88
+-  **Total: ~€47/month** for ~2400 users
+
+---
 
 ### Recommendation by Use Case
 
