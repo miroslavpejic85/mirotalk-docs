@@ -81,12 +81,15 @@ SFU_SERVER=true
 
 **Nginx Configuration:**
 
-```nginx
-# /etc/nginx/sites-available/mirotalk-lb
+**File:** `/etc/nginx/sites-available/mirotalk-lb`
 
+```nginx
+# All users joining the same room are routed to the same backend
+
+# Define backends (your MiroTalk SFU instances)
 upstream mirotalk_backend {
-    ip_hash;  # Sticky sessions - REQUIRED
-    
+    hash $uri consistent;  # Hash based on the room path (e.g., /room/xyz)
+
     server 1.1.1.1:3010 max_fails=3 fail_timeout=30s;
     server 2.2.2.2:3010 max_fails=3 fail_timeout=30s;
     server 3.3.3.3:3010 max_fails=3 fail_timeout=30s;
@@ -95,47 +98,58 @@ upstream mirotalk_backend {
 server {
     listen 443 ssl http2;
     server_name sfu.yourdomain.com;
-    
+
     ssl_certificate /path/to/cert.pem;
     ssl_certificate_key /path/to/key.pem;
-    
+
     location / {
         proxy_pass https://mirotalk_backend;
         proxy_http_version 1.1;
-        
+
         # WebSocket support
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection "upgrade";
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
-        
-        # Timeouts
+
+        # Keep connections open for WebRTC signaling
         proxy_read_timeout 600s;
         proxy_send_timeout 600s;
     }
 }
 ```
 
+**What Happens Here**
+
+`hash $uri consistent;` makes Nginx route everyone joining the same room URL (e.g., `/room/xyz`) to the same SFU instance, and if a server fails, only a few rooms are reassigned to other nodes.
+
+
 **HAProxy Configuration:**
 
+**File:** `/etc/haproxy/haproxy.cfg`
+
 ```haproxy
-# /etc/haproxy/haproxy.cfg
+# Ensures same room URL always goes to the same backend
 
 frontend sfu_frontend
     bind *:443 ssl crt /path/to/cert.pem
     default_backend sfu_backend
 
 backend sfu_backend
-    balance source  # Sticky sessions by IP
-    
+    balance uri whole  # Balance based on the full URL (e.g., /room/xyz)
+    hash-type consistent
+
+    option http-server-close
+    option forwardfor
+
     server sfu1 1.1.1.1:3010 check ssl verify none
     server sfu2 2.2.2.2:3010 check ssl verify none
     server sfu3 3.3.3.3:3010 check ssl verify none
 ```
 
-### How does sticky sessions work?
+**What Happens Here**
 
-Load balancer assigns users to servers based on IP address (`ip_hash` in Nginx, `balance source` in HAProxy). Same IP = same server = room persistence.
+`balance uri whole` makes HAProxy send everyone joining the same room URL (e.g., `/room/xyz`) to the same backend, while `hash-type consistent` ensures smooth failover if a server goes down, each SFU instance handles its own rooms independently with full WebSocket and SSL support.
 
 ### Step 3: Configure Firewall
 
