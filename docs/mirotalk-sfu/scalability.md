@@ -18,11 +18,11 @@ Scale MiroTalk SFU to **handle 100-1000+ concurrent users** across multiple room
 ### Configuration
 
 ```bash
+SFU_ANNOUNCED_IP=YOUR_PUBLIC_IP
+SFU_SERVER=true
 SFU_NUM_WORKERS=8
 SFU_MIN_PORT=40000
 SFU_MAX_PORT=49999
-SFU_ANNOUNCED_IP=YOUR_PUBLIC_IP
-SFU_SERVER=true
 ```
 
 ### Capacity
