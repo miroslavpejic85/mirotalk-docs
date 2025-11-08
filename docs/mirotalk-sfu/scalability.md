@@ -81,14 +81,11 @@ SFU_SERVER=true
 
 **Nginx Configuration:**
 
-**File:** `/etc/nginx/sites-available/mirotalk-lb`
-
 ```nginx
-# All users joining the same room are routed to the same backend
+# /etc/nginx/sites-available/mirotalk-lb
 
-# Define backends (your MiroTalk SFU instances)
 upstream mirotalk_backend {
-    hash $uri consistent;  # Hash based on the room path (e.g., /room/xyz)
+    hash $uri consistent;  # Hash based - REQUIRED
 
     server 1.1.1.1:3010 max_fails=3 fail_timeout=30s;
     server 2.2.2.2:3010 max_fails=3 fail_timeout=30s;
@@ -126,10 +123,8 @@ server {
 
 **HAProxy Configuration:**
 
-**File:** `/etc/haproxy/haproxy.cfg`
-
 ```haproxy
-# Ensures same room URL always goes to the same backend
+# /etc/haproxy/haproxy.cfg
 
 frontend sfu_frontend
     bind *:443 ssl crt /path/to/cert.pem
