@@ -100,7 +100,7 @@ server {
     ssl_certificate_key /path/to/key.pem;
 
     location / {
-        proxy_pass https://mirotalk_backend;
+        proxy_pass http://mirotalk_backend;
         proxy_http_version 1.1;
 
         # WebSocket support
