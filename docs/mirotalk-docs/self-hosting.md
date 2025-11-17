@@ -2,10 +2,24 @@
 
 ![docs](../images/docs.png)
 
+## Description
+
+Welcome to the MiroTalk documentation hub! Here you'll find comprehensive guides and references for all MiroTalk projects, including P2P, SFU, C2C, BRO, WEB, and more. This documentation covers everything you need for self-hosting, integration, configuration, scaling, security, and advanced features.
+
+Whether you're deploying a simple peer-to-peer video call, scaling up with SFU for large meetings, enabling live broadcasts, or embedding widgets, these docs provide step-by-step instructions, best practices, and troubleshooting tips for every scenario.
+
+Explore the sections relevant to your use case and enjoy full control over your real-time communication platform!
+
+**Live demo**: [https://docs.mirotalk.com](https://docs.mirotalk.com)
+
 ## Requirements
 
-- Server Selection: Recommended [Hetzner](https://www.hetzner.com/cloud) (CX11) or [Contabo](https://www.dpbolvw.net/click-101027391-14462707) (VPS-S) OS: Ubuntu 22.04 LTS.
-- Use my [personal link](https://hetzner.cloud/?ref=XdRifCzCK3bn) to receive `€⁠20 in cloud credits` on Hetzner.
+- Server Selection:
+    - [Hetzner](https://www.hetzner.com/cloud) - Use [this link](https://hetzner.cloud/?ref=XdRifCzCK3bn) to receive `€⁠20 in cloud credits`
+    - [Netcup](https://www.netcup.com/en/?ref=309627) (Root Server)
+    - [Hostinger](https://hostinger.com/?REFERRALCODE=MIROTALK)
+    - [Contabo](https://www.dpbolvw.net/click-101027391-14462707)
+- OS: Ubuntu 22.04 LTS.
 - Mandatory [MkDocs](https://www.mkdocs.org/)
 - Domain or Subdomain Name (e.g., `YOUR.DOMAIN.NAME`) with a DNS A record pointing to your server's IPv4 address.
 

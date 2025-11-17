@@ -12,6 +12,7 @@ MiroTalk WEB is a browser-based room scheduler for organizing and managing team 
 
 - Server Selection:
     - [Hetzner](https://www.hetzner.com/cloud) - Use [this link](https://hetzner.cloud/?ref=XdRifCzCK3bn) to receive `€⁠20 in cloud credits`
+    - [Netcup](https://www.netcup.com/en/?ref=309627) (Root Server)
     - [Hostinger](https://hostinger.com/?REFERRALCODE=MIROTALK)
     - [Contabo](https://www.dpbolvw.net/click-101027391-14462707)
 - OS: Ubuntu 22.04 LTS.
