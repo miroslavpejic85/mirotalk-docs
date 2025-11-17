@@ -6,6 +6,8 @@
 
 MiroTalk WEB is a browser-based room scheduler for organizing and managing team meetings. Streamlines internal communication and collaboration for organizations.
 
+**Live demo**: [https://webrtc.mirotalk.com](https://webrtc.mirotalk.com)
+
 ## Requirements
 
 - Server Selection:

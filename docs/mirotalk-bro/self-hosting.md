@@ -6,6 +6,8 @@
 
 MiroTalk BRO is a one-to-many WebRTC broadcast platform for live audio and video streaming. It is peer-to-peer based, so it is best suited for small audiences and not recommended for large-scale broadcasts, making it ideal for webinars, live events, or educational sessions with minimal delay.
 
+**Live demo**: [https://bro.mirotalk.com](https://bro.mirotalk.com)
+
 ## Requirements
 
 - Server Selection:

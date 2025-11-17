@@ -6,6 +6,8 @@
 
 MiroTalk C2C is a Direct client-to-client messaging and media exchange for low-latency real-time communication. Suited for private chats, small apps, or embedded solutions.
 
+**Live demo**: [https://c2c.mirotalk.com](https://c2c.mirotalk.com)
+
 ## Requirements
 
 - Server Selection:
