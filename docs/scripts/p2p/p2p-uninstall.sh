@@ -17,7 +17,7 @@ $$ |\$  /$$ |$$ |$$ |      $$ |  $$ |$$ |$$  __$$ |$$ |$$  _$$<
 $$ | \_/ $$ |$$ |$$ |      \$$$$$$  |$$ |\$$$$$$$ |$$ |$$ | \$$\ 
 \__|     \__|\__|\__|       \______/ \__| \_______|\__|\__|  \__|
 
-    MiroTalk P2P Automated uninstall Script             
+     MiroTalk P2P Automated Uninstall Script             
         Tested: Ubuntu 22.04 | 24.04 LTS               
             (c) 2025 Miroslav Pejic                  
 EOF

@@ -17,7 +17,7 @@ $$ |\$  /$$ |$$ |$$ |      $$ |  $$ |$$ |$$  __$$ |$$ |$$  _$$<
 $$ | \_/ $$ |$$ |$$ |      \$$$$$$  |$$ |\$$$$$$$ |$$ |$$ | \$$\ 
 \__|     \__|\__|\__|       \______/ \__| \_______|\__|\__|  \__|
 
-    MiroTalk SFU Automated uninstall Script             
+     MiroTalk SFU Automated Uninstall Script             
         Tested: Ubuntu 22.04 | 24.04 LTS               
             (c) 2025 Miroslav Pejic                  
 EOF
