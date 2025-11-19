@@ -29,19 +29,27 @@ MiroTalk SFU is a scalable WebRTC solution for multi-party calls, using a Select
     Many of the installation steps require `root` or `sudo` access
 
 ```bash
-# Gcc g++ make
-$ apt-get update
-$ apt-get install -y build-essential
+# Run all apt commands in non-interactive mode (no prompts)
+export DEBIAN_FRONTEND=noninteractive
 
-# Python 3.8 and pip
-$ DEBIAN_FRONTEND=noninteractive apt-get install -y tzdata
-$ apt install -y software-properties-common
+# Update package lists
+$ apt-get update -y
+
+# Install required system packages
+$ apt-get install -y \
+    build-essential \
+    git \
+    curl \
+    wget \
+    unzip \
+    tzdata \
+    software-properties-common \
+    ffmpeg
+
+# Install Python 3.8 and pip
 $ add-apt-repository -y ppa:deadsnakes/ppa
-$ apt update
-$ apt install -y python3.8 python3-pip
-
-# FFmpeg
-$ apt install -y ffmpeg
+$ apt-get update -y
+$ apt-get install -y python3.8 python3-pip
 ```
 
 ---
