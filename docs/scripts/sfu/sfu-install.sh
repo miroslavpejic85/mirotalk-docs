@@ -213,8 +213,9 @@ cp .env.template .env
 # Set environment
 #---------------------------------------------
 
-sed -i "s|SFU_ANNOUNCED_IP=.*|SFU_ANNOUNCED_IP=$SERVER_IP|" .env
 sed -i "s|NODE_ENV=.*|NODE_ENV=production|" .env
+sed -i "s|SFU_ANNOUNCED_IP=.*|SFU_ANNOUNCED_IP=$SERVER_IP|" .env
+sed -i "s|SERVER_LISTEN_PORT=.*|SERVER_LISTEN_PORT=$SERVER_PORT|" .env
 
 #---------------------------------------------
 # Customize docker-compose.yml network and volumes

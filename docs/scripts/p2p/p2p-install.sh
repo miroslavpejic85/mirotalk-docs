@@ -173,6 +173,7 @@ cp .env.template .env
 #---------------------------------------------
 
 sed -i "s|NODE_ENV=.*|NODE_ENV=production|" .env
+sed -i "s|PORT=.*|PORT=$SERVER_PORT|" .env
 
 #---------------------------------------------
 # Customize docker-compose.yml network and volumes
@@ -186,7 +187,7 @@ services:
         hostname: $PROJECT_NAME
         restart: unless-stopped
         ports:
-            - '3000:3000'
+            - '$SERVER_PORT:$SERVER_PORT'
         volumes:
             - $PROJECT_DIR/.env:/src/.env:ro
             - $PROJECT_DIR/app/:/src/app/:ro
