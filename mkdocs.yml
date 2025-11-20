@@ -1,4 +1,4 @@
-site_name: MiroTalk docs v1.2.90
+site_name: MiroTalk docs v1.2.91
 site_description: MiroTalk WebRTC documentations
 site_author: Miroslav Pejic (miroslav.pejic.85@gmail.com)
 copyright: © 2025 MiroTalk, all rights reserved
@@ -93,6 +93,7 @@ nav:
         - coturn-install: scripts/coturn/coturn-install.sh
         - coturn-uninstall: scripts/coturn/coturn-uninstall.sh
   - utility:
+      - cloudron: utility/cloudron.md
       - docker-compose: utility/docker-compose.md
       - ftp: utility/ftp.md
       - nvm: utility/nvm.md 
