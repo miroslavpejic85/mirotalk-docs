@@ -11,10 +11,10 @@ warning() { echo -e "⚠️ \e[33m[WARNING]\e[0m $*"; }
 error()   { echo -e "❌ \e[31m[ERROR]\e[0m $*"; exit 1; }
 
 #---------------------------------------------
-# Update MiroTalk SFU
+# Update MiroTalk
 #---------------------------------------------
 
-PROJECT_DIR="/root/mirotalksfu"
+PROJECT_DIR="/root/mirotalkc2c"
 
 cd "$PROJECT_DIR" || error "Project directory not found!"
 

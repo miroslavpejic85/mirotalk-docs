@@ -14,7 +14,10 @@ error()   { echo -e "❌ \e[31m[ERROR]\e[0m $*"; exit 1; }
 # Update MiroTalk
 #---------------------------------------------
 
-cd "/root/mirotalk" || error "Project directory not found!"
+PROJECT_DIR="/root/mirotalk"
+
+cd "$PROJECT_DIR" || error "Project directory not found!"
+
 git pull
 docker-compose down
 docker-compose pull
