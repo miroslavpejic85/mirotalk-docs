@@ -11,6 +11,7 @@ nav:
   - about: about/index.html
   - overview: overview/index.html
   - changelogs: changelogs/changelogs.md
+  - cloudron: cloudron/cloudron.md
   - coturn:
       - stun-turn: coturn/stun-turn.md
       - installation: coturn/installation.md
@@ -93,7 +94,6 @@ nav:
         - coturn-install: scripts/coturn/coturn-install.sh
         - coturn-uninstall: scripts/coturn/coturn-uninstall.sh
   - utility:
-      - cloudron: utility/cloudron.md
       - docker-compose: utility/docker-compose.md
       - ftp: utility/ftp.md
       - nvm: utility/nvm.md 
