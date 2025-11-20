@@ -89,9 +89,9 @@ fi
 # Set variables
 #---------------------------------------------
 
-read -p $'\e[33m[READ] Enter your domain or sub.domain: \e[0m' DOMAIN
-read -p $'\e[33m[READ] Enter your stun/turn username: \e[0m' USERNAME
-read -p $'\e[33m[READ] Enter your stun/turn strong password: \e[0m' PASSWORD
+read -p $'⚠️ \e[33m[READ] Enter your domain or sub.domain: \e[0m' DOMAIN
+read -p $'⚠️ \e[33m[READ] Enter your stun/turn username: \e[0m' USERNAME
+read -p $'⚠️ \e[33m[READ] Enter your stun/turn strong password: \e[0m' PASSWORD
 
 #---------------------------------------------
 # Check for empty variables
@@ -108,7 +108,7 @@ fi
 SERVER_IP=$(wget -qO- http://api.ipify.org)
 
 if [[ -z "$SERVER_IP" ]]; then
-    read -p $'\e[33m[READ] Enter your SERVER public IP: \e[0m' SERVER_IP
+    read -p $'⚠️ \e[33m[READ] Enter your SERVER public IP: \e[0m' SERVER_IP
 fi
 
 if [[ -z "$SERVER_IP" ]]; then
