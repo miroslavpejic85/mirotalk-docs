@@ -44,7 +44,7 @@ SITES_ENABLED="/etc/nginx/sites-enabled/$PROJECT_NAME"
 # Set variables
 #---------------------------------------------
 
-read -p "Remove SSL certificates for the domain: " DOMAIN
+read -p $'\e[33m[READ] Remove SSL certificates for the domain: \e[0m' DOMAIN
 
 #---------------------------------------------
 # Check for empty variables

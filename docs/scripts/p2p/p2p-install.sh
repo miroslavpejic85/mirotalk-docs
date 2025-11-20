@@ -94,7 +94,7 @@ fi
 # Set domain or subdomain
 #---------------------------------------------
 
-read -p "Enter your domain or sub.domain: " DOMAIN
+read -p $'\e[33m[READ] Enter your domain or sub.domain: \e[0m' DOMAIN
 
 if [[ -z "$DOMAIN" ]]; then
     error "All fields are required. Exiting..."
@@ -107,7 +107,7 @@ fi
 SERVER_IP=$(wget -qO- http://api.ipify.org)
 
 if [[ -z "$SERVER_IP" ]]; then
-    read -p "Enter your SERVER public IP: " SERVER_IP
+    read -p $'\e[33m[READ] Enter your SERVER public IP: \e[0m' SERVER_IP
 fi
 
 if [[ -z "$SERVER_IP" ]]; then
