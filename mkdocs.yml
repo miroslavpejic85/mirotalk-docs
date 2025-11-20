@@ -1,4 +1,4 @@
-site_name: MiroTalk docs v1.2.86
+site_name: MiroTalk docs v1.2.90
 site_description: MiroTalk WebRTC documentations
 site_author: Miroslav Pejic (miroslav.pejic.85@gmail.com)
 copyright: © 2025 MiroTalk, all rights reserved
@@ -85,6 +85,10 @@ nav:
         - c2c-install: scripts/c2c/c2c-install.sh
         - c2c-uninstall: scripts/c2c/c2c-uninstall.sh
         - c2c-update: scripts/c2c/c2c-update.sh
+      - bro:
+        - bro-install: scripts/bro/bro-install.sh
+        - bro-uninstall: scripts/bro/bro-uninstall.sh
+        - bro-update: scripts/bro/bro-update.sh
       - coturn:
         - coturn-install: scripts/coturn/coturn-install.sh
         - coturn-uninstall: scripts/coturn/coturn-uninstall.sh

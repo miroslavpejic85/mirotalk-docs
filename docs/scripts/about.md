@@ -37,6 +37,12 @@ wget -qO c2c-install.sh https://docs.mirotalk.com/scripts/c2c/c2c-install.sh \
   && ./c2c-install.sh
 ```
 ```bash
+# Install MiroTalk BRO
+wget -qO bro-install.sh https://docs.mirotalk.com/scripts/bro/bro-install.sh \
+  && chmod +x bro-install.sh \
+  && ./bro-install.sh
+```
+```bash
 # Install Coturn
 wget -qO coturn-install.sh https://docs.mirotalk.com/scripts/coturn/coturn-install.sh \
   && chmod +x coturn-install.sh \
@@ -66,6 +72,12 @@ wget -qO c2c-uninstall.sh https://docs.mirotalk.com/scripts/c2c/c2c-uninstall.sh
   && ./c2c-uninstall.sh
 ```
 ```bash
+# Uninstall MiroTalk BRO
+wget -qO c2c-uninstall.sh https://docs.mirotalk.com/scripts/bro/bro-uninstall.sh \
+  && chmod +x bro-uninstall.sh \
+  && ./bro-uninstall.sh
+```
+```bash
 # Uninstall Coturn
 wget -qO coturn-uninstall.sh https://docs.mirotalk.com/scripts/coturn/coturn-uninstall.sh \
   && chmod +x coturn-uninstall.sh \
@@ -93,4 +105,10 @@ wget -qO p2p-update.sh https://docs.mirotalk.com/scripts/p2p/p2p-update.sh \
 wget -qO c2c-update.sh https://docs.mirotalk.com/scripts/c2c/c2c-update.sh \
   && chmod +x c2c-update.sh \
   && ./c2c-update.sh
+```
+```bash
+# Update MiroTalk BRO
+wget -qO bro-update.sh https://docs.mirotalk.com/scripts/bro/bro-update.sh \
+  && chmod +x bro-update.sh \
+  && ./bro-update.sh
 ```
