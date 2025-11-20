@@ -9,13 +9,13 @@ Here's a step-by-step guide on how to use [NVM](https://github.com/nvm-sh/nvm) (
 If you haven't already installed NVM, you can do so by running the following command in your terminal:
 
 ```bash
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.2/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 ```
 
 Or, if you prefer using Wget:
 
 ```bash
-wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.2/install.sh | bash
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 ```
 
 This command will install NVM on your system. You may need to restart your terminal or run `source ~/.bashrc` (or `~/.zshrc` if you use Zsh) to start using NVM.

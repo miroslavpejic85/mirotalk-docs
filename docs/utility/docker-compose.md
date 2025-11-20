@@ -6,8 +6,8 @@ Repo: [https://github.com/docker/compose/releases/](https://github.com/docker/co
 # Remove any existing installation of docker-compose
 $ sudo apt remove docker-compose
 
-# Download the latest version of docker-compose (v2.34.0 in this case) for Linux (x86_64 architecture)
-$ wget https://github.com/docker/compose/releases/download/v2.34.0/docker-compose-linux-x86_64
+# Download the latest version of docker-compose (v2.40.3 in this case) for Linux (x86_64 architecture)
+$ wget https://github.com/docker/compose/releases/download/v2.40.3/docker-compose-linux-x86_64
 
 # Make the downloaded docker-compose file executable
 $ chmod +x docker-compose-linux-x86_64
