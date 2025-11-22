@@ -52,6 +52,7 @@ brand: {
 		poweredBy: false,
 		sponsors: false,
 		advertisers: false,
+		supportUs: false,
 		footer: false,
 	},
 	//...
