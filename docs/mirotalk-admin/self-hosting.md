@@ -261,20 +261,6 @@ pm2 restart mirotalk-admin
 
 ---
 
-For `Docker`:
-
-```bash
-#!/bin/bash
-
-cd mirotalk-admin
-git pull
-docker-compose down
-docker-compose pull
-docker image prune -f
-docker-compose up -d
-```
-
----
 
 Make the script executable:
 
