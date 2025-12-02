@@ -261,7 +261,7 @@ pm2 restart mirotalk-admin
 
 ---
 
-For Docker:
+For `Docker`:
 
 ```bash
 #!/bin/bash
