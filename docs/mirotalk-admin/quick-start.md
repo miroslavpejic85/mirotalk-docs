@@ -35,7 +35,7 @@ A secure, modern web dashboard to manage **[MiroTalk](https://docs.mirotalk.com/
 1. **Install PM2 globally (if not already installed):**
 
     ```bash
-    npm ci -g pm2
+    npm install -g pm2
     ```
 
 2. **Clone and set up the project:**
