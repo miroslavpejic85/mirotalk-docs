@@ -329,7 +329,7 @@ $ service nginx restart
 $ service nginx status
 
 # Set up auto-renewal for SSL certificates
-$ sudo certbot renew --dry-run
+$ sudo certbot renew --dry-run --cert-name YOUR.DOMAIN.NAME
 
 # Show certificates
 $ sudo certbot certificates
