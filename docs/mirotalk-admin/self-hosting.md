@@ -44,17 +44,12 @@ $ cp backend/config/index.template.js backend/config/index.js
     If your MiroTalk instance is installed in a different directory, update the paths in `backend/config/index.js` to match your setup:
 
     ```javascript
-    const APP_CONFIG = {
-        mirotalksfu: makeConfig({
-            dir: '/root/mirotalksfu',
-            packageUrl: 'https://raw.githubusercontent.com/miroslavpejic85/mirotalksfu/main/package.json',
-            packagePath: '/root/mirotalksfu/package.json',
-            config: '/root/mirotalksfu/app/src/config.js',
-            env: '/root/mirotalksfu/.env',
-            dep: [...defaultDeps, ...mirotalksfuExtraDeps],
-        }),
-        //...
-    }
+    // Application directories from environment variables or defaults
+    const MIROTALK_SFU_DIR = process.env.MIROTALK_SFU_DIR || '/root/mirotalksfu';
+    const MIROTALK_P2P_DIR = process.env.MIROTALK_P2P_DIR || '/root/mirotalk';
+    const MIROTALK_C2C_DIR = process.env.MIROTALK_C2C_DIR || '/root/mirotalkc2c';
+    const MIROTALK_BRO_DIR = process.env.MIROTALK_BRO_DIR || '/root/mirotalkbro';
+    const MIROTALK_WEB_DIR = process.env.MIROTALK_WEB_DIR || '/root/mirotalkwebrtc';
     ```
 
 ```bash
@@ -122,17 +117,12 @@ $ cp backend/config/index.template.js backend/config/index.js
     If your MiroTalk instance is installed in a different directory, update the paths in `backend/config/index.js` to match your setup:
 
     ```javascript
-    const APP_CONFIG = {
-        mirotalksfu: makeConfig({
-            dir: '/root/mirotalksfu',
-            packageUrl: 'https://raw.githubusercontent.com/miroslavpejic85/mirotalksfu/main/package.json',
-            packagePath: '/root/mirotalksfu/package.json',
-            config: '/root/mirotalksfu/app/src/config.js',
-            env: '/root/mirotalksfu/.env',
-            dep: [...defaultDeps, ...mirotalksfuExtraDeps],
-        }),
-        //...
-    }
+    // Application directories from environment variables or defaults
+    const MIROTALK_SFU_DIR = process.env.MIROTALK_SFU_DIR || '/root/mirotalksfu';
+    const MIROTALK_P2P_DIR = process.env.MIROTALK_P2P_DIR || '/root/mirotalk';
+    const MIROTALK_C2C_DIR = process.env.MIROTALK_C2C_DIR || '/root/mirotalkc2c';
+    const MIROTALK_BRO_DIR = process.env.MIROTALK_BRO_DIR || '/root/mirotalkbro';
+    const MIROTALK_WEB_DIR = process.env.MIROTALK_WEB_DIR || '/root/mirotalkwebrtc';
     ```
 
 ```bash
