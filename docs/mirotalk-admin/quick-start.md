@@ -131,8 +131,9 @@ Specify which instances you want to manage by listing their names (comma-separat
 ```bash
 APP_NAME=mirotalksfu,mirotalk,mirotalkc2c,mirotalkbro,mirotalkwebrtc
 MIROTALK_SFU_DIR=/root/mirotalksfu
-MIROTALK_P2P_DIR=/root/mirotalkc2c
-MIROTALK_C2C_DIR=/root/mirotalkbro
+MIROTALK_P2P_DIR=/root/mirotalk
+MIROTALK_BRO_DIR=/root/mirotalkbro
+MIROTALK_C2C_DIR=/root/mirotalkc2c
 MIROTALK_WEB_DIR=/root/mirotalkwebrtc
 ```
 
