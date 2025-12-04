@@ -38,27 +38,13 @@ $ cd mirotalk-admin
 
 # Copy index.template.js in index.js and customize it according to your needs if needed
 $ cp backend/config/index.template.js backend/config/index.js
-```
 
-!!! warning
-    If your MiroTalk instance is installed in a different directory, update the paths in `backend/config/index.js` to match your setup:
-
-    ```javascript
-    // Application directories from environment variables or defaults
-    const MIROTALK_SFU_DIR = process.env.MIROTALK_SFU_DIR || '/root/mirotalksfu';
-    const MIROTALK_P2P_DIR = process.env.MIROTALK_P2P_DIR || '/root/mirotalk';
-    const MIROTALK_C2C_DIR = process.env.MIROTALK_C2C_DIR || '/root/mirotalkc2c';
-    const MIROTALK_BRO_DIR = process.env.MIROTALK_BRO_DIR || '/root/mirotalkbro';
-    const MIROTALK_WEB_DIR = process.env.MIROTALK_WEB_DIR || '/root/mirotalkwebrtc';
-    ```
-
-```bash
 # Copy .env.template in .env and customize it according to your needs if needed
 $ cp .env.template .env
 ```
 
 !!! warning
-    **Ensure that `ADMIN_DASHBOARD_ENABLED=true` is set, and update the credentials and SSH configuration with your own secure values before starting the service.**
+    **Before starting the service, make sure to:** Set `ADMIN_DASHBOARD_ENABLED=true` in your `.env` file. Update admin credentials and SSH configuration with secure, custom values. Specify the correct absolute paths for your MiroTalk directories.
 
 ```bash
 # Install dependencies
@@ -111,27 +97,13 @@ $ cd mirotalk-admin
 
 # Copy backend/config/index.template.js in backend/config/index.js IMPORTANT (edit it according to your needs)
 $ cp backend/config/index.template.js backend/config/index.js
-```
 
-!!! warning
-    If your MiroTalk instance is installed in a different directory, update the paths in `backend/config/index.js` to match your setup:
-
-    ```javascript
-    // Application directories from environment variables or defaults
-    const MIROTALK_SFU_DIR = process.env.MIROTALK_SFU_DIR || '/root/mirotalksfu';
-    const MIROTALK_P2P_DIR = process.env.MIROTALK_P2P_DIR || '/root/mirotalk';
-    const MIROTALK_C2C_DIR = process.env.MIROTALK_C2C_DIR || '/root/mirotalkc2c';
-    const MIROTALK_BRO_DIR = process.env.MIROTALK_BRO_DIR || '/root/mirotalkbro';
-    const MIROTALK_WEB_DIR = process.env.MIROTALK_WEB_DIR || '/root/mirotalkwebrtc';
-    ```
-
-```bash
 # Copy .env.template to .env IMPORTANT (edit it according to your needs)
 $ cp .env.template .env
 ```
 
 !!! warning
-    **Ensure that `ADMIN_DASHBOARD_ENABLED=true` is set, and update the credentials and SSH configuration with your own secure values before starting the service.**
+    **Before starting the service, make sure to:** Set `ADMIN_DASHBOARD_ENABLED=true` in your `.env` file. Update admin credentials and SSH configuration with secure, custom values. Specify the correct absolute paths for your MiroTalk directories.
 
 ```bash
 # Copy docker-compose.template.yml in docker-compose.yml and customize it according to your needs if needed
