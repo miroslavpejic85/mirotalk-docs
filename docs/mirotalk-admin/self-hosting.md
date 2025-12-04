@@ -38,7 +38,26 @@ $ cd mirotalk-admin
 
 # Copy index.template.js in index.js and customize it according to your needs if needed
 $ cp backend/config/index.template.js backend/config/index.js
+```
 
+!!! warning
+    If your MiroTalk instance is installed in a different directory, update the paths in `backend/config/index.js` to match your setup:
+
+    ```javascript
+    const APP_CONFIG = {
+        mirotalksfu: makeConfig({
+            dir: '/root/mirotalksfu',
+            packageUrl: 'https://raw.githubusercontent.com/miroslavpejic85/mirotalksfu/main/package.json',
+            packagePath: '/root/mirotalksfu/package.json',
+            config: '/root/mirotalksfu/app/src/config.js',
+            env: '/root/mirotalksfu/.env',
+            dep: [...defaultDeps, ...mirotalksfuExtraDeps],
+        }),
+        //...
+    }
+    ```
+
+```bash
 # Copy .env.template in .env and customize it according to your needs if needed
 $ cp .env.template .env
 ```
@@ -97,7 +116,26 @@ $ cd mirotalk-admin
 
 # Copy backend/config/index.template.js in backend/config/index.js IMPORTANT (edit it according to your needs)
 $ cp backend/config/index.template.js backend/config/index.js
+```
 
+!!! warning
+    If your MiroTalk instance is installed in a different directory, update the paths in `backend/config/index.js` to match your setup:
+
+    ```javascript
+    const APP_CONFIG = {
+        mirotalksfu: makeConfig({
+            dir: '/root/mirotalksfu',
+            packageUrl: 'https://raw.githubusercontent.com/miroslavpejic85/mirotalksfu/main/package.json',
+            packagePath: '/root/mirotalksfu/package.json',
+            config: '/root/mirotalksfu/app/src/config.js',
+            env: '/root/mirotalksfu/.env',
+            dep: [...defaultDeps, ...mirotalksfuExtraDeps],
+        }),
+        //...
+    }
+    ```
+
+```bash
 # Copy .env.template to .env IMPORTANT (edit it according to your needs)
 $ cp .env.template .env
 ```
