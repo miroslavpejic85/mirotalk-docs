@@ -41,7 +41,12 @@ $ cp backend/config/index.template.js backend/config/index.js
 
 # Copy .env.template in .env and customize it according to your needs if needed
 $ cp .env.template .env
+```
 
+!!! warning
+    **Ensure that `ADMIN_DASHBOARD_ENABLED=true` is set, and update the credentials and SSH configuration with your own secure values before starting the service.**
+
+```bash
 # Install dependencies
 $ npm ci
 
@@ -70,6 +75,67 @@ $ pm2 save
 # Add it on startup
 $ pm2 startup
 ```
+
+---
+
+## Using Docker
+
+![docker](../images/docker.png)
+
+```bash
+# Install docker
+$ sudo apt install -y docker.io
+
+# Instal docker-compose
+$ sudo apt install -y docker-compose
+
+# Clone this repo
+$ git clone https://github.com/miroslavpejic85/mirotalk-admin.git
+
+# Go to to dir mirotalk-admin
+$ cd mirotalk-admin
+
+# Copy backend/config/index.template.js in backend/config/index.js IMPORTANT (edit it according to your needs)
+$ cp backend/config/index.template.js backend/config/index.js
+
+# Copy .env.template to .env IMPORTANT (edit it according to your needs)
+$ cp .env.template .env
+```
+
+!!! warning
+    **Ensure that `ADMIN_DASHBOARD_ENABLED=true` is set, and update the credentials and SSH configuration with your own secure values before starting the service.**
+
+```bash
+# Copy docker-compose.template.yml in docker-compose.yml and customize it according to your needs if needed
+$ cp docker-compose.template.yml docker-compose.yml
+```
+
+Example of `docker-compose.yml`:
+
+```yaml 
+services:
+    mirotalkadmin:
+        image: mirotalk/admin:latest
+        container_name: mirotalkadmin
+        hostname: mirotalkadmin
+        restart: unless-stopped
+        ports:
+            - '${ADMIN_PORT}:${ADMIN_PORT}'
+        volumes:
+            - ./frontend:/app/frontend:ro
+            - ./backend:/app/backend:ro
+            - ./.env:/app/.env:ro
+```
+
+```bash
+# Pull the official Docker image
+$ docker-compose pull
+
+# Create and start containers (-d as daemon)
+$ docker-compose up
+```
+
+Check if is correctly installed: [http://YOUR.DOMAIN.NAME:9999/admin](http://YOUR.DOMAIN.NAME:9999/admin)
 
 ---
 
@@ -261,6 +327,20 @@ pm2 restart mirotalk-admin
 
 ---
 
+For `Docker`:
+
+```bash
+#!/bin/bash
+
+cd mirotalk-admin
+git pull
+docker-compose down
+docker-compose pull
+docker image prune -f
+docker-compose up -d
+```
+
+---
 
 Make the script executable:
 
