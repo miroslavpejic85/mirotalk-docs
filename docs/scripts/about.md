@@ -73,7 +73,7 @@ wget -qO c2c-uninstall.sh https://docs.mirotalk.com/scripts/c2c/c2c-uninstall.sh
 ```
 ```bash
 # Uninstall MiroTalk BRO
-wget -qO c2c-uninstall.sh https://docs.mirotalk.com/scripts/bro/bro-uninstall.sh \
+wget -qO bro-uninstall.sh https://docs.mirotalk.com/scripts/bro/bro-uninstall.sh \
   && chmod +x bro-uninstall.sh \
   && ./bro-uninstall.sh
 ```
