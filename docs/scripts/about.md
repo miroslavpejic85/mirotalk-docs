@@ -1,6 +1,6 @@
 # **MiroTalk Setup Guide**
 
-![setup](../images/globe.png)
+![setup](../images/self-hosting.png)
 
 ## **Requirements**
 
