@@ -44,7 +44,7 @@ $ cp .env.template .env
 ```
 
 !!! warning
-    **Before starting the service, make sure to:** Set `ADMIN_DASHBOARD_ENABLED=true` in your `.env` file. Update admin credentials and SSH configuration with secure, custom values. Specify the correct absolute paths for your MiroTalk directories.
+    **Before starting the service, make sure to:** Set `ADMIN_DASHBOARD_ENABLED=true` in your `.env` file. Update admin credentials, JWT secret and SSH configuration with secure, custom values. Specify the correct absolute paths for your MiroTalk directories.
 
 ```bash
 # Install dependencies
@@ -103,7 +103,7 @@ $ cp .env.template .env
 ```
 
 !!! warning
-    **Before starting the service, make sure to:** Set `ADMIN_DASHBOARD_ENABLED=true` in your `.env` file. Update admin credentials and SSH configuration with secure, custom values. Specify the correct absolute paths for your MiroTalk directories.
+    **Before starting the service, make sure to:** Set `ADMIN_DASHBOARD_ENABLED=true` in your `.env` file. Update admin credentials, JWT secret and SSH configuration with secure, custom values. Specify the correct absolute paths for your MiroTalk directories.
 
 ```bash
 # Copy docker-compose.template.yml in docker-compose.yml and customize it according to your needs if needed
