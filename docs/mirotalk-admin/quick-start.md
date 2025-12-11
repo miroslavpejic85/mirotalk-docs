@@ -103,15 +103,19 @@ A secure, modern web dashboard to manage **[MiroTalk](https://docs.mirotalk.com/
 - Set `ADMIN_DASHBOARD_ENABLED=true` to enable the dashboard.
 - **Change the default credentials:**
     - `ADMIN_USERNAME`
-    - `ADMIN_PASSWORD_HASH` 👉 generate it by running:
+    - `ADMIN_PASSWORD_HASH`  
 
-        ```javascript
+        👉 generate it by running:
+
+        ```js
         node backend/scripts/hashPassword.js
         ```
 
-    - `ADMIN_JWT_SECRET` 👉 generate it by running:
+    - `ADMIN_JWT_SECRET` 
+  
+        👉 generate it by running:
 
-        ```javascript
+        ```js
         node backend/scripts/generateJwtSecret.js
         ```
 
