@@ -46,10 +46,10 @@ To install a specific version of Node.js, use the following command:
 nvm install X.X.X
 ```
 
-Replace `X.X.X` with the version number you want to install. For example, to install Node.js version `18.18.2`:
+Replace `X.X.X` with the version number you want to install. For example, to install Node.js version `v22.21.1`:
 
 ```bash
-nvm install v22.14.0
+nvm install v22.21.1
 ```
 
 ## Use the Installed Node.js Version
@@ -63,7 +63,7 @@ nvm use X.X.X
 For example:
 
 ```bash
-nvm use v22.14.0
+nvm use v22.21.1
 ```
 
 You can check the current Node.js version in use with:
@@ -80,10 +80,10 @@ If you want to set a default Node.js version to be used in new shell sessions, y
 nvm alias default X.X.X
 ```
 
-For example, to set version `v22.14.0` as the default:
+For example, to set version `v22.21.1` as the default:
 
 ```bash
-nvm alias default v22.14.0
+nvm alias default v22.21.1
 ```
 
 Now you have successfully installed and managed a specific version of Node.js using NVM.
