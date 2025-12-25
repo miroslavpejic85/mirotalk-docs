@@ -12,9 +12,9 @@
 
 | Params   | Type    | Description                                                                                                                                  |
 | -------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| `room`   | string  | This parameter represents the unique identifier or ID of the room you want to join                                                           |
-| `name`   | string  | This parameter represents your username or unique identifier, allowing you to define your identity within the room                           |
-| `avatar` | Mixed  | This parameter specifies the avatar image that will be displayed when your camera is turned off in the room																	  |
+| `room`   | string  | This parameter represents the unique identifier or ID of the room you want to join. If set to `random`, a random room ID will be generated |
+| `name`   | string  | This parameter represents your username or unique identifier, allowing you to define your identity within the room. If set to `random`, a random name will be generated |
+| `avatar` | Mixed  | This parameter specifies the avatar image that will be displayed when your camera is turned off in the room                                                                      |
 | `audio`  | boolean | Use this parameter to control your audio stream. Set to `0` for no audio or `1` to enable audio                                              |
 | `video`  | boolean | Control your video stream using this parameter. Set to `0` for no video or `1` to enable video                                               |
 | `screen` | boolean | To start screen sharing, use this parameter. Set to `0` for no start screen sharing or `1` to start screen sharing                           |
@@ -26,6 +26,8 @@
 ---
 
 > **Important:** Replace `YOUR-DOMAIN-NAME` with your actual MiroTalk P2P server URL.
+
+> **Note:** If the `name` or `room` parameter is set to `random`, a random value will be generated automatically.
 
 By utilizing these URLs and parameters, you can seamlessly customize your room entry experience, including your identity, audio and video preferences, screen sharing options, hide myself, and welcome messages on the respective platforms.
 
