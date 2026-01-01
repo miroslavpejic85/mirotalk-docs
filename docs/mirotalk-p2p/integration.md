@@ -83,7 +83,7 @@ To integrate MiroTalk P2P via iframe, add the following HTML and JavaScript to y
 
 | Parameter      | Type          | Description                                                                                                   |
 | -------------- | ------------- | ------------------------------------------------------------------------------------------------------------- |
-| `room`         | String        | Room ID to join                                                                                               |
+| `room`         | String        | Room ID to join. If set to `random`, a random room will be created.                                           |
 | `name`         | String        | Participant display name                                                                                      |
 | `avatar`       | Mixed         | Avatar image URL or 0 to disable                                                                              |
 | `audio`        | Number        | Enable (1) or disable (0) audio                                                                               |
@@ -155,7 +155,7 @@ To quickly add a support widget to your site, include the script in your `<head>
 | `id`                   | String  | The HTML element ID for the widget container (should be `support-widget`).                    |
 | `data-mirotalk-auto`   | Boolean | Automatically initializes the widget when present.                                            |
 | `data-domain`          | String  | Your MiroTalk SFU domain name.                                                                |
-| `data-room`            | String  | The room ID for the support session.                                                          |
+| `data-room`            | String  | The room ID for the support session. If set to `random`, a random room will be created.       |
 | `data-theme`           | String  | Widget theme, either `dark` or `light`.                                                       |
 | `data-widget-type`     | String  | Type of widget, e.g., `support`.                                                              |
 | `data-widget-state`    | String  | Initial widget state: `normal`, `minimized`, or `closed`.                                     |
