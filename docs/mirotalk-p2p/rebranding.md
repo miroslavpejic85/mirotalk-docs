@@ -117,3 +117,5 @@ brand: {
 ## Reference
 
 The full config configuration can be found [here](https://github.com/miroslavpejic85/mirotalk/blob/master/app/src/config.template.js)
+
+The full environment configuration can be found [here](https://github.com/miroslavpejic85/mirotalk/blob/master/.env.template)
