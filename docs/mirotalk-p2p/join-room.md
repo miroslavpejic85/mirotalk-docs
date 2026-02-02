@@ -32,3 +32,7 @@
 By utilizing these URLs and parameters, you can seamlessly customize your room entry experience, including your identity, audio and video preferences, screen sharing options, hide myself, and welcome messages on the respective platforms.
 
 ---
+
+`Demo`: [https//YOUR-DOMAIN-NAME/customRoom](https://p2p.mirotalk.com/customRoom)
+
+![p2p-custom-room](../images/p2p/custom-room.png)

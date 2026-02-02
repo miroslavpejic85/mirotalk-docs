@@ -34,3 +34,7 @@
 By utilizing this URL and its associated parameters, you can seamlessly customize your room entry experience, including your identity, room password, audio and video preferences, screen sharing options, hide myself, and welcome messages.
 
 ---
+
+`Demo`: [https//YOUR-DOMAIN-NAME/customRoom](https://sfu.mirotalk.com/customRoom)
+
+![sfu-custom-room](../images/sfu/custom-room.png)
