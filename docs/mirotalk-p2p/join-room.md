@@ -33,6 +33,6 @@ By utilizing these URLs and parameters, you can seamlessly customize your room e
 
 ---
 
-`Demo`: [https//YOUR-DOMAIN-NAME/customRoom](https://p2p.mirotalk.com/customRoom)
+`Demo`: [https//YOUR-DOMAIN-NAME/customizeRoom](https://p2p.mirotalk.com/customizeRoom)
 
 ![p2p-custom-room](../images/p2p/custom-room.png)

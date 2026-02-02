@@ -35,6 +35,6 @@ By utilizing this URL and its associated parameters, you can seamlessly customiz
 
 ---
 
-`Demo`: [https//YOUR-DOMAIN-NAME/customRoom](https://sfu.mirotalk.com/customRoom)
+`Demo`: [https//YOUR-DOMAIN-NAME/customizeRoom](https://sfu.mirotalk.com/customizeRoom)
 
 ![sfu-custom-room](../images/sfu/custom-room.png)
