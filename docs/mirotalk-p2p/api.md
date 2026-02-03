@@ -395,6 +395,7 @@ try {
       chat: false,
       hide: false,
       notify: true,
+      duration: 'unlimited',
       // Token configuration is required if the host system is protected, user authentication is needed, or a room presenter is specified
       token: {
         username: "username",
@@ -447,6 +448,7 @@ $data = array(
     "chat":         => false,
     "hide"          => false,
     "notify"        => true,
+    "duration"      => "unlimited",
     // Token configuration is required if the host system is protected, user authentication is needed, or a room presenter is specified
     "token"         => array(
         "username"      => "username",
@@ -496,6 +498,7 @@ data = {
     "chat": "false",
     "hide": "false",
     "notify": "true",
+    "duration": "unlimited",
     # Token configuration is required if the host system is protected, user authentication is needed, or a room presenter is specified
     "token": {
         "username": "username",
@@ -538,6 +541,7 @@ REQUEST_DATA='{
   "chat": false,
   "hide": false,
   "notify": true,
+  "duration": "unlimited",
   "token": { 
     "username": "username",
     "password": "password",
