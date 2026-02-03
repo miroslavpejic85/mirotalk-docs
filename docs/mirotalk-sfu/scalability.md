@@ -260,9 +260,10 @@ sudo systemctl restart nginx
 
 **Bandwidth per user:**
 
--  Audio only: ~50 Kbps
--  Video 720p: ~1.5 Mbps
--  Video 1080p: ~3 Mbps
+-  Audio only: ~50–100 kbps
+-  SD video: ~300–600 kbps per stream
+-  HD video (720p): ~1–1.5 Mbps per stream
+-  Full HD (1080p): ~2–3 Mbps per stream
 
 ---
 
