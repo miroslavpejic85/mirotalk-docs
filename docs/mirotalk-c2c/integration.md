@@ -16,7 +16,7 @@ Easily integrate MiroTalk C2C into your website by embedding it with a simple `i
     <body>
         <iframe
             id="mirotalkC2C"
-            allow="camera; microphone; display-capture; fullscreen; clipboard-read; clipboard-write; web-share; autoplay"
+            allow="camera; microphone; speaker-selection; display-capture; fullscreen; clipboard-read; clipboard-write; web-share; autoplay; picture-in-picture"
             src="https://YOUR-DOMAIN-NAME"
             style="height: 100vh; width: 100vw; border: 0px;"
         ></iframe>
@@ -37,7 +37,7 @@ Users see the homepage and can create or join rooms manually.
 
 ```html
 <iframe
-    allow="camera; microphone; display-capture; fullscreen; clipboard-read; clipboard-write; web-share; autoplay"
+    allow="camera; microphone; speaker-selection; display-capture; fullscreen; clipboard-read; clipboard-write; web-share; autoplay; picture-in-picture"
     src="https://YOUR-DOMAIN-NAME"
     style="height: 100vh; width: 100vw; border: 0px;"
 ></iframe>
@@ -52,7 +52,7 @@ Direct users to a specific room, but they still need to enter their name.
 
 ```html
 <iframe
-    allow="camera; microphone; display-capture; fullscreen; clipboard-read; clipboard-write; web-share; autoplay"
+    allow="camera; microphone; speaker-selection; display-capture; fullscreen; clipboard-read; clipboard-write; web-share; autoplay; picture-in-picture"
     src="https://YOUR-DOMAIN-NAME/?room=consultation-room"
     style="height: 100vh; width: 100vw; border: 0px;"
 ></iframe>
@@ -67,7 +67,7 @@ Skip the landing page entirely - users join immediately with pre-set credentials
 
 ```html
 <iframe
-    allow="camera; microphone; display-capture; fullscreen; clipboard-read; clipboard-write; web-share; autoplay"
+    allow="camera; microphone; speaker-selection; display-capture; fullscreen; clipboard-read; clipboard-write; web-share; autoplay; picture-in-picture"
     src="https://YOUR-DOMAIN-NAME/join?room=meeting-123&name=John"
     style="height: 100vh; width: 100vw; border: 0px;"
 ></iframe>

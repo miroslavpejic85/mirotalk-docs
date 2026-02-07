@@ -16,7 +16,7 @@ Easily integrate MiroTalk BRO into your website by embedding it with a simple `i
     <body>
         <iframe
             id="mirotalkBRO"
-            allow="camera; microphone; display-capture; fullscreen; clipboard-read; clipboard-write; web-share; autoplay"
+            allow="camera; microphone; speaker-selection; display-capture; fullscreen; clipboard-read; clipboard-write; web-share; autoplay; picture-in-picture"
             src="https://YOUR-DOMAIN-NAME"
             style="height: 100vh; width: 100vw; border: 0px;"
         ></iframe>
@@ -35,7 +35,7 @@ Skip the landing page entirely - users join immediately with pre-set credentials
 **Broadcaster (Stream Host):**
 ```html
 <iframe
-    allow="camera; microphone; display-capture; fullscreen; clipboard-read; clipboard-write; web-share; autoplay"
+    allow="camera; microphone; speaker-selection; display-capture; fullscreen; clipboard-read; clipboard-write; web-share; autoplay; picture-in-picture"
     src="https://YOUR-DOMAIN-NAME/broadcast?id=demo&name=Broadcaster"
     style="height: 100vh; width: 100vw; border: 0px;"
 ></iframe>
@@ -44,7 +44,7 @@ Skip the landing page entirely - users join immediately with pre-set credentials
 **Viewer (Audience):**
 ```html
 <iframe
-    allow="camera; microphone; display-capture; fullscreen; clipboard-read; clipboard-write; web-share; autoplay"
+    allow="camera; microphone; speaker-selection; display-capture; fullscreen; clipboard-read; clipboard-write; web-share; autoplay; picture-in-picture"
     src="https://YOUR-DOMAIN-NAME/viewer?id=demo&name=Viewer"
     style="height: 100vh; width: 100vw; border: 0px;"
 ></iframe>

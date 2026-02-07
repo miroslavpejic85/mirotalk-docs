@@ -65,7 +65,8 @@ Easily incorporate MiroTalk into your website or app with a straightforward ifra
 
 ```html
 <iframe
-  allow="camera; microphone; display-capture; fullscreen; clipboard-read; clipboard-write; web-share; autoplay"
+  allow="camera; microphone; speaker-selection; display-capture; fullscreen; clipboard-read; clipboard-write; web-share; autoplay; picture-in-picture"
+
   src="https://sfu.mirotalk.com/newroom"
   style="width: 100vw; height: 100vh; border: 0px;"
 ></iframe>
@@ -75,7 +76,7 @@ Easily incorporate MiroTalk into your website or app with a straightforward ifra
 
 ```html
 <iframe
-  allow="camera; microphone; display-capture; fullscreen; clipboard-read; clipboard-write; web-share; autoplay"
+  allow="camera; microphone; speaker-selection; display-capture; fullscreen; clipboard-read; clipboard-write; web-share; autoplay; picture-in-picture"
   src="https://p2p.mirotalk.com/newcall"
   style="width: 100vw; height: 100vh; border: 0px;"
 ></iframe>
@@ -85,7 +86,7 @@ Easily incorporate MiroTalk into your website or app with a straightforward ifra
 
 ```html
 <iframe
-  allow="camera; microphone; display-capture; fullscreen; clipboard-read; clipboard-write; web-share; autoplay"
+  allow="camera; microphone; speaker-selection; display-capture; fullscreen; clipboard-read; clipboard-write; web-share; autoplay; picture-in-picture"
   src="https://c2c.mirotalk.com"
   style="width: 100vw; height: 100vh; border: 0px;"
 ></iframe>
@@ -95,7 +96,7 @@ Easily incorporate MiroTalk into your website or app with a straightforward ifra
 
 ```html
 <iframe
-  allow="camera; microphone; display-capture; fullscreen; clipboard-read; clipboard-write; web-share; autoplay"
+  allow="camera; microphone; speaker-selection; display-capture; fullscreen; clipboard-read; clipboard-write; web-share; autoplay; picture-in-picture"
   src="https://bro.mirotalk.com"
   style="width: 100vw; height: 100vh; border: 0px;"
 ></iframe>
@@ -105,7 +106,7 @@ Easily incorporate MiroTalk into your website or app with a straightforward ifra
 
 ```html
 <iframe
-  allow="camera; microphone; display-capture; fullscreen; clipboard-read; clipboard-write; web-share; autoplay"
+  allow="camera; microphone; speaker-selection; display-capture; fullscreen; clipboard-read; clipboard-write; web-share; autoplay; picture-in-picture"
   src="https://webrtc.mirotalk.com"
   style="width: 100vw; height: 100vh; border: 0px;"
 ></iframe>
