@@ -66,7 +66,7 @@ To integrate MiroTalk SFU via iframe, add the following HTML and JavaScript to y
           chat: 0,
           hide: 0,
           notify: 0,
-          duration: "unlimited", // HH:MM:SS
+          duration: "unlimited", // HH:MM:SS (e.g. 00:30:00) or unlimited
           token: null,
           width: "100vw",
           height: "100vh",
@@ -96,7 +96,7 @@ To integrate MiroTalk SFU via iframe, add the following HTML and JavaScript to y
 | `chat`         | Number        | Enable (1) or disable (0) chat.                                                                               |
 | `hide`         | Number        | Hide self view (1 to enable, 0 to disable)                                                                    |
 | `notify`       | Number        | Enable (1) or disable (0) notifications                                                                       |
-| `duration`     | String        | Session duration (e.g., "01:30:00" for 1.5 hours)                                                             |
+| `duration`     | String        | Session duration format HH:MM:SS (e.g., "01:30:00" for 1.5 hours)                                             |
 | `token`        | String        | User token (optional, required if `host.protected` or `host.user_auth` is enabled in `config.js`)             |
 | `width`        | String        | Iframe width (e.g., "100vw")                                                                                  |
 | `height`       | String        | Iframe height (e.g., "100vh")                                                                                 |

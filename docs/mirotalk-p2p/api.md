@@ -395,7 +395,7 @@ try {
       chat: false,
       hide: false,
       notify: true,
-      duration: 'unlimited',
+      duration: 'unlimited', // HH:MM:SS (e.g. 00:30:00) or unlimited
       // Token configuration is required if the host system is protected, user authentication is needed, or a room presenter is specified
       token: {
         username: "username",
@@ -448,7 +448,7 @@ $data = array(
     "chat":         => false,
     "hide"          => false,
     "notify"        => true,
-    "duration"      => "unlimited",
+    "duration"      => "unlimited", // HH:MM:SS (e.g. 00:30:00) or unlimited
     // Token configuration is required if the host system is protected, user authentication is needed, or a room presenter is specified
     "token"         => array(
         "username"      => "username",
@@ -498,7 +498,7 @@ data = {
     "chat": "false",
     "hide": "false",
     "notify": "true",
-    "duration": "unlimited",
+    "duration": "unlimited", # HH:MM:SS (e.g. 00:30:00) or unlimited
     # Token configuration is required if the host system is protected, user authentication is needed, or a room presenter is specified
     "token": {
         "username": "username",
