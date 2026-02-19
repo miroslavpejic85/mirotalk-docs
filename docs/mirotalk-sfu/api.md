@@ -360,6 +360,148 @@ curl $MIROTALK_URL \
 
 ---
 
+## Meeting END Entry Point
+
+End an active meeting by room name. All connected peers will be disconnected and redirected to the specified URL or home page.
+
+### JavaScript Example
+
+```javascript
+'use strict';
+
+async function endMeeting() {
+    try {
+        // Use dynamic import with await
+        const { default: fetch } = await import('node-fetch');
+
+        const API_KEY_SECRET = 'mirotalksfu_default_secret';
+        const MIROTALK_URL = 'https://sfu.mirotalk.com/api/v1/meeting';
+        // const MIROTALK_URL = 'http://localhost:3010/api/v1/meeting';
+
+        const ROOM = 'test'; // Room name to end
+
+        const response = await fetch(`${MIROTALK_URL}/${ROOM}`, {
+            method: 'DELETE',
+            headers: {
+                authorization: API_KEY_SECRET,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                // redirect: 'https://example.com/meeting-ended', // Optional: URL to redirect peers to (if empty, peers go to home page)
+            }),
+        });
+        const data = await response.json();
+        if (data.error) {
+            console.log('Error:', data.error);
+        } else {
+            console.log('result:', data);
+        }
+    } catch (error) {
+        console.error('Error fetching data:', error);
+    }
+}
+
+endMeeting();
+```
+
+### PHP Example
+
+```php
+<?php
+
+$API_KEY_SECRET = "mirotalksfu_default_secret";
+$MIROTALK_URL = "https://sfu.mirotalk.com/api/v1/meeting";
+// $MIROTALK_URL = "http://localhost:3010/api/v1/meeting";
+
+$ROOM = "test";
+
+// Optional: redirect URL (leave empty for home page)
+$data = json_encode([
+    // 'redirect' => 'https://example.com/meeting-ended',
+]);
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, "$MIROTALK_URL/$ROOM");
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'DELETE');
+curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+
+$headers = [
+    'authorization:' . $API_KEY_SECRET,
+    'Content-Type: application/json'
+];
+
+curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+$response = curl_exec($ch);
+$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+curl_close($ch);
+
+echo "Status code: $httpcode \n";
+$data = json_decode($response);
+echo "result: ";
+print_r($data);
+echo "\n";
+```
+
+### Python Example
+
+```python
+# pip3 install requests
+import requests
+import json
+
+API_KEY_SECRET = "mirotalksfu_default_secret"
+MIROTALK_URL = "https://sfu.mirotalk.com/api/v1/meeting"
+# MIROTALK_URL = "http://localhost:3010/api/v1/meeting"
+
+ROOM = "test"
+
+headers = {
+    "authorization": API_KEY_SECRET,
+    "Content-Type": "application/json",
+}
+
+# Optional: redirect URL (leave empty for home page)
+data = {
+    # "redirect": "https://example.com/meeting-ended",
+}
+
+response = requests.delete(
+    f"{MIROTALK_URL}/{ROOM}",
+    headers=headers,
+    json=data
+)
+
+print("Status code:", response.status_code)
+data = json.loads(response.text)
+print("result:", data)
+```
+
+### Bash Example
+
+```bash
+#!/bin/bash
+
+API_KEY_SECRET="mirotalksfu_default_secret"
+MIROTALK_URL="https://sfu.mirotalk.com/api/v1/meeting"
+# MIROTALK_URL="http://localhost:3010/api/v1/meeting"
+
+ROOM="test"
+
+# Optional: redirect URL (leave empty object for home page)
+# BODY='{"redirect": "https://example.com/meeting-ended"}'
+BODY='{}'
+
+curl "$MIROTALK_URL/$ROOM" \
+    --header "authorization: $API_KEY_SECRET" \
+    --header "Content-Type: application/json" \
+    --data "$BODY" \
+    --request DELETE
+```
+
+---
+
 ## Direct Join Entry Point
 
 Upon a successful request, the API response will provide a Meeting Entry Point for the direct join to the room. The authorization for this request is determined by the `api.keySecret` configuration specified in your `config.js` file.
