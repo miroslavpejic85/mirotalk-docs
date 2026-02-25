@@ -85,7 +85,7 @@ SFU_SERVER=true
 # /etc/nginx/sites-available/mirotalk-lb
 
 upstream mirotalk_backend {
-    hash $uri consistent;  # Hash based - REQUIRED
+    hash $arg_room consistent;  # Hash on the ?room= query param - REQUIRED
 
     server 1.1.1.1:3010 max_fails=3 fail_timeout=30s;
     server 2.2.2.2:3010 max_fails=3 fail_timeout=30s;
@@ -118,7 +118,13 @@ server {
 
 **What Happens Here**
 
-`hash $uri consistent;` makes Nginx route everyone joining the same room URL (e.g., `/room/xyz`) to the same SFU instance, and if a server fails, only a few rooms are reassigned to other nodes.
+`hash $arg_room consistent;` makes Nginx extract the `room` query parameter from the URL and use it as the hash key. Every user joining the same room (e.g., `/join?room=xyz`) is routed to the same SFU instance, regardless of other query parameters like `name`, `audio`, or `video`. If a server fails, only a few rooms are reassigned to other nodes.
+
+!!! warning "Choosing the right hash key"
+
+    - **`hash $arg_room consistent;`** — Hashes only the `room` query parameter. **Recommended** for query-string URLs like `/join?room=ROOM123&name=Alice`.
+    - **`hash $uri consistent;`** — Hashes only the path (no query string). Works for path-based URLs like `/join/ROOM123`, but for query-string URLs the path is just `/join` for all rooms, routing everything to one server.
+    - **`hash $request_uri consistent;`** — Hashes the full URI including all query parameters. Two users joining the same room with different names would hash differently and could land on different servers.
 
 
 **HAProxy Configuration:**
@@ -131,7 +137,7 @@ frontend sfu_frontend
     default_backend sfu_backend
 
 backend sfu_backend
-    balance uri whole  # Balance based on the full URL (e.g., /room/xyz)
+    balance url_param room  # Hash on the ?room= query param
     hash-type consistent
 
     option http-server-close
@@ -144,7 +150,7 @@ backend sfu_backend
 
 **What Happens Here**
 
-`balance uri whole` makes HAProxy send everyone joining the same room URL (e.g., `/room/xyz`) to the same backend, while `hash-type consistent` ensures smooth failover if a server goes down, each SFU instance handles its own rooms independently with full WebSocket and SSL support.
+`balance url_param room` makes HAProxy extract the `room` query parameter and use it as the hash key, so all users joining the same room are routed to the same backend. `hash-type consistent` ensures smooth failover if a server goes down — only a few rooms are reassigned. Each SFU instance handles its own rooms independently with full WebSocket and SSL support.
 
 ### Step 3: Configure Firewall
 
