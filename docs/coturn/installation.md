@@ -99,6 +99,24 @@ Reload daemon:
 $ sudo systemctl daemon-reload
 ```
 
+---
+
+## Security
+
+![sheild](../images/shield.png)
+
+Harden your Coturn server to prevent abuse. See the [Coturn Security Configuration Guide](https://www.enablesecurity.com/blog/coturn-security-configuration-guide/) by Enable Security for details.
+
+Key recommendations:
+
+- Use `denied-peer-ip` to block private IP ranges (`10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`)
+- Enable `lt-cred-mech` with strong credentials
+- Set `no-multicast-peers` and `no-loopback-peers`
+- Limit quotas with `user-quota` and `total-quota`
+- Enable TLS with strong cipher lists
+
+---
+
 ## Coturn commands
 
 ```bash
