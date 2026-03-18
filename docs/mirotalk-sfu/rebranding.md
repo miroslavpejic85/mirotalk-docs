@@ -6,17 +6,23 @@ Rebranding requires at least a 👉 **[Regular License](https://codecanyon.net/i
 
 ---
 
-There are two ways to rebrand MiroTalk SFU from the `.env` file:
+There are two approaches to rebrand MiroTalk SFU, both configured through the `.env` file.
 
-## BRAND_HTML_INJECTION enabled
+---
+
+## Approach 1 — HTML Injection (Recommended)
+
+Enable brand injection to customize text and labels without touching frontend files:
 
 ```bash
-BRAND_HTML_INJECTION=true # recommended
+BRAND_HTML_INJECTION=true
 ```
 
 ---
 
-## Landing Page
+### Landing Page
+
+Customize the main landing page text:
 
 ```bash
 APP_TITLE="<h1>MiroTalk SFU</h1> Free browser based Real-time video calls.<br />Simple, Secure, Fast."
@@ -28,23 +34,23 @@ JOIN_LAST_LABEL="Your recent room:"
 
 ![sfu-landing](../images/sfu/landing.png)
 
-You can also hide optional landing page sections:
+Toggle optional landing page sections:
 
-```bash
-SHOW_TOP_SPONSORS=false
-SHOW_FEATURES=false
-SHOW_TEAMS=false
-SHOW_TRY_EASIER=false
-SHOW_POWERED_BY=false
-SHOW_SPONSORS=false
-SHOW_ADVERTISERS=false
-SHOW_SUPPORT_US=false
-SHOW_FOOTER=false
-```
+| Variable | Default | Section |
+| :--- | :--- | :--- |
+| `SHOW_TOP_SPONSORS` | `false` | Top sponsors banner |
+| `SHOW_FEATURES` | `false` | Features overview |
+| `SHOW_TEAMS` | `false` | Teams section |
+| `SHOW_TRY_EASIER` | `false` | "Try easier" callout |
+| `SHOW_POWERED_BY` | `false` | Powered-by badge |
+| `SHOW_SPONSORS` | `false` | Sponsors section |
+| `SHOW_ADVERTISERS` | `false` | Advertisers section |
+| `SHOW_SUPPORT_US` | `false` | Support-us section |
+| `SHOW_FOOTER` | `false` | Page footer |
 
 ---
 
-## New Room Page
+### New Room Page
 
 ![sfu-new](../images/sfu/newroom.png)
 
@@ -55,7 +61,7 @@ NEW_ROOM_DESC="Each room has its disposable URL. Just pick a name and share."
 
 ---
 
-## Who Are You Page
+### Who Are You Page
 
 ![sfu-way](../images/sfu/whoareyou.png)
 
@@ -68,19 +74,21 @@ WHO_ARE_YOU_JOIN_LABEL="JOIN ROOM"
 
 ---
 
-## BRAND_HTML_INJECTION disabled
+## Approach 2 — Full Customization
+
+Disable brand injection to get full control over the frontend files:
 
 ```bash
 BRAND_HTML_INJECTION=false
 ```
 
-In this approach, brand injection is disabled and you can fully customize the project for your needs. The frontend files are located in the `app/public/views` folder.
+Frontend views are located in `app/public/views` — edit them directly to match your brand.
 
 ---
 
-## OG (Open Graph)
+## Open Graph (OG)
 
-Open Graph is a protocol used to control how **web pages appear when shared on social media**.
+Control how your pages appear when shared on social media:
 
 ![sfu-og](../images/sfu/og.png)
 
@@ -96,11 +104,7 @@ OG_URL=https://sfu.mirotalk.com
 
 ## Reference
 
-The full environment configuration can be found [here](https://github.com/miroslavpejic85/mirotalksfu/blob/main/.env.template)
+The full environment configuration template is available on GitHub: [`.env.template`](https://github.com/miroslavpejic85/mirotalksfu/blob/main/.env.template)
 
-## Configuration Note
-
-MiroTalk SFU uses environment variables defined in `.env` (based on .env.template) to configure all core services: signaling, media transport, and more.
-
-The entry point [config.js](https://github.com/miroslavpejic85/mirotalksfu/blob/main/app/src/config.template.js) automatically loads these variables and exposes them to the app.
-You should not modify `config.js`; instead, edit the `.env` file.
+!!! note "Configuration Tip"
+    MiroTalk SFU uses environment variables from `.env` (based on `.env.template`) to configure all core services. The entry point [`config.js`](https://github.com/miroslavpejic85/mirotalksfu/blob/main/app/src/config.template.js) loads these variables automatically — always edit `.env` rather than `config.js`.

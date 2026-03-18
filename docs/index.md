@@ -2,16 +2,16 @@
 
 ![mirotalk](./images/mirotalk.gif)
 
-## MiroTalk projects
+## MiroTalk Projects
 
-| MiroTalk   | Live demo                                                                                                      | Usage Case Description                                 |
-| ---------- | -------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
-| `🏆 SFU`   | [https://sfu.mirotalk.com](https://sfu.mirotalk.com)                                                           | Scalable group video conferencing                      |
-| `🚀 P2P`   | [https://p2p.mirotalk.com](https://p2p.mirotalk.com)                                                           | Peer-to-peer video calls                               |
-| `✨ C2C`   | [https://c2c.mirotalk.com](https://c2c.mirotalk.com)                                                           | Cam-to-Cam communication                         |
-| `📡 BRO`   | [https://bro.mirotalk.com](https://bro.mirotalk.com)                                                           | Broadcasting one-to-many streaming                     |
-| `🛠 WEB`   | [https://webrtc.mirotalk.com](https://webrtc.mirotalk.com)                                                     | Room scheduler and meeting manager                     |
-| `⚙️ ADMIN` | [https://docs.mirotalk.com/mirotalk-admin/self-hosting](https://docs.mirotalk.com/mirotalk-admin/self-hosting) | Manage MiroTalk updates, configurations, and settings. |
+| Project | Live Demo | Description |
+| :--- | :--- | :--- |
+| 🏆 **SFU** | [sfu.mirotalk.com](https://sfu.mirotalk.com) | Scalable group video conferencing |
+| 🚀 **P2P** | [p2p.mirotalk.com](https://p2p.mirotalk.com) | Peer-to-peer video calls |
+| ✨ **C2C** | [c2c.mirotalk.com](https://c2c.mirotalk.com) | Cam-to-Cam communication |
+| 📡 **BRO** | [bro.mirotalk.com](https://bro.mirotalk.com) | Broadcasting one-to-many streaming |
+| 🛠 **WEB** | [webrtc.mirotalk.com](https://webrtc.mirotalk.com) | Room scheduler and meeting manager |
+| ⚙️ **ADMIN** | [Self-hosting guide](https://docs.mirotalk.com/mirotalk-admin/self-hosting) | Manage updates, configurations, and settings |
 
 ---
 
@@ -21,110 +21,73 @@ View the complete [MiroTalk projects overview and comparisons](html/overview.htm
 
 ## License
 
-`Support` the ongoing `development` and adapt MiroTalk to your unique needs.
+Support the ongoing development and adapt MiroTalk to your unique needs.
 
 🌐 [Check our licensing options](./license/licensing-options.md)
 
 ---
 
-## Join for Questions & Support
+## Questions & Support
 
-To engage in `questions`, `discussions`, or seek `assistance and support`, we invite you to join us on our [MiroTalk Community Forum](https://discord.gg/rgGYfeYW3N).
+Join our [MiroTalk Community Forum](https://discord.gg/rgGYfeYW3N) for questions, discussions, and support.
 
 ---
 
 ## About
 
-MiroTalk WebRTC is a real-time communication technology that enables audio and video communication over the internet through web browsers without the need for additional plugins or software installations. It stands out as a core component of many web-based video conferencing and communication platforms, offering several advantages:
+MiroTalk WebRTC enables real-time audio and video communication directly through web browsers — no plugins or software installations required.
 
-Pros of MiroTalk WebRTC:
-
-| PROS                               | Description                                                                                                                                                         |
-| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `🌐 Ease of Use:`                  | MiroTalk WebRTC simplifies online communication by allowing users to connect via web browsers, eliminating the need for complex setups or downloads.                |
-| `⚡ Low Latency:`                  | It provides low-latency audio and video transmission, ensuring a smooth and near-instantaneous conversation experience, crucial for real-time interactions.         |
-| `🔒 Security:`                     | WebRTC offers end-to-end encryption, enhancing the security and privacy of your online conversations, making it suitable for confidential or sensitive discussions. |
-| `💻 Cross-Platform Compatibility:` | MiroTalk WebRTC works on various platforms, including Windows, macOS, Linux, Android, and iOS, ensuring broad accessibility.                                        |
-| `📈 Scalability:`                  | It is highly scalable, making it suitable for both one-on-one conversations and large-scale conferences, adapting to your communication needs.                      |
-| `🔗 Integration:`                  | Many communication platforms and applications integrate MiroTalk WebRTC, enabling seamless communication within existing software or services.                      |
-| ` 🛠️ Flexible and Extensible:`     | MiroTalk WebRTC's allows developers to tap into code, facilitating innovation and enabling tailored solutions to meet specific communication requirements.          |
-| `💰 Reduced Costs:`                | Since it doesn't require dedicated hardware or software licenses, it can be a cost-effective solution for businesses and individuals.                               |
-| `🎮 Versatile Applications:`       | Besides video conferencing, MiroTalk WebRTC can be used for various applications like online gaming, customer support, and live streaming.                          |
-
-Overall, MiroTalk WebRTC is a versatile, user-friendly, and secure technology that has revolutionized online communication by providing high-quality, real-time audio and video capabilities directly through web browsers. Its widespread adoption has made it a fundamental tool for businesses, organizations, and individuals seeking efficient and effective online interactions.
+| Advantage | Description |
+| :--- | :--- |
+| 🌐 **Ease of Use** | Connect via any web browser — no complex setups or downloads needed |
+| ⚡ **Low Latency** | Smooth, near-instantaneous audio and video for real-time interactions |
+| 🔒 **Security** | End-to-end encryption for private and confidential conversations |
+| 💻 **Cross-Platform** | Works on Windows, macOS, Linux, Android, and iOS |
+| 📈 **Scalability** | Supports one-on-one calls through large-scale conferences |
+| 🔗 **Integration** | Embeds seamlessly into existing platforms and applications |
+| 🛠️ **Flexible** | Open codebase lets developers build tailored solutions |
+| 💰 **Reduced Costs** | No dedicated hardware or software licenses required |
+| 🎮 **Versatile** | Use for video conferencing, live streaming, customer support, and more |
 
 ---
 
-## Fast integration
+## Fast Integration
 
 ![iframe](./images/iframe.png)
 
-Easily incorporate MiroTalk into your website or app with a straightforward iframe and just a few lines of code!
-
-[MiroTalk SFU example](https://codepen.io/Miroslav-Pejic/pen/LYXRbmE)
+Embed MiroTalk into your website or app with a simple iframe:
 
 ```html
 <iframe
   allow="camera; microphone; speaker-selection; display-capture; fullscreen; clipboard-read; clipboard-write; web-share; autoplay; picture-in-picture"
-
   src="https://sfu.mirotalk.com/newroom"
   style="width: 100vw; height: 100vh; border: 0px;"
 ></iframe>
 ```
 
-[MiroTalk P2P example](https://codepen.io/Miroslav-Pejic/pen/jOQMVzx)
+Just change the `src` to match the MiroTalk variant you need:
 
-```html
-<iframe
-  allow="camera; microphone; speaker-selection; display-capture; fullscreen; clipboard-read; clipboard-write; web-share; autoplay; picture-in-picture"
-  src="https://p2p.mirotalk.com/newcall"
-  style="width: 100vw; height: 100vh; border: 0px;"
-></iframe>
-```
+| Project | Source URL | CodePen |
+| :--- | :--- | :--- |
+| **SFU** | `https://sfu.mirotalk.com/newroom` | [Demo](https://codepen.io/Miroslav-Pejic/pen/LYXRbmE) |
+| **P2P** | `https://p2p.mirotalk.com/newcall` | [Demo](https://codepen.io/Miroslav-Pejic/pen/jOQMVzx) |
+| **C2C** | `https://c2c.mirotalk.com` | [Demo](https://codepen.io/Miroslav-Pejic/pen/ExOgNbJ) |
+| **BRO** | `https://bro.mirotalk.com` | [Demo](https://codepen.io/Miroslav-Pejic/pen/OJaRbZg) |
+| **WEB** | `https://webrtc.mirotalk.com` | [Demo](https://codepen.io/Miroslav-Pejic/pen/jOQMVxx) |
 
-[MiroTalk C2C example](https://codepen.io/Miroslav-Pejic/pen/ExOgNbJ)
+See also: [React integration example](https://codepen.io/Miroslav-Pejic/pen/QWzmGaZ)
 
-```html
-<iframe
-  allow="camera; microphone; speaker-selection; display-capture; fullscreen; clipboard-read; clipboard-write; web-share; autoplay; picture-in-picture"
-  src="https://c2c.mirotalk.com"
-  style="width: 100vw; height: 100vh; border: 0px;"
-></iframe>
-```
-
-[MiroTalk BRO example](https://codepen.io/Miroslav-Pejic/pen/OJaRbZg)
-
-```html
-<iframe
-  allow="camera; microphone; speaker-selection; display-capture; fullscreen; clipboard-read; clipboard-write; web-share; autoplay; picture-in-picture"
-  src="https://bro.mirotalk.com"
-  style="width: 100vw; height: 100vh; border: 0px;"
-></iframe>
-```
-
-[MiroTalk WEB example](https://codepen.io/Miroslav-Pejic/pen/jOQMVxx)
-
-```html
-<iframe
-  allow="camera; microphone; speaker-selection; display-capture; fullscreen; clipboard-read; clipboard-write; web-share; autoplay; picture-in-picture"
-  src="https://webrtc.mirotalk.com"
-  style="width: 100vw; height: 100vh; border: 0px;"
-></iframe>
-```
-
-An example of how to integrate MiroTalk with a [React application](https://codepen.io/Miroslav-Pejic/pen/QWzmGaZ)
-
-After setting up your MiroTalk instances, please update the `src` attribute with your custom domain or subdomain name.
+After setting up your MiroTalk instances, update the `src` attribute with your custom domain or subdomain.
 
 ---
 
-## Quick custom integration
+## Quick Custom Integration
 
-Refine and organize the steps for integrating MiroTalk into your existing application. Identify the specific module or page where you intend to integrate the video conferencing feature. This integration can be implemented into existing platforms such as `Perfex, PlayTube, Sngine, Wowonder`, or other web applications.
+Integrate MiroTalk into existing platforms like Perfex, PlayTube, Sngine, Wowonder, or any web application.
 
-#### HTML Button:
+#### 1. HTML Button
 
-Create a button element in the HTML of your chosen page to serve as the trigger for starting a video conference session.
+Add a button to trigger a video conference session:
 
 ```html
 <!-- Button for Javascript -->
@@ -140,11 +103,9 @@ Create a button element in the HTML of your chosen page to serve as the trigger 
 </form>
 ```
 
-#### JavaScript or PHP Function:
+#### 2. Handle the Click Event
 
-Use JavaScript or PHP to handle the button click event, opening a new window or tab for the video conference.
-
-JavaScript button click event:
+**JavaScript:**
 
 ```javascript
 document
@@ -155,7 +116,7 @@ document
   });
 ```
 
-PHP button click event:
+**PHP:**
 
 ```php
 <?php
@@ -167,9 +128,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ```
 
-#### Video Conference HTML Page:
+#### 3. Video Conference Page
 
-Create a dedicated HTML page, named `videoConference.html`, to host the video conferencing functionality.
+Create a dedicated `videoConference.html` page:
 
 ```html
 <!-- videoConference.html -->
@@ -203,7 +164,7 @@ Create a dedicated HTML page, named `videoConference.html`, to host the video co
 </html>
 ```
 
-Another approach is to embed the iframe within your current website or application page and control its visibility through toggling.
+Alternatively, embed the iframe in your existing page and toggle its visibility:
 
 ```javascript
 function toggleMiroTalk() {
@@ -216,11 +177,11 @@ function toggleMiroTalk() {
 }
 ```
 
-After setting up your MiroTalk instances, please update the `src` attribute with your custom `domain` or `subdomain name`.
+After setting up your MiroTalk instances, update the `src` attribute with your custom domain or subdomain.
 
-#### Customize your iframe scr attribute:
+#### 4. Customize the iframe `src`
 
-You can customize the URL for the `src` attribute using query parameters, as explained in the "join-room" section for each MiroTalk variant:
+Use query parameters to customize the URL — see the "join-room" guide for each variant:
 
 - [MiroTalk SFU direct join](./mirotalk-sfu/join-room.md)
 - [MiroTalk P2P direct join](./mirotalk-p2p/join-room.md)
@@ -229,7 +190,7 @@ You can customize the URL for the `src` attribute using query parameters, as exp
 
 ---
 
-Additionally, you have the option to generate the URL through our RestAPI:
+You can also generate meeting URLs via the REST API:
 
 - [MiroTalk SFU REST API](./mirotalk-sfu/api.md)
 - [MiroTalk P2P REST API](./mirotalk-p2p/api.md)

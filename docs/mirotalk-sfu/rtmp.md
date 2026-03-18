@@ -1,30 +1,24 @@
-# MiroTalk RTMP Servers Guide
+# RTMP Streaming
 
 ![rtmp](../images/rtmp.jpeg)
 
-## Overview
+MiroTalk SFU supports live RTMP streaming through two server options:
 
-MiroTalk offers two **[RTMP (Real-Time Messaging Protocol) servers](https://github.com/miroslavpejic85/mirotalksfu/tree/main/rtmpServers)**:
+| Server | Description |
+| :--- | :--- |
+| [Node Media Server](https://github.com/illuspas/Node-Media-Server) | Node.js-based, includes admin dashboard and API |
+| [Nginx RTMP](https://github.com/tiangolo/nginx-rtmp-docker) | Lightweight Nginx module for simple RTMP streaming |
 
-1. **[Node Media Server](https://github.com/illuspas/Node-Media-Server)** - Node.js-based solution with admin dashboard
-2. **[Nginx RTMP](https://github.com/tiangolo/nginx-rtmp-docker)** - Lightweight Nginx module for RTMP streaming
-
-Both integrate seamlessly with MiroTalk SFU (Selective Forwarding Unit).
+Both are available under [`rtmpServers/`](https://github.com/miroslavpejic85/mirotalksfu/tree/main/rtmpServers) and integrate seamlessly with MiroTalk SFU.
 
 ---
 
-## 🛠 Prerequisites
+## Prerequisites
 
-Before setup, ensure your system has: 
-- **[docker-engine](https://docs.docker.com/engine/install/)** 
-- **[docker-compose](https://docs.docker.com/compose/install/)**
-- **[ffmpeg](https://ffmpeg.org)**
+Ensure your system has [Docker Engine](https://docs.docker.com/engine/install/), [Docker Compose](https://docs.docker.com/compose/install/), and [FFmpeg](https://ffmpeg.org) installed:
 
 ```bash
-# Update package lists
 sudo apt update
-
-# Install required packages
 sudo apt install -y docker.io docker-compose ffmpeg
 ```
 
@@ -32,30 +26,29 @@ sudo apt install -y docker.io docker-compose ffmpeg
 
 ## Option 1: Node Media Server
 
-### Features
-- Node.js implementation
-- Admin dashboard and API endpoints
-- Authentication support
-- Docker deployment
+### Setup
 
-### 🚀 Setup Guide
+**1. Prepare directories:**
 
-1. **Prepare directories**
-   ```bash
-   mkdir -p app/rtmp
-   cd rtmpServers/node-media-server
-   ```
+```bash
+mkdir -p app/rtmp
+cd rtmpServers/node-media-server
+```
 
-2. **Configuration**
-   ```bash
-   cp src/config.template.js src/config.js  # Edit if needed
-   cp docker-compose.template.yml docker-compose.yml
-   ```  
-   Generate SSL certificates using `Certbot` and `Let's Encrypt` with the following commands:
-   ```bash
-   sudo certbot certonly --standalone --email your-email@example.com --agree-tos -d YOUR-DOMAIN-NAME
-   ```  
-   Certificates will be saved in `/etc/letsencrypt/live/YOUR-DOMAIN-NAME/`. Add it in the `docker-compose.yml` file:
+**2. Configure:**
+
+```bash
+cp src/config.template.js src/config.js
+cp docker-compose.template.yml docker-compose.yml
+```
+
+Generate SSL certificates with Certbot:
+
+```bash
+sudo certbot certonly --standalone --email your-email@example.com --agree-tos -d YOUR-DOMAIN-NAME
+```
+
+Certificates are saved to `/etc/letsencrypt/live/YOUR-DOMAIN-NAME/`. Mount them in `docker-compose.yml`:
    ```yaml
    services:
      mirotalk-nms:
@@ -72,163 +65,112 @@ sudo apt install -y docker.io docker-compose ffmpeg
        restart: unless-stopped
    ```
 
-3. **Pull Docker image**
-   ```bash
-   docker pull mirotalk/nms:latest
-   cd ../..
-   ```
+**3. Pull the Docker image:**
 
-4. **Management Commands**
-   ```bash
-   # Start server
-   npm run nms-start
+```bash
+docker pull mirotalk/nms:latest
+cd ../..  
+```
 
-   # Stop server
-   npm run nms-stop
+**4. Manage the server:**
 
-   # Restart server
-   npm run nms-restart
+| Command | Action |
+| :--- | :--- |
+| `npm run nms-start` | Start |
+| `npm run nms-stop` | Stop |
+| `npm run nms-restart` | Restart |
+| `npm run nms-logs` | View logs |
 
-   # View logs
-   npm run nms-logs
-   ```
+### Access Points
 
-### 🔍 Access Points
-- **Admin Dashboard**: `https://your-domain:8043/admin`
-- **Server API**: `https://your-domain:8043/api/server`
-- **Streams API**: `https://your-domain:8043/api/streams`
+| Endpoint | URL |
+| :--- | :--- |
+| Admin Dashboard | `https://your-domain:8043/admin` |
+| Server API | `https://your-domain:8043/api/server` |
+| Streams API | `https://your-domain:8043/api/streams` |
 
 ---
 
 ## Option 2: Nginx RTMP
 
-### Features
-- Lightweight Nginx-based solution
-- Simple statistics page
-- Easy Docker deployment
+### Setup
 
-### 🚀 Setup Guide
+**1. Prepare directories:**
 
-1. **Prepare directories**
-   ```bash
-   mkdir -p app/rtmp
-   cd rtmpServers/nginx-rtmp
-   ```
+```bash
+mkdir -p app/rtmp
+cd rtmpServers/nginx-rtmp
+```
 
-2. **Configuration**
-   ```bash
-   cp docker-compose.template.yml docker-compose.yml  # Edit if needed
-   ```
+**2. Configure:**
 
-3. **Pull Docker image**
-   ```bash
-   docker pull mirotalk/rtmp:latest
-   cd ../..
-   ```
+```bash
+cp docker-compose.template.yml docker-compose.yml
+```
 
-4. **Management Commands**
-   ```bash
-   # Start server
-   npm run rtmp-start
+**3. Pull the Docker image:**
 
-   # Stop server
-   npm run rtmp-stop
+```bash
+docker pull mirotalk/rtmp:latest
+cd ../..  
+```
 
-   # Restart server
-   npm run rtmp-restart
+**4. Manage the server:**
 
-   # View logs
-   npm run rtmp-logs
-   ```
+| Command | Action |
+| :--- | :--- |
+| `npm run rtmp-start` | Start |
+| `npm run rtmp-stop` | Stop |
+| `npm run rtmp-restart` | Restart |
+| `npm run rtmp-logs` | View logs |
 
-### 📊 Statistics
-View stream stats at: `https://your-domain:1935/stat`
+### Statistics
 
 ---
 
-## 🔌 MiroTalk SFU RTMP Configuration
+## MiroTalk SFU Configuration
 
-To integrate with MiroTalk SFU, configure these settings in `app/src/config.js`:
+Configure RTMP settings in `app/src/config.js`:
 
 ```javascript
-/**
- * RTMP Streaming Configuration
- * ---------------------------
- * Settings for Real-Time Messaging Protocol (RTMP) streaming integration
- * with MiroTalk SFU. Configure based on your streaming server choice.
- */
 rtmp: {
-  // Enable/disable RTMP functionality completely
   enabled: true,
-
-  // Choose between NodeMediaServer (true) or Nginx RTMP (false)
-  useNodeMediaServer: true,
-
-  // API secret key for accessing RTMP server APIs
-  // Keep this secure and change from default
+  useNodeMediaServer: true,        // false = use Nginx RTMP instead
   apiSecret: 'mirotalkRtmpApiSecret',
-
-  // RTMP server connection details
-  // Format: rtmp://[host]:[port]
   server: 'rtmp://localhost:1935',
-
-  // Application name/path on the RTMP server
-  // This is typically 'live' or 'stream'
   appName: 'live',
+  streamKey: '',                   // leave empty for dynamic generation
 
-  // Default stream key (can be left empty for dynamic generation)
-  // In production, generate unique keys per stream
-  streamKey: '',
-
-  /**
-   * NodeMediaServer Specific Configuration
-   * -------------------------------------
-   * Only required when useNodeMediaServer = true
-   */
-  
-  // Secret key for generating signed RTMP URLs
-  // Must match the secret in NodeMediaServer config
-  secret: 'mirotalkRtmpSecret',
-
-  // Expiration time (in hours) for signed RTMP URLs
-  // Helps prevent unauthorized long-term access
-  expirationHours: 4,
-
-  /**
-   * Note: When using Nginx RTMP (useNodeMediaServer = false),
-   * only the following parameters are needed:
-   * - enabled
-   * - useNodeMediaServer
-   * - server
-   * - appName
-   * - streamKey
-   */
+  // Node Media Server only (useNodeMediaServer: true)
+  secret: 'mirotalkRtmpSecret',   // must match NodeMediaServer config
+  expirationHours: 4,             // signed URL expiration
 },
 ```
 
-For all available RTMP settings and default values, reference the source configuration:
+For all available settings and defaults, see the [source config (RTMP section)](https://github.com/miroslavpejic85/mirotalksfu/blob/main/app/src/config.template.js#L182).
 
-📄 [MiroTalk SFU config.js (RTMP section)](https://github.com/miroslavpejic85/mirotalksfu/blob/main/app/src/config.template.js#L182)
-
----
-
-## 🎥 Streaming with OBS
-
-### Configuration Steps:
-1. Open OBS → Settings → Stream
-2. Set:
-   - **Service**: Custom...
-   - **Server**: `rtmp://your-domain:1935/live`
-   - **Stream Key**: Any unique identifier (e.g., `my-stream-123`)
-
-### Starting Your Stream:
-1. Click "Start Streaming" in OBS
-2. Share your stream URL:  
-   `rtmp://your-domain:1935/live/your-stream-key`
+!!! note
+    When using Nginx RTMP (`useNodeMediaServer: false`), only `enabled`, `useNodeMediaServer`, `server`, `appName`, and `streamKey` are needed.
 
 ---
 
-## 🔐 Authentication Note (Node Media Server)
+## Streaming with OBS
+
+1. Open **OBS** → **Settings** → **Stream**.
+2. Configure:
+
+| Setting | Value |
+| :--- | :--- |
+| Service | Custom... |
+| Server | `rtmp://your-domain:1935/live` |
+| Stream Key | Any unique identifier (e.g., `my-stream-123`) |
+
+3. Click **Start Streaming**.
+4. Share your stream URL: `rtmp://your-domain:1935/live/your-stream-key`
+
+---
+
+## Authentication (Node Media Server)
 
 If authentication is enabled in `config.js`:
 
@@ -240,14 +182,16 @@ auth: {
 },
 ```
 
-### Generating Signed URLs:
-1. Run the signing script:
-   ```bash
-   node sign.js
-   ```
-2. Use the generated URL format:
-   ```
-   rtmp://your-domain:1935/live/stream-key?sigh=signature-token
-   ```
+Generate a signed URL:
+
+```bash
+node sign.js
+```
+
+Use the output URL format:
+
+```
+rtmp://your-domain:1935/live/stream-key?sign=signature-token
+```
 
 ---

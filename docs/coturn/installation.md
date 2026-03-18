@@ -4,51 +4,43 @@
 
 ## Requirements
 
-- Server Selection:
-    - [Hetzner](https://www.hetzner.com/cloud) (CX11) - Use [this link](https://hetzner.cloud/?ref=XdRifCzCK3bn) to receive `€⁠20 in cloud credits`
-    - [Hostinger](https://hostinger.com/?REFERRALCODE=MIROTALK) (KVM 2)
-    - [Contabo](https://www.dpbolvw.net/click-101027391-14462707) (VPS-1)
-- OS: Ubuntu 22.04 LTS.
-- Domain or Subdomain Name (e.g., `YOUR.DOMAIN.NAME`) with a DNS A record pointing to your server's IPv4 address.
-- [Certbot](https://certbot.eff.org/) to generate `cert` & `pkey` for `/etc/turnserver.conf`.
+| Requirement | Details |
+| :--- | :--- |
+| **Server** | [Hetzner](https://www.hetzner.com/cloud) (CX11 — [get €20 credit](https://hetzner.cloud/?ref=XdRifCzCK3bn)), [Hostinger](https://hostinger.com/?REFERRALCODE=MIROTALK) (KVM 2), or [Contabo](https://www.dpbolvw.net/click-101027391-14462707) (VPS-1) |
+| **OS** | Ubuntu 22.04 LTS |
+| **Domain** | A domain or subdomain (e.g., `YOUR.DOMAIN.NAME`) with a DNS **A record** pointing to your server's IPv4 address |
+| **SSL** | [Certbot](https://certbot.eff.org/) to generate the certificate and private key for `/etc/turnserver.conf` |
 
-## Installation
+## Step 1 — Install Coturn & Certbot
 
-Install [Coturn](https://github.com/coturn/coturn):
-
-```bash
-$ sudo apt-get -y update
-$ sudo apt-get -y install coturn
-```
-
-Install [Certbot](https://certbot.eff.org/)
+Install [Coturn](https://github.com/coturn/coturn) and [Certbot](https://certbot.eff.org/):
 
 ![certbot](../images/certbot.png)
 
 ```bash
-$ sudo apt-get -y update
-$ sudo apt-get -y install certbot
+sudo apt-get -y update
+sudo apt-get -y install coturn certbot
 ```
 
-## Request SSL Certificate
+## Step 2 — Request an SSL Certificate
 
-Replace `YOUR.DOMAIN.NAME` with your real domain or subdomain name.
+Replace `YOUR.DOMAIN.NAME` with your actual domain or subdomain.
 
 ```bash
-# The certificates can be found in /etc/letsencrypt/live/YOUR.DOMAIN.NAME/
-$ sudo certbot certonly --standalone -d YOUR.DOMAIN.NAME
+# Generate the certificate (files saved to /etc/letsencrypt/live/YOUR.DOMAIN.NAME/)
+sudo certbot certonly --standalone -d YOUR.DOMAIN.NAME
 
-# Automatically renew the certificates
-$ sudo certbot renew
-# OR if you have running Nginx
-$ sudo certbot renew --nginx
+# Set up automatic renewal
+sudo certbot renew
+# If Nginx is running, use:
+sudo certbot renew --nginx
 ```
 
-## Turn_Server config
+## Step 3 — Configure the TURN Server
 
-Open `/etc/turnserver.conf` and add the following by replacing `YOUR.DOMAIN.NAME` with your real domain or subdomain name.
+Edit `/etc/turnserver.conf`, replacing `YOUR.DOMAIN.NAME`, `YOUR.USERNAME`, and `YOUR.PASSWORD` with your actual values.
 
-For a full configuration example, see the official guide [here](https://github.com/coturn/coturn/wiki/turnserver)
+See the [official configuration reference](https://github.com/coturn/coturn/wiki/turnserver) for all available options.
 
 ```ini
 listening-port=3478
@@ -79,25 +71,26 @@ no-multicast-peers
 simple-log
 ```
 
-Uncomment the following line to run Coturn as an automatic system service daemon in `/etc/default/coturn`
+Enable the Coturn system service by uncommenting the following line in `/etc/default/coturn`:
 
 ```ini
 TURNSERVER_ENABLED=1
 ```
 
-If you can't reach coturn on `tls-listening-port`, try to edit `/etc/systemd/system/multi-user.target.wants/coturn.service`
+!!! tip "Can't reach the TLS port?"
+    If Coturn is unreachable on the `tls-listening-port`, edit `/etc/systemd/system/multi-user.target.wants/coturn.service`:
 
-```ini
-[Service]
-User=root
-Group=root
-```
+    ```ini
+    [Service]
+    User=root
+    Group=root
+    ```
 
-Reload daemon:
+    Then reload the daemon:
 
-```bash
-$ sudo systemctl daemon-reload
-```
+    ```bash
+    sudo systemctl daemon-reload
+    ```
 
 ---
 
@@ -117,27 +110,26 @@ Key recommendations:
 
 ---
 
-## Coturn commands
+## Service Commands
 
 ```bash
-$ sudo service coturn status
-$ sudo service coturn stop
-$ sudo service coturn start
-$ sudo service coturn restart
+sudo service coturn status
+sudo service coturn stop
+sudo service coturn start
+sudo service coturn restart
 ```
 
 ---
 
-## Using Docker
+## Docker
 
 ![docker](../images/docker.png)
 
-```bash
-# Step 1: Pull the Coturn Docker image from Docker Hub (https://hub.docker.com/r/coturn/coturn)
-$ docker pull coturn/coturn
+Pull the image from [Docker Hub](https://hub.docker.com/r/coturn/coturn) and run it:
 
-# Step 2: Run a Coturn container in detached mode with host network mode
-# and mount a local configuration file into the container
+```bash
+docker pull coturn/coturn
+
 docker run -d \
   --network=host \
   --user root \
@@ -147,22 +139,17 @@ docker run -d \
   coturn/coturn
 ```
 
-Useful commands:
+Manage the container:
 
 ```bash
-# List the currently running Docker containers
-$ docker ps
-
-# Stop the Coturn container with the name "compassionate_swanson"
-$ docker stop compassionate_swanson
-
-# Start the Coturn container with the name "compassionate_swanson"
-$ docker start compassionate_swanson
+docker ps                          # List running containers
+docker stop <container_name>       # Stop the Coturn container
+docker start <container_name>      # Start the Coturn container
 ```
 
-## Docker compose
+### Docker Compose
 
-If you prefer `docker-compose.yml`:
+Alternatively, use a `docker-compose.yml`:
 
 ```yaml
 services:
@@ -178,40 +165,33 @@ services:
       - /etc/letsencrypt/live/YOUR.DOMAIN.NAME/privkey.pem:/etc/letsencrypt/live/YOUR.DOMAIN.NAME/privkey.pem
 ```
 
-Then run `docker-compose up -d`
+```bash
+docker-compose up -d
+```
 
-## Test
+## Testing
 
-Test if it's working:
+Verify your setup with these tools:
 
-- [trickle-ice](https://webrtc.github.io/samples/src/content/peerconnection/trickle-ice/)
-- [icetest](https://icetest.info/)
+- [Trickle ICE](https://webrtc.github.io/samples/src/content/peerconnection/trickle-ice/)
+- [ICE Test](https://icetest.info/)
 
-You can also utilize the built-in MiroTalk service by simply replacing `YOUR.DOMAIN.NAME`, `your.username` and `your.password` with your own values in the following URLs:
+Or use MiroTalk's built-in tester — replace `YOUR.DOMAIN.NAME`, `your.username`, and `your.password`:
 
 ```ini
-# Default listening port
+# Default port (3478)
 https://p2p.mirotalk.com/icetest?iceServers=[{"urls":"stun:YOUR.DOMAIN.NAME:3478"},{"urls":"turn:YOUR.DOMAIN.NAME:3478","username":"your.username","credential":"your.password"}]
 
-# TLS listening port
+# TLS port (5349)
 https://p2p.mirotalk.com/icetest?iceServers=[{"urls":"stuns:YOUR.DOMAIN.NAME:5349"},{"urls":"turns:YOUR.DOMAIN.NAME:5349","username":"your.username","credential":"your.password"}]
 ```
 
-## 🔍 STUN vs. STUNS (the `s` suffix)
+## STUN vs. STUNS
 
-### 1. `stun:`
+| Protocol | Port | Transport | Best For |
+| :--- | :--- | :--- | :--- |
+| `stun:` | 3478 | Plain UDP/TCP (no encryption) | General use — fastest and most widely supported |
+| `stuns:` | 5349 | TLS-encrypted (like HTTPS) | Restricted networks or VPNs that block plain UDP |
 
-→ **Plain STUN over UDP or TCP** (no encryption).
-
-* Default port: **3478**
-* Fastest and most widely supported.
-* Used for discovering your public IP and NAT type.
-* Works great when UDP is allowed.
-
-### 2. `stuns:`
-
-→ **STUN over TLS (encrypted)**, typically on **5349** (or sometimes 443).
-
-* Uses TLS similar to HTTPS for encryption.
-* Useful in **highly restricted networks** or **VPNs** that block plain UDP.
-* But: **not all browsers and clients support `stuns:`** (especially older ones or mobile WebViews).
+!!! note
+    Not all browsers support `stuns:`, especially older ones and mobile WebViews. Prefer `stun:` unless your network requires TLS.
