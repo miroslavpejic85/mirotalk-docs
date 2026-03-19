@@ -15,7 +15,7 @@ Easily integrate MiroTalk WEB into your website by embedding it with a simple `i
     </head>
     <body>
         <iframe
-            id="mirotalkC2C"
+            id="mirotalkWEB"
             allow="camera; microphone; speaker-selection; display-capture; fullscreen; clipboard-read; clipboard-write; web-share; autoplay; picture-in-picture"
             src="https://YOUR-DOMAIN-NAME"
             style="height: 100vh; width: 100vw; border: 0px;"

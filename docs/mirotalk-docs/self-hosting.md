@@ -32,7 +32,7 @@ To install `MkDocs`, you can use one of this method:
 ### Using `pip`
 
 ```bash
-$ pip install mkdocs
+pip install mkdocs
 ```
 
 ---
@@ -40,8 +40,8 @@ $ pip install mkdocs
 ### Using `apt`
 
 ```bash
-$ sudo apt update
-$ sudo apt install mkdocs
+sudo apt update
+sudo apt install mkdocs
 ```
 
 ---
@@ -49,9 +49,9 @@ $ sudo apt install mkdocs
 ### Using `snap`
 
 ```bash
-$ sudo apt update
-$ sudo apt install snapd
-$ sudo snap install mkdocs
+sudo apt update
+sudo apt install snapd
+sudo snap install mkdocs
 ```
 
 ---
@@ -59,40 +59,40 @@ $ sudo snap install mkdocs
 ## Quick start
 
 ```bash
-# Clone the repo
-$ git clone https://github.com/miroslavpejic85/mirotalk-docs.git
+# Clone the repository
+git clone https://github.com/miroslavpejic85/mirotalk-docs.git
 
-# Go to Docs dir
-$ cd mirotalk-docs
+# Navigate to the project directory
+cd mirotalk-docs
 
-# Start to build site
-$ mkdocs build
+# Build the site
+mkdocs build
 
-# Enable a web server to access and serve files from that directory
-$ sudo chown -R www-data:www-data /root/mirotalk-docs/site
+# Set proper ownership for the web server
+sudo chown -R www-data:www-data /root/mirotalk-docs/site
 
-# Move the site folder in /var/www/
-$ sudo mv /root/mirotalk-docs/site /var/www/
+# Move the site folder to the web root
+sudo mv /root/mirotalk-docs/site /var/www/
 ```
 
 ## Configuring Nginx & Certbot
 
 ![nginx](../images/nginx.png)
 
-In order to have encrypted communications (https), we going to install [nginx](https://www.nginx.com) and [certbot](https://certbot.eff.org)
+To serve the documentation with encrypted communications (HTTPS), install [Nginx](https://www.nginx.com) and [Certbot](https://certbot.eff.org):
 
 ```bash
 # Install Nginx
-$ sudo apt-get install nginx
+sudo apt-get install nginx
 
 # Install Certbot (SSL certificates)
-$ sudo apt install snapd
-$ sudo snap install core; sudo snap refresh core
-$ sudo snap install --classic certbot
-$ sudo ln -s /snap/bin/certbot /usr/bin/certbot
+sudo apt install snapd
+sudo snap install core; sudo snap refresh core
+sudo snap install --classic certbot
+sudo ln -s /snap/bin/certbot /usr/bin/certbot
 
 # Configure Nginx
-$ sudo vim /etc/nginx/sites-enabled/default
+sudo vim /etc/nginx/sites-enabled/default
 ```
 
 Add the following:
@@ -110,13 +110,13 @@ server {
 
 ```bash
 # Test Nginx configuration
-$ sudo nginx -t
+sudo nginx -t
 
-# Enable HTTPS with Certbot (follow the instruction)
-$ sudo certbot certonly --nginx
+# Enable HTTPS with Certbot (follow the prompts)
+sudo certbot certonly --nginx
 
 # Add Let's Encrypt configuration to Nginx
-$ sudo vim /etc/nginx/sites-enabled/default
+sudo vim /etc/nginx/sites-enabled/default
 ```
 
 Add the following:
@@ -145,17 +145,17 @@ server {
 
 ```bash
 # Test Nginx configuration again
-$ sudo nginx -t
+sudo nginx -t
 
 # Restart nginx
-$ service nginx restart
-$ service nginx status
+service nginx restart
+service nginx status
 
 # Set up auto-renewal for SSL certificates
-$ sudo certbot renew --dry-run --cert-name YOUR.DOMAIN.NAME
+sudo certbot renew --dry-run --cert-name YOUR.DOMAIN.NAME
 
 # Show certificates
-$ sudo certbot certificates
+sudo certbot certificates
 ```
 
 Check Your MiroTalk DOCS instance: [https://YOUR.DOMAIN.NAME](https://YOUR.DOMAIN.NAME)
@@ -221,7 +221,7 @@ To keep your MiroTalk DOCS instance up to date, create an update script:
 ```bash
 cd
 # Create a file docsUpdate.sh
-$ vim docsUpdate.sh
+vim docsUpdate.sh
 ```
 
 ---
@@ -244,7 +244,7 @@ sudo mv /root/mirotalk-docs/site /var/www/
 Make the script executable
 
 ```bash
-$ chmod +x docsUpdate.sh
+chmod +x docsUpdate.sh
 ```
 
 To update your MiroTalk DOCS instance to the latest version, run the script:

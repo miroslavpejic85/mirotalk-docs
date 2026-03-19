@@ -2,27 +2,35 @@
 
 ---
 
+## Homepage
+
 **URL**: [https://YOUR-DOMAIN-NAME](https://bro.mirotalk.com)
 
-**Description**: Users opting for this method can directly access the platform's homepage, where they have the flexibility to define the desired room, set their username and join as Broadcaster or Viewer. This approach provides full control over room selection and personal identification.
+Users can access the homepage to define the desired room, set their username, and choose to join as Broadcaster or Viewer.
 
 ---
+
+## Broadcaster
 
 **URL**: [https://YOUR-DOMAIN-NAME/broadcast?id=ROOM-NAME&name=BROADCASTER-NAME](https://bro.mirotalk.com/broadcast?id=ROOM-NAME&name=BROADCASTER-NAME)
 
-**Description**: This URL is used by broadcasters to access a specific room. They should replace `ROOM-NAME` with the room's unique identifier and `BROADCASTER-NAME` with their chosen username or identifier.
+Broadcasters use this URL to access a specific room. Replace `ROOM-NAME` with the room identifier and `BROADCASTER-NAME` with the desired username.
 
 ---
+
+## Viewer
 
 **URL**: [https://YOUR-DOMAIN-NAME/viewer?id=ROOM-NAME&name=VIEWER-NAME](https://bro.mirotalk.com/viewer?id=ROOM-NAME&name=VIEWER-NAME)
 
-**Description**: Viewers who want to enter a room as observers can use this URL. They should replace `ROOM-NAME` with the room's distinctive identifier and `VIEWER-NAME` with their preferred username or identifier.
+Viewers use this URL to enter a room as observers. Replace `ROOM-NAME` with the room identifier and `VIEWER-NAME` with the desired username.
 
 ---
 
+## Viewer with Name Prompt
+
 **URL**: [https://YOUR-DOMAIN-NAME/home?id=ROOM-NAME](https://bro.mirotalk.com/home?id=ROOM-NAME)
 
-**Description**: Viewers who wish to specify their names manually before joining a broadcaster can access this URL. Here, they can conveniently input their names as prompted.
+Viewers who wish to enter their name manually before joining a broadcast can use this URL.
 
 ---
 

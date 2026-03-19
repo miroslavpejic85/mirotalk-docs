@@ -2,28 +2,28 @@
 
 ![ftp](../images/ftp.png)
 
-Install the FTP Server, For this example, we'll use `vsftpd`, a popular and secure FTP server
+Install the FTP server. For this example, we'll use `vsftpd`, a popular and secure FTP server.
 
-## Set up an FTP server using `vsftpd`
+## Set Up an FTP Server
 
 ```bash
-# Update Package Lists
-$ sudo apt update
+# Update package lists
+sudo apt update
 
-# Install the FTP Server
-$ sudo apt install vsftpd
+# Install the FTP server
+sudo apt install vsftpd
 
-# Start and Enable the FTP Service
-$ sudo systemctl start vsftpd
-$ sudo systemctl enable vsftpd
+# Start and enable the FTP service
+sudo systemctl start vsftpd
+sudo systemctl enable vsftpd
 ```
 
 ## Configure the FTP Server
 
-Edit the `vsftpd` configuration file
+Edit the `vsftpd` configuration file:
 
 ```bash
-$ sudo vim /etc/vsftpd.conf #(:i)
+sudo vim /etc/vsftpd.conf #(:i)
 ```
 
 Adjust the following settings:
@@ -46,10 +46,10 @@ Save the file and exit (:wq).
 
 ## Restart the FTP Service
 
-Apply the changes by restarting the `vsftpd` service:
+Apply the changes by restarting the service:
 
 ```bash
-$ sudo systemctl restart vsftpd
+sudo systemctl restart vsftpd
 ```
 
 ## Configure the Firewall (if applicable)
@@ -57,16 +57,16 @@ $ sudo systemctl restart vsftpd
 Allow FTP traffic through the firewall:
 
 ```bash
-$ sudo ufw status
-$ sudo ufw allow 21/tcp
+sudo ufw status
+sudo ufw allow 21/tcp
 ```
 
 ## Test the FTP Connection
 
-Use an FTP client or the command-line tool to test the connection. For command-line testing:
+Use an FTP client or the command-line tool to test the connection:
 
 ```bash
-$ ftp <server_ip_address>
+ftp <server_ip_address>
 ```
 
 Replace `<server_ip_address>` with your server’s IP address.

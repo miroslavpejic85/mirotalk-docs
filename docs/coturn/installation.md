@@ -11,7 +11,7 @@
 | **Domain** | A domain or subdomain (e.g., `YOUR.DOMAIN.NAME`) with a DNS **A record** pointing to your server's IPv4 address |
 | **SSL** | [Certbot](https://certbot.eff.org/) to generate the certificate and private key for `/etc/turnserver.conf` |
 
-## Step 1 — Install Coturn & Certbot
+## Step 1 — Install Coturn and Certbot
 
 Install [Coturn](https://github.com/coturn/coturn) and [Certbot](https://certbot.eff.org/):
 

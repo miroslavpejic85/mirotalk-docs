@@ -2,7 +2,7 @@
 
 When you update to the newest version of MiroTalk SFU using the `./sfuUpdate.sh` script, any customized files (such as your branding in public/views) get overwritten. This happens because the update process replaces the entire base code and can’t automatically preserve client-specific modifications.
 
-So after each update, you’ll need to reapply your own branding files unless they’re separated from the tracked source code and also if there are changes in the `.env - config.js` file need to update it as well accordingly.
+After each update, you'll need to reapply your branding unless it's separated from the tracked source code. Additionally, if there are changes in the `.env` or `config.js` files, update them accordingly.
 
 Here are a few recommended options to handle this more smoothly:
 

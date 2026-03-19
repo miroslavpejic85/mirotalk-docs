@@ -24,7 +24,7 @@ Easily integrate MiroTalk BRO into your website by embedding it with a simple `i
 </html>
 ```
 
-> **Important:** Replace `YOUR-DOMAIN-NAME` with your actual MiroTalk C2C server URL.
+> **Important:** Replace `YOUR-DOMAIN-NAME` with your actual MiroTalk BRO server URL.
 
 ---
 

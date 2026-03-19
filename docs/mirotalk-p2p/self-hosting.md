@@ -18,7 +18,7 @@ MiroTalk P2PA is a lightweight, self-hostable WebRTC solution for real-time audi
 - OS: Ubuntu 22.04 LTS.
 - [Node.js](https://nodejs.org/en/) (LTS) and npm
 - Domain or Subdomain Name (e.g., `YOUR.DOMAIN.NAME`) with a DNS A record pointing to your server's IPv4 address.
-- `Recommend` utilizing a [Turn Server](../coturn/stun-turn.md) the installation documentation accessible [here](../coturn/installation.md).
+- It is recommended to use a [TURN Server](../coturn/stun-turn.md). Installation documentation is available [here](../coturn/installation.md).
 
 ---
 
@@ -33,26 +33,26 @@ Install `NodeJS` and `npm` using [Node Version Manager](../utility/nvm.md)
 ## Quick start
 
 ```bash
-# Clone MiroTalk P2P repo
-$ git clone https://github.com/miroslavpejic85/mirotalk.git
+# Clone the repository
+git clone https://github.com/miroslavpejic85/mirotalk.git
 
-# Go to mirotalk dir
-$ cd mirotalk
+# Navigate to the project directory
+cd mirotalk
 
-# Copy .env.template to .env and customize it according to your needs if needed
-$ cp .env.template .env
+# Copy and customize the environment template
+cp .env.template .env
 
-# Copy app/src/config.template.js in app/src/config.js (edit it according to your needs)
-$ cp app/src/config.template.js app/src/config.js
+# Copy and customize the config template
+cp app/src/config.template.js app/src/config.js
 
 # Install dependencies
-$ npm ci
+npm ci
 
 # Start the server
-$ npm start
+npm start
 ```
 
-Check if is correctly installed: [http://YOUR.DOMAIN.NAME:3000](http://YOUR.DOMAIN.NAME:3000)
+Verify the installation: [http://YOUR.DOMAIN.NAME:3000](http://YOUR.DOMAIN.NAME:3000)
 
 ---
 
@@ -61,17 +61,17 @@ Check if is correctly installed: [http://YOUR.DOMAIN.NAME:3000](http://YOUR.DOMA
 ![pm2](../images/pm2.png)
 
 ```bash
-# Install pm2
-$ npm install -g pm2
+# Install PM2
+npm install -g pm2
 
 # Start the server
-$ pm2 start app/src/server.js --name mirotalkp2p
+pm2 start app/src/server.js --name mirotalkp2p
 
-# Takes a snapshot
-$ pm2 save
+# Save the process list
+pm2 save
 
-# Add it on startup
-$ pm2 startup
+# Enable auto-start on boot
+pm2 startup
 ```
 
 ---
@@ -81,26 +81,24 @@ $ pm2 startup
 ![docker](../images/docker.png)
 
 ```bash
-# Install docker
-$ sudo apt install -y docker.io
+# Install Docker and Docker Compose
+sudo apt install -y docker.io
+sudo apt install -y docker-compose
 
-# Instal docker-compose
-$ sudo apt install -y docker-compose
+# Clone the repository
+git clone https://github.com/miroslavpejic85/mirotalk.git
 
-# Clone MiroTalk P2P repo
-$ git clone https://github.com/miroslavpejic85/mirotalk.git
+# Navigate to the project directory
+cd mirotalk
 
-# Go to mirotalk dir
-$ cd mirotalk
+# Copy and customize the environment template
+cp .env.template .env
 
-# Copy .env.template to .env and customize it according to your needs if needed
-$ cp .env.template .env
+# Copy and customize the config template
+cp app/src/config.template.js app/src/config.js
 
-# Copy app/src/config.template.js in app/src/config.js (edit it according to your needs)
-$ cp app/src/config.template.js app/src/config.js
-
-# Copy docker-compose.template.yml in docker-compose.yml (edit it according to your needs)
-$ cp docker-compose.template.yml docker-compose.yml
+# Copy and customize the Docker Compose template
+cp docker-compose.template.yml docker-compose.yml
 ```
 
 Example of `docker-compose.yml`:
@@ -122,13 +120,13 @@ services:
 
 ```bash
 # Pull the official Docker image
-$ docker-compose pull
+docker-compose pull
 
-# Create and start containers (-d as daemon)
-$ docker-compose up
+# Create and start containers (add -d to run in background)
+docker-compose up
 ```
 
-Check if is correctly installed: [http://YOUR.DOMAIN.NAME:3000](http://YOUR.DOMAIN.NAME:3000)
+Verify the installation: [http://YOUR.DOMAIN.NAME:3000](http://YOUR.DOMAIN.NAME:3000)
 
 ---
 
@@ -136,20 +134,20 @@ Check if is correctly installed: [http://YOUR.DOMAIN.NAME:3000](http://YOUR.DOMA
 
 ![nginx](../images/nginx.png)
 
-In order to use it without the port number and to have encrypted communications (`mandatory to make it work correctly`), we going to install [nginx](https://www.nginx.com) and [certbot](https://certbot.eff.org)
+To use MiroTalk P2P without the port number and with encrypted communications (required for WebRTC to work correctly), install [Nginx](https://www.nginx.com) and [Certbot](https://certbot.eff.org):
 
 ```bash
 # Install Nginx
-$ sudo apt-get install -y nginx
+sudo apt-get install -y nginx
 
 # Install Certbot (SSL certificates)
-$ sudo apt install -y snapd
-$ sudo snap install core; sudo snap refresh core
-$ sudo snap install --classic certbot
-$ sudo ln -s /snap/bin/certbot /usr/bin/certbot
+sudo apt install -y snapd
+sudo snap install core; sudo snap refresh core
+sudo snap install --classic certbot
+sudo ln -s /snap/bin/certbot /usr/bin/certbot
 
 # Configure Nginx
-$ sudo vim /etc/nginx/sites-enabled/default
+sudo vim /etc/nginx/sites-enabled/default
 ```
 
 Add the following:
@@ -167,13 +165,13 @@ server {
 
 ```bash
 # Test Nginx configuration
-$ sudo nginx -t
+sudo nginx -t
 
-# Enable HTTPS with Certbot (follow the instruction)
-$ sudo certbot certonly --nginx
+# Enable HTTPS with Certbot (follow the prompts)
+sudo certbot certonly --nginx
 
 # Add Let's Encrypt configuration to Nginx
-$ sudo vim /etc/nginx/sites-enabled/default
+sudo vim /etc/nginx/sites-enabled/default
 ```
 
 Add the following:
@@ -203,20 +201,20 @@ server {
 
 ```bash
 # Test Nginx configuration again
-$ sudo nginx -t
+sudo nginx -t
 
-# Restart nginx
-$ service nginx restart
-$ service nginx status
+# Restart Nginx
+service nginx restart
+service nginx status
 
 # Set up auto-renewal for SSL certificates
-$ sudo certbot renew --dry-run --cert-name YOUR.DOMAIN.NAME
+sudo certbot renew --dry-run --cert-name YOUR.DOMAIN.NAME
 
 # Show certificates
-$ sudo certbot certificates
+sudo certbot certificates
 ```
 
-Check Your MiroTalk P2P instance: [https://YOUR.DOMAIN.NAME](https://YOUR.DOMAIN.NAME)
+Verify your MiroTalk P2P instance: [https://YOUR.DOMAIN.NAME](https://YOUR.DOMAIN.NAME)
 
 ---
 
@@ -227,14 +225,14 @@ Check Your MiroTalk P2P instance: [https://YOUR.DOMAIN.NAME](https://YOUR.DOMAIN
 If you prefer `Apache`, configure it with the equivalent settings provided in this guide.
 
 ```bash
-# Install apache with certbot
-$ apt install python3-certbot-apache -y
+# Install Apache with Certbot
+apt install python3-certbot-apache -y
 
-# Setting up ssl
-$ certbot --apache --non-interactive --agree-tos -d YOUR.DOMAIN.NAME -m your.email.address
+# Set up SSL
+certbot --apache --non-interactive --agree-tos -d YOUR.DOMAIN.NAME -m your.email.address
 
-# Edit the apache sites
-$ sudo vim /etc/apache2/sites-enabled/YOUR.DOMAIN.NAME.conf
+# Edit the Apache site configuration
+sudo vim /etc/apache2/sites-enabled/YOUR.DOMAIN.NAME.conf
 ```
 
 Add the following:
@@ -300,8 +298,8 @@ To keep your MiroTalk P2P instance up to date, create an update script:
 
 ```bash
 cd
-# Create a file p2pUpdate.sh
-$ vim p2pUpdate.sh
+# Create an update script
+vim p2pUpdate.sh
 ```
 
 ---
@@ -334,10 +332,10 @@ docker-compose up -d
 
 ---
 
-Make the script executable
+Make the script executable:
 
 ```bash
-$ chmod +x p2pUpdate.sh
+chmod +x p2pUpdate.sh
 ```
 
 To update your MiroTalk P2P instance to the latest version, run the script:

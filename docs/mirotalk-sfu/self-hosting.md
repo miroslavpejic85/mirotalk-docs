@@ -33,10 +33,10 @@ MiroTalk SFU is a scalable WebRTC solution for multi-party calls, using a Select
 export DEBIAN_FRONTEND=noninteractive
 
 # Update package lists
-$ apt-get update -y
+apt-get update -y
 
 # Install required system packages
-$ apt-get install -y \
+apt-get install -y \
     build-essential \
     git \
     curl \
@@ -47,9 +47,9 @@ $ apt-get install -y \
     ffmpeg
 
 # Install Python 3.8 and pip
-$ add-apt-repository -y ppa:deadsnakes/ppa
-$ apt-get update -y
-$ apt-get install -y python3.8 python3-pip
+add-apt-repository -y ppa:deadsnakes/ppa
+apt-get update -y
+apt-get install -y python3.8 python3-pip
 ```
 
 ---
@@ -63,17 +63,17 @@ Install `NodeJS` and `npm` using [Node Version Manager](../utility/nvm.md)
 ## Quick start
 
 ```bash
-# Clone this repo
-$ git clone https://github.com/miroslavpejic85/mirotalksfu.git
+# Clone the repository
+git clone https://github.com/miroslavpejic85/mirotalksfu.git
 
-# Go to to dir mirotalksfu
-$ cd mirotalksfu
+# Navigate to the project directory
+cd mirotalksfu
 
-# Copy app/src/config.template.js in app/src/config.js
-$ cp app/src/config.template.js app/src/config.js
+# Copy the config template and customize as needed
+cp app/src/config.template.js app/src/config.js
 
-# Copy .env.template to .env and edit it if needed
-$ cp .env.template .env
+# Copy the environment template and customize as needed
+cp .env.template .env
 ```
 
 ---
@@ -156,14 +156,14 @@ Here's how it works:
 ### Install dependencies and start the server
 
 ```bash
-# Install dependencies - be patient, the first time will take a few minutes, in the meantime have a good coffee ;)
-$ npm ci
+# Install dependencies (first run may take a few minutes)
+npm ci
 
 # Start the server
-$ npm start
+npm start
 ```
 
-Check if is correctly installed: [http://YOUR.DOMAIN.NAME:3010](http://YOUR.DOMAIN.NAME:3010)
+Verify the installation: [http://YOUR.DOMAIN.NAME:3010](http://YOUR.DOMAIN.NAME:3010)
 
 ---
 
@@ -172,17 +172,17 @@ Check if is correctly installed: [http://YOUR.DOMAIN.NAME:3010](http://YOUR.DOMA
 ![pm2](../images/pm2.png)
 
 ```bash
-# Install pm2
-$ npm install -g pm2
+# Install PM2
+npm install -g pm2
 
 # Start the server
-$ pm2 start app/src/Server.js --name mirotalksfu
+pm2 start app/src/Server.js --name mirotalksfu
 
-# Takes a snapshot
-$ pm2 save
+# Save the process list
+pm2 save
 
-# Add it on startup
-$ pm2 startup
+# Enable auto-start on boot
+pm2 startup
 ```
 
 ---
@@ -192,26 +192,24 @@ $ pm2 startup
 ![docker](../images/docker.png)
 
 ```bash
-# Install docker
-$ sudo apt install -y docker.io
+# Install Docker and Docker Compose
+sudo apt install -y docker.io
+sudo apt install -y docker-compose
 
-# Instal docker-compose
-$ sudo apt install -y docker-compose
+# Clone the repository
+git clone https://github.com/miroslavpejic85/mirotalksfu.git
 
-# Clone this repo
-$ git clone https://github.com/miroslavpejic85/mirotalksfu.git
+# Navigate to the project directory
+cd mirotalksfu
 
-# Go to to dir mirotalksfu
-$ cd mirotalksfu
+# Copy and customize the config template
+cp app/src/config.template.js app/src/config.js
 
-# Copy app/src/config.template.js in app/src/config.js IMPORTANT (edit it according to your needs)
-$ cp app/src/config.template.js app/src/config.js
+# Copy and customize the environment template
+cp .env.template .env
 
-# Copy .env.template to .env and edit it if needed
-$ cp .env.template .env
-
-# Copy docker-compose.template.yml in docker-compose.yml and customize it according to your needs if needed
-$ cp docker-compose.template.yml docker-compose.yml
+# Copy and customize the Docker Compose template
+cp docker-compose.template.yml docker-compose.yml
 ```
 
 Example of `docker-compose.yml`:
@@ -232,13 +230,13 @@ services:
 
 ```bash
 # Pull the official Docker image
-$ docker-compose pull
+docker-compose pull
 
-# Create and start containers (-d as daemon)
-$ docker-compose up
+# Create and start containers (add -d to run in background)
+docker-compose up
 ```
 
-Check if is correctly installed: [http://YOUR.DOMAIN.NAME:3010](http://YOUR.DOMAIN.NAME:3010)
+Verify the installation: [http://YOUR.DOMAIN.NAME:3010](http://YOUR.DOMAIN.NAME:3010)
 
 ---
 
@@ -246,20 +244,20 @@ Check if is correctly installed: [http://YOUR.DOMAIN.NAME:3010](http://YOUR.DOMA
 
 ![nginx](../images/nginx.png)
 
-In order to use it without the port number and to have encrypted communications (`mandatory to make it work correctly`), we going to install [nginx](https://www.nginx.com) and [certbot](https://certbot.eff.org)
+To use MiroTalk SFU without the port number and with encrypted communications (required for WebRTC to work correctly), install [Nginx](https://www.nginx.com) and [Certbot](https://certbot.eff.org):
 
 ```bash
 # Install Nginx
-$ sudo apt-get install -y nginx
+sudo apt-get install -y nginx
 
 # Install Certbot (SSL certificates)
-$ sudo apt install -y snapd
-$ sudo snap install core; sudo snap refresh core
-$ sudo snap install --classic certbot
-$ sudo ln -s /snap/bin/certbot /usr/bin/certbot
+sudo apt install -y snapd
+sudo snap install core; sudo snap refresh core
+sudo snap install --classic certbot
+sudo ln -s /snap/bin/certbot /usr/bin/certbot
 
 # Configure Nginx
-$ sudo vim /etc/nginx/sites-enabled/default
+sudo vim /etc/nginx/sites-enabled/default
 ```
 
 Add the following:
@@ -277,16 +275,16 @@ server {
 
 ```bash
 # Test Nginx configuration
-$ sudo nginx -t
+sudo nginx -t
 
-# Enable HTTPS with Certbot (follow the instruction)
-$ sudo certbot certonly --nginx
+# Enable HTTPS with Certbot (follow the prompts)
+sudo certbot certonly --nginx
 
 # Add Let's Encrypt configuration to Nginx
-$ sudo vim /etc/nginx/sites-enabled/default
+sudo vim /etc/nginx/sites-enabled/default
 ```
 
-Paste this:
+Add the following:
 
 ```bash
 # MiroTalk SFU - HTTPS — proxy all requests to the Node app
@@ -313,20 +311,20 @@ server {
 
 ```bash
 # Test Nginx configuration again
-$ sudo nginx -t
+sudo nginx -t
 
-# Restart nginx
-$ service nginx restart
-$ service nginx status
+# Restart Nginx
+service nginx restart
+service nginx status
 
 # Set up auto-renewal for SSL certificates
-$ sudo certbot renew --dry-run --cert-name YOUR.DOMAIN.NAME
+sudo certbot renew --dry-run --cert-name YOUR.DOMAIN.NAME
 
 # Show certificates
-$ sudo certbot certificates
+sudo certbot certificates
 ```
 
-Check Your MiroTalk SFU instance: [http://YOUR.DOMAIN.NAME](http://YOUR.DOMAIN.NAME)
+Verify your MiroTalk SFU instance: [https://YOUR.DOMAIN.NAME](https://YOUR.DOMAIN.NAME)
 
 ---
 
@@ -337,14 +335,14 @@ Check Your MiroTalk SFU instance: [http://YOUR.DOMAIN.NAME](http://YOUR.DOMAIN.N
 If you prefer `Apache`, configure it with the equivalent settings provided in this guide.
 
 ```bash
-# Install apache with certbot
-$ apt install python3-certbot-apache -y
+# Install Apache with Certbot
+apt install python3-certbot-apache -y
 
-# Setting up ssl
-$ certbot --apache --non-interactive --agree-tos -d YOUR.DOMAIN.NAME -m your.email.address
+# Set up SSL
+certbot --apache --non-interactive --agree-tos -d YOUR.DOMAIN.NAME -m your.email.address
 
-# Edit the apache sites
-$ sudo vim /etc/apache2/sites-enabled/YOUR.DOMAIN.NAME.conf
+# Edit the Apache site configuration
+sudo vim /etc/apache2/sites-enabled/YOUR.DOMAIN.NAME.conf
 ```
 
 Add the following:
@@ -411,7 +409,7 @@ To keep your MiroTalk SFU instance up to date, create an update script:
 ```bash
 cd
 # Create a file sfuUpdate.sh
-$ vim sfuUpdate.sh
+vim sfuUpdate.sh
 ```
 
 ---
@@ -447,7 +445,7 @@ docker-compose up -d
 Make the script executable
 
 ```bash
-$ chmod +x sfuUpdate.sh
+chmod +x sfuUpdate.sh
 ```
 
 To update your MiroTalk SFU instance to the latest version, run the script:

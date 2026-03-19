@@ -128,7 +128,7 @@ curl $MIROTALK_URL \
 
 ---
 
-## Active meetings
+## Active Meetings
 
 Upon a successful request, the API response will provide the active Meetings. The authorization for this request is determined by the `api.keySecret` configuration specified in your `config.js` file.
 

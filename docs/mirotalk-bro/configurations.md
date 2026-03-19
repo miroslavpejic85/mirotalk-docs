@@ -5,7 +5,7 @@
 This system relies on two primary configuration files for customization:  
 
 !!! warning "Configuration Required"
-    **Before proceeding, ensure you've copied these critical file:**  
+    **Before proceeding, ensure you've copied this critical file:**  
  
     - 🔧 `.env.template` → `.env`  
 

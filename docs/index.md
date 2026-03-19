@@ -85,25 +85,25 @@ After setting up your MiroTalk instances, update the `src` attribute with your c
 
 Integrate MiroTalk into existing platforms like Perfex, PlayTube, Sngine, Wowonder, or any web application.
 
-#### 1. HTML Button
+### Step 1: HTML Button
 
 Add a button to trigger a video conference session:
 
 ```html
 <!-- Button for Javascript -->
 
-<button id="startConferenceButton">Start Video Conference></button>
+<button id="startConferenceButton">Start Video Conference</button>
 
 <!-- Button for PHP-->
 
 <form method="post">
   <button type="submit" name="startConferenceButton" id="startConferenceButton">
-    Start Conference>
+    Start Conference
   </button>
 </form>
 ```
 
-#### 2. Handle the Click Event
+### Step 2: Handle the Click Event
 
 **JavaScript:**
 
@@ -128,7 +128,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ```
 
-#### 3. Video Conference Page
+### Step 3: Video Conference Page
 
 Create a dedicated `videoConference.html` page:
 
@@ -179,9 +179,9 @@ function toggleMiroTalk() {
 
 After setting up your MiroTalk instances, update the `src` attribute with your custom domain or subdomain.
 
-#### 4. Customize the iframe `src`
+### Step 4: Customize the iframe `src`
 
-Use query parameters to customize the URL — see the "join-room" guide for each variant:
+Use query parameters to customize the URL — see the join-room guide for each variant:
 
 - [MiroTalk SFU direct join](./mirotalk-sfu/join-room.md)
 - [MiroTalk P2P direct join](./mirotalk-p2p/join-room.md)
