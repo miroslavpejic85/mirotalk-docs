@@ -137,6 +137,14 @@ server {
     root /var/www/site;
     index index.html;
 
+    # Disable caching for HTML files to always serve the latest content
+    location ~* \.html$ {
+        add_header Cache-Control "no-cache, no-store, must-revalidate";
+        add_header Pragma "no-cache";
+        add_header Expires "0";
+        try_files $uri $uri/ =404;
+    }
+
     location / {
         try_files $uri $uri/ =404;
     }
@@ -204,6 +212,13 @@ Add the following:
     </Directory>
 
     ErrorDocument 404 /404.html
+
+    # Disable caching for HTML files to always serve the latest content
+    <FilesMatch "\.html$">
+        Header set Cache-Control "no-cache, no-store, must-revalidate"
+        Header set Pragma "no-cache"
+        Header set Expires "0"
+    </FilesMatch>
 
     <Location />
         Options FollowSymLinks
