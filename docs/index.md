@@ -199,3 +199,72 @@ You can also generate meeting URLs via the REST API:
 - [MiroTalk WEB REST API](./mirotalk-web/api.md)
 
 ---
+
+## Self-Hosting
+
+Deploy MiroTalk on your own server for full control over your data and infrastructure.
+
+| Project | Self-Hosting Guide | Configurations |
+| :--- | :--- | :--- |
+| 🏆 **SFU** | [Self-hosting](./mirotalk-sfu/self-hosting.md) | [Config](./mirotalk-sfu/configurations.md) |
+| 🚀 **P2P** | [Self-hosting](./mirotalk-p2p/self-hosting.md) | [Config](./mirotalk-p2p/configurations.md) |
+| ✨ **C2C** | [Self-hosting](./mirotalk-c2c/self-hosting.md) | [Config](./mirotalk-c2c/configurations.md) |
+| 📡 **BRO** | [Self-hosting](./mirotalk-bro/self-hosting.md) | [Config](./mirotalk-bro/configurations.md) |
+| 🛠 **WEB** | [Self-hosting](./mirotalk-web/self-hosting.md) | [Config](./mirotalk-web/configurations.md) |
+| ⚙️ **ADMIN** | [Self-hosting](./mirotalk-admin/self-hosting.md) | — |
+
+---
+
+## Deployment Options
+
+Multiple deployment methods are available to suit different environments:
+
+| Method | Description | Guide |
+| :--- | :--- | :--- |
+| 📜 **Install Scripts** | Automated setup on Ubuntu with a single command | [Scripts guide](./scripts/about.md) |
+| 🐳 **Docker Compose** | Containerized deployment for easy management | [Docker guide](./utility/docker-compose.md) |
+| ☁️ **Cloudron** | One-click deployment with automatic updates and backups | [Cloudron guide](./cloudron/cloudron.md) |
+
+---
+
+## WebRTC Architectures
+
+Understanding WebRTC architectures helps you choose the right MiroTalk product for your use case:
+
+| Architecture | How It Works | Best For |
+| :--- | :--- | :--- |
+| **Mesh (P2P)** | Peers connect directly to each other | Small groups, low latency |
+| **SFU** | Central server selectively forwards streams | Larger meetings, scalable |
+| **MCU** | Server mixes all streams into one | Centralized control, media mixing |
+
+📖 [Learn more about WebRTC architectures](./webrtc/architectures.md)
+
+---
+
+## Advanced Features
+
+MiroTalk offers powerful capabilities beyond basic video conferencing:
+
+| Feature | Description | Guide |
+| :--- | :--- | :--- |
+| 📺 **RTMP Streaming** | Live stream to platforms via Node Media Server or Nginx RTMP | [RTMP guide](./mirotalk-sfu/rtmp.md) |
+| 📈 **Scalability** | Scale to 100–1000+ concurrent users with vertical or horizontal scaling | [Scalability guide](./mirotalk-sfu/scalability.md) |
+| 🔗 **Webhooks** | Event-driven integrations for room and user events | [SFU webhooks](./mirotalk-sfu/webhook.md) · [P2P webhooks](./mirotalk-p2p/webhook.md) |
+| 🛡️ **Host Protection** | Restrict room access and manage participants | [SFU](./mirotalk-sfu/host-protection.md) · [P2P](./mirotalk-p2p/host-protection.md) |
+| 🎨 **Rebranding** | Customize the look and feel with your own brand | [SFU](./mirotalk-sfu/rebranding.md) · [P2P](./mirotalk-p2p/rebranding.md) |
+
+---
+
+## Infrastructure & Utilities
+
+Guides for setting up the supporting infrastructure:
+
+| Topic | Description | Guide |
+| :--- | :--- | :--- |
+| 🌐 **STUN/TURN** | NAT traversal with Coturn for reliable peer connections | [STUN/TURN overview](./coturn/stun-turn.md) · [Installation](./coturn/installation.md) |
+| 🔧 **Ngrok** | Expose local servers via secure public URLs for development and testing | [Ngrok guide](./ngrok/ngrok.md) |
+| 📦 **NVM** | Manage multiple Node.js versions on your server | [NVM guide](./utility/nvm.md) |
+| 📁 **FTP** | Set up an FTP server for file transfers | [FTP guide](./utility/ftp.md) |
+| 🔄 **System Updates** | Keep your server up to date | [Update guide](./utility/update.md) |
+
+---
