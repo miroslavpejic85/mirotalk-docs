@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiroTalk WEB - Banner</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0a0a0a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px;
+        }
+
+        .banner {
+            width: 100%;
+            max-width: 1200px;
+            background: linear-gradient(145deg, #0d1117 0%, #0d1720 50%, #0d1117 100%);
+            border-radius: 24px;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid rgba(6, 182, 212, 0.1);
+        }
+
+        .banner::before {
+            content: '';
+            position: absolute;
+            top: -2px; left: -2px; right: -2px; bottom: -2px;
+            background: linear-gradient(45deg, #06b6d4, #0ea5e9, #3b82f6, #06b6d4);
+            border-radius: 25px;
+            z-index: -1;
+            opacity: 0.35;
+            filter: blur(8px);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 60px 60px 36px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -60%; left: 50%;
+            transform: translateX(-50%);
+            width: 800px; height: 800px;
+            background: radial-gradient(circle, rgba(6, 182, 212, 0.10) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(6, 182, 212, 0.08);
+            border: 1px solid rgba(6, 182, 212, 0.2);
+            padding: 8px 20px;
+            border-radius: 50px;
+            margin-bottom: 24px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #67e8f9;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .hero-badge .dot {
+            width: 8px; height: 8px;
+            background: #06b6d4;
+            border-radius: 50%;
+            animation: pulse-dot 2s infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        .hero h1 {
+            font-size: 54px;
+            font-weight: 900;
+            color: #ffffff;
+            margin-bottom: 6px;
+            letter-spacing: -1.5px;
+            line-height: 1.1;
+        }
+
+        .hero h1 .gradient-text {
+            background: linear-gradient(135deg, #06b6d4, #0ea5e9, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 19px;
+            color: #8b949e;
+            margin-bottom: 8px;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+
+        .hero-tagline {
+            font-size: 15px;
+            color: #22d3ee;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+
+        /* Dashboard Preview */
+        .dashboard-section {
+            padding: 32px 60px;
+        }
+
+        .dashboard {
+            background: rgba(6, 182, 212, 0.03);
+            border: 1px solid rgba(6, 182, 212, 0.1);
+            border-radius: 20px;
+            padding: 32px;
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            gap: 24px;
+        }
+
+        .dash-sidebar {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 14px;
+            padding: 20px;
+        }
+
+        .dash-sidebar .user-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .dash-sidebar .user-avatar {
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #06b6d4, #0ea5e9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .dash-sidebar .user-name {
+            font-size: 14px;
+            font-weight: 700;
+            color: #e6edf3;
+        }
+
+        .dash-sidebar .user-role {
+            font-size: 11px;
+            color: #6e7681;
+        }
+
+        .dash-nav-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 12px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #8b949e;
+            margin-bottom: 4px;
+        }
+
+        .dash-nav-item.active {
+            background: rgba(6, 182, 212, 0.1);
+            color: #22d3ee;
+        }
+
+        .dash-main {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .dash-cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+
+        .dash-card {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+        }
+
+        .dash-card .card-icon {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .dash-card .card-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: #6e7681;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 2px;
+        }
+
+        .dash-card .card-value {
+            font-size: 20px;
+            font-weight: 800;
+            color: #22d3ee;
+        }
+
+        .dash-room-list {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 16px;
+        }
+
+        .dash-room-list h4 {
+            font-size: 13px;
+            font-weight: 700;
+            color: #e6edf3;
+            margin-bottom: 12px;
+        }
+
+        .room-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .room-row:last-child { border-bottom: none; }
+
+        .room-info {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .room-info .room-icon { font-size: 16px; }
+
+        .room-info .room-name {
+            font-size: 12px;
+            font-weight: 600;
+            color: #c9d1d9;
+        }
+
+        .room-info .room-type {
+            font-size: 10px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .room-type.p2p { background: rgba(34, 197, 94, 0.1); color: #4ade80; }
+        .room-type.sfu { background: rgba(99, 102, 241, 0.1); color: #818cf8; }
+        .room-type.c2c { background: rgba(236, 72, 153, 0.1); color: #f472b6; }
+        .room-type.bro { background: rgba(245, 158, 11, 0.1); color: #fbbf24; }
+
+        .room-date {
+            font-size: 11px;
+            color: #6e7681;
+        }
+
+        /* MiroTalk versions supported */
+        .versions-bar {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin: 0 60px 36px;
+        }
+
+        .version-chip {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
+            padding: 18px 16px;
+            text-align: center;
+        }
+
+        .version-chip .chip-icon { font-size: 24px; margin-bottom: 6px; display: block; }
+
+        .version-chip h4 {
+            font-size: 14px;
+            font-weight: 800;
+            color: #e6edf3;
+            margin-bottom: 4px;
+        }
+
+        .version-chip p {
+            font-size: 11px;
+            color: #8b949e;
+            line-height: 1.4;
+        }
+
+        .version-chip.p2p { border-color: rgba(34, 197, 94, 0.15); }
+        .version-chip.sfu { border-color: rgba(99, 102, 241, 0.15); }
+        .version-chip.c2c { border-color: rgba(236, 72, 153, 0.15); }
+        .version-chip.bro { border-color: rgba(245, 158, 11, 0.15); }
+
+        /* Features */
+        .features-section { padding: 0 60px 36px; }
+
+        .features-header {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .features-header h2 {
+            font-size: 26px;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: -0.5px;
+            margin-bottom: 6px;
+        }
+
+        .features-header p { font-size: 14px; color: #8b949e; }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 12px;
+        }
+
+        .feature {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 14px;
+            padding: 20px 14px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .feature:hover {
+            background: rgba(6, 182, 212, 0.04);
+            border-color: rgba(6, 182, 212, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .feature-icon { font-size: 28px; margin-bottom: 10px; display: block; }
+
+        .feature h4 {
+            font-size: 11.5px;
+            font-weight: 700;
+            color: #e6edf3;
+            letter-spacing: 0.2px;
+            line-height: 1.3;
+        }
+
+
+        /* CTA */
+        .cta {
+            padding: 36px 60px 50px;
+            text-align: center;
+            position: relative;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 50%;
+            transform: translateX(-50%);
+            width: 600px; height: 400px;
+            background: radial-gradient(circle, rgba(6, 182, 212, 0.06) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 36px;
+            border-radius: 14px;
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            letter-spacing: 0.2px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #06b6d4, #0ea5e9);
+            color: #ffffff;
+            box-shadow: 0 4px 24px rgba(6, 182, 212, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 32px rgba(6, 182, 212, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: #c9d1d9;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .cta-note {
+            font-size: 13px;
+            color: #6e7681;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .cta-note span { display: flex; align-items: center; gap: 6px; }
+        .check-icon { color: #06b6d4; font-weight: bold; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            body { padding: 16px; }
+            .banner { width: 100%; border-radius: 16px; }
+            .banner::before { border-radius: 17px; }
+            .hero { padding: 36px 24px 24px; }
+            .hero h1 { font-size: 32px; letter-spacing: -1px; }
+            .hero-subtitle { font-size: 15px; }
+            .hero-tagline { font-size: 13px; }
+            .hero-badge { font-size: 11px; padding: 6px 14px; }
+            .dashboard-section { padding: 20px 24px; }
+            .dashboard { grid-template-columns: 1fr; gap: 16px; padding: 20px; }
+            .dash-sidebar { padding: 16px; }
+            .dash-cards { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+            .dash-card { padding: 12px; }
+            .dash-card .card-value { font-size: 18px; }
+            .dash-card .card-icon { font-size: 20px; }
+            .room-row { flex-direction: column; align-items: flex-start; gap: 4px; }
+            .versions-bar { grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 0 24px 24px; }
+            .version-chip { padding: 14px 12px; }
+            .version-chip h4 { font-size: 13px; }
+            .features-section { padding: 0 24px 24px; }
+            .features-header h2 { font-size: 20px; }
+            .features-header p { font-size: 12px; }
+            .features-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            .feature { padding: 14px 10px; }
+            .feature-icon { font-size: 22px; margin-bottom: 6px; }
+            .feature h4 { font-size: 11px; }
+            .cta { padding: 24px 24px 36px; }
+            .cta-buttons { flex-direction: column; gap: 10px; }
+            .btn { padding: 14px 24px; font-size: 14px; justify-content: center; }
+            .cta-note { flex-direction: column; gap: 8px; font-size: 12px; }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 26px; }
+            .hero-subtitle { font-size: 14px; }
+            .dash-cards { grid-template-columns: 1fr 1fr; }
+            .versions-bar { grid-template-columns: 1fr 1fr; }
+            .dash-nav-item { font-size: 12px; padding: 8px 10px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="banner">
+
+    <!-- Hero -->
+    <div class="hero">
+        <div class="hero-badge">
+            <span class="dot"></span>
+            WebRTC Rooms Scheduler & Admin Dashboard
+        </div>
+        <h1>
+            <span class="gradient-text">MiroTalk WEB</span>
+        </h1>
+        <p class="hero-subtitle">
+            Manage Users, Schedule Meetings & Control All MiroTalk Versions from One Dashboard
+        </p>
+        <p class="hero-tagline">
+            User Management &bull; Room Scheduling &bull; Email / SMS Invites &bull; MongoDB Powered
+        </p>
+    </div>
+
+    <!-- Dashboard Preview -->
+    <div class="dashboard-section">
+        <div class="dashboard">
+            <div class="dash-sidebar">
+                <div class="user-info">
+                    <div class="user-avatar">👤</div>
+                    <div>
+                        <div class="user-name">Admin User</div>
+                        <div class="user-role">Administrator</div>
+                    </div>
+                </div>
+                <div class="dash-nav-item active">📊 Dashboard</div>
+                <div class="dash-nav-item">👥 Users</div>
+                <div class="dash-nav-item">🏠 Rooms</div>
+                <div class="dash-nav-item">📅 Schedule</div>
+                <div class="dash-nav-item">📧 Invitations</div>
+                <div class="dash-nav-item">⚙️ Settings</div>
+            </div>
+            <div class="dash-main">
+                <div class="dash-cards">
+                    <div class="dash-card">
+                        <div class="card-icon">👥</div>
+                        <div class="card-label">Users</div>
+                        <div class="card-value">∞</div>
+                    </div>
+                    <div class="dash-card">
+                        <div class="card-icon">🏠</div>
+                        <div class="card-label">Rooms</div>
+                        <div class="card-value">∞</div>
+                    </div>
+                    <div class="dash-card">
+                        <div class="card-icon">📅</div>
+                        <div class="card-label">Scheduled</div>
+                        <div class="card-value">∞</div>
+                    </div>
+                    <div class="dash-card">
+                        <div class="card-icon">🔌</div>
+                        <div class="card-label">Versions</div>
+                        <div class="card-value">4</div>
+                    </div>
+                </div>
+                <div class="dash-room-list">
+                    <h4>Scheduled Meetings</h4>
+                    <div class="room-row">
+                        <div class="room-info">
+                            <span class="room-icon">🔗</span>
+                            <span class="room-name">Team Standup</span>
+                            <span class="room-type p2p">P2P</span>
+                        </div>
+                        <span class="room-date">Today 10:00 AM</span>
+                    </div>
+                    <div class="room-row">
+                        <div class="room-info">
+                            <span class="room-icon">🖥️</span>
+                            <span class="room-name">Company All-Hands</span>
+                            <span class="room-type sfu">SFU</span>
+                        </div>
+                        <span class="room-date">Today 2:00 PM</span>
+                    </div>
+                    <div class="room-row">
+                        <div class="room-info">
+                            <span class="room-icon">💬</span>
+                            <span class="room-name">Client Consultation</span>
+                            <span class="room-type c2c">C2C</span>
+                        </div>
+                        <span class="room-date">Tomorrow 9:00 AM</span>
+                    </div>
+                    <div class="room-row">
+                        <div class="room-info">
+                            <span class="room-icon">📡</span>
+                            <span class="room-name">Product Demo</span>
+                            <span class="room-type bro">BRO</span>
+                        </div>
+                        <span class="room-date">Fri 3:00 PM</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Versions Supported -->
+    <div class="versions-bar">
+        <div class="version-chip p2p">
+            <span class="chip-icon">🔗</span>
+            <h4>P2P</h4>
+            <p>Small groups, 5-8 users per room</p>
+        </div>
+        <div class="version-chip sfu">
+            <span class="chip-icon">🖥️</span>
+            <h4>SFU</h4>
+            <p>Large groups, 8+ users per room</p>
+        </div>
+        <div class="version-chip c2c">
+            <span class="chip-icon">💬</span>
+            <h4>C2C</h4>
+            <p>1-on-1, 2 users per room</p>
+        </div>
+        <div class="version-chip bro">
+            <span class="chip-icon">📡</span>
+            <h4>BRO</h4>
+            <p>1 broadcaster, many viewers</p>
+        </div>
+    </div>
+
+    <!-- Features -->
+    <div class="features-section">
+        <div class="features-header">
+            <h2>Complete Admin & Scheduling Platform</h2>
+            <p>Centralized management for all your MiroTalk deployments</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature">
+                <span class="feature-icon">👥</span>
+                <h4>User Management</h4>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">📅</span>
+                <h4>Room Scheduling</h4>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">📧</span>
+                <h4>Email Invites</h4>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">📱</span>
+                <h4>SMS Invites</h4>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">🔐</span>
+                <h4>Authentication</h4>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">🗄️</span>
+                <h4>MongoDB</h4>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">📊</span>
+                <h4>Admin Dashboard</h4>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">🔌</span>
+                <h4>All MiroTalk Versions</h4>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">⚡</span>
+                <h4>REST API</h4>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">🐳</span>
+                <h4>Docker Ready</h4>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- CTA -->
+    <div class="cta">
+        <div class="cta-buttons">
+            <a href="https://codecanyon.net/item/a-selfhosted-mirotalks-webrtc-rooms-scheduler-server/42643313" class="btn btn-primary">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                Buy WEB Commercial License
+            </a>
+            <a href="https://webrtc.mirotalk.com" class="btn btn-secondary">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                Try Live Demo
+            </a>
+        </div>
+        <div class="cta-note">
+            <span><span class="check-icon">✓</span> Lifetime Updates</span>
+            <span><span class="check-icon">✓</span> Priority Support</span>
+            <span><span class="check-icon">✓</span> Full Source Code</span>
+            <span><span class="check-icon">✓</span> Commercial Use</span>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

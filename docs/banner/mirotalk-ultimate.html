@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiroTalk Ultimate Bundle - Banner</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0a0a0a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px;
+        }
+
+        .banner {
+            width: 100%;
+            max-width: 1200px;
+            background: linear-gradient(145deg, #0d1117 0%, #161b22 50%, #0d1117 100%);
+            border-radius: 24px;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .banner::before {
+            content: '';
+            position: absolute;
+            top: -2px; left: -2px; right: -2px; bottom: -2px;
+            background: linear-gradient(45deg, #22c55e, #6366f1, #ec4899, #f59e0b, #06b6d4, #22c55e);
+            background-size: 300% 300%;
+            border-radius: 25px;
+            z-index: -1;
+            opacity: 0.5;
+            filter: blur(10px);
+            animation: gradient-rotate 8s ease infinite;
+        }
+
+        @keyframes gradient-rotate {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Hero */
+        .hero {
+            padding: 60px 60px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -40%; left: 50%;
+            transform: translateX(-50%);
+            width: 1000px; height: 600px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.08), rgba(255, 165, 0, 0.05));
+            border: 1px solid rgba(255, 215, 0, 0.25);
+            padding: 8px 24px;
+            border-radius: 50px;
+            margin-bottom: 24px;
+            font-size: 13px;
+            font-weight: 700;
+            color: #fde68a;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+        }
+
+        .hero-badge .crown { font-size: 16px; }
+
+        .hero h1 {
+            font-size: 58px;
+            font-weight: 900;
+            color: #ffffff;
+            margin-bottom: 8px;
+            letter-spacing: -2px;
+            line-height: 1.05;
+        }
+
+        .hero h1 .gradient-text {
+            background: linear-gradient(135deg, #fde68a, #fbbf24, #f59e0b, #fde68a);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 3s ease infinite;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
+
+        .hero h1 .white { -webkit-text-fill-color: #ffffff; }
+
+        .hero-subtitle {
+            font-size: 20px;
+            color: #8b949e;
+            margin-bottom: 8px;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+
+        .hero-tagline {
+            font-size: 16px;
+            font-weight: 700;
+            background: linear-gradient(90deg, #22c55e, #6366f1, #ec4899, #f59e0b, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 0.3px;
+        }
+
+        /* Products Grid */
+        .products {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 16px;
+            padding: 36px 60px;
+        }
+
+        .product {
+            border-radius: 18px;
+            padding: 28px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .product:hover { transform: translateY(-4px); }
+
+        .product .product-icon {
+            font-size: 36px;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .product h3 {
+            font-size: 18px;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 4px;
+            letter-spacing: -0.3px;
+        }
+
+        .product .product-type {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .product p {
+            font-size: 12px;
+            color: #8b949e;
+            line-height: 1.5;
+        }
+
+        /* P2P */
+        .product.p2p {
+            background: linear-gradient(160deg, rgba(34, 197, 94, 0.06) 0%, rgba(34, 197, 94, 0.02) 100%);
+            border: 1px solid rgba(34, 197, 94, 0.15);
+        }
+        .product.p2p .product-type { color: #4ade80; }
+
+        /* SFU */
+        .product.sfu {
+            background: linear-gradient(160deg, rgba(99, 102, 241, 0.06) 0%, rgba(99, 102, 241, 0.02) 100%);
+            border: 1px solid rgba(99, 102, 241, 0.15);
+        }
+        .product.sfu .product-type { color: #818cf8; }
+
+        /* C2C */
+        .product.c2c {
+            background: linear-gradient(160deg, rgba(236, 72, 153, 0.06) 0%, rgba(236, 72, 153, 0.02) 100%);
+            border: 1px solid rgba(236, 72, 153, 0.15);
+        }
+        .product.c2c .product-type { color: #f472b6; }
+
+        /* BRO */
+        .product.bro {
+            background: linear-gradient(160deg, rgba(245, 158, 11, 0.06) 0%, rgba(245, 158, 11, 0.02) 100%);
+            border: 1px solid rgba(245, 158, 11, 0.15);
+        }
+        .product.bro .product-type { color: #fbbf24; }
+
+        /* WEB */
+        .product.web {
+            background: linear-gradient(160deg, rgba(6, 182, 212, 0.06) 0%, rgba(6, 182, 212, 0.02) 100%);
+            border: 1px solid rgba(6, 182, 212, 0.15);
+        }
+        .product.web .product-type { color: #22d3ee; }
+
+        /* ADMIN */
+        .product.admin {
+            background: linear-gradient(160deg, rgba(168, 85, 247, 0.06) 0%, rgba(168, 85, 247, 0.02) 100%);
+            border: 1px solid rgba(168, 85, 247, 0.15);
+        }
+        .product.admin .product-type { color: #c084fc; }
+
+        /* Bundle Value */
+        .value-section {
+            margin: 0 60px 32px;
+            background: linear-gradient(145deg, rgba(255, 215, 0, 0.04), rgba(255, 165, 0, 0.02));
+            border: 1px solid rgba(255, 215, 0, 0.12);
+            border-radius: 20px;
+            padding: 32px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .value-left h3 {
+            font-size: 24px;
+            font-weight: 900;
+            color: #ffffff;
+            margin-bottom: 6px;
+            letter-spacing: -0.5px;
+        }
+
+        .value-left p {
+            font-size: 14px;
+            color: #8b949e;
+            line-height: 1.6;
+            max-width: 500px;
+        }
+
+        .value-right {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+        }
+
+        .value-stat {
+            text-align: center;
+        }
+
+        .value-stat .stat-value {
+            font-size: 36px;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+
+        .value-stat .stat-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: #8b949e;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .value-stat:nth-child(1) .stat-value { color: #fbbf24; }
+        .value-stat:nth-child(2) .stat-value { color: #4ade80; }
+        .value-stat:nth-child(3) .stat-value { color: #818cf8; }
+
+        .value-divider {
+            width: 1px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        /* Feature Summary */
+        .features-summary {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 10px;
+            margin: 0 60px 32px;
+        }
+
+        .feat {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 16px 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .feat:hover {
+            background: rgba(255, 255, 255, 0.04);
+            transform: translateY(-2px);
+        }
+
+        .feat-icon { font-size: 24px; margin-bottom: 6px; display: block; }
+
+        .feat h4 {
+            font-size: 10.5px;
+            font-weight: 700;
+            color: #c9d1d9;
+            letter-spacing: 0.1px;
+            line-height: 1.3;
+        }
+
+        /* Tech Bar */
+        .tech-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 28px;
+            padding: 18px 60px;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .tech-item {
+            font-size: 13px;
+            font-weight: 600;
+            color: #6e7681;
+        }
+
+        /* CTA */
+        .cta {
+            padding: 36px 60px 50px;
+            text-align: center;
+            position: relative;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 50%;
+            transform: translateX(-50%);
+            width: 800px; height: 400px;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.05) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 18px 42px;
+            border-radius: 14px;
+            font-size: 16px;
+            font-weight: 800;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            letter-spacing: 0.3px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b, #f97316);
+            color: #000000;
+            box-shadow: 0 4px 30px rgba(251, 191, 36, 0.35);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 40px rgba(251, 191, 36, 0.5);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: #c9d1d9;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .cta-note {
+            font-size: 13px;
+            color: #6e7681;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .cta-note span { display: flex; align-items: center; gap: 6px; }
+        .check-icon { color: #fbbf24; font-weight: bold; }
+
+        .save-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.15), rgba(239, 68, 68, 0.05));
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            color: #fca5a5;
+            font-size: 13px;
+            font-weight: 800;
+            padding: 6px 16px;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            letter-spacing: 0.5px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            body { padding: 16px; }
+            .banner { width: 100%; border-radius: 16px; }
+            .banner::before { border-radius: 17px; }
+            .hero { padding: 36px 24px 16px; }
+            .hero h1 { font-size: 30px; letter-spacing: -1px; }
+            .hero-subtitle { font-size: 15px; }
+            .hero-tagline { font-size: 13px; }
+            .hero-badge { font-size: 11px; padding: 6px 14px; }
+            .products { grid-template-columns: repeat(3, 1fr); gap: 12px; padding: 24px 24px; }
+            .product { padding: 20px 16px; border-radius: 14px; }
+            .product .product-icon { font-size: 28px; }
+            .product h3 { font-size: 16px; }
+            .product p { font-size: 11px; }
+            .value-section { margin: 0 24px 24px; flex-direction: column; gap: 20px; padding: 24px; }
+            .value-left h3 { font-size: 20px; }
+            .value-left p { font-size: 13px; }
+            .value-right { gap: 20px; }
+            .value-stat .stat-value { font-size: 28px; }
+            .value-divider { width: 40px; height: 1px; }
+            .features-summary { grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 0 24px 24px; }
+            .feat { padding: 12px 8px; }
+            .feat-icon { font-size: 20px; }
+            .feat h4 { font-size: 10px; }
+            .tech-bar { flex-wrap: wrap; gap: 10px; padding: 16px 24px; justify-content: center; }
+            .tech-item { font-size: 11px; }
+            .cta { padding: 24px 24px 36px; }
+            .cta-buttons { flex-direction: column; gap: 10px; }
+            .btn { padding: 16px 24px; font-size: 14px; justify-content: center; }
+            .cta-note { flex-direction: column; gap: 8px; font-size: 12px; }
+            .save-badge { font-size: 12px; padding: 5px 12px; }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 24px; }
+            .hero-subtitle { font-size: 14px; }
+            .products { grid-template-columns: repeat(2, 1fr); }
+            .features-summary { grid-template-columns: repeat(2, 1fr); }
+            .value-right { flex-direction: column; gap: 12px; }
+            .value-divider { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="banner">
+
+    <!-- Hero -->
+    <div class="hero">
+        <div class="hero-badge">
+            <span class="crown">👑</span>
+            The Complete WebRTC Suite
+        </div>
+        <h1>
+            <span class="gradient-text">MiroTalk</span>
+            <span class="white"> Ultimate Bundle</span>
+        </h1>
+        <p class="hero-subtitle">
+            All 6 MiroTalk Products in One Package — The Full WebRTC Video Conferencing Ecosystem
+        </p>
+        <p class="hero-tagline">
+            P2P + SFU + C2C + BRO + WEB + ADMIN — Everything You Need, One License
+        </p>
+    </div>
+
+    <!-- 5 Products -->
+    <div class="products">
+        <div class="product p2p">
+            <span class="product-icon">🔗</span>
+            <h3>P2P</h3>
+            <div class="product-type">Peer-to-Peer</div>
+            <p>Direct 1-on-1 & small group video calls with zero latency</p>
+        </div>
+
+        <div class="product sfu">
+            <span class="product-icon">🖥️</span>
+            <h3>SFU</h3>
+            <div class="product-type">Selective Forwarding</div>
+            <p>Large-scale meetings with AI, RTMP & broadcasting</p>
+        </div>
+
+        <div class="product c2c">
+            <span class="product-icon">💬</span>
+            <h3>C2C</h3>
+            <div class="product-type">Cam-to-Cam</div>
+            <p>Embeddable 1:1 video calls via simple iFrame</p>
+        </div>
+
+        <div class="product bro">
+            <span class="product-icon">📡</span>
+            <h3>BRO</h3>
+            <div class="product-type">Live Broadcast</div>
+            <p>One-to-many live streaming for unlimited viewers</p>
+        </div>
+
+        <div class="product web">
+            <span class="product-icon">🌐</span>
+            <h3>WEB</h3>
+            <div class="product-type">Scheduler</div>
+            <p>Room scheduling, invitations & user management</p>
+        </div>
+
+        <div class="product admin">
+            <span class="product-icon">🛡️</span>
+            <h3>ADMIN</h3>
+            <div class="product-type">Instance Manager</div>
+            <p>Monitor, manage & control all MiroTalk instances</p>
+        </div>
+    </div>
+
+    <!-- Bundle Value -->
+    <div class="value-section">
+        <div class="value-left">
+            <h3>👑 Why the Ultimate Bundle?</h3>
+            <p>Get the complete MiroTalk ecosystem at a massive discount. Cover every video conferencing use case — from 1:1 calls to large meetings, live broadcasts, and centralized admin management. One purchase, total coverage.</p>
+        </div>
+        <div class="value-right">
+            <div class="value-stat">
+                <div class="stat-value">6</div>
+                <div class="stat-label">Products</div>
+            </div>
+            <div class="value-divider"></div>
+            <div class="value-stat">
+                <div class="stat-value">8K+</div>
+                <div class="stat-label">Community Stars</div>
+            </div>
+            <div class="value-divider"></div>
+            <div class="value-stat">
+                <div class="stat-value">∞</div>
+                <div class="stat-label">Rooms & Users</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- All Features -->
+    <div class="features-summary">
+        <div class="feat">
+            <span class="feat-icon">🖥️</span>
+            <h4>Screen Sharing</h4>
+        </div>
+        <div class="feat">
+            <span class="feat-icon">📹</span>
+            <h4>WebCam 8K</h4>
+        </div>
+        <div class="feat">
+            <span class="feat-icon">🤖</span>
+            <h4>ChatGPT & AI</h4>
+        </div>
+        <div class="feat">
+            <span class="feat-icon">👤</span>
+            <h4>AI Avatars</h4>
+        </div>
+        <div class="feat">
+            <span class="feat-icon">📡</span>
+            <h4>Broadcasting</h4>
+        </div>
+        <div class="feat">
+            <span class="feat-icon">🎬</span>
+            <h4>RTMP Stream</h4>
+        </div>
+        <div class="feat">
+            <span class="feat-icon">⏺️</span>
+            <h4>Recording</h4>
+        </div>
+        <div class="feat">
+            <span class="feat-icon">🎨</span>
+            <h4>Whiteboard</h4>
+        </div>
+        <div class="feat">
+            <span class="feat-icon">📁</span>
+            <h4>File Sharing</h4>
+        </div>
+        <div class="feat">
+            <span class="feat-icon">🌄</span>
+            <h4>Virtual BG</h4>
+        </div>
+        <div class="feat">
+            <span class="feat-icon">📅</span>
+            <h4>Scheduling</h4>
+        </div>
+        <div class="feat">
+            <span class="feat-icon">👥</span>
+            <h4>User Mgmt</h4>
+        </div>
+        <div class="feat">
+            <span class="feat-icon">⚡</span>
+            <h4>REST API</h4>
+        </div>
+        <div class="feat">
+            <span class="feat-icon">🔒</span>
+            <h4>E2E Encrypted</h4>
+        </div>
+        <div class="feat">
+            <span class="feat-icon">🐳</span>
+            <h4>Docker</h4>
+        </div>
+        <div class="feat">
+            <span class="feat-icon">🔌</span>
+            <h4>iFrame Embed</h4>
+        </div>
+        <div class="feat">
+            <span class="feat-icon">💬</span>
+            <h4>Chat & Messaging</h4>
+        </div>
+        <div class="feat">
+            <span class="feat-icon">🛡️</span>
+            <h4>SRTP Security</h4>
+        </div>
+    </div>
+
+    <!-- Tech -->
+    <div class="tech-bar">
+        <span class="tech-item">WebRTC</span>
+        <span class="tech-item">•</span>
+        <span class="tech-item">Mediasoup</span>
+        <span class="tech-item">•</span>
+        <span class="tech-item">Node.js</span>
+        <span class="tech-item">•</span>
+        <span class="tech-item">MongoDB</span>
+        <span class="tech-item">•</span>
+        <span class="tech-item">Docker</span>
+        <span class="tech-item">•</span>
+        <span class="tech-item">Self-Hosted</span>
+        <span class="tech-item">•</span>
+        <span class="tech-item">AGPLv3 Open Source</span>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta">
+        <div class="save-badge">🔥 SAVE BIG — Get All 6 Products in One Bundle</div>
+        <div class="cta-buttons">
+            <a href="https://codecanyon.net/item/mirotalk-webrtc-ultimate-bundle-for-seamless-live-smart-communication/47976343" class="btn btn-primary">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="black"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                Get the Ultimate Bundle
+            </a>
+            <a href="https://webrtc.mirotalk.com/" class="btn btn-secondary">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                Try Live Demos
+            </a>
+        </div>
+        <div class="cta-note">
+            <span><span class="check-icon">✓</span> All 6 Products</span>
+            <span><span class="check-icon">✓</span> Lifetime Updates</span>
+            <span><span class="check-icon">✓</span> Priority Support</span>
+            <span><span class="check-icon">✓</span> Full Source Code</span>
+            <span><span class="check-icon">✓</span> Commercial Use</span>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
