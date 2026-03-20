@@ -1,6 +1,6 @@
 # MiroTalk Admin
 
-A secure, modern web dashboard to manage **[MiroTalk](https://docs.mirotalk.com/html/overview.html)** updates, configuration, and settings with ease.
+A secure, modern web dashboard to manage **[MiroTalk](https://docs.mirotalk.com/html/overview/)** updates, configuration, and settings with ease.
 
 ---
 

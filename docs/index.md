@@ -15,7 +15,7 @@
 
 ---
 
-View the complete [MiroTalk projects overview and comparisons](html/overview.html).
+View the complete [MiroTalk projects overview and comparisons](html/overview/).
 
 ---
 

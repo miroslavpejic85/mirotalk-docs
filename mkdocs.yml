@@ -1,4 +1,4 @@
-site_name: MiroTalk docs v1.3.28
+site_name: MiroTalk docs v1.3.29
 site_description: MiroTalk WebRTC documentations
 site_author: Miroslav Pejic (miroslav.pejic.85@gmail.com)
 copyright: © 2026 MiroTalk, all rights reserved
@@ -23,7 +23,7 @@ nav:
       - quick-start: mirotalk-admin/quick-start.md
       - self-hosting: mirotalk-admin/self-hosting.md
   - mirotalk-bro:
-      - about: banner/mirotalk-bro.html
+      - about: html/mirotalk-bro/index.html
       - api: mirotalk-bro/api.md
       - configurations: mirotalk-bro/configurations.md
       - integration: mirotalk-bro/integration.md
@@ -31,7 +31,7 @@ nav:
       - ngrok: mirotalk-bro/ngrok.md
       - self-hosting: mirotalk-bro/self-hosting.md
   - mirotalk-c2c:
-      - about: banner/mirotalk-c2c.html
+      - about: html/mirotalk-c2c/index.html
       - api: mirotalk-c2c/api.md
       - configurations: mirotalk-c2c/configurations.md
       - integration: mirotalk-c2c/integration.md
@@ -41,7 +41,7 @@ nav:
   - mirotalk-docs:
       - self-hosting: mirotalk-docs/self-hosting.md
   - mirotalk-p2p:
-      - about: banner/mirotalk-p2p.html
+      - about: html/mirotalk-p2p/index.html
       - api: mirotalk-p2p/api.md
       - configurations: mirotalk-p2p/configurations.md
       - host-protection: mirotalk-p2p/host-protection.md
@@ -53,7 +53,7 @@ nav:
       - updates: mirotalk-p2p/updates.md
       - webhook: mirotalk-p2p/webhook.md
   - mirotalk-sfu:
-      - about: banner/mirotalk-sfu.html
+      - about: html/mirotalk-sfu/index.html
       - api: mirotalk-sfu/api.md
       - configurations: mirotalk-sfu/configurations.md
       - host-protection: mirotalk-sfu/host-protection.md 
@@ -67,13 +67,13 @@ nav:
       - updates: mirotalk-sfu/updates.md
       - webhook: mirotalk-sfu/webhook.md
   - mirotalk-web:
-      - about: banner/mirotalk-web.html
+      - about: html/mirotalk-web/index.html
       - api: mirotalk-web/api.md
       - configurations: mirotalk-web/configurations.md
       - integration: mirotalk-web/integration.md
       - ngrok: mirotalk-web/ngrok.md
       - self-hosting: mirotalk-web/self-hosting.md
-  - mirotalk-ultimate: banner/mirotalk-ultimate.html
+  - mirotalk-ultimate: html/mirotalk-ultimate/index.html
   - ngrok: ngrok/ngrok.md
   - scripts:
       - about: scripts/about.md
