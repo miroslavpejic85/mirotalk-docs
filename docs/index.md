@@ -29,7 +29,7 @@ Support the ongoing development and adapt MiroTalk to your unique needs.
 
 ## Questions & Support
 
-Join our [MiroTalk Community Forum](https://discord.gg/rgGYfeYW3N) for questions, discussions, and support.
+Check the [Frequently Asked Questions](./faq/index.md) for common topics, or join our [MiroTalk Community Forum](https://discord.gg/rgGYfeYW3N) for discussions and support.
 
 ---
 
