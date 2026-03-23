@@ -918,6 +918,7 @@
                         <option value="sfu">SFU</option>
                         <option value="bro">BRO</option>
                         <option value="web">WEB</option>
+                        <option value="admin">ADMIN</option>
                     </select>
                 </div>
 
@@ -1662,6 +1663,109 @@
                                     </div>
                                     <div class="docs-link">
                                         <a href="../mirotalk-web/self-hosting" class="docs-btn">
+                                            <i class="fas fa-server"></i> Self-Hosting
+                                        </a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- ADMIN Row -->
+                        <tr class="project-row" data-project="admin">
+                            <td>
+                                <a href="https://github.com/miroslavpejic85/mirotalk-admin" target="_blank">
+                                    <img src="/images/mirotalk/adm.png" alt="ADMIN Preview" class="preview-img" />
+                                </a>
+                            </td>
+                            <td class="nobr">
+                                <div class="project-title">
+                                    <strong>MiroTalk Admin</strong>
+                                    <span class="project-tag">Admin Dashboard</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="use-case">
+                                    <strong>Server management hub</strong>
+                                    <span class="tag unlimited">Unlimited instances</span>
+                                    <p class="description">
+                                        Management panel for monitoring, updating, and maintaining MiroTalk instances.
+                                        Provides tools for user oversight, system updates, and secure deployments.
+                                    </p>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="security-column">
+                                    <div class="encryption-badge https">
+                                        <span class="badge-icon"><i class="fas fa-lock"></i></span>
+                                        <span class="badge-text">HTTPS</span>
+                                        <div class="tooltip">
+                                            Admin dashboard uses HTTPS for secure access and management
+                                        </div>
+                                    </div>
+                                    <div class="encryption-badge e2ee">
+                                        <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
+                                        <span class="badge-text">JWT</span>
+                                        <div class="tooltip">
+                                            JSON Web Token (JWT) is used for secure REST API authentication and authorization, enabling stateless and tamper-proof communication between clients and the server.
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="nobr">
+                                <ul class="feature-list">
+                                    <li><i class="fas fa-check-circle"></i> Admin dashboard</li>
+                                    <li><i class="fas fa-check-circle"></i> System updates</li>
+                                    <li><i class="fas fa-check-circle"></i> User management</li>
+                                    <li><i class="fas fa-check-circle"></i> SSH management</li>
+                                    <li><i class="fas fa-check-circle"></i> Configuration management</li>
+                                    <li><i class="fas fa-check-circle"></i> Process monitoring</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul class="integration-list">
+                                    <li><i class="fas fa-check-circle"></i> REST API</li>
+                                    <li><i class="fas fa-check-circle"></i> Ngrok</li>
+                                </ul>
+                            </td>
+                            <td class="nobr">
+                                <div class="performance">
+                                    <div class="perf-item">
+                                        <i class="fas fa-tachometer-alt"></i> Fast dashboard loading
+                                    </div>
+                                    <div class="perf-item"><i class="fas fa-feather-alt"></i> Minimal server load</div>
+                                </div>
+                            </td>
+                            <td class="nobr">
+                                <div class="compatibility">
+                                    <div class="comp-item"><i class="fas fa-desktop"></i> All modern browsers</div>
+                                    <div class="comp-item"><i class="fas fa-mobile-alt"></i> Responsive design</div>
+                                </div>
+                            </td>
+                            <td class="nobr">
+                                <div class="deployment">
+                                    <div class="deploy-item"><i class="fab fa-node-js"></i> Node.js</div>
+                                    <div class="deploy-item"><i class="fas fa-server"></i> PM2 Manager</div>
+                                    <div class="deploy-item"><i class="fab fa-docker"></i> Docker image</div>
+                                </div>
+                            </td>
+                            <td class="nobr">
+                                <div class="requirements">
+                                    <div class="req-item"><i class="fas fa-server"></i> Any OS</div>
+                                    <div class="req-item"><i class="fas fa-microchip"></i> 2 CPU Cores</div>
+                                    <div class="req-item"><i class="fas fa-memory"></i> 2 GB RAM</div>
+                                    <div class="req-item"><i class="fas fa-hdd"></i> 5 GB Storage</div>
+                                    <div class="req-item"><i class="fas fa-atlas"></i> Domain or subdomain</div>
+                                    <div class="req-item"><i class="fas fa-globe"></i> IPv4</div>
+                                </div>
+                            </td>
+                            <td class="nobr">
+                                <div class="links-column">
+                                    <div class="docs-link">
+                                        <a href="../mirotalk-admin/quick-start" class="docs-btn">
+                                            <i class="fas fa-rocket"></i> Quick Start
+                                        </a>
+                                    </div>
+                                    <div class="docs-link">
+                                        <a href="../mirotalk-admin/self-hosting" class="docs-btn">
                                             <i class="fas fa-server"></i> Self-Hosting
                                         </a>
                                     </div>
@@ -2418,6 +2522,119 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- ADMIN Card -->
+                    <div class="project-card" data-project="admin">
+                        <div class="card-header">
+                            <a href="https://github.com/miroslavpejic85/mirotalk-admin" target="_blank">
+                                <img src="/images/mirotalk/adm.png" alt="ADMIN Preview" class="card-img" />
+                            </a>
+                            <div class="card-title">
+                                <h3>MiroTalk Admin</h3>
+                                <span class="project-tag">Admin Dashboard</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-section">
+                                <h4><i class="fas fa-info-circle"></i> Use Case</h4>
+                                <p><strong>Server management hub</strong></p>
+                                <span class="tag unlimited">Unlimited instances</span>
+                                <p>
+                                    Management panel for monitoring, updating, and maintaining MiroTalk instances.
+                                    Provides tools for user oversight, system updates, and secure deployments.
+                                </p>
+                            </div>
+
+                            <div class="card-section">
+                                <h4><i class="fas fa-lock"></i> Security</h4>
+                                <div class="encryption-badge https">
+                                    <span class="badge-icon"><i class="fas fa-lock"></i></span>
+                                    <span class="badge-text">HTTPS</span>
+                                    <div class="tooltip">
+                                        Admin dashboard uses HTTPS for secure access and management
+                                    </div>
+                                </div>
+                                <div class="encryption-badge e2ee">
+                                    <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
+                                    <span class="badge-text">JWT</span>
+                                    <div class="tooltip">
+                                        JSON Web Token (JWT) is used for secure REST API authentication and authorization, enabling stateless and tamper-proof communication between clients and the server.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card-section">
+                                <h4><i class="fas fa-star"></i> Key Features</h4>
+                                <ul class="feature-list">
+                                    <li><i class="fas fa-check-circle"></i> Admin dashboard</li>
+                                    <li><i class="fas fa-check-circle"></i> System updates</li>
+                                    <li><i class="fas fa-check-circle"></i> User management</li>
+                                    <li><i class="fas fa-check-circle"></i> SSH management</li>
+                                    <li><i class="fas fa-check-circle"></i> Configuration management</li>
+                                    <li><i class="fas fa-check-circle"></i> Process monitoring</li>
+                                </ul>
+                            </div>
+
+                            <div class="card-section">
+                                <h4><i class="fas fa-cogs"></i> Integrations</h4>
+                                <ul class="integration-list">
+                                    <li><i class="fas fa-check-circle"></i> REST API</li>
+                                    <li><i class="fas fa-check-circle"></i> Ngrok</li>
+                                </ul>
+                            </div>
+
+                            <div class="card-section">
+                                <h4><i class="fas fa-tachometer-alt"></i> Performance</h4>
+                                <div class="performance">
+                                    <div class="perf-item">
+                                        <i class="fas fa-tachometer-alt"></i> Fast dashboard loading
+                                    </div>
+                                    <div class="perf-item"><i class="fas fa-feather-alt"></i> Minimal server load</div>
+                                </div>
+                            </div>
+
+                            <div class="card-section">
+                                <h4><i class="fas fa-mobile-alt"></i> Compatibility</h4>
+                                <div class="compatibility">
+                                    <div class="comp-item"><i class="fas fa-desktop"></i> All modern browsers</div>
+                                    <div class="comp-item"><i class="fas fa-mobile-alt"></i> Responsive design</div>
+                                </div>
+                            </div>
+
+                            <div class="card-section">
+                                <h4><i class="fas fa-cloud-upload-alt"></i> Deployment</h4>
+                                <div class="deployment">
+                                    <div class="deploy-item"><i class="fab fa-node-js"></i> Node.js</div>
+                                    <div class="deploy-item"><i class="fas fa-server"></i> PM2 Manager</div>
+                                    <div class="deploy-item"><i class="fab fa-docker"></i> Docker image</div>
+                                </div>
+                            </div>
+
+                            <div class="card-section">
+                                <h4><i class="fas fa-server"></i> Requirements</h4>
+                                <div class="requirements">
+                                    <div class="req-item"><i class="fas fa-server"></i> Any OS</div>
+                                    <div class="req-item"><i class="fas fa-microchip"></i> 2 CPU Cores</div>
+                                    <div class="req-item"><i class="fas fa-memory"></i> 2 GB RAM</div>
+                                    <div class="req-item"><i class="fas fa-hdd"></i> 5 GB Storage</div>
+                                    <div class="req-item"><i class="fas fa-atlas"></i> Domain or subdomain</div>
+                                    <div class="req-item"><i class="fas fa-globe"></i> IPv4</div>
+                                </div>
+                            </div>
+
+                            <div class="card-section">
+                                <h4><i class="fas fa-link"></i> Links</h4>
+                                <div class="card-buttons">
+                                    <a href="../mirotalk-admin/quick-start" class="docs-btn">
+                                        <i class="fas fa-rocket"></i> Quick Start
+                                    </a>
+                                    <a href="../mirotalk-admin/self-hosting" class="docs-btn">
+                                        <i class="fas fa-server"></i> Self-Hosting
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -2432,6 +2649,7 @@
                             <th>MiroTalk SFU</th>
                             <th>MiroTalk BRO</th>
                             <th>MiroTalk WEB</th>
+                            <th>MiroTalk Admin</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -2460,6 +2678,11 @@
                             <td class="project-cell">
                                 <a href="https://webrtc.mirotalk.com" target="_blank">
                                     <img src="/images/mirotalk/web.png" alt="WEB Preview" class="preview-img" />
+                                </a>
+                            </td>
+                            <td class="project-cell">
+                                <a href="https://github.com/miroslavpejic85/mirotalk-admin" target="_blank">
+                                    <img src="/images/mirotalk/adm.png" alt="ADMIN Preview" class="preview-img" />
                                 </a>
                             </td>
                         </tr>
@@ -2493,6 +2716,12 @@
                                 <div class="comparison-project-header">
                                     <strong>MiroTalk WEB</strong>
                                     <span class="project-tag">Scheduler Portal</span>
+                                </div>
+                            </td>
+                            <td class="project-cell">
+                                <div class="comparison-project-header">
+                                    <strong>MiroTalk Admin</strong>
+                                    <span class="project-tag">Admin Dashboard</span>
                                 </div>
                             </td>
                         </tr>
@@ -2544,6 +2773,16 @@
                                     <p class="description">
                                         Central portal for scheduling and organizing MiroTalk meetings. Choose
                                         conference type, invite participants, and manage from one dashboard.
+                                    </p>
+                                </div>
+                            </td>
+                            <td class="project-cell">
+                                <div class="use-case">
+                                    <strong>Server management hub</strong>
+                                    <span class="tag unlimited">Unlimited instances</span>
+                                    <p class="description">
+                                        Management panel for monitoring, updating, and maintaining MiroTalk instances.
+                                        Provides tools for user oversight, system updates, and secure deployments.
                                     </p>
                                 </div>
                             </td>
@@ -2711,6 +2950,24 @@
                                     </div>
                                 </div>
                             </td>
+                            <td class="project-cell">
+                                <div class="security-column">
+                                    <div class="encryption-badge https">
+                                        <span class="badge-icon"><i class="fas fa-lock"></i></span>
+                                        <span class="badge-text">HTTPS</span>
+                                        <div class="tooltip">
+                                            Admin dashboard uses HTTPS for secure access and management
+                                        </div>
+                                    </div>
+                                    <div class="encryption-badge e2ee">
+                                        <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
+                                        <span class="badge-text">JWT</span>
+                                        <div class="tooltip">
+                                            JSON Web Token (JWT) is used for secure REST API authentication and authorization, enabling stateless and tamper-proof communication between clients and the server.
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
                         </tr>
                         <tr>
                             <td class="feature-name">Key Features</td>
@@ -2786,6 +3043,16 @@
                                     <li><i class="fas fa-check-circle"></i> IFrame embeddable</li>
                                 </ul>
                             </td>
+                            <td class="project-cell">
+                                <ul class="feature-list">
+                                    <li><i class="fas fa-check-circle"></i> Admin dashboard</li>
+                                    <li><i class="fas fa-check-circle"></i> System updates</li>
+                                    <li><i class="fas fa-check-circle"></i> User management</li>
+                                    <li><i class="fas fa-check-circle"></i> SSH management</li>
+                                    <li><i class="fas fa-check-circle"></i> Configuration management</li>
+                                    <li><i class="fas fa-check-circle"></i> Process monitoring</li>
+                                </ul>
+                            </td>
                         </tr>
                         <tr>
                             <td class="feature-name">Integrations</td>
@@ -2837,6 +3104,12 @@
                                     <li><i class="fas fa-check-circle"></i> REST API</li>
                                     <li><i class="fas fa-check-circle"></i> Iframe</li>
                                     <li><i class="fas fa-check-circle"></i> Sentry</li>
+                                    <li><i class="fas fa-check-circle"></i> Ngrok</li>
+                                </ul>
+                            </td>
+                            <td class="project-cell">
+                                <ul class="integration-list">
+                                    <li><i class="fas fa-check-circle"></i> REST API</li>
                                     <li><i class="fas fa-check-circle"></i> Ngrok</li>
                                 </ul>
                             </td>
@@ -2902,6 +3175,14 @@
                                     </div>
                                 </div>
                             </td>
+                            <td class="project-cell">
+                                <div class="performance">
+                                    <div class="perf-item">
+                                        <i class="fas fa-tachometer-alt"></i> Fast dashboard loading
+                                    </div>
+                                    <div class="perf-item"><i class="fas fa-feather-alt"></i> Minimal server load</div>
+                                </div>
+                            </td>
                         </tr>
                         <tr>
                             <td class="feature-name">Compatibility</td>
@@ -2952,6 +3233,12 @@
                                     <div class="comp-item"><i class="fas fa-globe"></i> Multi languages</div>
                                 </div>
                             </td>
+                            <td class="project-cell">
+                                <div class="compatibility">
+                                    <div class="comp-item"><i class="fas fa-desktop"></i> All modern browsers</div>
+                                    <div class="comp-item"><i class="fas fa-mobile-alt"></i> Responsive design</div>
+                                </div>
+                            </td>
                         </tr>
                         <tr>
                             <td class="feature-name">Deployment</td>
@@ -2994,6 +3281,13 @@
                                     <div class="deploy-item warn">
                                         <i class="fas fa-exclamation-triangle"></i> More complex setup
                                     </div>
+                                </div>
+                            </td>
+                            <td class="project-cell">
+                                <div class="deployment">
+                                    <div class="deploy-item"><i class="fab fa-node-js"></i> Node.js</div>
+                                    <div class="deploy-item"><i class="fas fa-server"></i> PM2 Manager</div>
+                                    <div class="deploy-item"><i class="fab fa-docker"></i> Docker image</div>
                                 </div>
                             </td>
                         </tr>
@@ -3045,6 +3339,16 @@
                                     <div class="req-item"><i class="fas fa-microchip"></i> 2 CPU Cores</div>
                                     <div class="req-item"><i class="fas fa-memory"></i> 4 GB RAM</div>
                                     <div class="req-item"><i class="fas fa-hdd"></i> 20 GB Storage</div>
+                                    <div class="req-item"><i class="fas fa-atlas"></i> Domain or subdomain</div>
+                                    <div class="req-item"><i class="fas fa-globe"></i> IPv4</div>
+                                </div>
+                            </td>
+                            <td class="project-cell">
+                                <div class="requirements">
+                                    <div class="req-item"><i class="fas fa-server"></i> Any OS</div>
+                                    <div class="req-item"><i class="fas fa-microchip"></i> 2 CPU Cores</div>
+                                    <div class="req-item"><i class="fas fa-memory"></i> 2 GB RAM</div>
+                                    <div class="req-item"><i class="fas fa-hdd"></i> 5 GB Storage</div>
                                     <div class="req-item"><i class="fas fa-atlas"></i> Domain or subdomain</div>
                                     <div class="req-item"><i class="fas fa-globe"></i> IPv4</div>
                                 </div>
@@ -3162,6 +3466,20 @@
                                     </div>
                                 </div>
                             </td>
+                            <td class="project-cell">
+                                <div class="links-column">
+                                    <div class="docs-link">
+                                        <a href="../mirotalk-admin/quick-start" class="docs-btn">
+                                            <i class="fas fa-rocket"></i> Quick Start
+                                        </a>
+                                    </div>
+                                    <div class="docs-link">
+                                        <a href="../mirotalk-admin/self-hosting" class="docs-btn">
+                                            <i class="fas fa-server"></i> Self-Hosting
+                                        </a>
+                                    </div>
+                                </div>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -3263,7 +3581,8 @@
                                     p2p: 'p2p',
                                     sfu: 'sfu',
                                     bro: 'bro',
-                                    web: 'web'
+                                    web: 'web',
+                                    admin: 'admin'
                                 };
                                 const headerText = headerCell.textContent
                                     .toLowerCase()
