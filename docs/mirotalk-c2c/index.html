@@ -1,27 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- og -->
 
     <meta property="og:type" content="docs" />
     <meta property="og:site_name" content="MiroTalk Docs" />
-    <meta property="og:title" content="MiroTalk BRO – WebRTC Live Broadcasting" />
-    <meta property="og:description" content="Live Broadcast Video, Audio & Screen to Unlimited Viewers" />
+    <meta property="og:title" content="MiroTalk C2C – Cam-to-Cam Video Calls" />
+    <meta property="og:description" content="Real-Time Cam-to-Cam Video Calls & Screen Sharing — Embed Anywhere" />
     <meta property="og:image" content="https://docs.mirotalk.com/images/mirotalk-preview.png" />
-    <meta property="og:url" content="https://docs.mirotalk.com/html/mirotalk-bro/" />
+    <meta property="og:url" content="https://docs.mirotalk.com/mirotalk-c2c/" />
 
     <!-- favicon -->
 
-    <link rel="apple-touch-icon" sizes="180x180" href="../../images/icon/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="../../images/icon/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="../../images/icon/favicon-16x16.png" />
-    <link rel="shortcut icon" href="../../images/icon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/icon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/icon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/icon/favicon-16x16.png" />
+    <link rel="shortcut icon" href="../images/icon/favicon.ico" />
 
-    <title>MiroTalk BRO - Banner</title>
+    <title>MiroTalk C2C - Banner</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -39,18 +38,18 @@
         .banner {
             width: 100%;
             max-width: 1200px;
-            background: linear-gradient(145deg, #0d1117 0%, #1a1408 50%, #0d1117 100%);
+            background: linear-gradient(145deg, #0d1117 0%, #171120 50%, #0d1117 100%);
             border-radius: 24px;
             overflow: hidden;
             position: relative;
-            border: 1px solid rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(236, 72, 153, 0.1);
         }
 
         .banner::before {
             content: '';
             position: absolute;
             top: -2px; left: -2px; right: -2px; bottom: -2px;
-            background: linear-gradient(45deg, #f59e0b, #ef4444, #f97316, #f59e0b);
+            background: linear-gradient(45deg, #ec4899, #f43f5e, #fb923c, #ec4899);
             border-radius: 25px;
             z-index: -1;
             opacity: 0.35;
@@ -71,7 +70,7 @@
             top: -60%; left: 50%;
             transform: translateX(-50%);
             width: 800px; height: 800px;
-            background: radial-gradient(circle, rgba(245, 158, 11, 0.10) 0%, transparent 60%);
+            background: radial-gradient(circle, rgba(236, 72, 153, 0.10) 0%, transparent 60%);
             pointer-events: none;
         }
 
@@ -79,28 +78,28 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(245, 158, 11, 0.08);
-            border: 1px solid rgba(245, 158, 11, 0.2);
+            background: rgba(236, 72, 153, 0.08);
+            border: 1px solid rgba(236, 72, 153, 0.2);
             padding: 8px 20px;
             border-radius: 50px;
             margin-bottom: 24px;
             font-size: 13px;
             font-weight: 600;
-            color: #fcd34d;
+            color: #f9a8d4;
             letter-spacing: 0.5px;
             text-transform: uppercase;
         }
 
         .hero-badge .dot {
             width: 8px; height: 8px;
-            background: #ef4444;
+            background: #ec4899;
             border-radius: 50%;
-            animation: pulse-dot 1.5s infinite;
+            animation: pulse-dot 2s infinite;
         }
 
         @keyframes pulse-dot {
-            0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
-            50% { opacity: 0.8; box-shadow: 0 0 0 6px rgba(239, 68, 68, 0); }
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
         }
 
         .hero h1 {
@@ -113,7 +112,7 @@
         }
 
         .hero h1 .gradient-text {
-            background: linear-gradient(135deg, #f59e0b, #ef4444, #f97316);
+            background: linear-gradient(135deg, #ec4899, #f43f5e, #fb923c);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -129,76 +128,127 @@
 
         .hero-tagline {
             font-size: 15px;
-            color: #fbbf24;
+            color: #f472b6;
             font-weight: 600;
             letter-spacing: 0.3px;
         }
 
-        /* Broadcast Architecture */
-        .broadcast {
-            padding: 36px 60px;
+        /* C2C Concept */
+        .concept {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 24px;
+            gap: 28px;
+            padding: 36px 60px;
         }
 
-        .broadcaster {
-            background: linear-gradient(145deg, rgba(245, 158, 11, 0.08), rgba(239, 68, 68, 0.04));
-            border: 2px solid rgba(245, 158, 11, 0.2);
+        .concept-user {
+            background: rgba(236, 72, 153, 0.04);
+            border: 1px solid rgba(236, 72, 153, 0.12);
             border-radius: 20px;
-            padding: 32px 36px;
+            padding: 32px 40px;
             text-align: center;
-            min-width: 240px;
+            flex: 1;
+            max-width: 300px;
         }
 
-        .broadcaster .icon {
-            font-size: 48px;
-            margin-bottom: 10px;
+        .concept-user .avatar {
+            width: 80px; height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0.15), rgba(244, 63, 94, 0.08));
+            border: 2px solid rgba(236, 72, 153, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            margin: 0 auto 14px;
         }
 
-        .broadcaster h4 {
-            font-size: 20px;
+        .concept-user h4 {
+            font-size: 18px;
             font-weight: 800;
-            color: #fbbf24;
-            margin-bottom: 4px;
+            color: #e6edf3;
+            margin-bottom: 6px;
         }
 
-        .broadcaster p {
-            font-size: 12px;
+        .concept-user p {
+            font-size: 13px;
             color: #8b949e;
-            line-height: 1.4;
+            line-height: 1.5;
         }
 
-        .broadcast-arrows {
+        .concept-connector {
             display: flex;
             flex-direction: column;
-            gap: 6px;
-            color: #f59e0b;
-            font-size: 20px;
+            align-items: center;
+            gap: 8px;
         }
 
-        .viewers {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
+        .concept-connector .line {
+            width: 120px;
+            height: 3px;
+            background: linear-gradient(90deg, #ec4899, #f43f5e);
+            border-radius: 2px;
+            position: relative;
         }
 
-        .viewer {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            border-radius: 12px;
-            padding: 14px 18px;
+        .concept-connector .line::before,
+        .concept-connector .line::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 10px; height: 10px;
+            border-radius: 50%;
+            background: #ec4899;
+        }
+
+        .concept-connector .line::before { left: -5px; }
+        .concept-connector .line::after { right: -5px; }
+
+        .concept-connector .label {
+            font-size: 11px;
+            font-weight: 700;
+            color: #f472b6;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Embed Highlight */
+        .embed-highlight {
+            margin: 0 60px 36px;
+            background: rgba(236, 72, 153, 0.04);
+            border: 1px solid rgba(236, 72, 153, 0.1);
+            border-radius: 16px;
+            padding: 24px 32px;
             text-align: center;
-            font-size: 12px;
-            font-weight: 600;
-            color: #c9d1d9;
         }
 
-        .viewer .icon {
-            font-size: 20px;
-            display: block;
-            margin-bottom: 4px;
+        .embed-highlight h3 {
+            font-size: 18px;
+            font-weight: 800;
+            color: #e6edf3;
+            margin-bottom: 8px;
+        }
+
+        .embed-highlight .code-sample {
+            display: inline-block;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            padding: 12px 24px;
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            font-size: 14px;
+            color: #f472b6;
+            letter-spacing: 0.3px;
+        }
+
+        .embed-highlight .code-sample span { color: #8b949e; }
+
+        .embed-highlight p {
+            font-size: 13px;
+            color: #8b949e;
+            margin-top: 10px;
         }
 
         /* Key Metrics */
@@ -206,11 +256,11 @@
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 2px;
-            margin: 8px 60px 36px;
-            background: rgba(245, 158, 11, 0.03);
+            margin: 0 60px 36px;
+            background: rgba(236, 72, 153, 0.03);
             border-radius: 16px;
             overflow: hidden;
-            border: 1px solid rgba(245, 158, 11, 0.08);
+            border: 1px solid rgba(236, 72, 153, 0.08);
         }
 
         .highlight {
@@ -225,10 +275,10 @@
             margin-bottom: 4px;
         }
 
-        .highlight-value.v1 { color: #fbbf24; }
-        .highlight-value.v2 { color: #f97316; }
-        .highlight-value.v3 { color: #ef4444; }
-        .highlight-value.v4 { color: #fb923c; }
+        .highlight-value.v1 { color: #f472b6; }
+        .highlight-value.v2 { color: #fb7185; }
+        .highlight-value.v3 { color: #f97316; }
+        .highlight-value.v4 { color: #fbbf24; }
 
         .highlight-label {
             font-size: 11px;
@@ -272,8 +322,8 @@
         }
 
         .feature:hover {
-            background: rgba(245, 158, 11, 0.04);
-            border-color: rgba(245, 158, 11, 0.15);
+            background: rgba(236, 72, 153, 0.04);
+            border-color: rgba(236, 72, 153, 0.15);
             transform: translateY(-2px);
         }
 
@@ -301,7 +351,7 @@
             bottom: 0; left: 50%;
             transform: translateX(-50%);
             width: 600px; height: 400px;
-            background: radial-gradient(circle, rgba(245, 158, 11, 0.06) 0%, transparent 60%);
+            background: radial-gradient(circle, rgba(236, 72, 153, 0.06) 0%, transparent 60%);
             pointer-events: none;
         }
 
@@ -328,14 +378,14 @@
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #f59e0b, #ef4444);
+            background: linear-gradient(135deg, #ec4899, #f43f5e);
             color: #ffffff;
-            box-shadow: 0 4px 24px rgba(245, 158, 11, 0.3);
+            box-shadow: 0 4px 24px rgba(236, 72, 153, 0.3);
         }
 
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 32px rgba(245, 158, 11, 0.4);
+            box-shadow: 0 6px 32px rgba(236, 72, 153, 0.4);
         }
 
         .btn-secondary {
@@ -359,7 +409,7 @@
         }
 
         .cta-note span { display: flex; align-items: center; gap: 6px; }
-        .check-icon { color: #f59e0b; font-weight: bold; }
+        .check-icon { color: #ec4899; font-weight: bold; }
 
         /* Responsive */
         @media (max-width: 768px) {
@@ -371,13 +421,16 @@
             .hero-subtitle { font-size: 15px; }
             .hero-tagline { font-size: 13px; }
             .hero-badge { font-size: 11px; padding: 6px 14px; }
-            .broadcast { flex-direction: column; padding: 24px 24px; gap: 16px; }
-            .broadcaster { min-width: auto; padding: 24px 28px; }
-            .broadcaster .icon { font-size: 36px; }
-            .broadcast-arrows { flex-direction: row; justify-content: center; }
-            .viewers { grid-template-columns: repeat(2, 1fr); gap: 8px; }
-            .viewer { padding: 10px 14px; }
-            .highlights { grid-template-columns: repeat(2, 1fr); margin: 8px 24px 24px; border-radius: 12px; }
+            .concept { flex-direction: column; padding: 24px 24px; gap: 16px; }
+            .concept-user { max-width: 100%; padding: 24px 28px; }
+            .concept-user .avatar { width: 60px; height: 60px; font-size: 28px; }
+            .concept-connector .line { width: 3px; height: 40px; }
+            .concept-connector .line::before { top: -5px; left: 50%; transform: translateX(-50%); }
+            .concept-connector .line::after { top: auto; bottom: -5px; left: 50%; right: auto; transform: translateX(-50%); }
+            .embed-highlight { margin: 0 24px 24px; padding: 20px 20px; }
+            .embed-highlight h3 { font-size: 15px; }
+            .embed-highlight .code-sample { font-size: 11px; padding: 10px 14px; word-break: break-all; }
+            .highlights { grid-template-columns: repeat(2, 1fr); margin: 0 24px 24px; border-radius: 12px; }
             .highlight { padding: 16px 12px; }
             .highlight-value { font-size: 22px; }
             .highlight-label { font-size: 10px; }
@@ -408,102 +461,96 @@
     <div class="hero">
         <div class="hero-badge">
             <span class="dot"></span>
-            Live &bull; WebRTC Live Broadcasting
+            Embeddable WebRTC Cam-2-Cam
         </div>
         <h1>
-            <span class="gradient-text">MiroTalk BRO</span>
+            <span class="gradient-text">MiroTalk C2C</span>
         </h1>
         <p class="hero-subtitle">
-            Live Broadcast Video, Audio & Screen to Unlimited Viewers
+            Real-Time Cam-to-Cam Video Calls & Screen Sharing — Embed Anywhere
         </p>
         <p class="hero-tagline">
-            One-to-Many Streaming &bull; No Downloads &bull; No Time Limits &bull; Unlimited Rooms
+            End-to-End Encrypted &bull; Simple iFrame Integration &bull; No Downloads
         </p>
     </div>
 
-    <!-- Broadcast Architecture -->
-    <div class="broadcast">
-        <div class="broadcaster">
-            <div class="icon">📡</div>
-            <h4>Broadcaster</h4>
-            <p>Streams live video, audio<br>& screen to all viewers</p>
+    <!-- C2C Concept -->
+    <div class="concept">
+        <div class="concept-user">
+            <div class="avatar">👤</div>
+            <h4>Caller</h4>
+            <p>Initiates a 1-on-1 video call directly from your website</p>
         </div>
-        <div class="broadcast-arrows">
-            <span>⟶</span>
-            <span>⟶</span>
-            <span>⟶</span>
-            <span>⟶</span>
+        <div class="concept-connector">
+            <div class="line"></div>
+            <div class="label">P2P Encrypted</div>
         </div>
-        <div class="viewers">
-            <div class="viewer">
-                <span class="icon">👁️</span>
-                Viewer 1
-            </div>
-            <div class="viewer">
-                <span class="icon">👁️</span>
-                Viewer 2
-            </div>
-            <div class="viewer">
-                <span class="icon">👁️</span>
-                Viewer 3
-            </div>
-            <div class="viewer">
-                <span class="icon">👁️</span>
-                Viewer N
-            </div>
+        <div class="concept-user">
+            <div class="avatar">👤</div>
+            <h4>Receiver</h4>
+            <p>Joins instantly — crystal-clear video with zero latency</p>
         </div>
+    </div>
+
+    <!-- Embed Highlight -->
+    <div class="embed-highlight">
+        <h3>🔌 Embed in Any Website with a Simple iFrame</h3>
+        <div class="code-sample">
+            <span>&lt;iframe</span> src="https://c2c.mirotalk.com" <span>/&gt;</span>
+        </div>
+        <p>Perfect for customer support, telehealth, online tutoring, and consultations</p>
     </div>
 
     <!-- Key Metrics -->
     <div class="highlights">
         <div class="highlight">
-            <div class="highlight-value v1">1 : N</div>
-            <div class="highlight-label">One-to-Many</div>
+            <div class="highlight-value v1">1:1</div>
+            <div class="highlight-label">Optimized Calls</div>
         </div>
         <div class="highlight">
-            <div class="highlight-value v2">∞</div>
-            <div class="highlight-label">Viewers & Rooms</div>
+            <div class="highlight-value v2">8K</div>
+            <div class="highlight-label">Max Resolution</div>
         </div>
         <div class="highlight">
-            <div class="highlight-value v3">0</div>
-            <div class="highlight-label">Time Limits</div>
+            <div class="highlight-value v3">∞</div>
+            <div class="highlight-label">Rooms & No Time Limit</div>
         </div>
         <div class="highlight">
             <div class="highlight-value v4">E2EE</div>
-            <div class="highlight-label">End-to-End Encrypted</div>
+            <div class="highlight-label">End-to-End Encryption</div>
         </div>
     </div>
 
     <!-- Features -->
     <div class="features-section">
         <div class="features-header">
-            <h2>Professional Broadcasting Features</h2>
-            <p>Everything you need for live streaming to your audience</p>
+            <h2>Compact & Powerful Features</h2>
+            <p>Everything needed for seamless one-on-one video communication</p>
         </div>
         <div class="features-grid">
-            <div class="feature">
-                <span class="feature-icon">📹</span>
-                <h4>Live Video Stream</h4>
-            </div>
-            <div class="feature">
-                <span class="feature-icon">🎙️</span>
-                <h4>Live Audio Stream</h4>
-            </div>
             <div class="feature">
                 <span class="feature-icon">🖥️</span>
                 <h4>Screen Sharing</h4>
             </div>
             <div class="feature">
-                <span class="feature-icon">💬</span>
-                <h4>Viewer Messaging</h4>
+                <span class="feature-icon">📹</span>
+                <h4>WebCam Streaming</h4>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">🎙️</span>
+                <h4>Audio Streaming</h4>
             </div>
             <div class="feature">
                 <span class="feature-icon">🔌</span>
-                <h4>Embeddable</h4>
+                <h4>iFrame Embed</h4>
             </div>
             <div class="feature">
                 <span class="feature-icon">🔒</span>
-                <h4>Encrypted Streams</h4>
+                <h4>E2E Encrypted</h4>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">⚡</span>
+                <h4>Ultra-Low Latency</h4>
             </div>
             <div class="feature">
                 <span class="feature-icon">🌐</span>
@@ -520,11 +567,11 @@
     <!-- CTA -->
     <div class="cta">
         <div class="cta-buttons">
-            <a href="https://codecanyon.net/item/mirotalk-bro-webrtc-p2p-live-broadcast/45887113" class="btn btn-primary">
+            <a href="https://codecanyon.net/item/mirotalk-c2c-webrtc-real-time-cam-2-cam-video-conferences-and-screen-sharing/43383005" class="btn btn-primary">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
-                Buy BRO Commercial License
+                Buy C2C Commercial License
             </a>
-            <a href="https://bro.mirotalk.com" class="btn btn-secondary">
+            <a href="https://c2c.mirotalk.com" class="btn btn-secondary">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
                 Try Live Demo
             </a>
