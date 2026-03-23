@@ -1,6 +1,6 @@
 # Host Protection
 
-![mirotalksfu-hp](../images/mirotalksfu-hp.png)
+![mirotalksfu-hp](../images/mirotalk-sfu-login.png)
 
 Host protection lets you secure video conferencing rooms by requiring authentication before creating or joining a room.
 

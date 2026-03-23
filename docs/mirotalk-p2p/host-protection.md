@@ -1,6 +1,6 @@
 # Host Protection
 
-![mirotalk-hp](../images/mirotalk-hp.png)
+![mirotalk-hp](../images/mirotalk-p2p-login.png)
 
 Host protection lets you secure your MiroTalk P2P instance by requiring authentication before creating or joining a room.
 
