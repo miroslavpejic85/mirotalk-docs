@@ -85,32 +85,6 @@
                 gap: 15px;
             }
 
-            .back-button-container {
-                margin-right: auto;
-            }
-
-            .back-btn {
-                display: inline-flex;
-                align-items: center;
-                gap: 5px;
-                padding: 10px 15px;
-                background: #f5f5f5;
-                border: 1px solid #ddd;
-                border-radius: 6px;
-                color: #333;
-                text-decoration: none;
-                transition: all 0.2s;
-            }
-
-            .back-btn:hover {
-                background: #e0e0e0;
-                text-decoration: none;
-            }
-
-            .back-btn i {
-                font-size: 0.9rem;
-            }
-
             .search-filter {
                 display: flex;
                 gap: 10px;
@@ -707,18 +681,6 @@
                     gap: 10px;
                 }
 
-                .back-button-container {
-                    order: 1;
-                    width: 100%;
-                }
-
-                .back-btn {
-                    padding: 0;
-                    width: 100%;
-                    height: 40px;
-                    justify-content: center;
-                }
-
                 .search-filter {
                     order: 2;
                     width: 100%;
@@ -822,15 +784,6 @@
                 color: #fff;
                 border: 1px solid #7B7265;
             }
-            body.dark-mode .back-btn {
-                background: #23272a;
-                color: #e0e0e0;
-                border: 1px solid #7B7265;
-            }
-            body.dark-mode .back-btn:hover {
-                background: #263859;
-                color: #fff;
-            }
             body.dark-mode .buy-btn {
                 background: #1C3D30;
                 color: #7BE683;
@@ -905,10 +858,6 @@
             </div>
 
             <div class="table-controls">
-                <div class="back-button-container">
-                    <a href="/" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Docs </a>
-                </div>
-
                 <div class="search-filter">
                     <input type="text" id="projectSearch" placeholder="Search projects..." class="search-input" />
                     <select id="projectFilter" class="filter-select">
