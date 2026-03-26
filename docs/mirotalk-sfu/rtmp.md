@@ -76,10 +76,10 @@ cd ../..
 
 | Command | Action |
 | :--- | :--- |
-| `npm run nms-start` | Start |
-| `npm run nms-stop` | Stop |
-| `npm run nms-restart` | Restart |
-| `npm run nms-logs` | View logs |
+| `npm run nms:start` | Start |
+| `npm run nms:stop` | Stop |
+| `npm run nms:restart` | Restart |
+| `npm run nms:logs` | View logs |
 
 ### Access Points
 
@@ -119,10 +119,10 @@ cd ../..
 
 | Command | Action |
 | :--- | :--- |
-| `npm run rtmp-start` | Start |
-| `npm run rtmp-stop` | Stop |
-| `npm run rtmp-restart` | Restart |
-| `npm run rtmp-logs` | View logs |
+| `npm run rtmp:start` | Start |
+| `npm run rtmp:stop` | Stop |
+| `npm run rtmp:restart` | Restart |
+| `npm run rtmp:logs` | View logs |
 
 ### Statistics
 
