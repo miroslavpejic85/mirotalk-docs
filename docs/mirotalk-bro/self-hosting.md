@@ -4,7 +4,12 @@
 
 ## Description
 
-MiroTalk BRO is a one-to-many WebRTC broadcast platform for live audio and video streaming. It is peer-to-peer based, so it is best suited for small audiences and not recommended for large-scale broadcasts, making it ideal for webinars, live events, or educational sessions with minimal delay.
+MiroTalk BRO is a one-to-many WebRTC broadcast platform for live audio and video streaming, ideal for webinars, live events, or educational sessions with minimal delay.
+
+It supports two broadcasting modes:
+
+- **P2P** (default) — Direct peer-to-peer WebRTC connections, best suited for small audiences.
+- **SFU** — Media routed through a [mediasoup](https://mediasoup.org) server, better for many viewers (100+ users).
 
 **Live demo**: [https://bro.mirotalk.com](https://bro.mirotalk.com)
 
@@ -50,6 +55,34 @@ npm start
 ```
 
 Verify the installation: [http://YOUR.DOMAIN.NAME:3016](http://YOUR.DOMAIN.NAME:3016)
+
+---
+
+## SFU Mode (mediasoup)
+
+![mirotalk-bro-sfu](../images/mediasoup.png)
+
+To enable SFU broadcasting, add the following to your `.env` file:
+
+```bash
+# Broadcasting mode: 'p2p' (default) or 'sfu'
+BROADCASTING=sfu
+
+# Mediasoup SFU Configuration
+MEDIASOUP_NUM_WORKERS=            # Number of workers (default: number of CPU cores)
+MEDIASOUP_RTC_MIN_PORT=20000      # Minimum RTC port for media
+MEDIASOUP_RTC_MAX_PORT=20099      # Maximum RTC port for media
+MEDIASOUP_LOG_LEVEL=error         # debug, warn, error, none
+
+# Network settings (important for Docker/NAT deployments)
+MEDIASOUP_LISTEN_IP=0.0.0.0       # IP to bind to (use 0.0.0.0 for all interfaces)
+MEDIASOUP_ANNOUNCED_IP=           # Public IP to announce (required behind NAT/Docker)
+```
+
+!!! note
+
+    - Set `MEDIASOUP_ANNOUNCED_IP` to your server's public IP when running behind NAT or Docker.
+    - The RTC port range (`20000-20099`) must be open for both **UDP** and **TCP** in your firewall.
 
 ---
 
@@ -106,11 +139,17 @@ services:
         restart: unless-stopped
         ports:
             - '${PORT}:${PORT}'
+            - '${MEDIASOUP_RTC_MIN_PORT}-${MEDIASOUP_RTC_MAX_PORT}:${MEDIASOUP_RTC_MIN_PORT}-${MEDIASOUP_RTC_MAX_PORT}/udp'
+            - '${MEDIASOUP_RTC_MIN_PORT}-${MEDIASOUP_RTC_MAX_PORT}:${MEDIASOUP_RTC_MIN_PORT}-${MEDIASOUP_RTC_MAX_PORT}/tcp'
         volumes:
             - .env:/src/.env:ro
             - ./app/:/src/app/:ro
             - ./public/:/src/public/:ro
 ```
+
+!!! note
+
+    The mediasoup RTC port range is only needed when using SFU mode (`BROADCASTING=sfu`).
 
 ```bash
 # Pull the official Docker image
