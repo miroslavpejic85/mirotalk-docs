@@ -25,8 +25,6 @@
     - **SFU (Selective Forwarding Unit):** A central server receives all streams and selectively forwards them to participants. Reduced bandwidth per participant, ideal for 5+ users.
     - **MCU (Multipoint Control Unit):** The server mixes all streams into a single composite stream. Most resource-intensive on the server side.
 
-    MiroTalk uses **Mesh** (P2P, C2C, BRO) and **SFU** architectures.
-
 ---
 
 ## Products
@@ -38,7 +36,7 @@
     | **SFU** | Large meetings, webinars, conferences | 50–1000+ (with scaling) | Selective Forwarding Unit |
     | **P2P** | Small group calls, embedded apps | 2–4 participants | Peer-to-Peer (Mesh) |
     | **C2C** | Private cam-2-cam, direct messaging | 2 participants | Peer-to-Peer (Mesh) |
-    | **BRO** | Live broadcasting, one-to-many streaming | 1 broadcaster + viewers | Peer-to-Peer (Mesh) |
+    | **BRO** | Live broadcasting, one-to-many streaming | 1 broadcaster + viewers | P2P (Mesh) or SFU |
     | **WEB** | Meeting scheduling and management | N/A (scheduler) | Web-based |
 
     For large group calls and scalability, choose **SFU**. For lightweight, low-latency small calls, choose **P2P**.
@@ -62,7 +60,12 @@
 
 ??? question "Can MiroTalk BRO handle large-scale broadcasts?"
 
-    MiroTalk BRO uses a **Peer-to-Peer (Mesh)** architecture, so it works best for **small audiences**. For large-scale live streaming, consider using **MiroTalk SFU** with **RTMP streaming** to platforms like YouTube or Twitch.
+    Yes. MiroTalk BRO supports both **P2P** and **SFU** broadcasting modes.
+
+    - **P2P** (default) uses direct peer-to-peer WebRTC connections and works best for **small audiences**.
+    - **SFU** routes media through a **mediasoup** server and is better suited for **larger broadcasts** and **100+ viewers**, depending on server capacity and network setup.
+
+    For large-scale broadcasts, use **MiroTalk BRO in SFU mode**.
 
 ??? question "What is MiroTalk WEB?"
 
