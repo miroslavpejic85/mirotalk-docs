@@ -63,7 +63,7 @@
     Yes. MiroTalk BRO supports both **P2P** and **SFU** broadcasting modes.
 
     - **P2P** (default) uses direct peer-to-peer WebRTC connections and works best for **small audiences**.
-    - **SFU** routes media through a **mediasoup** server and is better suited for **larger broadcasts** and **100+ viewers**, depending on server capacity and network setup.
+    - **SFU** routes media through a built-in **mediasoup** server and is better suited for **larger broadcasts** and **100+ viewers**, depending on server capacity and network setup.
 
     For large-scale broadcasts, use **MiroTalk BRO in SFU mode**.
 
