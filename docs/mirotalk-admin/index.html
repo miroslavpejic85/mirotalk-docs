@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- og -->
+
+    <meta property="og:type" content="docs" />
+    <meta property="og:site_name" content="MiroTalk Docs" />
+    <meta property="og:title" content="MiroTalk Admin – Secure Management Dashboard" />
+    <meta property="og:description" content="Manage deployments, updates, credentials, and multiple MiroTalk instances from one admin panel." />
+    <meta property="og:image" content="https://docs.mirotalk.com/images/mirotalk-preview.png" />
+    <meta property="og:url" content="https://docs.mirotalk.com/mirotalk-admin/" />
+
+    <!-- favicon -->
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/icon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/icon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/icon/favicon-16x16.png" />
+    <link rel="shortcut icon" href="../images/icon/favicon.ico" />
+
+    <title>MiroTalk Admin - Banner</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0a0a0a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px;
+        }
+
+        .banner {
+            width: 100%;
+            max-width: 1200px;
+            background: linear-gradient(145deg, #0d1117 0%, #101723 50%, #0d1117 100%);
+            border-radius: 24px;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid rgba(59, 130, 246, 0.12);
+        }
+
+        .banner::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #38bdf8, #3b82f6, #22c55e, #06b6d4, #38bdf8);
+            border-radius: 25px;
+            z-index: -1;
+            opacity: 0.32;
+            filter: blur(8px);
+        }
+
+        .hero {
+            padding: 60px 60px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -55%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 900px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.12) 0%, transparent 62%);
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(56, 189, 248, 0.08);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            padding: 8px 20px;
+            border-radius: 50px;
+            margin-bottom: 24px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #7dd3fc;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .hero-badge .dot {
+            width: 8px;
+            height: 8px;
+            background: #38bdf8;
+            border-radius: 50%;
+            animation: pulse-dot 2s infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        .hero h1 {
+            font-size: 54px;
+            font-weight: 900;
+            color: #ffffff;
+            margin-bottom: 6px;
+            letter-spacing: -1.5px;
+            line-height: 1.1;
+        }
+
+        .hero h1 .gradient-text {
+            background: linear-gradient(135deg, #38bdf8, #3b82f6, #22c55e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 19px;
+            color: #8b949e;
+            margin-bottom: 8px;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+
+        .hero-tagline {
+            font-size: 15px;
+            color: #7dd3fc;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+
+        .overview {
+            padding: 0 60px 28px;
+        }
+
+        .overview-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 24px;
+            align-items: stretch;
+        }
+
+        .panel,
+        .preview-card,
+        .feature,
+        .link-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 18px;
+        }
+
+        .panel {
+            padding: 28px;
+        }
+
+        .panel h2 {
+            font-size: 26px;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: -0.5px;
+            margin-bottom: 10px;
+        }
+
+        .panel p {
+            font-size: 15px;
+            line-height: 1.7;
+            color: #9aa4b2;
+            margin-bottom: 20px;
+        }
+
+        .check-list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+        .check-item {
+            background: rgba(56, 189, 248, 0.05);
+            border: 1px solid rgba(56, 189, 248, 0.1);
+            border-radius: 12px;
+            padding: 14px 16px;
+            color: #dbeafe;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .preview-card {
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100%;
+        }
+
+        .preview-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 14px;
+            display: block;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            box-shadow: 0 24px 50px rgba(0, 0, 0, 0.35);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2px;
+            margin: 0 60px 28px;
+            background: rgba(56, 189, 248, 0.04);
+            border: 1px solid rgba(56, 189, 248, 0.1);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .stat {
+            padding: 22px 18px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 28px;
+            font-weight: 900;
+            letter-spacing: -1px;
+            margin-bottom: 4px;
+        }
+
+        .stat:nth-child(1) .stat-value { color: #7dd3fc; }
+        .stat:nth-child(2) .stat-value { color: #60a5fa; }
+        .stat:nth-child(3) .stat-value { color: #4ade80; }
+        .stat:nth-child(4) .stat-value { color: #22d3ee; }
+
+        .stat-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: #8b949e;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .features-section {
+            padding: 0 60px 28px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .section-header h2 {
+            font-size: 26px;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: -0.5px;
+            margin-bottom: 6px;
+        }
+
+        .section-header p {
+            font-size: 14px;
+            color: #8b949e;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+
+        .feature {
+            padding: 20px 18px;
+            text-align: center;
+        }
+
+        .feature-icon {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .feature h3 {
+            font-size: 15px;
+            font-weight: 700;
+            color: #e6edf3;
+            margin-bottom: 8px;
+        }
+
+        .feature p {
+            font-size: 13px;
+            line-height: 1.55;
+            color: #8b949e;
+        }
+
+        .links-section {
+            padding: 0 60px 40px;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+        }
+
+        .link-card {
+            padding: 22px;
+        }
+
+        .link-card .eyebrow {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #7dd3fc;
+            margin-bottom: 10px;
+        }
+
+        .link-card h3 {
+            font-size: 20px;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 8px;
+            letter-spacing: -0.4px;
+        }
+
+        .link-card p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #8b949e;
+            margin-bottom: 18px;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 16px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.2px;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        .button:hover {
+            transform: translateY(-1px);
+            opacity: 0.95;
+        }
+
+        .button.primary {
+            background: linear-gradient(135deg, #38bdf8, #3b82f6);
+            color: #ffffff;
+        }
+
+        .button.secondary {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: #e6edf3;
+        }
+
+        @media (max-width: 1024px) {
+            .overview-grid,
+            .links-grid,
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 720px) {
+            body {
+                padding: 20px;
+            }
+
+            .hero,
+            .overview,
+            .features-section,
+            .links-section {
+                padding-left: 24px;
+                padding-right: 24px;
+            }
+
+            .hero {
+                padding-top: 40px;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .overview-grid,
+            .links-grid,
+            .features-grid,
+            .stats,
+            .check-list {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                margin-left: 24px;
+                margin-right: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <section class="hero">
+            <div class="hero-badge"><span class="dot"></span> Admin Dashboard</div>
+            <h1>MiroTalk <span class="gradient-text">Admin</span></h1>
+            <p class="hero-subtitle">A secure management panel for deploying, updating, and operating your MiroTalk ecosystem.</p>
+            <p class="hero-tagline">One dashboard for credentials, instances, updates, and infrastructure workflows.</p>
+        </section>
+
+        <section class="overview">
+            <div class="overview-grid">
+                <div class="panel">
+                    <h2>Operate Multiple Instances With One Control Plane</h2>
+                    <p>MiroTalk Admin helps you manage core services, review configuration settings, secure access, and streamline maintenance across your MiroTalk deployments from a single interface.</p>
+                    <div class="check-list">
+                        <div class="check-item">Secure admin login and JWT protection</div>
+                        <div class="check-item">Supports SSH, Docker, and PM2 workflows</div>
+                        <div class="check-item">Manage SFU, P2P, C2C, BRO, WEB, and Admin</div>
+                        <div class="check-item">Built for self-hosted operational control</div>
+                    </div>
+                </div>
+                <div class="preview-card">
+                    <img src="../images/mirotalk/adm.png" alt="MiroTalk Admin dashboard preview">
+                </div>
+            </div>
+        </section>
+
+        <section class="stats">
+            <div class="stat">
+                <div class="stat-value">6+</div>
+                <div class="stat-label">Managed Products</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">3</div>
+                <div class="stat-label">Management Modes</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">1</div>
+                <div class="stat-label">Central Dashboard</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">24/7</div>
+                <div class="stat-label">Ops Visibility</div>
+            </div>
+        </section>
+
+        <section class="features-section">
+            <div class="section-header">
+                <h2>Built For Real Deployment Work</h2>
+                <p>Use the admin panel to keep instances organized, secured, and easier to maintain over time.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature">
+                    <div class="feature-icon">🔐</div>
+                    <h3>Access Control</h3>
+                    <p>Protect the dashboard with custom credentials, password hashing, and JWT secrets.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Fast Setup</h3>
+                    <p>Start quickly with standard Node.js setup, PM2 process management, or Docker-based deployment.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🖥️</div>
+                    <h3>Instance Oversight</h3>
+                    <p>Track and manage multiple MiroTalk services from one place instead of separate machine-by-machine workflows.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🛠️</div>
+                    <h3>Operational Flexibility</h3>
+                    <p>Choose SSH, Docker, or PM2 depending on how your infrastructure is currently managed.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="links-section">
+            <div class="links-grid">
+                <div class="link-card">
+                    <div class="eyebrow">Start Here</div>
+                    <h3>Quick Start</h3>
+                    <p>Clone the project, configure the environment, and launch the dashboard with the default local workflow.</p>
+                    <a class="button primary" href="./quick-start/">Open Quick Start</a>
+                </div>
+                <div class="link-card">
+                    <div class="eyebrow">Deployment</div>
+                    <h3>Self-Hosting Guide</h3>
+                    <p>Set up production hosting, Nginx, HTTPS, Docker, and PM2 using the full deployment instructions.</p>
+                    <a class="button primary" href="./self-hosting/">Open Self-Hosting</a>
+                </div>
+                <div class="link-card">
+                    <div class="eyebrow">Source Code</div>
+                    <h3>GitHub Repository</h3>
+                    <p>Browse the repository, source files, and release history for MiroTalk Admin on GitHub.</p>
+                    <a class="button secondary" href="https://github.com/miroslavpejic85/mirotalk-admin">View Repository</a>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

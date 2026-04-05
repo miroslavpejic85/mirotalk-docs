@@ -1,4 +1,4 @@
-site_name: MiroTalk docs v1.3.39
+site_name: MiroTalk docs v1.3.40
 site_description: MiroTalk WebRTC documentations
 site_author: Miroslav Pejic (miroslav.pejic.85@gmail.com)
 copyright: © 2026 MiroTalk, all rights reserved
@@ -19,7 +19,8 @@ nav:
       - installation: coturn/installation.md
   - licensing-options: license/licensing-options.md
   - mirotalk-admin:
-      - about: https://github.com/miroslavpejic85/mirotalk-admin
+      - about: mirotalk-admin/index.html
+      - github: https://github.com/miroslavpejic85/mirotalk-admin
       - quick-start: mirotalk-admin/quick-start.md
       - self-hosting: mirotalk-admin/self-hosting.md
   - mirotalk-bro:
