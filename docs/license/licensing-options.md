@@ -27,6 +27,7 @@ For `commercial project` (**closed-source**, with the intention to `rebrand` it 
 | [MiroTalk P2P](https://codecanyon.net/item/mirotalk-p2p-webrtc-realtime-video-conferences/38376661)                               | $ 79            | $ 499            |
 | [MiroTalk C2C](https://codecanyon.net/item/mirotalk-c2c-webrtc-real-time-cam-2-cam-video-conferences-and-screen-sharing/43383005) | $ 69            | $ 249            |
 | [MiroTalk BRO](https://codecanyon.net/item/mirotalk-bro-webrtc-p2p-live-broadcast/45887113)                                       | $ 59            | $ 249            |
+| [MiroTalk CME](https://codecanyon.net/item/callme-easy-webrtc-video-call-app/55342915)                         | $ 39            | $ 199            |
 | [MiroTalk WEB](https://codecanyon.net/item/a-selfhosted-mirotalks-webrtc-rooms-scheduler-server/42643313)                         | $ 39            | $ 199            |
 
 Selecting the appropriate license is crucial for `legal compliance` and to `support the ongoing maintenance` of the MiroTalk project itself. 

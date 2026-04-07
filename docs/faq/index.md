@@ -12,6 +12,7 @@
     - 🚀 **MiroTalk P2P** — Peer-to-peer video calls (small groups)
     - ✨ **MiroTalk C2C** — Client-to-client cam-2-cam communication
     - 📡 **MiroTalk BRO** — One-to-many live broadcasting
+    - 🟢 **MiroTalk CME** — Instant click-to-call video calls
     - 🛠 **MiroTalk WEB** — Meeting room scheduler and manager
     - ⚙️ **MiroTalk ADMIN** — Centralized dashboard to manage all instances
 
@@ -37,6 +38,7 @@
     | **P2P** | Small group calls, embedded apps | 2–4 participants | Peer-to-Peer (Mesh) |
     | **C2C** | Private cam-2-cam, direct messaging | 2 participants | Peer-to-Peer (Mesh) |
     | **BRO** | Live broadcasting, one-to-many streaming | 1 broadcaster + viewers | P2P (Mesh) or SFU |
+    | **CME** | Instant 1:1 video calls, support, consultations | 2 participants x Call | Peer-to-Peer (Mesh) |
     | **WEB** | Meeting scheduling and management | N/A (scheduler) | Web-based |
 
     For large group calls and scalability, choose **SFU**. For lightweight, low-latency small calls, choose **P2P**.
@@ -110,6 +112,7 @@
     | SFU     | 3010 |
     | BRO     | 3016 |
     | C2C     | 8080 |
+    | CME     | 8000 |
     | WEB     | 9000 |
 
 ??? question "How do I deploy MiroTalk with Docker Compose?"
@@ -294,6 +297,7 @@
     | P2P | $79 | $499 |
     | C2C | $69 | $249 |
     | BRO | $59 | $249 |
+    | CME | $39 | $199 |
     | WEB | $39 | $199 |
 
     See the [Licensing Options](../license/licensing-options.md) page for full details.
