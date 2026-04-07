@@ -304,6 +304,230 @@
 
 ---
 
+## Room Customization
+
+??? question "How do I protect a room with a password?"
+
+    MiroTalk SFU supports room passwords via the `roomPassword` URL parameter:
+
+    ```
+    https://YOUR-DOMAIN-NAME/join?room=test&roomPassword=MySecret123
+    ```
+
+    Set `roomPassword=0` to disable password protection. When a password is set, participants must enter it before joining the room.
+
+    See the join room guides for [SFU](../mirotalk-sfu/join-room.md) for details.
+
+??? question "Can I set a session duration limit for rooms?"
+
+    Yes. Use the `duration` URL parameter when joining a room:
+
+    ```
+    https://YOUR-DOMAIN-NAME/join?room=test&duration=01:00:00
+    ```
+
+    - Format: `HH:MM:SS` (e.g., `01:30:00` for 1 hour 30 minutes)
+    - Set to `unlimited` for no time limit
+
+    When the duration expires, the session ends automatically. Available in both [SFU](../mirotalk-sfu/join-room.md) and [P2P](../mirotalk-p2p/join-room.md).
+
+??? question "What URL parameters can I use to customize room join links?"
+
+    Both SFU and P2P support a full set of URL parameters for customizing the join experience:
+
+    | Parameter      | Type           | Description                                                  |
+    |----------------|----------------|--------------------------------------------------------------|
+    | `room`         | string         | Room ID. Set to `random` for auto-generated ID.              |
+    | `roomPassword` | string/boolean | Room password (`0` to disable). SFU only.                    |
+    | `name`         | string         | Display name. Set to `random` for auto-generated.            |
+    | `avatar`       | URL/boolean    | Avatar image URL (shown when camera is off). `0` to disable. |
+    | `audio`        | boolean        | `1` to enable, `0` to disable audio on join.                 |
+    | `video`        | boolean        | `1` to enable, `0` to disable video on join.                 |
+    | `screen`       | boolean        | `1` to enable, `0` to disable screen sharing on join.        |
+    | `chat`         | boolean        | `1` to enable, `0` to disable chat on join.                  |
+    | `hide`         | boolean        | `1` to hide self from room view.                             |
+    | `notify`       | boolean        | `1` to show welcome message.                                 |
+    | `duration`     | string         | Max session time (`HH:MM:SS` or `unlimited`).                |
+    | `token`        | string         | JWT token for host-protected rooms.                          |
+
+    See the join room guides for [SFU](../mirotalk-sfu/join-room.md) and [P2P](../mirotalk-p2p/join-room.md).
+
+---
+
+## Scaling & Architecture
+
+??? question "How does horizontal scaling work with a load balancer?"
+
+    MiroTalk SFU supports horizontal scaling using multiple servers behind a load balancer (Nginx or HAProxy) with **consistent hashing** on the room parameter for sticky sessions.
+
+    **Architecture:**
+
+    ```
+                Load Balancer (Nginx/HAProxy)
+                           |
+            ┌──────────────┼──────────────┐
+            |              |              |
+         SFU #1         SFU #2         SFU #3
+        ~800 users     ~800 users     ~800 users
+    ```
+
+    **Key configuration** (Nginx):
+
+    ```nginx
+    upstream mirotalk_backend {
+        hash $arg_room consistent;  # Same room → same server
+        server 1.1.1.1:3010 max_fails=3 fail_timeout=30s;
+        server 2.2.2.2:3010 max_fails=3 fail_timeout=30s;
+    }
+    ```
+
+    **Hash strategy matters:**
+
+    - `hash $arg_room consistent` — Hashes only the `room` query param. **Recommended**.
+    - `hash $uri consistent` — Hashes only the path. Fails for query-string URLs.
+    - `hash $request_uri consistent` — Hashes the full URI. Users with different names in the same room may land on different servers.
+
+    See the [Scalability](../mirotalk-sfu/scalability.md) guide for full details.
+
+??? question "How many ports does MiroTalk SFU need per participant?"
+
+    Each participant requires **2 ports** (one for audio, one for video). The default port range `40000-40100` provides ~50 ports, supporting approximately **50 concurrent participants** across all rooms on that server.
+
+    For larger deployments, expand the range:
+
+    ```bash
+    SFU_MIN_PORT=40000
+    SFU_MAX_PORT=49999
+    ```
+
+    Ensure your firewall allows the full range on both TCP and UDP.
+
+---
+
+## Updates & Maintenance
+
+??? question "How do I preserve custom branding during updates?"
+
+    When updating MiroTalk, custom files (branding, views) may be overwritten. Three strategies to preserve your changes:
+
+    **Option 1: `git stash` (small edits)**
+
+    ```bash
+    git stash push -m "My branding changes"
+    git pull
+    git stash pop
+    ```
+
+    **Option 2: Custom branch (ongoing customizations)**
+
+    ```bash
+    git checkout -b custom-branding
+    # Commit your changes, then on update:
+    git checkout main && git pull origin main
+    git checkout custom-branding && git merge main
+    ```
+
+    **Option 3: Docker volumes (Docker deployments)**
+
+    ```yaml
+    volumes:
+      - ./custom/views:/app/public/views
+    ```
+
+    Also check for changes in `.env` and `config.js` after each update. See the update guides for [SFU](../mirotalk-sfu/updates.md) and [P2P](../mirotalk-p2p/updates.md).
+
+??? question "How do I keep MiroTalk running after a server reboot?"
+
+    Use **PM2** (Process Manager) with auto-startup:
+
+    ```bash
+    npm install -g pm2
+    pm2 start app/src/server.js --name mirotalk
+    pm2 startup
+    pm2 save
+    ```
+
+    `pm2 startup` generates a system service that automatically restarts your MiroTalk processes on boot. Each product's self-hosting guide includes PM2 setup instructions.
+
+---
+
+## Internationalization
+
+??? question "Does MiroTalk support multiple languages?"
+
+    Yes. **MiroTalk CME** supports **13 languages** with automatic browser detection:
+
+    🇬🇧 English, 🇪🇸 Spanish, 🇫🇷 French, 🇮🇹 Italian, 🇩🇪 German, 🇧🇷 Portuguese, 🇷🇺 Russian, 🇸🇦 Arabic, 🇮🇳 Hindi, 🇨🇳 Chinese, 🇯🇵 Japanese, 🇭🇷 Croatian, 🇷🇸 Serbian
+
+    Features:
+
+    - Automatic language detection from browser settings
+    - Language persistence via `localStorage`
+    - Real-time language switching from the settings panel
+    - JSON-based translations in `app/locales/`
+
+    See the [i18n](../mirotalk-cme/I18n.md) guide for details.
+
+---
+
+## Database & Email
+
+??? question "Does MiroTalk WEB require a database?"
+
+    Yes. MiroTalk WEB uses **MongoDB** to store meeting and room data. Two deployment options:
+
+    **Local (Docker):**
+
+    ```bash
+    npm run mongo:up    # Start MongoDB container
+    npm run mongo:down  # Stop MongoDB container
+    ```
+
+    **Cloud (MongoDB Atlas):**
+
+    Update the credentials in `.env`:
+
+    ```bash
+    MONGO_URL=mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOST}:${MONGO_PORT}
+    MONGO_DATABASE=mirotalk
+    ```
+
+    See the [MiroTalk WEB self-hosting](../mirotalk-web/self-hosting.md) guide for setup.
+
+??? question "Does MiroTalk WEB support email verification?"
+
+    Yes. Email verification is **disabled by default**. To enable it, set `EMAIL_VERIFICATION=true` in `.env` and configure SMTP settings:
+
+    ```bash
+    EMAIL_VERIFICATION=true
+    EMAIL_HOST=yourEmailHost
+    EMAIL_PORT=yourEmailPort
+    EMAIL_USERNAME=yourEmailUsername
+    EMAIL_PASSWORD=yourEmailPassword
+    EMAIL_FROM=yourEmailFrom
+    ```
+
+    See the [MiroTalk WEB self-hosting](../mirotalk-web/self-hosting.md) guide for details.
+
+---
+
+## Security
+
+??? question "How do I secure my coturn TURN server?"
+
+    Key hardening recommendations for your [coturn](../coturn/installation.md) server:
+
+    - **Block private IP ranges** using `denied-peer-ip` (`10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`)
+    - **Enable TLS** with strong cipher lists on port `5349`
+    - **Use strong credentials** with `lt-cred-mech`
+    - **Set `no-multicast-peers` and `no-loopback-peers`**
+    - **Limit quotas** with `user-quota` and `total-quota`
+    - **Run as a dedicated user** (avoid running as root in production)
+
+    See the [Coturn Security Configuration Guide](https://www.enablesecurity.com/blog/coturn-security-configuration-guide/) for in-depth recommendations.
+
+---
+
 ## Troubleshooting
 
 ??? question "My video/audio is not working. What should I check?"
