@@ -10,6 +10,7 @@
 | 🚀 **P2P** | [p2p.mirotalk.com](https://p2p.mirotalk.com) | Peer-to-peer video calls |
 | ✨ **C2C** | [c2c.mirotalk.com](https://c2c.mirotalk.com) | Cam-to-Cam communication |
 | 📡 **BRO** | [bro.mirotalk.com](https://bro.mirotalk.com) | Broadcasting one-to-many streaming |
+| 🟢 **CME** | [cme.mirotalk.com](https://cme.mirotalk.com) | Instant click-to-call video calls |
 | 🛠 **WEB** | [webrtc.mirotalk.com](https://webrtc.mirotalk.com) | Room scheduler and meeting manager |
 | ⚙️ **ADMIN** | [Self-hosting guide](https://docs.mirotalk.com/mirotalk-admin/self-hosting) | Manage updates, configurations, and settings |
 
@@ -73,6 +74,7 @@ Just change the `src` to match the MiroTalk variant you need:
 | **P2P** | `https://p2p.mirotalk.com/newcall` | [Demo](https://codepen.io/Miroslav-Pejic/pen/jOQMVzx) |
 | **C2C** | `https://c2c.mirotalk.com` | [Demo](https://codepen.io/Miroslav-Pejic/pen/ExOgNbJ) |
 | **BRO** | `https://bro.mirotalk.com` | [Demo](https://codepen.io/Miroslav-Pejic/pen/OJaRbZg) |
+| **CME** | `https://cme.mirotalk.com` | [Demo](https://codepen.io/Miroslav-Pejic/pen/empeGYJ) |
 | **WEB** | `https://webrtc.mirotalk.com` | [Demo](https://codepen.io/Miroslav-Pejic/pen/jOQMVxx) |
 
 See also: [React integration example](https://codepen.io/Miroslav-Pejic/pen/QWzmGaZ)
@@ -158,6 +160,7 @@ Create a dedicated `videoConference.html` page:
       - https://p2p.mirotalk.com
       - https://c2c.mirotalk.com
       - https://bro.mirotalk.com
+      - https://cme.mirotalk.com
       - https://webrtc.mirotalk.com
       - ...
 	-->
@@ -187,6 +190,7 @@ Use query parameters to customize the URL — see the join-room guide for each v
 - [MiroTalk P2P direct join](./mirotalk-p2p/join-room.md)
 - [MiroTalk C2C direct join](./mirotalk-c2c/join-room.md)
 - [MiroTalk BRO direct join](./mirotalk-bro/join-room.md)
+- [MiroTalk CME direct join](./mirotalk-cme/join-room.md)
 
 ---
 
@@ -196,6 +200,7 @@ You can also generate meeting URLs via the REST API:
 - [MiroTalk P2P REST API](./mirotalk-p2p/api.md)
 - [MiroTalk C2C REST API](./mirotalk-c2c/api.md)
 - [MiroTalk BRO REST API](./mirotalk-bro/api.md)
+- [MiroTalk CME REST API](./mirotalk-cme/api.md)
 - [MiroTalk WEB REST API](./mirotalk-web/api.md)
 
 ---
@@ -210,6 +215,7 @@ Deploy MiroTalk on your own server for full control over your data and infrastru
 | 🚀 **P2P** | [Self-hosting](./mirotalk-p2p/self-hosting.md) | [Config](./mirotalk-p2p/configurations.md) |
 | ✨ **C2C** | [Self-hosting](./mirotalk-c2c/self-hosting.md) | [Config](./mirotalk-c2c/configurations.md) |
 | 📡 **BRO** | [Self-hosting](./mirotalk-bro/self-hosting.md) | [Config](./mirotalk-bro/configurations.md) |
+| 🟢 **CME** | [Self-hosting](./mirotalk-cme/self-hosting.md) | [Config](./mirotalk-cme/configurations.md) |
 | 🛠 **WEB** | [Self-hosting](./mirotalk-web/self-hosting.md) | [Config](./mirotalk-web/configurations.md) |
 | ⚙️ **ADMIN** | [Self-hosting](./mirotalk-admin/self-hosting.md) | — |
 
