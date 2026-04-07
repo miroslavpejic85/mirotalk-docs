@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- og -->
+
+    <meta property="og:type" content="docs" />
+    <meta property="og:site_name" content="MiroTalk Docs" />
+    <meta property="og:title" content="MiroTalk CME – Instant One-to-One Video Calls" />
+    <meta property="og:description" content="Call-Me: Your Go-To for Instant Video Calls with WebRTC" />
+    <meta property="og:image" content="https://docs.mirotalk.com/images/mirotalk-preview.png" />
+    <meta property="og:url" content="https://docs.mirotalk.com/mirotalk-cme/" />
+
+    <!-- favicon -->
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/icon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/icon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/icon/favicon-16x16.png" />
+    <link rel="shortcut icon" href="../images/icon/favicon.ico" />
+
+    <title>MiroTalk CME - Banner</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0a0a0a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px;
+        }
+
+        .banner {
+            width: 100%;
+            max-width: 1200px;
+            background: linear-gradient(145deg, #0d1117 0%, #0d1a17 50%, #0d1117 100%);
+            border-radius: 24px;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid rgba(16, 185, 129, 0.1);
+        }
+
+        .banner::before {
+            content: '';
+            position: absolute;
+            top: -2px; left: -2px; right: -2px; bottom: -2px;
+            background: linear-gradient(45deg, #10b981, #06b6d4, #34d399, #10b981);
+            border-radius: 25px;
+            z-index: -1;
+            opacity: 0.35;
+            filter: blur(8px);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 60px 60px 36px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -60%; left: 50%;
+            transform: translateX(-50%);
+            width: 800px; height: 800px;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.10) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(16, 185, 129, 0.08);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            padding: 8px 20px;
+            border-radius: 50px;
+            margin-bottom: 24px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #6ee7b7;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .hero-badge .dot {
+            width: 8px; height: 8px;
+            background: #10b981;
+            border-radius: 50%;
+            animation: pulse-dot 2s infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        .hero h1 {
+            font-size: 54px;
+            font-weight: 900;
+            color: #ffffff;
+            margin-bottom: 6px;
+            letter-spacing: -1.5px;
+            line-height: 1.1;
+        }
+
+        .hero h1 .gradient-text {
+            background: linear-gradient(135deg, #10b981, #06b6d4, #34d399);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 19px;
+            color: #8b949e;
+            margin-bottom: 8px;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+
+        .hero-tagline {
+            font-size: 15px;
+            color: #34d399;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+
+        /* Call Concept */
+        .concept {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 28px;
+            padding: 36px 60px;
+        }
+
+        .concept-user {
+            background: rgba(16, 185, 129, 0.04);
+            border: 1px solid rgba(16, 185, 129, 0.12);
+            border-radius: 20px;
+            padding: 32px 40px;
+            text-align: center;
+            flex: 1;
+            max-width: 300px;
+        }
+
+        .concept-user .avatar {
+            width: 80px; height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(6, 182, 212, 0.08));
+            border: 2px solid rgba(16, 185, 129, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            margin: 0 auto 14px;
+        }
+
+        .concept-user h4 {
+            font-size: 18px;
+            font-weight: 800;
+            color: #e6edf3;
+            margin-bottom: 6px;
+        }
+
+        .concept-user p {
+            font-size: 13px;
+            color: #8b949e;
+            line-height: 1.5;
+        }
+
+        .concept-connector {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .concept-connector .line {
+            width: 120px;
+            height: 3px;
+            background: linear-gradient(90deg, #10b981, #06b6d4);
+            border-radius: 2px;
+            position: relative;
+        }
+
+        .concept-connector .line::before,
+        .concept-connector .line::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 10px; height: 10px;
+            border-radius: 50%;
+            background: #10b981;
+        }
+
+        .concept-connector .line::before { left: -5px; }
+        .concept-connector .line::after { right: -5px; }
+
+        .concept-connector .label {
+            font-size: 11px;
+            font-weight: 700;
+            color: #34d399;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Click-to-Call Highlight */
+        .embed-highlight {
+            margin: 0 60px 36px;
+            background: rgba(16, 185, 129, 0.04);
+            border: 1px solid rgba(16, 185, 129, 0.1);
+            border-radius: 16px;
+            padding: 24px 32px;
+            text-align: center;
+        }
+
+        .embed-highlight h3 {
+            font-size: 18px;
+            font-weight: 800;
+            color: #e6edf3;
+            margin-bottom: 8px;
+        }
+
+        .embed-highlight .code-sample {
+            display: inline-block;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            padding: 12px 24px;
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            font-size: 14px;
+            color: #34d399;
+            letter-spacing: 0.3px;
+        }
+
+        .embed-highlight .code-sample span { color: #8b949e; }
+
+        .embed-highlight p {
+            font-size: 13px;
+            color: #8b949e;
+            margin-top: 10px;
+        }
+
+        /* Key Metrics */
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2px;
+            margin: 0 60px 36px;
+            background: rgba(16, 185, 129, 0.03);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(16, 185, 129, 0.08);
+        }
+
+        .highlight {
+            padding: 24px 20px;
+            text-align: center;
+        }
+
+        .highlight-value {
+            font-size: 28px;
+            font-weight: 900;
+            letter-spacing: -1px;
+            margin-bottom: 4px;
+        }
+
+        .highlight-value.v1 { color: #34d399; }
+        .highlight-value.v2 { color: #06b6d4; }
+        .highlight-value.v3 { color: #10b981; }
+        .highlight-value.v4 { color: #6ee7b7; }
+
+        .highlight-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: #8b949e;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        /* Features */
+        .features-section { padding: 0 60px 36px; }
+
+        .features-header {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .features-header h2 {
+            font-size: 26px;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: -0.5px;
+            margin-bottom: 6px;
+        }
+
+        .features-header p { font-size: 14px; color: #8b949e; }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+
+        .feature {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 14px;
+            padding: 20px 14px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .feature:hover {
+            background: rgba(16, 185, 129, 0.04);
+            border-color: rgba(16, 185, 129, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .feature-icon { font-size: 28px; margin-bottom: 10px; display: block; }
+
+        .feature h4 {
+            font-size: 11.5px;
+            font-weight: 700;
+            color: #e6edf3;
+            letter-spacing: 0.2px;
+            line-height: 1.3;
+        }
+
+        /* CTA */
+        .cta {
+            padding: 36px 60px 50px;
+            text-align: center;
+            position: relative;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 50%;
+            transform: translateX(-50%);
+            width: 600px; height: 400px;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.06) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 36px;
+            border-radius: 14px;
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            letter-spacing: 0.2px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #10b981, #06b6d4);
+            color: #ffffff;
+            box-shadow: 0 4px 24px rgba(16, 185, 129, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 32px rgba(16, 185, 129, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: #c9d1d9;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .cta-note {
+            font-size: 13px;
+            color: #6e7681;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .cta-note span { display: flex; align-items: center; gap: 6px; }
+        .check-icon { color: #10b981; font-weight: bold; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            body { padding: 16px; }
+            .banner { width: 100%; border-radius: 16px; }
+            .banner::before { border-radius: 17px; }
+            .hero { padding: 36px 24px 24px; }
+            .hero h1 { font-size: 32px; letter-spacing: -1px; }
+            .hero-subtitle { font-size: 15px; }
+            .hero-tagline { font-size: 13px; }
+            .hero-badge { font-size: 11px; padding: 6px 14px; }
+            .concept { flex-direction: column; padding: 24px 24px; gap: 16px; }
+            .concept-user { max-width: 100%; padding: 24px 28px; }
+            .concept-user .avatar { width: 60px; height: 60px; font-size: 28px; }
+            .concept-connector .line { width: 3px; height: 40px; }
+            .concept-connector .line::before { top: -5px; left: 50%; transform: translateX(-50%); }
+            .concept-connector .line::after { top: auto; bottom: -5px; left: 50%; right: auto; transform: translateX(-50%); }
+            .embed-highlight { margin: 0 24px 24px; padding: 20px 20px; }
+            .embed-highlight h3 { font-size: 15px; }
+            .embed-highlight .code-sample { font-size: 11px; padding: 10px 14px; word-break: break-all; }
+            .highlights { grid-template-columns: repeat(2, 1fr); margin: 0 24px 24px; border-radius: 12px; }
+            .highlight { padding: 16px 12px; }
+            .highlight-value { font-size: 22px; }
+            .highlight-label { font-size: 10px; }
+            .features-section { padding: 0 24px 24px; }
+            .features-header h2 { font-size: 20px; }
+            .features-header p { font-size: 12px; }
+            .features-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            .feature { padding: 14px 10px; }
+            .feature-icon { font-size: 22px; margin-bottom: 6px; }
+            .feature h4 { font-size: 11px; }
+            .cta { padding: 24px 24px 36px; }
+            .cta-buttons { flex-direction: column; gap: 10px; }
+            .btn { padding: 14px 24px; font-size: 14px; justify-content: center; }
+            .cta-note { flex-direction: column; gap: 8px; font-size: 12px; }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 26px; }
+            .hero-subtitle { font-size: 14px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="banner">
+
+    <!-- Hero -->
+    <div class="hero">
+        <div class="hero-badge">
+            <span class="dot"></span>
+            WebRTC Click-to-Call
+        </div>
+        <h1>
+            <span class="gradient-text">MiroTalk CME</span>
+        </h1>
+        <p class="hero-subtitle">
+            Call-Me: Your Go-To for Instant One-to-One Video Calls
+        </p>
+        <p class="hero-tagline">
+            End-to-End Encrypted &bull; Click to Call &bull; No Downloads
+        </p>
+    </div>
+
+    <!-- Call Concept -->
+    <div class="concept">
+        <div class="concept-user">
+            <div class="avatar">👤</div>
+            <h4>Caller</h4>
+            <p>Signs in with a username and clicks call to reach the recipient</p>
+        </div>
+        <div class="concept-connector">
+            <div class="line"></div>
+            <div class="label">E2EE Encrypted</div>
+        </div>
+        <div class="concept-user">
+            <div class="avatar">👤</div>
+            <h4>Recipient</h4>
+            <p>Receives the call instantly — crystal-clear video & audio</p>
+        </div>
+    </div>
+
+    <!-- Click-to-Call Highlight -->
+    <div class="embed-highlight">
+        <h3>📞 Click-to-Call &amp; iFrame Integration</h3>
+        <div class="code-sample">
+            <span>&lt;iframe</span> src="https://cme.mirotalk.com" <span>/&gt;</span>
+        </div>
+        <p>Easily embed Call-Me into your website or app — perfect for support, telehealth & consultations</p>
+    </div>
+
+    <!-- Key Metrics -->
+    <div class="highlights">
+        <div class="highlight">
+            <div class="highlight-value v1">1:1</div>
+            <div class="highlight-label">Video Calls</div>
+        </div>
+        <div class="highlight">
+            <div class="highlight-value v2">E2EE</div>
+            <div class="highlight-label">End-to-End Encryption</div>
+        </div>
+        <div class="highlight">
+            <div class="highlight-value v3">∞</div>
+            <div class="highlight-label">Rooms & No Time Limit</div>
+        </div>
+        <div class="highlight">
+            <div class="highlight-value v4">API</div>
+            <div class="highlight-label">REST API Built-in</div>
+        </div>
+    </div>
+
+    <!-- Features -->
+    <div class="features-section">
+        <div class="features-header">
+            <h2>Everything You Need for Instant Calls</h2>
+            <p>Powerful features for seamless one-to-one video communication</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature">
+                <span class="feature-icon">📹</span>
+                <h4>Video Calls</h4>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">🖥️</span>
+                <h4>Screen Sharing</h4>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">💬</span>
+                <h4>Real-Time Chat</h4>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">📁</span>
+                <h4>File Sharing</h4>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">🔒</span>
+                <h4>E2E Encrypted</h4>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">🎛️</span>
+                <h4>Device Switching</h4>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">🛡️</span>
+                <h4>Host Protection</h4>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">🐳</span>
+                <h4>Docker Ready</h4>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta">
+        <div class="cta-buttons">
+            <a href="https://codecanyon.net/item/callme-easy-webrtc-video-call-app/55342915" class="btn btn-primary">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                Buy CME Commercial License
+            </a>
+            <a href="https://cme.mirotalk.com" class="btn btn-secondary">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                Try Live Demo
+            </a>
+        </div>
+        <div class="cta-note">
+            <span><span class="check-icon">✓</span> Lifetime Updates</span>
+            <span><span class="check-icon">✓</span> Priority Support</span>
+            <span><span class="check-icon">✓</span> Full Source Code</span>
+            <span><span class="check-icon">✓</span> Commercial Use</span>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

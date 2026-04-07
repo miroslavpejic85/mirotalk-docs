@@ -1,4 +1,4 @@
-site_name: MiroTalk docs v1.3.43
+site_name: MiroTalk docs v1.3.44
 site_description: MiroTalk WebRTC documentations
 site_author: Miroslav Pejic (miroslav.pejic.85@gmail.com)
 copyright: © 2026 MiroTalk, all rights reserved
@@ -39,6 +39,15 @@ nav:
       - join-room: mirotalk-c2c/join-room.md
       - ngrok: mirotalk-c2c/ngrok.md
       - self-hosting: mirotalk-c2c/self-hosting.md
+  - mirotalk-cme:
+      - about: mirotalk-cme/index.html
+      - api: mirotalk-cme/api.md
+      - configurations: mirotalk-cme/configurations.md
+      - I18n: mirotalk-cme/I18n.md
+      - integration: mirotalk-cme/integration.md
+      - join-room: mirotalk-cme/join-room.md
+      - ngrok: mirotalk-cme/ngrok.md
+      - self-hosting: mirotalk-cme/self-hosting.md
   - mirotalk-docs:
       - self-hosting: mirotalk-docs/self-hosting.md
   - mirotalk-p2p:
