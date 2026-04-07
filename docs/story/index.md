@@ -86,6 +86,18 @@ Not because of a marketing budget. Not because of a sales team. **Because the co
 
 ---
 
+## Shaped by the People Who Use It
+
+Once people started using MiroTalk, something unexpected happened: they didn't just use it, they **shaped it**. Every feature request, every bug report, every conversation became a reason to make it better.
+
+No boardroom decided the roadmap. **Real users did.** Teachers, developers, teams, they told me what they needed, and I built it.
+
+> 💡 *"The best software isn't built in isolation. It's shaped by the people who depend on it every day."*
+
+That's the secret no corporation can replicate: **when you build in the open, your users become your co-creators.**
+
+---
+
 ## This Is Just the Beginning
 
 MiroTalk is more than software. It's a statement.
