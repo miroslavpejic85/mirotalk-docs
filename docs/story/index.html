@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- og -->
+
+    <meta property="og:type" content="docs" />
+    <meta property="og:site_name" content="MiroTalk Docs" />
+    <meta property="og:title" content="The Story Behind MiroTalk" />
+    <meta property="og:description" content="How a pandemic side-project became a global open-source WebRTC movement" />
+    <meta property="og:image" content="https://docs.mirotalk.com/images/mirotalk-preview.png" />
+    <meta property="og:url" content="https://docs.mirotalk.com/story/" />
+
+    <!-- favicon -->
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/icon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/icon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/icon/favicon-16x16.png" />
+    <link rel="shortcut icon" href="../images/icon/favicon.ico" />
+
+    <title>The Story Behind MiroTalk</title>
+
+    <!-- Google Fonts: Inter -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome CDN -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+
+    <style>
+        :root {
+            --primary: #2196f3;
+            --primary-dark: #1565c0;
+            --accent: #00bcd4;
+            --bg: #10141a;
+            --card-bg: #181d23;
+            --text: #e3eaf3;
+            --muted: #8a97ad;
+            --shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+            --radius: 14px;
+            --glow: 0 0 20px rgba(33, 150, 243, 0.15);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', Arial, sans-serif;
+            margin: 0;
+            line-height: 1.8;
+            font-size: 1.08rem;
+        }
+
+        main {
+            min-height: 100vh;
+        }
+
+        /* ───── Reading Progress Bar ───── */
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent), #7c4dff);
+            width: 0%;
+            z-index: 9999;
+            transition: width 0.1s linear;
+            box-shadow: 0 0 8px var(--primary);
+        }
+
+        /* ───── Chapter Number Badge ───── */
+
+        .chapter-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: #fff;
+            font-weight: 700;
+            font-size: 0.95rem;
+            flex-shrink: 0;
+            box-shadow: 0 2px 12px rgba(33, 150, 243, 0.3);
+        }
+
+        /* ───── Header ───── */
+
+        header {
+            background: linear-gradient(120deg, #0d47a1, var(--primary-dark), var(--primary), var(--accent));
+            background-size: 300% 300%;
+            animation: gradientShift 8s ease infinite;
+            color: #fff;
+            padding: 4rem 1rem 3rem 1rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(0,188,212,0.1) 0%, transparent 40%),
+                        radial-gradient(circle at 50% 80%, rgba(33,150,243,0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+            position: relative;
+        }
+
+        header .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #b3e5fc;
+            font-weight: 500;
+            position: relative;
+        }
+
+        header .subtitle-small {
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            color: rgba(179, 229, 252, 0.7);
+            font-weight: 400;
+            position: relative;
+        }
+
+        .header-img {
+            max-width: 620px;
+            width: 90%;
+            border-radius: var(--radius);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+            margin-bottom: 1.8rem;
+            position: relative;
+            transition: transform 0.4s ease;
+        }
+
+        .header-img:hover {
+            transform: scale(1.02);
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        .cta-buttons a,
+        .theme-toggle-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(24, 29, 35, 0.85);
+            backdrop-filter: blur(8px);
+            color: var(--primary);
+            padding: 0.85rem 2rem;
+            margin: 0.5rem 0;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.08rem;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(33, 150, 243, 0.2);
+            cursor: pointer;
+            transition: transform 0.25s, box-shadow 0.25s, background 0.25s, color 0.25s, border-color 0.25s;
+        }
+
+        .cta-buttons a:hover,
+        .theme-toggle-btn:hover {
+            background: #10141a;
+            color: #fff !important;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 30px rgba(33, 150, 243, 0.25);
+            border-color: var(--primary);
+        }
+
+        .logo-img {
+            vertical-align: middle;
+            margin-right: 0.5rem;
+            filter: drop-shadow(0 2px 8px #00336633);
+            width: 2.2rem;
+            height: 2.2rem;
+        }
+
+        /* ───── Scroll Reveal ───── */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.7s cubic-bezier(0.23, 1, 0.32, 1),
+                        transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+
+        /* ───── Sections ───── */
+
+        section {
+            max-width: 900px;
+            margin: 2.5rem auto;
+            padding: 2.5rem 2rem;
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            position: relative;
+        }
+
+        section:not(:last-of-type) {
+            margin-bottom: 0;
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-top: 0;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        h2 i {
+            font-size: 1.5rem;
+            opacity: 0.85;
+        }
+
+        p {
+            margin: 0 0 1rem 0;
+        }
+
+        /* ───── Lead Paragraph ───── */
+
+        .lead {
+            font-size: 1.25rem;
+            font-weight: 500;
+            line-height: 1.9;
+            color: var(--text);
+        }
+
+        strong {
+            color: var(--primary);
+        }
+
+        /* ───── Gradient Text ───── */
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* ───── Divider ───── */
+
+        .section-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0.5rem 0;
+        }
+
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(33, 150, 243, 0.3), transparent);
+        }
+
+        .section-divider i {
+            color: var(--primary);
+            font-size: 0.8rem;
+            margin: 0 1rem;
+            opacity: 0.5;
+        }
+
+        /* ───── Blockquote ───── */
+
+        blockquote {
+            border-left: 4px solid var(--primary);
+            background: rgba(33, 150, 243, 0.06);
+            margin: 1.5rem 0;
+            padding: 1.4rem 1.5rem;
+            border-radius: 0 var(--radius) var(--radius) 0;
+            font-style: italic;
+            color: var(--text);
+            font-size: 1.15rem;
+            position: relative;
+        }
+
+        blockquote::before {
+            content: '\201C';
+            position: absolute;
+            top: -0.2rem;
+            left: 0.8rem;
+            font-size: 3rem;
+            color: var(--primary);
+            opacity: 0.15;
+            font-family: Georgia, serif;
+        }
+
+        blockquote p {
+            margin: 0;
+        }
+
+        blockquote i.fa-lightbulb {
+            color: #ffc107;
+            margin-right: 0.5rem;
+            filter: drop-shadow(0 0 4px rgba(255, 193, 7, 0.4));
+        }
+
+        /* ───── Pain Points List ───── */
+
+        .pain-points {
+            list-style: none;
+            padding: 0;
+            margin: 1.2rem 0;
+        }
+
+        .pain-points li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+            padding: 0.8rem 1rem;
+            background: rgba(239, 83, 80, 0.04);
+            border-radius: 10px;
+            border: 1px solid rgba(239, 83, 80, 0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .pain-points li:hover {
+            transform: translateX(6px);
+            box-shadow: -4px 0 12px rgba(239, 83, 80, 0.1);
+        }
+
+        .pain-points li i {
+            color: #ef5350;
+            margin-top: 0.25rem;
+            flex-shrink: 0;
+            font-size: 1.1rem;
+        }
+
+        /* ───── Principles Cards ───── */
+
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.2rem;
+            margin: 1.5rem 0;
+        }
+
+        @media (max-width: 700px) {
+            .principles-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .principle-card {
+            background: #151a20;
+            border-radius: 12px;
+            padding: 1.5rem 1.2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+            border: 1px solid #232b36;
+            text-align: center;
+            transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.3s, border-color 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .principle-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 12px;
+            background: radial-gradient(circle at 50% 0%, rgba(33, 150, 243, 0.08), transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+
+        .principle-card:hover {
+            transform: translateY(-6px) scale(1.03);
+            box-shadow: 0 12px 32px rgba(33, 150, 243, 0.2), var(--glow);
+            border-color: rgba(33, 150, 243, 0.3);
+        }
+
+        .principle-card:hover::after {
+            opacity: 1;
+        }
+
+        .principle-card i {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+            display: block;
+            filter: drop-shadow(0 2px 6px rgba(33, 150, 243, 0.3));
+        }
+
+        .principle-card strong {
+            font-size: 1.12rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .principle-card span {
+            color: var(--muted);
+            font-size: 0.98rem;
+        }
+
+        /* ───── Name Box ───── */
+
+        .name-reveal {
+            text-align: center;
+            padding: 2.5rem 1.5rem;
+            margin: 1.5rem 0;
+            background: linear-gradient(135deg, rgba(33, 150, 243, 0.1), rgba(0, 188, 212, 0.1));
+            border-radius: var(--radius);
+            border: 1px solid rgba(33, 150, 243, 0.25);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .name-reveal::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(33, 150, 243, 0.05), transparent, rgba(0, 188, 212, 0.05), transparent);
+            animation: shimmerRotate 10s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes shimmerRotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .name-reveal .equation {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 0.6rem;
+            position: relative;
+        }
+
+        .name-reveal .equation strong {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 2.5rem;
+        }
+
+        .name-reveal .heart {
+            color: #ef5350;
+            font-size: 1.5rem;
+            display: inline-block;
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            15% { transform: scale(1.15); }
+            30% { transform: scale(1); }
+            45% { transform: scale(1.1); }
+            60% { transform: scale(1); }
+        }
+
+        .name-reveal p {
+            color: var(--muted);
+            font-size: 1.08rem;
+            margin: 0;
+            position: relative;
+        }
+
+        /* ───── Users Grid ───── */
+
+        .users-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.2rem;
+            margin: 1.5rem 0;
+        }
+
+        @media (max-width: 700px) {
+            .users-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .user-card {
+            background: #151a20;
+            border-radius: 12px;
+            padding: 1.4rem 1.2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+            border: 1px solid #232b36;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.3s, border-color 0.3s;
+        }
+
+        .user-card:hover {
+            transform: translateY(-6px) scale(1.03);
+            box-shadow: 0 12px 32px rgba(33, 150, 243, 0.2), var(--glow);
+            border-color: rgba(33, 150, 243, 0.3);
+        }
+
+        .user-card i {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-top: 0.15rem;
+            flex-shrink: 0;
+            filter: drop-shadow(0 2px 6px rgba(33, 150, 243, 0.3));
+        }
+
+        .user-card strong {
+            display: block;
+            margin-bottom: 0.2rem;
+            font-size: 1.08rem;
+        }
+
+        .user-card span {
+            color: var(--muted);
+            font-size: 0.98rem;
+        }
+
+        /* ───── CTA Section ───── */
+
+        .cta-section {
+            text-align: center;
+            background: linear-gradient(135deg, rgba(33, 150, 243, 0.12), rgba(0, 188, 212, 0.12));
+            border: 1px solid rgba(33, 150, 243, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 50% 100%, rgba(33, 150, 243, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .cta-section h2 {
+            justify-content: center;
+            position: relative;
+        }
+
+        .cta-text {
+            font-size: 1.18rem;
+            color: var(--text);
+            margin-bottom: 1.5rem;
+            line-height: 1.9;
+            position: relative;
+        }
+
+        .cta-text strong {
+            color: #fff;
+        }
+
+        .cta-emoji {
+            font-size: 1.5rem;
+            margin: 0 0.2rem;
+            display: inline-block;
+        }
+
+        .cta-emoji.rocket {
+            animation: rocketBounce 2s ease-in-out infinite;
+        }
+
+        @keyframes rocketBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+
+        /* ───── Fade-in Animation ───── */
+
+        .fadeInUp {
+            animation: fadeInUp 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translate3d(0, 40px, 0);
+            }
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        /* ───── Footer ───── */
+
+        footer {
+            background: #151a20;
+            padding: 2.2rem 0 1.2rem 0;
+            margin-top: 2.5rem;
+            border-top: 1px solid #232b36;
+        }
+
+        .footer-topline {
+            text-align: center;
+            color: var(--muted);
+            font-size: 1.05rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 0.7rem;
+        }
+
+        .footer-social a {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4em;
+            transition: color 0.18s, transform 0.18s;
+        }
+
+        .footer-social a:hover {
+            color: #fff !important;
+            transform: translateY(-2px);
+        }
+
+        .footer-social-margin {
+            margin-top: 0.5rem;
+        }
+
+        .footer-social-label {
+            font-size: 0.98em;
+        }
+
+        @media (max-width: 600px) {
+            .footer-social {
+                gap: 0.3rem;
+                flex-wrap: wrap;
+            }
+            .footer-social a {
+                font-size: 0.95rem;
+                padding: 0.2em 0.5em;
+            }
+            .footer-social-label {
+                display: none;
+            }
+        }
+
+        .mr-05 {
+            margin-right: 0.5em;
+        }
+
+        /* ───── Responsive ───── */
+
+        @media (max-width: 700px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            h2 {
+                font-size: 1.3rem;
+            }
+            section {
+                padding: 1.5rem 1rem;
+                margin: 1.5rem 0.5rem;
+            }
+            .chapter-num {
+                width: 30px;
+                height: 30px;
+                font-size: 0.85rem;
+            }
+        }
+
+        /* ───── Light Mode ───── */
+
+        body.light-mode {
+            --primary: #2196f3;
+            --primary-dark: #1565c0;
+            --accent: #00bcd4;
+            --bg: #f6f8fa;
+            --card-bg: #fff;
+            --text: #1a2332;
+            --muted: #6b7a90;
+            --shadow: 0 4px 16px rgba(33, 150, 243, 0.08);
+            --glow: 0 0 20px rgba(33, 150, 243, 0.08);
+        }
+
+        body.light-mode header {
+            background: linear-gradient(120deg, #0d47a1, var(--primary), var(--accent));
+            background-size: 300% 300%;
+            animation: gradientShift 8s ease infinite;
+            color: #fff;
+        }
+
+        body.light-mode .progress-bar {
+            box-shadow: 0 0 8px rgba(33, 150, 243, 0.3);
+        }
+
+        body.light-mode section {
+            background: var(--card-bg);
+            color: var(--text);
+            box-shadow: var(--shadow);
+            border-color: #e0e7ef;
+        }
+
+        body.light-mode .principle-card,
+        body.light-mode .user-card {
+            background: #f0f4fa;
+            border-color: #e0e7ef;
+            color: var(--text);
+            box-shadow: var(--shadow);
+        }
+
+        body.light-mode .principle-card:hover,
+        body.light-mode .user-card:hover {
+            border-color: rgba(33, 150, 243, 0.3);
+            box-shadow: 0 12px 32px rgba(33, 150, 243, 0.12);
+        }
+
+        body.light-mode h2,
+        body.light-mode .principle-card strong,
+        body.light-mode .user-card strong {
+            color: var(--primary);
+        }
+
+        body.light-mode .principle-card span,
+        body.light-mode .user-card span {
+            color: var(--muted);
+        }
+
+        body.light-mode strong {
+            color: var(--primary-dark);
+        }
+
+        body.light-mode blockquote {
+            background: rgba(33, 150, 243, 0.04);
+            border-left-color: var(--primary);
+        }
+
+        body.light-mode .name-reveal {
+            background: linear-gradient(135deg, rgba(33, 150, 243, 0.06), rgba(0, 188, 212, 0.06));
+            border-color: rgba(33, 150, 243, 0.18);
+        }
+
+        body.light-mode .cta-section {
+            background: linear-gradient(135deg, rgba(33, 150, 243, 0.06), rgba(0, 188, 212, 0.06));
+            border-color: rgba(33, 150, 243, 0.18);
+        }
+
+        body.light-mode .cta-text strong {
+            color: var(--primary-dark);
+        }
+
+        body.light-mode .pain-points li {
+            background: rgba(198, 40, 40, 0.03);
+            border-color: rgba(198, 40, 40, 0.08);
+        }
+
+        body.light-mode .pain-points li i {
+            color: #c62828;
+        }
+
+        body.light-mode .section-divider::before,
+        body.light-mode .section-divider::after {
+            background: linear-gradient(90deg, transparent, rgba(33, 150, 243, 0.2), transparent);
+        }
+
+        body.light-mode footer {
+            background: #f0f4fa;
+            border-top: 1px solid #e0e7ef;
+            color: var(--muted);
+        }
+
+        body.light-mode .footer-social a {
+            color: var(--primary);
+        }
+
+        body.light-mode .footer-social a:hover {
+            color: #10141a !important;
+        }
+
+        body.light-mode .cta-buttons a,
+        body.light-mode .theme-toggle-btn {
+            background: rgba(255, 255, 255, 0.9);
+            border-color: rgba(33, 150, 243, 0.2);
+        }
+
+        body.light-mode .cta-buttons a:hover,
+        body.light-mode .theme-toggle-btn:hover {
+            background: #10141a !important;
+            color: #fff !important;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 30px rgba(33, 150, 243, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="progress-bar" id="progressBar"></div>
+
+    <header>
+        <h1>
+            <img src="https://img.icons8.com/ios-filled/48/ffffff/video-call.png" alt="MiroTalk Logo"
+                class="logo-img">The Story Behind MiroTalk
+        </h1>
+        <p class="subtitle">How a pandemic side-project became a global open-source WebRTC movement</p>
+        <p class="subtitle-small">A journey of privacy, passion, and purpose</p>
+        <img src="../images/mirotalk/mirotalk.png" alt="MiroTalk Preview" class="header-img" />
+        <div class="cta-buttons">
+            <a href="https://github.com/miroslavpejic85" target="_blank" aria-label="GitHub">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+            <a href="https://codecanyon.net/user/miroslavpejic85" target="_blank" aria-label="Get License">
+                <i class="fa-solid fa-briefcase"></i> Get License
+            </a>
+            <button id="themeToggle" aria-label="Toggle dark/light mode" class="theme-toggle-btn">
+                <i class="fa-solid fa-sun"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- ───── Chapter 1: The Pandemic ───── -->
+
+        <section class="reveal">
+            <h2><span class="chapter-num">1</span><i class="fa-solid fa-virus"></i> It Started With a Pandemic</h2>
+            <p class="lead">
+                In <strong>2020</strong>, the world stopped. But communication couldn't.
+            </p>
+            <p>
+                Overnight, video calls became our classrooms, our offices, our lifelines. Like millions of others, I
+                found myself living through a screen, desperately trying to stay connected with friends, family, and
+                collaborators.
+            </p>
+            <p>
+                But the more I used these platforms, the more something gnawed at me. The tools we depended on every
+                single day were convenient, sure. But they came with a cost nobody was talking about:
+                <strong>our privacy</strong>.
+            </p>
+        </section>
+
+        <div class="section-divider"><i class="fa-solid fa-diamond"></i></div>
+
+        <!-- ───── Chapter 2: The Problem ───── -->
+
+        <section class="reveal">
+            <h2><span class="chapter-num">2</span><i class="fa-solid fa-triangle-exclamation"></i> The Problem Hiding in Plain Sight</h2>
+            <p>
+                Every major video platform was controlled by <strong>massive corporations</strong>. Closed ecosystems.
+                Black boxes. Users had <strong>zero control</strong> over where their data went, who saw it, or how it
+                was used.
+            </p>
+            <p>Think about that for a moment:</p>
+            <ul class="pain-points">
+                <li class="reveal reveal-delay-1">
+                    <i class="fa-solid fa-circle-xmark"></i>
+                    <span><strong>Privacy?</strong> An afterthought, buried in 50-page terms of service nobody reads.</span>
+                </li>
+                <li class="reveal reveal-delay-2">
+                    <i class="fa-solid fa-circle-xmark"></i>
+                    <span><strong>Vendor lock-in?</strong> By design. Switching costs kept everyone trapped.</span>
+                </li>
+                <li class="reveal reveal-delay-3">
+                    <i class="fa-solid fa-circle-xmark"></i>
+                    <span><strong>Data collection?</strong> Not a bug. <strong>The business model itself.</strong></span>
+                </li>
+            </ul>
+            <p>
+                Your face. Your voice. Your conversations. Your meetings. All flowing through servers you don't own,
+                governed by policies you didn't write, stored in databases you'll never see.
+            </p>
+            <blockquote class="reveal">
+                <p>
+                    <i class="fa-solid fa-lightbulb"></i>
+                    "Why should we hand over our most private conversations to companies that treat our data as a product?"
+                </p>
+            </blockquote>
+            <p>
+                That question haunted me. It kept me up at night. And eventually, it pushed me to do something about it.
+            </p>
+        </section>
+
+        <div class="section-divider"><i class="fa-solid fa-diamond"></i></div>
+
+        <!-- ───── Chapter 3: Bold Idea ───── -->
+
+        <section class="reveal">
+            <h2><span class="chapter-num">3</span><i class="fa-solid fa-rocket"></i> A Bold Idea Takes Shape</h2>
+            <p class="lead">
+                I didn't just want to complain. I wanted to <strong>build the alternative</strong>.
+            </p>
+            <p>
+                The idea was deceptively simple: a <strong>free, open-source WebRTC platform</strong> that anyone,
+                anywhere in the world, could deploy on their own server, in minutes.
+            </p>
+            <p>
+                No subscriptions. No tracking pixels. No corporate overlords watching your every call.
+                <strong>Just pure, private communication</strong>, whether peer-to-peer or through your own media server.
+            </p>
+            <p>The mission came down to four non-negotiable principles:</p>
+
+            <div class="principles-grid">
+                <div class="principle-card reveal reveal-delay-1">
+                    <i class="fa-solid fa-lock-open"></i>
+                    <strong>No Vendor Lock-in</strong>
+                    <span>Your platform, your rules, forever</span>
+                </div>
+                <div class="principle-card reveal reveal-delay-2">
+                    <i class="fa-solid fa-database"></i>
+                    <strong>Full Data Control</strong>
+                    <span>Your data never leaves your hands</span>
+                </div>
+                <div class="principle-card reveal reveal-delay-3">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <strong>Privacy by Design</strong>
+                    <span>Not a toggle in settings — it's the architecture</span>
+                </div>
+                <div class="principle-card reveal reveal-delay-4">
+                    <i class="fa-solid fa-code"></i>
+                    <strong>Open Source for All</strong>
+                    <span>Every line of code, visible to everyone</span>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"><i class="fa-solid fa-diamond"></i></div>
+
+        <!-- ───── Chapter 4: The Name ───── -->
+
+        <section class="reveal">
+            <h2><span class="chapter-num">4</span><i class="fa-solid fa-signature"></i> How It Got Its Name</h2>
+            <p>
+                Friends and colleagues have always called me <strong>"Miro"</strong>
+            </p>
+            <p>
+                And since this whole project was born from one person's belief that people deserve to communicate
+                <strong>freely and fearlessly</strong>, the name wrote itself:
+            </p>
+            <div class="name-reveal reveal">
+                <div class="equation">
+                    ✨ Miro + Talk = <strong>MiroTalk</strong>
+                </div>
+                <p>A simple name with a powerful promise: open communication built with a personal touch and a whole lot
+                    of heart <span class="heart">❤️</span></p>
+            </div>
+        </section>
+
+        <div class="section-divider"><i class="fa-solid fa-diamond"></i></div>
+
+        <!-- ───── Chapter 5: Global Movement ───── -->
+
+        <section class="reveal">
+            <h2><span class="chapter-num">5</span><i class="fa-solid fa-earth-americas"></i> From Side Project to Global Movement</h2>
+            <p class="lead">
+                Here's what I never expected. What started as a <strong>solo experiment during lockdown</strong> took on a
+                life of its own.
+            </p>
+            <p>Developers found it. Then educators. Then entire organizations.</p>
+            <p>Today, MiroTalk is trusted by people <strong>across the globe</strong>:</p>
+
+            <div class="users-grid">
+                <div class="user-card reveal reveal-delay-1">
+                    <i class="fa-solid fa-laptop-code"></i>
+                    <div>
+                        <strong>Developers</strong>
+                        <span>Because they read the code and trust what they see</span>
+                    </div>
+                </div>
+                <div class="user-card reveal reveal-delay-2">
+                    <i class="fa-solid fa-chalkboard-user"></i>
+                    <div>
+                        <strong>Educators</strong>
+                        <span>Because students deserve privacy, not surveillance</span>
+                    </div>
+                </div>
+                <div class="user-card reveal reveal-delay-3">
+                    <i class="fa-solid fa-people-group"></i>
+                    <div>
+                        <strong>Teams</strong>
+                        <span>Because private conversations should actually be private</span>
+                    </div>
+                </div>
+                <div class="user-card reveal reveal-delay-4">
+                    <i class="fa-solid fa-hand-holding-heart"></i>
+                    <div>
+                        <strong>Communities</strong>
+                        <span>Because communication tools should empower people, not exploit them</span>
+                    </div>
+                </div>
+            </div>
+
+            <p>
+                Not because of a marketing budget. Not because of a sales team.
+                <strong>Because the code speaks for itself.</strong>
+            </p>
+        </section>
+
+        <div class="section-divider"><i class="fa-solid fa-diamond"></i></div>
+
+        <!-- ───── Chapter 6: Shaped by Users ───── -->
+
+        <section class="reveal">
+            <h2><span class="chapter-num">6</span><i class="fa-solid fa-users-gear"></i> Shaped by the People Who Use It</h2>
+            <p>
+                Once people started using MiroTalk, something unexpected happened: they didn't just use it, they
+                <strong>shaped it</strong>. Every feature request, every bug report, every conversation became a reason
+                to make it better.
+            </p>
+            <p>
+                No boardroom decided the roadmap. <strong>Real users did.</strong> Teachers, developers, teams, they
+                told me what they needed, and I built it.
+            </p>
+            <blockquote class="reveal">
+                <p>
+                    <i class="fa-solid fa-lightbulb"></i>
+                    "The best software isn't built in isolation. It's shaped by the people who depend on it every day."
+                </p>
+            </blockquote>
+            <p>
+                That's the secret no corporation can replicate: <strong>when you build in the open, your users become
+                your co-creators.</strong>
+            </p>
+        </section>
+
+        <div class="section-divider"><i class="fa-solid fa-diamond"></i></div>
+
+        <!-- ───── Chapter 7: CTA ───── -->
+
+        <section class="cta-section reveal">
+            <h2><span class="chapter-num">7</span><i class="fa-solid fa-flag-checkered"></i> This Is Just the Beginning</h2>
+            <p class="cta-text">
+                MiroTalk is more than software. It's a statement.<br><br>
+                A statement that <strong>privacy is not a luxury</strong>. That <strong>open source is not a
+                compromise</strong>. That the tools we use to connect with each other should belong to
+                <strong>us</strong>, not to corporations.<br><br>
+                <strong class="gradient-text">This is a movement toward a more open, private, and decentralized web.</strong><br>
+                One call at a time. One server at a time. One person at a time.<br><br>
+                And if you're reading this, you're already part of it. <span class="cta-emoji rocket">🚀</span><br><br>
+                <strong>Thank you for believing in it and for being part of it.</strong>
+                <span class="cta-emoji">❤️</span>
+            </p>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-topline">
+            <span class="mr-05"><i class="fa-regular fa-copyright"></i></span>2026 MiroTalk –
+            <span class="mr-05"><i class="fa-solid fa-user-shield" aria-label="Privacy"></i></span>Privacy
+            <span class="mr-05"><i class="fa-solid fa-arrows-spin" aria-label="Scalability"></i></span>Scalability
+            <span class="mr-05"><i class="fa-solid fa-plug" aria-label="Integration"></i></span>Integration
+        </div>
+        <div class="footer-social footer-social-margin">
+            <a href="https://github.com/miroslavpejic85" target="_blank" aria-label="GitHub">
+                <i class="fab fa-github" aria-hidden="true"></i> <span class="footer-social-label">GitHub</span>
+            </a>
+            <a href="https://www.youtube.com/watch?v=uoiQqCalO4Q" target="_blank" aria-label="YouTube">
+                <i class="fab fa-youtube" aria-hidden="true"></i> <span class="footer-social-label">YouTube</span>
+            </a>
+            <a href="https://discord.gg/rgGYfeYW3N" target="_blank" aria-label="Community Forum">
+                <i class="fab fa-discord" aria-hidden="true"></i> <span class="footer-social-label">Community</span>
+            </a>
+            <a href="mailto:miroslav.pejic.85@gmail.com" aria-label="Email">
+                <i class="fa-solid fa-envelope" aria-hidden="true"></i> <span class="footer-social-label">Email</span>
+            </a>
+            <a href="https://codecanyon.net/user/miroslavpejic85/portfolio" target="_blank" aria-label="CodeCanyon">
+                <i class="fa-solid fa-store" aria-hidden="true"></i> <span class="footer-social-label">CodeCanyon</span>
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        // ───── Theme Toggle ─────
+        const themeToggle = document.getElementById('themeToggle');
+        const savedTheme = localStorage.getItem('mirotalk-theme');
+        if (savedTheme === 'light') {
+            document.body.classList.add('light-mode');
+            themeToggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
+        } else {
+            document.body.classList.remove('light-mode');
+            themeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
+        }
+        themeToggle.addEventListener('click', function () {
+            document.body.classList.toggle('light-mode');
+            const isLight = document.body.classList.contains('light-mode');
+            themeToggle.innerHTML = isLight
+                ? '<i class="fa-solid fa-moon"></i>'
+                : '<i class="fa-solid fa-sun"></i>';
+            localStorage.setItem('mirotalk-theme', isLight ? 'light' : 'dark');
+        });
+
+        // ───── Reading Progress Bar ─────
+        const progressBar = document.getElementById('progressBar');
+        window.addEventListener('scroll', function () {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+            progressBar.style.width = progress + '%';
+        }, { passive: true });
+
+        // ───── Scroll Reveal (IntersectionObserver) ─────
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.12,
+            rootMargin: '0px 0px -40px 0px'
+        });
+        revealElements.forEach(function (el) {
+            revealObserver.observe(el);
+        });
+    </script>
+</body>
+
+</html>
