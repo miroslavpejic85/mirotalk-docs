@@ -43,6 +43,12 @@ wget -qO bro-install.sh https://docs.mirotalk.com/scripts/bro/bro-install.sh \
   && ./bro-install.sh
 ```
 ```bash
+# Install MiroTalk WEB
+wget -qO web-install.sh https://docs.mirotalk.com/scripts/web/web-install.sh \
+  && chmod +x web-install.sh \
+  && ./web-install.sh
+```
+```bash
 # Install MiroTalk CME
 wget -qO cme-install.sh https://docs.mirotalk.com/scripts/cme/cme-install.sh \
   && chmod +x cme-install.sh \
@@ -84,6 +90,12 @@ wget -qO bro-uninstall.sh https://docs.mirotalk.com/scripts/bro/bro-uninstall.sh
   && ./bro-uninstall.sh
 ```
 ```bash
+# Uninstall MiroTalk WEB
+wget -qO web-uninstall.sh https://docs.mirotalk.com/scripts/web/web-uninstall.sh \
+  && chmod +x web-uninstall.sh \
+  && ./web-uninstall.sh
+```
+```bash
 # Uninstall MiroTalk CME
 wget -qO cme-uninstall.sh https://docs.mirotalk.com/scripts/cme/cme-uninstall.sh \
   && chmod +x cme-uninstall.sh \
@@ -123,6 +135,12 @@ wget -qO c2c-update.sh https://docs.mirotalk.com/scripts/c2c/c2c-update.sh \
 wget -qO bro-update.sh https://docs.mirotalk.com/scripts/bro/bro-update.sh \
   && chmod +x bro-update.sh \
   && ./bro-update.sh
+```
+```bash
+# Update MiroTalk WEB
+wget -qO web-update.sh https://docs.mirotalk.com/scripts/web/web-update.sh \
+  && chmod +x web-update.sh \
+  && ./web-update.sh
 ```
 ```bash
 # Update MiroTalk CME
