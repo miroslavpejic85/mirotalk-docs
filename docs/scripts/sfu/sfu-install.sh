@@ -19,7 +19,7 @@ $$ | \_/ $$ |$$ |$$ |      \$$$$$$  |$$ |\$$$$$$$ |$$ |$$ | \$$\
 
       MiroTalk SFU Automated Install Script             
         Tested: Ubuntu 22.04 | 24.04 LTS               
-            (c) 2025 Miroslav Pejic                  
+            (c) 2026 Miroslav Pejic                  
 EOF
 echo -e "\e[0m"
 
