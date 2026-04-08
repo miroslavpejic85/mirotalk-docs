@@ -109,3 +109,5 @@ A statement that **privacy is not a luxury**. That **open source is not a compro
 > **One call at a time. One server at a time. One person at a time.**
 
 And if you're reading this, you're already part of it. 🚀
+
+**Thank you for believing in it, and for being part of it.** ❤️
