@@ -22,6 +22,14 @@ MiroTalk CME (Call-Me) enables instant one-to-one video calls directly from your
 
 ---
 
+## Automated Setup
+
+!!! tip "Quick Automated Installation"
+
+    You can automate the entire setup (Node.js, Nginx, SSL, PM2) using our installation scripts on a clean Ubuntu server. Check out the [MiroTalk CME Setup Script](https://docs.mirotalk.com/scripts/about/#mirotalk-cme) for details.
+
+---
+
 ## Installation
 
 ![nodejs](../images/nodejs.png)

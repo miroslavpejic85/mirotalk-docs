@@ -22,6 +22,14 @@ MiroTalk P2PA is a lightweight, self-hostable WebRTC solution for real-time audi
 
 ---
 
+## Automated Setup
+
+!!! tip "Quick Automated Installation"
+
+    You can automate the entire setup (Node.js, Nginx, SSL, PM2) using our installation scripts on a clean Ubuntu server. Check out the [MiroTalk P2P Setup Script](https://docs.mirotalk.com/scripts/about/#mirotalk-p2p) for details.
+
+---
+
 ## Installation
 
 ![nodejs](../images/nodejs.png)

@@ -22,6 +22,14 @@ MiroTalk SFU is a scalable WebRTC solution for multi-party calls, using a Select
 
 ---
 
+## Automated Setup
+
+!!! tip "Quick Automated Installation"
+
+    You can automate the entire setup (Node.js, Nginx, SSL, PM2) using our installation scripts on a clean Ubuntu server. Check out the [MiroTalk SFU Setup Script](https://docs.mirotalk.com/scripts/about/#mirotalk-sfu) for details.
+
+---
+
 ## Installation
 
 !!! note

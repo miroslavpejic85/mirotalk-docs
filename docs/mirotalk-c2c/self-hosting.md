@@ -22,6 +22,14 @@ MiroTalk C2C is a Direct client-to-client messaging and media exchange for low-l
 
 ---
 
+## Automated Setup
+
+!!! tip "Quick Automated Installation"
+
+    You can automate the entire setup (Node.js, Nginx, SSL, PM2) using our installation scripts on a clean Ubuntu server. Check out the [MiroTalk C2C Setup Script](https://docs.mirotalk.com/scripts/about/#mirotalk-c2c) for details.
+
+---
+
 ## Installation
 
 ![nodejs](../images/nodejs.png)
