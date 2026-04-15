@@ -25,7 +25,7 @@ MiroTalk WEB is a browser-based room scheduler for organizing and managing team 
 
 !!! tip "Quick Automated Installation"
 
-    You can automate the entire setup (Node.js, Nginx, SSL, PM2) using our installation scripts on a clean Ubuntu server. Check out the [MiroTalk WEB Setup Script](https://docs.mirotalk.com/scripts/about/#mirotalk-web) for details.
+    You can automate the entire setup (Node.js, Nginx, SSL, Docker) using our installation scripts on a clean Ubuntu server. Check out the [MiroTalk WEB Setup Script](https://docs.mirotalk.com/scripts/about/#mirotalk-web) for details.
 
 ---
 
