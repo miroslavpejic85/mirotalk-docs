@@ -1,4 +1,4 @@
-site_name: MiroTalk docs v1.3.62
+site_name: MiroTalk docs v1.3.63
 site_description: MiroTalk WebRTC documentations
 site_author: Miroslav Pejic (miroslav.pejic.85@gmail.com)
 copyright: © 2026 MiroTalk, all rights reserved
@@ -103,6 +103,14 @@ nav:
         - bro-install: scripts/bro/bro-install.sh
         - bro-uninstall: scripts/bro/bro-uninstall.sh
         - bro-update: scripts/bro/bro-update.sh
+      - cme:
+        - cme-install: scripts/cme/cme-install.sh
+        - cme-uninstall: scripts/cme/cme-uninstall.sh
+        - cme-update: scripts/cme/cme-update.sh
+      - web:
+        - web-install: scripts/web/web-install.sh
+        - web-uninstall: scripts/web/web-uninstall.sh
+        - web-update: scripts/web/web-update.sh
       - coturn:
         - coturn-install: scripts/coturn/coturn-install.sh
         - coturn-uninstall: scripts/coturn/coturn-uninstall.sh
