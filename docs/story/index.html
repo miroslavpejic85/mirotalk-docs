@@ -15,6 +15,13 @@
     <meta property="og:image" content="https://docs.mirotalk.com/images/mirotalk-preview.png" />
     <meta property="og:url" content="https://docs.mirotalk.com/story/" />
 
+    <!-- Twitter Card -->
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="The Story Behind MiroTalk" />
+    <meta name="twitter:description" content="How a pandemic side-project became a global open-source WebRTC movement" />
+    <meta name="twitter:image" content="https://docs.mirotalk.com/images/mirotalk-preview.png" />
+
     <!-- favicon -->
 
     <link rel="apple-touch-icon" sizes="180x180" href="../images/icon/apple-touch-icon.png" />
@@ -23,6 +30,12 @@
     <link rel="shortcut icon" href="../images/icon/favicon.ico" />
 
     <title>The Story Behind MiroTalk</title>
+
+    <!-- Preconnect -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
 
     <!-- Google Fonts: Inter -->
 
@@ -850,21 +863,265 @@
             transform: translateY(-3px) scale(1.05);
             box-shadow: 0 8px 30px rgba(33, 150, 243, 0.2);
         }
+
+        body.light-mode .chapter-nav a .nav-tooltip {
+            background: #fff;
+            border-color: #e0e7ef;
+        }
+
+        body.light-mode .back-to-top {
+            box-shadow: 0 4px 16px rgba(33, 150, 243, 0.15);
+        }
+
+        body.light-mode .stats-section {
+            background: linear-gradient(135deg, rgba(33, 150, 243, 0.04), rgba(0, 188, 212, 0.04));
+            border-color: rgba(33, 150, 243, 0.15);
+        }
+
+        /* ───── Skip to Content ───── */
+
+        .skip-to-content {
+            position: fixed;
+            top: -100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: #fff;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0 0 var(--radius) var(--radius);
+            font-weight: 600;
+            z-index: 10000;
+            text-decoration: none;
+            transition: top 0.3s;
+        }
+
+        .skip-to-content:focus {
+            top: 0;
+        }
+
+        /* ───── Focus Visible ───── */
+
+        *:focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+        }
+
+        /* ───── Chapter Nav ───── */
+
+        .chapter-nav {
+            position: fixed;
+            right: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            align-items: center;
+        }
+
+        .chapter-nav a {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(33, 150, 243, 0.25);
+            border: 2px solid transparent;
+            display: block;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .chapter-nav a.active {
+            background: var(--primary);
+            border-color: var(--accent);
+            box-shadow: 0 0 10px rgba(33, 150, 243, 0.5);
+            transform: scale(1.3);
+        }
+
+        .chapter-nav a:hover {
+            background: var(--primary);
+            transform: scale(1.3);
+        }
+
+        .chapter-nav a .nav-tooltip {
+            position: absolute;
+            right: 100%;
+            top: 50%;
+            transform: translateY(-50%);
+            margin-right: 0.8rem;
+            background: var(--card-bg);
+            color: var(--text);
+            padding: 0.35rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .chapter-nav a:hover .nav-tooltip {
+            opacity: 1;
+        }
+
+        @media (max-width: 1100px) {
+            .chapter-nav {
+                display: none;
+            }
+        }
+
+        /* ───── Back to Top ───── */
+
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            box-shadow: 0 4px 16px rgba(33, 150, 243, 0.3);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all 0.3s;
+            z-index: 100;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(0, 188, 212, 0.4);
+        }
+
+        /* ───── Stats Section ───── */
+
+        .stats-section {
+            text-align: center;
+            background: linear-gradient(135deg, rgba(33, 150, 243, 0.08), rgba(0, 188, 212, 0.08));
+            border: 1px solid rgba(33, 150, 243, 0.2);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.2rem;
+            margin-top: 1.5rem;
+        }
+
+        @media (max-width: 700px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .stat-card {
+            padding: 1.5rem 1rem;
+        }
+
+        .stat-number {
+            font-size: 2.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        .stat-label {
+            color: var(--muted);
+            font-size: 0.95rem;
+            margin-top: 0.4rem;
+            font-weight: 500;
+        }
+
+        /* ───── Header Spotlight ───── */
+
+        header::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(600px circle at var(--spotlight-x, 50%) var(--spotlight-y, 50%), rgba(255, 255, 255, 0.06), transparent 40%);
+            pointer-events: none;
+        }
+
+        /* ───── Typing Cursor ───── */
+
+        .typing-cursor::after {
+            content: '|';
+            animation: blink 0.7s step-end infinite;
+            color: #b3e5fc;
+            font-weight: 300;
+            margin-left: 2px;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        /* ───── Reduced Motion ───── */
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            .reveal {
+                opacity: 1;
+                transform: none;
+            }
+
+            .header-img:hover {
+                transform: none;
+            }
+        }
     </style>
 </head>
 
 <body>
 
+    <a href="#main" class="skip-to-content">Skip to content</a>
+
     <div class="progress-bar" id="progressBar"></div>
+
+    <nav class="chapter-nav" id="chapterNav" aria-label="Chapter navigation">
+        <a href="#ch1" aria-label="Chapter 1"><span class="nav-tooltip">The Pandemic</span></a>
+        <a href="#ch2" aria-label="Chapter 2"><span class="nav-tooltip">The Problem</span></a>
+        <a href="#ch3" aria-label="Chapter 3"><span class="nav-tooltip">Bold Idea</span></a>
+        <a href="#ch4" aria-label="Chapter 4"><span class="nav-tooltip">The Name</span></a>
+        <a href="#ch5" aria-label="Chapter 5"><span class="nav-tooltip">Global Movement</span></a>
+        <a href="#ch6" aria-label="Chapter 6"><span class="nav-tooltip">Shaped by Users</span></a>
+        <a href="#ch7" aria-label="Chapter 7"><span class="nav-tooltip">The Beginning</span></a>
+    </nav>
 
     <header>
         <h1>
             <img src="https://img.icons8.com/ios-filled/48/ffffff/video-call.png" alt="MiroTalk Logo"
                 class="logo-img">The Story Behind MiroTalk
         </h1>
-        <p class="subtitle">How a pandemic side-project became a global open-source WebRTC movement</p>
+        <p class="subtitle" id="typingSubtitle">How a pandemic side-project became a global open-source WebRTC movement</p>
         <p class="subtitle-small">A journey of privacy, passion, and purpose</p>
-        <img src="../images/mirotalk/mirotalk.png" alt="MiroTalk Preview" class="header-img" />
+        <img src="../images/mirotalk/mirotalk.png" alt="MiroTalk Preview" class="header-img" loading="lazy" />
         <div class="cta-buttons">
             <a href="https://github.com/miroslavpejic85" target="_blank" aria-label="GitHub">
                 <i class="fab fa-github"></i> GitHub
@@ -878,11 +1135,11 @@
         </div>
     </header>
 
-    <main>
+    <main id="main">
 
         <!-- ───── Chapter 1: The Pandemic ───── -->
 
-        <section class="reveal">
+        <section id="ch1" class="reveal">
             <h2><span class="chapter-num">1</span><i class="fa-solid fa-virus"></i> It Started With a Pandemic</h2>
             <p class="lead">
                 In <strong>2020</strong>, the world stopped. But communication couldn't.
@@ -903,7 +1160,7 @@
 
         <!-- ───── Chapter 2: The Problem ───── -->
 
-        <section class="reveal">
+        <section id="ch2" class="reveal">
             <h2><span class="chapter-num">2</span><i class="fa-solid fa-triangle-exclamation"></i> The Problem Hiding in Plain Sight</h2>
             <p>
                 Every major video platform was controlled by <strong>massive corporations</strong>. Closed ecosystems.
@@ -944,7 +1201,7 @@
 
         <!-- ───── Chapter 3: Bold Idea ───── -->
 
-        <section class="reveal">
+        <section id="ch3" class="reveal">
             <h2><span class="chapter-num">3</span><i class="fa-solid fa-rocket"></i> A Bold Idea Takes Shape</h2>
             <p class="lead">
                 I didn't just want to complain. I wanted to <strong>build the alternative</strong>.
@@ -987,7 +1244,7 @@
 
         <!-- ───── Chapter 4: The Name ───── -->
 
-        <section class="reveal">
+        <section id="ch4" class="reveal">
             <h2><span class="chapter-num">4</span><i class="fa-solid fa-signature"></i> How It Got Its Name</h2>
             <p>
                 Friends and colleagues have always called me <strong>"Miro"</strong>
@@ -1009,7 +1266,7 @@
 
         <!-- ───── Chapter 5: Global Movement ───── -->
 
-        <section class="reveal">
+        <section id="ch5" class="reveal">
             <h2><span class="chapter-num">5</span><i class="fa-solid fa-earth-americas"></i> From Side Project to Global Movement</h2>
             <p class="lead">
                 Here's what I never expected. What started as a <strong>solo experiment during lockdown</strong> took on a
@@ -1057,9 +1314,35 @@
 
         <div class="section-divider"><i class="fa-solid fa-diamond"></i></div>
 
+        <!-- ───── Impact Stats ───── -->
+
+        <section class="stats-section reveal" id="stats">
+            <h2 style="justify-content:center"><i class="fa-solid fa-chart-line"></i> The Impact in Numbers</h2>
+            <div class="stats-grid">
+                <div class="stat-card reveal reveal-delay-1">
+                    <div class="stat-number" id="yearsStat" data-target="6">0</div>
+                    <div class="stat-label">Years of Development</div>
+                </div>
+                <div class="stat-card reveal reveal-delay-2">
+                    <div class="stat-number" data-target="7">0</div>
+                    <div class="stat-label">Product Editions</div>
+                </div>
+                <div class="stat-card reveal reveal-delay-3">
+                    <div class="stat-number" data-target="190" data-suffix="+">0</div>
+                    <div class="stat-label">Countries Reached</div>
+                </div>
+                <div class="stat-card reveal reveal-delay-4">
+                    <div class="stat-number" data-target="100" data-suffix="%">0</div>
+                    <div class="stat-label">Open Source</div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"><i class="fa-solid fa-diamond"></i></div>
+
         <!-- ───── Chapter 6: Shaped by Users ───── -->
 
-        <section class="reveal">
+        <section id="ch6" class="reveal">
             <h2><span class="chapter-num">6</span><i class="fa-solid fa-users-gear"></i> Shaped by the People Who Use It</h2>
             <p>
                 Once people started using MiroTalk, something unexpected happened: they didn't just use it, they
@@ -1086,7 +1369,7 @@
 
         <!-- ───── Chapter 7: CTA ───── -->
 
-        <section class="cta-section reveal">
+        <section id="ch7" class="cta-section reveal">
             <h2><span class="chapter-num">7</span><i class="fa-solid fa-flag-checkered"></i> This Is Just the Beginning</h2>
             <p class="cta-text">
                 MiroTalk is more than software. It's a statement.<br><br>
@@ -1129,6 +1412,10 @@
         </div>
     </footer>
 
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
     <script>
         // ───── Theme Toggle ─────
         const themeToggle = document.getElementById('themeToggle');
@@ -1149,14 +1436,41 @@
             localStorage.setItem('mirotalk-theme', isLight ? 'light' : 'dark');
         });
 
-        // ───── Reading Progress Bar ─────
+        // ───── Reading Progress Bar + Back to Top + Chapter Nav ─────
         const progressBar = document.getElementById('progressBar');
+        const backToTop = document.getElementById('backToTop');
+        const chapterSections = document.querySelectorAll('section[id^="ch"]');
+        const chapterNavLinks = document.querySelectorAll('.chapter-nav a');
+
         window.addEventListener('scroll', function () {
             const scrollTop = window.scrollY;
             const docHeight = document.documentElement.scrollHeight - window.innerHeight;
             const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
             progressBar.style.width = progress + '%';
+
+            // Back to top visibility
+            if (scrollTop > 400) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+
+            // Active chapter in nav
+            let currentChapter = '';
+            chapterSections.forEach(function (section) {
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= window.innerHeight / 3) {
+                    currentChapter = section.id;
+                }
+            });
+            chapterNavLinks.forEach(function (link) {
+                link.classList.toggle('active', link.getAttribute('href') === '#' + currentChapter);
+            });
         }, { passive: true });
+
+        backToTop.addEventListener('click', function () {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
 
         // ───── Scroll Reveal (IntersectionObserver) ─────
         const revealElements = document.querySelectorAll('.reveal');
@@ -1173,6 +1487,72 @@
         revealElements.forEach(function (el) {
             revealObserver.observe(el);
         });
+
+        // ───── Dynamic Years Calculation ─────
+        const yearsStat = document.getElementById('yearsStat');
+        if (yearsStat) {
+            yearsStat.setAttribute('data-target', new Date().getFullYear() - 2020);
+        }
+
+        // ───── Stats Counter Animation ─────
+        const statNumbers = document.querySelectorAll('.stat-number');
+        const statsObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const target = parseInt(el.getAttribute('data-target'));
+                    const suffix = el.getAttribute('data-suffix') || '';
+                    const duration = 1500;
+                    const start = performance.now();
+                    function animate(now) {
+                        const elapsed = now - start;
+                        const progress = Math.min(elapsed / duration, 1);
+                        const eased = 1 - Math.pow(1 - progress, 3);
+                        el.textContent = Math.floor(eased * target) + suffix;
+                        if (progress < 1) {
+                            requestAnimationFrame(animate);
+                        }
+                    }
+                    requestAnimationFrame(animate);
+                    statsObserver.unobserve(el);
+                }
+            });
+        }, { threshold: 0.5 });
+        statNumbers.forEach(function (el) {
+            statsObserver.observe(el);
+        });
+
+        // ───── Typing Animation ─────
+        const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const subtitleEl = document.getElementById('typingSubtitle');
+        if (subtitleEl && !prefersReduced) {
+            const fullText = subtitleEl.textContent;
+            subtitleEl.textContent = '';
+            subtitleEl.classList.add('typing-cursor');
+            let i = 0;
+            function typeChar() {
+                if (i < fullText.length) {
+                    subtitleEl.textContent += fullText.charAt(i);
+                    i++;
+                    setTimeout(typeChar, 35);
+                } else {
+                    setTimeout(function () {
+                        subtitleEl.classList.remove('typing-cursor');
+                    }, 1500);
+                }
+            }
+            setTimeout(typeChar, 500);
+        }
+
+        // ───── Header Mouse Spotlight ─────
+        const headerEl = document.querySelector('header');
+        if (headerEl && !prefersReduced) {
+            headerEl.addEventListener('mousemove', function (e) {
+                const rect = headerEl.getBoundingClientRect();
+                headerEl.style.setProperty('--spotlight-x', (e.clientX - rect.left) + 'px');
+                headerEl.style.setProperty('--spotlight-y', (e.clientY - rect.top) + 'px');
+            });
+        }
     </script>
 </body>
 
