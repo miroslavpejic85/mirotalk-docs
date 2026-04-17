@@ -880,11 +880,11 @@
                     <input type="text" id="projectSearch" placeholder="Search projects..." class="search-input" />
                     <select id="projectFilter" class="filter-select">
                         <option value="all">All Projects</option>
+                        <option value="cme">CME</option>
                         <option value="c2c">C2C</option>
                         <option value="p2p">P2P</option>
                         <option value="sfu">SFU</option>
                         <option value="bro">BRO</option>
-                        <option value="cme">CME</option>
                         <option value="web">WEB</option>
                         <option value="admin">ADMIN</option>
                     </select>
@@ -922,6 +922,136 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <!-- CME Row -->
+                        <tr class="project-row" data-project="cme">
+                            <td>
+                                <a href="https://cme.mirotalk.com" target="_blank">
+                                    <img src="/images/mirotalk/cme.png" alt="CME Preview" class="preview-img" />
+                                </a>
+                            </td>
+                            <td class="nobr">
+                                <div class="project-title">
+                                    <strong>MiroTalk CME</strong>
+                                    <span class="project-tag">Call-Me</span>
+                                    <span class="new-badge">New</span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="use-case">
+                                    <strong>Instant 1:1 video calls</strong>
+                                    <span class="tag unlimited">Unlimited rooms</span>
+                                    <p class="description">
+                                        Click-to-call video calls with E2EE, real-time chat, screen &amp; file sharing. Perfect for support, telehealth &amp; consultations.
+                                    </p>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="security-column">
+                                    <div class="encryption-badge e2ee">
+                                        <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
+                                        <span class="badge-text">E2EE</span>
+                                        <div class="tooltip">
+                                            Direct P2P connection means true end-to-end encryption between the two callers
+                                        </div>
+                                    </div>
+                                    <div class="encryption-badge e2ee">
+                                        <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
+                                        <span class="badge-text">HOST</span>
+                                        <div class="tooltip">
+                                            Host protection using password restricts access to host features, requiring authentication before granting permissions.
+                                        </div>
+                                    </div>
+                                    <div class="encryption-badge e2ee">
+                                        <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
+                                        <span class="badge-text">JWT</span>
+                                        <div class="tooltip">
+                                            JSON Web Token (JWT) is used for secure REST API authentication and authorization, enabling stateless and tamper-proof communication between clients and the server.
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="nobr">
+                                <ul class="feature-list">
+                                    <li><i class="fas fa-check-circle"></i> Video calls</li>
+                                    <li><i class="fas fa-check-circle"></i> Screen sharing</li>
+                                    <li><i class="fas fa-check-circle"></i> Real-time chat</li>
+                                    <li><i class="fas fa-check-circle"></i> File sharing</li>
+                                    <li><i class="fas fa-check-circle"></i> Click-to-call</li>
+                                    <li><i class="fas fa-check-circle"></i> Device switching</li>
+                                    <li><i class="fas fa-check-circle"></i> Web push notifications</li>
+                                    <li><i class="fas fa-check-circle"></i> Host protection</li>
+                                    <li><i class="fas fa-check-circle"></i> IFrame embeddable</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul class="integration-list">
+                                    <li><i class="fas fa-check-circle"></i> REST API</li>
+                                    <li><i class="fas fa-check-circle"></i> Iframe</li>
+                                    <li><i class="fas fa-check-circle"></i> Widget</li>
+                                    <li><i class="fas fa-check-circle"></i> Ngrok</li>
+                                </ul>
+                            </td>
+                            <td class="nobr">
+                                <div class="performance">
+                                    <div class="perf-item"><i class="fas fa-bolt"></i> Ultra-low latency</div>
+                                    <div class="perf-item"><i class="fas fa-feather-alt"></i> Minimal server load</div>
+                                    <div class="perf-item">
+                                        <i class="fas fa-tachometer-alt"></i> Bandwidth efficient
+                                    </div>
+                                    <div class="perf-item limit">
+                                        <i class="fas fa-user-times"></i> Limited to 2 participants x Call
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="nobr">
+                                <div class="compatibility">
+                                    <div class="comp-item"><i class="fas fa-desktop"></i> All modern browsers</div>
+                                    <div class="comp-item"><i class="fas fa-mobile-alt"></i> Mobile responsive</div>
+                                    <div class="comp-item"><i class="fas fa-tablet-alt"></i> Tablet friendly</div>
+                                    <div class="comp-item"><i class="fas fa-globe"></i> Multi languages</div>
+                                </div>
+                            </td>
+                            <td class="nobr">
+                                <div class="deployment">
+                                    <div class="deploy-item"><i class="fas fa-traffic-light"></i> Stun/Turn</div>
+                                    <div class="deploy-item"><i class="fab fa-node-js"></i> Node.js</div>
+                                    <div class="deploy-item"><i class="fas fa-server"></i> PM2 Manager</div>
+                                    <div class="deploy-item"><i class="fab fa-docker"></i> Docker image</div>
+                                </div>
+                            </td>
+                            <td class="nobr">
+                                <div class="requirements">
+                                    <div class="req-item"><i class="fas fa-server"></i> Any OS</div>
+                                    <div class="req-item"><i class="fas fa-microchip"></i> 2 CPU Cores</div>
+                                    <div class="req-item"><i class="fas fa-memory"></i> 2 GB RAM</div>
+                                    <div class="req-item"><i class="fas fa-hdd"></i> 5 GB Storage</div>
+                                    <div class="req-item"><i class="fas fa-atlas"></i> Domain or subdomain</div>
+                                    <div class="req-item"><i class="fas fa-globe"></i> IPv4</div>
+                                </div>
+                            </td>
+                            <td class="nobr">
+                                <div class="links-column">
+                                    <div class="buy-link">
+                                        <a
+                                            href="https://codecanyon.net/item/callme-easy-webrtc-video-call-app/55342915"
+                                            class="buy-btn"
+                                        >
+                                            <i class="fas fa-cart-plus"></i> Purchase Now
+                                        </a>
+                                    </div>
+                                    <div class="demo-link">
+                                        <a href="https://cme.mirotalk.com" target="_blank" class="demo-btn">
+                                            <i class="fas fa-external-link-alt"></i> Live Demo
+                                        </a>
+                                    </div>
+                                    <div class="docs-link">
+                                        <a href="../mirotalk-cme/self-hosting" class="docs-btn">
+                                            <i class="fas fa-server"></i> Self-Hosting
+                                        </a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
                         <!-- C2C Row -->
                         <tr class="project-row" data-project="c2c">
                             <td>
@@ -1004,7 +1134,7 @@
                                         <i class="fas fa-tachometer-alt"></i> Bandwidth efficient
                                     </div>
                                     <div class="perf-item limit">
-                                        <i class="fas fa-user-times"></i> Limited to 2 participants
+                                        <i class="fas fa-user-times"></i> Limited to 2 participants x Room
                                     </div>
                                 </div>
                             </td>
@@ -1637,136 +1767,6 @@
                                 </div>
                             </td>
                         </tr>
-                        <!-- CME Row -->
-                        <tr class="project-row" data-project="cme">
-                            <td>
-                                <a href="https://cme.mirotalk.com" target="_blank">
-                                    <img src="/images/mirotalk/cme.png" alt="CME Preview" class="preview-img" />
-                                </a>
-                            </td>
-                            <td class="nobr">
-                                <div class="project-title">
-                                    <strong>MiroTalk CME</strong>
-                                    <span class="project-tag">Call-Me</span>
-                                    <span class="new-badge">New</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="use-case">
-                                    <strong>Instant 1:1 video calls</strong>
-                                    <span class="tag unlimited">Unlimited rooms</span>
-                                    <p class="description">
-                                        Click-to-call video calls with E2EE, real-time chat, screen &amp; file sharing. Perfect for support, telehealth &amp; consultations.
-                                    </p>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="security-column">
-                                    <div class="encryption-badge e2ee">
-                                        <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
-                                        <span class="badge-text">E2EE</span>
-                                        <div class="tooltip">
-                                            Direct P2P connection means true end-to-end encryption between the two callers
-                                        </div>
-                                    </div>
-                                    <div class="encryption-badge e2ee">
-                                        <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
-                                        <span class="badge-text">HOST</span>
-                                        <div class="tooltip">
-                                            Host protection using password restricts access to host features, requiring authentication before granting permissions.
-                                        </div>
-                                    </div>
-                                    <div class="encryption-badge e2ee">
-                                        <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
-                                        <span class="badge-text">JWT</span>
-                                        <div class="tooltip">
-                                            JSON Web Token (JWT) is used for secure REST API authentication and authorization, enabling stateless and tamper-proof communication between clients and the server.
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="nobr">
-                                <ul class="feature-list">
-                                    <li><i class="fas fa-check-circle"></i> Video calls</li>
-                                    <li><i class="fas fa-check-circle"></i> Screen sharing</li>
-                                    <li><i class="fas fa-check-circle"></i> Real-time chat</li>
-                                    <li><i class="fas fa-check-circle"></i> File sharing</li>
-                                    <li><i class="fas fa-check-circle"></i> Click-to-call</li>
-                                    <li><i class="fas fa-check-circle"></i> Device switching</li>
-                                    <li><i class="fas fa-check-circle"></i> Web push notifications</li>
-                                    <li><i class="fas fa-check-circle"></i> Host protection</li>
-                                    <li><i class="fas fa-check-circle"></i> IFrame embeddable</li>
-                                </ul>
-                            </td>
-                            <td>
-                                <ul class="integration-list">
-                                    <li><i class="fas fa-check-circle"></i> REST API</li>
-                                    <li><i class="fas fa-check-circle"></i> Iframe</li>
-                                    <li><i class="fas fa-check-circle"></i> Widget</li>
-                                    <li><i class="fas fa-check-circle"></i> Ngrok</li>
-                                </ul>
-                            </td>
-                            <td class="nobr">
-                                <div class="performance">
-                                    <div class="perf-item"><i class="fas fa-bolt"></i> Ultra-low latency</div>
-                                    <div class="perf-item"><i class="fas fa-feather-alt"></i> Minimal server load</div>
-                                    <div class="perf-item">
-                                        <i class="fas fa-tachometer-alt"></i> Bandwidth efficient
-                                    </div>
-                                    <div class="perf-item limit">
-                                        <i class="fas fa-user-times"></i> Limited to 2 participants x Call
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="nobr">
-                                <div class="compatibility">
-                                    <div class="comp-item"><i class="fas fa-desktop"></i> All modern browsers</div>
-                                    <div class="comp-item"><i class="fas fa-mobile-alt"></i> Mobile responsive</div>
-                                    <div class="comp-item"><i class="fas fa-tablet-alt"></i> Tablet friendly</div>
-                                    <div class="comp-item"><i class="fas fa-globe"></i> Multi languages</div>
-                                </div>
-                            </td>
-                            <td class="nobr">
-                                <div class="deployment">
-                                    <div class="deploy-item"><i class="fas fa-traffic-light"></i> Stun/Turn</div>
-                                    <div class="deploy-item"><i class="fab fa-node-js"></i> Node.js</div>
-                                    <div class="deploy-item"><i class="fas fa-server"></i> PM2 Manager</div>
-                                    <div class="deploy-item"><i class="fab fa-docker"></i> Docker image</div>
-                                </div>
-                            </td>
-                            <td class="nobr">
-                                <div class="requirements">
-                                    <div class="req-item"><i class="fas fa-server"></i> Any OS</div>
-                                    <div class="req-item"><i class="fas fa-microchip"></i> 2 CPU Cores</div>
-                                    <div class="req-item"><i class="fas fa-memory"></i> 2 GB RAM</div>
-                                    <div class="req-item"><i class="fas fa-hdd"></i> 5 GB Storage</div>
-                                    <div class="req-item"><i class="fas fa-atlas"></i> Domain or subdomain</div>
-                                    <div class="req-item"><i class="fas fa-globe"></i> IPv4</div>
-                                </div>
-                            </td>
-                            <td class="nobr">
-                                <div class="links-column">
-                                    <div class="buy-link">
-                                        <a
-                                            href="https://codecanyon.net/item/callme-easy-webrtc-video-call-app/55342915"
-                                            class="buy-btn"
-                                        >
-                                            <i class="fas fa-cart-plus"></i> Purchase Now
-                                        </a>
-                                    </div>
-                                    <div class="demo-link">
-                                        <a href="https://cme.mirotalk.com" target="_blank" class="demo-btn">
-                                            <i class="fas fa-external-link-alt"></i> Live Demo
-                                        </a>
-                                    </div>
-                                    <div class="docs-link">
-                                        <a href="../mirotalk-cme/self-hosting" class="docs-btn">
-                                            <i class="fas fa-server"></i> Self-Hosting
-                                        </a>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
                         <!-- ADMIN Row -->
                         <tr class="project-row" data-project="admin">
                             <td>
@@ -1877,6 +1877,142 @@
             <!-- Card View -->
             <div class="card-view-container card-view" style="display: none">
                 <div class="project-cards">
+                    <!-- CME Card -->
+                    <div class="project-card" data-project="cme">
+                        <div class="card-header">
+                            <a href="https://cme.mirotalk.com" target="_blank">
+                                <img src="/images/mirotalk/cme.png" alt="CME Preview" class="card-img" />
+                            </a>
+                            <div class="card-title">
+                                <h3>MiroTalk CME</h3>
+                                <span class="project-tag">Call-Me</span>
+                                <span class="new-badge">New</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-section">
+                                <h4><i class="fas fa-info-circle"></i> Use Case</h4>
+                                <p><strong>Instant 1:1 video calls</strong></p>
+                                <span class="tag unlimited">Unlimited rooms</span>
+                                <p>Click-to-call video calls with E2EE, real-time chat, screen &amp; file sharing. Perfect for support, telehealth &amp; consultations.</p>
+                            </div>
+
+                            <div class="card-section">
+                                <h4><i class="fas fa-lock"></i> Security</h4>
+                                <div class="encryption-badge e2ee">
+                                    <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
+                                    <span class="badge-text">E2EE</span>
+                                    <div class="tooltip">
+                                        Direct P2P connection means true end-to-end encryption between the two callers
+                                    </div>
+                                </div>
+                                <div class="encryption-badge e2ee">
+                                    <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
+                                    <span class="badge-text">HOST</span>
+                                    <div class="tooltip">
+                                        Host protection using password restricts access to host features, requiring authentication before granting permissions.
+                                    </div>
+                                </div>
+                                <div class="encryption-badge e2ee">
+                                    <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
+                                    <span class="badge-text">JWT</span>
+                                    <div class="tooltip">
+                                        JSON Web Token (JWT) is used for secure REST API authentication and authorization, enabling stateless and tamper-proof communication between clients and the server.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card-section">
+                                <h4><i class="fas fa-star"></i> Key Features</h4>
+                                <ul class="feature-list">
+                                    <li><i class="fas fa-check-circle"></i> Video calls</li>
+                                    <li><i class="fas fa-check-circle"></i> Screen sharing</li>
+                                    <li><i class="fas fa-check-circle"></i> Real-time chat</li>
+                                    <li><i class="fas fa-check-circle"></i> File sharing</li>
+                                    <li><i class="fas fa-check-circle"></i> Click-to-call</li>
+                                    <li><i class="fas fa-check-circle"></i> Device switching</li>
+                                    <li><i class="fas fa-check-circle"></i> Web push notifications</li>
+                                    <li><i class="fas fa-check-circle"></i> Host protection</li>
+                                    <li><i class="fas fa-check-circle"></i> IFrame embeddable</li>
+                                </ul>
+                            </div>
+
+                            <div class="card-section">
+                                <h4><i class="fas fa-cogs"></i> Integrations</h4>
+                                <ul class="integration-list">
+                                    <li><i class="fas fa-check-circle"></i> REST API</li>
+                                    <li><i class="fas fa-check-circle"></i> Iframe</li>
+                                    <li><i class="fas fa-check-circle"></i> Widget</li>
+                                    <li><i class="fas fa-check-circle"></i> Ngrok</li>
+                                </ul>
+                            </div>
+
+                            <div class="card-section">
+                                <h4><i class="fas fa-tachometer-alt"></i> Performance</h4>
+                                <div class="performance">
+                                    <div class="perf-item"><i class="fas fa-bolt"></i> Ultra-low latency</div>
+                                    <div class="perf-item"><i class="fas fa-feather-alt"></i> Minimal server load</div>
+                                    <div class="perf-item">
+                                        <i class="fas fa-tachometer-alt"></i> Bandwidth efficient
+                                    </div>
+                                    <div class="perf-item limit">
+                                        <i class="fas fa-user-times"></i> Limited to 2 participants x Call
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card-section">
+                                <h4><i class="fas fa-mobile-alt"></i> Compatibility</h4>
+                                <div class="compatibility">
+                                    <div class="comp-item"><i class="fas fa-desktop"></i> All modern browsers</div>
+                                    <div class="comp-item"><i class="fas fa-mobile-alt"></i> Mobile responsive</div>
+                                    <div class="comp-item"><i class="fas fa-tablet-alt"></i> Tablet friendly</div>
+                                    <div class="comp-item"><i class="fas fa-globe"></i> Multi languages</div>
+                                </div>
+                            </div>
+
+                            <div class="card-section">
+                                <h4><i class="fas fa-cloud-upload-alt"></i> Deployment</h4>
+                                <div class="deployment">
+                                    <div class="deploy-item"><i class="fas fa-traffic-light"></i> Stun/Turn</div>
+                                    <div class="deploy-item"><i class="fab fa-node-js"></i> Node.js</div>
+                                    <div class="deploy-item"><i class="fas fa-server"></i> PM2 Manager</div>
+                                    <div class="deploy-item"><i class="fab fa-docker"></i> Docker image</div>
+                                </div>
+                            </div>
+
+                            <div class="card-section">
+                                <h4><i class="fas fa-server"></i> Requirements</h4>
+                                <div class="requirements">
+                                    <div class="req-item"><i class="fas fa-server"></i> Any OS</div>
+                                    <div class="req-item"><i class="fas fa-microchip"></i> 2 CPU Cores</div>
+                                    <div class="req-item"><i class="fas fa-memory"></i> 2 GB RAM</div>
+                                    <div class="req-item"><i class="fas fa-hdd"></i> 5 GB Storage</div>
+                                    <div class="req-item"><i class="fas fa-atlas"></i> Domain or subdomain</div>
+                                    <div class="req-item"><i class="fas fa-globe"></i> IPv4</div>
+                                </div>
+                            </div>
+
+                            <div class="card-section">
+                                <h4><i class="fas fa-link"></i> Links</h4>
+                                <div class="card-buttons">
+                                    <a
+                                        href="https://codecanyon.net/item/callme-easy-webrtc-video-call-app/55342915"
+                                        class="buy-btn"
+                                    >
+                                        <i class="fas fa-cart-plus"></i> Purchase Now
+                                    </a>
+                                    <a href="https://cme.mirotalk.com" target="_blank" class="demo-btn">
+                                        <i class="fas fa-external-link-alt"></i> Live Demo
+                                    </a>
+                                    <a href="../mirotalk-cme/self-hosting" class="docs-btn">
+                                        <i class="fas fa-server"></i> Self-Hosting
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- C2C Card -->
                     <div class="project-card" data-project="c2c">
                         <div class="card-header">
@@ -1960,7 +2096,7 @@
                                         <i class="fas fa-tachometer-alt"></i> Bandwidth efficient
                                     </div>
                                     <div class="perf-item limit">
-                                        <i class="fas fa-user-times"></i> Limited to 2 participants
+                                        <i class="fas fa-user-times"></i> Limited to 2 participants x Room
                                     </div>
                                 </div>
                             </div>
@@ -2622,142 +2758,6 @@
                         </div>
                     </div>
 
-                    <!-- CME Card -->
-                    <div class="project-card" data-project="cme">
-                        <div class="card-header">
-                            <a href="https://cme.mirotalk.com" target="_blank">
-                                <img src="/images/mirotalk/cme.png" alt="CME Preview" class="card-img" />
-                            </a>
-                            <div class="card-title">
-                                <h3>MiroTalk CME</h3>
-                                <span class="project-tag">Call-Me</span>
-                                <span class="new-badge">New</span>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <div class="card-section">
-                                <h4><i class="fas fa-info-circle"></i> Use Case</h4>
-                                <p><strong>Instant 1:1 video calls</strong></p>
-                                <span class="tag unlimited">Unlimited rooms</span>
-                                <p>Click-to-call video calls with E2EE, real-time chat, screen &amp; file sharing. Perfect for support, telehealth &amp; consultations.</p>
-                            </div>
-
-                            <div class="card-section">
-                                <h4><i class="fas fa-lock"></i> Security</h4>
-                                <div class="encryption-badge e2ee">
-                                    <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
-                                    <span class="badge-text">E2EE</span>
-                                    <div class="tooltip">
-                                        Direct P2P connection means true end-to-end encryption between the two callers
-                                    </div>
-                                </div>
-                                <div class="encryption-badge e2ee">
-                                    <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
-                                    <span class="badge-text">HOST</span>
-                                    <div class="tooltip">
-                                        Host protection using password restricts access to host features, requiring authentication before granting permissions.
-                                    </div>
-                                </div>
-                                <div class="encryption-badge e2ee">
-                                    <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
-                                    <span class="badge-text">JWT</span>
-                                    <div class="tooltip">
-                                        JSON Web Token (JWT) is used for secure REST API authentication and authorization, enabling stateless and tamper-proof communication between clients and the server.
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="card-section">
-                                <h4><i class="fas fa-star"></i> Key Features</h4>
-                                <ul class="feature-list">
-                                    <li><i class="fas fa-check-circle"></i> Video calls</li>
-                                    <li><i class="fas fa-check-circle"></i> Screen sharing</li>
-                                    <li><i class="fas fa-check-circle"></i> Real-time chat</li>
-                                    <li><i class="fas fa-check-circle"></i> File sharing</li>
-                                    <li><i class="fas fa-check-circle"></i> Click-to-call</li>
-                                    <li><i class="fas fa-check-circle"></i> Device switching</li>
-                                    <li><i class="fas fa-check-circle"></i> Web push notifications</li>
-                                    <li><i class="fas fa-check-circle"></i> Host protection</li>
-                                    <li><i class="fas fa-check-circle"></i> IFrame embeddable</li>
-                                </ul>
-                            </div>
-
-                            <div class="card-section">
-                                <h4><i class="fas fa-cogs"></i> Integrations</h4>
-                                <ul class="integration-list">
-                                    <li><i class="fas fa-check-circle"></i> REST API</li>
-                                    <li><i class="fas fa-check-circle"></i> Iframe</li>
-                                    <li><i class="fas fa-check-circle"></i> Widget</li>
-                                    <li><i class="fas fa-check-circle"></i> Ngrok</li>
-                                </ul>
-                            </div>
-
-                            <div class="card-section">
-                                <h4><i class="fas fa-tachometer-alt"></i> Performance</h4>
-                                <div class="performance">
-                                    <div class="perf-item"><i class="fas fa-bolt"></i> Ultra-low latency</div>
-                                    <div class="perf-item"><i class="fas fa-feather-alt"></i> Minimal server load</div>
-                                    <div class="perf-item">
-                                        <i class="fas fa-tachometer-alt"></i> Bandwidth efficient
-                                    </div>
-                                    <div class="perf-item limit">
-                                        <i class="fas fa-user-times"></i> Limited to 2 participants x Call
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="card-section">
-                                <h4><i class="fas fa-mobile-alt"></i> Compatibility</h4>
-                                <div class="compatibility">
-                                    <div class="comp-item"><i class="fas fa-desktop"></i> All modern browsers</div>
-                                    <div class="comp-item"><i class="fas fa-mobile-alt"></i> Mobile responsive</div>
-                                    <div class="comp-item"><i class="fas fa-tablet-alt"></i> Tablet friendly</div>
-                                    <div class="comp-item"><i class="fas fa-globe"></i> Multi languages</div>
-                                </div>
-                            </div>
-
-                            <div class="card-section">
-                                <h4><i class="fas fa-cloud-upload-alt"></i> Deployment</h4>
-                                <div class="deployment">
-                                    <div class="deploy-item"><i class="fas fa-traffic-light"></i> Stun/Turn</div>
-                                    <div class="deploy-item"><i class="fab fa-node-js"></i> Node.js</div>
-                                    <div class="deploy-item"><i class="fas fa-server"></i> PM2 Manager</div>
-                                    <div class="deploy-item"><i class="fab fa-docker"></i> Docker image</div>
-                                </div>
-                            </div>
-
-                            <div class="card-section">
-                                <h4><i class="fas fa-server"></i> Requirements</h4>
-                                <div class="requirements">
-                                    <div class="req-item"><i class="fas fa-server"></i> Any OS</div>
-                                    <div class="req-item"><i class="fas fa-microchip"></i> 2 CPU Cores</div>
-                                    <div class="req-item"><i class="fas fa-memory"></i> 2 GB RAM</div>
-                                    <div class="req-item"><i class="fas fa-hdd"></i> 5 GB Storage</div>
-                                    <div class="req-item"><i class="fas fa-atlas"></i> Domain or subdomain</div>
-                                    <div class="req-item"><i class="fas fa-globe"></i> IPv4</div>
-                                </div>
-                            </div>
-
-                            <div class="card-section">
-                                <h4><i class="fas fa-link"></i> Links</h4>
-                                <div class="card-buttons">
-                                    <a
-                                        href="https://codecanyon.net/item/callme-easy-webrtc-video-call-app/55342915"
-                                        class="buy-btn"
-                                    >
-                                        <i class="fas fa-cart-plus"></i> Purchase Now
-                                    </a>
-                                    <a href="https://cme.mirotalk.com" target="_blank" class="demo-btn">
-                                        <i class="fas fa-external-link-alt"></i> Live Demo
-                                    </a>
-                                    <a href="../mirotalk-cme/self-hosting" class="docs-btn">
-                                        <i class="fas fa-server"></i> Self-Hosting
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                     <!-- ADMIN Card -->
                     <div class="project-card" data-project="admin">
                         <div class="card-header">
@@ -2879,11 +2879,11 @@
                     <thead>
                         <tr>
                             <th>Feature</th>
+                            <th>MiroTalk CME</th>
                             <th>MiroTalk C2C</th>
                             <th>MiroTalk P2P</th>
                             <th>MiroTalk SFU</th>
                             <th>MiroTalk BRO</th>
-                            <th>MiroTalk CME</th>
                             <th>MiroTalk WEB</th>
                             <th>MiroTalk Admin</th>
                         </tr>
@@ -2891,6 +2891,11 @@
                     <tbody>
                         <tr>
                             <td class="feature-name">Preview</td>
+                            <td class="project-cell">
+                                <a href="https://cme.mirotalk.com" target="_blank">
+                                    <img src="/images/mirotalk/cme.png" alt="CME Preview" class="preview-img" />
+                                </a>
+                            </td>
                             <td class="project-cell">
                                 <a href="https://c2c.mirotalk.com" target="_blank">
                                     <img src="/images/mirotalk/c2c.png" alt="C2C Preview" class="preview-img" />
@@ -2912,11 +2917,6 @@
                                 </a>
                             </td>
                             <td class="project-cell">
-                                <a href="https://cme.mirotalk.com" target="_blank">
-                                    <img src="/images/mirotalk/cme.png" alt="CME Preview" class="preview-img" />
-                                </a>
-                            </td>
-                            <td class="project-cell">
                                 <a href="https://webrtc.mirotalk.com" target="_blank">
                                     <img src="/images/mirotalk/web.png" alt="WEB Preview" class="preview-img" />
                                 </a>
@@ -2929,6 +2929,13 @@
                         </tr>
                         <tr>
                             <td class="feature-name">Project</td>
+                            <td class="project-cell">
+                                <div class="comparison-project-header">
+                                    <strong>MiroTalk CME</strong>
+                                    <span class="project-tag">Call-Me</span>
+                                    <span class="new-badge">New</span>
+                                </div>
+                            </td>
                             <td class="project-cell">
                                 <div class="comparison-project-header">
                                     <strong>MiroTalk C2C</strong>
@@ -2955,13 +2962,6 @@
                             </td>
                             <td class="project-cell">
                                 <div class="comparison-project-header">
-                                    <strong>MiroTalk CME</strong>
-                                    <span class="project-tag">Call-Me</span>
-                                    <span class="new-badge">New</span>
-                                </div>
-                            </td>
-                            <td class="project-cell">
-                                <div class="comparison-project-header">
                                     <strong>MiroTalk WEB</strong>
                                     <span class="project-tag">Scheduler Portal</span>
                                 </div>
@@ -2975,6 +2975,15 @@
                         </tr>
                         <tr>
                             <td class="feature-name">Use Case</td>
+                            <td class="project-cell">
+                                <div class="use-case">
+                                    <strong>Instant 1:1 video calls</strong>
+                                    <span class="tag unlimited">Unlimited rooms</span>
+                                    <p class="description">
+                                        Click-to-call video calls with E2EE, real-time chat, screen &amp; file sharing. Perfect for support, telehealth &amp; consultations.
+                                    </p>
+                                </div>
+                            </td>
                             <td class="project-cell">
                                 <div class="use-case">
                                     <strong>1:1 video calls</strong>
@@ -3016,15 +3025,6 @@
                             </td>
                             <td class="project-cell">
                                 <div class="use-case">
-                                    <strong>Instant 1:1 video calls</strong>
-                                    <span class="tag unlimited">Unlimited rooms</span>
-                                    <p class="description">
-                                        Click-to-call video calls with E2EE, real-time chat, screen &amp; file sharing. Perfect for support, telehealth &amp; consultations.
-                                    </p>
-                                </div>
-                            </td>
-                            <td class="project-cell">
-                                <div class="use-case">
                                     <strong>Meeting management hub</strong>
                                     <span class="tag unlimited">Unlimited users/dashboards</span>
                                     <p class="description">
@@ -3046,6 +3046,31 @@
                         </tr>
                         <tr>
                             <td class="feature-name">Security</td>
+                            <td class="project-cell">
+                                <div class="security-column">
+                                    <div class="encryption-badge e2ee">
+                                        <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
+                                        <span class="badge-text">E2EE</span>
+                                        <div class="tooltip">
+                                            Direct P2P connection means true end-to-end encryption between the two callers
+                                        </div>
+                                    </div>
+                                    <div class="encryption-badge e2ee">
+                                        <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
+                                        <span class="badge-text">HOST</span>
+                                        <div class="tooltip">
+                                            Host protection using password restricts access to host features, requiring authentication before granting permissions.
+                                        </div>
+                                    </div>
+                                    <div class="encryption-badge e2ee">
+                                        <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
+                                        <span class="badge-text">JWT</span>
+                                        <div class="tooltip">
+                                            JSON Web Token (JWT) is used for secure REST API authentication and authorization, enabling stateless and tamper-proof communication between clients and the server.
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
                             <td class="project-cell">
                                 <div class="security-column">
                                     <div class="encryption-badge e2ee">
@@ -3190,31 +3215,6 @@
                             </td>
                             <td class="project-cell">
                                 <div class="security-column">
-                                    <div class="encryption-badge e2ee">
-                                        <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
-                                        <span class="badge-text">E2EE</span>
-                                        <div class="tooltip">
-                                            Direct P2P connection means true end-to-end encryption between the two callers
-                                        </div>
-                                    </div>
-                                    <div class="encryption-badge e2ee">
-                                        <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
-                                        <span class="badge-text">HOST</span>
-                                        <div class="tooltip">
-                                            Host protection using password restricts access to host features, requiring authentication before granting permissions.
-                                        </div>
-                                    </div>
-                                    <div class="encryption-badge e2ee">
-                                        <span class="badge-icon"><i class="fas fa-shield-alt"></i></span>
-                                        <span class="badge-text">JWT</span>
-                                        <div class="tooltip">
-                                            JSON Web Token (JWT) is used for secure REST API authentication and authorization, enabling stateless and tamper-proof communication between clients and the server.
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="project-cell">
-                                <div class="security-column">
                                     <div class="encryption-badge https">
                                         <span class="badge-icon"><i class="fas fa-lock"></i></span>
                                         <span class="badge-text">HTTPS</span>
@@ -3253,6 +3253,19 @@
                         </tr>
                         <tr>
                             <td class="feature-name">Key Features</td>
+                            <td class="project-cell">
+                                <ul class="feature-list">
+                                    <li><i class="fas fa-check-circle"></i> Video calls</li>
+                                    <li><i class="fas fa-check-circle"></i> Screen sharing</li>
+                                    <li><i class="fas fa-check-circle"></i> Real-time chat</li>
+                                    <li><i class="fas fa-check-circle"></i> File sharing</li>
+                                    <li><i class="fas fa-check-circle"></i> Click-to-call</li>
+                                    <li><i class="fas fa-check-circle"></i> Device switching</li>
+                                    <li><i class="fas fa-check-circle"></i> Web push notifications</li>
+                                    <li><i class="fas fa-check-circle"></i> Host protection</li>
+                                    <li><i class="fas fa-check-circle"></i> IFrame embeddable</li>
+                                </ul>
+                            </td>
                             <td class="project-cell">
                                 <ul class="feature-list">
                                     <li><i class="fas fa-check-circle"></i> Audio/video/screen share</li>
@@ -3317,19 +3330,6 @@
                             </td>
                             <td class="project-cell">
                                 <ul class="feature-list">
-                                    <li><i class="fas fa-check-circle"></i> Video calls</li>
-                                    <li><i class="fas fa-check-circle"></i> Screen sharing</li>
-                                    <li><i class="fas fa-check-circle"></i> Real-time chat</li>
-                                    <li><i class="fas fa-check-circle"></i> File sharing</li>
-                                    <li><i class="fas fa-check-circle"></i> Click-to-call</li>
-                                    <li><i class="fas fa-check-circle"></i> Device switching</li>
-                                    <li><i class="fas fa-check-circle"></i> Web push notifications</li>
-                                    <li><i class="fas fa-check-circle"></i> Host protection</li>
-                                    <li><i class="fas fa-check-circle"></i> IFrame embeddable</li>
-                                </ul>
-                            </td>
-                            <td class="project-cell">
-                                <ul class="feature-list">
                                     <li><i class="fas fa-check-circle"></i> Registration/login</li>
                                     <li><i class="fas fa-check-circle"></i> Dashboard</li>
                                     <li><i class="fas fa-check-circle"></i> Room scheduling</li>
@@ -3352,6 +3352,14 @@
                         </tr>
                         <tr>
                             <td class="feature-name">Integrations</td>
+                            <td class="project-cell">
+                                <ul class="integration-list">
+                                    <li><i class="fas fa-check-circle"></i> REST API</li>
+                                    <li><i class="fas fa-check-circle"></i> Iframe</li>
+                                    <li><i class="fas fa-check-circle"></i> Widget</li>
+                                    <li><i class="fas fa-check-circle"></i> Ngrok</li>
+                                </ul>
+                            </td>
                             <td class="project-cell">
                                 <ul class="integration-list">
                                     <li><i class="fas fa-check-circle"></i> REST API</li>
@@ -3399,14 +3407,6 @@
                                 <ul class="integration-list">
                                     <li><i class="fas fa-check-circle"></i> REST API</li>
                                     <li><i class="fas fa-check-circle"></i> Iframe</li>
-                                    <li><i class="fas fa-check-circle"></i> Widget</li>
-                                    <li><i class="fas fa-check-circle"></i> Ngrok</li>
-                                </ul>
-                            </td>
-                            <td class="project-cell">
-                                <ul class="integration-list">
-                                    <li><i class="fas fa-check-circle"></i> REST API</li>
-                                    <li><i class="fas fa-check-circle"></i> Iframe</li>
                                     <li><i class="fas fa-check-circle"></i> Sentry</li>
                                     <li><i class="fas fa-check-circle"></i> Ngrok</li>
                                 </ul>
@@ -3428,7 +3428,19 @@
                                         <i class="fas fa-tachometer-alt"></i> Bandwidth efficient
                                     </div>
                                     <div class="perf-item limit">
-                                        <i class="fas fa-user-times"></i> Limited to 2 participants
+                                        <i class="fas fa-user-times"></i> Limited to 2 participants x Call
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="project-cell">
+                                <div class="performance">
+                                    <div class="perf-item"><i class="fas fa-bolt"></i> Ultra-low latency</div>
+                                    <div class="perf-item"><i class="fas fa-feather-alt"></i> Minimal server load</div>
+                                    <div class="perf-item">
+                                        <i class="fas fa-tachometer-alt"></i> Bandwidth efficient
+                                    </div>
+                                    <div class="perf-item limit">
+                                        <i class="fas fa-user-times"></i> Limited to 2 participants x Room
                                     </div>
                                 </div>
                             </td>
@@ -3470,18 +3482,6 @@
                             </td>
                             <td class="project-cell">
                                 <div class="performance">
-                                    <div class="perf-item"><i class="fas fa-bolt"></i> Ultra-low latency</div>
-                                    <div class="perf-item"><i class="fas fa-feather-alt"></i> Minimal server load</div>
-                                    <div class="perf-item">
-                                        <i class="fas fa-tachometer-alt"></i> Bandwidth efficient
-                                    </div>
-                                    <div class="perf-item limit">
-                                        <i class="fas fa-user-times"></i> Limited to 2 participants x Call
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="project-cell">
-                                <div class="performance">
                                     <div class="perf-item">
                                         <i class="fas fa-tachometer-alt"></i> Fast portal loading
                                     </div>
@@ -3502,6 +3502,14 @@
                         </tr>
                         <tr>
                             <td class="feature-name">Compatibility</td>
+                            <td class="project-cell">
+                                <div class="compatibility">
+                                    <div class="comp-item"><i class="fas fa-desktop"></i> All modern browsers</div>
+                                    <div class="comp-item"><i class="fas fa-mobile-alt"></i> Mobile responsive</div>
+                                    <div class="comp-item"><i class="fas fa-tablet-alt"></i> Tablet friendly</div>
+                                    <div class="comp-item"><i class="fas fa-globe"></i> Multi languages</div>
+                                </div>
+                            </td>
                             <td class="project-cell">
                                 <div class="compatibility">
                                     <div class="comp-item"><i class="fas fa-desktop"></i> All modern browsers</div>
@@ -3543,14 +3551,6 @@
                             <td class="project-cell">
                                 <div class="compatibility">
                                     <div class="comp-item"><i class="fas fa-desktop"></i> All modern browsers</div>
-                                    <div class="comp-item"><i class="fas fa-mobile-alt"></i> Mobile responsive</div>
-                                    <div class="comp-item"><i class="fas fa-tablet-alt"></i> Tablet friendly</div>
-                                    <div class="comp-item"><i class="fas fa-globe"></i> Multi languages</div>
-                                </div>
-                            </td>
-                            <td class="project-cell">
-                                <div class="compatibility">
-                                    <div class="comp-item"><i class="fas fa-desktop"></i> All modern browsers</div>
                                     <div class="comp-item"><i class="fas fa-mobile-alt"></i> Responsive design</div>
                                     <div class="comp-item"><i class="fas fa-rocket"></i> Launches meetings</div>
                                     <div class="comp-item"><i class="fas fa-envelope"></i> Requires email setup</div>
@@ -3584,6 +3584,7 @@
                             </td>
                             <td class="project-cell">
                                 <div class="deployment">
+                                    <div class="deploy-item"><i class="fas fa-traffic-light"></i> Stun/Turn</div>
                                     <div class="deploy-item"><i class="fab fa-node-js"></i> Node.js</div>
                                     <div class="deploy-item"><i class="fas fa-server"></i> PM2 Manager</div>
                                     <div class="deploy-item"><i class="fab fa-docker"></i> Docker image</div>
@@ -3591,7 +3592,6 @@
                             </td>
                             <td class="project-cell">
                                 <div class="deployment">
-                                    <div class="deploy-item"><i class="fas fa-traffic-light"></i> Stun/Turn</div>
                                     <div class="deploy-item"><i class="fab fa-node-js"></i> Node.js</div>
                                     <div class="deploy-item"><i class="fas fa-server"></i> PM2 Manager</div>
                                     <div class="deploy-item"><i class="fab fa-docker"></i> Docker image</div>
@@ -3640,6 +3640,16 @@
                                     <div class="req-item"><i class="fas fa-server"></i> Any OS</div>
                                     <div class="req-item"><i class="fas fa-microchip"></i> 2 CPU Cores</div>
                                     <div class="req-item"><i class="fas fa-memory"></i> 2 GB RAM</div>
+                                    <div class="req-item"><i class="fas fa-hdd"></i> 5 GB Storage</div>
+                                    <div class="req-item"><i class="fas fa-atlas"></i> Domain or subdomain</div>
+                                    <div class="req-item"><i class="fas fa-globe"></i> IPv4</div>
+                                </div>
+                            </td>
+                            <td class="project-cell">
+                                <div class="requirements">
+                                    <div class="req-item"><i class="fas fa-server"></i> Any OS</div>
+                                    <div class="req-item"><i class="fas fa-microchip"></i> 2 CPU Cores</div>
+                                    <div class="req-item"><i class="fas fa-memory"></i> 2 GB RAM</div>
                                     <div class="req-item"><i class="fas fa-hdd"></i> 10 GB Storage</div>
                                     <div class="req-item"><i class="fas fa-atlas"></i> Domain or subdomain</div>
                                     <div class="req-item"><i class="fas fa-globe"></i> IPv4</div>
@@ -3669,16 +3679,6 @@
                                 <div class="requirements">
                                     <div class="req-item"><i class="fas fa-server"></i> Any OS</div>
                                     <div class="req-item"><i class="fas fa-microchip"></i> 2 CPU Cores</div>
-                                    <div class="req-item"><i class="fas fa-memory"></i> 2 GB RAM</div>
-                                    <div class="req-item"><i class="fas fa-hdd"></i> 5 GB Storage</div>
-                                    <div class="req-item"><i class="fas fa-atlas"></i> Domain or subdomain</div>
-                                    <div class="req-item"><i class="fas fa-globe"></i> IPv4</div>
-                                </div>
-                            </td>
-                            <td class="project-cell">
-                                <div class="requirements">
-                                    <div class="req-item"><i class="fas fa-server"></i> Any OS</div>
-                                    <div class="req-item"><i class="fas fa-microchip"></i> 2 CPU Cores</div>
                                     <div class="req-item"><i class="fas fa-memory"></i> 4 GB RAM</div>
                                     <div class="req-item"><i class="fas fa-hdd"></i> 20 GB Storage</div>
                                     <div class="req-item"><i class="fas fa-atlas"></i> Domain or subdomain</div>
@@ -3698,6 +3698,28 @@
                         </tr>
                         <tr>
                             <td class="feature-name">Links</td>
+                            <td class="project-cell">
+                                <div class="links-column">
+                                    <div class="buy-link">
+                                        <a
+                                            href="https://codecanyon.net/item/callme-easy-webrtc-video-call-app/55342915"
+                                            class="buy-btn"
+                                        >
+                                            <i class="fas fa-cart-plus"></i> Purchase Now
+                                        </a>
+                                    </div>
+                                    <div class="demo-link">
+                                        <a href="https://cme.mirotalk.com" target="_blank" class="demo-btn">
+                                            <i class="fas fa-external-link-alt"></i> Live Demo
+                                        </a>
+                                    </div>
+                                    <div class="docs-link">
+                                        <a href="../mirotalk-cme/self-hosting" class="docs-btn">
+                                            <i class="fas fa-server"></i> Self-Hosting
+                                        </a>
+                                    </div>
+                                </div>
+                            </td>
                             <td class="project-cell">
                                 <div class="links-column">
                                     <div class="buy-link">
@@ -3781,28 +3803,6 @@
                                     </div>
                                     <div class="docs-link">
                                         <a href="../mirotalk-bro/self-hosting" class="docs-btn">
-                                            <i class="fas fa-server"></i> Self-Hosting
-                                        </a>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="project-cell">
-                                <div class="links-column">
-                                    <div class="buy-link">
-                                        <a
-                                            href="https://codecanyon.net/item/callme-easy-webrtc-video-call-app/55342915"
-                                            class="buy-btn"
-                                        >
-                                            <i class="fas fa-cart-plus"></i> Purchase Now
-                                        </a>
-                                    </div>
-                                    <div class="demo-link">
-                                        <a href="https://cme.mirotalk.com" target="_blank" class="demo-btn">
-                                            <i class="fas fa-external-link-alt"></i> Live Demo
-                                        </a>
-                                    </div>
-                                    <div class="docs-link">
-                                        <a href="../mirotalk-cme/self-hosting" class="docs-btn">
                                             <i class="fas fa-server"></i> Self-Hosting
                                         </a>
                                     </div>
