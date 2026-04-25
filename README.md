@@ -1,3 +1,7 @@
+<p align="center">
+    <a href="https://docs.mirotalk.com"><img src="docs/images/mirotalk.gif"></a>
+</p>
+
 <h1 align="center">MiroTalk DOCS</h1>
 
 <br />
@@ -8,12 +12,6 @@
 
 <p align="center">
     <a href="https://docs.mirotalk.com">Explore MiroTalk DOCS</a>
-</p>
-
-<hr />
-
-<p align="center">
-    <a href="https://docs.mirotalk.com"><img src="docs/images/mirotalk.gif"></a>
 </p>
 
 <hr />
