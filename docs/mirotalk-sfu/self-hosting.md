@@ -77,50 +77,35 @@ git clone https://github.com/miroslavpejic85/mirotalksfu.git
 # Navigate to the project directory
 cd mirotalksfu
 
-# Copy the config template and customize as needed
+# Copy the config template
 cp app/src/config.template.js app/src/config.js
 
-# Copy the environment template and customize as needed
+# Copy the environment template
 cp .env.template .env
 ```
 
----
+!!! warning "Edit .env Configuration"
 
-### .env
-
-Change the `ENVIRONMENT` and the `SFU_ANNOUNCED_IP` in the `.env`
+    Edit `.env` now (see section below) before running `npm install` or `npm start`.
 
 ```bash
 ENVIRONMENT=production
 SFU_ANNOUNCED_IP=Your-Server-Public-IPv4-or-Domain
-```
-
-Set the port range for WebRTC communication. This range is used for the dynamic allocation of UDP ports for media streams.
-
-```bash
-: '
-    About:
-    - Each participant requires 2 ports: one for audio and one for video.
-    - The default configuration supports up to 50 participants (50 * 2 ports = 100 ports).
-    - To support more participants, simply increase the port range.
-
-    Note: 
-    - When running in Docker, use "network mode: host" for improved performance.
-    - Alternatively, enable "SFU_SERVER: true" mode for better scalability.
-    - Make sure these port ranges are not blocked by the firewall; if they are, add the necessary rules.
-'
-
 SFU_MIN_PORT=40000
-SFU_MAX_PORT=40100 
-
-SFU_NUM_WORKERS=1 # Maximum workers should not exceed available CPU cores (e.g., 4 workers max on 4-core CPU)
+SFU_MAX_PORT=40100              # With 40000-40100 (~100 ports), supports about ~50 participants
+SFU_NUM_WORKERS=4               # Optional: if unset, defaults to CPU core count (`nproc`)
 ```
 
-<br />
+| Setting                         | What it does                                                                                                                                                                                                                                                                                    |
+| ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ENVIRONMENT`                   | Use `production` for server deployments. Enables production-ready behavior including proper HTTPS and WebRTC configuration.                                                                                                                                                                     |
+| `SFU_ANNOUNCED_IP`              | Public IPv4 address or domain name announced to clients for ICE/WebRTC connectivity. Required when the server is behind NAT, Docker, or cloud infrastructure.                                                                                                                                   |
+| `SFU_NUM_WORKERS`               | Number of parallel media workers. Typically set to the number of CPU cores for best performance. As a rough estimate, 1 worker can handle ~100 participants depending on video quality, bandwidth, and system load.                                                                             |
+| `SFU_MIN_PORT` / `SFU_MAX_PORT` | UDP port range used for WebRTC media traffic. Each participant consumes multiple dynamic ports for audio/video streams. A larger range allows more concurrent participants and connections. For reduced port exposure and easier scaling, you can enable `SFU_SERVER=true` ([WebRTCServer mode](#webrtcserver-optional)). |
 
-### FireWall
+### Firewall
 
-Set the `inbound rules` if needed
+If ports `40000-40100` are blocked, SFU media will fail. Set inbound rules as needed.
 
 | Port range  | Protocol | Source    | Description         |
 | ----------- | -------- | --------- | ------------------- |
@@ -128,20 +113,51 @@ Set the `inbound rules` if needed
 | 40000-40100 | TCP      | 0.0.0.0/0 | RTC port ranges TCP |
 | 40000-40100 | UDP      | 0.0.0.0/0 | RTC port ranges UDP |
 
-```bash
-# Check the firewall Status: (active/inactive)
-ufw status
+??? note "UFW"
 
-# If active then allow traffic
-ufw allow 3010/tcp
-ufw allow 40000:40100/tcp
-ufw allow 40000:40100/udp
+    ```bash
+    # Check firewall status (active/inactive)
+    ufw status
 
-# ssh, http, https, nginx...
-ufw allow 22/tcp
-ufw allow 80/tcp
-ufw allow 443/tcp
-```
+    # If active, allow traffic
+    ufw allow 3010/tcp
+    ufw allow 40000:40100/tcp
+    ufw allow 40000:40100/udp
+
+    # ssh, http, https
+    ufw allow 22/tcp
+    ufw allow 80/tcp
+    ufw allow 443/tcp
+    ```
+
+??? note "iptables"
+
+    ```bash
+    # Allow established traffic and loopback
+    iptables -A INPUT -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
+    iptables -A INPUT -i lo -j ACCEPT
+
+    # Keep SSH open first (avoid lockout)
+    iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+
+    # App + web ports
+    iptables -A INPUT -p tcp --dport 3010 -j ACCEPT
+    iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+    iptables -A INPUT -p tcp --dport 443 -j ACCEPT
+
+    # SFU media ports
+    iptables -A INPUT -p tcp --dport 40000:40100 -j ACCEPT
+    iptables -A INPUT -p udp --dport 40000:40100 -j ACCEPT
+
+    # Default policies
+    iptables -P INPUT DROP
+    iptables -P FORWARD DROP
+    iptables -P OUTPUT ACCEPT
+
+    # Save rules (Ubuntu/Debian)
+    apt-get install -y iptables-persistent
+    netfilter-persistent save
+    ```
 
 ---
 
