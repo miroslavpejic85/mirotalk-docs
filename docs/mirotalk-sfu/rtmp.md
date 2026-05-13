@@ -195,3 +195,7 @@ rtmp://your-domain:1935/live/stream-key?sign=signature-token
 ```
 
 ---
+
+## RTMP Streaming Flow
+
+![rtmp-flow](../images/rtmp-flow.png)
