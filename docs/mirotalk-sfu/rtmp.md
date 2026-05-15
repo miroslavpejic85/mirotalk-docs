@@ -1,6 +1,8 @@
 # RTMP Streaming
 
 ![rtmp](../images/rtmp.jpeg)
+![rtmp-flow](../images/rtmp-flow.png)
+
 
 MiroTalk SFU supports live RTMP streaming through two server options:
 
@@ -193,9 +195,3 @@ Use the output URL format:
 ```
 rtmp://your-domain:1935/live/stream-key?sign=signature-token
 ```
-
----
-
-## RTMP Streaming Flow
-
-![rtmp-flow](../images/rtmp-flow.png)
