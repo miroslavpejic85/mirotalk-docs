@@ -322,6 +322,13 @@ server {
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection "upgrade";
+
+        # Optional: increase buffers to accommodate large headers/cookies.
+        # May be required with some OIDC / SSO providers (e.g. Azure AD/Entra,
+        # Keycloak with many group claims) whose tokens exceed nginx defaults.
+        proxy_buffer_size       128k;
+        proxy_buffers         8 256k;
+        proxy_busy_buffers_size 512k;
     }
 }
 ```
