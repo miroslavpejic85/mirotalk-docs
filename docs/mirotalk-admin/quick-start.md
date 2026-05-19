@@ -131,6 +131,15 @@ Choose how you want to manage your MiroTalk instance:
         - `SSH_PORT`
         - `SSH_USERNAME`
         - `SSH_PASSWORD` or `SSH_PRIVATE_KEY`
+        - `SSH_HOST_FINGERPRINT_SHA256` — **required**. Pinned SHA-256 host-key fingerprint to prevent MITM.
+
+            Obtain it with:
+
+            ```bash
+            ssh-keyscan -t ed25519 <host> | ssh-keygen -lf - -E sha256
+            ```
+
+            Paste the resulting `SHA256:…` value (or raw base64 / 64-char hex) into `.env`.
 
 - **Self-Hosted with Docker:**
 
