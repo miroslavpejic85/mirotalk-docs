@@ -88,7 +88,7 @@ info "System requirements OK: CPU=$CPU, RAM=${RAM}MB, Disk=${DISK}KB, Arch=$ARCH
 #---------------------------------------------
 
 if command -v nginx >/dev/null || command -v docker >/dev/null || command -v node >/dev/null; then
-    error "Some packages like nginx, docker, or nodejs are already installed. MiroTalk requires specific versions of these packages and will install them as part of its installation. Please start with a fresh Ubuntu install and run this script again."
+    warning "Some packages like nginx, docker, or nodejs are already installed. MiroTalk requires specific versions of these packages and will install them as part of its installation. Please start with a fresh Ubuntu install and run this script again."
 fi
 
 #---------------------------------------------
