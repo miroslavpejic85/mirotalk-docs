@@ -363,6 +363,26 @@
             justify-content: center;
         }
 
+        a.feature-card {
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+        }
+
+        .feature-card .demo-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 0.5rem;
+            display: inline-block;
+            transition: color 0.18s;
+        }
+
+        a.feature-card:hover .demo-link {
+            color: #fff;
+            text-decoration: underline;
+        }
+
         .feature-card:hover {
             transform: translateY(-6px) scale(1.03);
             box-shadow: 0 12px 32px rgba(33, 150, 243, 0.2), 0 0 20px rgba(33, 150, 243, 0.1);
@@ -1105,66 +1125,54 @@
     <section class="reveal">
         <h2>One Platform – Every Mode You Need</h2>
         <div class="features-grid">
-            <div class="feature-card reveal reveal-delay-1">
-                <a href="https://p2p.mirotalk.com" target="_blank">
-                    <img src="../images/mirotalk/p2p.png" alt="P2P Preview" class="feature-icon feature-img" loading="lazy">
-                </a>
+            <a href="https://p2p.mirotalk.com" target="_blank" class="feature-card reveal reveal-delay-1">
+                <img src="../images/mirotalk/p2p.png" alt="P2P Preview" class="feature-icon feature-img" loading="lazy">
                 <div class="feature-content">
                     <strong>P2P</strong>
                     <span class="feature-muted">Peer-to-peer calls</span>
-                    <a href="https://p2p.mirotalk.com" target="_blank">Live Demo</a>
+                    <span class="demo-link">Live Demo</span>
                 </div>
-            </div>
-            <div class="feature-card reveal reveal-delay-2">
-                <a href="https://sfu.mirotalk.com" target="_blank">
-                    <img src="../images/mirotalk/sfu.png" alt="SFU Preview" class="feature-icon feature-img" loading="lazy">
-                </a>
+            </a>
+            <a href="https://sfu.mirotalk.com" target="_blank" class="feature-card reveal reveal-delay-2">
+                <img src="../images/mirotalk/sfu.png" alt="SFU Preview" class="feature-icon feature-img" loading="lazy">
                 <div class="feature-content">
                     <strong>SFU</strong>
                     <span class="feature-muted">Large group meetings</span>
-                    <a href="https://sfu.mirotalk.com" target="_blank">Live Demo</a>
+                    <span class="demo-link">Live Demo</span>
                 </div>
-            </div>
-            <div class="feature-card reveal reveal-delay-3">
-                <a href="https://c2c.mirotalk.com" target="_blank">
-                    <img src="../images/mirotalk/c2c.png" alt="C2C Preview" class="feature-icon feature-img" loading="lazy">
-                </a>
+            </a>
+            <a href="https://c2c.mirotalk.com" target="_blank" class="feature-card reveal reveal-delay-3">
+                <img src="../images/mirotalk/c2c.png" alt="C2C Preview" class="feature-icon feature-img" loading="lazy">
                 <div class="feature-content">
                     <strong>C2C</strong>
                     <span class="feature-muted">Simple cam-to-cam</span>
-                    <a href="https://c2c.mirotalk.com" target="_blank">Live Demo</a>
+                    <span class="demo-link">Live Demo</span>
                 </div>
-            </div>
-            <div class="feature-card reveal reveal-delay-4">
-                <a href="https://bro.mirotalk.com" target="_blank">
-                    <img src="../images/mirotalk/bro.png" alt="BRO Preview" class="feature-icon feature-img" loading="lazy">
-                </a>
+            </a>
+            <a href="https://bro.mirotalk.com" target="_blank" class="feature-card reveal reveal-delay-4">
+                <img src="../images/mirotalk/bro.png" alt="BRO Preview" class="feature-icon feature-img" loading="lazy">
                 <div class="feature-content">
                     <strong>BRO</strong>
                     <span class="feature-muted">Broadcasting</span>
-                    <a href="https://bro.mirotalk.com" target="_blank">Live Demo</a>
+                    <span class="demo-link">Live Demo</span>
                 </div>
-            </div>
-            <div class="feature-card reveal reveal-delay-5">
-                <a href="https://webrtc.mirotalk.com" target="_blank">
-                    <img src="../images/mirotalk/web.png" alt="WEB Preview" class="feature-icon feature-img" loading="lazy">
-                </a>
+            </a>
+            <a href="https://webrtc.mirotalk.com" target="_blank" class="feature-card reveal reveal-delay-5">
+                <img src="../images/mirotalk/web.png" alt="WEB Preview" class="feature-icon feature-img" loading="lazy">
                 <div class="feature-content">
                     <strong>WEB</strong>
                     <span class="feature-muted">Dashboard + scheduler</span>
-                    <a href="https://webrtc.mirotalk.com" target="_blank">Live Demo</a>
+                    <span class="demo-link">Live Demo</span>
                 </div>
-            </div>
-            <div class="feature-card reveal reveal-delay-6">
-                <a href="https://cme.mirotalk.com" target="_blank">
-                    <img src="../images/mirotalk/cme.png" alt="CME Preview" class="feature-icon feature-img" loading="lazy">
-                </a>
+            </a>
+            <a href="https://cme.mirotalk.com" target="_blank" class="feature-card reveal reveal-delay-6">
+                <img src="../images/mirotalk/cme.png" alt="CME Preview" class="feature-icon feature-img" loading="lazy">
                 <div class="feature-content">
                     <strong>CME</strong>
                     <span class="feature-muted">Click-to-call</span>
-                    <a href="https://cme.mirotalk.com" target="_blank">Live Demo</a>
+                    <span class="demo-link">Live Demo</span>
                 </div>
-            </div>
+            </a>
         </div>
     </section>
 
@@ -1172,10 +1180,10 @@
 
     <section class="alt-bg reveal">
         <h2>Try Instantly – No Signup</h2>
-        <div class="feature-card reveal">
+        <a href="https://webrtc.mirotalk.com" target="_blank" class="feature-card reveal">
             <div class="feature-content">
                     <strong>Dashboard Demo Login</strong>
-                    <a href="https://webrtc.mirotalk.com" target="_blank">Try now</a>
+                    <span class="demo-link">Try now</span>
             </div>
             <div class="demo-box">
                 <p><i class="fa-solid fa-user"></i> <b>User:</b> <code>demo</code></p>
@@ -1183,7 +1191,7 @@
                 <p><i class="fa-solid fa-key"></i> <b>Password:</b> <code>Demo@123</code></p>
                 <p class="demo-login-note">No signup required – just copy and login!</p>
             </div>
-        </div>
+        </a>
     </section>
 
     <div class="section-divider"><i class="fa-solid fa-diamond"></i></div>
@@ -1191,22 +1199,22 @@
     <section class="reveal">
         <h2>Widget Integration – Copy, Paste, Go</h2>
         <div class="features-grid widget-features-grid">
-            <div class="feature-card widget-card">
+            <a href="https://codepen.io/Miroslav-Pejic/pen/Byowjvb" target="_blank" class="feature-card widget-card">
                 <i class="fa-solid fa-puzzle-piece feature-icon" aria-hidden="true"></i>
                 <div class="feature-content">
                     <strong>P2P Widget</strong>
                     <span class="feature-muted">Embed P2P video calls</span>
-                    <a href="https://codepen.io/Miroslav-Pejic/pen/Byowjvb" target="_blank">View Widget Demo</a>
+                    <span class="demo-link">View Widget Demo</span>
                 </div>
-            </div>
-            <div class="feature-card widget-card">
+            </a>
+            <a href="https://codepen.io/Miroslav-Pejic/pen/LEpzGXO" target="_blank" class="feature-card widget-card">
                 <i class="fa-solid fa-puzzle-piece feature-icon" aria-hidden="true"></i>
                 <div class="feature-content">
                     <strong>SFU Widget</strong>
                     <span class="feature-muted">Embed group meetings</span>
-                    <a href="https://codepen.io/Miroslav-Pejic/pen/LEpzGXO" target="_blank">View Widget Demo</a>
+                    <span class="demo-link">View Widget Demo</span>
                 </div>
-            </div>
+            </a>
         </div>
     </section>
 
@@ -1253,70 +1261,70 @@
         <div class="integration-desc mt-25">
             <h3 class="codepen-card-title mb-25">Live CodePen Integration Examples</h3>
             <div class="features-grid codepen-features-grid">
-                <div class="feature-card codepen-card">
+                <a href="https://codepen.io/Miroslav-Pejic/pen/LYXRbmE" target="_blank" class="feature-card codepen-card">
                     <i class="fa-brands fa-codepen feature-icon" aria-hidden="true"></i>
                     <div class="feature-content">
                         <strong>SFU</strong>
                         <span class="feature-muted">MiroTalk SFU example</span>
-                        <a href="https://codepen.io/Miroslav-Pejic/pen/LYXRbmE" target="_blank">View on CodePen</a>
+                        <span class="demo-link">View on CodePen</span>
                     </div>
-                </div>
-                <div class="feature-card codepen-card">
+                </a>
+                <a href="https://codepen.io/Miroslav-Pejic/pen/jOQMVzx" target="_blank" class="feature-card codepen-card">
                     <i class="fa-brands fa-codepen feature-icon" aria-hidden="true"></i>
                     <div class="feature-content">
                         <strong>P2P</strong>
                         <span class="feature-muted">MiroTalk P2P example</span>
-                        <a href="https://codepen.io/Miroslav-Pejic/pen/jOQMVzx" target="_blank">View on CodePen</a>
+                        <span class="demo-link">View on CodePen</span>
                     </div>
-                </div>
-                <div class="feature-card codepen-card">
+                </a>
+                <a href="https://codepen.io/Miroslav-Pejic/pen/ExOgNbJ" target="_blank" class="feature-card codepen-card">
                     <i class="fa-brands fa-codepen feature-icon" aria-hidden="true"></i>
                     <div class="feature-content">
                         <strong>C2C</strong>
                         <span class="feature-muted">MiroTalk C2C example</span>
-                        <a href="https://codepen.io/Miroslav-Pejic/pen/ExOgNbJ" target="_blank">View on CodePen</a>
+                        <span class="demo-link">View on CodePen</span>
                     </div>
-                </div>
-                <div class="feature-card codepen-card">
+                </a>
+                <a href="https://codepen.io/Miroslav-Pejic/pen/OJaRbZg" target="_blank" class="feature-card codepen-card">
                     <i class="fa-brands fa-codepen feature-icon" aria-hidden="true"></i>
                     <div class="feature-content">
                         <strong>BRO</strong>
                         <span class="feature-muted">MiroTalk BRO example</span>
-                        <a href="https://codepen.io/Miroslav-Pejic/pen/OJaRbZg" target="_blank">View on CodePen</a>
+                        <span class="demo-link">View on CodePen</span>
                     </div>
-                </div>
-                <div class="feature-card codepen-card">
+                </a>
+                <a href="https://codepen.io/Miroslav-Pejic/pen/jOQMVxx" target="_blank" class="feature-card codepen-card">
                     <i class="fa-brands fa-codepen feature-icon" aria-hidden="true"></i>
                     <div class="feature-content">
                         <strong>WEB</strong>
                         <span class="feature-muted">MiroTalk WEB example</span>
-                        <a href="https://codepen.io/Miroslav-Pejic/pen/jOQMVxx" target="_blank">View on CodePen</a>
+                        <span class="demo-link">View on CodePen</span>
                     </div>
-                </div>
-                <div class="feature-card codepen-card">
+                </a>
+                <a href="https://codepen.io/Miroslav-Pejic/pen/empeGYJ" target="_blank" class="feature-card codepen-card">
                     <i class="fa-brands fa-codepen feature-icon" aria-hidden="true"></i>
                     <div class="feature-content">
                         <strong>CME</strong>
                         <span class="feature-muted">MiroTalk CME example</span>
-                        <a href="https://codepen.io/Miroslav-Pejic/pen/empeGYJ" target="_blank">View on CodePen</a>
+                        <span class="demo-link">View on CodePen</span>
                     </div>
-                </div>
-                <div class="feature-card codepen-card">
+                </a>
+                <a href="https://codepen.io/Miroslav-Pejic/pen/QWzmGaZ" target="_blank" class="feature-card codepen-card">
                     <i class="fa-brands fa-codepen feature-icon" aria-hidden="true"></i>
                     <div class="feature-content">
                         <strong>React</strong>
                         <span class="feature-muted">MiroTalk React integration</span>
-                        <a href="https://codepen.io/Miroslav-Pejic/pen/QWzmGaZ" target="_blank">View on CodePen</a>
+                        <span class="demo-link">View on CodePen</span>
                     </div>
-                </div>
-                <div class="feature-card codepen-card">
+                </a>
+                <a href="https://photo.cloudron.pocketsolution.net/uploads/medium/dc/85/3e60747f44d027ff8664f6064b61.png" target="_blank" class="feature-card codepen-card">
                     <i class="fa-brands fa-codepen feature-icon" aria-hidden="true"></i>
                     <div class="feature-content">
                         <strong>Flutter</strong>
                         <span class="feature-muted">MiroTalk Flutter integration</span>
-                        <a href="https://photo.cloudron.pocketsolution.net/uploads/medium/dc/85/3e60747f44d027ff8664f6064b61.png" target="_blank">View Example</a>
+                        <span class="demo-link">View Example</span>
                     </div>
-                </div></div>
+                </a></div>
             </div>
         </div>
     </section>
