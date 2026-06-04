@@ -158,6 +158,11 @@ cat > $PROJECT_DIR/turnserver.conf <<EOF
 listening-port=3478
 tls-listening-port=5349
 
+# Required on VPS/cloud servers where the public IP is not directly on the network interface.
+listening-ip=$SERVER_IP
+external-ip=$SERVER_IP
+relay-ip=$SERVER_IP
+
 min-port=10000
 max-port=20000
 
@@ -175,12 +180,8 @@ stale-nonce=600
 cert=/etc/letsencrypt/live/$DOMAIN/fullchain.pem
 pkey=/etc/letsencrypt/live/$DOMAIN/privkey.pem
 
-cipher-list="ECDHE-RSA-AES256-GCM-SHA512:DHE-RSA-AES256-GCM-SHA512:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-SHA384"
-
-no-loopback-peers
-no-multicast-peers
-
 simple-log
+no-stdout-log
 EOF
 
 info "turnserver.conf generated successfully."
