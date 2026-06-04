@@ -46,6 +46,13 @@ See the [official configuration reference](https://github.com/coturn/coturn/wiki
 listening-port=3478
 tls-listening-port=5349
 
+# Required on VPS/cloud servers where the public IP is not directly on the network interface.
+# Replace with your server's actual public IP address.
+# To find it run: curl -s -4 ifconfig.me
+listening-ip=YOUR.PUBLIC.IP
+external-ip=YOUR.PUBLIC.IP
+relay-ip=YOUR.PUBLIC.IP
+
 min-port=10000
 max-port=20000
 
@@ -63,12 +70,8 @@ stale-nonce=600
 cert=/etc/letsencrypt/live/YOUR.DOMAIN.NAME/fullchain.pem
 pkey=/etc/letsencrypt/live/YOUR.DOMAIN.NAME/privkey.pem
 
-cipher-list="ECDHE-RSA-AES256-GCM-SHA512:DHE-RSA-AES256-GCM-SHA512:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-SHA384"
-
-no-loopback-peers
-no-multicast-peers
-
 simple-log
+no-stdout-log
 ```
 
 Enable the Coturn system service by uncommenting the following line in `/etc/default/coturn`:
