@@ -184,6 +184,10 @@ EMAIL_FROM=yourEmailFrom
 
 </details>
 
+!!! note "SaaS Mode (Stripe)"
+
+    MiroTalk WEB can run as a paid SaaS platform with subscription checks powered by Stripe. To enable and configure this option, see the [SaaS Mode (Stripe)](stripe.md) guide.
+
 ### Install dependencies and start the server
 
 ```bash
