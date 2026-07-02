@@ -9,6 +9,8 @@ MiroTalk WebRTC can run in two modes, controlled by a single environment variabl
 
 When `SAAS=true`, **demo and admin accounts are always exempt** from payment checks, so you can keep administering the platform normally.
 
+> ⚠️ **License requirement:** Running MiroTalk WebRTC in SaaS mode (`SAAS=true`) requires an **Extended License**, available from [CodeCanyon](https://codecanyon.net/item/a-selfhosted-mirotalks-webrtc-rooms-scheduler-server/42643313).
+
 ---
 
 ## 🧩 How it works
