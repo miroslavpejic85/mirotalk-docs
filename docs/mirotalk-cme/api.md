@@ -15,6 +15,7 @@ Get a lists of all connected users
 ```javascript
 'use strict';
 
+// Optionally filter by room: append ?room=Support (returns all rooms when omitted)
 const url = 'http://localhost:8000/api/v1/users';
 
 const authorization = 'call_me_api_key_secret';
@@ -37,6 +38,7 @@ fetch(url, {
 ```php
 <?php
 
+// Optionally filter by room: append ?room=Support (returns all rooms when omitted)
 $url = "http://localhost:8000/api/v1/users";
 
 $authorization = "call_me_api_key_secret";
@@ -61,6 +63,7 @@ echo $response;
 ```python
 import requests # pip3 install requests
 
+# Optionally filter by room: append ?room=Support (returns all rooms when omitted)
 url = "http://localhost:8000/api/v1/users"
 
 authorization = "call_me_api_key_secret"
@@ -80,6 +83,7 @@ print(response.json())
 ```bash
 #!/bin/bash
 
+# Optionally filter by room: append ?room=Support (returns all rooms when omitted)
 url="http://localhost:8000/api/v1/users";
 
 authorization="call_me_api_key_secret"
@@ -100,6 +104,7 @@ Get a lists of all connected users to call
 ```javascript
 'use strict';
 
+// Optionally scope to a room: append &room=Support (defaults to the public room)
 const url = 'http://localhost:8000/api/v1/connected?user=call-me';
 
 const authorization = 'call_me_api_key_secret';
@@ -121,6 +126,7 @@ fetch(url, {
 ```php
 <?php
 
+// Optionally scope to a room: append &room=Support (defaults to the public room)
 $url = "http://localhost:8000/api/v1/connected?user=call-me";
 
 $authorization = "call_me_api_key_secret";
@@ -145,6 +151,7 @@ echo $response;
 ```python
 import requests  # pip3 install requests
 
+# Optionally scope to a room: append &room=Support (defaults to the public room)
 url = "http://localhost:8000/api/v1/connected?user=call-me"
 
 authorization = "call_me_api_key_secret"
@@ -164,6 +171,7 @@ print(response.json())
 ```bash
 #!/bin/bash
 
+# Optionally scope to a room: append &room=Support (defaults to the public room)
 url="http://localhost:8000/api/v1/connected?user=call-me";
 
 authorization="call_me_api_key_secret"
