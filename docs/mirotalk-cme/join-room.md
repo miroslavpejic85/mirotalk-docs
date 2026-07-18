@@ -26,8 +26,26 @@ Allows `USER-2` to join and automatically initiate a video call to `USER-1`. Bot
 
 ---
 
+## User 1 Join a specific Room
+
+**URL**: [https://YOUR-DOMAIN-NAME/join?user=USER-1&room=Support](https://cme.mirotalk.com/join?user=user1&room=Support)
+
+By default everyone joins the shared `Public` room. Add a `room` parameter to group users into separate rooms (e.g. `Support`, `Reception`). Users only see and can call others in the same room.
+
+---
+
+## User 2 auto-calls User 1 in a Room
+
+**URL**: [https://YOUR-DOMAIN-NAME/join?user=USER-2&call=USER-1&room=Support](https://cme.mirotalk.com/join?user=user2&call=user1&room=Support)
+
+Allows `USER-2` to join the `Support` room and automatically initiate a video call to `USER-1` in the same room.
+
+> **Note:** The `call` target must be in the same `room` as the caller. If `room` is omitted, users join the default `Public` room.
+
+---
+
 ## Customization
 
-Replace `USER-1` and `USER-2` in the URLs with your preferred usernames to personalize the call experience.
+Replace `USER-1` and `USER-2` in the URLs with your preferred usernames, and `Support` with your desired room name, to personalize the call experience.
 
 ---
