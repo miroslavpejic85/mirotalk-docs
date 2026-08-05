@@ -199,7 +199,8 @@ server {
     location / {
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header Host $host;
-        proxy_pass http://localhost:9999/;
+        proxy_pass https://localhost:9999/;
+        proxy_ssl_verify off;
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection "upgrade";
@@ -249,7 +250,7 @@ Add the following:
 # HTTP — redirect all traffic to HTTPS
 <VirtualHost *:80>
     ServerName YOUR.DOMAIN.NAME
-    Redirect permanent / https://YOUR.DOMAIN.NAME
+    Redirect permanent / https://YOUR.DOMAIN.NAME/
 </VirtualHost>
 
 # MiroTalk Admin - HTTPS — proxy all requests to the Node app
@@ -265,10 +266,17 @@ Add the following:
     # Enable HTTP/2 support
     Protocols h2 http/1.1
 
+    # Talk HTTPS to the backend and accept its self-signed dev cert
+    SSLProxyEngine on
+    SSLProxyVerify none
+    SSLProxyCheckPeerName off
+    SSLProxyCheckPeerCN off
+    SSLProxyCheckPeerExpire off
+
     <Location />
-        # Proxy Configuration for Node.js App
-        ProxyPass http://localhost:9999/
-        ProxyPassReverse http://localhost:9999/
+        # Proxy Configuration for Node.js App (HTTPS backend)
+        ProxyPass https://localhost:9999/
+        ProxyPassReverse https://localhost:9999/
 
         ProxyPreserveHost On
 
@@ -276,12 +284,10 @@ Add the following:
         RequestHeader set X-Forwarded-Proto "https"
         RequestHeader set Host "%{HTTP_HOST}s"
 
-        # Enable WebSocket proxy support for Socket.IO
+        # Enable WebSocket proxy support for Socket.IO (secure, same port as app)
         RewriteEngine On
         RewriteCond %{HTTP:Upgrade} =websocket [NC]
-        RewriteRule /(.*) ws://localhost:8080/socket.io/$1 [P,L]
-        # Adjust the WebSocket path according to your Socket.IO configuration
-        # For Socket.IO 3.x or higher, use /socket.io/?EIO=4&transport=websocket
+        RewriteRule /(.*) wss://localhost:9999/$1 [P,L]
     </Location>
 </VirtualHost>
 ```
@@ -290,9 +296,13 @@ Add the following:
 # Check configuration
 sudo apache2ctl configtest
 
-sudo a2enmod proxy # Enables the `mod_proxy` module, which is essential for proxying HTTP and WebSocket connections.
-sudo a2enmod proxy_http # Enables the `mod_proxy_http` module, which adds support for proxying HTTP connections.
-sudo a2enmod proxy_wstunnel # Enables the `mod_proxy_wstunnel` module, which provides support for tunneling WebSocket connections
+sudo a2enmod proxy          # core proxy engine
+sudo a2enmod proxy_http     # proxy HTTP/HTTPS backends (handles your https://localhost:9999)
+sudo a2enmod proxy_wstunnel # WebSocket (wss://) tunneling for Socket.IO
+sudo a2enmod ssl            # provides SSLProxyEngine / SSLProxy* directives
+sudo a2enmod rewrite        # for the RewriteRule / RewriteCond WebSocket rules
+sudo a2enmod headers        # for the RequestHeader set ... lines
+sudo a2enmod http2          # for "Protocols h2 http/1.1"
 
 # Restart apache
 sudo systemctl restart apache2
