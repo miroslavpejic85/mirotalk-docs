@@ -68,8 +68,10 @@ A secure, modern web dashboard to manage **[MiroTalk](https://docs.mirotalk.com/
 
 ## 🐳 Quick Start with Docker
 
-!!! warning
-    **Works only on `APP_MANAGE_MODE=ssh`**
+> **Note:** Supports `APP_MANAGE_MODE=ssh` and `APP_MANAGE_MODE=docker`.
+> For `docker` mode, uncomment the `/var/run/docker.sock` mount in
+> `docker-compose.yml` so the container's bundled Docker CLI can manage
+> your sibling MiroTalk containers.
 
 1. **Prepare Your Environment Files**
 
