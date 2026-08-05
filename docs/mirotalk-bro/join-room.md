@@ -18,6 +18,16 @@ Broadcasters use this URL to access a specific room. Replace `ROOM-NAME` with th
 
 ---
 
+## Admin-only Broadcaster
+
+When `ADMIN_ONLY_BROADCAST` broadcasting is enabled, only users who provide the `ADMIN_TOKEN` can become broadcasters. All other users are limited to view-only access.
+
+**URL**: [https://YOUR-DOMAIN-NAME/broadcast?id=ROOM-NAME&name=BROADCASTER-NAME&token=ADMIN_TOKEN](https://bro.mirotalk.com/broadcast?id=ROOM-NAME&name=BROADCASTER-NAME&token=mirotalkbro_default_admin_token)
+
+Broadcasters use this URL to access a specific room. Replace `ROOM-NAME` with the room identifier, `BROADCASTER-NAME` with the desired username, and `ADMIN_TOKEN`.
+
+---
+
 ## Viewer
 
 **URL**: [https://YOUR-DOMAIN-NAME/viewer?id=ROOM-NAME&name=VIEWER-NAME](https://bro.mirotalk.com/viewer?id=ROOM-NAME&name=VIEWER-NAME)
