@@ -2,6 +2,10 @@
 
 ![mirotalk](./images/mirotalk.gif)
 
+## What is MiroTalk?
+
+MiroTalk is an open-source WebRTC platform under the AGPLv3 license for real-time audio, video, screen sharing, and chat — running entirely in the browser with no plugins or downloads. It started as a single peer-to-peer video calling app and has since grown into a full suite of specialized projects, each tailored to a different communication need.
+
 ## MiroTalk Projects
 
 | Project | Live Demo | Description |
