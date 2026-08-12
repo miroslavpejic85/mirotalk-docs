@@ -38,8 +38,8 @@ error()   { echo -e "❌ \e[31m[ERROR]\e[0m $*"; exit 1; }
 SERVER_PORT=8080
 PROJECT_NAME="mirotalkc2c"
 PROJECT_DIR="/root/$PROJECT_NAME"
-USER_ID="1000"                      # Default user ID for non-root user
-GROUP_ID="1000"                     # Default group ID for non-root user
+UID="1000"                          # Default user ID for non-root user
+GID="1000"                          # Default group ID for non-root user
 DOCKER_COMPOSE_VERSION="2.40.3"     # https://github.com/docker/compose/releases
 NODE_VERSION="22.21.1"              # https://nodejs.org/en/download/releases/
 NVM_VERSION="0.40.3"                # https://github.com/nvm-sh/nvm/releases
@@ -186,7 +186,7 @@ services:
         image: mirotalk/c2c:latest
         container_name: $PROJECT_NAME
         hostname: $PROJECT_NAME
-        user: '$USER_ID:$GROUP_ID'
+        user: '$UID:$GID'
         restart: unless-stopped
         ports:
             - '${SERVER_PORT}:${SERVER_PORT}'
