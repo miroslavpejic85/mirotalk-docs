@@ -117,6 +117,7 @@ services:
         image: mirotalk/p2p:latest
         container_name: mirotalk
         hostname: mirotalk
+        user: '1000:1000'
         restart: unless-stopped
         ports:
             - '3000:3000'
