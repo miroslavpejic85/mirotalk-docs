@@ -122,6 +122,7 @@ services:
         image: mirotalk/cme:latest
         container_name: callme
         hostname: callme
+        user: '1000:1000'
         restart: unless-stopped
         ports:
             - '${PORT}:${PORT}'

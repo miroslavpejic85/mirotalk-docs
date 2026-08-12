@@ -244,6 +244,7 @@ services:
         image: mirotalk/sfu:latest
         container_name: mirotalksfu
         hostname: mirotalksfu
+        user: '1000:1000'
         restart: unless-stopped
         network_mode: 'host'
         volumes:

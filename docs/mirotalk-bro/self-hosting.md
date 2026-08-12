@@ -144,6 +144,7 @@ services:
         image: mirotalk/bro:latest
         container_name: mirotalkbro
         hostname: mirotalkbro
+        user: '1000:1000'
         restart: unless-stopped
         ports:
             - '${PORT}:${PORT}'
