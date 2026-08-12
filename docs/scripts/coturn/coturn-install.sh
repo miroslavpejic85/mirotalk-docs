@@ -37,7 +37,7 @@ error()   { echo -e "❌ \e[31m[ERROR]\e[0m $*"; exit 1; }
 
 PROJECT_NAME="coturn"
 PROJECT_DIR="/root/$PROJECT_NAME"
-DOCKER_COMPOSE_VERSION="2.40.3"     # https://github.com/docker/compose/releases
+DOCKER_COMPOSE_VERSION="5.0.1"     # https://github.com/docker/compose/releases
 
 #---------------------------------------------
 # Check RooT
