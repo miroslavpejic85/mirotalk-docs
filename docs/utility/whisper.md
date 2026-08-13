@@ -56,6 +56,9 @@ services:
             # Options: tiny | base | small | medium | large-v3 (Systran/faster-whisper-*)
             WHISPER__MODEL: '${WHISPER_MODEL:-Systran/faster-whisper-small}'
             WHISPER__INFERENCE_DEVICE: 'cpu'
+            # Optional auth: when set, clients must send Authorization: Bearer <key>.
+            # Use the SAME value as MiroTalk's WHISPER_API_KEY. Empty = no auth.
+            API_KEY: '${WHISPER_API_KEY:-}'
         volumes:
             - whisper_cache:/root/.cache/huggingface
 
@@ -73,6 +76,7 @@ services:
         environment:
             WHISPER__MODEL: '${WHISPER_MODEL:-Systran/faster-whisper-medium}'
             WHISPER__INFERENCE_DEVICE: 'cuda'
+            API_KEY: '${WHISPER_API_KEY:-}'
         volumes:
             - whisper_cache:/root/.cache/huggingface
         deploy:
