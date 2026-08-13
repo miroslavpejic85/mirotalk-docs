@@ -1,4 +1,4 @@
-site_name: MiroTalk docs v1.3.96
+site_name: MiroTalk docs v1.3.97
 site_description: MiroTalk WebRTC documentations
 site_author: Miroslav Pejic (miroslav.pejic.85@gmail.com)
 copyright: © 2026 MiroTalk, all rights reserved
@@ -117,6 +117,11 @@ nav:
       - coturn:
         - coturn-install: scripts/coturn/coturn-install.sh
         - coturn-uninstall: scripts/coturn/coturn-uninstall.sh
+        - coturn-update: scripts/coturn/coturn-update.sh
+      - whisper:
+        - whisper-install: scripts/whisper/whisper-install.sh
+        - whisper-uninstall: scripts/whisper/whisper-uninstall.sh
+        - whisper-update: scripts/whisper/whisper-update.sh
   - utility:
       - docker-compose: utility/docker-compose.md
       - ftp: utility/ftp.md
