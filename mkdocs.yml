@@ -1,4 +1,4 @@
-site_name: MiroTalk docs v1.3.92
+site_name: MiroTalk docs v1.3.93
 site_description: MiroTalk WebRTC documentations
 site_author: Miroslav Pejic (miroslav.pejic.85@gmail.com)
 copyright: © 2026 MiroTalk, all rights reserved
@@ -122,6 +122,7 @@ nav:
       - ftp: utility/ftp.md
       - nvm: utility/nvm.md 
       - update: utility/update.md
+      - whisper: utility/whisper.md
   - webrtc:
       - architectures: webrtc/architectures.md
 
