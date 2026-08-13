@@ -42,7 +42,7 @@ services:
     # CPU variant — runs anywhere, no GPU required.
     # -------------------------------------------------------------------------
     whisper:
-        image: fedirz/faster-whisper-server:latest-cpu
+        image: ghcr.io/speaches-ai/speaches:latest-cpu
         container_name: mirotalkwhisper
         hostname: whisper
         restart: unless-stopped
@@ -51,22 +51,22 @@ services:
             # Host 8000 -> container 8000 (matches WHISPER default basePath).
             - '${WHISPER_PORT:-8000}:8000'
         environment:
-            # Model downloaded on first run and cached in the volume below.
-            # Smaller = faster/less RAM, larger = more accurate.
+            # speaches does NOT auto-download on request: preload the model at startup.
             # Options: tiny | base | small | medium | large-v3 (Systran/faster-whisper-*)
-            WHISPER__MODEL: '${WHISPER_MODEL:-Systran/faster-whisper-small}'
+            PRELOAD_MODELS: '["${WHISPER_MODEL:-Systran/faster-whisper-small}"]'
             WHISPER__INFERENCE_DEVICE: 'cpu'
-            # Optional auth: when set, clients must send Authorization: Bearer <key>.
-            # Use the SAME value as MiroTalk's WHISPER_API_KEY. Empty = no auth.
+            # Auth: when set, ALL API requests must send Authorization: Bearer <key>.
+            # Use the SAME value as MiroTalk's WHISPER_API_KEY.
+            # WARNING: empty = NO AUTH, the endpoint is PUBLIC to anyone who can reach it.
             API_KEY: '${WHISPER_API_KEY:-}'
         volumes:
-            - whisper_cache:/root/.cache/huggingface
+            - speaches_cache:/home/ubuntu/.cache/huggingface/hub
 
     # -------------------------------------------------------------------------
     # GPU variant — requires an NVIDIA GPU and nvidia-container-toolkit.
     # -------------------------------------------------------------------------
     whisper-gpu:
-        image: fedirz/faster-whisper-server:latest-cuda
+        image: ghcr.io/speaches-ai/speaches:latest-cuda
         container_name: mirotalkwhisper
         hostname: whisper
         restart: unless-stopped
@@ -74,11 +74,15 @@ services:
         ports:
             - '${WHISPER_PORT:-8000}:8000'
         environment:
-            WHISPER__MODEL: '${WHISPER_MODEL:-Systran/faster-whisper-medium}'
+            # speaches does NOT auto-download on request: preload the model at startup.
+            PRELOAD_MODELS: '["${WHISPER_MODEL:-Systran/faster-whisper-medium}"]'
             WHISPER__INFERENCE_DEVICE: 'cuda'
+            # Auth: when set, ALL API requests must send Authorization: Bearer <key>.
+            # Use the SAME value as MiroTalk's WHISPER_API_KEY.
+            # WARNING: empty = NO AUTH, the endpoint is PUBLIC to anyone who can reach it.
             API_KEY: '${WHISPER_API_KEY:-}'
         volumes:
-            - whisper_cache:/root/.cache/huggingface
+            - speaches_cache:/home/ubuntu/.cache/huggingface/hub
         deploy:
             resources:
                 reservations:
@@ -88,16 +92,38 @@ services:
                           capabilities: [gpu]
 
 volumes:
-    whisper_cache:
-        driver: local
+    speaches_cache:
+
 ```
 
+## Downloading Models & Verifying Auth
+
+After the container is running, download the transcription model once (it persists in the `speaches_cache` volume) and verify that API-key authentication is working.
+
 ```bash
-# CPU mode
-docker compose -f docker-compose-whisper.yml --profile cpu up -d
-# GPU mode
-docker compose -f docker-compose-whisper.yml --profile gpu up -d
+# 1. Make sure WHISPER_API_KEY is set in the server's .env (same value MiroTalk sends)
+grep '^WHISPER_API_KEY=' .env
+
+# 2. Pull the new speaches image
+docker compose -f docker-compose-whisper.yml --profile cpu pull
+
+# 3. Recreate the container (creates the fresh speaches_cache volume)
+docker compose -f docker-compose-whisper.yml --profile cpu up -d --force-recreate
+
+# 4. One-time model download (persists in the volume)
+KEY=$(grep -E '^WHISPER_API_KEY=' .env | head -1 | sed -E 's/^WHISPER_API_KEY=//; s/[[:space:]].*$//')
+
+curl -s -o /dev/null -w "download HTTP %{http_code}\n" \
+  -X POST "http://localhost:8000/v1/models/Systran/faster-whisper-small" \
+  -H "Authorization: Bearer $KEY"
+
+# 5. Verify: valid key -> 200, wrong key -> 403
+curl -s -o /dev/null -w "valid key %{http_code}\n" "http://localhost:8000/v1/models" -H "Authorization: Bearer $KEY"
+curl -s -o /dev/null -w "wrong key %{http_code}\n" "http://localhost:8000/v1/models" -H "Authorization: Bearer wrong"
 ```
+
+!!! note
+    For the **GPU** variant, use `--profile gpu` instead of `--profile cpu`, and adjust the model name in step 4 (e.g. `Systran/faster-whisper-medium`) to match your `WHISPER_MODEL`.
 
 Verify the installation: [http://YOUR.DOMAIN.NAME:8000](http://YOUR.DOMAIN.NAME:8000)
 
