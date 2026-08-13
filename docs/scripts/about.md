@@ -168,3 +168,32 @@ wget -qO coturn-uninstall.sh https://docs.mirotalk.com/scripts/coturn/coturn-uni
   && chmod +x coturn-uninstall.sh \
   && ./coturn-uninstall.sh
 ```
+```bash
+# Update Coturn
+wget -qO coturn-update.sh https://docs.mirotalk.com/scripts/coturn/coturn-update.sh \
+  && chmod +x coturn-update.sh \
+  && ./coturn-update.sh
+```
+
+---
+
+## **MiroTalk Whisper**
+
+```bash
+# Install MiroTalk Whisper
+wget -qO whisper-install.sh https://docs.mirotalk.com/scripts/whisper/whisper-install.sh \
+  && chmod +x whisper-install.sh \
+  && ./whisper-install.sh
+```
+```bash
+# Uninstall MiroTalk Whisper
+wget -qO whisper-uninstall.sh https://docs.mirotalk.com/scripts/whisper/whisper-uninstall.sh \
+  && chmod +x whisper-uninstall.sh \
+  && ./whisper-uninstall.sh
+```
+```bash
+# Update MiroTalk Whisper
+wget -qO whisper-update.sh https://docs.mirotalk.com/scripts/whisper/whisper-update.sh \
+  && chmod +x whisper-update.sh \
+  && ./whisper-update.sh
+```
