@@ -1095,6 +1095,366 @@
             color: #fff;
             background: #1565c0;
         }
+
+        /* UI refresh overrides */
+        :root {
+            --warm: #ffb545;
+            --bg: #0b1117;
+            --surface: rgba(17, 27, 38, 0.84);
+            --card-bg: rgba(17, 27, 38, 0.84);
+            --text: #edf6ff;
+            --muted: #9cafc6;
+            --line: rgba(120, 191, 255, 0.16);
+            --shadow: 0 18px 54px rgba(0, 0, 0, 0.28);
+            --radius: 8px;
+        }
+
+        body {
+            background:
+                linear-gradient(180deg, rgba(12, 24, 36, 0.25), transparent 34rem),
+                radial-gradient(circle at 8% 18%, rgba(0, 188, 212, 0.12), transparent 18rem),
+                radial-gradient(circle at 88% 8%, rgba(255, 181, 69, 0.1), transparent 20rem),
+                var(--bg);
+            line-height: 1.72;
+            font-size: 1.04rem;
+        }
+
+        main {
+            position: relative;
+            padding: 1.5rem 1rem 0;
+        }
+
+        main::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: calc(50% - 550px);
+            width: 1px;
+            background: linear-gradient(180deg, transparent, var(--line), var(--line), transparent);
+            pointer-events: none;
+        }
+
+        header {
+            background:
+                linear-gradient(135deg, rgba(7, 13, 21, 0.72), rgba(7, 18, 29, 0.24)),
+                linear-gradient(120deg, #0b345f, #0b7285 52%, #1d5c8f);
+            background-size: 100% 100%, 180% 180%;
+            animation: gradientShift 12s ease infinite;
+            padding: 5rem 1.25rem 3.25rem;
+            text-align: left;
+        }
+
+        .hero-inner {
+            max-width: 1120px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(320px, 0.86fr);
+            gap: 2.2rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-copy {
+            max-width: 680px;
+        }
+
+        .hero-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1.1rem;
+            color: #e8fbff;
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .hero-kicker::before {
+            content: '';
+            width: 2rem;
+            height: 2px;
+            background: var(--warm);
+        }
+
+        header h1 {
+            font-size: clamp(2.35rem, 5vw, 4.45rem);
+            line-height: 1.03;
+            margin: 0 0 1rem;
+            letter-spacing: 0;
+        }
+
+        header .subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.42rem);
+            line-height: 1.55;
+            max-width: 680px;
+            margin: 0 0 1.7rem;
+            color: #b3e5fc;
+        }
+
+        .cta-buttons {
+            justify-content: flex-start;
+            position: relative;
+        }
+
+        .cta-buttons a,
+        .theme-toggle-btn {
+            border-radius: 8px;
+        }
+
+        .cta-buttons a:hover,
+        .theme-toggle-btn:hover {
+            transform: translateY(-3px);
+        }
+
+        .hero-suite {
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0.8rem;
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            background: rgba(10, 18, 28, 0.54);
+            box-shadow: 0 28px 70px rgba(0, 0, 0, 0.32);
+        }
+
+        .hero-suite::before {
+            content: '';
+            position: absolute;
+            inset: 1.1rem -0.8rem -1.1rem 0.8rem;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 8px;
+            pointer-events: none;
+        }
+
+        .suite-tile {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            padding: 0.8rem;
+            min-height: 84px;
+            border-radius: 8px;
+            color: #fff;
+            text-decoration: none;
+            background: rgba(17, 27, 38, 0.78);
+            border: 1px solid rgba(120, 191, 255, 0.14);
+            transition: transform 0.24s, border-color 0.24s, box-shadow 0.24s;
+        }
+
+        .suite-tile:hover {
+            transform: translateY(-4px);
+            border-color: rgba(0, 188, 212, 0.48);
+            box-shadow: 0 16px 34px rgba(0, 0, 0, 0.24);
+        }
+
+        .suite-tile img {
+            width: 72px;
+            height: 46px;
+            object-fit: cover;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            background: #080d13;
+        }
+
+        .suite-tile strong,
+        .suite-tile span {
+            display: block;
+        }
+
+        .suite-tile strong {
+            color: #fff;
+            line-height: 1.15;
+        }
+
+        .suite-tile span {
+            color: #b3e5fc;
+            font-size: 0.88rem;
+            line-height: 1.25;
+        }
+
+        section,
+        .docker-support {
+            padding: 2.25rem 2.1rem;
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            backdrop-filter: blur(16px);
+            border-radius: var(--radius);
+        }
+
+        section:not(:last-of-type) {
+            border-bottom-color: rgba(120, 191, 255, 0.14);
+            padding-bottom: 2.25rem;
+        }
+
+        .alt-bg {
+            background: rgba(13, 23, 34, 0.86);
+        }
+
+        h2 {
+            font-size: clamp(1.45rem, 3vw, 2rem);
+            line-height: 1.25;
+            letter-spacing: 0;
+        }
+
+        .feature-card,
+        .codepen-card,
+        .widget-card,
+        .license-card,
+        .demo-box,
+        .widget-links,
+        .license-info,
+        .license-summary,
+        .mirotalk-card,
+        .purchase-section {
+            background: rgba(12, 20, 29, 0.72);
+            border: 1px solid rgba(130, 170, 210, 0.12);
+            border-radius: 8px;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 32px rgba(33, 150, 243, 0.2), 0 0 28px rgba(33, 150, 243, 0.12);
+        }
+
+        .feature-img {
+            width: min(100%, 240px);
+            background: rgba(8, 13, 19, 0.72);
+            border-color: rgba(130, 170, 210, 0.12);
+        }
+
+        .mirotalk-pre {
+            background: rgba(5, 12, 20, 0.82);
+            border: 1px solid rgba(120, 191, 255, 0.12);
+        }
+
+        .license-summary {
+            color: var(--text);
+            border-left: 4px solid var(--warm);
+        }
+
+        .purchase-btn,
+        .license-btn,
+        .copy-btn {
+            border-radius: 8px;
+        }
+
+        footer {
+            background: #0e1720;
+            border-top: 1px solid rgba(130, 170, 210, 0.14);
+        }
+
+        body.light-mode {
+            --warm: #c77800;
+            --bg: #f6f8fa;
+            --surface: rgba(255, 255, 255, 0.86);
+            --card-bg: rgba(255, 255, 255, 0.86);
+            --text: #1a2332;
+            --muted: #6b7a90;
+            --line: rgba(33, 150, 243, 0.18);
+            --shadow: 0 4px 16px rgba(33, 150, 243, 0.08);
+        }
+
+        body.light-mode header {
+            background:
+                linear-gradient(135deg, rgba(8, 47, 73, 0.62), rgba(7, 89, 133, 0.22)),
+                linear-gradient(120deg, #0d47a1, var(--primary), var(--accent));
+            background-size: 100% 100%, 180% 180%;
+            animation: gradientShift 12s ease infinite;
+        }
+
+        body.light-mode .feature-card,
+        body.light-mode section,
+        body.light-mode .codepen-card,
+        body.light-mode .widget-card,
+        body.light-mode .license-card,
+        body.light-mode .demo-box,
+        body.light-mode .widget-links,
+        body.light-mode .license-info,
+        body.light-mode .license-summary,
+        body.light-mode .mirotalk-card,
+        body.light-mode .purchase-section,
+        body.light-mode .docker-support {
+            background: var(--card-bg);
+            border-color: #e0e7ef;
+        }
+
+        body.light-mode .suite-tile {
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        body.light-mode .cta-buttons a:hover,
+        body.light-mode .theme-toggle-btn:hover,
+        body.light-mode .license-btn:hover {
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 800px) {
+            main {
+                padding-inline: 0.85rem;
+            }
+
+            main::before {
+                display: none;
+            }
+
+            header {
+                padding: 3.75rem 1rem 2.4rem;
+                text-align: center;
+            }
+
+            .hero-inner {
+                grid-template-columns: 1fr;
+                gap: 1.8rem;
+            }
+
+            .hero-kicker,
+            .cta-buttons {
+                justify-content: center;
+            }
+
+            header h1 {
+                font-size: 2.08rem;
+            }
+
+            .hero-suite {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 0.6rem;
+                max-width: 480px;
+                margin-inline: auto;
+                padding: 0.75rem;
+            }
+
+            .suite-tile {
+                flex-direction: column;
+                align-items: flex-start;
+                min-height: 0;
+                padding: 0.65rem;
+            }
+
+            .suite-tile img {
+                width: 100%;
+                height: 54px;
+            }
+
+            .suite-tile span span {
+                display: none;
+            }
+
+            section,
+            .docker-support {
+                padding: 1.45rem 1rem;
+                margin: 1.35rem auto;
+            }
+
+            .feature-img {
+                width: 100%;
+                max-width: 280px;
+            }
+        }
     </style>
 </head>
 
@@ -1105,18 +1465,49 @@
     <div class="progress-bar" id="progressBar"></div>
 
     <header>
-        <h1>
-            <img src="https://img.icons8.com/ios-filled/48/ffffff/video-call.png" alt="MiroTalk Logo"
-                class="logo-img">MiroTalk – Self-Hosted WebRTC Suite
-        </h1>
-        <p>From 1:1 calls to massive broadcasts – all in your control, with easy integration.</p>
-        <div class="cta-buttons">
-            <a href="https://codecanyon.net/user/miroslavpejic85" target="_blank" aria-label="Get Commercial License">
-                <i class="fa-solid fa-briefcase"></i> Get Commercial License
-            </a>
-            <button id="themeToggle" aria-label="Toggle dark/light mode" class="theme-toggle-btn">
-                <i class="fa-solid fa-sun"></i>
-            </button>
+        <div class="hero-inner">
+            <div class="hero-copy">
+                <div class="hero-kicker">Self-hosted WebRTC suite</div>
+                <h1>
+                    <img src="https://img.icons8.com/ios-filled/48/ffffff/video-call.png" alt="MiroTalk Logo"
+                        class="logo-img">MiroTalk – Self-Hosted WebRTC Suite
+                </h1>
+                <p class="subtitle">From 1:1 calls to massive broadcasts – all in your control, with easy integration.</p>
+                <div class="cta-buttons">
+                    <a href="https://codecanyon.net/user/miroslavpejic85" target="_blank" aria-label="Get Commercial License">
+                        <i class="fa-solid fa-briefcase"></i> Get Commercial License
+                    </a>
+                    <button id="themeToggle" aria-label="Toggle dark/light mode" class="theme-toggle-btn">
+                        <i class="fa-solid fa-sun"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="hero-suite" aria-label="MiroTalk product suite">
+                <a href="https://p2p.mirotalk.com" target="_blank" class="suite-tile">
+                    <img src="../images/mirotalk/p2p.png" alt="P2P preview" loading="lazy">
+                    <span><strong>P2P</strong><span>Private calls</span></span>
+                </a>
+                <a href="https://sfu.mirotalk.com" target="_blank" class="suite-tile">
+                    <img src="../images/mirotalk/sfu.png" alt="SFU preview" loading="lazy">
+                    <span><strong>SFU</strong><span>Group meetings</span></span>
+                </a>
+                <a href="https://c2c.mirotalk.com" target="_blank" class="suite-tile">
+                    <img src="../images/mirotalk/c2c.png" alt="C2C preview" loading="lazy">
+                    <span><strong>C2C</strong><span>Cam-to-cam</span></span>
+                </a>
+                <a href="https://bro.mirotalk.com" target="_blank" class="suite-tile">
+                    <img src="../images/mirotalk/bro.png" alt="BRO preview" loading="lazy">
+                    <span><strong>BRO</strong><span>Broadcasting</span></span>
+                </a>
+                <a href="https://webrtc.mirotalk.com" target="_blank" class="suite-tile">
+                    <img src="../images/mirotalk/web.png" alt="WEB preview" loading="lazy">
+                    <span><strong>WEB</strong><span>Dashboard</span></span>
+                </a>
+                <a href="https://cme.mirotalk.com" target="_blank" class="suite-tile">
+                    <img src="../images/mirotalk/cme.png" alt="CME preview" loading="lazy">
+                    <span><strong>CME</strong><span>Click-to-call</span></span>
+                </a>
+            </div>
         </div>
     </header>
 
