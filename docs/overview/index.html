@@ -864,15 +864,531 @@
             body.dark-mode .links-column a {
                 box-shadow: none;
             }
+
+            /* UI refresh */
+            :root {
+                --primary: #2196f3;
+                --primary-dark: #1565c0;
+                --accent: #00bcd4;
+                --warm: #ffb545;
+                --bg: #f6f8fa;
+                --surface: rgba(255, 255, 255, 0.9);
+                --surface-strong: #ffffff;
+                --text: #172233;
+                --muted: #66768c;
+                --line: rgba(33, 150, 243, 0.18);
+                --shadow: 0 18px 54px rgba(15, 34, 56, 0.12);
+                --radius: 8px;
+            }
+
+            body {
+                margin: 0;
+                background:
+                    linear-gradient(180deg, rgba(12, 24, 36, 0.08), transparent 34rem),
+                    radial-gradient(circle at 8% 18%, rgba(0, 188, 212, 0.1), transparent 18rem),
+                    radial-gradient(circle at 88% 8%, rgba(255, 181, 69, 0.1), transparent 20rem),
+                    var(--bg);
+                color: var(--text);
+            }
+
+            .mirotalk-overview {
+                max-width: 1480px;
+                padding: 0 1rem 2rem;
+                color: var(--text);
+            }
+
+            .overview-hero {
+                margin: 0 -1rem 2rem;
+                padding: 5rem 1.25rem 3.25rem;
+                color: #fff;
+                background:
+                    linear-gradient(135deg, rgba(7, 13, 21, 0.72), rgba(7, 18, 29, 0.24)),
+                    linear-gradient(120deg, #0b345f, #0b7285 52%, #1d5c8f);
+                background-size: 100% 100%, 180% 180%;
+                animation: gradientShift 12s ease infinite;
+                overflow: hidden;
+                position: relative;
+            }
+
+            .overview-hero::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background:
+                    radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.08), transparent 50%),
+                    radial-gradient(circle at 80% 20%, rgba(0, 188, 212, 0.1), transparent 40%);
+                pointer-events: none;
+            }
+
+            .overview-hero-inner {
+                max-width: 1180px;
+                margin: 0 auto;
+                display: grid;
+                grid-template-columns: minmax(0, 1fr) minmax(320px, 0.82fr);
+                gap: 2.2rem;
+                align-items: center;
+                position: relative;
+                z-index: 1;
+            }
+
+            .hero-kicker {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+                margin-bottom: 1.1rem;
+                color: #e8fbff;
+                font-size: 0.82rem;
+                font-weight: 700;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+            }
+
+            .hero-kicker::before {
+                content: '';
+                width: 2rem;
+                height: 2px;
+                background: var(--warm);
+            }
+
+            .overview-hero h1 {
+                margin: 0 0 1rem;
+                max-width: 720px;
+                color: #fff;
+                font-size: clamp(2.35rem, 5vw, 4.35rem);
+                line-height: 1.04;
+                letter-spacing: 0;
+                text-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+            }
+
+            .overview-hero p {
+                max-width: 680px;
+                margin: 0 0 1.7rem;
+                color: #b3e5fc;
+                font-size: clamp(1.08rem, 2vw, 1.34rem);
+                line-height: 1.55;
+            }
+
+            .hero-stats {
+                display: grid;
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+                gap: 0.75rem;
+                max-width: 680px;
+            }
+
+            .hero-stat,
+            .project-orbit {
+                border: 1px solid rgba(120, 191, 255, 0.16);
+                border-radius: var(--radius);
+                background: rgba(17, 27, 38, 0.74);
+                box-shadow: 0 18px 54px rgba(0, 0, 0, 0.22);
+                backdrop-filter: blur(14px);
+            }
+
+            .hero-stat {
+                padding: 0.9rem;
+            }
+
+            .hero-stat strong,
+            .hero-stat span {
+                display: block;
+            }
+
+            .hero-stat strong {
+                color: #fff;
+                font-size: 1.45rem;
+                line-height: 1.1;
+            }
+
+            .hero-stat span {
+                color: #b3e5fc;
+                font-size: 0.84rem;
+                line-height: 1.25;
+            }
+
+            .project-orbit {
+                position: relative;
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 0.8rem;
+                padding: 1rem;
+            }
+
+            .project-orbit::before {
+                content: '';
+                position: absolute;
+                inset: 1.1rem -0.8rem -1.1rem 0.8rem;
+                border: 1px solid rgba(255, 255, 255, 0.14);
+                border-radius: var(--radius);
+                pointer-events: none;
+            }
+
+            .orbit-card {
+                position: relative;
+                display: flex;
+                align-items: center;
+                gap: 0.7rem;
+                min-height: 74px;
+                padding: 0.75rem;
+                color: #fff;
+                text-decoration: none;
+                border: 1px solid rgba(120, 191, 255, 0.14);
+                border-radius: var(--radius);
+                background: rgba(8, 14, 22, 0.58);
+                transition: transform 0.24s, border-color 0.24s, box-shadow 0.24s;
+            }
+
+            .orbit-card:hover {
+                transform: translateY(-4px);
+                border-color: rgba(0, 188, 212, 0.48);
+                box-shadow: 0 16px 34px rgba(0, 0, 0, 0.24);
+            }
+
+            .orbit-card img {
+                width: 68px;
+                height: 44px;
+                object-fit: cover;
+                border-radius: 6px;
+                border: 1px solid rgba(255, 255, 255, 0.12);
+                background: #080d13;
+            }
+
+            .orbit-card strong,
+            .orbit-card span {
+                display: block;
+                line-height: 1.2;
+            }
+
+            .orbit-card strong {
+                color: #fff;
+            }
+
+            .orbit-card span {
+                color: #b3e5fc;
+                font-size: 0.86rem;
+            }
+
+            .table-controls {
+                position: sticky;
+                top: 0;
+                z-index: 30;
+                margin: -0.5rem auto 1.25rem;
+                padding: 0.9rem;
+                border: 1px solid var(--line);
+                border-radius: var(--radius);
+                background: rgba(255, 255, 255, 0.84);
+                box-shadow: var(--shadow);
+                backdrop-filter: blur(16px);
+            }
+
+            .search-input,
+            .filter-select,
+            .view-btn {
+                border-radius: var(--radius);
+                border-color: var(--line);
+            }
+
+            .search-input,
+            .filter-select {
+                background: var(--surface-strong);
+                color: var(--text);
+                box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset;
+            }
+
+            .view-btn {
+                background: var(--surface-strong);
+                color: var(--text);
+            }
+
+            .view-btn:hover {
+                background: #eaf5ff;
+                transform: translateY(-1px);
+            }
+
+            .view-btn.active {
+                background: var(--primary);
+                border-color: var(--primary);
+                color: #fff;
+                box-shadow: 0 8px 24px rgba(33, 150, 243, 0.2);
+            }
+
+            .mirotalk-table-container,
+            .comparison-view-container {
+                border: 1px solid var(--line);
+                border-radius: var(--radius);
+                background: var(--surface);
+                box-shadow: var(--shadow);
+            }
+
+            .mirotalk-table,
+            .comparison-table,
+            .project-card {
+                background: var(--surface-strong);
+                color: var(--text);
+                border-radius: var(--radius);
+                overflow: hidden;
+            }
+
+            .mirotalk-table thead tr,
+            .comparison-table th {
+                background: linear-gradient(135deg, #0d47a1, var(--primary)) !important;
+            }
+
+            .mirotalk-table th,
+            .comparison-table th {
+                white-space: nowrap;
+            }
+
+            .mirotalk-table td,
+            .comparison-table td {
+                border-bottom-color: #e7edf5;
+            }
+
+            .mirotalk-table tbody tr:hover,
+            .comparison-table tr:hover td {
+                background: #f4f9fd;
+            }
+
+            .project-card {
+                border: 1px solid var(--line);
+                box-shadow: var(--shadow);
+            }
+
+            .project-card:hover {
+                transform: translateY(-6px);
+                box-shadow: 0 20px 46px rgba(15, 34, 56, 0.16);
+            }
+
+            .card-header {
+                background: #f4f9fd;
+                border-bottom-color: #e7edf5;
+            }
+
+            .project-tag,
+            .tag.unlimited,
+            .encryption-badge {
+                border-radius: 999px;
+            }
+
+            .preview-img,
+            .card-img {
+                border: 1px solid #e7edf5;
+                border-radius: var(--radius);
+                box-shadow: 0 8px 20px rgba(15, 34, 56, 0.08);
+            }
+
+            .demo-btn,
+            .docs-btn,
+            .buy-btn {
+                width: auto;
+                min-width: 120px;
+                justify-content: center;
+                border-radius: var(--radius);
+                font-weight: 600;
+            }
+
+            body.dark-mode {
+                --bg: #0b1117;
+                --surface: rgba(17, 27, 38, 0.84);
+                --surface-strong: #111b26;
+                --text: #edf6ff;
+                --muted: #9cafc6;
+                --line: rgba(120, 191, 255, 0.16);
+                --shadow: 0 18px 54px rgba(0, 0, 0, 0.28);
+                background:
+                    linear-gradient(180deg, rgba(12, 24, 36, 0.25), transparent 34rem),
+                    radial-gradient(circle at 8% 18%, rgba(0, 188, 212, 0.12), transparent 18rem),
+                    radial-gradient(circle at 88% 8%, rgba(255, 181, 69, 0.1), transparent 20rem),
+                    var(--bg) !important;
+            }
+
+            body.dark-mode .mirotalk-overview {
+                background: transparent;
+                color: var(--text);
+            }
+
+            body.dark-mode .table-controls,
+            body.dark-mode .mirotalk-table-container,
+            body.dark-mode .comparison-view-container,
+            body.dark-mode .mirotalk-table,
+            body.dark-mode .comparison-table,
+            body.dark-mode .project-card {
+                background: var(--surface);
+                border-color: var(--line);
+                color: var(--text);
+                box-shadow: var(--shadow);
+            }
+
+            body.dark-mode .search-input,
+            body.dark-mode .filter-select,
+            body.dark-mode .view-btn,
+            body.dark-mode .card-header {
+                background: var(--surface-strong);
+                border-color: var(--line);
+                color: var(--text);
+            }
+
+            body.dark-mode .mirotalk-table td,
+            body.dark-mode .comparison-table td,
+            body.dark-mode .card-section {
+                border-bottom-color: rgba(120, 191, 255, 0.14);
+            }
+
+            body.dark-mode .mirotalk-table tbody tr:hover,
+            body.dark-mode .comparison-table tr:hover td {
+                background: rgba(33, 150, 243, 0.08);
+            }
+
+            body.dark-mode .description,
+            body.dark-mode .card-section p {
+                color: var(--muted);
+            }
+
+            body.dark-mode .preview-img,
+            body.dark-mode .card-img {
+                background: #080d13;
+                border-color: rgba(120, 191, 255, 0.16);
+            }
+
+            body.dark-mode .comparison-table .feature-name {
+                background: rgba(33, 150, 243, 0.1);
+                color: #b3e5fc;
+            }
+
+            @media (max-width: 900px) {
+                .overview-hero {
+                    padding: 3.75rem 1rem 2.4rem;
+                    text-align: center;
+                }
+
+                .overview-hero-inner {
+                    grid-template-columns: 1fr;
+                }
+
+                .hero-kicker {
+                    justify-content: center;
+                }
+
+                .hero-stats {
+                    grid-template-columns: repeat(2, minmax(0, 1fr));
+                    margin-inline: auto;
+                }
+
+                .project-orbit {
+                    max-width: 540px;
+                    margin-inline: auto;
+                }
+
+                .table-controls {
+                    position: static;
+                }
+            }
+
+            @media (max-width: 520px) {
+                .mirotalk-overview {
+                    padding-inline: 0.85rem;
+                }
+
+                .overview-hero {
+                    margin-inline: -0.85rem;
+                }
+
+                .overview-hero h1 {
+                    font-size: 2.08rem;
+                }
+
+                .project-orbit {
+                    grid-template-columns: repeat(2, minmax(0, 1fr));
+                    gap: 0.6rem;
+                    padding: 0.75rem;
+                    overflow: hidden;
+                }
+
+                .project-orbit::before {
+                    display: none;
+                }
+
+                .orbit-card {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    min-height: 0;
+                    padding: 0.65rem;
+                }
+
+                .orbit-card img {
+                    width: 100%;
+                    height: 54px;
+                }
+
+                .orbit-card span {
+                    display: none;
+                }
+
+                .hero-stats {
+                    grid-template-columns: 1fr 1fr;
+                }
+
+                .view-toggle {
+                    display: grid;
+                    grid-template-columns: repeat(2, minmax(0, 1fr));
+                    gap: 0.6rem;
+                }
+
+                .view-btn,
+                #themeToggle {
+                    width: 100%;
+                    min-width: 0 !important;
+                }
+
+                .table-controls,
+                .mirotalk-table-container,
+                .comparison-view-container {
+                    margin-inline: -0.15rem;
+                }
+            }
         </style>
     </head>
     <body>
         <div class="mirotalk-overview">
-            <div class="header-container">
-                <h1>MiroTalk Projects Overview and Comparisons</h1>
-                <!-- <div class="preview-image">
-                <img src="/images/mirotalk/preview.png" alt="MiroTalk Preview">
-            </div> -->
+            <div class="overview-hero">
+                <div class="overview-hero-inner">
+                    <div class="overview-hero-copy">
+                        <div class="hero-kicker">Compare the MiroTalk stack</div>
+                        <h1>MiroTalk Projects Overview and Comparisons</h1>
+                        <p>Choose the right self-hosted WebRTC product for private calls, team meetings, broadcasts, scheduling, and server management.</p>
+                        <div class="hero-stats" aria-label="Overview highlights">
+                            <div class="hero-stat"><strong>7</strong><span>Projects</span></div>
+                            <div class="hero-stat"><strong>3</strong><span>Views</span></div>
+                            <div class="hero-stat"><strong>100%</strong><span>Self-hosted</span></div>
+                            <div class="hero-stat"><strong>AGPL</strong><span>+ commercial</span></div>
+                        </div>
+                    </div>
+                    <div class="project-orbit" aria-label="MiroTalk products">
+                        <a href="https://cme.mirotalk.com" target="_blank" class="orbit-card">
+                            <img src="../images/mirotalk/cme.png" alt="CME preview" loading="lazy" />
+                            <span><strong>CME</strong><span>Click-to-call</span></span>
+                        </a>
+                        <a href="https://p2p.mirotalk.com" target="_blank" class="orbit-card">
+                            <img src="../images/mirotalk/p2p.png" alt="P2P preview" loading="lazy" />
+                            <span><strong>P2P</strong><span>Private rooms</span></span>
+                        </a>
+                        <a href="https://sfu.mirotalk.com" target="_blank" class="orbit-card">
+                            <img src="../images/mirotalk/sfu.png" alt="SFU preview" loading="lazy" />
+                            <span><strong>SFU</strong><span>Large meetings</span></span>
+                        </a>
+                        <a href="https://bro.mirotalk.com" target="_blank" class="orbit-card">
+                            <img src="../images/mirotalk/bro.png" alt="BRO preview" loading="lazy" />
+                            <span><strong>BRO</strong><span>Broadcasting</span></span>
+                        </a>
+                        <a href="https://webrtc.mirotalk.com" target="_blank" class="orbit-card">
+                            <img src="../images/mirotalk/web.png" alt="WEB preview" loading="lazy" />
+                            <span><strong>WEB</strong><span>Scheduler</span></span>
+                        </a>
+                        <a href="https://github.com/miroslavpejic85/mirotalk-admin" target="_blank" class="orbit-card">
+                            <img src="../images/mirotalk/admin.png" alt="Admin preview" loading="lazy" />
+                            <span><strong>Admin</strong><span>Management</span></span>
+                        </a>
+                    </div>
+                </div>
             </div>
 
             <div class="table-controls">
@@ -926,7 +1442,7 @@
                         <tr class="project-row" data-project="cme">
                             <td>
                                 <a href="https://cme.mirotalk.com" target="_blank">
-                                    <img src="/images/mirotalk/cme.png" alt="CME Preview" class="preview-img" />
+                                    <img src="../images/mirotalk/cme.png" alt="CME Preview" class="preview-img" />
                                 </a>
                             </td>
                             <td class="nobr">
@@ -1056,7 +1572,7 @@
                         <tr class="project-row" data-project="c2c">
                             <td>
                                 <a href="https://c2c.mirotalk.com" target="_blank">
-                                    <img src="/images/mirotalk/c2c.png" alt="C2C Preview" class="preview-img" />
+                                    <img src="../images/mirotalk/c2c.png" alt="C2C Preview" class="preview-img" />
                                 </a>
                             </td>
                             <td class="nobr">
@@ -1193,7 +1709,7 @@
                         <tr class="project-row" data-project="p2p">
                             <td>
                                 <a href="https://p2p.mirotalk.com" target="_blank">
-                                    <img src="/images/mirotalk/p2p.png" alt="P2P Preview" class="preview-img" />
+                                    <img src="../images/mirotalk/p2p.png" alt="P2P Preview" class="preview-img" />
                                 </a>
                             </td>
                             <td class="nobr">
@@ -1347,7 +1863,7 @@
                         <tr class="project-row" data-project="sfu">
                             <td>
                                 <a href="https://sfu.mirotalk.com" target="_blank">
-                                    <img src="/images/mirotalk/sfu.png" alt="SFU Preview" class="preview-img" />
+                                    <img src="../images/mirotalk/sfu.png" alt="SFU Preview" class="preview-img" />
                                 </a>
                             </td>
                             <td class="nobr">
@@ -1515,7 +2031,7 @@
                         <tr class="project-row" data-project="bro">
                             <td>
                                 <a href="https://bro.mirotalk.com" target="_blank">
-                                    <img src="/images/mirotalk/bro.png" alt="BRO Preview" class="preview-img" />
+                                    <img src="../images/mirotalk/bro.png" alt="BRO Preview" class="preview-img" />
                                 </a>
                             </td>
                             <td class="nobr">
@@ -1647,7 +2163,7 @@
                         <tr class="project-row" data-project="web">
                             <td>
                                 <a href="https://webrtc.mirotalk.com" target="_blank">
-                                    <img src="/images/mirotalk/web.png" alt="WEB Preview" class="preview-img" />
+                                    <img src="../images/mirotalk/web.png" alt="WEB Preview" class="preview-img" />
                                 </a>
                             </td>
                             <td class="nobr">
@@ -1772,7 +2288,7 @@
                         <tr class="project-row" data-project="admin">
                             <td>
                                 <a href="https://github.com/miroslavpejic85/mirotalk-admin" target="_blank">
-                                    <img src="/images/mirotalk/admin.png" alt="ADMIN Preview" class="preview-img" />
+                                    <img src="../images/mirotalk/admin.png" alt="ADMIN Preview" class="preview-img" />
                                 </a>
                             </td>
                             <td class="nobr">
@@ -1882,7 +2398,7 @@
                     <div class="project-card" data-project="cme">
                         <div class="card-header">
                             <a href="https://cme.mirotalk.com" target="_blank">
-                                <img src="/images/mirotalk/cme.png" alt="CME Preview" class="card-img" />
+                                <img src="../images/mirotalk/cme.png" alt="CME Preview" class="card-img" />
                             </a>
                             <div class="card-title">
                                 <h3>MiroTalk CME</h3>
@@ -2018,7 +2534,7 @@
                     <div class="project-card" data-project="c2c">
                         <div class="card-header">
                             <a href="https://c2c.mirotalk.com" target="_blank">
-                                <img src="/images/mirotalk/c2c.png" alt="C2C Preview" class="card-img" />
+                                <img src="../images/mirotalk/c2c.png" alt="C2C Preview" class="card-img" />
                             </a>
                             <div class="card-title">
                                 <h3>MiroTalk C2C</h3>
@@ -2159,7 +2675,7 @@
                     <div class="project-card" data-project="p2p">
                         <div class="card-header">
                             <a href="https://p2p.mirotalk.com" target="_blank">
-                                <img src="/images/mirotalk/p2p.png" alt="P2P Preview" class="card-img" />
+                                <img src="../images/mirotalk/p2p.png" alt="P2P Preview" class="card-img" />
                             </a>
                             <div class="card-title">
                                 <h3>MiroTalk P2P</h3>
@@ -2320,7 +2836,7 @@
                     <div class="project-card" data-project="sfu">
                         <div class="card-header">
                             <a href="https://sfu.mirotalk.com" target="_blank">
-                                <img src="/images/mirotalk/sfu.png" alt="SFU Preview" class="card-img" />
+                                <img src="../images/mirotalk/sfu.png" alt="SFU Preview" class="card-img" />
                             </a>
                             <div class="card-title">
                                 <h3>MiroTalk SFU</h3>
@@ -2495,7 +3011,7 @@
                     <div class="project-card" data-project="bro">
                         <div class="card-header">
                             <a href="https://bro.mirotalk.com" target="_blank">
-                                <img src="/images/mirotalk/bro.png" alt="BRO Preview" class="card-img" />
+                                <img src="../images/mirotalk/bro.png" alt="BRO Preview" class="card-img" />
                             </a>
                             <div class="card-title">
                                 <h3>MiroTalk BRO</h3>
@@ -2634,7 +3150,7 @@
                     <div class="project-card" data-project="web">
                         <div class="card-header">
                             <a href="https://webrtc.mirotalk.com" target="_blank">
-                                <img src="/images/mirotalk/web.png" alt="WEB Preview" class="card-img" />
+                                <img src="../images/mirotalk/web.png" alt="WEB Preview" class="card-img" />
                             </a>
                             <div class="card-title">
                                 <h3>MiroTalk WEB</h3>
@@ -2764,7 +3280,7 @@
                     <div class="project-card" data-project="admin">
                         <div class="card-header">
                             <a href="https://github.com/miroslavpejic85/mirotalk-admin" target="_blank">
-                                <img src="/images/mirotalk/admin.png" alt="ADMIN Preview" class="card-img" />
+                                <img src="../images/mirotalk/admin.png" alt="ADMIN Preview" class="card-img" />
                             </a>
                             <div class="card-title">
                                 <h3>MiroTalk Admin</h3>
@@ -2895,37 +3411,37 @@
                             <td class="feature-name">Preview</td>
                             <td class="project-cell">
                                 <a href="https://cme.mirotalk.com" target="_blank">
-                                    <img src="/images/mirotalk/cme.png" alt="CME Preview" class="preview-img" />
+                                    <img src="../images/mirotalk/cme.png" alt="CME Preview" class="preview-img" />
                                 </a>
                             </td>
                             <td class="project-cell">
                                 <a href="https://c2c.mirotalk.com" target="_blank">
-                                    <img src="/images/mirotalk/c2c.png" alt="C2C Preview" class="preview-img" />
+                                    <img src="../images/mirotalk/c2c.png" alt="C2C Preview" class="preview-img" />
                                 </a>
                             </td>
                             <td class="project-cell">
                                 <a href="https://p2p.mirotalk.com" target="_blank">
-                                    <img src="/images/mirotalk/p2p.png" alt="P2P Preview" class="preview-img" />
+                                    <img src="../images/mirotalk/p2p.png" alt="P2P Preview" class="preview-img" />
                                 </a>
                             </td>
                             <td class="project-cell">
                                 <a href="https://sfu.mirotalk.com" target="_blank">
-                                    <img src="/images/mirotalk/sfu.png" alt="SFU Preview" class="preview-img" />
+                                    <img src="../images/mirotalk/sfu.png" alt="SFU Preview" class="preview-img" />
                                 </a>
                             </td>
                             <td class="project-cell">
                                 <a href="https://bro.mirotalk.com" target="_blank">
-                                    <img src="/images/mirotalk/bro.png" alt="BRO Preview" class="preview-img" />
+                                    <img src="../images/mirotalk/bro.png" alt="BRO Preview" class="preview-img" />
                                 </a>
                             </td>
                             <td class="project-cell">
                                 <a href="https://webrtc.mirotalk.com" target="_blank">
-                                    <img src="/images/mirotalk/web.png" alt="WEB Preview" class="preview-img" />
+                                    <img src="../images/mirotalk/web.png" alt="WEB Preview" class="preview-img" />
                                 </a>
                             </td>
                             <td class="project-cell">
                                 <a href="https://github.com/miroslavpejic85/mirotalk-admin" target="_blank">
-                                    <img src="/images/mirotalk/admin.png" alt="ADMIN Preview" class="preview-img" />
+                                    <img src="../images/mirotalk/admin.png" alt="ADMIN Preview" class="preview-img" />
                                 </a>
                             </td>
                         </tr>
