@@ -4,14 +4,54 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MiroTalk Ultimate — Complete Self-Hosted WebRTC Platform</title>
+<meta name="description" content="Own six production-ready MiroTalk WebRTC applications with full source code, self-hosted deployment, lifetime updates, and one-time licensing." />
+<meta name="theme-color" content="#07080F" />
+<link rel="canonical" href="https://docs.mirotalk.com/mirotalk-ultimate/" />
+<link rel="apple-touch-icon" sizes="180x180" href="../images/icon/apple-touch-icon.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../images/icon/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="../images/icon/favicon-16x16.png" />
+<link rel="shortcut icon" href="../images/icon/favicon.ico" />
 
 <!-- og -->
-<meta property="og:type" content="docs" />
+<meta property="og:type" content="website" />
 <meta property="og:site_name" content="MiroTalk Docs" />
 <meta property="og:title" content="MiroTalk Ultimate Bundle – The Complete WebRTC Suite" />
 <meta property="og:description" content="All 6 MiroTalk Products in One Package — The Full WebRTC Video Conferencing Ecosystem" />
 <meta property="og:image" content="https://docs.mirotalk.com/images/mirotalk-preview.png" />
 <meta property="og:url" content="https://docs.mirotalk.com/mirotalk-ultimate/" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="MiroTalk Ultimate Bundle — The Complete WebRTC Suite" />
+<meta name="twitter:description" content="Six self-hosted WebRTC products, full source code, and one-time licensing." />
+<meta name="twitter:image" content="https://docs.mirotalk.com/images/mirotalk-preview.png" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "MiroTalk Ultimate",
+  "applicationCategory": "CommunicationApplication",
+  "operatingSystem": "Web, Linux",
+  "description": "A self-hosted WebRTC suite containing six production-ready applications with full source code.",
+  "url": "https://docs.mirotalk.com/mirotalk-ultimate/",
+  "image": "https://docs.mirotalk.com/images/mirotalk-preview.png",
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Regular License",
+      "price": "299",
+      "priceCurrency": "USD",
+      "url": "https://buy.stripe.com/00w5kC1BjaKreaQ6Qmbsc06"
+    },
+    {
+      "@type": "Offer",
+      "name": "Extended License",
+      "price": "1499",
+      "priceCurrency": "USD",
+      "url": "https://buy.stripe.com/7sYcN493L7yf5EkcaGbsc07"
+    }
+  ]
+}
+</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -72,6 +112,57 @@ a   { color: inherit; text-decoration: none; }
 img { display: block; max-width: 100%; height: auto; }
 ul  { list-style: none; }
 
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 100;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: var(--text-1);
+  color: var(--bg);
+  font-weight: 700;
+  transform: translateY(-150%);
+}
+.skip-link:focus { transform: translateY(0); }
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 1px solid var(--border);
+  background: rgba(7,8,15,0.82);
+  backdrop-filter: blur(18px);
+}
+.site-nav {
+  min-height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.site-nav__brand {
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+.site-nav__brand span { color: var(--indigo-lite); }
+.site-nav__links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-left: auto;
+}
+.site-nav__links a {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-2);
+}
+.site-nav__links a:hover { color: var(--text-1); }
+.site-nav .btn { padding: 9px 16px; font-size: 13px; }
+
 /* ─────────────────────────────────────────
    LAYOUT
 ───────────────────────────────────────── */
@@ -84,6 +175,7 @@ ul  { list-style: none; }
 .section      { padding-block: 80px; }
 .section--xl  { padding-block: 120px; }
 .text-center  { text-align: center; }
+section[id]   { scroll-margin-top: 88px; }
 
 /* ─────────────────────────────────────────
    TYPOGRAPHY
@@ -206,6 +298,13 @@ ul  { list-style: none; }
 }
 .btn-lg { padding: 17px 34px; font-size: 17px; border-radius: 13px; }
 .btn-full { width: 100%; justify-content: center; }
+.btn:focus-visible,
+.app-card__link:focus-visible,
+.int-link:focus-visible,
+summary:focus-visible {
+  outline: 3px solid var(--indigo-pale);
+  outline-offset: 4px;
+}
 
 /* ─────────────────────────────────────────
    BROWSER / DEVICE MOCKUP
@@ -379,6 +478,11 @@ ul  { list-style: none; }
   color: var(--text-2);
   line-height: 1.56;
   margin-bottom: 18px;
+}
+.app-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
 }
 .app-card__link {
   display: inline-flex;
@@ -656,11 +760,46 @@ details[open] summary::after { transform: rotate(45deg); }
   pointer-events: none;
 }
 .cta-final > * { position: relative; z-index: 1; }
+.cta-final__image {
+  width: min(100%, 400px);
+  margin-inline: auto;
+  margin-top: 32px;
+  opacity: 0.9;
+}
+
+/* ─────────────────────────────────────────
+   FOOTER
+───────────────────────────────────────── */
+.site-footer {
+  border-top: 1px solid var(--border);
+  background: var(--bg-2);
+}
+.site-footer__inner {
+  min-height: 116px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  padding-block: 28px;
+}
+.site-footer__brand { font-size: 14px; color: var(--text-2); }
+.site-footer__brand strong { display: block; color: var(--text-1); font-size: 16px; }
+.site-footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 12px 22px;
+}
+.site-footer__links a { font-size: 13px; font-weight: 600; color: var(--text-2); }
+.site-footer__links a:hover { color: var(--text-1); }
 
 /* ─────────────────────────────────────────
    RESPONSIVE
 ───────────────────────────────────────── */
 @media (max-width: 768px) {
+  .site-nav__links { display: none; }
+  .site-footer__inner { align-items: flex-start; flex-direction: column; }
+  .site-footer__links { justify-content: flex-start; }
   .pricing-grid  { grid-template-columns: 1fr; }
   .stats-bar     { gap: 28px; }
   .apps-grid     { grid-template-columns: 1fr; }
@@ -669,11 +808,44 @@ details[open] summary::after { transform: rotate(45deg); }
 }
 @media (max-width: 480px) {
   .hero__ctas .btn-lg { width: 100%; justify-content: center; }
+  .cta-final { padding: 56px 20px; }
+  .cta-final .btn-lg {
+    width: 100%;
+    justify-content: center;
+    padding-inline: 18px;
+    white-space: normal;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 </style>
 </head>
 <body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<header class="site-header">
+  <nav class="site-nav container" aria-label="Primary navigation">
+    <a class="site-nav__brand" href="../" aria-label="MiroTalk documentation home">MiroTalk <span>Ultimate</span></a>
+    <div class="site-nav__links">
+      <a href="#products">Products</a>
+      <a href="#deployment">Deployment</a>
+      <a href="#integrations">Integrations</a>
+      <a href="#faq">FAQ</a>
+      <a href="#pricing">Pricing</a>
+    </div>
+    <a href="https://buy.stripe.com/00w5kC1BjaKreaQ6Qmbsc06"
+       target="_blank" rel="noopener noreferrer" class="btn btn-primary">Buy — $299</a>
+  </nav>
+</header>
+
+<main id="main-content">
 
 
 <!-- ══════════════════════════════════════════
@@ -704,10 +876,10 @@ details[open] summary::after { transform: rotate(45deg); }
 
       <div class="hero__ctas">
         <a href="https://buy.stripe.com/00w5kC1BjaKreaQ6Qmbsc06"
-           target="_blank" class="btn btn-primary btn-lg">
+            target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">
           Buy Now — $299 once
         </a>
-        <a href="https://webrtc.mirotalk.com" target="_blank" class="btn btn-ghost btn-lg">
+        <a href="https://webrtc.mirotalk.com" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-lg">
           ▶&nbsp; View Live Demo
         </a>
       </div>
@@ -725,8 +897,8 @@ details[open] summary::after { transform: rotate(45deg); }
           <div class="mockup__url">mirotalk.com — Ultimate WebRTC Bundle</div>
         </div>
         <div class="mockup__body">
-          <a href="https://buy.stripe.com/00w5kC1BjaKreaQ6Qmbsc06" target="_blank">
-            <img src="https://i.postimg.cc/Z4HmKJCw/Miro-Talk-Web-RTC-Ultra-Init.png" alt="MiroTalk Ultimate Bundle" />
+          <a href="https://buy.stripe.com/00w5kC1BjaKreaQ6Qmbsc06" target="_blank" rel="noopener noreferrer">
+            <img src="https://i.postimg.cc/Z4HmKJCw/Miro-Talk-Web-RTC-Ultra-Init.png" alt="MiroTalk Ultimate Bundle" width="1414" height="2000" decoding="async" fetchpriority="high" />
           </a>
         </div>
       </div>
@@ -757,7 +929,7 @@ details[open] summary::after { transform: rotate(45deg); }
     <p class="label" style="margin-bottom: 12px;">The Math Is Simple</p>
     <h2 class="h2">Stop Paying $23,400 for<br>What Costs <span class="green-text">$299</span></h2>
     <p class="lead" style="max-width: 500px; margin: 18px auto 0;">
-      50 users on Zoom for 3 years ≈ $23,400. MiroTalk Ultimate = $299, once.
+      Illustrative comparison: 50 paid seats × $13/month × 36 months = $23,400. MiroTalk Ultimate = $299, once.
     </p>
   </div>
 
@@ -770,7 +942,7 @@ details[open] summary::after { transform: rotate(45deg); }
     </div>
     <div class="mockup__body">
       <img src="https://i.postimg.cc/SxRpf0WL/banner-cost-comparison-mirotalk.png"
-           alt="MiroTalk vs Zoom vs Teams vs Google Meet cost comparison" />
+         alt="MiroTalk vs Zoom vs Teams vs Google Meet cost comparison" width="800" height="441" loading="lazy" decoding="async" />
     </div>
   </div>
 
@@ -781,10 +953,11 @@ details[open] summary::after { transform: rotate(45deg); }
       vs <span class="price-cross">$23,400+</span> in recurring SaaS fees
     </p>
     <p style="font-size: 12px; color: var(--text-3); margin-bottom: 28px;">
-      Comparison based on publicly listed pricing at time of writing.
+      SaaS prices and features change. Verify current terms on the
+      <a href="https://www.zoom.com/en/products/collaboration-tools/zoom-workplace-pro/" target="_blank" rel="noopener noreferrer" class="app-card__link">provider pricing page ↗</a>.
     </p>
     <a href="https://buy.stripe.com/00w5kC1BjaKreaQ6Qmbsc06"
-       target="_blank" class="btn btn-primary">
+       target="_blank" rel="noopener noreferrer" class="btn btn-primary">
       Get Lifetime Access →
     </a>
   </div>
@@ -797,7 +970,7 @@ details[open] summary::after { transform: rotate(45deg); }
 <!-- ══════════════════════════════════════════
    6 APPS
 ══════════════════════════════════════════ -->
-<section class="section container">
+<section id="products" class="section container">
 
   <div class="text-center" style="margin-bottom: 60px;">
     <p class="label" style="margin-bottom: 12px;">Everything Included</p>
@@ -817,14 +990,17 @@ details[open] summary::after { transform: rotate(45deg); }
             <div class="mockup__dots"><div class="mockup__dot"></div><div class="mockup__dot"></div><div class="mockup__dot"></div></div>
             <div class="mockup__url">sfu.mirotalk.com</div>
           </div>
-          <div class="mockup__body"><img src="https://i.postimg.cc/Yk7wT3DR/mirotalk-sfu.png" alt="MiroTalk SFU" /></div>
+          <div class="mockup__body"><img src="https://i.postimg.cc/Yk7wT3DR/mirotalk-sfu.png" alt="MiroTalk SFU conference interface" width="1366" height="612" loading="lazy" decoding="async" /></div>
         </div>
       </div>
       <div class="app-card__content">
         <span class="app-card__tag">Scalable Conferencing</span>
-        <div class="app-card__name">MiroTalk SFU</div>
+        <h3 class="app-card__name">MiroTalk SFU</h3>
         <p class="app-card__desc">Mediasoup-powered SFU architecture for high-quality multi-user meetings at scale.</p>
-        <a href="https://sfu.mirotalk.com" target="_blank" class="app-card__link">Try Live Demo →</a>
+        <div class="app-card__actions">
+          <a href="https://sfu.mirotalk.com" target="_blank" rel="noopener noreferrer" class="app-card__link">Live Demo ↗</a>
+          <a href="../mirotalk-sfu/" class="app-card__link">Documentation →</a>
+        </div>
       </div>
     </div>
 
@@ -836,14 +1012,17 @@ details[open] summary::after { transform: rotate(45deg); }
             <div class="mockup__dots"><div class="mockup__dot"></div><div class="mockup__dot"></div><div class="mockup__dot"></div></div>
             <div class="mockup__url">p2p.mirotalk.com</div>
           </div>
-          <div class="mockup__body"><img src="https://i.postimg.cc/8Dg1NDch/mirotalk-p2p.png" alt="MiroTalk P2P" /></div>
+          <div class="mockup__body"><img src="https://i.postimg.cc/8Dg1NDch/mirotalk-p2p.png" alt="MiroTalk P2P conference interface" width="1366" height="612" loading="lazy" decoding="async" /></div>
         </div>
       </div>
       <div class="app-card__content">
         <span class="app-card__tag">Peer-to-Peer</span>
-        <div class="app-card__name">MiroTalk P2P</div>
+        <h3 class="app-card__name">MiroTalk P2P</h3>
         <p class="app-card__desc">Low-latency calls with built-in collaboration, screen sharing, and file transfer.</p>
-        <a href="https://p2p.mirotalk.com" target="_blank" class="app-card__link">Try Live Demo →</a>
+        <div class="app-card__actions">
+          <a href="https://p2p.mirotalk.com" target="_blank" rel="noopener noreferrer" class="app-card__link">Live Demo ↗</a>
+          <a href="../mirotalk-p2p/" class="app-card__link">Documentation →</a>
+        </div>
       </div>
     </div>
 
@@ -855,14 +1034,17 @@ details[open] summary::after { transform: rotate(45deg); }
             <div class="mockup__dots"><div class="mockup__dot"></div><div class="mockup__dot"></div><div class="mockup__dot"></div></div>
             <div class="mockup__url">c2c.mirotalk.com</div>
           </div>
-          <div class="mockup__body"><img src="https://i.postimg.cc/33qT6Qz0/mirotalk-c2c.png" alt="MiroTalk C2C" /></div>
+          <div class="mockup__body"><img src="https://i.postimg.cc/33qT6Qz0/mirotalk-c2c.png" alt="MiroTalk C2C video call interface" width="1366" height="612" loading="lazy" decoding="async" /></div>
         </div>
       </div>
       <div class="app-card__content">
         <span class="app-card__tag">Private 1-to-1</span>
-        <div class="app-card__name">MiroTalk C2C</div>
+        <h3 class="app-card__name">MiroTalk C2C</h3>
         <p class="app-card__desc">Ideal for support, telehealth, and consulting. Secure and private by design.</p>
-        <a href="https://c2c.mirotalk.com" target="_blank" class="app-card__link">Try Live Demo →</a>
+        <div class="app-card__actions">
+          <a href="https://c2c.mirotalk.com" target="_blank" rel="noopener noreferrer" class="app-card__link">Live Demo ↗</a>
+          <a href="../mirotalk-c2c/" class="app-card__link">Documentation →</a>
+        </div>
       </div>
     </div>
 
@@ -874,14 +1056,17 @@ details[open] summary::after { transform: rotate(45deg); }
             <div class="mockup__dots"><div class="mockup__dot"></div><div class="mockup__dot"></div><div class="mockup__dot"></div></div>
             <div class="mockup__url">bro.mirotalk.com</div>
           </div>
-          <div class="mockup__body"><img src="https://i.postimg.cc/nnrx0hSt/mirotalk-bro.png" alt="MiroTalk BRO" /></div>
+          <div class="mockup__body"><img src="https://i.postimg.cc/nnrx0hSt/mirotalk-bro.png" alt="MiroTalk BRO broadcasting interface" width="1362" height="612" loading="lazy" decoding="async" /></div>
         </div>
       </div>
       <div class="app-card__content">
         <span class="app-card__tag">Live Broadcasting</span>
-        <div class="app-card__name">MiroTalk BRO</div>
+        <h3 class="app-card__name">MiroTalk BRO</h3>
         <p class="app-card__desc">Sub-second WebRTC broadcasting for webinars, live events, and announcements.</p>
-        <a href="https://bro.mirotalk.com" target="_blank" class="app-card__link">Try Live Demo →</a>
+        <div class="app-card__actions">
+          <a href="https://bro.mirotalk.com" target="_blank" rel="noopener noreferrer" class="app-card__link">Live Demo ↗</a>
+          <a href="../mirotalk-bro/" class="app-card__link">Documentation →</a>
+        </div>
       </div>
     </div>
 
@@ -893,15 +1078,18 @@ details[open] summary::after { transform: rotate(45deg); }
             <div class="mockup__dots"><div class="mockup__dot"></div><div class="mockup__dot"></div><div class="mockup__dot"></div></div>
             <div class="mockup__url">webrtc.mirotalk.com</div>
           </div>
-          <div class="mockup__body"><img src="https://i.postimg.cc/PfHh4b96/mirotalk-web.png" alt="MiroTalk WEB" /></div>
+          <div class="mockup__body"><img src="https://i.postimg.cc/PfHh4b96/mirotalk-web.png" alt="MiroTalk WEB scheduling dashboard" width="1362" height="612" loading="lazy" decoding="async" /></div>
         </div>
       </div>
       <div class="app-card__content">
         <span class="app-card__tag">Scheduling + Workspace</span>
-        <div class="app-card__name">MiroTalk WEB</div>
+        <h3 class="app-card__name">MiroTalk WEB</h3>
         <p class="app-card__desc">Accounts, dashboards, scheduling, and unified module access in one portal.</p>
         <p style="font-size: 12px; color: var(--text-3); margin-bottom: 14px;">Demo: demo@gmail.com &nbsp;/&nbsp; Demo@123</p>
-        <a href="https://webrtc.mirotalk.com" target="_blank" class="app-card__link">Try Live Demo →</a>
+        <div class="app-card__actions">
+          <a href="https://webrtc.mirotalk.com" target="_blank" rel="noopener noreferrer" class="app-card__link">Live Demo ↗</a>
+          <a href="../mirotalk-web/" class="app-card__link">Documentation →</a>
+        </div>
       </div>
     </div>
 
@@ -913,13 +1101,17 @@ details[open] summary::after { transform: rotate(45deg); }
             <div class="mockup__dots"><div class="mockup__dot"></div><div class="mockup__dot"></div><div class="mockup__dot"></div></div>
             <div class="mockup__url">admin.mirotalk.com</div>
           </div>
-          <div class="mockup__body"><img src="https://i.postimg.cc/jRNgtVB1/mirotalk-admin.png" alt="MiroTalk Admin" /></div>
+          <div class="mockup__body"><img src="https://i.postimg.cc/jRNgtVB1/mirotalk-admin.png" alt="MiroTalk Admin management dashboard" width="1358" height="550" loading="lazy" decoding="async" /></div>
         </div>
       </div>
       <div class="app-card__content">
         <span class="app-card__tag">Platform Management</span>
-        <div class="app-card__name">MiroTalk Admin</div>
+        <h3 class="app-card__name">MiroTalk Admin</h3>
         <p class="app-card__desc">Manage instances, health checks, updates, and settings from one central panel.</p>
+        <div class="app-card__actions">
+          <a href="../mirotalk-admin/" class="app-card__link">Documentation →</a>
+          <a href="https://github.com/miroslavpejic85/mirotalk-admin" target="_blank" rel="noopener noreferrer" class="app-card__link">GitHub ↗</a>
+        </div>
       </div>
     </div>
 
@@ -945,7 +1137,7 @@ details[open] summary::after { transform: rotate(45deg); }
       <div class="mockup__url">Feature Overview — MiroTalk Ultimate</div>
     </div>
     <div class="mockup__body">
-      <img src="https://i.postimg.cc/Bs6Z6Nsg/mirotak-ultimate-features.png" alt="MiroTalk Ultimate feature overview" />
+      <img src="https://i.postimg.cc/Bs6Z6Nsg/mirotak-ultimate-features.png" alt="MiroTalk Ultimate feature overview" width="1414" height="2000" loading="lazy" decoding="async" />
     </div>
   </div>
 
@@ -1005,7 +1197,7 @@ details[open] summary::after { transform: rotate(45deg); }
 <!-- ══════════════════════════════════════════
    DEPLOY
 ══════════════════════════════════════════ -->
-<section class="section container">
+<section id="deployment" class="section container">
 
   <div class="deploy-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 52px; align-items: center;">
 
@@ -1032,7 +1224,7 @@ details[open] summary::after { transform: rotate(45deg); }
           <div class="mockup__url">Deployment — Bash + Docker</div>
         </div>
         <div class="mockup__body">
-          <img src="https://i.postimg.cc/YC1ByyK6/mirotalk-ultimate-bash.png" alt="MiroTalk deployment scripts" />
+          <img src="https://i.postimg.cc/YC1ByyK6/mirotalk-ultimate-bash.png" alt="MiroTalk deployment scripts" width="800" height="437" loading="lazy" decoding="async" />
         </div>
       </div>
       <div class="terminal">
@@ -1065,7 +1257,7 @@ details[open] summary::after { transform: rotate(45deg); }
 <!-- ══════════════════════════════════════════
    INTEGRATION
 ══════════════════════════════════════════ -->
-<section class="section container">
+<section id="integrations" class="section container">
 
   <div class="text-center" style="margin-bottom: 52px;">
     <p class="label" style="margin-bottom: 12px;">Embed Anywhere</p>
@@ -1081,19 +1273,19 @@ details[open] summary::after { transform: rotate(45deg); }
       <div class="mockup__url">Integration — Iframe / Widget / REST API</div>
     </div>
     <div class="mockup__body">
-      <img src="https://i.postimg.cc/Xnzy8ZCG/mirotalk-fsi.png" alt="MiroTalk integration options" />
+      <img src="https://i.postimg.cc/Xnzy8ZCG/mirotalk-fsi.png" alt="MiroTalk integration options" width="1234" height="280" loading="lazy" decoding="async" />
     </div>
   </div>
 
   <div class="integration-grid">
-    <a href="https://codepen.io/Miroslav-Pejic/pen/LYXRbmE" target="_blank" class="int-link">SFU — Iframe Demo<span class="arrow">↗</span></a>
-    <a href="https://codepen.io/Miroslav-Pejic/pen/jOQMVzx" target="_blank" class="int-link">P2P — Iframe Demo<span class="arrow">↗</span></a>
-    <a href="https://codepen.io/Miroslav-Pejic/pen/ExOgNbJ" target="_blank" class="int-link">C2C — Iframe Demo<span class="arrow">↗</span></a>
-    <a href="https://codepen.io/Miroslav-Pejic/pen/OJaRbZg" target="_blank" class="int-link">BRO — Iframe Demo<span class="arrow">↗</span></a>
-    <a href="https://codepen.io/Miroslav-Pejic/pen/jOQMVxx" target="_blank" class="int-link">WEB — Iframe Demo<span class="arrow">↗</span></a>
-    <a href="https://codepen.io/Miroslav-Pejic/pen/QWzmGaZ" target="_blank" class="int-link">React — Integration Demo<span class="arrow">↗</span></a>
-    <a href="https://codepen.io/Miroslav-Pejic/pen/LEpzGXO" target="_blank" class="int-link">SFU — Widget Demo<span class="arrow">↗</span></a>
-    <a href="https://codepen.io/Miroslav-Pejic/pen/Byowjvb" target="_blank" class="int-link">P2P — Widget Demo<span class="arrow">↗</span></a>
+    <a href="https://codepen.io/Miroslav-Pejic/pen/LYXRbmE" target="_blank" rel="noopener noreferrer" class="int-link">SFU — Iframe Demo<span class="arrow">↗</span></a>
+    <a href="https://codepen.io/Miroslav-Pejic/pen/jOQMVzx" target="_blank" rel="noopener noreferrer" class="int-link">P2P — Iframe Demo<span class="arrow">↗</span></a>
+    <a href="https://codepen.io/Miroslav-Pejic/pen/ExOgNbJ" target="_blank" rel="noopener noreferrer" class="int-link">C2C — Iframe Demo<span class="arrow">↗</span></a>
+    <a href="https://codepen.io/Miroslav-Pejic/pen/OJaRbZg" target="_blank" rel="noopener noreferrer" class="int-link">BRO — Iframe Demo<span class="arrow">↗</span></a>
+    <a href="https://codepen.io/Miroslav-Pejic/pen/jOQMVxx" target="_blank" rel="noopener noreferrer" class="int-link">WEB — Iframe Demo<span class="arrow">↗</span></a>
+    <a href="https://codepen.io/Miroslav-Pejic/pen/QWzmGaZ" target="_blank" rel="noopener noreferrer" class="int-link">React — Integration Demo<span class="arrow">↗</span></a>
+    <a href="https://codepen.io/Miroslav-Pejic/pen/LEpzGXO" target="_blank" rel="noopener noreferrer" class="int-link">SFU — Widget Demo<span class="arrow">↗</span></a>
+    <a href="https://codepen.io/Miroslav-Pejic/pen/Byowjvb" target="_blank" rel="noopener noreferrer" class="int-link">P2P — Widget Demo<span class="arrow">↗</span></a>
   </div>
 
 </section>
@@ -1115,7 +1307,7 @@ details[open] summary::after { transform: rotate(45deg); }
       <div class="mockup__url">mirotalk.com — Open Source + Production Verified</div>
     </div>
     <div class="mockup__body">
-      <img src="https://i.postimg.cc/SxXLdWW4/mirotalk_sponsor.png" alt="MiroTalk trust and ecosystem" />
+      <img src="https://i.postimg.cc/SxXLdWW4/mirotalk_sponsor.png" alt="MiroTalk trust and ecosystem" width="1280" height="946" loading="lazy" decoding="async" />
     </div>
   </div>
 
@@ -1138,15 +1330,15 @@ details[open] summary::after { transform: rotate(45deg); }
   </div>
 
   <p class="label" style="margin-bottom: 20px;">Sponsored By</p>
-  <a href="https://recall.ai/?utm_source=mirotalksfu&utm_medium=sponsorship" target="_blank"
+  <a href="https://recall.ai/?utm_source=mirotalksfu&utm_medium=sponsorship" target="_blank" rel="noopener noreferrer"
      style="display: inline-block; opacity: 0.8; transition: opacity 0.2s;"
      onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'">
-    <img src="https://i.postimg.cc/5xBwLy8g/mirotalk-recall.png" alt="Recall.ai sponsor"
+    <img src="https://i.postimg.cc/5xBwLy8g/mirotalk-recall.png" alt="Recall.ai sponsor" width="1572" height="134" loading="lazy" decoding="async"
          style="max-width: 200px; margin-inline: auto;" />
   </a>
 
   <div style="margin-top: 44px;">
-    <a href="https://discord.gg/rgGYfeYW3N" target="_blank" class="btn btn-ghost">
+    <a href="https://discord.gg/rgGYfeYW3N" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">
       Join the MiroTalk Community on Discord →
     </a>
   </div>
@@ -1159,7 +1351,7 @@ details[open] summary::after { transform: rotate(45deg); }
 <!-- ══════════════════════════════════════════
    FAQ
 ══════════════════════════════════════════ -->
-<section class="section container">
+<section id="faq" class="section container">
 
   <div class="text-center" style="margin-bottom: 52px;">
     <p class="label" style="margin-bottom: 12px;">Common Questions</p>
@@ -1193,12 +1385,13 @@ details[open] summary::after { transform: rotate(45deg); }
 <!-- ══════════════════════════════════════════
    PRICING + FINAL CTA
 ══════════════════════════════════════════ -->
-<section class="section container text-center">
+<section id="pricing" class="section container text-center">
 
   <p class="label" style="margin-bottom: 12px;">Simple, Honest Pricing</p>
   <h2 class="h2" style="margin-bottom: 12px;">Choose Your License</h2>
   <p class="lead" style="max-width: 460px; margin: 0 auto 52px;">
     Both include full source code, lifetime updates, and 6-month support.
+    <a href="../license/licensing-options/" class="app-card__link" style="display: flex; justify-content: center; margin-top: 12px;">Review full licensing terms →</a>
   </p>
 
   <div class="pricing-grid">
@@ -1214,7 +1407,7 @@ details[open] summary::after { transform: rotate(45deg); }
         <li class="pricing-feat"><span class="ck">✓</span> One end product (no end-user charging)</li>
       </ul>
       <a href="https://buy.stripe.com/00w5kC1BjaKreaQ6Qmbsc06"
-         target="_blank" class="btn btn-primary btn-full">Buy Now →</a>
+        target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-full">Buy Now →</a>
     </div>
 
     <div class="pricing-card pricing-card--featured">
@@ -1228,7 +1421,7 @@ details[open] summary::after { transform: rotate(45deg); }
         <li class="pricing-feat"><span class="ck">✓</span> Charge end users for your product</li>
       </ul>
       <a href="https://buy.stripe.com/7sYcN493L7yf5EkcaGbsc07"
-         target="_blank" class="btn btn-primary btn-full">Buy Extended →</a>
+        target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-full">Buy Extended →</a>
     </div>
 
   </div>
@@ -1237,18 +1430,35 @@ details[open] summary::after { transform: rotate(45deg); }
     <h2 class="h2" style="margin-bottom: 16px;">Stop Renting. Start Owning.</h2>
     <p class="lead" style="max-width: 420px; margin: 0 auto 36px;">Buy once. Deploy fast. Scale on your infrastructure.</p>
     <a href="https://buy.stripe.com/00w5kC1BjaKreaQ6Qmbsc06"
-       target="_blank" class="btn btn-primary btn-lg">
+       target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">
       Buy MiroTalk Ultimate — $299 →
     </a>
     <div>
       <img src="https://i.postimg.cc/Q85CSjvQ/mirotalk-ultimate-sale.png"
            alt="Buy MiroTalk Ultimate"
-           style="max-width: 400px; margin-inline: auto; margin-top: 32px; opacity: 0.9;" />
+         class="cta-final__image" width="1514" height="944" loading="lazy" decoding="async" />
     </div>
   </div>
 
 </section>
 
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner container">
+    <p class="site-footer__brand">
+      <strong>MiroTalk Ultimate</strong>
+      © 2026 MiroTalk. All rights reserved.
+    </p>
+    <nav class="site-footer__links" aria-label="Footer navigation">
+      <a href="../">Documentation</a>
+      <a href="../license/licensing-options/">Licensing</a>
+      <a href="../faq/">FAQ</a>
+      <a href="https://github.com/miroslavpejic85" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+      <a href="https://discord.gg/rgGYfeYW3N" target="_blank" rel="noopener noreferrer">Community ↗</a>
+    </nav>
+  </div>
+</footer>
 
 </body>
 </html>
