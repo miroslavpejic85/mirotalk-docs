@@ -1,0 +1,27 @@
+/* Call-to-action button group (paragraph holding only .md-button links) */
+
+.md-typeset p:has(> .md-button) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.md-typeset p:has(> .md-button) > .md-button {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Stack full width on phones so long labels don't overflow */
+@media screen and (max-width: 44.9375em) {
+  .md-typeset p:has(> .md-button) {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .md-typeset p:has(> .md-button) > .md-button {
+    width: 100%;
+  }
+}

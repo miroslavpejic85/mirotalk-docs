@@ -4,9 +4,9 @@
 
 **Open-source WebRTC video calls, group conferencing, live streaming and click-to-call — six projects you can self-host on your own server or embed in your app with a single iframe.**
 
-[Try the live demos](#mirotalk-projects){ .md-button .md-button--primary }
-[Compare all projects](overview/index.html){ .md-button }
-[Get a commercial license](./license/licensing-options.md){ .md-button }
+[Live demos](#mirotalk-projects){ .md-button .md-button--primary }
+[Compare projects](overview/index.html){ .md-button }
+[Get a license](./license/licensing-options.md){ .md-button }
 
 ## What is MiroTalk?
 
