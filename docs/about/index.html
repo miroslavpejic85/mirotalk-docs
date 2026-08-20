@@ -384,10 +384,8 @@
         }
 
         .feature-card:hover {
-            transform: translateY(-6px) scale(1.03);
-            box-shadow: 0 12px 32px rgba(33, 150, 243, 0.2), 0 0 20px rgba(33, 150, 243, 0.1);
-            z-index: 2;
-            border-color: rgba(33, 150, 243, 0.3);
+            transform: translateY(-4px);
+            border-color: rgba(0, 188, 212, 0.55);
         }
 
         .feature-card strong {
@@ -849,6 +847,10 @@
             color: #10141a !important;
         }
 
+        body.light-mode a.feature-card:hover .demo-link {
+            color: var(--primary-dark);
+        }
+
         body.light-mode .cta-buttons a,
         body.light-mode .theme-toggle-btn {
             background: rgba(255, 255, 255, 0.9);
@@ -1246,9 +1248,8 @@
         }
 
         .suite-tile:hover {
-            transform: translateY(-4px);
-            border-color: rgba(0, 188, 212, 0.48);
-            box-shadow: 0 16px 34px rgba(0, 0, 0, 0.24);
+            transform: translateY(-3px);
+            border-color: rgba(0, 188, 212, 0.55);
         }
 
         .suite-tile img {
@@ -1317,7 +1318,7 @@
 
         .feature-card:hover {
             transform: translateY(-6px);
-            box-shadow: 0 12px 32px rgba(33, 150, 243, 0.2), 0 0 28px rgba(33, 150, 243, 0.12);
+            border-color: rgba(0, 188, 212, 0.55);
         }
 
         .feature-img {
@@ -1383,7 +1384,17 @@
         }
 
         body.light-mode .suite-tile {
-            background: rgba(255, 255, 255, 0.12);
+            background: var(--card-bg);
+            border-color: #e0e7ef;
+            color: #1a2332;
+        }
+
+        body.light-mode .suite-tile strong {
+            color: #10141a;
+        }
+
+        body.light-mode .suite-tile span {
+            color: #6b7a90;
         }
 
         body.light-mode .cta-buttons a:hover,
