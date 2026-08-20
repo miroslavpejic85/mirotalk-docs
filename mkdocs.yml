@@ -1,5 +1,6 @@
 site_name: MiroTalk docs v1.4.03
-site_description: MiroTalk WebRTC documentations
+site_url: https://docs.mirotalk.com/
+site_description: MiroTalk is an open-source WebRTC platform for video calls, group conferencing, live streaming and click-to-call. Self-host it or embed it with a single iframe.
 site_author: Miroslav Pejic (miroslav.pejic.85@gmail.com)
 copyright: © 2026 MiroTalk, all rights reserved
 
@@ -134,6 +135,7 @@ nav:
 # Theme Configuration
 theme:
   name: material
+  custom_dir: overrides
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
@@ -154,12 +156,18 @@ theme:
   font:
     text: 'Roboto'
     code: 'Fira Code'
-  extra:
-    meta:
-      description: MiroTalk WebRTC Ultimate Bundle
-      keywords: WebRTC
   features:
     - content.code.copy
+    - navigation.top
+
+# Social / preview card metadata
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/miroslavpejic85
+    - icon: fontawesome/brands/discord
+      link: https://discord.gg/rgGYfeYW3N
+  social_image: images/mirotalk-preview.png
 
 # Extensions
 markdown_extensions:
@@ -172,5 +180,6 @@ markdown_extensions:
       line_spans: __span
       linenums_style: pymdownx-inline
   - admonition
+  - attr_list
   - pymdownx.details
   - pymdownx.superfences
