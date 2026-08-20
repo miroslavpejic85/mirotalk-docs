@@ -694,6 +694,11 @@
                 .comparison-table .feature-name {
                     width: 150px;
                 }
+
+                /* Avoid a flash of the table view before JS applies the mobile/tablet default */
+                .table-view {
+                    display: none;
+                }
             }
 
             @media (max-width: 768px) {
@@ -4413,6 +4418,24 @@
                     });
                 });
 
+                // Card view on mobile, Comparison on tablet, Table on desktop
+                let currentBreakpointView = null;
+                function applyDefaultView() {
+                    let defaultView = 'table';
+                    if (window.matchMedia('(max-width: 768px)').matches) {
+                        defaultView = 'cards';
+                    } else if (window.matchMedia('(max-width: 1200px)').matches) {
+                        defaultView = 'comparison';
+                    }
+                    // Only re-apply when crossing a breakpoint, so manual choices are kept
+                    if (defaultView === currentBreakpointView) return;
+                    currentBreakpointView = defaultView;
+                    const defaultBtn = document.querySelector(`.view-btn[data-view="${defaultView}"]`);
+                    if (defaultBtn && !defaultBtn.classList.contains('active')) {
+                        defaultBtn.click();
+                    }
+                }
+
                 // Reset comparison view to show all columns
                 function resetComparisonView() {
                     document.querySelectorAll('.comparison-table th, .comparison-table td').forEach((cell) => {
@@ -4522,6 +4545,14 @@
                 // Event listeners for search and filter
                 searchInput.addEventListener('input', filterProjects);
                 filterSelect.addEventListener('change', filterProjects);
+
+                applyDefaultView();
+
+                let resizeTimer;
+                window.addEventListener('resize', function () {
+                    clearTimeout(resizeTimer);
+                    resizeTimer = setTimeout(applyDefaultView, 150);
+                });
 
                 // Theme toggle
                 const themeToggle = document.getElementById('themeToggle');
