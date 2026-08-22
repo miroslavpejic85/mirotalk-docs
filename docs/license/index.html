@@ -1,0 +1,810 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Compare MiroTalk open-source, regular, and extended licenses and choose the right option for your project." />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="MiroTalk Docs" />
+        <meta property="og:title" content="MiroTalk Licensing Options" />
+        <meta property="og:description" content="Choose the right MiroTalk license for open-source, private, or commercial use." />
+        <meta property="og:image" content="https://docs.mirotalk.com/images/mirotalk-preview.png" />
+        <meta property="og:url" content="https://docs.mirotalk.com/license/" />
+
+        <script>
+            (() => {
+                const savedPalette = localStorage.getItem('/.__palette');
+                const savedScheme = savedPalette ? JSON.parse(savedPalette).color?.scheme : null;
+                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                document.documentElement.dataset.theme = savedScheme ? (savedScheme === 'slate' ? 'dark' : 'light') : (prefersDark ? 'dark' : 'light');
+            })();
+        </script>
+
+        <link rel="apple-touch-icon" sizes="180x180" href="../images/icon/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="../images/icon/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="../images/icon/favicon-16x16.png" />
+        <link rel="shortcut icon" href="../images/icon/favicon.ico" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet" />
+
+        <title>MiroTalk Licensing Options</title>
+
+        <style>
+            :root {
+                color-scheme: light;
+                --ink: #17242d;
+                --muted: #60717c;
+                --paper: #f6f8f7;
+                --surface: #ffffff;
+                --line: #dce4e3;
+                --cyan: #0798b6;
+                --cyan-dark: #08768e;
+                --cyan-soft: #e6f7fa;
+                --green: #24835d;
+                --green-soft: #e9f7f0;
+                --coral: #dd664f;
+                --coral-soft: #fff0ec;
+                --navy: #153548;
+                --action-bg: #08768e;
+                --action-hover: #06677c;
+                --action-text: #ffffff;
+                --action-shadow: rgba(8, 118, 142, 0.24);
+                --shadow: 0 18px 45px rgba(31, 55, 68, 0.1);
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            body {
+                margin: 0;
+                background:
+                    linear-gradient(rgba(21, 53, 72, 0.035) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(21, 53, 72, 0.035) 1px, transparent 1px),
+                    var(--paper);
+                background-size: 28px 28px;
+                color: var(--ink);
+                font-family: 'DM Sans', sans-serif;
+                line-height: 1.6;
+            }
+
+            a {
+                color: inherit;
+            }
+
+            .page-shell {
+                width: min(1160px, calc(100% - 40px));
+                margin: 0 auto;
+            }
+
+            .topbar {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                min-height: 76px;
+                border-bottom: 1px solid rgba(23, 36, 45, 0.1);
+            }
+
+            .brand {
+                display: inline-flex;
+                align-items: center;
+                gap: 11px;
+                color: var(--ink);
+                font-family: 'Manrope', sans-serif;
+                font-size: 18px;
+                font-weight: 800;
+                text-decoration: none;
+            }
+
+            .brand img {
+                width: 34px;
+                height: 34px;
+            }
+
+            .back-link {
+                color: var(--muted);
+                font-size: 14px;
+                font-weight: 700;
+                text-decoration: none;
+            }
+
+            .back-link:hover,
+            .back-link:focus-visible {
+                color: var(--cyan-dark);
+            }
+
+            .header-actions {
+                display: flex;
+                align-items: center;
+                gap: 14px;
+            }
+
+            .theme-toggle {
+                display: grid;
+                width: 38px;
+                height: 38px;
+                padding: 0;
+                place-items: center;
+                border: 1px solid var(--line);
+                border-radius: 50%;
+                background: var(--surface);
+                color: var(--ink);
+                cursor: pointer;
+                font-size: 18px;
+                line-height: 1;
+                transition: border-color 160ms ease, background 160ms ease;
+            }
+
+            .theme-toggle:hover,
+            .theme-toggle:focus-visible {
+                border-color: var(--cyan);
+                background: var(--cyan-soft);
+                outline: none;
+            }
+
+            .hero {
+                display: grid;
+                grid-template-columns: minmax(0, 1.25fr) minmax(260px, 0.75fr);
+                gap: 64px;
+                align-items: center;
+                min-height: 510px;
+                padding: 76px 0 82px;
+            }
+
+            .eyebrow {
+                display: inline-flex;
+                align-items: center;
+                gap: 9px;
+                margin-bottom: 20px;
+                color: var(--cyan-dark);
+                font-size: 13px;
+                font-weight: 800;
+                text-transform: uppercase;
+            }
+
+            .eyebrow::before {
+                width: 30px;
+                height: 2px;
+                background: var(--coral);
+                content: '';
+            }
+
+            h1,
+            h2,
+            h3 {
+                font-family: 'Manrope', sans-serif;
+                line-height: 1.15;
+            }
+
+            h1 {
+                max-width: 760px;
+                margin: 0 0 24px;
+                font-size: clamp(42px, 6vw, 72px);
+                font-weight: 800;
+            }
+
+            .hero-copy > p {
+                max-width: 670px;
+                margin: 0 0 32px;
+                color: var(--muted);
+                font-size: 20px;
+            }
+
+            .hero-actions {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 12px;
+            }
+
+            .button {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                min-height: 48px;
+                padding: 0 20px;
+                border: 1px solid var(--ink);
+                border-radius: 6px;
+                font-size: 15px;
+                font-weight: 800;
+                text-decoration: none;
+                transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+            }
+
+            .button:hover {
+                transform: translateY(-2px);
+            }
+
+            .button-primary {
+                background: var(--action-bg);
+                border-color: var(--action-bg);
+                color: var(--action-text);
+                box-shadow: 0 8px 20px var(--action-shadow);
+            }
+
+            .button-primary:hover {
+                background: var(--action-hover);
+                border-color: var(--action-hover);
+                box-shadow: 0 10px 24px var(--action-shadow);
+            }
+
+            .button-secondary {
+                background: transparent;
+                color: var(--ink);
+            }
+
+            .hero-visual {
+                position: relative;
+                display: grid;
+                place-items: center;
+                min-height: 340px;
+            }
+
+            .hero-visual::before {
+                position: absolute;
+                width: 280px;
+                height: 280px;
+                border: 2px solid var(--cyan);
+                border-radius: 50%;
+                background: var(--cyan-soft);
+                box-shadow: 18px 18px 0 var(--green-soft), -15px -15px 0 var(--coral-soft);
+                content: '';
+            }
+
+            .hero-visual img {
+                position: relative;
+                width: 190px;
+                height: 190px;
+                filter: drop-shadow(0 18px 22px rgba(23, 36, 45, 0.16));
+            }
+
+            .section {
+                padding: 82px 0;
+            }
+
+            .section-dark {
+                background: var(--navy);
+                color: #ffffff;
+            }
+
+            .section-heading {
+                display: grid;
+                grid-template-columns: 0.75fr 1.25fr;
+                gap: 48px;
+                align-items: end;
+                margin-bottom: 38px;
+            }
+
+            .section-heading h2 {
+                margin: 0;
+                font-size: clamp(30px, 4vw, 44px);
+            }
+
+            .section-heading p {
+                max-width: 600px;
+                margin: 0;
+                color: var(--muted);
+                font-size: 17px;
+            }
+
+            .section-dark .section-heading p {
+                color: #bdd0d9;
+            }
+
+            .license-grid {
+                display: grid;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 16px;
+            }
+
+            .license-card {
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                min-height: 420px;
+                padding: 30px;
+                border: 1px solid var(--line);
+                border-top: 5px solid var(--cyan);
+                border-radius: 8px;
+                background: var(--surface);
+                box-shadow: 0 10px 25px rgba(31, 55, 68, 0.06);
+            }
+
+            .license-card:nth-child(2) {
+                border-top-color: var(--green);
+            }
+
+            .license-card:nth-child(3) {
+                border-top-color: var(--coral);
+            }
+
+            .card-label {
+                margin-bottom: 22px;
+                color: var(--muted);
+                font-size: 12px;
+                font-weight: 800;
+                text-transform: uppercase;
+            }
+
+            .license-card h3 {
+                margin: 0 0 10px;
+                font-size: 27px;
+            }
+
+            .best-for {
+                min-height: 50px;
+                margin: 0 0 24px;
+                color: var(--muted);
+            }
+
+            .feature-list {
+                display: grid;
+                gap: 13px;
+                margin: 0 0 28px;
+                padding: 0;
+                list-style: none;
+            }
+
+            .feature-list li {
+                position: relative;
+                padding-left: 26px;
+                font-size: 15px;
+            }
+
+            .feature-list li::before {
+                position: absolute;
+                top: 1px;
+                left: 0;
+                color: var(--green);
+                content: '✓';
+                font-weight: 800;
+            }
+
+            .license-card .text-link {
+                margin-top: auto;
+                color: var(--cyan-dark);
+                font-weight: 800;
+                text-underline-offset: 4px;
+            }
+
+            .decision-note {
+                display: grid;
+                grid-template-columns: auto 1fr;
+                gap: 18px;
+                align-items: start;
+                margin-top: 22px;
+                padding: 22px 24px;
+                border-left: 4px solid var(--coral);
+                background: var(--coral-soft);
+            }
+
+            .decision-note strong {
+                font-family: 'Manrope', sans-serif;
+            }
+
+            .decision-note p {
+                margin: 2px 0 0;
+                color: #744237;
+            }
+
+            .price-table-wrap {
+                overflow-x: auto;
+                border: 1px solid rgba(255, 255, 255, 0.16);
+                border-radius: 8px;
+            }
+
+            .price-table {
+                width: 100%;
+                min-width: 620px;
+                border-collapse: collapse;
+                text-align: left;
+            }
+
+            .price-table th,
+            .price-table td {
+                padding: 20px 24px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+            }
+
+            .price-table th {
+                color: #a9c4d0;
+                font-size: 12px;
+                text-transform: uppercase;
+            }
+
+            .price-table tbody tr:last-child td {
+                border-bottom: 0;
+            }
+
+            .price-table tbody tr {
+                transition: background 150ms ease;
+            }
+
+            .price-table tbody tr:hover {
+                background: rgba(255, 255, 255, 0.055);
+            }
+
+            .product-link {
+                font-family: 'Manrope', sans-serif;
+                font-weight: 800;
+                text-decoration-color: rgba(255, 255, 255, 0.35);
+                text-underline-offset: 4px;
+            }
+
+            .price {
+                color: #ffffff;
+                font-family: 'Manrope', sans-serif;
+                font-size: 19px;
+                font-weight: 800;
+            }
+
+            .price-extended {
+                color: #72dfbd;
+            }
+
+            .cta {
+                display: grid;
+                grid-template-columns: 1fr auto;
+                gap: 40px;
+                align-items: center;
+                padding: 80px 0;
+            }
+
+            .cta h2 {
+                margin: 0 0 12px;
+                font-size: clamp(30px, 4vw, 44px);
+            }
+
+            .cta p {
+                max-width: 700px;
+                margin: 0;
+                color: var(--muted);
+                font-size: 17px;
+            }
+
+            footer {
+                padding: 26px 0 38px;
+                border-top: 1px solid rgba(23, 36, 45, 0.1);
+                color: var(--muted);
+                font-size: 13px;
+            }
+
+            @media (prefers-reduced-motion: no-preference) {
+                .hero-copy,
+                .hero-visual {
+                    animation: reveal 600ms ease both;
+                }
+
+                .hero-visual {
+                    animation-delay: 100ms;
+                }
+
+                @keyframes reveal {
+                    from {
+                        opacity: 0;
+                        transform: translateY(16px);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+            }
+
+            :root[data-theme='dark'] {
+                color-scheme: dark;
+                --ink: #edf6f6;
+                --muted: #a9bac1;
+                --paper: #10191e;
+                --surface: #17242b;
+                --line: #34454c;
+                --cyan-soft: #12343c;
+                --green-soft: #17372c;
+                --coral-soft: #422821;
+                --action-bg: #24aec4;
+                --action-hover: #42bfd2;
+                --action-text: #071a22;
+                --action-shadow: rgba(36, 174, 196, 0.2);
+            }
+
+            [data-theme='dark'] .decision-note p {
+                color: #f0c4b9;
+            }
+
+            [data-theme='dark'] .brand img {
+                filter: brightness(1.15);
+            }
+
+            @media (max-width: 860px) {
+                .hero {
+                    grid-template-columns: 1fr;
+                    gap: 26px;
+                    padding: 58px 0 68px;
+                }
+
+                .hero-visual {
+                    grid-row: 1;
+                    min-height: 250px;
+                }
+
+                .hero-visual::before {
+                    width: 210px;
+                    height: 210px;
+                }
+
+                .hero-visual img {
+                    width: 145px;
+                    height: 145px;
+                }
+
+                .section-heading {
+                    grid-template-columns: 1fr;
+                    gap: 14px;
+                }
+
+                .license-grid {
+                    grid-template-columns: 1fr;
+                }
+
+                .license-card {
+                    min-height: 0;
+                }
+
+                .best-for {
+                    min-height: 0;
+                }
+
+                .cta {
+                    grid-template-columns: 1fr;
+                    gap: 24px;
+                }
+            }
+
+            @media (max-width: 560px) {
+                .page-shell {
+                    width: min(100% - 28px, 1160px);
+                }
+
+                .topbar {
+                    min-height: 64px;
+                }
+
+                .brand {
+                    font-size: 16px;
+                }
+
+                .brand img {
+                    width: 30px;
+                    height: 30px;
+                }
+
+                .back-link {
+                    font-size: 13px;
+                }
+
+                .header-actions {
+                    gap: 8px;
+                }
+
+                .theme-toggle {
+                    width: 34px;
+                    height: 34px;
+                }
+
+                h1 {
+                    font-size: 41px;
+                }
+
+                .hero-copy > p {
+                    font-size: 18px;
+                }
+
+                .hero-actions,
+                .button {
+                    width: 100%;
+                }
+
+                .section {
+                    padding: 62px 0;
+                }
+
+                .license-card {
+                    padding: 24px;
+                }
+
+                .decision-note {
+                    grid-template-columns: 1fr;
+                    gap: 4px;
+                }
+
+                .price-table th,
+                .price-table td {
+                    padding: 16px;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <header class="page-shell topbar">
+            <a class="brand" href="../">
+                <img src="../images/license.png" alt="" />
+                <span>MiroTalk Licensing</span>
+            </a>
+            <div class="header-actions">
+                <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch color theme" title="Switch color theme"></button>
+                <a class="back-link" href="../">Back to docs &rarr;</a>
+            </div>
+        </header>
+
+        <main>
+            <section class="page-shell hero">
+                <div class="hero-copy">
+                    <div class="eyebrow">Simple, transparent licensing</div>
+                    <h1>Choose the license that fits your project.</h1>
+                    <p>Build in the open for free, keep a personal project private, or launch a commercial product. There is a clear path for each.</p>
+                    <div class="hero-actions">
+                        <a class="button button-primary" href="#compare">Compare licenses</a>
+                        <a class="button button-secondary" href="#pricing">View product prices</a>
+                    </div>
+                </div>
+                <div class="hero-visual" aria-hidden="true">
+                    <img src="../images/license.png" alt="" />
+                </div>
+            </section>
+
+            <section class="section" id="compare">
+                <div class="page-shell">
+                    <div class="section-heading">
+                        <h2>Three ways to build</h2>
+                        <p>Start with how your source code is distributed and whether end users pay. That usually makes the right choice straightforward.</p>
+                    </div>
+
+                    <div class="license-grid">
+                        <article class="license-card">
+                            <div class="card-label">Open source</div>
+                            <h3>AGPLv3</h3>
+                            <p class="best-for">For projects that keep their MiroTalk-based source code public.</p>
+                            <ul class="feature-list">
+                                <li>Free and open-source use</li>
+                                <li>Modification and forking allowed</li>
+                                <li>Modified source must remain public</li>
+                                <li>Changes must be clearly documented</li>
+                            </ul>
+                            <a class="text-link" href="https://www.gnu.org/licenses/agpl-3.0.html" target="_blank" rel="noopener">Read the AGPLv3 terms &rarr;</a>
+                        </article>
+
+                        <article class="license-card">
+                            <div class="card-label">Private, non-commercial</div>
+                            <h3>Regular</h3>
+                            <p class="best-for">For a closed-source personal project that does not charge end users.</p>
+                            <ul class="feature-list">
+                                <li>Keep your source code private</li>
+                                <li>Rebrand logo, name, and description</li>
+                                <li>Use in one end product</li>
+                                <li>Direct support included</li>
+                            </ul>
+                            <a class="text-link" href="#pricing">See regular prices &rarr;</a>
+                        </article>
+
+                        <article class="license-card">
+                            <div class="card-label">Private, commercial</div>
+                            <h3>Extended</h3>
+                            <p class="best-for">For a closed-source commercial project that charges end users.</p>
+                            <ul class="feature-list">
+                                <li>Keep your source code private</li>
+                                <li>Rebrand logo, name, and description</li>
+                                <li>Monetize one end product</li>
+                                <li>Direct support included</li>
+                            </ul>
+                            <a class="text-link" href="#pricing">See extended prices &rarr;</a>
+                        </article>
+                    </div>
+
+                    <aside class="decision-note">
+                        <strong>Quick rule</strong>
+                        <p>If users pay to access your closed-source product, choose Extended. If they do not, Regular is usually the right private-use license.</p>
+                    </aside>
+                </div>
+            </section>
+
+            <section class="section section-dark" id="pricing">
+                <div class="page-shell">
+                    <div class="section-heading">
+                        <h2>Product pricing</h2>
+                        <p>Each purchase covers one end product. Select a product to review its full listing and license details on CodeCanyon.</p>
+                    </div>
+
+                    <div class="price-table-wrap">
+                        <table class="price-table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Product</th>
+                                    <th scope="col">Regular</th>
+                                    <th scope="col">Extended</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><a class="product-link" href="https://codecanyon.net/item/mirotalk-webrtc-ultimate-bundle-for-seamless-live-smart-communication/47976343">MiroTalk ULTIMATE</a></td>
+                                    <td class="price">$299</td>
+                                    <td class="price price-extended">$1,499</td>
+                                </tr>
+                                <tr>
+                                    <td><a class="product-link" href="https://codecanyon.net/item/mirotalk-sfu-webrtc-realtime-video-conferences/40769970">MiroTalk SFU</a></td>
+                                    <td class="price">$99</td>
+                                    <td class="price price-extended">$499</td>
+                                </tr>
+                                <tr>
+                                    <td><a class="product-link" href="https://codecanyon.net/item/mirotalk-p2p-webrtc-realtime-video-conferences/38376661">MiroTalk P2P</a></td>
+                                    <td class="price">$79</td>
+                                    <td class="price price-extended">$499</td>
+                                </tr>
+                                <tr>
+                                    <td><a class="product-link" href="https://codecanyon.net/item/mirotalk-c2c-webrtc-real-time-cam-2-cam-video-conferences-and-screen-sharing/43383005">MiroTalk C2C</a></td>
+                                    <td class="price">$69</td>
+                                    <td class="price price-extended">$249</td>
+                                </tr>
+                                <tr>
+                                    <td><a class="product-link" href="https://codecanyon.net/item/mirotalk-bro-webrtc-p2p-live-broadcast/45887113">MiroTalk BRO</a></td>
+                                    <td class="price">$59</td>
+                                    <td class="price price-extended">$249</td>
+                                </tr>
+                                <tr>
+                                    <td><a class="product-link" href="https://codecanyon.net/item/callme-easy-webrtc-video-call-app/55342915">MiroTalk CME</a></td>
+                                    <td class="price">$39</td>
+                                    <td class="price price-extended">$199</td>
+                                </tr>
+                                <tr>
+                                    <td><a class="product-link" href="https://codecanyon.net/item/a-selfhosted-mirotalks-webrtc-rooms-scheduler-server/42643313">MiroTalk WEB</a></td>
+                                    <td class="price">$39</td>
+                                    <td class="price price-extended">$199</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <section class="page-shell cta">
+                <div>
+                    <h2>Ready to license MiroTalk?</h2>
+                    <p>Your purchase supports ongoing maintenance and gives you a clear legal foundation for your private or commercial product.</p>
+                </div>
+                <a class="button button-primary" href="https://codecanyon.net/user/miroslavpejic85/portfolio">Browse all licenses &rarr;</a>
+            </section>
+        </main>
+
+        <footer>
+            <div class="page-shell">MiroTalk licensing information. For legal certainty, review the complete license terms before purchase.</div>
+        </footer>
+
+        <script>
+            const themeToggle = document.getElementById('theme-toggle');
+            const palettes = {
+                light: { index: 0, color: { scheme: 'default', primary: 'blue', accent: 'light-blue' } },
+                dark: { index: 1, color: { scheme: 'slate', primary: 'black', accent: 'dark-blue' } },
+            };
+
+            function setTheme(theme) {
+                document.documentElement.dataset.theme = theme;
+                localStorage.setItem('/.__palette', JSON.stringify(palettes[theme]));
+                const nextTheme = theme === 'dark' ? 'light' : 'dark';
+                themeToggle.textContent = theme === 'dark' ? '☀' : '☾';
+                themeToggle.setAttribute('aria-label', `Switch to ${nextTheme} mode`);
+                themeToggle.title = `Switch to ${nextTheme} mode`;
+            }
+
+            themeToggle.addEventListener('click', () => {
+                setTheme(document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark');
+            });
+
+            setTheme(document.documentElement.dataset.theme);
+        </script>
+    </body>
+</html>
