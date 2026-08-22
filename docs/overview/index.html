@@ -928,6 +928,18 @@
                 pointer-events: none;
             }
 
+            .overview-hero::after {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background: radial-gradient(
+                    600px circle at var(--spotlight-x, 50%) var(--spotlight-y, 50%),
+                    rgba(255, 255, 255, 0.06),
+                    transparent 40%
+                );
+                pointer-events: none;
+            }
+
             .overview-hero-inner {
                 max-width: 1180px;
                 margin: 0 auto;
@@ -4393,6 +4405,17 @@
                 const comparisonView = document.querySelector('.comparison-view');
                 const searchInput = document.getElementById('projectSearch');
                 const filterSelect = document.getElementById('projectFilter');
+
+                // Header mouse spotlight
+                const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                const overviewHero = document.querySelector('.overview-hero');
+                if (overviewHero && !prefersReducedMotion) {
+                    overviewHero.addEventListener('mousemove', function (event) {
+                        const rect = overviewHero.getBoundingClientRect();
+                        overviewHero.style.setProperty('--spotlight-x', `${event.clientX - rect.left}px`);
+                        overviewHero.style.setProperty('--spotlight-y', `${event.clientY - rect.top}px`);
+                    });
+                }
 
                 // Store current filter state
                 let currentFilter = 'all';
