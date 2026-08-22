@@ -25,3 +25,14 @@ Easily integrate MiroTalk WEB into your website by embedding it with a simple `i
 ```
 
 > **Important:** Replace `YOUR-DOMAIN-NAME` with your actual MiroTalk WEB server URL.
+
+## Calendar
+
+Scheduled meetings can be added to external calendars directly from the invitation:
+
+- **Google Calendar**
+- **Outlook Calendar**
+
+## Email Reminders
+
+Automatic email reminders are sent to the participants before the scheduled meeting starts.
