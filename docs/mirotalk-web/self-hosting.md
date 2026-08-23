@@ -95,8 +95,8 @@ module.exports = {
     CME: {
         Visible: true,
         Label: 'MiroTalk CME',
-        Home: 'https://cme.mirotalk.com',
-        Room: 'https://cme.mirotalk.com/?room=',
+        Home: 'https://CME-DOMAIN-NAME',
+        Room: 'https://CME-DOMAIN-NAME/?room=',
         //...
     },
   },
