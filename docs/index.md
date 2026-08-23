@@ -50,6 +50,15 @@ Each project has a distinct purpose and its own documentation. Choose by audienc
 
 Need the complete suite? Explore the [MiroTalk Ultimate bundle](./mirotalk-ultimate/index.html). Prefer a managed service with no server maintenance? See [MiroTalk on EvoPlat](./evoplat/evoplat.md).
 
+## Use MiroTalk WEB as a Managed Service
+
+Want secure, browser-based video meetings without managing your own server? The hosted MiroTalk WEB service gives you one workspace to create an account, schedule and manage meeting rooms, and join meetings without downloads.
+
+Hosting, maintenance, and updates are handled for you. Choose a flexible monthly subscription or make a one-time payment for lifetime access.
+
+[Get started with MiroTalk WEB](https://webrtc.mirotalk.com){ .md-button .md-button--primary }
+[Learn about MiroTalk WEB](./mirotalk-web/index.html){ .md-button }
+
 ## Integrate MiroTalk
 
 Embed a hosted or self-hosted MiroTalk instance in a website with an iframe. This minimal SFU example grants the browser permissions needed for a meeting:
