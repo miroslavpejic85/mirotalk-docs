@@ -12,7 +12,7 @@ MiroTalk is an open-source, self-hosted WebRTC platform for browser-based video 
   <source src="./images/mirotalk.mp4" type="video/mp4">
 </video>
 
-**Choose the right open-source, self-hosted WebRTC architecture: peer-to-peer (P2P) for private video calls, or a Selective Forwarding Unit (SFU) for scalable meetings and webinars. It also supports live streaming, broadcasting, click-to-call, scheduling, and management.**
+Choose the right open-source, self-hosted WebRTC architecture: peer-to-peer (P2P) for private video calls, or a Selective Forwarding Unit (SFU) for scalable meetings and webinars. It also supports live streaming, broadcasting, click-to-call, scheduling, and management.
 
 [Choose a project](#choose-a-mirotalk-webrtc-project){ .md-button .md-button--primary }
 [Compare projects](overview/index.html){ .md-button }
