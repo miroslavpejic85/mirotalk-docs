@@ -4,6 +4,9 @@
 # mkdocs build folder
 site/
 
+# python cache folders
+__pycache__/
+
 # mac
 .DS_Store
 
