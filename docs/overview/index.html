@@ -109,14 +109,6 @@
                 flex: 1;
             }
 
-            .filter-select {
-                padding: 10px;
-                border: 1px solid #ddd;
-                border-radius: 6px;
-                font-size: 1rem;
-                min-width: 200px;
-            }
-
             .view-toggle {
                 display: flex;
                 gap: 10px;
@@ -721,8 +713,7 @@
                     width: 100%;
                 }
 
-                .search-input,
-                .filter-select {
+                .search-input {
                     width: 100%;
                 }
 
@@ -844,7 +835,6 @@
             body.dark-mode .docs-btn:hover {
                 background: #263859;
             }
-            body.dark-mode .filter-select,
             body.dark-mode .search-input {
                 background: #23272a;
                 color: #e0e0e0;
@@ -1130,7 +1120,7 @@
 
             .goal-options {
                 display: grid;
-                grid-template-columns: repeat(7, minmax(0, 1fr));
+                grid-template-columns: repeat(4, minmax(0, 1fr));
                 gap: 0.65rem;
             }
 
@@ -1195,14 +1185,12 @@
             }
 
             .search-input,
-            .filter-select,
             .view-btn {
                 border-radius: var(--radius);
                 border-color: var(--line);
             }
 
-            .search-input,
-            .filter-select {
+            .search-input {
                 background: var(--surface-strong);
                 color: var(--text);
                 box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset;
@@ -1334,7 +1322,6 @@
             }
 
             body.dark-mode .search-input,
-            body.dark-mode .filter-select,
             body.dark-mode .view-btn,
             body.dark-mode .goal-option,
             body.dark-mode .card-header {
@@ -1545,6 +1532,9 @@
                     <p>Start with what you need, then explore the details below.</p>
                 </div>
                 <div class="goal-options">
+                    <button class="goal-option active" type="button" data-project-choice="all" aria-pressed="true">
+                        <strong>All projects</strong><span>Browse the complete MiroTalk stack</span>
+                    </button>
                     <button class="goal-option" type="button" data-project-choice="cme">
                         <strong>Instant 1:1 call</strong><span>CME: share a personal call link</span>
                     </button>
@@ -1575,16 +1565,6 @@
             <div class="table-controls">
                 <div class="search-filter">
                     <input type="text" id="projectSearch" placeholder="Search projects..." class="search-input" />
-                    <select id="projectFilter" class="filter-select">
-                        <option value="all">All Projects</option>
-                        <option value="cme">CME</option>
-                        <option value="c2c">C2C</option>
-                        <option value="p2p">P2P</option>
-                        <option value="sfu">SFU</option>
-                        <option value="bro">BRO</option>
-                        <option value="web">WEB</option>
-                        <option value="admin">ADMIN</option>
-                    </select>
                 </div>
 
                 <div class="view-toggle">
@@ -4575,7 +4555,6 @@
                 const cardView = document.querySelector('.card-view');
                 const comparisonView = document.querySelector('.comparison-view');
                 const searchInput = document.getElementById('projectSearch');
-                const filterSelect = document.getElementById('projectFilter');
                 const goalOptions = document.querySelectorAll('.goal-option');
                 const resultCount = document.getElementById('resultCount');
 
@@ -4654,7 +4633,6 @@
                 // Search and filter functionality
                 function filterProjects() {
                     currentSearch = searchInput.value.toLowerCase();
-                    currentFilter = filterSelect.value;
                     let visibleProjects = 0;
 
                     // Filter table rows
@@ -4758,12 +4736,11 @@
                     }
                 }
 
-                // Event listeners for search and filter
+                // Event listeners for search and goal filtering
                 searchInput.addEventListener('input', filterProjects);
-                filterSelect.addEventListener('change', filterProjects);
                 goalOptions.forEach((option) => {
                     option.addEventListener('click', function () {
-                        filterSelect.value = this.dataset.projectChoice;
+                        currentFilter = this.dataset.projectChoice;
                         searchInput.value = '';
                         filterProjects();
                         document.querySelector('.table-controls').scrollIntoView({
