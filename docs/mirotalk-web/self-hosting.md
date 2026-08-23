@@ -66,31 +66,31 @@ module.exports = {
   //...
   MiroTalk: {
     P2P: {
-      Visible: true,
-      Home: "https://P2P-DOMAIN-NAME",
-      Room: "https://P2P-DOMAIN-NAME/newcall",
-      Join: "https://P2P-DOMAIN-NAME/join/",
-      //...
+        Visible: true,
+        Home: "https://P2P-DOMAIN-NAME",
+        Room: "https://P2P-DOMAIN-NAME/newcall",
+        Join: "https://P2P-DOMAIN-NAME/join/",
+        //...
     },
     SFU: {
-      Visible: true,
-      Home: "https://SFU-DOMAIN-NAME",
-      Room: "https://SFU-DOMAIN-NAME/newroom",
-      Join: "https://SFU-DOMAIN-NAME/join/",
-      //...
+        Visible: true,
+        Home: "https://SFU-DOMAIN-NAME",
+        Room: "https://SFU-DOMAIN-NAME/newroom",
+        Join: "https://SFU-DOMAIN-NAME/join/",
+        //...
     },
     C2C: {
-      Visible: true,
-      Home: "https://C2C-DOMAIN-NAME",
-      Room: "https://C2C-DOMAIN-NAME/?room=",
-      //...
+        Visible: true,
+        Home: "https://C2C-DOMAIN-NAME",
+        Room: "https://C2C-DOMAIN-NAME/?room=",
+        //...
     },
     BRO: {
-      Visible: true,
-      Home: "https://BRO-DOMAIN-NAME",
-      Broadcast: "https://BRO-DOMAIN-NAME/broadcast?id=",
-      Viewer: "https://BRO-DOMAIN-NAME/viewer?id=",
-      //...
+        Visible: true,
+        Home: "https://BRO-DOMAIN-NAME",
+        Broadcast: "https://BRO-DOMAIN-NAME/broadcast?id=",
+        Viewer: "https://BRO-DOMAIN-NAME/viewer?id=",
+        //...
     },        
     CME: {
         Visible: true,
