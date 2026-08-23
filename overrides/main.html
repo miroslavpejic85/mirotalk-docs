@@ -1,10 +1,19 @@
 {% extends "base.html" %}
 
-{% block extrahead %}
+{% block htmltitle %}
   {% if page and page.is_homepage %}
-    {% set og_title = config.site_name %}
+    <title>MiroTalk: Open-Source WebRTC Video Conferencing</title>
   {% else %}
-    {% set og_title = page.title ~ " - " ~ config.site_name %}
+    {{ super() }}
+  {% endif %}
+{% endblock %}
+
+{% block extrahead %}
+  {% set page_title = page.meta.title if page and page.meta and page.meta.title else page.title %}
+  {% if page and page.is_homepage %}
+    {% set og_title = page_title %}
+  {% else %}
+    {% set og_title = page_title ~ " - " ~ config.site_name %}
   {% endif %}
   {% set og_description = page.meta.description if page and page.meta and page.meta.description else config.site_description %}
   {% set og_image = config.site_url ~ config.extra.social_image %}
@@ -16,12 +25,64 @@
   <meta property="og:url" content="{{ page.canonical_url }}">
   <meta property="og:image" content="{{ og_image }}">
   <meta property="og:image:type" content="image/png">
-  <meta property="og:image:width" content="1426">
-  <meta property="og:image:height" content="800">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="MiroTalk WebRTC platform preview">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{{ og_title }}">
   <meta name="twitter:description" content="{{ og_description }}">
   <meta name="twitter:image" content="{{ og_image }}">
+  <meta name="twitter:image:alt" content="MiroTalk WebRTC platform preview">
+
+  {% if page and page.is_homepage %}
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://docs.mirotalk.com/#organization",
+            "name": "MiroTalk",
+            "url": "https://docs.mirotalk.com/",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://docs.mirotalk.com/images/mirotalk-preview.png",
+              "width": 1200,
+              "height": 630
+            },
+            "sameAs": [
+              "https://github.com/miroslavpejic85",
+              "https://discord.gg/rgGYfeYW3N"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://docs.mirotalk.com/#website",
+            "url": "https://docs.mirotalk.com/",
+            "name": "MiroTalk Documentation",
+            "description": "Open-source WebRTC video conferencing projects, integration guides, and self-hosting documentation.",
+            "publisher": {
+              "@id": "https://docs.mirotalk.com/#organization"
+            },
+            "inLanguage": "en"
+          },
+          {
+            "@type": "ItemList",
+            "name": "MiroTalk WebRTC Projects",
+            "numberOfItems": 7,
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "MiroTalk SFU", "url": "https://docs.mirotalk.com/mirotalk-sfu/" },
+              { "@type": "ListItem", "position": 2, "name": "MiroTalk P2P", "url": "https://docs.mirotalk.com/mirotalk-p2p/" },
+              { "@type": "ListItem", "position": 3, "name": "MiroTalk C2C", "url": "https://docs.mirotalk.com/mirotalk-c2c/" },
+              { "@type": "ListItem", "position": 4, "name": "MiroTalk BRO", "url": "https://docs.mirotalk.com/mirotalk-bro/" },
+              { "@type": "ListItem", "position": 5, "name": "MiroTalk CME", "url": "https://docs.mirotalk.com/mirotalk-cme/" },
+              { "@type": "ListItem", "position": 6, "name": "MiroTalk WEB", "url": "https://docs.mirotalk.com/mirotalk-web/" },
+              { "@type": "ListItem", "position": 7, "name": "MiroTalk Admin", "url": "https://docs.mirotalk.com/mirotalk-admin/" }
+            ]
+          }
+        ]
+      }
+    </script>
+  {% endif %}
 {% endblock %}

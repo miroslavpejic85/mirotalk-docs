@@ -1,5 +1,5 @@
 <p align="center">
-    <a href="https://docs.mirotalk.com"><img src="docs/images/mirotalk.gif"></a>
+    <a href="https://docs.mirotalk.com"><img src="docs/images/mirotalk-preview.png" alt="MiroTalk WebRTC documentation"></a>
 </p>
 
 <h1 align="center">MiroTalk DOCS</h1>
