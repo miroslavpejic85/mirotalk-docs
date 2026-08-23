@@ -91,6 +91,13 @@ module.exports = {
       Broadcast: "https://BRO-DOMAIN-NAME/broadcast?id=",
       Viewer: "https://BRO-DOMAIN-NAME/viewer?id=",
       //...
+    },        
+    CME: {
+        Visible: true,
+        Label: 'MiroTalk CME',
+        Home: 'https://cme.mirotalk.com',
+        Room: 'https://cme.mirotalk.com/?room=',
+        //...
     },
   },
   //...
