@@ -447,6 +447,40 @@
                 color: #72dfbd;
             }
 
+            .reviews-grid {
+                display: grid;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 12px;
+            }
+
+            .review-link {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                min-height: 64px;
+                padding: 16px 18px;
+                border: 1px solid var(--line);
+                border-radius: 6px;
+                background: var(--surface);
+                color: var(--ink);
+                font-family: 'Manrope', sans-serif;
+                font-weight: 800;
+                text-decoration: none;
+                transition: border-color 160ms ease, transform 160ms ease;
+            }
+
+            .review-link::after {
+                color: var(--cyan-dark);
+                content: '↗';
+                font-size: 18px;
+            }
+
+            .review-link:hover,
+            .review-link:focus-visible {
+                border-color: var(--cyan);
+                transform: translateY(-2px);
+            }
+
             .cta {
                 display: grid;
                 grid-template-columns: 1fr auto;
@@ -551,6 +585,10 @@
                     grid-template-columns: 1fr;
                 }
 
+                .reviews-grid {
+                    grid-template-columns: repeat(2, minmax(0, 1fr));
+                }
+
                 .license-card {
                     min-height: 0;
                 }
@@ -620,6 +658,10 @@
                 .decision-note {
                     grid-template-columns: 1fr;
                     gap: 4px;
+                }
+
+                .reviews-grid {
+                    grid-template-columns: 1fr;
                 }
 
                 .price-table th,
@@ -767,6 +809,25 @@
                                 </tr>
                             </tbody>
                         </table>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="reviews">
+                <div class="page-shell">
+                    <div class="section-heading">
+                        <h2>Verified customer reviews</h2>
+                        <p>See what customers say about MiroTalk products in independently published reviews on CodeCanyon.</p>
+                    </div>
+
+                    <div class="reviews-grid">
+                        <a class="review-link" href="https://codecanyon.net/item/mirotalk-webrtc-ultimate-bundle-for-seamless-live-smart-communication/reviews/47976343" target="_blank" rel="noopener">MiroTalk ULTIMATE reviews</a>
+                        <a class="review-link" href="https://codecanyon.net/item/mirotalk-sfu-webrtc-realtime-video-conferences/reviews/40769970" target="_blank" rel="noopener">MiroTalk SFU reviews</a>
+                        <a class="review-link" href="https://codecanyon.net/item/mirotalk-p2p-webrtc-realtime-video-conferences/reviews/38376661" target="_blank" rel="noopener">MiroTalk P2P reviews</a>
+                        <a class="review-link" href="https://codecanyon.net/item/mirotalk-c2c-webrtc-real-time-cam-2-cam-video-conferences-and-screen-sharing/reviews/43383005" target="_blank" rel="noopener">MiroTalk C2C reviews</a>
+                        <a class="review-link" href="https://codecanyon.net/item/mirotalk-bro-webrtc-p2p-live-broadcast/reviews/45887113" target="_blank" rel="noopener">MiroTalk BRO reviews</a>
+                        <a class="review-link" href="https://codecanyon.net/item/callme-easy-webrtc-video-call-app/reviews/55342915" target="_blank" rel="noopener">MiroTalk CME reviews</a>
+                        <a class="review-link" href="https://codecanyon.net/item/a-selfhosted-mirotalks-webrtc-rooms-scheduler-server/reviews/42643313" target="_blank" rel="noopener">MiroTalk WEB reviews</a>
                     </div>
                 </div>
             </section>

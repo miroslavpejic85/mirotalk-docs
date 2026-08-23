@@ -17,6 +17,7 @@ Choose the right open-source, self-hosted WebRTC architecture: peer-to-peer (P2P
 [Choose a project](#choose-a-mirotalk-webrtc-project){ .md-button .md-button--primary }
 [Compare projects](overview/index.html){ .md-button }
 [Get a license](./license/index.html){ .md-button }
+[Read customer reviews](./license/index.html#reviews){ .md-button }
 
 ## What is MiroTalk?
 
