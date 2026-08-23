@@ -6,6 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <script>
+        (() => {
+            const savedPalette = localStorage.getItem('/.__palette');
+            const savedScheme = savedPalette ? JSON.parse(savedPalette).color?.scheme : null;
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            document.documentElement.dataset.theme = savedScheme ? (savedScheme === 'slate' ? 'dark' : 'light') : (prefersDark ? 'dark' : 'light');
+        })();
+    </script>
+
     <!-- og -->
 
     <meta property="og:type" content="docs" />
@@ -1217,6 +1226,9 @@
 </head>
 
 <body>
+    <script>
+        document.body.classList.toggle('light-mode', document.documentElement.dataset.theme === 'light');
+    </script>
 
     <a href="#main" class="skip-to-content">Skip to content</a>
 
@@ -1544,22 +1556,25 @@
     <script>
         // ───── Theme Toggle ─────
         const themeToggle = document.getElementById('themeToggle');
-        const savedTheme = localStorage.getItem('mirotalk-theme');
-        if (savedTheme === 'light') {
-            document.body.classList.add('light-mode');
-            themeToggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
-        } else {
-            document.body.classList.remove('light-mode');
-            themeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
-        }
-        themeToggle.addEventListener('click', function () {
-            document.body.classList.toggle('light-mode');
-            const isLight = document.body.classList.contains('light-mode');
-            themeToggle.innerHTML = isLight
+        const palettes = {
+            light: { index: 0, color: { scheme: 'default', primary: 'blue', accent: 'light-blue' } },
+            dark: { index: 1, color: { scheme: 'slate', primary: 'black', accent: 'dark-blue' } },
+        };
+
+        function setTheme(theme) {
+            document.documentElement.dataset.theme = theme;
+            document.body.classList.toggle('light-mode', theme === 'light');
+            themeToggle.innerHTML = theme === 'light'
                 ? '<i class="fa-solid fa-moon"></i>'
                 : '<i class="fa-solid fa-sun"></i>';
-            localStorage.setItem('mirotalk-theme', isLight ? 'light' : 'dark');
+            localStorage.setItem('/.__palette', JSON.stringify(palettes[theme]));
+        }
+
+        themeToggle.addEventListener('click', function () {
+            setTheme(document.body.classList.contains('light-mode') ? 'dark' : 'light');
         });
+
+        setTheme(document.documentElement.dataset.theme);
 
         // ───── Reading Progress Bar + Back to Top + Chapter Nav ─────
         const progressBar = document.getElementById('progressBar');
