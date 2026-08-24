@@ -23,6 +23,7 @@
 
     <title>MiroTalk BRO - Banner</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -155,6 +156,8 @@
         .broadcaster .icon {
             font-size: 48px;
             margin-bottom: 10px;
+            color: #fbbf24;
+            filter: drop-shadow(0 0 12px rgba(245, 158, 11, 0.32));
         }
 
         .broadcaster h4 {
@@ -199,6 +202,7 @@
             font-size: 20px;
             display: block;
             margin-bottom: 4px;
+            color: #fb923c;
         }
 
         /* Key Metrics */
@@ -277,7 +281,26 @@
             transform: translateY(-2px);
         }
 
-        .feature-icon { font-size: 28px; margin-bottom: 10px; display: block; }
+        .feature-icon {
+            width: 42px;
+            height: 42px;
+            margin: 0 auto 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fbbf24;
+            background: rgba(245, 158, 11, 0.11);
+            border: 1px solid rgba(251, 191, 36, 0.2);
+            border-radius: 10px;
+            font-size: 28px;
+            transition: color 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+        }
+
+        .feature:hover .feature-icon {
+            color: #fed7aa;
+            background: rgba(249, 115, 22, 0.18);
+            border-color: rgba(251, 146, 60, 0.38);
+        }
 
         .feature h4 {
             font-size: 11.5px;
@@ -424,7 +447,7 @@
     <!-- Broadcast Architecture -->
     <div class="broadcast">
         <div class="broadcaster">
-            <div class="icon">📡</div>
+            <div class="icon"><i class="fa-solid fa-tower-broadcast" aria-hidden="true"></i></div>
             <h4>Broadcaster</h4>
             <p>Streams live video, audio<br>& screen to all viewers</p>
         </div>
@@ -436,19 +459,19 @@
         </div>
         <div class="viewers">
             <div class="viewer">
-                <span class="icon">👁️</span>
+                <span class="icon"><i class="fa-solid fa-eye" aria-hidden="true"></i></span>
                 Viewer 1
             </div>
             <div class="viewer">
-                <span class="icon">👁️</span>
+                <span class="icon"><i class="fa-solid fa-eye" aria-hidden="true"></i></span>
                 Viewer 2
             </div>
             <div class="viewer">
-                <span class="icon">👁️</span>
+                <span class="icon"><i class="fa-solid fa-eye" aria-hidden="true"></i></span>
                 Viewer 3
             </div>
             <div class="viewer">
-                <span class="icon">👁️</span>
+                <span class="icon"><i class="fa-solid fa-eye" aria-hidden="true"></i></span>
                 Viewer N
             </div>
         </div>
@@ -482,35 +505,35 @@
         </div>
         <div class="features-grid">
             <div class="feature">
-                <span class="feature-icon">📹</span>
+                <span class="feature-icon"><i class="fa-solid fa-video" aria-hidden="true"></i></span>
                 <h4>Live Video Stream</h4>
             </div>
             <div class="feature">
-                <span class="feature-icon">🎙️</span>
+                <span class="feature-icon"><i class="fa-solid fa-microphone" aria-hidden="true"></i></span>
                 <h4>Live Audio Stream</h4>
             </div>
             <div class="feature">
-                <span class="feature-icon">🖥️</span>
+                <span class="feature-icon"><i class="fa-solid fa-display" aria-hidden="true"></i></span>
                 <h4>Screen Sharing</h4>
             </div>
             <div class="feature">
-                <span class="feature-icon">💬</span>
+                <span class="feature-icon"><i class="fa-solid fa-comments" aria-hidden="true"></i></span>
                 <h4>Viewer Messaging</h4>
             </div>
             <div class="feature">
-                <span class="feature-icon">🔌</span>
+                <span class="feature-icon"><i class="fa-solid fa-plug" aria-hidden="true"></i></span>
                 <h4>Embeddable</h4>
             </div>
             <div class="feature">
-                <span class="feature-icon">🔒</span>
+                <span class="feature-icon"><i class="fa-solid fa-lock" aria-hidden="true"></i></span>
                 <h4>Encrypted Streams</h4>
             </div>
             <div class="feature">
-                <span class="feature-icon">🌐</span>
+                <span class="feature-icon"><i class="fa-solid fa-globe" aria-hidden="true"></i></span>
                 <h4>All Browsers</h4>
             </div>
             <div class="feature">
-                <span class="feature-icon">🐳</span>
+                <span class="feature-icon"><i class="fa-brands fa-docker" aria-hidden="true"></i></span>
                 <h4>Docker Ready</h4>
             </div>
         </div>

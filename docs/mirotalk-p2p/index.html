@@ -22,6 +22,7 @@
 
     <title>MiroTalk P2P - Banner</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -164,6 +165,8 @@
         .explainer-card .icon {
             font-size: 36px;
             margin-bottom: 10px;
+            color: #4ade80;
+            filter: drop-shadow(0 0 10px rgba(34, 197, 94, 0.28));
         }
 
         .explainer-card h4 {
@@ -268,8 +271,23 @@
 
         .feature-icon {
             font-size: 28px;
-            margin-bottom: 10px;
-            display: block;
+            width: 42px;
+            height: 42px;
+            margin: 0 auto 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #4ade80;
+            background: rgba(34, 197, 94, 0.11);
+            border: 1px solid rgba(74, 222, 128, 0.2);
+            border-radius: 10px;
+            transition: color 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+        }
+
+        .feature:hover .feature-icon {
+            color: #a7f3d0;
+            background: rgba(16, 185, 129, 0.2);
+            border-color: rgba(45, 212, 191, 0.38);
         }
 
         .feature h4 {
@@ -415,26 +433,26 @@
             Direct Browser-to-Browser Video Calls — No Server in the Middle
         </p>
         <p class="hero-tagline">
-            No Download &bull; No Plugin &bull; No Login &bull; Completely Free & Open Source
+            No Download &bull; No Plugin &bull; No Login
         </p>
     </div>
 
     <!-- P2P Concept -->
     <div class="explainer">
         <div class="explainer-card">
-            <div class="icon">👤</div>
+            <div class="icon"><i class="fa-solid fa-user" aria-hidden="true"></i></div>
             <h4>User A</h4>
             <p>Opens browser and joins a room with a single click</p>
         </div>
         <div class="explainer-arrow">⟷</div>
         <div class="explainer-card">
-            <div class="icon">🔐</div>
+            <div class="icon"><i class="fa-solid fa-lock" aria-hidden="true"></i></div>
             <h4>Direct Encrypted Connection</h4>
             <p>End-to-end encrypted via WebRTC — no data passes through servers</p>
         </div>
         <div class="explainer-arrow">⟷</div>
         <div class="explainer-card">
-            <div class="icon">👤</div>
+            <div class="icon"><i class="fa-solid fa-user" aria-hidden="true"></i></div>
             <h4>User B</h4>
             <p>Instant connection with ultra-low latency and crystal-clear quality</p>
         </div>
@@ -468,43 +486,43 @@
         </div>
         <div class="features-grid">
             <div class="feature">
-                <span class="feature-icon">🖥️</span>
+                <span class="feature-icon"><i class="fa-solid fa-display" aria-hidden="true"></i></span>
                 <h4>Screen Sharing</h4>
             </div>
             <div class="feature">
-                <span class="feature-icon">📹</span>
+                <span class="feature-icon"><i class="fa-solid fa-video" aria-hidden="true"></i></span>
                 <h4>WebCam Streaming</h4>
             </div>
             <div class="feature">
-                <span class="feature-icon">🎙️</span>
+                <span class="feature-icon"><i class="fa-solid fa-microphone" aria-hidden="true"></i></span>
                 <h4>Audio Streaming</h4>
             </div>
             <div class="feature">
-                <span class="feature-icon">💬</span>
+                <span class="feature-icon"><i class="fa-solid fa-comments" aria-hidden="true"></i></span>
                 <h4>Chat & Messaging</h4>
             </div>
             <div class="feature">
-                <span class="feature-icon">⏺️</span>
+                <span class="feature-icon"><i class="fa-solid fa-record-vinyl" aria-hidden="true"></i></span>
                 <h4>Meeting Recording</h4>
             </div>
             <div class="feature">
-                <span class="feature-icon">🎨</span>
+                <span class="feature-icon"><i class="fa-solid fa-palette" aria-hidden="true"></i></span>
                 <h4>Whiteboard</h4>
             </div>
             <div class="feature">
-                <span class="feature-icon">📁</span>
+                <span class="feature-icon"><i class="fa-solid fa-folder" aria-hidden="true"></i></span>
                 <h4>File Sharing</h4>
             </div>
             <div class="feature">
-                <span class="feature-icon">🤖</span>
+                <span class="feature-icon"><i class="fa-solid fa-robot" aria-hidden="true"></i></span>
                 <h4>ChatGPT AI</h4>
             </div>
             <div class="feature">
-                <span class="feature-icon">⚡</span>
+                <span class="feature-icon"><i class="fa-solid fa-bolt" aria-hidden="true"></i></span>
                 <h4>REST API</h4>
             </div>
             <div class="feature">
-                <span class="feature-icon">🔒</span>
+                <span class="feature-icon"><i class="fa-solid fa-lock" aria-hidden="true"></i></span>
                 <h4>Total Privacy</h4>
             </div>
         </div>

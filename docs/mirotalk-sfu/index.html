@@ -22,6 +22,7 @@
 
     <title>MiroTalk SFU - Banner</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -174,6 +175,7 @@
             font-size: 22px;
             display: block;
             margin-bottom: 4px;
+            color: #a5b4fc;
         }
 
         .arch-arrow {
@@ -193,6 +195,8 @@
         .arch-server .server-icon {
             font-size: 40px;
             margin-bottom: 8px;
+            color: #c4b5fd;
+            filter: drop-shadow(0 0 12px rgba(139, 92, 246, 0.35));
         }
 
         .arch-server h4 {
@@ -291,8 +295,23 @@
 
         .feature-icon {
             font-size: 28px;
-            margin-bottom: 10px;
-            display: block;
+            width: 42px;
+            height: 42px;
+            margin: 0 auto 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #a5b4fc;
+            background: rgba(99, 102, 241, 0.12);
+            border: 1px solid rgba(129, 140, 248, 0.2);
+            border-radius: 10px;
+            transition: color 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+        }
+
+        .feature:hover .feature-icon {
+            color: #e9d5ff;
+            background: rgba(139, 92, 246, 0.2);
+            border-color: rgba(192, 132, 252, 0.38);
         }
 
         .feature h4 {
@@ -450,36 +469,36 @@
     <div class="architecture">
         <div class="arch-users-left">
             <div class="arch-user">
-                <span class="icon">👤</span>
+                <span class="icon"><i class="fa-solid fa-user" aria-hidden="true"></i></span>
                 User 1
             </div>
             <div class="arch-user">
-                <span class="icon">👤</span>
+                <span class="icon"><i class="fa-solid fa-user" aria-hidden="true"></i></span>
                 User 2
             </div>
             <div class="arch-user">
-                <span class="icon">👤</span>
+                <span class="icon"><i class="fa-solid fa-user" aria-hidden="true"></i></span>
                 User 3
             </div>
         </div>
         <div class="arch-arrow">⟶</div>
         <div class="arch-server">
-            <div class="server-icon">🖥️</div>
+            <div class="server-icon"><i class="fa-solid fa-server" aria-hidden="true"></i></div>
             <h4>SFU Server</h4>
             <p>Selective Forwarding Unit<br>Optimized media routing for<br>large-scale meetings</p>
         </div>
         <div class="arch-arrow">⟶</div>
         <div class="arch-users-right">
             <div class="arch-user">
-                <span class="icon">👤</span>
+                <span class="icon"><i class="fa-solid fa-user" aria-hidden="true"></i></span>
                 User 4
             </div>
             <div class="arch-user">
-                <span class="icon">👤</span>
+                <span class="icon"><i class="fa-solid fa-user" aria-hidden="true"></i></span>
                 User 5
             </div>
             <div class="arch-user">
-                <span class="icon">👤</span>
+                <span class="icon"><i class="fa-solid fa-user" aria-hidden="true"></i></span>
                 User N
             </div>
         </div>
@@ -513,67 +532,67 @@
         </div>
         <div class="features-grid">
             <div class="feature">
-                <span class="feature-icon">🖥️</span>
+                <span class="feature-icon"><i class="fa-solid fa-display" aria-hidden="true"></i></span>
                 <h4>Screen Sharing</h4>
             </div>
             <div class="feature">
-                <span class="feature-icon">📹</span>
+                <span class="feature-icon"><i class="fa-solid fa-video" aria-hidden="true"></i></span>
                 <h4>WebCam Streaming</h4>
             </div>
             <div class="feature">
-                <span class="feature-icon">🎙️</span>
+                <span class="feature-icon"><i class="fa-solid fa-microphone" aria-hidden="true"></i></span>
                 <h4>Audio Streaming</h4>
             </div>
             <div class="feature">
-                <span class="feature-icon">💬</span>
+                <span class="feature-icon"><i class="fa-solid fa-comments" aria-hidden="true"></i></span>
                 <h4>Chat & Messaging</h4>
             </div>
             <div class="feature">
-                <span class="feature-icon">⏺️</span>
+                <span class="feature-icon"><i class="fa-solid fa-record-vinyl" aria-hidden="true"></i></span>
                 <h4>Meeting Recording</h4>
             </div>
             <div class="feature">
-                <span class="feature-icon">🎨</span>
+                <span class="feature-icon"><i class="fa-solid fa-palette" aria-hidden="true"></i></span>
                 <h4>Whiteboard</h4>
             </div>
             <div class="feature">
-                <span class="feature-icon">📁</span>
+                <span class="feature-icon"><i class="fa-solid fa-folder" aria-hidden="true"></i></span>
                 <h4>File Sharing</h4>
             </div>
             <div class="feature">
-                <span class="feature-icon">📡</span>
+                <span class="feature-icon"><i class="fa-solid fa-tower-broadcast" aria-hidden="true"></i></span>
                 <h4>Broadcasting</h4>
             </div>
             <div class="feature">
-                <span class="feature-icon">🤖</span>
+                <span class="feature-icon"><i class="fa-solid fa-robot" aria-hidden="true"></i></span>
                 <h4>ChatGPT & AI</h4>
             </div>
             <div class="feature">
-                <span class="feature-icon">👤</span>
+                <span class="feature-icon"><i class="fa-solid fa-user" aria-hidden="true"></i></span>
                 <h4>AI Avatars</h4>
             </div>
             <div class="feature">
-                <span class="feature-icon">🎬</span>
+                <span class="feature-icon"><i class="fa-solid fa-film" aria-hidden="true"></i></span>
                 <h4>RTMP Streaming</h4>
             </div>
             <div class="feature">
-                <span class="feature-icon">🌄</span>
+                <span class="feature-icon"><i class="fa-solid fa-image" aria-hidden="true"></i></span>
                 <h4>Virtual Backgrounds</h4>
             </div>
             <div class="feature">
-                <span class="feature-icon">⚡</span>
+                <span class="feature-icon"><i class="fa-solid fa-bolt" aria-hidden="true"></i></span>
                 <h4>REST API</h4>
             </div>
             <div class="feature">
-                <span class="feature-icon">🔒</span>
+                <span class="feature-icon"><i class="fa-solid fa-lock" aria-hidden="true"></i></span>
                 <h4>Total Privacy</h4>
             </div>
             <div class="feature">
-                <span class="feature-icon">🛡️</span>
+                <span class="feature-icon"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i></span>
                 <h4>Max Security</h4>
             </div>
             <div class="feature">
-                <span class="feature-icon">🌐</span>
+                <span class="feature-icon"><i class="fa-solid fa-globe" aria-hidden="true"></i></span>
                 <h4>All Browsers</h4>
             </div>
         </div>

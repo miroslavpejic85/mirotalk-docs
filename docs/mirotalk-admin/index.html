@@ -22,6 +22,7 @@
 
     <title>MiroTalk Admin - Banner</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -284,8 +285,24 @@
         }
 
         .feature-icon {
+            width: 44px;
+            height: 44px;
+            margin: 0 auto 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #7dd3fc;
+            background: rgba(59, 130, 246, 0.12);
+            border: 1px solid rgba(125, 211, 252, 0.22);
+            border-radius: 11px;
             font-size: 28px;
-            margin-bottom: 10px;
+            transition: color 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+        }
+
+        .feature:hover .feature-icon {
+            color: #dcfce7;
+            background: rgba(34, 197, 94, 0.16);
+            border-color: rgba(74, 222, 128, 0.34);
         }
 
         .feature h3 {
@@ -469,22 +486,22 @@
             </div>
             <div class="features-grid">
                 <div class="feature">
-                    <div class="feature-icon">🔐</div>
+                    <div class="feature-icon"><i class="fa-solid fa-lock" aria-hidden="true"></i></div>
                     <h3>Access Control</h3>
                     <p>Protect the dashboard with custom credentials, password hashing, and JWT secrets.</p>
                 </div>
                 <div class="feature">
-                    <div class="feature-icon">🚀</div>
+                    <div class="feature-icon"><i class="fa-solid fa-rocket" aria-hidden="true"></i></div>
                     <h3>Fast Setup</h3>
                     <p>Start quickly with standard Node.js setup, PM2 process management, or Docker-based deployment.</p>
                 </div>
                 <div class="feature">
-                    <div class="feature-icon">🖥️</div>
+                    <div class="feature-icon"><i class="fa-solid fa-display" aria-hidden="true"></i></div>
                     <h3>Instance Oversight</h3>
                     <p>Track and manage multiple MiroTalk services from one place instead of separate machine-by-machine workflows.</p>
                 </div>
                 <div class="feature">
-                    <div class="feature-icon">🛠️</div>
+                    <div class="feature-icon"><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i></div>
                     <h3>Operational Flexibility</h3>
                     <p>Choose SSH, Docker, or PM2 depending on how your infrastructure is currently managed.</p>
                 </div>

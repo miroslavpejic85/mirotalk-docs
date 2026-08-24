@@ -22,6 +22,7 @@
 
     <title>MiroTalk C2C - Banner</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -162,6 +163,8 @@
             justify-content: center;
             font-size: 36px;
             margin: 0 auto 14px;
+            color: #f472b6;
+            box-shadow: inset 0 0 24px rgba(236, 72, 153, 0.08);
         }
 
         .concept-user h4 {
@@ -230,6 +233,8 @@
             color: #e6edf3;
             margin-bottom: 8px;
         }
+
+        .embed-highlight h3 i { color: #f472b6; }
 
         .embed-highlight .code-sample {
             display: inline-block;
@@ -327,7 +332,26 @@
             transform: translateY(-2px);
         }
 
-        .feature-icon { font-size: 28px; margin-bottom: 10px; display: block; }
+        .feature-icon {
+            width: 42px;
+            height: 42px;
+            margin: 0 auto 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #f472b6;
+            background: rgba(236, 72, 153, 0.11);
+            border: 1px solid rgba(244, 114, 182, 0.2);
+            border-radius: 10px;
+            font-size: 28px;
+            transition: color 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+        }
+
+        .feature:hover .feature-icon {
+            color: #fecdd3;
+            background: rgba(244, 63, 94, 0.18);
+            border-color: rgba(251, 113, 133, 0.38);
+        }
 
         .feature h4 {
             font-size: 11.5px;
@@ -477,7 +501,7 @@
     <!-- C2C Concept -->
     <div class="concept">
         <div class="concept-user">
-            <div class="avatar">👤</div>
+            <div class="avatar"><i class="fa-solid fa-user" aria-hidden="true"></i></div>
             <h4>Caller</h4>
             <p>Initiates a 1-on-1 video call directly from your website</p>
         </div>
@@ -486,7 +510,7 @@
             <div class="label">P2P Encrypted</div>
         </div>
         <div class="concept-user">
-            <div class="avatar">👤</div>
+            <div class="avatar"><i class="fa-solid fa-user" aria-hidden="true"></i></div>
             <h4>Receiver</h4>
             <p>Joins instantly — crystal-clear video with zero latency</p>
         </div>
@@ -494,7 +518,7 @@
 
     <!-- Embed Highlight -->
     <div class="embed-highlight">
-        <h3>🔌 Embed in Any Website with a Simple iFrame</h3>
+        <h3><i class="fa-solid fa-plug" aria-hidden="true"></i> Embed in Any Website with a Simple iFrame</h3>
         <div class="code-sample">
             <span>&lt;iframe</span> src="https://c2c.mirotalk.com" <span>/&gt;</span>
         </div>
@@ -529,35 +553,35 @@
         </div>
         <div class="features-grid">
             <div class="feature">
-                <span class="feature-icon">🖥️</span>
+                <span class="feature-icon"><i class="fa-solid fa-display" aria-hidden="true"></i></span>
                 <h4>Screen Sharing</h4>
             </div>
             <div class="feature">
-                <span class="feature-icon">📹</span>
+                <span class="feature-icon"><i class="fa-solid fa-video" aria-hidden="true"></i></span>
                 <h4>WebCam Streaming</h4>
             </div>
             <div class="feature">
-                <span class="feature-icon">🎙️</span>
+                <span class="feature-icon"><i class="fa-solid fa-microphone" aria-hidden="true"></i></span>
                 <h4>Audio Streaming</h4>
             </div>
             <div class="feature">
-                <span class="feature-icon">🔌</span>
+                <span class="feature-icon"><i class="fa-solid fa-plug" aria-hidden="true"></i></span>
                 <h4>iFrame Embed</h4>
             </div>
             <div class="feature">
-                <span class="feature-icon">🔒</span>
+                <span class="feature-icon"><i class="fa-solid fa-lock" aria-hidden="true"></i></span>
                 <h4>E2E Encrypted</h4>
             </div>
             <div class="feature">
-                <span class="feature-icon">⚡</span>
+                <span class="feature-icon"><i class="fa-solid fa-bolt" aria-hidden="true"></i></span>
                 <h4>Ultra-Low Latency</h4>
             </div>
             <div class="feature">
-                <span class="feature-icon">🌐</span>
+                <span class="feature-icon"><i class="fa-solid fa-globe" aria-hidden="true"></i></span>
                 <h4>All Browsers</h4>
             </div>
             <div class="feature">
-                <span class="feature-icon">🐳</span>
+                <span class="feature-icon"><i class="fa-brands fa-docker" aria-hidden="true"></i></span>
                 <h4>Docker Ready</h4>
             </div>
         </div>

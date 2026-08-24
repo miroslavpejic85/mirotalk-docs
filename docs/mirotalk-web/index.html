@@ -22,6 +22,7 @@
 
     <title>MiroTalk WEB - Banner</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -172,6 +173,8 @@
             align-items: center;
             justify-content: center;
             font-size: 18px;
+            color: #ffffff;
+            box-shadow: 0 0 18px rgba(6, 182, 212, 0.24);
         }
 
         .dash-sidebar .user-name {
@@ -195,6 +198,12 @@
             font-weight: 600;
             color: #8b949e;
             margin-bottom: 4px;
+        }
+
+        .dash-nav-item i {
+            width: 16px;
+            color: #67e8f9;
+            text-align: center;
         }
 
         .dash-nav-item.active {
@@ -225,6 +234,7 @@
         .dash-card .card-icon {
             font-size: 24px;
             margin-bottom: 8px;
+            color: #67e8f9;
         }
 
         .dash-card .card-label {
@@ -272,7 +282,12 @@
             gap: 8px;
         }
 
-        .room-info .room-icon { font-size: 16px; }
+        .room-info .room-icon {
+            width: 20px;
+            color: #67e8f9;
+            font-size: 16px;
+            text-align: center;
+        }
 
         .room-info .room-name {
             font-size: 12px;
@@ -316,6 +331,11 @@
         }
 
         .version-chip .chip-icon { font-size: 24px; margin-bottom: 6px; display: block; }
+
+        .version-chip.p2p .chip-icon { color: #4ade80; }
+        .version-chip.sfu .chip-icon { color: #a5b4fc; }
+        .version-chip.c2c .chip-icon { color: #f472b6; }
+        .version-chip.bro .chip-icon { color: #fbbf24; }
 
         .version-chip h4 {
             font-size: 14px;
@@ -374,7 +394,26 @@
             transform: translateY(-2px);
         }
 
-        .feature-icon { font-size: 28px; margin-bottom: 10px; display: block; }
+        .feature-icon {
+            width: 42px;
+            height: 42px;
+            margin: 0 auto 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #67e8f9;
+            background: rgba(6, 182, 212, 0.11);
+            border: 1px solid rgba(34, 211, 238, 0.2);
+            border-radius: 10px;
+            font-size: 28px;
+            transition: color 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+        }
+
+        .feature:hover .feature-icon {
+            color: #e0f2fe;
+            background: rgba(14, 165, 233, 0.2);
+            border-color: rgba(56, 189, 248, 0.38);
+        }
 
         .feature h4 {
             font-size: 11.5px;
@@ -527,38 +566,38 @@
         <div class="dashboard">
             <div class="dash-sidebar">
                 <div class="user-info">
-                    <div class="user-avatar">👤</div>
+                    <div class="user-avatar"><i class="fa-solid fa-user" aria-hidden="true"></i></div>
                     <div>
                         <div class="user-name">Admin User</div>
                         <div class="user-role">Administrator</div>
                     </div>
                 </div>
-                <div class="dash-nav-item active">📊 Dashboard</div>
-                <div class="dash-nav-item">👥 Users</div>
-                <div class="dash-nav-item">🏠 Rooms</div>
-                <div class="dash-nav-item">📅 Schedule</div>
-                <div class="dash-nav-item">📧 Invitations</div>
-                <div class="dash-nav-item">⚙️ Settings</div>
+                <div class="dash-nav-item active"><i class="fa-solid fa-chart-column" aria-hidden="true"></i> Dashboard</div>
+                <div class="dash-nav-item"><i class="fa-solid fa-users" aria-hidden="true"></i> Users</div>
+                <div class="dash-nav-item"><i class="fa-solid fa-house" aria-hidden="true"></i> Rooms</div>
+                <div class="dash-nav-item"><i class="fa-solid fa-calendar-days" aria-hidden="true"></i> Schedule</div>
+                <div class="dash-nav-item"><i class="fa-solid fa-envelope" aria-hidden="true"></i> Invitations</div>
+                <div class="dash-nav-item"><i class="fa-solid fa-gear" aria-hidden="true"></i> Settings</div>
             </div>
             <div class="dash-main">
                 <div class="dash-cards">
                     <div class="dash-card">
-                        <div class="card-icon">👥</div>
+                        <div class="card-icon"><i class="fa-solid fa-users" aria-hidden="true"></i></div>
                         <div class="card-label">Users</div>
                         <div class="card-value">∞</div>
                     </div>
                     <div class="dash-card">
-                        <div class="card-icon">🏠</div>
+                        <div class="card-icon"><i class="fa-solid fa-house" aria-hidden="true"></i></div>
                         <div class="card-label">Rooms</div>
                         <div class="card-value">∞</div>
                     </div>
                     <div class="dash-card">
-                        <div class="card-icon">📅</div>
+                        <div class="card-icon"><i class="fa-solid fa-calendar-days" aria-hidden="true"></i></div>
                         <div class="card-label">Scheduled</div>
                         <div class="card-value">∞</div>
                     </div>
                     <div class="dash-card">
-                        <div class="card-icon">🔌</div>
+                        <div class="card-icon"><i class="fa-solid fa-plug" aria-hidden="true"></i></div>
                         <div class="card-label">Versions</div>
                         <div class="card-value">4</div>
                     </div>
@@ -567,7 +606,7 @@
                     <h4>Scheduled Meetings</h4>
                     <div class="room-row">
                         <div class="room-info">
-                            <span class="room-icon">🔗</span>
+                            <span class="room-icon"><i class="fa-solid fa-link" aria-hidden="true"></i></span>
                             <span class="room-name">Team Standup</span>
                             <span class="room-type p2p">P2P</span>
                         </div>
@@ -575,7 +614,7 @@
                     </div>
                     <div class="room-row">
                         <div class="room-info">
-                            <span class="room-icon">🖥️</span>
+                            <span class="room-icon"><i class="fa-solid fa-display" aria-hidden="true"></i></span>
                             <span class="room-name">Company All-Hands</span>
                             <span class="room-type sfu">SFU</span>
                         </div>
@@ -583,7 +622,7 @@
                     </div>
                     <div class="room-row">
                         <div class="room-info">
-                            <span class="room-icon">💬</span>
+                            <span class="room-icon"><i class="fa-solid fa-comments" aria-hidden="true"></i></span>
                             <span class="room-name">Client Consultation</span>
                             <span class="room-type c2c">C2C</span>
                         </div>
@@ -591,7 +630,7 @@
                     </div>
                     <div class="room-row">
                         <div class="room-info">
-                            <span class="room-icon">📡</span>
+                            <span class="room-icon"><i class="fa-solid fa-tower-broadcast" aria-hidden="true"></i></span>
                             <span class="room-name">Product Demo</span>
                             <span class="room-type bro">BRO</span>
                         </div>
@@ -605,22 +644,22 @@
     <!-- Versions Supported -->
     <div class="versions-bar">
         <div class="version-chip p2p">
-            <span class="chip-icon">🔗</span>
+            <span class="chip-icon"><i class="fa-solid fa-link" aria-hidden="true"></i></span>
             <h4>P2P</h4>
             <p>Small groups, 5-8 users per room</p>
         </div>
         <div class="version-chip sfu">
-            <span class="chip-icon">🖥️</span>
+            <span class="chip-icon"><i class="fa-solid fa-display" aria-hidden="true"></i></span>
             <h4>SFU</h4>
             <p>Large groups, 8+ users per room</p>
         </div>
         <div class="version-chip c2c">
-            <span class="chip-icon">💬</span>
+            <span class="chip-icon"><i class="fa-solid fa-comments" aria-hidden="true"></i></span>
             <h4>C2C</h4>
             <p>1-on-1, 2 users per room</p>
         </div>
         <div class="version-chip bro">
-            <span class="chip-icon">📡</span>
+            <span class="chip-icon"><i class="fa-solid fa-tower-broadcast" aria-hidden="true"></i></span>
             <h4>BRO</h4>
             <p>1 broadcaster, many viewers</p>
         </div>
@@ -634,63 +673,63 @@
         </div>
         <div class="features-grid">
             <div class="feature">
-                <span class="feature-icon">👥</span>
+                <span class="feature-icon"><i class="fa-solid fa-users" aria-hidden="true"></i></span>
                 <h4>User Management</h4>
             </div>
             <div class="feature">
-                <span class="feature-icon">📅</span>
+                <span class="feature-icon"><i class="fa-solid fa-calendar-days" aria-hidden="true"></i></span>
                 <h4>Room Scheduling</h4>
             </div>
             <div class="feature">
-                <span class="feature-icon">📧</span>
+                <span class="feature-icon"><i class="fa-solid fa-envelope" aria-hidden="true"></i></span>
                 <h4>Email Invites</h4>
             </div>
             <div class="feature">
-                <span class="feature-icon">📱</span>
+                <span class="feature-icon"><i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i></span>
                 <h4>SMS Invites</h4>
             </div>
             <div class="feature">
-                <span class="feature-icon">⏰</span>
+                <span class="feature-icon"><i class="fa-solid fa-clock" aria-hidden="true"></i></span>
                 <h4>Email Reminders</h4>
             </div>
             <div class="feature">
-                <span class="feature-icon">🗓️</span>
+                <span class="feature-icon"><i class="fa-solid fa-calendar-week" aria-hidden="true"></i></span>
                 <h4>Google Calendar</h4>
             </div>
             <div class="feature">
-                <span class="feature-icon">📆</span>
+                <span class="feature-icon"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i></span>
                 <h4>Outlook Calendar</h4>
             </div>
             <div class="feature">
-                <span class="feature-icon">🔐</span>
+                <span class="feature-icon"><i class="fa-solid fa-lock" aria-hidden="true"></i></span>
                 <h4>Authentication</h4>
             </div>
             <div class="feature">
-                <span class="feature-icon">🗄️</span>
+                <span class="feature-icon"><i class="fa-solid fa-database" aria-hidden="true"></i></span>
                 <h4>MongoDB</h4>
             </div>
             <div class="feature">
-                <span class="feature-icon">📊</span>
+                <span class="feature-icon"><i class="fa-solid fa-chart-column" aria-hidden="true"></i></span>
                 <h4>Admin Dashboard</h4>
             </div>
             <div class="feature">
-                <span class="feature-icon">🔌</span>
+                <span class="feature-icon"><i class="fa-solid fa-plug" aria-hidden="true"></i></span>
                 <h4>All MiroTalk Versions</h4>
             </div>
             <div class="feature">
-                <span class="feature-icon">⚡</span>
+                <span class="feature-icon"><i class="fa-solid fa-bolt" aria-hidden="true"></i></span>
                 <h4>REST API</h4>
             </div>
             <div class="feature">
-                <span class="feature-icon">💳</span>
+                <span class="feature-icon"><i class="fa-solid fa-credit-card" aria-hidden="true"></i></span>
                 <h4>Stripe Payments</h4>
             </div>
             <div class="feature">
-                <span class="feature-icon">🧩</span>
+                <span class="feature-icon"><i class="fa-solid fa-puzzle-piece" aria-hidden="true"></i></span>
                 <h4>Iframe Embed</h4>
             </div>
             <div class="feature">
-                <span class="feature-icon">🐳</span>
+                <span class="feature-icon"><i class="fa-brands fa-docker" aria-hidden="true"></i></span>
                 <h4>Docker Ready</h4>
             </div>
         </div>
