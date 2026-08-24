@@ -177,7 +177,7 @@ wget -qO coturn-update.sh https://docs.mirotalk.com/scripts/coturn/coturn-update
 
 ---
 
-## **MiroTalk Whisper**
+## **Whisper**
 
 ```bash
 # Install MiroTalk Whisper
