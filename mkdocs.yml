@@ -1,4 +1,4 @@
-site_name: MiroTalk docs v1.4.22
+site_name: MiroTalk docs v1.4.23
 site_url: https://docs.mirotalk.com/
 site_description: MiroTalk is an open-source WebRTC platform for video calls, group conferencing, live streaming and click-to-call. Self-host it or embed it with a single iframe.
 site_author: Miroslav Pejic (miroslav.pejic.85@gmail.com)
@@ -15,6 +15,7 @@ nav:
   - story: story/index.html
   - about: about/index.html
   - overview: overview/index.html
+  - projects: projects/index.html
   - changelogs: changelogs/changelogs.md
   - cloudron: cloudron/cloudron.md
   - evoplat: evoplat/evoplat.md
