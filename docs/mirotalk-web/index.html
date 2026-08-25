@@ -8,8 +8,8 @@
 
     <meta property="og:type" content="docs" />
     <meta property="og:site_name" content="MiroTalk Docs" />
-    <meta property="og:title" content="MiroTalk WEB – Rooms Scheduler & User Portal" />
-    <meta property="og:description" content="Manage users, schedule meetings, organize rooms, and send invitations from one portal." />
+    <meta property="og:title" content="MiroTalk WEB – Rooms Scheduler, User Portal & CME" />
+    <meta property="og:description" content="Manage users, schedule meetings, organize rooms, send invitations, and access CME from one portal." />
     <meta property="og:image" content="https://docs.mirotalk.com/images/mirotalk-preview.png" />
     <meta property="og:url" content="https://docs.mirotalk.com/mirotalk-web/" />
 
@@ -20,7 +20,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../images/icon/favicon-16x16.png" />
     <link rel="shortcut icon" href="../images/icon/favicon.ico" />
 
-    <title>MiroTalk WEB - Meeting Scheduler & User Portal</title>
+    <title>MiroTalk WEB - Meeting Scheduler, User Portal & CME</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
     <style>
@@ -317,7 +317,7 @@
         /* MiroTalk versions supported */
         .versions-bar {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(5, 1fr);
             gap: 12px;
             margin: 0 60px 36px;
         }
@@ -336,6 +336,7 @@
         .version-chip.sfu .chip-icon { color: #a5b4fc; }
         .version-chip.c2c .chip-icon { color: #f472b6; }
         .version-chip.bro .chip-icon { color: #fbbf24; }
+        .version-chip.cme .chip-icon { color: #34d399; }
 
         .version-chip h4 {
             font-size: 14px;
@@ -354,6 +355,7 @@
         .version-chip.sfu { border-color: rgba(99, 102, 241, 0.15); }
         .version-chip.c2c { border-color: rgba(236, 72, 153, 0.15); }
         .version-chip.bro { border-color: rgba(245, 158, 11, 0.15); }
+        .version-chip.cme { border-color: rgba(16, 185, 129, 0.15); }
 
         /* Features */
         .features-section { padding: 0 60px 36px; }
@@ -550,16 +552,16 @@
     <div class="hero">
         <div class="hero-badge">
             <span class="dot"></span>
-            WebRTC Rooms Scheduler & User Portal
+            WebRTC Rooms Scheduler, User Portal & CME
         </div>
         <h1>
             <span class="gradient-text">MiroTalk WEB</span>
         </h1>
         <p class="hero-subtitle">
-            Manage Users, Schedule Meetings & Organize Rooms from One Portal
+            Manage Users, Schedule Meetings, Organize Rooms & Access CME from One Portal
         </p>
         <p class="hero-tagline">
-            User Management &bull; Room Scheduling &bull; Email / SMS Invites &bull; MongoDB Powered
+            User Management &bull; Room Scheduling &bull; CME &bull; Email / SMS Invites &bull; MongoDB Powered
         </p>
     </div>
 
@@ -601,7 +603,7 @@
                     <div class="dash-card">
                         <div class="card-icon"><i class="fa-solid fa-plug" aria-hidden="true"></i></div>
                         <div class="card-label">Versions</div>
-                        <div class="card-value">4</div>
+                        <div class="card-value">5</div>
                     </div>
                 </div>
                 <div class="dash-room-list">
@@ -665,13 +667,18 @@
             <h4>BRO</h4>
             <p>1 broadcaster, many viewers</p>
         </div>
+        <div class="version-chip cme">
+            <span class="chip-icon"><i class="fa-solid fa-phone" aria-hidden="true"></i></span>
+            <h4>CME</h4>
+            <p>Instant one-to-one video calls</p>
+        </div>
     </div>
 
     <!-- Features -->
     <div class="features-section">
         <div class="features-header">
             <h2>Complete Scheduling & User Portal</h2>
-            <p>Centralized meeting access for your MiroTalk communication products</p>
+            <p>Centralized access to P2P, SFU, C2C, BRO, and CME</p>
         </div>
         <div class="features-grid">
             <div class="feature">
@@ -692,15 +699,19 @@
             </div>
             <div class="feature">
                 <span class="feature-icon"><i class="fa-solid fa-clock" aria-hidden="true"></i></span>
-                <h4>Email Reminders</h4>
+                <h4>Availability</h4>
             </div>
             <div class="feature">
                 <span class="feature-icon"><i class="fa-solid fa-calendar-week" aria-hidden="true"></i></span>
-                <h4>Google Calendar</h4>
+                <h4>Add to Google Calendar</h4>
             </div>
             <div class="feature">
                 <span class="feature-icon"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i></span>
-                <h4>Outlook Calendar</h4>
+                <h4>Add to Outlook Calendar</h4>
+            </div>
+            <div class="feature">
+                <span class="feature-icon"><i class="fa-solid fa-bell" aria-hidden="true"></i></span>
+                <h4>Meeting Reminders</h4>
             </div>
             <div class="feature">
                 <span class="feature-icon"><i class="fa-solid fa-lock" aria-hidden="true"></i></span>
