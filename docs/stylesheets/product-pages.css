@@ -53,9 +53,22 @@
 }
 
 body.product-p2p {
-  --professional-accent: #376df9;
-  --professional-accent-dark: #2a5ad6;
-  --professional-gradient: linear-gradient(135deg, #376df9, #7c3aed);
+  color-scheme: dark;
+  --professional-bg: #121720;
+  --professional-surface: #19202c;
+  --professional-surface-muted: rgba(244, 243, 245, 0.045);
+  --professional-surface-strong: rgba(244, 243, 245, 0.075);
+  --professional-border: rgba(244, 243, 245, 0.09);
+  --professional-border-strong: rgba(244, 243, 245, 0.16);
+  --professional-heading: #f4f3f5;
+  --professional-text: #a8afbc;
+  --professional-muted: #747d8d;
+  --professional-accent: #4774d1;
+  --professional-accent-dark: #7599e4;
+  --professional-code: #10151e;
+  --professional-shadow: rgba(5, 8, 14, 0.55);
+  --professional-grid: rgba(244, 243, 245, 0.025);
+  --professional-gradient: linear-gradient(135deg, #315da9 0%, #294b8d 48%, #69344f 100%);
 }
 
 body.product-sfu {
@@ -95,8 +108,8 @@ body.product-admin {
 }
 
 [data-theme='dark'] body.product-p2p {
-  --professional-accent: #6f8fff;
-  --professional-accent-dark: #a5b4fc;
+  --professional-accent: #4774d1;
+  --professional-accent-dark: #7599e4;
 }
 
 [data-theme='dark'] body.product-sfu {
