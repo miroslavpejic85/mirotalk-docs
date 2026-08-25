@@ -298,6 +298,16 @@ body {
   filter: none !important;
 }
 
+body.product-p2p .banner .gradient-text {
+  filter: brightness(1.35) saturate(1.15) drop-shadow(0 0 16px color-mix(in srgb, var(--professional-accent) 34%, transparent));
+}
+
+body.product-p2p .banner :is(.feature-icon, .explainer-card .icon) {
+  background: color-mix(in srgb, var(--professional-accent) 22%, transparent) !important;
+  border-color: color-mix(in srgb, var(--professional-accent) 45%, transparent) !important;
+  box-shadow: 0 0 18px color-mix(in srgb, var(--professional-accent) 16%, transparent) !important;
+}
+
 .banner .explainer-card .icon,
 .banner .broadcaster .icon,
 .banner .viewer .icon,
