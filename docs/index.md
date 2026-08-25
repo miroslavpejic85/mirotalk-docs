@@ -38,6 +38,8 @@ Learn how MiroTalk grew from a peer-to-peer calling project into a suite of focu
 
 Each project has a distinct purpose and its own documentation. Choose by audience size and workflow rather than by feature count alone.
 
+[Not sure which MiroTalk project to choose?](./projects/index.html){ .md-button .md-button--primary }
+
 | Project | Best for | About | Live demo |
 | :--- | :--- | :--- | :--- |
 | **SFU** | Selective Forwarding Unit for scalable meetings, classes, and webinars | [About SFU](./mirotalk-sfu/index.html) | [sfu.mirotalk.com](https://sfu.mirotalk.com) |
@@ -106,9 +108,21 @@ Choose a self-hosted installation method: [Ubuntu scripts](./scripts/about.md) o
 
 ## MiroTalk Support and Licensing
 
-MiroTalk is licensed under AGPLv3, with [commercial licensing options](./license/index.html) available for closed-source use.
+<div class="home-license-callout">
+  <div class="home-license-icon" aria-hidden="true">
+    <img src="./images/license.png" alt="">
+  </div>
+  <div class="home-license-content">
+    <span class="home-license-label">Open source or commercial</span>
+    <h3>Choose the right license for your project</h3>
+    <p>Use MiroTalk under AGPLv3 when your MiroTalk-based source remains public, or choose a commercial license for private and paid products.</p>
+    <div class="home-license-actions">
+      <a class="md-button md-button--primary" href="./license/index.html">Compare licensing options</a>
+      <a class="home-license-link" href="./license/index.html#pricing">View product pricing &rarr;</a>
+    </div>
+  </div>
+</div>
 
 For help, check the [Frequently Asked Questions](./faq/index.md) or join the [MiroTalk Discord community](https://discord.gg/rgGYfeYW3N).
 
-[View licensing options](./license/index.html){ .md-button .md-button--primary }
 [Read the FAQ](./faq/index.md){ .md-button }

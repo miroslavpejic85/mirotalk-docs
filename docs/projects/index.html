@@ -984,6 +984,53 @@
       filter: drop-shadow(0 18px 18px #0004)
     }
 
+    .license-next {
+      padding: 25px 0 0
+    }
+
+    .license-panel {
+      display: grid;
+      grid-template-columns: 112px minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: center;
+      padding: 32px;
+      border: 1px solid var(--line);
+      border-left: 5px solid var(--blue);
+      border-radius: 8px;
+      background: var(--surface);
+      box-shadow: var(--shadow)
+    }
+
+    .license-mark {
+      display: grid;
+      width: 112px;
+      aspect-ratio: 1;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: var(--soft)
+    }
+
+    .license-mark img {
+      width: 70px;
+      height: 70px
+    }
+
+    .license-copy h2 {
+      margin: 4px 0 8px;
+      font-size: clamp(1.55rem, 3vw, 2rem)
+    }
+
+    .license-copy p {
+      max-width: 630px;
+      margin: 0;
+      color: var(--muted)
+    }
+
+    .license-panel .button {
+      white-space: nowrap
+    }
+
     footer {
       padding: 48px 0 32px;
       color: var(--muted);
@@ -1089,6 +1136,19 @@
       .cta-panel img {
         width: 90%;
         margin: auto
+      }
+
+      .license-panel {
+        grid-template-columns: 96px minmax(0, 1fr)
+      }
+
+      .license-mark {
+        width: 96px
+      }
+
+      .license-panel .button {
+        grid-column: 1/-1;
+        justify-self: start
       }
     }
 
@@ -1206,6 +1266,27 @@
 
       .cta-copy {
         padding: 32px 25px
+      }
+
+      .license-panel {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 24px
+      }
+
+      .license-mark {
+        width: 88px
+      }
+
+      .license-mark img {
+        width: 56px;
+        height: 56px
+      }
+
+      .license-panel .button {
+        grid-column: auto;
+        width: 100%;
+        white-space: normal
       }
 
       .footer {
@@ -1659,6 +1740,17 @@
             clearest path to growth.</p><a class="button" href="../mirotalk-sfu/">Explore MiroTalk SFU <i
               data-lucide="arrow-right"></i></a>
         </div><img src="../images/mirotalk/sfu.png" alt="MiroTalk SFU on laptop and mobile" loading="lazy">
+      </div>
+    </section>
+
+    <section class="license-next">
+      <div class="shell license-panel reveal">
+        <div class="license-mark" aria-hidden="true"><img src="../images/license.png" alt=""></div>
+        <div class="license-copy"><span class="eyebrow">Next step</span>
+          <h2>Found your project? Choose how to license it.</h2>
+          <p>Build in public under AGPLv3, or compare commercial options for private and paid products.</p>
+        </div>
+        <a class="button primary" href="../license/">Compare licenses <i data-lucide="arrow-right"></i></a>
       </div>
     </section>
   </main>
