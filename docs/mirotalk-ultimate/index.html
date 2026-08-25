@@ -57,12 +57,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+<script src="../javascripts/product-theme.js"></script>
 <style>
 
 /* ─────────────────────────────────────────
    DESIGN TOKENS
 ───────────────────────────────────────── */
 :root {
+  color-scheme: dark;
   --bg:         #07080F;
   --bg-2:       #0E1018;
   --surface:    rgba(255,255,255,0.04);
@@ -96,6 +98,34 @@
   --font: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
+[data-theme='light'] {
+  color-scheme: light;
+  --bg:         #F8FAFC;
+  --bg-2:       #EEF2F7;
+  --surface:    rgba(255,255,255,0.78);
+  --border:     rgba(15,23,42,0.10);
+  --border-hi:  rgba(15,23,42,0.18);
+
+  --primary:    #4338CA;
+  --primary-2:  #6D28D9;
+  --grad:       linear-gradient(135deg, #4338CA 0%, #6D28D9 100%);
+  --grad-soft:  linear-gradient(135deg, rgba(67,56,202,0.12) 0%, rgba(109,40,217,0.07) 100%);
+  --glow-top:   radial-gradient(ellipse 80% 55% at 50% -5%, rgba(79,70,229,0.18) 0%, transparent 68%);
+
+  --green:      #047857;
+  --indigo-lite:#4F46E5;
+  --indigo-pale:#3730A3;
+
+  --text-1:     #172033;
+  --text-2:     #536071;
+  --text-3:     #718096;
+
+  --shadow-sm:  0 2px 8px rgba(23,32,51,0.08);
+  --shadow-md:  0 8px 32px rgba(23,32,51,0.12);
+  --shadow-lg:  0 24px 64px rgba(23,32,51,0.16);
+  --shadow-glow:0 0 80px rgba(79,70,229,0.12);
+}
+
 /* ─────────────────────────────────────────
    RESET & BASE
 ───────────────────────────────────────── */
@@ -108,6 +138,32 @@ body  {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+}
+[data-theme='light'] .site-header {
+  background: rgba(248,250,252,0.84);
+}
+[data-theme='light'] :is(.badge, .btn-ghost) {
+  background: rgba(255,255,255,0.72);
+}
+[data-theme='light'] .btn-ghost:hover {
+  background: #FFFFFF;
+}
+[data-theme='light'] .stats-bar {
+  background: rgba(15,23,42,0.018);
+}
+[data-theme='light'] :is(.feature-card:hover, .app-card:hover) {
+  box-shadow: var(--shadow-md);
+}
+[data-theme='light'] .hero__glow {
+  background: radial-gradient(ellipse, rgba(79,70,229,0.20) 0%, rgba(124,58,237,0.10) 40%, transparent 68%);
+}
+[data-theme='light'] .hero__glow-2 {
+  background: radial-gradient(ellipse, rgba(124,58,237,0.10) 0%, transparent 65%);
+}
+[data-theme='light'] .hero__mockup::before {
+  background-image:
+    linear-gradient(rgba(79,70,229,0.16) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(79,70,229,0.16) 1px, transparent 1px);
 }
 a   { color: inherit; text-decoration: none; }
 img { display: block; max-width: 100%; height: auto; }
@@ -676,6 +732,25 @@ details[open] summary::after { transform: rotate(45deg); }
 .check-item .ck { color: var(--green); font-weight: 700; flex-shrink: 0; font-size: 15px; }
 
 /* ─────────────────────────────────────────
+   SPONSOR
+───────────────────────────────────────── */
+.sponsor-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+.sponsor-row .label { flex-shrink: 0; }
+.sponsor-link {
+  display: flex;
+  align-items: center;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+.sponsor-link:hover { opacity: 1; }
+.sponsor-link img { width: 200px; }
+
+/* ─────────────────────────────────────────
    HERO
 ───────────────────────────────────────── */
 .hero {
@@ -710,6 +785,25 @@ details[open] summary::after { transform: rotate(45deg); }
 .hero__mockup  {
   position: relative; z-index: 1;
   max-width: 920px; margin-inline: auto;
+}
+.hero__mockup::before {
+  content: '';
+  position: absolute;
+  inset: 18% -8% -4%;
+  background-image:
+    linear-gradient(rgba(129,140,248,0.13) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(129,140,248,0.13) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 72%, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 72%, transparent);
+  transform: perspective(760px) rotateX(56deg) translateY(10%);
+  transform-origin: center bottom;
+  pointer-events: none;
+  z-index: 0;
+}
+.hero__mockup > .mockup {
+  position: relative;
+  z-index: 1;
 }
 .hero__mockup::after {
   content: '';
@@ -814,9 +908,27 @@ details[open] summary::after { transform: rotate(45deg); }
   .apps-grid     { grid-template-columns: 1fr; }
   .deploy-grid   { grid-template-columns: 1fr !important; }
   .hero          { padding-top: 80px; }
+  .hero__mockup::before {
+    inset-inline: -4%;
+    background-size: 32px 32px;
+    opacity: 0.75;
+  }
 }
 @media (max-width: 480px) {
-  .hero__ctas .btn-lg { width: 100%; justify-content: center; }
+  .btn {
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
+  }
+  .hero__ctas .btn-lg {
+    width: 100%;
+    justify-content: center;
+    padding-inline: 18px;
+  }
+  .sponsor-row {
+    flex-direction: column;
+    gap: 12px;
+  }
   .cta-final { padding: 56px 20px; }
   .cta-final .btn-lg {
     width: 100%;
@@ -1341,13 +1453,12 @@ details[open] summary::after { transform: rotate(45deg); }
     </div>
   </div>
 
-  <p class="label" style="margin-bottom: 20px;">Sponsored By</p>
-  <a href="https://recall.ai/?utm_source=mirotalksfu&utm_medium=sponsorship" target="_blank" rel="noopener noreferrer"
-     style="display: inline-block; opacity: 0.8; transition: opacity 0.2s;"
-     onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'">
-    <img src="https://i.postimg.cc/5xBwLy8g/mirotalk-recall.png" alt="Recall.ai sponsor" width="1572" height="134" loading="lazy" decoding="async"
-         style="max-width: 200px; margin-inline: auto;" />
-  </a>
+  <div class="sponsor-row">
+    <p class="label">Sponsored By</p>
+    <a class="sponsor-link" href="https://recall.ai/?utm_source=mirotalksfu&utm_medium=sponsorship" target="_blank" rel="noopener noreferrer">
+      <img src="https://i.postimg.cc/5xBwLy8g/mirotalk-recall.png" alt="Recall.ai sponsor" width="1572" height="134" loading="lazy" decoding="async" />
+    </a>
+  </div>
 
   <div style="margin-top: 44px;">
     <a href="https://discord.gg/rgGYfeYW3N" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">

@@ -5,14 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <script>
-            (() => {
-                const savedPalette = localStorage.getItem('/.__palette');
-                const savedScheme = savedPalette ? JSON.parse(savedPalette).color?.scheme : null;
-                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                document.documentElement.dataset.theme = savedScheme ? (savedScheme === 'slate' ? 'dark' : 'light') : (prefersDark ? 'dark' : 'light');
-            })();
-        </script>
+        <script src="../javascripts/product-theme.js"></script>
 
         <!-- og -->
 
@@ -4760,25 +4753,22 @@
 
                 // Theme toggle
                 const themeToggle = document.getElementById('themeToggle');
-                const palettes = {
-                    light: { index: 0, color: { scheme: 'default', primary: 'blue', accent: 'light-blue' } },
-                    dark: { index: 1, color: { scheme: 'slate', primary: 'black', accent: 'dark-blue' } },
-                };
 
-                function setTheme(theme) {
-                    document.documentElement.dataset.theme = theme;
+                function updateThemeControl(theme) {
                     document.body.classList.toggle('dark-mode', theme === 'dark');
                     themeToggle.innerHTML = theme === 'dark'
                         ? '<i class="fas fa-sun"></i>'
                         : '<i class="fas fa-moon"></i>';
-                    localStorage.setItem('/.__palette', JSON.stringify(palettes[theme]));
                 }
 
                 themeToggle.addEventListener('click', function () {
-                    setTheme(document.body.classList.contains('dark-mode') ? 'light' : 'dark');
+                    window.MiroTalkTheme.toggle();
                 });
 
-                setTheme(document.documentElement.dataset.theme);
+                window.addEventListener('mirotalk-theme-change', function (event) {
+                    updateThemeControl(event.detail.theme);
+                });
+                updateThemeControl(window.MiroTalkTheme.get());
             });
         </script>
     </body>
