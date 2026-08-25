@@ -63,12 +63,12 @@ body.product-p2p {
   --professional-heading: #f4f3f5;
   --professional-text: #a8afbc;
   --professional-muted: #747d8d;
-  --professional-accent: #4774d1;
-  --professional-accent-dark: #7599e4;
+  --professional-accent: #168cff;
+  --professional-accent-dark: #8bdcf7;
   --professional-code: #10151e;
   --professional-shadow: rgba(5, 8, 14, 0.55);
   --professional-grid: rgba(244, 243, 245, 0.025);
-  --professional-gradient: linear-gradient(135deg, #315da9 0%, #294b8d 48%, #69344f 100%);
+  --professional-gradient: linear-gradient(135deg, #168cff 0%, #1478d4 48%, #8a4165 100%);
 }
 
 body.product-sfu {
@@ -108,8 +108,8 @@ body.product-admin {
 }
 
 [data-theme='dark'] body.product-p2p {
-  --professional-accent: #4774d1;
-  --professional-accent-dark: #7599e4;
+  --professional-accent: #168cff;
+  --professional-accent-dark: #8bdcf7;
 }
 
 [data-theme='dark'] body.product-sfu {
