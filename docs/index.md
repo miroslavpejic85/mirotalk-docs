@@ -50,7 +50,7 @@ Each project has a distinct purpose and its own documentation. Choose by audienc
 | **WEB** | Scheduling, invitations, and room management | [About WEB](./mirotalk-web/index.html) | [webrtc.mirotalk.com](https://webrtc.mirotalk.com) |
 | **ADMIN** | Managing MiroTalk servers and configurations | [About Admin](./mirotalk-admin/index.html) | — |
 
-Need the complete suite? Explore the [MiroTalk Ultimate bundle](./mirotalk-ultimate/index.html). Prefer a managed service with no server maintenance? See [MiroTalk on EvoPlat](./evoplat/evoplat.md).
+Need the complete suite? Explore the [MiroTalk Ultimate bundle](./mirotalk-ultimate/index.html). Prefer a managed service with no server maintenance? Subscribe to **[MiroTalk WEB](https://webrtc.mirotalk.com)**.
 
 ## Use MiroTalk WEB as a Managed Service
 
