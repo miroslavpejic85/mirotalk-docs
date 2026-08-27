@@ -421,9 +421,393 @@
             .hero h1 { font-size: 26px; }
             .hero-subtitle { font-size: 14px; }
         }
+
+        /* Shared visual layer for standalone MiroTalk product pages. */
+
+        :root {
+            color-scheme: light;
+            --professional-bg: #eef1f5;
+            --professional-surface: #ffffff;
+            --professional-surface-muted: #f7f8fb;
+            --professional-surface-strong: #eef1f7;
+            --professional-border: #dce1ea;
+            --professional-border-strong: #c8d0dc;
+            --professional-border-hover: color-mix(in srgb, var(--professional-accent) 42%, transparent);
+            --professional-accent-border: color-mix(in srgb, var(--professional-accent) 28%, transparent);
+            --professional-heading: #172033;
+            --professional-text: #536071;
+            --professional-muted: #718096;
+            --professional-accent: #4f46e5;
+            --professional-accent-dark: #3730a3;
+            --professional-accent-soft: color-mix(in srgb, var(--professional-accent) 10%, transparent);
+            --professional-hover: color-mix(in srgb, var(--professional-accent) 7%, transparent);
+            --professional-code: #20242c;
+            --professional-code-text: color-mix(in srgb, var(--professional-accent) 52%, white);
+            --professional-button-shadow: color-mix(in srgb, var(--professional-accent) 42%, transparent);
+            --professional-shadow: rgba(23, 32, 51, 0.1);
+            --professional-glow: color-mix(in srgb, var(--professional-accent) 9%, transparent);
+            --professional-grid: rgba(23, 32, 51, 0.045);
+            --professional-gradient: linear-gradient(135deg, #4f46e5, #6d28d9);
+        }
+
+        [data-theme='dark'] {
+            color-scheme: dark;
+            --professional-bg: #07080f;
+            --professional-surface: #0e1018;
+            --professional-surface-muted: rgba(255, 255, 255, 0.04);
+            --professional-surface-strong: rgba(255, 255, 255, 0.065);
+            --professional-border: rgba(255, 255, 255, 0.08);
+            --professional-border-strong: rgba(255, 255, 255, 0.14);
+            --professional-border-hover: color-mix(in srgb, var(--professional-accent) 42%, transparent);
+            --professional-accent-border: color-mix(in srgb, var(--professional-accent) 30%, transparent);
+            --professional-heading: #f1f5f9;
+            --professional-text: #a2aec0;
+            --professional-muted: #6f7b8d;
+            --professional-accent: #818cf8;
+            --professional-accent-dark: #a5b4fc;
+            --professional-accent-soft: color-mix(in srgb, var(--professional-accent) 17%, transparent);
+            --professional-hover: color-mix(in srgb, var(--professional-accent) 9%, transparent);
+            --professional-code: #090b10;
+            --professional-code-text: color-mix(in srgb, var(--professional-accent) 60%, white);
+            --professional-button-shadow: color-mix(in srgb, var(--professional-accent) 42%, transparent);
+            --professional-shadow: rgba(0, 0, 0, 0.55);
+            --professional-glow: color-mix(in srgb, var(--professional-accent) 16%, transparent);
+            --professional-grid: rgba(255, 255, 255, 0.025);
+            --professional-gradient: linear-gradient(135deg, #6366f1, #8b5cf6);
+        }
+
+        body.product-bro {
+            --professional-accent: #2563eb;
+            --professional-accent-dark: #1d4ed8;
+            --professional-gradient: linear-gradient(135deg, #3b82f6, #dc2626);
+        }
+
+        [data-theme='dark'] body.product-bro {
+            --professional-accent: #60a5fa;
+            --professional-accent-dark: #93c5fd;
+        }
+
+        body[class*='product-'] {
+            --professional-border-hover: color-mix(in srgb, var(--professional-accent) 42%, transparent);
+            --professional-accent-border: color-mix(in srgb, var(--professional-accent) 28%, transparent);
+            --professional-accent-soft: color-mix(in srgb, var(--professional-accent) 10%, transparent);
+            --professional-hover: color-mix(in srgb, var(--professional-accent) 7%, transparent);
+            --professional-code-text: color-mix(in srgb, var(--professional-accent) 52%, white);
+            --professional-button-shadow: color-mix(in srgb, var(--professional-accent) 42%, transparent);
+            --professional-glow: color-mix(in srgb, var(--professional-accent) 9%, transparent);
+        }
+
+        [data-theme='dark'] body[class*='product-'] {
+            --professional-accent-border: color-mix(in srgb, var(--professional-accent) 30%, transparent);
+            --professional-accent-soft: color-mix(in srgb, var(--professional-accent) 17%, transparent);
+            --professional-hover: color-mix(in srgb, var(--professional-accent) 9%, transparent);
+            --professional-code-text: color-mix(in srgb, var(--professional-accent) 60%, white);
+            --professional-glow: color-mix(in srgb, var(--professional-accent) 16%, transparent);
+        }
+
+        body {
+            background-color: var(--professional-bg) !important;
+            background-image:
+            linear-gradient(var(--professional-grid) 1px, transparent 1px),
+            linear-gradient(90deg, var(--professional-grid) 1px, transparent 1px) !important;
+            background-size: 32px 32px !important;
+            color: var(--professional-heading) !important;
+        }
+
+        /* Compact product overview pages. */
+        .banner {
+            background-color: var(--professional-surface) !important;
+            background-image:
+            linear-gradient(var(--professional-grid) 1px, transparent 1px),
+            linear-gradient(90deg, var(--professional-grid) 1px, transparent 1px) !important;
+            background-size: 40px 40px !important;
+            border: 1px solid var(--professional-border) !important;
+            border-radius: 14px !important;
+            box-shadow: 0 24px 64px var(--professional-shadow);
+        }
+
+        .banner::before {
+            display: none !important;
+        }
+
+        .hero::before,
+        .cta::before {
+            display: block !important;
+            background: radial-gradient(circle, var(--professional-glow) 0%, transparent 65%) !important;
+        }
+
+        .banner :is(h1, h2, h3, h4) {
+            color: var(--professional-heading) !important;
+        }
+
+        .banner p,
+        .banner :is(.highlight-label, .metric-label, .stat-label, .cta-note) {
+            color: var(--professional-text) !important;
+        }
+
+        .banner :is(.gradient-text, .hero-tagline, .highlight-value, .metric-value, .stat-value, .check-icon, .eyebrow, .explainer-arrow) {
+            background: none !important;
+            color: var(--professional-accent) !important;
+            -webkit-text-fill-color: currentColor !important;
+        }
+
+        .banner .gradient-text {
+            background: var(--professional-gradient) !important;
+            background-clip: text !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+        }
+
+        .hero-badge {
+            background: var(--professional-accent-soft) !important;
+            border-color: var(--professional-accent-border) !important;
+            border-radius: 999px !important;
+            color: var(--professional-accent-dark) !important;
+            letter-spacing: 0 !important;
+        }
+
+        .hero-badge .dot {
+            background: var(--professional-accent) !important;
+            animation: none !important;
+        }
+
+        .banner :is(.panel, .preview-card, .explainer-card, .feature, .link-card, .use-case, .audience-card, .workflow-card) {
+            background: var(--professional-surface-muted) !important;
+            border: 1px solid var(--professional-border) !important;
+            border-radius: 14px !important;
+            box-shadow: none !important;
+        }
+
+        /* Product diagrams and application previews. */
+        .banner :is(.concept-user, .embed-highlight, .broadcaster, .viewer, .arch-user, .arch-server, .dashboard, .dash-card, .dash-room-list, .check-item) {
+            background: var(--professional-surface-muted) !important;
+            border-color: var(--professional-border) !important;
+            box-shadow: none !important;
+        }
+
+        .banner :is(.concept-user, .embed-highlight, .broadcaster, .arch-server, .dashboard) {
+            border-radius: 14px !important;
+        }
+
+        .banner :is(.dash-sidebar, .dash-main, .room-row, .versions-bar) {
+            background: var(--professional-surface) !important;
+            border-color: var(--professional-border) !important;
+        }
+
+        .banner :is(.avatar, .broadcaster .icon, .viewer .icon, .arch-user .icon, .server-icon, .user-avatar, .card-icon, .room-icon, .version-chip, .chip-icon) {
+            background: var(--professional-accent-soft) !important;
+            border-color: var(--professional-accent-border) !important;
+            color: var(--professional-accent) !important;
+            box-shadow: none !important;
+            filter: none !important;
+        }
+
+        .banner :is(.concept-connector .label, .broadcast-arrows, .arch-arrow, .card-value, .room-type, .user-name, .version-chip, .embed-highlight h3 i) {
+            color: var(--professional-accent) !important;
+        }
+
+        .banner .concept-connector .line {
+            background: var(--professional-accent) !important;
+        }
+
+        .banner .concept-connector .line::before,
+        .banner .concept-connector .line::after {
+            background: var(--professional-accent) !important;
+        }
+
+        .banner .embed-highlight .code-sample {
+            background: var(--professional-code) !important;
+            border-color: var(--professional-border-strong) !important;
+            color: var(--professional-code-text) !important;
+        }
+
+        .banner :is(.dash-nav-item.active, .room-type, .version-chip) {
+            background: var(--professional-accent-soft) !important;
+        }
+
+        .banner :is(.dash-nav-item, .card-label, .room-date, .user-role, .room-name) {
+            color: var(--professional-text) !important;
+        }
+
+        .banner :is(.highlights, .metrics, .stats) {
+            background: var(--professional-surface-muted) !important;
+            border: 1px solid var(--professional-border) !important;
+            border-radius: 14px !important;
+        }
+
+        .banner :is(.feature-icon, .explainer-card .icon) {
+            background: var(--professional-accent-soft) !important;
+            border-color: var(--professional-accent-border) !important;
+            border-radius: 6px !important;
+            color: var(--professional-accent) !important;
+            filter: none !important;
+        }
+
+        .banner .explainer-card .icon,
+        .banner .broadcaster .icon,
+        .banner .viewer .icon,
+        .banner .arch-user .icon,
+        .banner .server-icon,
+        .banner .card-icon,
+        .banner .chip-icon {
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            margin-right: auto;
+            margin-left: auto;
+            border: 1px solid var(--professional-accent-border) !important;
+            border-radius: 10px !important;
+        }
+
+        .banner .explainer-card .icon {
+            width: 64px;
+            height: 64px;
+        }
+
+        .banner .broadcaster .icon {
+            width: 72px;
+            height: 72px;
+            border-radius: 14px !important;
+        }
+
+        .banner :is(.viewer .icon, .arch-user .icon) {
+            width: 36px;
+            height: 36px;
+        }
+
+        .banner .server-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px !important;
+        }
+
+        .banner .card-icon {
+            width: 40px;
+            height: 40px;
+        }
+
+        .banner .chip-icon {
+            width: 42px;
+            height: 42px;
+        }
+
+        .banner :is(.feature, .link-card, .use-case, .audience-card, .workflow-card):hover {
+            background: var(--professional-hover) !important;
+            border-color: var(--professional-border-hover) !important;
+            box-shadow: none !important;
+            transform: none !important;
+        }
+
+        .banner :is(.btn, .button) {
+            border-radius: 10px !important;
+        }
+
+        .banner :is(.btn-primary, .button.primary) {
+            background: var(--professional-gradient) !important;
+            color: #ffffff !important;
+            box-shadow: 0 4px 20px var(--professional-button-shadow) !important;
+        }
+
+        .banner :is(.btn-primary, .button.primary):hover {
+            background: var(--professional-gradient) !important;
+            box-shadow: 0 8px 32px var(--professional-button-shadow) !important;
+            transform: translateY(-2px) !important;
+        }
+
+        .banner :is(.btn-secondary, .button.secondary) {
+            background: var(--professional-surface) !important;
+            border-color: var(--professional-border-strong) !important;
+            color: var(--professional-heading) !important;
+        }
+
+        /* Commercial license conversion panel. */
+        .banner .cta {
+            margin: 12px 60px 40px !important;
+            padding: 38px 32px 32px !important;
+            overflow: hidden;
+            background: var(--professional-surface-muted) !important;
+            border: 1px solid var(--professional-accent-border);
+            border-radius: 14px;
+        }
+
+        .cta-heading {
+            position: relative;
+            z-index: 1;
+            max-width: 650px;
+            margin: 0 auto 24px;
+            text-align: center;
+        }
+
+        .cta-heading span {
+            display: inline-block;
+            margin-bottom: 8px;
+            color: var(--professional-accent-dark);
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .cta-heading h2 {
+            margin-bottom: 8px;
+            font-size: 25px;
+            line-height: 1.2;
+        }
+
+        .cta-heading p {
+            max-width: 580px;
+            margin: 0 auto !important;
+            font-size: 14px !important;
+            line-height: 1.65;
+        }
+
+        .banner .cta-buttons {
+            position: relative;
+            z-index: 1;
+            align-items: stretch;
+            margin-bottom: 22px;
+        }
+
+        .banner .cta-buttons .btn {
+            justify-content: center;
+            min-height: 52px;
+        }
+
+        .banner .cta-buttons .btn-primary {
+            padding-inline: 40px;
+        }
+
+        .banner .cta-note {
+            position: relative;
+            z-index: 1;
+            padding-top: 18px;
+            border-top: 1px solid var(--professional-border);
+        }
+
+        .banner img {
+            box-shadow: none !important;
+        }
+
+        @media (max-width: 768px) {
+            body:has(.banner) {
+                padding: 12px !important;
+            }
+
+            .banner {
+                border-radius: 10px !important;
+            }
+
+            .banner .cta {
+                margin: 8px 16px 20px !important;
+                padding: 28px 18px 24px !important;
+            }
+
+            .cta-heading h2 {
+                font-size: 21px;
+            }
+        }
     </style>
     <script src="../javascripts/product-theme.js"></script>
-    <link rel="stylesheet" href="../stylesheets/product-pages.css" />
 </head>
 <body class="product-bro">
 
