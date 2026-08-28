@@ -7,6 +7,15 @@ import xml.etree.ElementTree as ElementTree
 SITEMAP_NAMESPACE = "http://www.sitemaps.org/schemas/sitemap/0.9"
 
 
+def on_page_markdown(markdown, page, **kwargs):
+    if not page.meta.get("description"):
+        page.meta["description"] = (
+            f"Learn how to use {page.title} with MiroTalk, including setup, "
+            "configuration, examples, and operational guidance."
+        )
+    return markdown
+
+
 def on_post_build(config, **kwargs):
     sitemap_path = Path(config["site_dir"]) / "sitemap.xml"
     if not sitemap_path.exists():

@@ -18,39 +18,19 @@
 
 ## Installation
 
-To install `MkDocs`, you can use one of this method:
-
-### Using `brew`
+### Using a virtual environment (recommended)
 
 ```bash
-$ brew install mkdocs
-$ brew install mkdocs-material
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
 ```
 
-### Using `pip`
+With fish shell, activate the environment with:
 
-```bash
-$ pip install mkdocs
-$ pip install mkdocs-material
-```
-
----
-
-### Using `apt`
-
-```bash
-$ sudo apt update
-$ sudo apt install mkdocs
-```
-
----
-
-### Using `snap`
-
-```bash
-$ sudo apt update
-$ sudo apt install snapd
-$ sudo snap install mkdocs
+```fish
+source .venv/bin/activate.fish
 ```
 
 ---
@@ -64,8 +44,15 @@ $ git clone https://github.com/miroslavpejic85/mirotalk-docs.git
 # Go to Docs dir
 $ cd mirotalk-docs
 
+# Create and activate a virtual environment
+$ python3 -m venv .venv
+$ source .venv/bin/activate
+
+# Install the documentation dependencies
+$ python -m pip install -r requirements.txt
+
 # Start the built-in dev-server
-$ mkdocs serve
+$ python -m mkdocs serve
 ```
 
 Open up [http://127.0.0.1:8000](http://127.0.0.1:8000/) in your browser.

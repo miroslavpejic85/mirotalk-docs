@@ -173,7 +173,7 @@ MONGO_DATABASE=mirotalk
 
 <br />
 
-<img src="/../images/email.png" alt="email configuration" />
+<img src="/images/email.png" alt="Email configuration fields" />
 
 <br /><br />
 

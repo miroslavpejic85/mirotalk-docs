@@ -119,6 +119,12 @@ sudo certbot certonly --nginx
 sudo vim /etc/nginx/sites-enabled/default
 ```
 
+Install the permanent compatibility redirects supplied by this repository:
+
+```bash
+sudo install -m 0644 /root/mirotalk-docs/deploy/nginx/redirects.conf /etc/nginx/snippets/mirotalk-docs-redirects.conf
+```
+
 Add the following:
 
 ```bash
@@ -136,6 +142,9 @@ server {
     # Directory where the website is located
     root /var/www/site;
     index index.html;
+
+    # Preserve established public documentation URLs.
+    include /etc/nginx/snippets/mirotalk-docs-redirects.conf;
 
     # Disable caching for HTML files to always serve the latest content
     location ~* \.html$ {
@@ -158,6 +167,9 @@ sudo nginx -t
 # Restart nginx
 service nginx restart
 service nginx status
+
+# Verify the permanent redirect and query-string preservation
+curl -sI 'https://YOUR.DOMAIN.NAME/license/licensing-options/?source=docs' | grep -Ei 'HTTP/|location:'
 
 # Set up auto-renewal for SSL certificates
 sudo certbot renew --dry-run --cert-name YOUR.DOMAIN.NAME

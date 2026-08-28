@@ -300,7 +300,7 @@
     | CME | $39 | $199 |
     | WEB | $39 | $199 |
 
-    See the [Licensing Options](../license/index.html) page for full details.
+    See the [Licensing Options](../license/index.md) page for full details.
 
 ---
 

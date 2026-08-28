@@ -1,5 +1,7 @@
 # Webhooks
 
+![Webhook event integration](../images/webhooks.png)
+
 Get notified of call lifecycle events in real time for external integrations (CRM, analytics, logging, notifications). When enabled, `Call-Me` sends an HTTP `POST` to your endpoint for each event.
 
 ## Enable it

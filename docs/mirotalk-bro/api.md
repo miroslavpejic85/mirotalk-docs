@@ -1,12 +1,24 @@
-# REST API
+---
+title: MiroTalk BRO REST API
+description: Create direct broadcast join links with the authenticated MiroTalk BRO REST API.
+---
 
-![api](../images/api.png)
+# MiroTalk BRO REST API
 
-The REST API is comprehensively documented using [Swagger](https://swagger.io/), accessible at [https://YOUR-DOMAIN-NAME/api/v1/docs](https://bro.mirotalk.com/api/v1/docs).
+![MiroTalk BRO REST API documentation](../images/api.png)
+
+The deployed [BRO Swagger specification](https://bro.mirotalk.com/api/v1/docs) identifies itself as MiroTalk BRO API 1.0.0 using OAS 2.0. A self-hosted instance exposes the same interface at `https://YOUR-DOMAIN-NAME/api/v1/docs`.
+
+| Method | Path | Authentication | Purpose |
+| --- | --- | --- | --- |
+| `POST` | `/join` | `Authorization: YOUR_API_KEY_SECRET` | Create a direct broadcast join URL. |
+
+!!! warning "Protect the API secret"
+  Replace `YOUR_API_KEY_SECRET` with the value configured in `.env`. Keep it on a trusted backend and never ship it in public browser code.
 
 ---
 
-## Direct Join Entry Point
+## `POST /join`
 
 Upon a successful request, the API response will provide a Meeting Entry Point for the direct join to the room. The authorization for this request is determined by the `API_KEY_SECRET` configuration specified in your `.env` file.
 
@@ -21,7 +33,7 @@ try {
   // Use dynamic import with await
   const { default: fetch } = await import("node-fetch");
 
-  const API_KEY = "mirotalkbro_default_secret";
+  const API_KEY = "YOUR_API_KEY_SECRET";
   const MIROTALK_URL = "https://bro.mirotalk.com/api/v1/join";
 
   const response = await fetch(MIROTALK_URL, {
@@ -52,7 +64,7 @@ try {
 ```php
 <?php
 
-$API_KEY_SECRET = "mirotalkbro_default_secret";
+$API_KEY_SECRET = "YOUR_API_KEY_SECRET";
 $MIROTALK_URL = "https://bro.mirotalk.com/api/v1/join";
 
 $ch = curl_init();
@@ -93,7 +105,7 @@ print_r($data);
 import requests
 import json
 
-API_KEY_SECRET = "mirotalkbro_default_secret"
+API_KEY_SECRET = "YOUR_API_KEY_SECRET"
 MIROTALK_URL = "https://bro.mirotalk.com/api/v1/join"
 
 headers = {
@@ -123,7 +135,7 @@ print("join:", data["join"])
 ```bash
 #!/bin/bash
 
-API_KEY_SECRET="mirotalkbro_default_secret"
+API_KEY_SECRET="YOUR_API_KEY_SECRET"
 MIROTALK_URL="https://bro.mirotalk.com/api/v1/join"
 
 curl $MIROTALK_URL \

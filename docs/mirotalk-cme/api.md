@@ -1,12 +1,35 @@
-# REST API
+---
+title: MiroTalk CME REST API
+description: Authenticate with the MiroTalk CME REST API and query connected users, rooms, calls, and server statistics.
+---
 
-![api](../images/api.png)
+# MiroTalk CME REST API
 
-The REST API is comprehensively documented using [Swagger](https://swagger.io/), accessible at [https://YOUR-DOMAIN-NAME/api/v1/docs](https:/cme.mirotalk.com/api/v1/docs).
+![MiroTalk CME REST API documentation](../images/api.png)
+
+Use the CME REST API to inspect active users, rooms, and calls from a trusted backend service. The complete interactive contract is available in [CME Swagger](https://cme.mirotalk.com/api/v1/docs) or at `https://YOUR-DOMAIN-NAME/api/v1/docs` on a self-hosted instance.
+
+## Before you begin
+
+- Set `YOUR-DOMAIN-NAME` to the hostname of your CME deployment.
+- Set `YOUR_API_KEY_SECRET` to the API secret configured on that deployment.
+- Send the secret in the `Authorization` request header for protected endpoints.
+- Keep production secrets on the server. Do not expose them in browser-delivered JavaScript.
+
+All endpoints below use the base URL `https://YOUR-DOMAIN-NAME/api/v1` and return JSON. The contract reflects the deployed CME Swagger specification, Call-me API 1.1.0.
+
+| Method and path | Auth | Query parameters | `200` response | Error |
+| --- | --- | --- | --- | --- |
+| `GET /users` | Required | `room` optional; `details=true` returns detailed descriptors | `UsersResponse` | `403 Unauthorized` |
+| `GET /connected` | Required | `user` required; `room` optional and defaults to the public room | `connectedResponse` | `403 Unauthorized` |
+| `GET /vapidPublicKey` | Not required | None | `VapidPublicKeyResponse` | Not specified |
+| `GET /rooms` | Required | None | `RoomsResponse` | `403 Unauthorized` |
+| `GET /calls` | Required | `room` optional | `CallsResponse` | `403 Unauthorized` |
+| `GET /stats` | Required | None | `StatsResponse` | `403 Unauthorized` |
 
 ---
 
-## Users Entry Point
+## `GET /users`
 
 Get a lists of all connected users
 
@@ -15,10 +38,10 @@ Get a lists of all connected users
 ```javascript
 'use strict';
 
-// Optionally filter by room: append ?room=Support (returns all rooms when omitted)
-const url = 'http://localhost:8000/api/v1/users';
+// Optionally append ?room=Support or ?details=true
+const url = 'https://YOUR-DOMAIN-NAME/api/v1/users';
 
-const authorization = 'call_me_api_key_secret';
+const authorization = 'YOUR_API_KEY_SECRET';
 
 fetch(url, {
     method: 'GET',
@@ -38,10 +61,10 @@ fetch(url, {
 ```php
 <?php
 
-// Optionally filter by room: append ?room=Support (returns all rooms when omitted)
-$url = "http://localhost:8000/api/v1/users";
+// Optionally append ?room=Support or ?details=true
+$url = "https://YOUR-DOMAIN-NAME/api/v1/users";
 
-$authorization = "call_me_api_key_secret";
+$authorization = "YOUR_API_KEY_SECRET";
 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $url);
@@ -63,10 +86,10 @@ echo $response;
 ```python
 import requests # pip3 install requests
 
-# Optionally filter by room: append ?room=Support (returns all rooms when omitted)
-url = "http://localhost:8000/api/v1/users"
+# Optionally append ?room=Support or ?details=true
+url = "https://YOUR-DOMAIN-NAME/api/v1/users"
 
-authorization = "call_me_api_key_secret"
+authorization = "YOUR_API_KEY_SECRET"
 
 headers = {
     'Authorization': authorization,
@@ -83,10 +106,10 @@ print(response.json())
 ```bash
 #!/bin/bash
 
-# Optionally filter by room: append ?room=Support (returns all rooms when omitted)
-url="http://localhost:8000/api/v1/users";
+# Optionally append ?room=Support or ?details=true
+url="https://YOUR-DOMAIN-NAME/api/v1/users";
 
-authorization="call_me_api_key_secret"
+authorization="YOUR_API_KEY_SECRET"
 
 response=$(curl -s -X GET "$url" -H "Authorization: $authorization" -H "Content-Type: application/json")
 
@@ -95,7 +118,7 @@ echo "$response"
 
 ---
 
-## Connected Entry Point
+## `GET /connected`
 
 Get a lists of all connected users to call
 
@@ -105,9 +128,9 @@ Get a lists of all connected users to call
 'use strict';
 
 // Optionally scope to a room: append &room=Support (defaults to the public room)
-const url = 'http://localhost:8000/api/v1/connected?user=call-me';
+const url = 'https://YOUR-DOMAIN-NAME/api/v1/connected?user=call-me';
 
-const authorization = 'call_me_api_key_secret';
+const authorization = 'YOUR_API_KEY_SECRET';
 
 fetch(url, {
     method: 'GET',
@@ -127,9 +150,9 @@ fetch(url, {
 <?php
 
 // Optionally scope to a room: append &room=Support (defaults to the public room)
-$url = "http://localhost:8000/api/v1/connected?user=call-me";
+$url = "https://YOUR-DOMAIN-NAME/api/v1/connected?user=call-me";
 
-$authorization = "call_me_api_key_secret";
+$authorization = "YOUR_API_KEY_SECRET";
 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $url);
@@ -152,9 +175,9 @@ echo $response;
 import requests  # pip3 install requests
 
 # Optionally scope to a room: append &room=Support (defaults to the public room)
-url = "http://localhost:8000/api/v1/connected?user=call-me"
+url = "https://YOUR-DOMAIN-NAME/api/v1/connected?user=call-me"
 
-authorization = "call_me_api_key_secret"
+authorization = "YOUR_API_KEY_SECRET"
 
 headers = {
     'Authorization': authorization,
@@ -172,18 +195,34 @@ print(response.json())
 #!/bin/bash
 
 # Optionally scope to a room: append &room=Support (defaults to the public room)
-url="http://localhost:8000/api/v1/connected?user=call-me";
+url="https://YOUR-DOMAIN-NAME/api/v1/connected?user=call-me";
 
-authorization="call_me_api_key_secret"
+authorization="YOUR_API_KEY_SECRET"
 
-response=$(curl -s -X GET "$url" -H "authorization: call_me_api_key_secret" -H "Content-Type: application/json")
+response=$(curl -s -X GET "$url" -H "Authorization: $authorization" -H "Content-Type: application/json")
 
 echo "$response"
 ```
 
 ---
 
-## Rooms Entry Point
+## `GET /vapidPublicKey`
+
+Get the public VAPID key used to create Web Push subscriptions. This endpoint does not require the API secret.
+
+### Bash Example
+
+```bash
+#!/bin/bash
+
+url="https://YOUR-DOMAIN-NAME/api/v1/vapidPublicKey"
+
+curl -s -X GET "$url" -H "Content-Type: application/json"
+```
+
+---
+
+## `GET /rooms`
 
 List active rooms with user counts and active call counts
 
@@ -193,9 +232,9 @@ List active rooms with user counts and active call counts
 'use strict';
 
 // List active rooms with user counts and active call counts
-const url = 'http://localhost:8000/api/v1/rooms';
+const url = 'https://YOUR-DOMAIN-NAME/api/v1/rooms';
 
-const authorization = 'call_me_api_key_secret';
+const authorization = 'YOUR_API_KEY_SECRET';
 
 fetch(url, {
     method: 'GET',
@@ -215,9 +254,9 @@ fetch(url, {
 <?php
 
 // List active rooms with user counts and active call counts
-$url = "http://localhost:8000/api/v1/rooms";
+$url = "https://YOUR-DOMAIN-NAME/api/v1/rooms";
 
-$authorization = "call_me_api_key_secret";
+$authorization = "YOUR_API_KEY_SECRET";
 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $url);
@@ -240,9 +279,9 @@ echo $response;
 import requests  # pip3 install requests
 
 # List active rooms with user counts and active call counts
-url = "http://localhost:8000/api/v1/rooms"
+url = "https://YOUR-DOMAIN-NAME/api/v1/rooms"
 
-authorization = "call_me_api_key_secret"
+authorization = "YOUR_API_KEY_SECRET"
 
 headers = {
     'Authorization': authorization,
@@ -260,9 +299,9 @@ print(response.json())
 #!/bin/bash
 
 # List active rooms with user counts and active call counts
-url="http://localhost:8000/api/v1/rooms";
+url="https://YOUR-DOMAIN-NAME/api/v1/rooms";
 
-authorization="call_me_api_key_secret"
+authorization="YOUR_API_KEY_SECRET"
 
 response=$(curl -s -X GET "$url" -H "Authorization: $authorization" -H "Content-Type: application/json")
 
@@ -271,7 +310,7 @@ echo "$response"
 
 ---
 
-## Calls Entry Point
+## `GET /calls`
 
 Get a list of active calls
 
@@ -281,9 +320,9 @@ Get a list of active calls
 'use strict';
 
 // Optionally filter by room: append ?room=Support (returns all rooms when omitted)
-const url = 'http://localhost:8000/api/v1/calls';
+const url = 'https://YOUR-DOMAIN-NAME/api/v1/calls';
 
-const authorization = 'call_me_api_key_secret';
+const authorization = 'YOUR_API_KEY_SECRET';
 
 fetch(url, {
     method: 'GET',
@@ -303,9 +342,9 @@ fetch(url, {
 <?php
 
 // Optionally filter by room: append ?room=Support (returns all rooms when omitted)
-$url = "http://localhost:8000/api/v1/calls";
+$url = "https://YOUR-DOMAIN-NAME/api/v1/calls";
 
-$authorization = "call_me_api_key_secret";
+$authorization = "YOUR_API_KEY_SECRET";
 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $url);
@@ -328,9 +367,9 @@ echo $response;
 import requests  # pip3 install requests
 
 # Optionally filter by room: append ?room=Support (returns all rooms when omitted)
-url = "http://localhost:8000/api/v1/calls"
+url = "https://YOUR-DOMAIN-NAME/api/v1/calls"
 
-authorization = "call_me_api_key_secret"
+authorization = "YOUR_API_KEY_SECRET"
 
 headers = {
     'Authorization': authorization,
@@ -348,9 +387,9 @@ print(response.json())
 #!/bin/bash
 
 # Optionally filter by room: append ?room=Support (returns all rooms when omitted)
-url="http://localhost:8000/api/v1/calls";
+url="https://YOUR-DOMAIN-NAME/api/v1/calls";
 
-authorization="call_me_api_key_secret"
+authorization="YOUR_API_KEY_SECRET"
 
 response=$(curl -s -X GET "$url" -H "Authorization: $authorization" -H "Content-Type: application/json")
 
@@ -359,7 +398,7 @@ echo "$response"
 
 ---
 
-## Stats Entry Point
+## `GET /stats`
 
 Aggregate server statistics: version, uptime, total users, rooms and active calls
 
@@ -369,9 +408,9 @@ Aggregate server statistics: version, uptime, total users, rooms and active call
 'use strict';
 
 // Aggregate server statistics: version, uptime, total users, rooms and active calls
-const url = 'http://localhost:8000/api/v1/stats';
+const url = 'https://YOUR-DOMAIN-NAME/api/v1/stats';
 
-const authorization = 'call_me_api_key_secret';
+const authorization = 'YOUR_API_KEY_SECRET';
 
 fetch(url, {
     method: 'GET',
@@ -391,9 +430,9 @@ fetch(url, {
 <?php
 
 // Aggregate server statistics: version, uptime, total users, rooms and active calls
-$url = "http://localhost:8000/api/v1/stats";
+$url = "https://YOUR-DOMAIN-NAME/api/v1/stats";
 
-$authorization = "call_me_api_key_secret";
+$authorization = "YOUR_API_KEY_SECRET";
 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $url);
@@ -416,9 +455,9 @@ echo $response;
 import requests  # pip3 install requests
 
 # Aggregate server statistics: version, uptime, total users, rooms and active calls
-url = "http://localhost:8000/api/v1/stats"
+url = "https://YOUR-DOMAIN-NAME/api/v1/stats"
 
-authorization = "call_me_api_key_secret"
+authorization = "YOUR_API_KEY_SECRET"
 
 headers = {
     'Authorization': authorization,
@@ -436,9 +475,9 @@ print(response.json())
 #!/bin/bash
 
 # Aggregate server statistics: version, uptime, total users, rooms and active calls
-url="http://localhost:8000/api/v1/stats";
+url="https://YOUR-DOMAIN-NAME/api/v1/stats";
 
-authorization="call_me_api_key_secret"
+authorization="YOUR_API_KEY_SECRET"
 
 response=$(curl -s -X GET "$url" -H "Authorization: $authorization" -H "Content-Type: application/json")
 

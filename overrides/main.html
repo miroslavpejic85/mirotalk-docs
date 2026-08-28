@@ -2,12 +2,11 @@
 
 {% block htmltitle %}
   {% if page and page.is_homepage %}
-    <title>MiroTalk: Open-Source WebRTC Video Conferencing</title>
+    <title>MiroTalk Documentation: Cloud, APIs &amp; Self-Hosting</title>
   {% else %}
     {{ super() }}
   {% endif %}
 {% endblock %}
-
 {% block extrahead %}
   {% set page_title = page.meta.title if page and page.meta and page.meta.title else page.title %}
   {% if page and page.is_homepage %}
@@ -18,8 +17,19 @@
   {% set og_description = page.meta.description if page and page.meta and page.meta.description else config.site_description %}
   {% set og_image = config.site_url ~ config.extra.social_image %}
 
+  {% if page and page.file.src_uri == "mirotalk-ultimate/index.md" %}
+    <link rel="stylesheet" href="{{ 'stylesheets/ultimate.css' | url }}">
+  {% endif %}
+  {% if page and page.file.src_uri in ["license/index.md", "story/index.md", "about/index.md", "overview/index.md"] %}
+    <link rel="stylesheet" href="{{ 'stylesheets/editorial.css' | url }}">
+  {% endif %}
+  {% if page and (page.is_homepage or page.file.src_uri == "overview/index.md") %}
+    <script defer src="{{ 'javascripts/youtube-embed.js' | url }}"></script>
+  {% endif %}
+
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="{{ config.site_name }}">
+  <meta name="docs-version" content="{{ config.extra.docs_version }}">
   <meta property="og:title" content="{{ og_title }}">
   <meta property="og:description" content="{{ og_description }}">
   <meta property="og:url" content="{{ page.canonical_url }}">

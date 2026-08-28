@@ -1,128 +1,149 @@
 ---
-title: MiroTalk Open-Source WebRTC Video Conferencing
-description: Explore MiroTalk open-source WebRTC projects for video conferencing, peer-to-peer calls, live streaming, click-to-call, integration, and self-hosting.
+title: MiroTalk Documentation
+description: Use MiroTalk Cloud, integrate video with APIs, or self-host an open-source MiroTalk video communication product.
 ---
 
-# MiroTalk Open Source WebRTC Documentation
+<header class="home-hero">
+  <span class="home-kicker">Documentation</span>
+  <h1>MiroTalk Documentation</h1>
+  <p>Build, deploy, or simply use your own video communication platform.</p>
+  <div class="home-hero-links">
+    <a class="md-button md-button--primary" href="/projects/">Choose a product</a>
+    <a class="md-button" href="/story/">What is MiroTalk?</a>
+  </div>
+</header>
 
-MiroTalk is an open-source, self-hosted WebRTC platform for browser-based video calls, conferencing, live streaming, screen sharing, and chat, with no plugins or downloads required.
+## What are you trying to do?
 
-<video class="home-preview" width="715" height="402" autoplay muted loop playsinline preload="metadata" poster="./images/mirotalk-poster.webp" aria-label="MiroTalk open-source WebRTC video conferencing projects">
-  <source src="./images/mirotalk.webm" type="video/webm">
-  <source src="./images/mirotalk.mp4" type="video/mp4">
-</video>
+<div class="journey-grid">
+  <a class="journey-card journey-cloud" href="/cloud/">
+    <span class="journey-label">Use it</span>
+    <h3>Use MiroTalk Cloud</h3>
+    <p>No server setup or maintenance. MiroTalk operates the infrastructure for you.</p>
+    <span class="journey-action">Start MiroTalk Cloud</span>
+  </a>
+  <a class="journey-card journey-host" href="/self-host/">
+    <span class="journey-label">Own it</span>
+    <h3>Self-host MiroTalk</h3>
+    <p>Deploy the open-source MiroTalk products on infrastructure you control.</p>
+    <span class="journey-action">Explore self-hosting</span>
+  </a>
+  <a class="journey-card journey-build" href="/build/">
+    <span class="journey-label">Integrate it</span>
+    <h3>Build with MiroTalk</h3>
+    <p>Use REST APIs, iframe embedding, direct links, webhooks, and developer examples.</p>
+    <span class="journey-action">Open developer docs</span>
+  </a>
+  <a class="journey-card journey-commercial" href="/commercial/">
+    <span class="journey-label">Build a business</span>
+    <h3>Commercial &amp; Enterprise</h3>
+    <p>Explore licensing, white-label requirements, dedicated services, and support.</p>
+    <span class="journey-action">View commercial options</span>
+  </a>
+</div>
 
-Choose the right open-source, self-hosted WebRTC architecture: peer-to-peer (P2P) for private video calls, or a Selective Forwarding Unit (SFU) for scalable meetings and webinars. It also supports live streaming, broadcasting, click-to-call, scheduling, and management.
+## See MiroTalk in action
 
-[Choose a project](#choose-a-mirotalk-webrtc-project){ .md-button .md-button--primary }
-[Compare projects](overview/index.html){ .md-button }
-[Get a license](./license/index.html){ .md-button }
-[Read customer reviews](./license/index.html#reviews){ .md-button }
+MiroTalk is a suite of browser-based WebRTC applications for meetings, private calls, broadcasting, click-to-call, scheduling, and administration.
 
-## What is MiroTalk?
+<div class="home-preview home-youtube" data-embed-src="https://www.youtube-nocookie.com/embed/_IVn2aINYww?autoplay=1&amp;rel=0" data-embed-title="MiroTalk product overview" data-embed-class="home-youtube-frame" data-embed-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" aria-describedby="home-preview-description">
+  <img src="https://i.ytimg.com/vi/_IVn2aINYww/hqdefault.jpg" alt="" width="480" height="360" loading="eager" fetchpriority="low" referrerpolicy="no-referrer">
+  <button class="home-youtube-play" data-embed-button type="button" aria-label="Play the MiroTalk product overview" title="Play the MiroTalk product overview">
+    <span class="home-youtube-play-icon" aria-hidden="true"></span>
+  </button>
+  <noscript><a href="https://www.youtube.com/watch?v=_IVn2aINYww">Watch the MiroTalk product overview on YouTube</a></noscript>
+</div>
 
-Learn how MiroTalk grew from a peer-to-peer calling project into a suite of focused real-time communication applications.
+<p class="media-caption" id="home-preview-description">An overview of what MiroTalk is, its most-used features, architecture, usage statistics, and interfaces for meetings, calls, broadcasting, scheduling, and administration.<br>YouTube loads only after you press Play.</p>
 
-[Read the MiroTalk story](./story/index.html){ .md-button }
 
-## Start Here
+## Which MiroTalk product should I use?
 
-| I want to… | Start with |
-| :--- | :--- |
-| **Choose the right product** | [Compare all MiroTalk projects](./overview/index.html) |
-| **Embed video in an application** | [MiroTalk integration guides](#integrate-mirotalk) |
-| **Deploy on my own server** | [MiroTalk self-hosting guides](#self-host-mirotalk) |
-| **Find help** | [FAQ](./faq/index.md) or [Discord community](https://discord.gg/rgGYfeYW3N) |
+Choose by workflow rather than technical terminology. The [product chooser](./projects/index.md) explains architecture and trade-offs in detail.
 
-## Choose a MiroTalk WebRTC Project
+| Your goal | Recommended product | Try it |
+| :--- | :--- | :--- |
+| Scalable meetings, classes, or webinars | [MiroTalk SFU](./mirotalk-sfu/index.md) | [Live demo](https://sfu.mirotalk.com) |
+| Private calls and small group meetings | [MiroTalk P2P](./mirotalk-p2p/index.md) | [Live demo](https://p2p.mirotalk.com) |
+| Focused one-to-one video calls | [MiroTalk C2C](./mirotalk-c2c/index.md) | [Live demo](https://c2c.mirotalk.com) |
+| One-to-many broadcasting | [MiroTalk BRO](./mirotalk-bro/index.md) | [Live demo](https://bro.mirotalk.com) |
+| Click-to-call customer support | [MiroTalk CME](./mirotalk-cme/index.md) | [Live demo](https://cme.mirotalk.com) |
+| Scheduling, invitations, and room management | [MiroTalk WEB](./mirotalk-web/index.md) | [Live demo](https://webrtc.mirotalk.com) |
+| Server and configuration management | [MiroTalk Admin](./mirotalk-admin/index.md) | [View on GitHub](https://github.com/miroslavpejic85/mirotalk-admin) |
 
-Each project has a distinct purpose and its own documentation. Choose by audience size and workflow rather than by feature count alone.
+[Compare every product](./projects/index.md){ .md-button .md-button--primary }
+[Explore MiroTalk Ultimate](./mirotalk-ultimate/index.md){ .md-button }
 
-[Not sure which MiroTalk project to choose?](./projects/index.html){ .md-button .md-button--primary }
+## MiroTalk Cloud
 
-| Project | Best for | About | Live demo |
-| :--- | :--- | :--- | :--- |
-| **SFU** | Selective Forwarding Unit for scalable meetings, classes, and webinars | [About SFU](./mirotalk-sfu/index.html) | [sfu.mirotalk.com](https://sfu.mirotalk.com) |
-| **P2P** | Private calls and small group meetings | [About P2P](./mirotalk-p2p/index.html) | [p2p.mirotalk.com](https://p2p.mirotalk.com) |
-| **C2C** | Focused one-to-one cam-to-cam calls | [About C2C](./mirotalk-c2c/index.html) | [c2c.mirotalk.com](https://c2c.mirotalk.com) |
-| **BRO** | One-to-many broadcasting and online events | [About BRO](./mirotalk-bro/index.html) | [bro.mirotalk.com](https://bro.mirotalk.com) |
-| **CME** | Instant customer click-to-call | [About CME](./mirotalk-cme/index.html) | [cme.mirotalk.com](https://cme.mirotalk.com) |
-| **WEB** | Scheduling, invitations, and room management | [About WEB](./mirotalk-web/index.html) | [webrtc.mirotalk.com](https://webrtc.mirotalk.com) |
-| **ADMIN** | Managing MiroTalk servers and configurations | [About Admin](./mirotalk-admin/index.html) | — |
+MiroTalk Cloud is the managed service powered by MiroTalk WEB. Create and manage rooms while MiroTalk handles deployment, updates, monitoring, scaling, backups, and maintenance.
 
-Need the complete suite? Explore the [MiroTalk Ultimate bundle](./mirotalk-ultimate/index.html). Prefer a managed service with no server maintenance? Subscribe to **[MiroTalk WEB](https://webrtc.mirotalk.com)**.
+<div class="home-callout home-callout-cloud">
+  <div>
+    <span class="home-kicker">Managed service</span>
+    <h3>You use MiroTalk. We run the infrastructure.</h3>
+    <p>Start in the browser without configuring a VPS, Docker, Node.js, SSL, or WebRTC services.</p>
+  </div>
+  <a class="md-button md-button--primary" href="https://webrtc.mirotalk.com">Start MiroTalk Cloud</a>
+</div>
 
-## Use MiroTalk WEB as a Managed Service
+[Learn how Cloud differs from self-hosting](./cloud/index.md)
 
-Want secure, browser-based video meetings without managing your own server? The hosted MiroTalk WEB service gives you one workspace to create an account, schedule and manage meeting rooms, and join meetings without downloads.
+## Build with MiroTalk
 
-Hosting, maintenance, and updates are handled for you. Choose a flexible monthly subscription or make a one-time payment for lifetime access.
-
-[Get started with MiroTalk WEB](https://webrtc.mirotalk.com){ .md-button .md-button--primary }
-[Learn about MiroTalk WEB](./mirotalk-web/index.html){ .md-button }
-
-## Integrate MiroTalk
-
-Embed a hosted or self-hosted MiroTalk instance in a website with an iframe. This minimal SFU example grants the browser permissions needed for a meeting:
+Embed a hosted or self-hosted MiroTalk instance with an iframe. This minimal SFU example grants the browser permissions required by a meeting:
 
 ```html
 <iframe
   allow="camera; microphone; speaker-selection; display-capture; fullscreen; clipboard-read; clipboard-write; web-share; autoplay; picture-in-picture"
   src="https://sfu.mirotalk.com/newroom"
-  style="width: 100vw; height: 100vh; border: 0px;"
+  style="width: 100vw; height: 100vh; border: 0;"
 ></iframe>
 ```
 
-Follow the generic walkthrough to add a launch button, open a dedicated meeting page, or toggle an inline MiroTalk iframe in any website or application.
+[Quick iframe integration](./utility/quick-custom-integration.md){ .md-button .md-button--primary }
+[Browse APIs and webhooks](./build/index.md){ .md-button }
+[View the React example](https://codepen.io/Miroslav-Pejic/pen/QWzmGaZ){ .md-button }
 
-[Quick custom integration](./utility/quick-custom-integration.md){ .md-button .md-button--primary }
+## Self-host MiroTalk
 
-For room parameters, REST APIs, and production embedding patterns, use the guide for your selected project:
+Deploy MiroTalk for control over your infrastructure, domain, and configuration. Start with the architecture guide, then choose a product-specific installation path.
 
-| Project | Integration | Direct join | REST API | Example |
-| :--- | :--- | :--- | :--- | :--- |
-| **SFU** | [SFU integration](./mirotalk-sfu/integration.md) | [SFU direct join](./mirotalk-sfu/join-room.md) | [SFU REST API](./mirotalk-sfu/api.md) | [CodePen](https://codepen.io/Miroslav-Pejic/pen/LYXRbmE) |
-| **P2P** | [P2P integration](./mirotalk-p2p/integration.md) | [P2P direct join](./mirotalk-p2p/join-room.md) | [P2P REST API](./mirotalk-p2p/api.md) | [CodePen](https://codepen.io/Miroslav-Pejic/pen/jOQMVzx) |
-| **C2C** | [C2C integration](./mirotalk-c2c/integration.md) | [C2C direct join](./mirotalk-c2c/join-room.md) | [C2C REST API](./mirotalk-c2c/api.md) | [CodePen](https://codepen.io/Miroslav-Pejic/pen/ExOgNbJ) |
-| **BRO** | [BRO integration](./mirotalk-bro/integration.md) | [BRO direct join](./mirotalk-bro/join-room.md) | [BRO REST API](./mirotalk-bro/api.md) | [CodePen](https://codepen.io/Miroslav-Pejic/pen/OJaRbZg) |
-| **CME** | [CME integration](./mirotalk-cme/integration.md) | [CME direct join](./mirotalk-cme/join-room.md) | [CME REST API](./mirotalk-cme/api.md) | [CodePen](https://codepen.io/Miroslav-Pejic/pen/empeGYJ) |
-| **WEB** | [WEB integration](./mirotalk-web/integration.md) | — | [WEB REST API](./mirotalk-web/api.md) | [CodePen](https://codepen.io/Miroslav-Pejic/pen/jOQMVxx) |
+| Start with | Use it for |
+| :--- | :--- |
+| [Self-hosting overview](./self-host/index.md) | Product selection and deployment paths |
+| [WebRTC architectures](./webrtc/architectures.md) | P2P, SFU, and media topology decisions |
+| [Ubuntu installation scripts](./scripts/about.md) | Automated install, update, and uninstall workflows |
+| [Coturn](./coturn/stun-turn.md) | STUN and TURN networking |
+| [Cloudron](./cloudron/cloudron.md) | Managed self-hosting workflow |
 
-[View the React integration example](https://codepen.io/Miroslav-Pejic/pen/QWzmGaZ)
+## Open source, Cloud, or commercial
 
-## Self-Host MiroTalk
-
-Deploy MiroTalk on your own server for control over your data, domain, branding, and infrastructure. If you are unsure which architecture fits your audience size, [compare the projects](./overview/index.html) before deploying.
-
-| Project | Self-Hosting Guide | Configurations |
-| :--- | :--- | :--- |
-| 🏆 **SFU** | [Self-host SFU](./mirotalk-sfu/self-hosting.md) | [SFU configuration](./mirotalk-sfu/configurations.md) |
-| 🚀 **P2P** | [Self-host P2P](./mirotalk-p2p/self-hosting.md) | [P2P configuration](./mirotalk-p2p/configurations.md) |
-| ✨ **C2C** | [Self-host C2C](./mirotalk-c2c/self-hosting.md) | [C2C configuration](./mirotalk-c2c/configurations.md) |
-| 📡 **BRO** | [Self-host BRO](./mirotalk-bro/self-hosting.md) | [BRO configuration](./mirotalk-bro/configurations.md) |
-| 🟢 **CME** | [Self-host CME](./mirotalk-cme/self-hosting.md) | [CME configuration](./mirotalk-cme/configurations.md) |
-| 🛠 **WEB** | [Self-host WEB](./mirotalk-web/self-hosting.md) | [WEB configuration](./mirotalk-web/configurations.md) |
-| ⚙️ **ADMIN** | [Self-host Admin](./mirotalk-admin/self-hosting.md) | — |
-
-Choose a self-hosted installation method: [Ubuntu scripts](./scripts/about.md) or [Cloudron](./cloudron/cloudron.md). Prefer a managed service with no server maintenance? Explore [MiroTalk on EvoPlat](./evoplat/evoplat.md).
-
-## MiroTalk Support and Licensing
-
-<div class="home-license-callout">
-  <div class="home-license-icon" aria-hidden="true">
-    <img src="./images/license.png" alt="">
-  </div>
-  <div class="home-license-content">
-    <span class="home-license-label">Open source or commercial</span>
-    <h3>Choose the right license for your project</h3>
-    <p>Use MiroTalk under AGPLv3 when your MiroTalk-based source remains public, or choose a commercial license for private and paid products.</p>
-    <div class="home-license-actions">
-      <a class="md-button md-button--primary" href="./license/index.html">Compare licensing options</a>
-      <a class="home-license-link" href="./license/index.html#pricing">View product pricing &rarr;</a>
-    </div>
-  </div>
+<div class="path-grid">
+  <section class="path-option">
+    <span class="journey-label">Open source</span>
+    <h3>Run it yourself</h3>
+    <p>Inspect, modify, and self-host the source under the applicable AGPLv3 terms.</p>
+    <a href="/self-host/">Open self-hosting docs</a>
+  </section>
+  <section class="path-option">
+    <span class="journey-label">MiroTalk Cloud</span>
+    <h3>Use the managed service</h3>
+    <p>Use MiroTalk without operating the application and WebRTC infrastructure.</p>
+    <a href="https://webrtc.mirotalk.com">Start MiroTalk Cloud</a>
+  </section>
+  <section class="path-option">
+    <span class="journey-label">Commercial</span>
+    <h3>Build with MiroTalk</h3>
+    <p>Review the official licensing options for commercial products and business requirements.</p>
+    <a href="/license/">Compare licensing options</a>
+  </section>
 </div>
 
-For help, check the [Frequently Asked Questions](./faq/index.md) or join the [MiroTalk Discord community](https://discord.gg/rgGYfeYW3N).
+## Support and project links
 
-[Read the FAQ](./faq/index.md){ .md-button }
+- [Read the frequently asked questions](./faq/index.md).
+- [Join the MiroTalk Discord community](https://discord.gg/rgGYfeYW3N).
+- [View MiroTalk projects on GitHub](https://github.com/miroslavpejic85).
+- [Read the MiroTalk story](./story/index.md).
+- [Contact MiroTalk](mailto:miroslav.pejic.85@gmail.com) about enterprise requirements.

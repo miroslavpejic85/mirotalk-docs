@@ -1,4 +1,4 @@
-site_name: MiroTalk docs v1.4.53
+site_name: MiroTalk Documentation
 site_url: https://docs.mirotalk.com/
 site_description: MiroTalk is an open-source WebRTC platform for video calls, group conferencing, live streaming and click-to-call. Self-host it or embed it with a single iframe.
 site_author: Miroslav Pejic (miroslav.pejic.85@gmail.com)
@@ -12,130 +12,139 @@ hooks:
 # Navigation Bar
 nav:
   - Home: index.md
-  - story: story/index.html
-  - about: about/index.html
-  - overview: overview/index.html
-  - projects: projects/index.html
-  - changelogs: changelogs/changelogs.md
-  - cloudron: cloudron/cloudron.md
-  - evoplat: evoplat/evoplat.md
-  - faq: faq/index.md
-  - coturn:
-      - stun-turn: coturn/stun-turn.md
-      - installation: coturn/installation.md
-  - licensing-options: license/index.html
-  - mirotalk-admin:
-      - about: mirotalk-admin/index.html
-      - github: https://github.com/miroslavpejic85/mirotalk-admin
-      - quick-start: mirotalk-admin/quick-start.md
-      - self-hosting: mirotalk-admin/self-hosting.md
-  - mirotalk-bro:
-      - about: mirotalk-bro/index.html
-      - api: mirotalk-bro/api.md
-      - configurations: mirotalk-bro/configurations.md
-      - integration: mirotalk-bro/integration.md
-      - join-room: mirotalk-bro/join-room.md
-      - ngrok: mirotalk-bro/ngrok.md
-      - self-hosting: mirotalk-bro/self-hosting.md
-  - mirotalk-c2c:
-      - about: mirotalk-c2c/index.html
-      - api: mirotalk-c2c/api.md
-      - configurations: mirotalk-c2c/configurations.md
-      - integration: mirotalk-c2c/integration.md
-      - join-room: mirotalk-c2c/join-room.md
-      - ngrok: mirotalk-c2c/ngrok.md
-      - self-hosting: mirotalk-c2c/self-hosting.md
-  - mirotalk-cme:
-      - about: mirotalk-cme/index.html
-      - api: mirotalk-cme/api.md
-      - configurations: mirotalk-cme/configurations.md
-      - I18n: mirotalk-cme/I18n.md
-      - integration: mirotalk-cme/integration.md
-      - join-room: mirotalk-cme/join-room.md
-      - ngrok: mirotalk-cme/ngrok.md
-      - self-hosting: mirotalk-cme/self-hosting.md
-      - webhook: mirotalk-cme/webhook.md
-  - mirotalk-docs:
-      - self-hosting: mirotalk-docs/self-hosting.md
-  - mirotalk-p2p:
-      - about: mirotalk-p2p/index.html
-      - api: mirotalk-p2p/api.md
-      - configurations: mirotalk-p2p/configurations.md
-      - host-protection: mirotalk-p2p/host-protection.md
-      - integration: mirotalk-p2p/integration.md
-      - join-room: mirotalk-p2p/join-room.md
-      - ngrok: mirotalk-p2p/ngrok.md
-      - rebranding: mirotalk-p2p/rebranding.md
-      - self-hosting: mirotalk-p2p/self-hosting.md
-      - updates: mirotalk-p2p/updates.md
-      - webhook: mirotalk-p2p/webhook.md
-  - mirotalk-sfu:
-      - about: mirotalk-sfu/index.html
-      - api: mirotalk-sfu/api.md
-      - configurations: mirotalk-sfu/configurations.md
-      - host-protection: mirotalk-sfu/host-protection.md 
-      - integration: mirotalk-sfu/integration.md
-      - join-room: mirotalk-sfu/join-room.md
-      - ngrok: mirotalk-sfu/ngrok.md
-      - rebranding: mirotalk-sfu/rebranding.md
-      - rtmp: mirotalk-sfu/rtmp.md
-      - scalability: mirotalk-sfu/scalability.md
-      - self-hosting: mirotalk-sfu/self-hosting.md
-      - updates: mirotalk-sfu/updates.md
-      - webhook: mirotalk-sfu/webhook.md
-  - mirotalk-web:
-      - about: mirotalk-web/index.html
-      - api: mirotalk-web/api.md
-      - configurations: mirotalk-web/configurations.md
-      - integration: mirotalk-web/integration.md
-      - ngrok: mirotalk-web/ngrok.md
-      - self-hosting: mirotalk-web/self-hosting.md
-      - stripe: mirotalk-web/stripe.md
-  - mirotalk-ultimate: mirotalk-ultimate/index.html
-  - ngrok: ngrok/ngrok.md
-  - scripts:
-      - about: scripts/about.md
-      - sfu:
-        - sfu-install: scripts/sfu/sfu-install.sh
-        - sfu-uninstall: scripts/sfu/sfu-uninstall.sh
-        - sfu-update: scripts/sfu/sfu-update.sh
-      - p2p:
-        - p2p-install: scripts/p2p/p2p-install.sh
-        - p2p-uninstall: scripts/p2p/p2p-uninstall.sh
-        - p2p-update: scripts/p2p/p2p-update.sh
-      - c2c:
-        - c2c-install: scripts/c2c/c2c-install.sh
-        - c2c-uninstall: scripts/c2c/c2c-uninstall.sh
-        - c2c-update: scripts/c2c/c2c-update.sh
-      - bro:
-        - bro-install: scripts/bro/bro-install.sh
-        - bro-uninstall: scripts/bro/bro-uninstall.sh
-        - bro-update: scripts/bro/bro-update.sh
-      - cme:
-        - cme-install: scripts/cme/cme-install.sh
-        - cme-uninstall: scripts/cme/cme-uninstall.sh
-        - cme-update: scripts/cme/cme-update.sh
-      - web:
-        - web-install: scripts/web/web-install.sh
-        - web-uninstall: scripts/web/web-uninstall.sh
-        - web-update: scripts/web/web-update.sh
-      - coturn:
-        - coturn-install: scripts/coturn/coturn-install.sh
-        - coturn-uninstall: scripts/coturn/coturn-uninstall.sh
-        - coturn-update: scripts/coturn/coturn-update.sh
-      - whisper:
-        - whisper-install: scripts/whisper/whisper-install.sh
-        - whisper-uninstall: scripts/whisper/whisper-uninstall.sh
-        - whisper-update: scripts/whisper/whisper-update.sh
-  - utility:
-      - quick-custom-integration: utility/quick-custom-integration.md
-      - docker-compose: utility/docker-compose.md
-      - ftp: utility/ftp.md
-      - nvm: utility/nvm.md 
-      - update: utility/update.md
-      - whisper: utility/whisper.md
-  - webrtc:
-      - architectures: webrtc/architectures.md
+  - Use MiroTalk:
+    - Overview: use/index.md
+    - MiroTalk Cloud: cloud/index.md
+    - Choose a product: projects/index.md
+    - Compare architectures: overview/index.md
+    - Explore the suite: about/index.md
+    - Products:
+      - MiroTalk SFU: mirotalk-sfu/index.md
+      - MiroTalk P2P: mirotalk-p2p/index.md
+      - MiroTalk C2C: mirotalk-c2c/index.md
+      - MiroTalk BRO: mirotalk-bro/index.md
+      - MiroTalk CME: mirotalk-cme/index.md
+      - MiroTalk WEB: mirotalk-web/index.md
+      - MiroTalk Admin: mirotalk-admin/index.md
+  - Build with MiroTalk:
+    - Developer overview: build/index.md
+    - Quick iframe integration: utility/quick-custom-integration.md
+    - REST APIs:
+      - SFU REST API: mirotalk-sfu/api.md
+      - P2P REST API: mirotalk-p2p/api.md
+      - C2C REST API: mirotalk-c2c/api.md
+      - BRO REST API: mirotalk-bro/api.md
+      - CME REST API: mirotalk-cme/api.md
+      - WEB REST API: mirotalk-web/api.md
+    - Embed MiroTalk:
+      - SFU integration: mirotalk-sfu/integration.md
+      - P2P integration: mirotalk-p2p/integration.md
+      - C2C integration: mirotalk-c2c/integration.md
+      - BRO integration: mirotalk-bro/integration.md
+      - CME integration: mirotalk-cme/integration.md
+      - WEB integration: mirotalk-web/integration.md
+    - Direct join:
+      - SFU room links: mirotalk-sfu/join-room.md
+      - P2P room links: mirotalk-p2p/join-room.md
+      - C2C room links: mirotalk-c2c/join-room.md
+      - BRO broadcast links: mirotalk-bro/join-room.md
+      - CME call links: mirotalk-cme/join-room.md
+    - Webhooks:
+      - SFU webhooks: mirotalk-sfu/webhook.md
+      - P2P webhooks: mirotalk-p2p/webhook.md
+      - CME webhooks: mirotalk-cme/webhook.md
+    - SaaS billing with Stripe: mirotalk-web/stripe.md
+    - CME localization: mirotalk-cme/I18n.md
+  - Self-host MiroTalk:
+    - Self-hosting overview: self-host/index.md
+    - Choose an architecture: webrtc/architectures.md
+    - Deployment guides:
+      - MiroTalk SFU: mirotalk-sfu/self-hosting.md
+      - MiroTalk P2P: mirotalk-p2p/self-hosting.md
+      - MiroTalk C2C: mirotalk-c2c/self-hosting.md
+      - MiroTalk BRO: mirotalk-bro/self-hosting.md
+      - MiroTalk CME: mirotalk-cme/self-hosting.md
+      - MiroTalk WEB: mirotalk-web/self-hosting.md
+      - MiroTalk Admin: mirotalk-admin/self-hosting.md
+      - Admin quick start: mirotalk-admin/quick-start.md
+      - Deploy with Cloudron: cloudron/cloudron.md
+    - Configuration:
+      - SFU configuration: mirotalk-sfu/configurations.md
+      - P2P configuration: mirotalk-p2p/configurations.md
+      - C2C configuration: mirotalk-c2c/configurations.md
+      - BRO configuration: mirotalk-bro/configurations.md
+      - CME configuration: mirotalk-cme/configurations.md
+      - WEB configuration: mirotalk-web/configurations.md
+    - Security and operations:
+      - SFU host protection: mirotalk-sfu/host-protection.md
+      - P2P host protection: mirotalk-p2p/host-protection.md
+      - Update SFU: mirotalk-sfu/updates.md
+      - Update P2P: mirotalk-p2p/updates.md
+      - Scale SFU: mirotalk-sfu/scalability.md
+      - Stream with RTMP: mirotalk-sfu/rtmp.md
+      - Self-host Whisper: utility/whisper.md
+    - STUN and TURN:
+      - STUN and TURN overview: coturn/stun-turn.md
+      - Install Coturn: coturn/installation.md
+    - Local development with ngrok:
+      - ngrok overview: ngrok/ngrok.md
+      - SFU with ngrok: mirotalk-sfu/ngrok.md
+      - P2P with ngrok: mirotalk-p2p/ngrok.md
+      - C2C with ngrok: mirotalk-c2c/ngrok.md
+      - BRO with ngrok: mirotalk-bro/ngrok.md
+      - CME with ngrok: mirotalk-cme/ngrok.md
+      - WEB with ngrok: mirotalk-web/ngrok.md
+    - Automated installation:
+      - Script overview: scripts/about.md
+      - SFU scripts:
+        - Install SFU: scripts/sfu/sfu-install.sh
+        - Uninstall SFU: scripts/sfu/sfu-uninstall.sh
+        - Update SFU: scripts/sfu/sfu-update.sh
+      - P2P scripts:
+        - Install P2P: scripts/p2p/p2p-install.sh
+        - Uninstall P2P: scripts/p2p/p2p-uninstall.sh
+        - Update P2P: scripts/p2p/p2p-update.sh
+      - C2C scripts:
+        - Install C2C: scripts/c2c/c2c-install.sh
+        - Uninstall C2C: scripts/c2c/c2c-uninstall.sh
+        - Update C2C: scripts/c2c/c2c-update.sh
+      - BRO scripts:
+        - Install BRO: scripts/bro/bro-install.sh
+        - Uninstall BRO: scripts/bro/bro-uninstall.sh
+        - Update BRO: scripts/bro/bro-update.sh
+      - CME scripts:
+        - Install CME: scripts/cme/cme-install.sh
+        - Uninstall CME: scripts/cme/cme-uninstall.sh
+        - Update CME: scripts/cme/cme-update.sh
+      - WEB scripts:
+        - Install WEB: scripts/web/web-install.sh
+        - Uninstall WEB: scripts/web/web-uninstall.sh
+        - Update WEB: scripts/web/web-update.sh
+      - Coturn scripts:
+        - Install Coturn: scripts/coturn/coturn-install.sh
+        - Uninstall Coturn: scripts/coturn/coturn-uninstall.sh
+        - Update Coturn: scripts/coturn/coturn-update.sh
+      - Whisper scripts:
+        - Install Whisper: scripts/whisper/whisper-install.sh
+        - Uninstall Whisper: scripts/whisper/whisper-uninstall.sh
+        - Update Whisper: scripts/whisper/whisper-update.sh
+    - Utilities:
+      - Docker Compose: utility/docker-compose.md
+      - Node.js with NVM: utility/nvm.md
+      - Update from Git: utility/update.md
+      - FTP: utility/ftp.md
+  - Commercial & Enterprise:
+    - Overview: commercial/index.md
+    - Enterprise services: enterprise/index.md
+    - Licensing options: license/index.md
+    - MiroTalk Ultimate: mirotalk-ultimate/index.md
+    - White-label SFU: mirotalk-sfu/rebranding.md
+    - White-label P2P: mirotalk-p2p/rebranding.md
+    - MiroTalk story: story/index.md
+  - Resources:
+    - Frequently asked questions: faq/index.md
+    - Changelogs: changelogs/changelogs.md
+    - Host these docs: mirotalk-docs/self-hosting.md
 
 # Theme Configuration
 theme:
@@ -159,18 +168,27 @@ theme:
   favicon: images/icon/favicon.ico
   logo: images/logo.svg
   font:
-    text: 'Roboto'
+    text: 'Manrope'
     code: 'Fira Code'
   features:
     - content.code.copy
+    - navigation.footer
     - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.suggest
+    - toc.follow
 
 # Custom styles
 extra_css:
   - stylesheets/extra.css
+extra_javascript:
+  - javascripts/accessibility.js
+  - javascripts/analytics-events.js
 
 # Social / preview card metadata
 extra:
+  docs_version: v1.5.10
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/miroslavpejic85
@@ -185,7 +203,6 @@ markdown_extensions:
       pygments_lang_class: true
       auto_title: true
       linenums: true
-      anchor_linenums: true
       line_spans: __span
       linenums_style: pymdownx-inline
   - admonition

@@ -12,3 +12,12 @@ __pycache__/
 
 # personal notes
 mirotalk.md
+
+# python
+.venv/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/

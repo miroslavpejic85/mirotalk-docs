@@ -1,12 +1,29 @@
-# REST API
+---
+title: MiroTalk SFU REST API
+description: Query meetings and create, join, end, or authorize meetings with the MiroTalk SFU REST API.
+---
 
-![api](../images/api.png)
+# MiroTalk SFU REST API
 
-The REST API is comprehensively documented using [Swagger](https://swagger.io/), accessible at [https://YOUR-DOMAIN-NAME/api/v1/docs](https://sfu.mirotalk.com/api/v1/docs).
+![MiroTalk SFU REST API documentation](../images/api.png)
+
+The deployed [SFU Swagger specification](https://sfu.mirotalk.com/api/v1/docs) identifies itself as MiroTalk SFU API 1.0.1 using OAS 2.0. A self-hosted instance exposes the same interface at `https://YOUR-DOMAIN-NAME/api/v1/docs`.
+
+| Method | Path | Authentication | Purpose |
+| --- | --- | --- | --- |
+| `GET` | `/stats` | `Authorization: YOUR_API_KEY_SECRET` | Return aggregate meeting and participant statistics. |
+| `GET` | `/meetings` | `Authorization: YOUR_API_KEY_SECRET` | List active meetings. |
+| `POST` | `/meeting` | `Authorization: YOUR_API_KEY_SECRET` | Create a meeting URL. |
+| `DELETE` | `/meeting/{room}` | `Authorization: YOUR_API_KEY_SECRET` | End an active meeting. |
+| `POST` | `/join` | `Authorization: YOUR_API_KEY_SECRET` | Create a direct meeting join URL. |
+| `POST` | `/token` | `Authorization: YOUR_API_KEY_SECRET` | Create a meeting token. |
+
+!!! warning "Protect the API secret"
+  Replace `YOUR_API_KEY_SECRET` with the value configured in `.env`. Keep it on a trusted backend and never ship it in public browser code.
 
 ---
 
-## Stats Entry Point
+## `GET /stats`
 
 Upon a successful request, the API response will provide the total of Rooms and Users. The authorization for this request is determined by the `api.keySecret` configuration specified in your `config.js` file.
 
@@ -22,7 +39,7 @@ async function getStats() {
     // Use dynamic import with await
     const { default: fetch } = await import("node-fetch");
 
-    const API_KEY_SECRET = "mirotalksfu_default_secret";
+    const API_KEY_SECRET = "YOUR_API_KEY_SECRET";
     const MIROTALK_URL = "https://sfu.mirotalk.com/api/v1/stats";
 
     const response = await fetch(MIROTALK_URL, {
@@ -54,7 +71,7 @@ getStats();
 ```php
 <?php
 
-$API_KEY_SECRET = "mirotalksfu_default_secret";
+$API_KEY_SECRET = "YOUR_API_KEY_SECRET";
 $MIROTALK_URL = "https://sfu.mirotalk.com/api/v1/stats";
 
 $ch = curl_init();
@@ -89,7 +106,7 @@ if ($response) {
 import requests
 import json
 
-API_KEY_SECRET = "mirotalksfu_default_secret"
+API_KEY_SECRET = "YOUR_API_KEY_SECRET"
 MIROTALK_URL = "https://sfu.mirotalk.com/api/v1/stats"
 
 headers = {
@@ -117,7 +134,7 @@ else:
 ```bash
 #!/bin/bash
 
-API_KEY_SECRET="mirotalksfu_default_secret"
+API_KEY_SECRET="YOUR_API_KEY_SECRET"
 MIROTALK_URL="https://sfu.mirotalk.com/api/v1/stats"
 
 curl $MIROTALK_URL \
@@ -128,7 +145,7 @@ curl $MIROTALK_URL \
 
 ---
 
-## Active Meetings
+## `GET /meetings`
 
 Upon a successful request, the API response will provide the active Meetings. The authorization for this request is determined by the `api.keySecret` configuration specified in your `config.js` file.
 
@@ -144,7 +161,7 @@ async function getMeetings() {
     // Use dynamic import with await
     const { default: fetch } = await import("node-fetch");
 
-    const API_KEY_SECRET = "mirotalksfu_default_secret";
+    const API_KEY_SECRET = "YOUR_API_KEY_SECRET";
     const MIROTALK_URL = "https://sfu.mirotalk.com/api/v1/meetings";
 
     const response = await fetch(MIROTALK_URL, {
@@ -177,7 +194,7 @@ getMeetings();
 ```php
 <?php
 
-$API_KEY_SECRET = "mirotalksfu_default_secret";
+$API_KEY_SECRET = "YOUR_API_KEY_SECRET";
 $MIROTALK_URL = "https://sfu.mirotalk.com/api/v1/meetings";
 
 $ch = curl_init();
@@ -212,7 +229,7 @@ if ($response) {
 import requests
 import json
 
-API_KEY_SECRET = "mirotalksfu_default_secret"
+API_KEY_SECRET = "YOUR_API_KEY_SECRET"
 MIROTALK_URL = "https://sfu.mirotalk.com/api/v1/meetings"
 
 headers = {
@@ -240,7 +257,7 @@ else:
 ```bash
 #!/bin/bash
 
-API_KEY_SECRET="mirotalksfu_default_secret"
+API_KEY_SECRET="YOUR_API_KEY_SECRET"
 MIROTALK_URL="https://sfu.mirotalk.com/api/v1/meetings"
 
 curl $MIROTALK_URL \
@@ -251,7 +268,7 @@ curl $MIROTALK_URL \
 
 ---
 
-## Meeting Entry Point
+## `POST /meeting`
 
 Upon a successful request, the API response will provide a Meeting Entry Point or Room URL. The authorization for this request is determined by the `api.keySecret` configuration specified in your `config.js` file.
 
@@ -266,7 +283,7 @@ try {
   // Dynamically import 'node-fetch' with 'await'
   const { default: fetch } = await import("node-fetch");
 
-  const API_KEY_SECRET = "mirotalksfu_default_secret";
+  const API_KEY_SECRET = "YOUR_API_KEY_SECRET";
   const MIROTALK_URL = "https://sfu.mirotalk.com/api/v1/meeting";
 
   const response = await fetch(MIROTALK_URL, {
@@ -294,7 +311,7 @@ try {
 ```php
 <?php
 
-$API_KEY_SECRET = "mirotalksfu_default_secret";
+$API_KEY_SECRET = "YOUR_API_KEY_SECRET";
 $MIROTALK_URL = "https://sfu.mirotalk.com/api/v1/meeting";
 
 $ch = curl_init();
@@ -326,7 +343,7 @@ echo "Meeting: ", $data->{'meeting'}, "\n";
 import requests
 import json
 
-API_KEY_SECRET = "mirotalksfu_default_secret"
+API_KEY_SECRET = "YOUR_API_KEY_SECRET"
 MIROTALK_URL = "https://sfu.mirotalk.com/api/v1/meeting"
 
 headers = {
@@ -349,7 +366,7 @@ print("Meeting:", data["meeting"])
 ```bash
 #!/bin/bash
 
-API_KEY_SECRET="mirotalksfu_default_secret"
+API_KEY_SECRET="YOUR_API_KEY_SECRET"
 MIROTALK_URL="https://sfu.mirotalk.com/api/v1/meeting"
 
 curl $MIROTALK_URL \
@@ -360,7 +377,7 @@ curl $MIROTALK_URL \
 
 ---
 
-## Meeting END Entry Point
+## `DELETE /meeting/{room}`
 
 End an active meeting by room name. All connected peers will be disconnected and redirected to the specified URL or home page.
 
@@ -374,7 +391,7 @@ async function endMeeting() {
         // Use dynamic import with await
         const { default: fetch } = await import('node-fetch');
 
-        const API_KEY_SECRET = 'mirotalksfu_default_secret';
+        const API_KEY_SECRET = 'YOUR_API_KEY_SECRET';
         const MIROTALK_URL = 'https://sfu.mirotalk.com/api/v1/meeting';
         // const MIROTALK_URL = 'http://localhost:3010/api/v1/meeting';
 
@@ -409,7 +426,7 @@ endMeeting();
 ```php
 <?php
 
-$API_KEY_SECRET = "mirotalksfu_default_secret";
+$API_KEY_SECRET = "YOUR_API_KEY_SECRET";
 $MIROTALK_URL = "https://sfu.mirotalk.com/api/v1/meeting";
 // $MIROTALK_URL = "http://localhost:3010/api/v1/meeting";
 
@@ -451,7 +468,7 @@ echo "\n";
 import requests
 import json
 
-API_KEY_SECRET = "mirotalksfu_default_secret"
+API_KEY_SECRET = "YOUR_API_KEY_SECRET"
 MIROTALK_URL = "https://sfu.mirotalk.com/api/v1/meeting"
 # MIROTALK_URL = "http://localhost:3010/api/v1/meeting"
 
@@ -483,7 +500,7 @@ print("result:", data)
 ```bash
 #!/bin/bash
 
-API_KEY_SECRET="mirotalksfu_default_secret"
+API_KEY_SECRET="YOUR_API_KEY_SECRET"
 MIROTALK_URL="https://sfu.mirotalk.com/api/v1/meeting"
 # MIROTALK_URL="http://localhost:3010/api/v1/meeting"
 
@@ -502,7 +519,7 @@ curl "$MIROTALK_URL/$ROOM" \
 
 ---
 
-## Direct Join Entry Point
+## `POST /join`
 
 Upon a successful request, the API response will provide a Meeting Entry Point for the direct join to the room. The authorization for this request is determined by the `api.keySecret` configuration specified in your `config.js` file.
 
@@ -517,7 +534,7 @@ try {
   // Use dynamic import with await
   const { default: fetch } = await import("node-fetch");
 
-  const API_KEY = "mirotalksfu_default_secret";
+  const API_KEY = "YOUR_API_KEY_SECRET";
   const MIROTALK_URL = "https://sfu.mirotalk.com/api/v1/join";
 
   const response = await fetch(MIROTALK_URL, {
@@ -565,7 +582,7 @@ try {
 ```php
 <?php
 
-$API_KEY_SECRET = "mirotalksfu_default_secret";
+$API_KEY_SECRET = "YOUR_API_KEY_SECRET";
 $MIROTALK_URL = "https://sfu.mirotalk.com/api/v1/join";
 
 $ch = curl_init();
@@ -623,7 +640,7 @@ echo "join: ", $data->{'join'}, "\n";
 import requests
 import json
 
-API_KEY_SECRET = "mirotalksfu_default_secret"
+API_KEY_SECRET = "YOUR_API_KEY_SECRET"
 MIROTALK_URL = "https://sfu.mirotalk.com/api/v1/join"
 
 headers = {
@@ -670,7 +687,7 @@ print("join:", data["join"])
 ```bash
 #!/bin/bash
 
-API_KEY_SECRET="mirotalksfu_default_secret"
+API_KEY_SECRET="YOUR_API_KEY_SECRET"
 MIROTALK_URL="https://sfu.mirotalk.com/api/v1/join"
 
 # Request data with proper JSON formatting
@@ -704,7 +721,7 @@ curl -X POST "$MIROTALK_URL" \
 
 ---
 
-## Token Entry Point
+## `POST /token`
 
 Upon a successful request, the API response will provide a valid Token for the meeting. The authorization for this request is determined by the `api.keySecret` configuration specified in your `config.js` file.
 
@@ -719,7 +736,7 @@ try {
   // Use dynamic import with await
   const { default: fetch } = await import("node-fetch");
 
-  const API_KEY_SECRET = "mirotalksfu_default_secret";
+  const API_KEY_SECRET = "YOUR_API_KEY_SECRET";
   const MIROTALK_URL = "https://sfu.mirotalk.com/api/v1/token";
 
   const response = await fetch(MIROTALK_URL, {
@@ -753,7 +770,7 @@ try {
 ```php
 <?php
 
-$API_KEY_SECRET = "mirotalksfu_default_secret";
+$API_KEY_SECRET = "YOUR_API_KEY_SECRET";
 $MIROTALK_URL = "https://sfu.mirotalk.com/api/v1/token";
 
 $ch = curl_init();
@@ -799,7 +816,7 @@ echo "token: ", $data->{'token'}, "\n";
 import requests
 import json
 
-API_KEY_SECRET = "mirotalksfu_default_secret"
+API_KEY_SECRET = "YOUR_API_KEY_SECRET"
 MIROTALK_URL = "https://sfu.mirotalk.com/api/v1/token"
 
 headers = {
@@ -832,7 +849,7 @@ print("token:", data["token"])
 ```bash
 #!/bin/bash
 
-API_KEY_SECRET="mirotalksfu_default_secret"
+API_KEY_SECRET="YOUR_API_KEY_SECRET"
 MIROTALK_URL="https://sfu.mirotalk.com/api/v1/token"
 
 curl $MIROTALK_URL \
@@ -852,7 +869,7 @@ curl $MIROTALK_URL \
     ```javascript
     api: {
         // Default secret key for app/api
-        keySecret: 'mirotalksfu_default_secret',
+        keySecret: 'YOUR_API_KEY_SECRET',
         // Define which endpoints are allowed
         allowed: {
             meetings: true,
