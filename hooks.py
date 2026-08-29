@@ -33,6 +33,12 @@ PRODUCT_LANDING_PAGES = {
         "description": "Own a low-latency peer-to-peer WebRTC meeting platform with full source code, collaboration tools, REST API, and Docker support.",
         "previous_url": "mirotalk-p2p/",
     },
+    "projects": {
+        "name": "MiroTalk Projects",
+        "title": "MiroTalk Projects - Which One Should I Choose?",
+        "description": "Compare MiroTalk projects by purpose, audience size, running cost, and trade-offs.",
+        "previous_url": "projects/",
+    },
     "sfu": {
         "name": "MiroTalk SFU",
         "title": "MiroTalk SFU - Self-Hosted WebRTC Video Conferencing",

@@ -23,7 +23,7 @@ class PageParser(HTMLParser):
         if element_id:
             self.ids.add(element_id)
 
-        attribute = "href" if tag == "a" else "src" if tag in {"img", "script"} else None
+        attribute = "href" if tag in {"a", "link"} else "src" if tag in {"img", "script"} else None
         if attribute and attributes.get(attribute):
             self.references.append((tag, attributes[attribute] or ""))
 
