@@ -10,6 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DOCS_DIR = ROOT / "docs"
 ALLOWED_UNLISTED = {
     "license/licensing-options/index.html",
+    "sites/admin.html",
     "sites/bro.html",
     "sites/c2c.html",
     "sites/cme.html",

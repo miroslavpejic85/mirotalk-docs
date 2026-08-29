@@ -9,6 +9,7 @@ A self-hosted control plane for operators who manage MiroTalk services. Admin ce
 
 [Open the quick start](quick-start.md){ .md-button .md-button--primary }
 [Self-host MiroTalk Admin](self-hosting.md){ .md-button }
+[View product page](../sites/admin.html){ .md-button }
 
 ![MiroTalk Admin infrastructure-management dashboard](../images/mirotalk/admin.png){ .product-shot }
 
