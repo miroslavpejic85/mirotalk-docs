@@ -9,6 +9,7 @@ A self-hosted click-to-call experience for support, consultations, and direct co
 
 [Try the live demo](https://cme.mirotalk.com){ .md-button .md-button--primary }
 [Self-host MiroTalk CME](self-hosting.md){ .md-button }
+[View product page](../sites/cme.html){ .md-button }
 
 ![MiroTalk CME click-to-call interface](../images/mirotalk/cme.png){ .product-shot }
 

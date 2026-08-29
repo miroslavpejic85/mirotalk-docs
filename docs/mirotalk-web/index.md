@@ -9,6 +9,7 @@ A browser workspace for accounts, rooms, schedules, invitations, and meeting adm
 
 [Use MiroTalk Cloud](https://webrtc.mirotalk.com){ .md-button .md-button--primary }
 [Self-host MiroTalk WEB](self-hosting.md){ .md-button }
+[View product page](../sites/web.html){ .md-button }
 
 ![MiroTalk WEB scheduling and room-management workspace](../images/mirotalk/web.png){ .product-shot }
 

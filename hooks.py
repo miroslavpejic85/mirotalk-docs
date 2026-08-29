@@ -74,22 +74,23 @@ def add_landing_page_metadata(site_dir, site_url):
             previous_url, page_url
         )
 
+        structured_data = json.dumps(
+            {
+                "@context": "https://schema.org",
+                "@type": "SoftwareApplication",
+                "name": metadata["name"],
+                "applicationCategory": "CommunicationApplication",
+                "operatingSystem": "Web, Linux",
+                "description": metadata["description"],
+                "url": page_url,
+                "image": social_image,
+            },
+            indent=2,
+        )
+
         if 'property="og:title"' not in contents:
             title = escape(metadata["title"], quote=True)
             description = escape(metadata["description"], quote=True)
-            structured_data = json.dumps(
-                {
-                    "@context": "https://schema.org",
-                    "@type": "SoftwareApplication",
-                    "name": metadata["name"],
-                    "applicationCategory": "CommunicationApplication",
-                    "operatingSystem": "Web, Linux",
-                    "description": metadata["description"],
-                    "url": page_url,
-                    "image": social_image,
-                },
-                indent=2,
-            )
             tags = f"""
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="MiroTalk">
@@ -102,11 +103,18 @@ def add_landing_page_metadata(site_dir, site_url):
 <meta name="twitter:title" content="{title}">
 <meta name="twitter:description" content="{description}">
 <meta name="twitter:image" content="{social_image}">
+"""
+            contents = contents.replace("</head>", f"{tags}</head>", 1)
+
+        if 'type="application/ld+json"' not in contents:
+            structured_data_tag = f"""
 <script type="application/ld+json">
 {structured_data}
 </script>
 """
-            contents = contents.replace("</head>", f"{tags}</head>", 1)
+            contents = contents.replace(
+                "</head>", f"{structured_data_tag}</head>", 1
+            )
 
         page_path.write_text(contents, encoding="utf-8")
 

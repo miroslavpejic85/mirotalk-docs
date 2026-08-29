@@ -10,6 +10,7 @@ description: Get seven self-hosted WebRTC applications, source code, deployment 
     <div class="ultimate-actions">
         <a class="md-button md-button--primary" href="https://buy.stripe.com/00w5kC1BjaKreaQ6Qmbsc06">Buy Regular · $299</a>
         <a class="md-button" href="https://buy.stripe.com/7sYcN493L7yf5EkcaGbsc07">Buy Extended · $1,499</a>
+        <a class="ultimate-text-link" href="../sites/ultimate.html">View product page</a>
         <a class="ultimate-text-link" href="/license/">Compare licenses</a>
     </div>
     <img class="ultimate-hero-image" src="/images/mirotalk/preview.png" alt="MiroTalk video meetings displayed across desktop and laptop devices" width="590" height="242" fetchpriority="high">

@@ -9,6 +9,7 @@ A focused, self-hosted camera-to-camera experience for two participants. C2C sui
 
 [Try the live demo](https://c2c.mirotalk.com){ .md-button .md-button--primary }
 [Self-host MiroTalk C2C](self-hosting.md){ .md-button }
+[View product page](../sites/c2c.html){ .md-button }
 
 ![MiroTalk C2C one-to-one call interface](../images/mirotalk/c2c.png){ .product-shot }
 

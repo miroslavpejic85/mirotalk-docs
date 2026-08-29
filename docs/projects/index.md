@@ -10,6 +10,7 @@ description: Compare MiroTalk products by purpose, audience size, media architec
 Start with what you want to do, how people participate, and how much infrastructure you want to operate. You do not need to understand WebRTC before choosing a useful starting point.
 
 [Find your product](#choose-by-goal){ .md-button .md-button--primary }
+[Open the visual project guide](../sites/projects.html){ .md-button }
 [Compare architectures](../overview/index.md){ .md-button }
 
 ## Choose by goal

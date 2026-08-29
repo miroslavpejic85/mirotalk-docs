@@ -9,6 +9,7 @@ A self-hosted one-to-many broadcasting experience for a presenter and audience. 
 
 [Try the live demo](https://bro.mirotalk.com){ .md-button .md-button--primary }
 [Self-host MiroTalk BRO](self-hosting.md){ .md-button }
+[View product page](../sites/bro.html){ .md-button }
 
 ![MiroTalk BRO live broadcasting interface](../images/mirotalk/bro.png){ .product-shot }
 

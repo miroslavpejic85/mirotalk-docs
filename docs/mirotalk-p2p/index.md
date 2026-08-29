@@ -9,6 +9,7 @@ Self-hosted WebRTC meetings for private calls and small groups. Participants exc
 
 [Try the live demo](https://p2p.mirotalk.com/newcall){ .md-button .md-button--primary }
 [Self-host MiroTalk P2P](self-hosting.md){ .md-button }
+[View product page](../sites/p2p.html){ .md-button }
 
 ![MiroTalk P2P small-group meeting interface](../images/mirotalk/p2p.png){ .product-shot }
 
