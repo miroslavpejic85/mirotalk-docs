@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MiroTalk Admin - Self-Hosted Infrastructure Management</title>
+  <meta name="description" content="Manage self-hosted MiroTalk services from one dashboard with centralized configuration, updates, monitoring, and SSH, Docker, or PM2 control.">
+  <meta name="theme-color" content="#07080f">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="MiroTalk Docs">
+  <meta property="og:title" content="MiroTalk Admin - Self-Hosted Infrastructure Management">
+  <meta property="og:description" content="Centralize configuration, updates, process monitoring, and service operations for self-hosted MiroTalk deployments.">
+  <meta property="og:image" content="https://docs.mirotalk.com/images/mirotalk/admin.png">
+  <meta property="og:url" content="https://docs.mirotalk.com/mirotalk-admin/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="MiroTalk Admin - Self-Hosted Infrastructure Management">
+  <meta name="twitter:description" content="Operate self-hosted MiroTalk services from one secure management dashboard.">
+  <meta name="twitter:image" content="https://docs.mirotalk.com/images/mirotalk/admin.png">
+  <link rel="canonical" href="https://docs.mirotalk.com/mirotalk-admin/">
+  <link rel="icon" href="../images/icon/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+  <script src="../javascripts/product-theme.js"></script>
+  <link href="site.css" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="site-nav container" aria-label="Primary navigation">
+      <a class="brand" href="../">MiroTalk <span>ADMIN</span></a>
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#modes">Management Modes</a>
+        <a href="#security">Security</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <a class="btn btn-primary" href="../mirotalk-admin/quick-start/">Get Started</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-glow"></div>
+      <div class="container hero-content">
+        <span class="badge"><span class="pulse"></span>Self-Hosted Operations</span>
+        <h1 class="display">One Control Plane.<br><span class="grad-text">Every MiroTalk Service.</span></h1>
+        <p class="lead">Centralize configuration, updates, credentials, process monitoring, and lifecycle operations for MiroTalk services running on your infrastructure.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary btn-lg" href="../mirotalk-admin/quick-start/"><i class="fa-solid fa-rocket"></i> Quick Start</a>
+          <a class="btn btn-ghost btn-lg" href="https://github.com/miroslavpejic85/mirotalk-admin" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> View on GitHub</a>
+        </div>
+        <div class="proof">
+          <span><i class="fa-solid fa-server"></i> Multi-instance control</span>
+          <span><i class="fa-solid fa-code-branch"></i> Centralized updates</span>
+          <span><i class="fa-solid fa-lock"></i> Self-hosted access</span>
+        </div>
+        <div class="hero-mockup mockup">
+          <div class="mockup-bar">
+            <div class="dots"><i class="dot"></i><i class="dot"></i><i class="dot"></i></div>
+            <div class="mockup-url">MiroTalk Admin - Infrastructure dashboard</div>
+          </div>
+          <img src="../images/mirotalk/admin.png" alt="MiroTalk Admin infrastructure management dashboard" fetchpriority="high">
+        </div>
+      </div>
+    </section>
+
+    <div class="stats">
+      <div class="stat"><div class="stat-number">1</div><div class="stat-label">Control Plane</div></div>
+      <div class="stat"><div class="stat-number">3</div><div class="stat-label">Management Modes</div></div>
+      <div class="stat"><div class="stat-number">24/7</div><div class="stat-label">Service Visibility</div></div>
+      <div class="stat"><div class="stat-number">100%</div><div class="stat-label">Self-Hosted</div></div>
+    </div>
+
+    <section id="features" class="section container">
+      <div class="section-head">
+        <p class="eyebrow">Operations in One Place</p>
+        <h2 class="h2">Manage the MiroTalk Stack</h2>
+        <p class="lead">Give operators a focused dashboard for routine service administration without turning the control plane into a meeting or media server.</p>
+      </div>
+      <div class="grid">
+        <article class="card"><div class="card-icon"><i class="fa-solid fa-sliders"></i></div><h3>Central Configuration</h3><p>Review and maintain service settings and environment configuration from one interface.</p></article>
+        <article class="card"><div class="card-icon"><i class="fa-solid fa-arrows-rotate"></i></div><h3>Application Updates</h3><p>Coordinate updates across the MiroTalk services connected to your deployment.</p></article>
+        <article class="card"><div class="card-icon"><i class="fa-solid fa-heart-pulse"></i></div><h3>Process Monitoring</h3><p>Inspect operational status and keep track of managed application processes.</p></article>
+        <article class="card"><div class="card-icon"><i class="fa-solid fa-layer-group"></i></div><h3>Multiple Instances</h3><p>Operate several deployed MiroTalk instances from a centralized dashboard.</p></article>
+        <article class="card"><div class="card-icon"><i class="fa-solid fa-users-gear"></i></div><h3>Access Administration</h3><p>Manage dashboard users and credentials for your operations team.</p></article>
+        <article class="card"><div class="card-icon"><i class="fa-solid fa-terminal"></i></div><h3>Lifecycle Control</h3><p>Start, stop, restart, and maintain services through the configured management mode.</p></article>
+      </div>
+    </section>
+
+    <div class="divider container"></div>
+
+    <section id="modes" class="section container">
+      <div class="section-head">
+        <p class="eyebrow">Flexible Deployment</p>
+        <h2 class="h2">Choose How Admin Connects</h2>
+        <p class="lead">Use the least-privileged mode that supports where and how your MiroTalk services run.</p>
+      </div>
+      <div class="grid">
+        <article class="card"><div class="card-icon"><i class="fa-solid fa-key"></i></div><h3>SSH</h3><p>Manage services on remote hosts with pinned host keys and tightly scoped credentials.</p></article>
+        <article class="card"><div class="card-icon"><i class="fa-brands fa-docker"></i></div><h3>Docker</h3><p>Control sibling MiroTalk containers through the Docker daemon on the host.</p></article>
+        <article class="card"><div class="card-icon"><i class="fa-solid fa-cubes"></i></div><h3>PM2</h3><p>Operate local Node.js application processes and their configuration through PM2.</p></article>
+      </div>
+    </section>
+
+    <div class="divider container"></div>
+
+    <section id="security" class="section container">
+      <div class="split">
+        <div>
+          <p class="eyebrow">Privileged by Design</p>
+          <h2 class="h2">Protect the Control Plane</h2>
+          <p class="lead" style="margin:18px 0 28px">Admin can affect every managed service. Isolate the dashboard, restrict operator access, and protect every credential it uses.</p>
+          <a class="btn btn-ghost" href="../mirotalk-admin/self-hosting/">Read the Deployment Guide <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <ul>
+          <li class="check"><i class="fa-solid fa-check"></i> Serve the dashboard over HTTPS</li>
+          <li class="check"><i class="fa-solid fa-check"></i> Replace default credentials before exposure</li>
+          <li class="check"><i class="fa-solid fa-check"></i> Use strong JWT secrets and restricted accounts</li>
+          <li class="check"><i class="fa-solid fa-check"></i> Protect SSH keys and Docker socket access</li>
+          <li class="check"><i class="fa-solid fa-check"></i> Limit network access to trusted operators</li>
+          <li class="check"><i class="fa-solid fa-check"></i> Back up configuration before updates</li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="divider container"></div>
+
+    <section id="faq" class="section container">
+      <div class="section-head"><p class="eyebrow">Common Questions</p><h2 class="h2">MiroTalk Admin FAQ</h2></div>
+      <div class="faq">
+        <details><summary>Does Admin host video meetings?</summary><div class="answer">No. Admin is an operational control plane for deployed MiroTalk services. It does not provide meeting rooms or process media.</div></details>
+        <details><summary>Can it manage services on another server?</summary><div class="answer">Yes. SSH mode is designed for remote hosts. Pin the host fingerprint and use credentials with only the permissions required for management.</div></details>
+        <details><summary>Can I use Admin with Docker?</summary><div class="answer">Yes. Docker mode can manage sibling containers when the deployment grants access to the Docker daemon. Treat that access as highly privileged.</div></details>
+        <details><summary>Where should I start?</summary><div class="answer">Use the quick-start guide to evaluate Admin locally, then follow the self-hosting guide to configure HTTPS, credentials, and production access controls.</div></details>
+      </div>
+    </section>
+
+    <section class="section container">
+      <div class="cta">
+        <p class="eyebrow">Ready to Operate</p>
+        <h2 class="h2">Centralize Your MiroTalk Services</h2>
+        <p class="lead">Deploy the dashboard, choose a management mode, and secure access before connecting production services.</p>
+        <a class="btn btn-primary btn-lg" href="../mirotalk-admin/quick-start/">Open the Quick Start</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner container">
+      <p><strong>MiroTalk ADMIN</strong><span style="color:var(--text-2);font-size:13px">&copy; 2026 MiroTalk. All rights reserved.</span></p>
+      <div class="footer-links">
+        <a href="../">Documentation</a>
+        <a href="https://github.com/miroslavpejic85/mirotalk-admin" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://discord.gg/rgGYfeYW3N" target="_blank" rel="noopener noreferrer">Community</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
