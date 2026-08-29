@@ -62,6 +62,41 @@ Use only what your product needs or combine applications behind a shared domain 
 
 The applications do not all expose the same capabilities. Review each product page or the [technical comparison](../overview/index.md) before treating a feature as bundle-wide.
 
+## Who is MiroTalk Ultimate for?
+
+<div class="ultimate-capability-grid">
+    <section class="ultimate-capability">
+        <span class="ultimate-index">SaaS founders</span>
+        <h3>Launch a branded video platform</h3>
+        <p>Build a customer-facing communication product with source access and a choice of meeting, calling, broadcasting, and scheduling workflows.</p>
+    </section>
+    <section class="ultimate-capability ultimate-capability-build">
+        <span class="ultimate-index">Agencies</span>
+        <h3>Deliver tailored client solutions</h3>
+        <p>Customize and integrate focused video experiences for eligible client projects under the applicable license terms.</p>
+    </section>
+    <section class="ultimate-capability ultimate-capability-run">
+        <span class="ultimate-index">Enterprises</span>
+        <h3>Control deployment and operations</h3>
+        <p>Run communication services on infrastructure you control and connect them to your identity, security, and operational processes.</p>
+    </section>
+    <section class="ultimate-capability">
+        <span class="ultimate-index">Education platforms</span>
+        <h3>Support classes and tutoring</h3>
+        <p>Combine group sessions, private calls, scheduling, invitations, and webinars according to the learning experience you provide.</p>
+    </section>
+    <section class="ultimate-capability ultimate-capability-build">
+        <span class="ultimate-index">Professional services</span>
+        <h3>Meet clients in your own workflow</h3>
+        <p>Add consultations, coaching, onboarding, and customer-support calls to an existing service or portal.</p>
+    </section>
+    <section class="ultimate-capability ultimate-capability-run">
+        <span class="ultimate-index">Event platforms</span>
+        <h3>Host interactive and broadcast formats</h3>
+        <p>Choose between collaborative meetings, webinars, and one-to-many broadcasts based on audience size and participation needs.</p>
+    </section>
+</div>
+
 ## A complete communication toolkit
 
 <div class="ultimate-capability-grid">
