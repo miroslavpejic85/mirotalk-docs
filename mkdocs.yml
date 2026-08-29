@@ -135,7 +135,11 @@ nav:
       - FTP: utility/ftp.md
   - Commercial & Enterprise:
     - Overview: commercial/index.md
+    - Business solutions: business/index.md
+    - Why MiroTalk: why-mirotalk/index.md
     - Enterprise services: enterprise/index.md
+    - Partners: partners/index.md
+    - Sponsors: sponsors/index.md
     - Licensing options: license/index.md
     - MiroTalk Ultimate: mirotalk-ultimate/index.md
     - White-label SFU: mirotalk-sfu/rebranding.md

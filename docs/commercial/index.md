@@ -1,31 +1,53 @@
 ---
 title: MiroTalk Commercial and Enterprise
-description: Explore official MiroTalk commercial licensing, the Ultimate bundle, white-label documentation, and enterprise services.
+description: Explore MiroTalk business solutions, enterprise services, commercial licensing, partnerships, sponsorships, and the Ultimate bundle.
 ---
 
-# Commercial & Enterprise
+<header class="editorial-hero license-hero">
+	<span class="editorial-kicker">Build, deliver, and collaborate</span>
+	<h1>Commercial & Enterprise</h1>
+	<p>Choose a path for building a MiroTalk-based business, licensing a closed-source product, planning a private deployment, or collaborating with the ecosystem.</p>
+	<div class="editorial-actions">
+		<a class="md-button md-button--primary" href="#choose-a-path">Choose a path</a>
+		<a class="md-button" href="mailto:miroslav.pejic.85@gmail.com">Contact MiroTalk</a>
+	</div>
+</header>
 
-Choose the commercial path that matches how your organization plans to use, customize, or build with MiroTalk.
-
-## Compare the paths
+## Choose a path
 
 | Path | Best starting point |
 | --- | --- |
 | Open source | Review the applicable AGPLv3 terms and operate MiroTalk yourself. |
 | Managed service | Use [MiroTalk Cloud](../cloud/index.md) without managing the infrastructure. |
-| Commercial licensing | Review the project's official licensing options for your use case. |
-| Enterprise services | Contact MiroTalk about white-label requirements, dedicated infrastructure, support, or custom work. |
+| Build a business | Explore solution patterns for SaaS, education, consultations, support, agencies, events, and private platforms. |
+| Evaluate the platform | Compare the engineering surface MiroTalk provides with building WebRTC workflows from zero. |
+| Commercial licensing | Review official open-source, Regular, and Extended licensing paths. |
+| Enterprise deployment | Plan licensing, infrastructure, integration, security, scale, support, and procurement. |
+| Partner | Propose agency, integration, hosting, consulting, or technology collaboration. |
+| Sponsor | Choose a current GitHub tier or propose a tailored company sponsorship. |
 
 Licensing requirements depend on the applicable license terms. Use the official licensing page as the source of truth.
 
+## Build around MiroTalk
+
+See how focused MiroTalk applications can support a video SaaS, classes and consultations, customer support, client delivery, webinars, or a private communication platform.
+
+[Explore business solutions](../business/index.md){ .md-button .md-button--primary }
+[Understand why MiroTalk](../why-mirotalk/index.md){ .md-button }
+
+## License and deploy
+
+Compare the published licensing paths, then define who owns infrastructure, security, capacity, operations, integrations, and end-user support.
+
 [Compare licensing options](../license/index.md){ .md-button .md-button--primary }
-[Contact MiroTalk](mailto:miroslav.pejic.85@gmail.com){ .md-button }
+[Plan an enterprise deployment](../enterprise/index.md){ .md-button }
 
 ## Own the complete platform
 
-MiroTalk Ultimate packages the MiroTalk applications as a commercial distribution for customers evaluating the complete suite.
+MiroTalk Ultimate packages seven independently deployable applications as a commercial distribution for customers evaluating the complete suite.
 
-[Explore MiroTalk Ultimate](../mirotalk-ultimate/index.md){ .md-button }
+[Explore MiroTalk Ultimate](../mirotalk-ultimate/index.md){ .md-button .md-button--primary }
+[Compare product architectures](../overview/index.md){ .md-button }
 
 ## White-label documentation
 
@@ -36,8 +58,9 @@ Product-specific rebranding documentation is available for:
 
 Review the official licensing information before applying commercial branding changes.
 
-## Enterprise services
+## Collaborate with the ecosystem
 
-For business requirements that go beyond the published guides, use the enterprise contact path.
+Agencies, SaaS builders, system integrators, hosting companies, consultants, and technology vendors can propose a delivery or integration partnership. Organizations can also support ongoing project development through GitHub Sponsors or discuss a tailored company sponsorship.
 
-[Explore enterprise services](../enterprise/index.md){ .md-button .md-button--primary }
+[Explore partnerships](../partners/index.md){ .md-button .md-button--primary }
+[Explore sponsorships](../sponsors/index.md){ .md-button }
