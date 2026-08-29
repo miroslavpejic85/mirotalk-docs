@@ -181,14 +181,14 @@ theme:
 
 # Custom styles
 extra_css:
-  - stylesheets/extra.css?v=1.5.12
+  - stylesheets/extra.css?v=1.5.13
 extra_javascript:
   - javascripts/accessibility.js
   - javascripts/analytics-events.js
 
 # Social / preview card metadata
 extra:
-  docs_version: v1.5.12
+  docs_version: v1.5.13
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/miroslavpejic85
