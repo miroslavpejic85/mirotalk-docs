@@ -11,7 +11,6 @@ Self-hosted WebRTC group meetings, classes, and webinars powered by [mediasoup](
 
 [Try the live demo](https://sfu.mirotalk.com/newroom){ .md-button .md-button--primary }
 [Self-host MiroTalk SFU](self-hosting.md){ .md-button }
-[View source on GitHub](https://github.com/miroslavpejic85/mirotalksfu){ .md-button }
 
 ![MiroTalk SFU group meeting interface](../images/mirotalk/sfu.png){ .product-shot }
 

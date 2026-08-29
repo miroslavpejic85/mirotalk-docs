@@ -10,6 +10,13 @@ ROOT = Path(__file__).resolve().parents[1]
 DOCS_DIR = ROOT / "docs"
 ALLOWED_UNLISTED = {
     "license/licensing-options/index.html",
+    "sites/bro.html",
+    "sites/c2c.html",
+    "sites/cme.html",
+    "sites/p2p.html",
+    "sites/sfu.html",
+    "sites/ultimate.html",
+    "sites/web.html",
 }
 PUBLISHED_SUFFIXES = {".html", ".md", ".sh"}
 
@@ -69,7 +76,8 @@ def main():
 
     print(
         f"Navigation covers {len(expected_targets)} published sources "
-        f"exactly once; {len(ALLOWED_UNLISTED)} legacy route is allowlisted."
+        f"exactly once; {len(ALLOWED_UNLISTED)} standalone or legacy "
+        "routes are intentionally unlisted."
     )
 
 

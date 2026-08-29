@@ -74,6 +74,7 @@ Use SFU for group meetings, classes, webinars, conferences, and other workflows 
 **Main trade-off:** better room scalability requires more server resources than direct peer-to-peer calls.
 
 [Learn about SFU](../mirotalk-sfu/index.md){ .md-button .md-button--primary }
+[View the SFU product page](../sites/sfu.html){ .md-button }
 [Try the SFU demo](https://sfu.mirotalk.com){ .md-button }
 
 ### MiroTalk P2P
@@ -87,6 +88,7 @@ Use P2P for private calls and small group meetings where participants can exchan
 **Main trade-off:** every additional participant increases work on participant devices, and TURN relay traffic can add server bandwidth.
 
 [Learn about P2P](../mirotalk-p2p/index.md){ .md-button .md-button--primary }
+[View the P2P product page](../sites/p2p.html){ .md-button }
 [Try the P2P demo](https://p2p.mirotalk.com){ .md-button }
 
 ### MiroTalk C2C
@@ -100,6 +102,7 @@ Use C2C when the experience should remain a focused camera-to-camera call betwee
 **Main trade-off:** it is not designed for group meetings or one-to-many broadcasts.
 
 [Learn about C2C](../mirotalk-c2c/index.md){ .md-button .md-button--primary }
+[View the C2C product page](../sites/c2c.html){ .md-button }
 [Try the C2C demo](https://c2c.mirotalk.com){ .md-button }
 
 ### MiroTalk CME
@@ -113,6 +116,7 @@ Use CME for click-to-call workflows where a caller needs to reach a specific ava
 **Main trade-off:** the specialized caller/user flow is not intended to replace group meetings.
 
 [Learn about CME](../mirotalk-cme/index.md){ .md-button .md-button--primary }
+[View the CME product page](../sites/cme.html){ .md-button }
 [Try the CME demo](https://cme.mirotalk.com){ .md-button }
 
 ### MiroTalk BRO
@@ -126,6 +130,7 @@ Use BRO when one presenter needs to reach an audience. P2P mode can suit smaller
 **Main trade-off:** the audience size and distribution mode directly affect server bandwidth and cost.
 
 [Learn about BRO](../mirotalk-bro/index.md){ .md-button .md-button--primary }
+[View the BRO product page](../sites/bro.html){ .md-button }
 [Try the BRO demo](https://bro.mirotalk.com){ .md-button }
 
 ## Supporting products
@@ -137,6 +142,7 @@ Use BRO when one presenter needs to reach an audience. P2P mode can suit smaller
 WEB provides a user-facing workspace for accounts, rooms, schedules, and invitations. It organizes communication workflows; it is not itself a replacement for every communication architecture.
 
 [Learn about WEB](../mirotalk-web/index.md){ .md-button }
+[View the WEB product page](../sites/web.html){ .md-button }
 [Use the managed service](https://webrtc.mirotalk.com){ .md-button .md-button--primary }
 
 ### MiroTalk ADMIN manages infrastructure
@@ -202,6 +208,7 @@ Start with MiroTalk SFU when you need a complete group meeting experience and ro
 
 MiroTalk source is available under AGPLv3. For commercial licensing requirements, use the official licensing page as the source of truth.
 
+[Explore the complete MiroTalk Ultimate bundle](../sites/ultimate.html){ .md-button .project-action }
 [Read the AGPLv3 terms](https://www.gnu.org/licenses/agpl-3.0.html){ .md-button .project-action }
 [Compare licensing options](../license/index.md){ .md-button .md-button--primary .project-action }
 [Contact MiroTalk](mailto:miroslav.pejic.85@gmail.com){ .md-button .project-action }

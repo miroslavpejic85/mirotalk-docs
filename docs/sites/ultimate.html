@@ -1,0 +1,1697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MiroTalk Ultimate — Complete Self-Hosted WebRTC Platform</title>
+<meta name="description" content="Own seven production-ready MiroTalk WebRTC applications with full source code, self-hosted deployment, lifetime updates, and one-time licensing." />
+<meta name="theme-color" content="#07080F" />
+<link rel="canonical" href="https://docs.mirotalk.com/mirotalk-ultimate/" />
+<link rel="apple-touch-icon" sizes="180x180" href="../images/icon/apple-touch-icon.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../images/icon/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="../images/icon/favicon-16x16.png" />
+<link rel="shortcut icon" href="../images/icon/favicon.ico" />
+
+<!-- og -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="MiroTalk Docs" />
+<meta property="og:title" content="MiroTalk Ultimate Bundle – The Complete WebRTC Suite" />
+<meta property="og:description" content="All 7 MiroTalk Products in One Package — The Full WebRTC Video Conferencing Ecosystem" />
+<meta property="og:image" content="https://docs.mirotalk.com/images/mirotalk-preview.png" />
+<meta property="og:url" content="https://docs.mirotalk.com/mirotalk-ultimate/" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="MiroTalk Ultimate Bundle — The Complete WebRTC Suite" />
+<meta name="twitter:description" content="Seven self-hosted WebRTC products, full source code, and one-time licensing." />
+<meta name="twitter:image" content="https://docs.mirotalk.com/images/mirotalk-preview.png" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "MiroTalk Ultimate",
+  "applicationCategory": "CommunicationApplication",
+  "operatingSystem": "Web, Linux",
+  "description": "A self-hosted WebRTC suite containing seven production-ready applications with full source code.",
+  "url": "https://docs.mirotalk.com/mirotalk-ultimate/",
+  "image": "https://docs.mirotalk.com/images/mirotalk-preview.png",
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Regular License",
+      "price": "299",
+      "priceCurrency": "USD",
+      "url": "https://buy.stripe.com/00w5kC1BjaKreaQ6Qmbsc06"
+    },
+    {
+      "@type": "Offer",
+      "name": "Extended License",
+      "price": "1499",
+      "priceCurrency": "USD",
+      "url": "https://buy.stripe.com/7sYcN493L7yf5EkcaGbsc07"
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+<script src="../javascripts/product-theme.js"></script>
+<style>
+
+/* ─────────────────────────────────────────
+   DESIGN TOKENS
+───────────────────────────────────────── */
+:root {
+  color-scheme: dark;
+  --bg:         #07080F;
+  --bg-2:       #0E1018;
+  --surface:    rgba(255,255,255,0.04);
+  --border:     rgba(255,255,255,0.07);
+  --border-hi:  rgba(255,255,255,0.13);
+
+  --primary:    #4F46E5;
+  --primary-2:  #7C3AED;
+  --grad:       linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
+  --grad-soft:  linear-gradient(135deg, rgba(79,70,229,0.18) 0%, rgba(124,58,237,0.10) 100%);
+  --glow-top:   radial-gradient(ellipse 80% 55% at 50% -5%, rgba(79,70,229,0.42) 0%, transparent 68%);
+
+  --green:      #10B981;
+  --cyan:       #22D3EE;
+  --indigo-lite:#818CF8;
+  --indigo-pale:#A5B4FC;
+  --grid-line:  rgba(148,163,184,0.055);
+  --grid-strong:rgba(129,140,248,0.07);
+
+  --text-1:     #F1F5F9;
+  --text-2:     #94A3B8;
+  --text-3:     #4B5563;
+
+  --radius:     14px;
+  --radius-sm:  10px;
+  --radius-lg:  22px;
+
+  --shadow-sm:  0 2px 8px rgba(0,0,0,0.45);
+  --shadow-md:  0 8px 32px rgba(0,0,0,0.55);
+  --shadow-lg:  0 24px 64px rgba(0,0,0,0.65);
+  --shadow-glow:0 0 80px rgba(79,70,229,0.22);
+
+  --max-w: 1100px;
+  --font: 'Manrope', system-ui, -apple-system, sans-serif;
+  --mono: 'IBM Plex Mono', monospace;
+}
+
+[data-theme='light'] {
+  color-scheme: light;
+  --bg:         #F8FAFC;
+  --bg-2:       #EEF2F7;
+  --surface:    rgba(255,255,255,0.78);
+  --border:     rgba(15,23,42,0.10);
+  --border-hi:  rgba(15,23,42,0.18);
+
+  --primary:    #4338CA;
+  --primary-2:  #6D28D9;
+  --grad:       linear-gradient(135deg, #4338CA 0%, #6D28D9 100%);
+  --grad-soft:  linear-gradient(135deg, rgba(67,56,202,0.12) 0%, rgba(109,40,217,0.07) 100%);
+  --glow-top:   radial-gradient(ellipse 80% 55% at 50% -5%, rgba(79,70,229,0.18) 0%, transparent 68%);
+
+  --green:      #047857;
+  --cyan:       #0891B2;
+  --indigo-lite:#4F46E5;
+  --indigo-pale:#3730A3;
+  --grid-line:  rgba(71,85,105,0.075);
+  --grid-strong:rgba(67,56,202,0.07);
+
+  --text-1:     #172033;
+  --text-2:     #536071;
+  --text-3:     #718096;
+
+  --shadow-sm:  0 2px 8px rgba(23,32,51,0.08);
+  --shadow-md:  0 8px 32px rgba(23,32,51,0.12);
+  --shadow-lg:  0 24px 64px rgba(23,32,51,0.16);
+  --shadow-glow:0 0 80px rgba(79,70,229,0.12);
+}
+
+/* ─────────────────────────────────────────
+   RESET & BASE
+───────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html  { font-size: 16px; scroll-behavior: smooth; }
+body  {
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(circle at 10% 12%, rgba(34,211,238,0.08), transparent 24rem),
+    radial-gradient(circle at 90% 42%, rgba(16,185,129,0.065), transparent 28rem),
+    linear-gradient(var(--grid-strong) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-strong) 1px, transparent 1px),
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: auto, auto, 260px 260px, 260px 260px, 52px 52px, 52px 52px;
+  background-attachment: fixed;
+  color: var(--text-1);
+  font-family: var(--font);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+[data-theme='light'] body {
+  background-image:
+    radial-gradient(circle at 10% 12%, rgba(8,145,178,0.07), transparent 24rem),
+    radial-gradient(circle at 90% 42%, rgba(4,120,87,0.055), transparent 28rem),
+    linear-gradient(var(--grid-strong) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-strong) 1px, transparent 1px),
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+}
+[data-theme='light'] .site-header {
+  background: rgba(248,250,252,0.84);
+}
+[data-theme='light'] :is(.badge, .btn-ghost) {
+  background: rgba(255,255,255,0.72);
+}
+[data-theme='light'] .btn-ghost:hover {
+  background: #FFFFFF;
+}
+[data-theme='light'] .stats-bar {
+  background: rgba(15,23,42,0.018);
+}
+[data-theme='light'] :is(.feature-card:hover, .app-card:hover) {
+  box-shadow: var(--shadow-md);
+}
+[data-theme='light'] .hero__glow {
+  background: radial-gradient(ellipse, rgba(79,70,229,0.20) 0%, rgba(124,58,237,0.10) 40%, transparent 68%);
+}
+[data-theme='light'] .hero__glow-2 {
+  background: radial-gradient(ellipse, rgba(124,58,237,0.10) 0%, transparent 65%);
+}
+[data-theme='light'] .hero__mockup::before {
+  background-image:
+    linear-gradient(rgba(79,70,229,0.16) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(79,70,229,0.16) 1px, transparent 1px);
+}
+a   { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; height: auto; }
+ul  { list-style: none; }
+
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 100;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: var(--text-1);
+  color: var(--bg);
+  font-weight: 700;
+  transform: translateY(-150%);
+}
+.skip-link:focus { transform: translateY(0); }
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 1px solid var(--border);
+  background: rgba(7,8,15,0.88);
+  backdrop-filter: blur(18px);
+}
+.site-nav {
+  min-height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.site-nav__brand {
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+.site-nav__brand span { color: var(--indigo-lite); }
+.site-nav__links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-left: auto;
+}
+.site-nav__links a {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-2);
+}
+.site-nav__links a:hover { color: var(--text-1); }
+.site-nav .btn { padding: 9px 16px; font-size: 13px; }
+
+/* ─────────────────────────────────────────
+   LAYOUT
+───────────────────────────────────────── */
+.container {
+  width: 100%;
+  max-width: var(--max-w);
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+.section      { padding-block: 80px; }
+.section--xl  { padding-block: 120px; }
+.text-center  { text-align: center; }
+section[id]   { scroll-margin-top: 88px; }
+
+/* ─────────────────────────────────────────
+   TYPOGRAPHY
+───────────────────────────────────────── */
+.display {
+  font-size: clamp(38px, 6.5vw, 76px);
+  font-weight: 900;
+  line-height: 1.04;
+  letter-spacing: 0;
+  color: var(--text-1);
+}
+.h2 {
+  font-size: clamp(26px, 4vw, 50px);
+  font-weight: 800;
+  line-height: 1.10;
+  letter-spacing: 0;
+  color: var(--text-1);
+}
+.h3 {
+  font-size: clamp(18px, 2.4vw, 26px);
+  font-weight: 700;
+  line-height: 1.22;
+  letter-spacing: 0;
+  color: var(--text-1);
+}
+.lead {
+  font-size: clamp(15px, 1.8vw, 19px);
+  color: var(--text-2);
+  line-height: 1.68;
+  font-weight: 400;
+}
+.label {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--indigo-lite);
+}
+.label::before {
+  content: '';
+  display: inline-block;
+  width: 18px;
+  height: 1px;
+  margin: 0 9px 3px 0;
+  background: linear-gradient(90deg, var(--cyan), var(--indigo-lite));
+}
+.grad-text {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.green-text {
+  background: linear-gradient(135deg, #10B981, #34D399);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─────────────────────────────────────────
+   BADGE
+───────────────────────────────────────── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--border-hi);
+  background: rgba(255,255,255,0.05);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-2);
+  backdrop-filter: blur(14px);
+  letter-spacing: 0.01em;
+}
+.badge .pulse {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 8px var(--green);
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%,100% { opacity:1; }
+  50%      { opacity:0.4; }
+}
+
+/* ─────────────────────────────────────────
+   BUTTONS
+───────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 26px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 15px;
+  font-family: var(--font);
+  cursor: pointer;
+  transition: all 0.22s ease;
+  text-decoration: none;
+  white-space: nowrap;
+  border: none;
+}
+.btn-primary {
+  background: linear-gradient(135deg, #4338CA 0%, #6D28D9 58%, #0E7490 140%);
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(79,70,229,0.42);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(79,70,229,0.60);
+  color: #fff;
+}
+.btn-ghost {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid var(--border-hi);
+  color: var(--text-1);
+  backdrop-filter: blur(12px);
+}
+.btn-ghost:hover {
+  background: rgba(255,255,255,0.10);
+  transform: translateY(-1px);
+  color: var(--text-1);
+}
+.btn-lg { padding: 17px 34px; font-size: 17px; border-radius: 13px; }
+.btn-full { width: 100%; justify-content: center; }
+.btn:focus-visible,
+.app-card__link:focus-visible,
+.int-link:focus-visible,
+summary:focus-visible {
+  outline: 3px solid var(--indigo-pale);
+  outline-offset: 4px;
+}
+
+/* ─────────────────────────────────────────
+   BROWSER / DEVICE MOCKUP
+───────────────────────────────────────── */
+.mockup {
+  border-radius: 13px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: var(--shadow-lg), var(--shadow-glow);
+  background: #111318;
+}
+.mockup__bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 16px;
+  background: #1A1D27;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.mockup__dots { display: flex; gap: 6px; flex-shrink: 0; }
+.mockup__dot  { width: 11px; height: 11px; border-radius: 50%; }
+.mockup__dot:nth-child(1) { background: #FF5F57; }
+.mockup__dot:nth-child(2) { background: #FFBD2E; }
+.mockup__dot:nth-child(3) { background: #28C840; }
+.mockup__url {
+  flex: 1;
+  background: rgba(255,255,255,0.06);
+  border-radius: 6px;
+  padding: 5px 12px;
+  font-size: 12px;
+  color: var(--text-3);
+  font-family: var(--mono);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.mockup__body img { width: 100%; display: block; }
+
+/* ─────────────────────────────────────────
+   DIVIDER
+───────────────────────────────────────── */
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    var(--border-hi) 25%,
+    var(--border-hi) 75%,
+    transparent 100%
+  );
+}
+
+/* ─────────────────────────────────────────
+   STATS BAR
+───────────────────────────────────────── */
+.stats-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+  padding: 40px 24px;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: rgba(255,255,255,0.015);
+}
+.stat { text-align: center; }
+.stat__num {
+  font-size: 32px;
+  font-weight: 900;
+  letter-spacing: 0;
+  background: var(--grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+.stat__label {
+  font-size: 12px;
+  color: var(--text-3);
+  margin-top: 5px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+/* ─────────────────────────────────────────
+   FEATURE CARDS
+───────────────────────────────────────── */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+.feature-card {
+  background: color-mix(in srgb, var(--bg-2) 78%, transparent);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+}
+.feature-card:hover {
+  border-color: rgba(79,70,229,0.35);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 36px rgba(0,0,0,0.4);
+}
+.feature-card__icon {
+  width: 44px; height: 44px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(79,70,229,0.22), rgba(124,58,237,0.12));
+  border: 1px solid rgba(79,70,229,0.28);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: var(--indigo-pale);
+  margin-bottom: 14px;
+  box-shadow: inset 0 0 18px rgba(124,58,237,0.08);
+  transition: color 0.25s, background 0.25s, border-color 0.25s;
+}
+.feature-card:hover .feature-card__icon {
+  color: #E9D5FF;
+  background: linear-gradient(135deg, rgba(79,70,229,0.32), rgba(124,58,237,0.22));
+  border-color: rgba(165,180,252,0.42);
+}
+.feature-card__title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-1);
+  margin-bottom: 6px;
+}
+.feature-card__desc {
+  font-size: 13px;
+  color: var(--text-2);
+  line-height: 1.58;
+}
+
+/* ─────────────────────────────────────────
+   APP CARDS
+───────────────────────────────────────── */
+.apps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+.app-card {
+  background: color-mix(in srgb, var(--bg-2) 84%, transparent);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+.app-card:hover {
+  border-color: rgba(79,70,229,0.45);
+  box-shadow: 0 18px 50px rgba(0,0,0,0.55), 0 0 0 1px rgba(79,70,229,0.18);
+  transform: translateY(-5px);
+}
+.app-card__mockup  { padding: 16px 16px 0; }
+.app-card__content { padding: 20px 20px 26px; }
+.app-card__tag {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: rgba(79,70,229,0.14);
+  color: var(--indigo-lite);
+  border: 1px solid rgba(79,70,229,0.28);
+  margin-bottom: 10px;
+}
+.app-card__name {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0;
+  margin-bottom: 7px;
+}
+.app-card__desc {
+  font-size: 14px;
+  color: var(--text-2);
+  line-height: 1.56;
+  margin-bottom: 18px;
+}
+.app-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+.app-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--indigo-lite);
+  transition: gap 0.2s, color 0.2s;
+}
+.app-card__link:hover { gap: 10px; color: var(--indigo-pale); }
+
+/* ─────────────────────────────────────────
+   TERMINAL
+───────────────────────────────────────── */
+.terminal {
+  background: #0D1117;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+.terminal__bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 16px;
+  background: #161B22;
+  border-bottom: 1px solid var(--border);
+}
+.terminal__title { font-size: 12px; color: var(--text-3); margin-left: 6px; font-family: var(--mono); }
+.terminal__body  {
+  padding: 20px 24px;
+  font-size: 13px;
+  line-height: 1.85;
+  color: #8B949E;
+  font-family: var(--mono);
+}
+.t-line    { display: block; }
+.t-prompt  { color: var(--green); }
+.t-cmd     { color: #E6EDF3; }
+.t-comment { color: #3D4451; }
+.t-ok      { color: var(--green); }
+
+/* ─────────────────────────────────────────
+   PRICING
+───────────────────────────────────────── */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  max-width: 700px;
+  margin-inline: auto;
+}
+.pricing-card {
+  border-radius: var(--radius-lg);
+  padding: 40px 28px;
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--bg-2) 90%, transparent);
+  text-align: center;
+  transition: border-color 0.3s, transform 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.pricing-card:hover { border-color: rgba(79,70,229,0.4); transform: translateY(-4px); }
+.pricing-card--featured {
+  background: linear-gradient(135deg, rgba(79,70,229,0.11), rgba(124,58,237,0.07));
+  border-color: rgba(79,70,229,0.45);
+  box-shadow: 0 0 0 1px rgba(79,70,229,0.18), var(--shadow-md);
+}
+.pricing-card__label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 14px;
+}
+.pricing-card--featured .pricing-card__label { color: var(--indigo-lite); }
+.pricing-card__price {
+  font-size: 58px;
+  font-weight: 900;
+  letter-spacing: 0;
+  color: var(--text-1);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.pricing-card--featured .pricing-card__price { background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.pricing-card__note { font-size: 13px; color: var(--text-3); margin-bottom: 24px; }
+.pricing-card__fit {
+  min-height: 58px;
+  margin: 0 -8px 22px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: rgba(255,255,255,0.025);
+  color: var(--text-2);
+  font-size: 12px;
+  line-height: 1.45;
+}
+.pricing-card__fit strong { display: block; color: var(--text-1); font-size: 13px; }
+.checkout-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  margin-top: 14px;
+  color: var(--text-3);
+  font-size: 11px;
+}
+.pricing-card__features { text-align: left; margin-bottom: 28px; }
+.pricing-feat {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--text-2);
+  padding: 7px 0;
+  border-bottom: 1px solid var(--border);
+}
+.pricing-feat:last-child { border-bottom: none; }
+.pricing-feat .ck { color: var(--green); flex-shrink: 0; font-weight: 700; }
+
+/* ─────────────────────────────────────────
+   FAQ
+───────────────────────────────────────── */
+.faq { max-width: 700px; margin-inline: auto; }
+details {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  margin-bottom: 8px;
+  background: var(--surface);
+  overflow: hidden;
+  transition: border-color 0.22s;
+}
+details[open] { border-color: rgba(79,70,229,0.35); }
+summary {
+  padding: 18px 20px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--text-2);
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+  transition: color 0.2s;
+}
+summary:hover { color: var(--text-1); }
+details[open] summary { color: var(--text-1); }
+summary::after { content: '+'; font-size: 22px; font-weight: 300; transition: transform 0.22s; color: var(--text-3); flex-shrink: 0; }
+details[open] summary::after { transform: rotate(45deg); }
+.faq-answer {
+  padding: 14px 20px 18px;
+  font-size: 14px;
+  color: var(--text-2);
+  line-height: 1.68;
+  border-top: 1px solid var(--border);
+}
+
+/* ─────────────────────────────────────────
+   INTEGRATION LINKS
+───────────────────────────────────────── */
+.integration-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 10px;
+}
+.int-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-2);
+  transition: all 0.2s;
+  text-decoration: none;
+}
+.int-link:hover {
+  border-color: rgba(79,70,229,0.45);
+  color: var(--text-1);
+  background: rgba(79,70,229,0.06);
+  transform: translateY(-2px);
+}
+.int-link .arrow { margin-left: auto; color: var(--text-3); }
+
+/* ─────────────────────────────────────────
+   CHECKLIST
+───────────────────────────────────────── */
+.checklist { display: flex; flex-direction: column; gap: 11px; }
+.check-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--text-2);
+}
+.check-item .ck { color: var(--green); font-weight: 700; flex-shrink: 0; font-size: 15px; }
+
+/* ─────────────────────────────────────────
+   SPONSOR
+───────────────────────────────────────── */
+.sponsor-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+.sponsor-row .label { flex-shrink: 0; }
+.sponsor-link {
+  display: flex;
+  align-items: center;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+.sponsor-link:hover { opacity: 1; }
+.sponsor-link img { width: 200px; }
+
+/* ─────────────────────────────────────────
+   HERO
+───────────────────────────────────────── */
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding-top: 120px;
+  padding-bottom: 80px;
+  text-align: center;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 22px max(20px, calc((100vw - var(--max-w)) / 2)) auto;
+  height: min(72vw, 720px);
+  border: 1px solid rgba(129,140,248,0.10);
+  border-radius: 8px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.018), transparent 78%);
+  mask-image: linear-gradient(to bottom, #000 60%, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, #000 60%, transparent);
+  pointer-events: none;
+}
+.hero__glow {
+  position: absolute;
+  top: -180px; left: 50%;
+  transform: translateX(-50%);
+  width: 960px; height: 640px;
+  background: radial-gradient(ellipse, rgba(79,70,229,0.45) 0%, rgba(124,58,237,0.22) 40%, transparent 68%);
+  filter: blur(64px);
+  pointer-events: none;
+}
+.hero__glow-2 {
+  position: absolute;
+  top: 200px; right: -200px;
+  width: 500px; height: 500px;
+  background: radial-gradient(ellipse, rgba(124,58,237,0.18) 0%, transparent 65%);
+  filter: blur(80px);
+  pointer-events: none;
+}
+.hero__content { position: relative; z-index: 1; margin-bottom: 56px; }
+.hero__badge   { margin-bottom: 28px; }
+.hero__title   { max-width: 820px; margin-inline: auto; margin-bottom: 24px; }
+.hero__sub     { max-width: 540px; margin-inline: auto; margin-bottom: 40px; }
+.hero__ctas    { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
+.hero__proof {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 22px;
+  margin-top: 22px;
+  color: var(--text-2);
+  font-size: 12px;
+  font-weight: 600;
+}
+.hero__proof span { display: inline-flex; align-items: center; gap: 7px; }
+.hero__proof i { color: var(--green); }
+.hero__mockup  {
+  position: relative; z-index: 1;
+  max-width: 920px; margin-inline: auto;
+}
+.hero__mockup::before {
+  content: '';
+  position: absolute;
+  inset: 18% -8% -4%;
+  background-image:
+    linear-gradient(rgba(129,140,248,0.13) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(129,140,248,0.13) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 72%, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 72%, transparent);
+  transform: perspective(760px) rotateX(56deg) translateY(10%);
+  transform-origin: center bottom;
+  pointer-events: none;
+  z-index: 0;
+}
+.hero__mockup > .mockup {
+  position: relative;
+  z-index: 1;
+}
+.hero__mockup::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 140px;
+  background: linear-gradient(to bottom, transparent, var(--bg));
+  pointer-events: none;
+  z-index: 2;
+  border-radius: 0 0 13px 13px;
+}
+
+/* ─────────────────────────────────────────
+   COMPARISON BOX
+───────────────────────────────────────── */
+.comparison-box {
+  background: linear-gradient(135deg, rgba(16,185,129,0.07), rgba(79,70,229,0.05));
+  border: 1px solid rgba(16,185,129,0.18);
+  border-radius: var(--radius-lg);
+  padding: 48px 36px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.comparison-box::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 40% at 50% 110%, rgba(16,185,129,0.10) 0%, transparent 70%);
+  pointer-events: none;
+}
+.price-big {
+  font-size: clamp(54px, 9vw, 100px);
+  font-weight: 900;
+  letter-spacing: 0;
+  color: var(--green);
+  line-height: 1;
+}
+.price-cross { font-size: 26px; color: var(--text-3); font-weight: 700; text-decoration: line-through; }
+
+/* ─────────────────────────────────────────
+   FINAL CTA CARD
+───────────────────────────────────────── */
+.cta-final {
+  margin-top: 80px;
+  padding: 72px 40px;
+  background: color-mix(in srgb, var(--bg-2) 88%, transparent);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta-final::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 70% 55% at 50% 110%, rgba(79,70,229,0.28) 0%, transparent 68%);
+  pointer-events: none;
+}
+.cta-final > * { position: relative; z-index: 1; }
+.cta-final__image {
+  width: min(100%, 400px);
+  margin-inline: auto;
+  margin-top: 32px;
+  opacity: 0.9;
+}
+
+/* ─────────────────────────────────────────
+   FOOTER
+───────────────────────────────────────── */
+.site-footer {
+  border-top: 1px solid var(--border);
+  background: var(--bg-2);
+}
+.site-footer__inner {
+  min-height: 116px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  padding-block: 28px;
+}
+.site-footer__brand { font-size: 14px; color: var(--text-2); }
+.site-footer__brand strong { display: block; color: var(--text-1); font-size: 16px; }
+.site-footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 12px 22px;
+}
+.site-footer__links a { font-size: 13px; font-weight: 600; color: var(--text-2); }
+.site-footer__links a:hover { color: var(--text-1); }
+
+/* ─────────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────────── */
+@media (max-width: 768px) {
+  .site-nav__links { display: none; }
+  .site-footer__inner { align-items: flex-start; flex-direction: column; }
+  .site-footer__links { justify-content: flex-start; }
+  .pricing-grid  { grid-template-columns: 1fr; }
+  .stats-bar     { gap: 28px; }
+  .apps-grid     { grid-template-columns: 1fr; }
+  .deploy-grid   { grid-template-columns: 1fr !important; }
+  .deploy-grid > * { min-width: 0; }
+  .hero          { padding-top: 80px; }
+  .hero__mockup::before {
+    inset-inline: -4%;
+    background-size: 32px 32px;
+    opacity: 0.75;
+  }
+}
+@media (max-width: 480px) {
+  .btn {
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
+  }
+  .hero__ctas .btn-lg {
+    width: 100%;
+    justify-content: center;
+    padding-inline: 18px;
+  }
+  .sponsor-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .cta-final { padding: 56px 20px; }
+  .cta-final .btn-lg {
+    width: 100%;
+    justify-content: center;
+    padding-inline: 18px;
+    white-space: normal;
+  }
+  .hero__proof { align-items: center; flex-direction: column; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<header class="site-header">
+  <nav class="site-nav container" aria-label="Primary navigation">
+    <a class="site-nav__brand" href="../" aria-label="MiroTalk documentation home">MiroTalk <span>Ultimate</span></a>
+    <div class="site-nav__links">
+      <a href="#products">Products</a>
+      <a href="#deployment">Deployment</a>
+      <a href="#integrations">Integrations</a>
+      <a href="#faq">FAQ</a>
+      <a href="#pricing">Pricing</a>
+    </div>
+    <a href="https://buy.stripe.com/00w5kC1BjaKreaQ6Qmbsc06"
+       target="_blank" rel="noopener noreferrer" class="btn btn-primary">Buy — $299</a>
+  </nav>
+</header>
+
+<main id="main-content">
+
+
+<!-- ══════════════════════════════════════════
+   HERO
+══════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero__glow"></div>
+  <div class="hero__glow-2"></div>
+
+  <div class="container">
+    <div class="hero__content">
+
+      <div class="hero__badge">
+        <span class="badge">
+          <span class="pulse"></span>
+          Trusted in Production
+        </span>
+      </div>
+
+      <h1 class="display hero__title">
+        Own Your<br><span class="grad-text">Communication Stack.</span>
+      </h1>
+
+      <p class="lead hero__sub">
+        6 production-ready WebRTC apps. One payment. Full source code.<br>
+        Deploy on your infrastructure — forever.
+      </p>
+
+      <div class="hero__ctas">
+        <a href="https://buy.stripe.com/00w5kC1BjaKreaQ6Qmbsc06"
+            target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">
+          Buy Now — $299 once
+        </a>
+        <a href="https://webrtc.mirotalk.com" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-lg">
+          ▶&nbsp; View Live Demo
+        </a>
+        <a href="https://codecanyon.net/item/mirotalk-webrtc-ultimate-bundle-for-seamless-live-smart-communication/reviews/47976343" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-lg">
+          <i class="fa-solid fa-star" aria-hidden="true"></i> Read Customer Reviews
+        </a>
+      </div>
+
+      <div class="hero__proof" aria-label="Purchase benefits">
+        <span><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Secure Stripe checkout</span>
+        <span><i class="fa-solid fa-headset" aria-hidden="true"></i> 6 months of support</span>
+        <span><i class="fa-solid fa-arrows-rotate" aria-hidden="true"></i> Lifetime updates</span>
+      </div>
+
+    </div>
+
+    <div class="hero__mockup">
+      <div class="mockup">
+        <div class="mockup__bar">
+          <div class="mockup__dots">
+            <div class="mockup__dot"></div>
+            <div class="mockup__dot"></div>
+            <div class="mockup__dot"></div>
+          </div>
+          <div class="mockup__url">mirotalk.com — Ultimate WebRTC Bundle</div>
+        </div>
+        <div class="mockup__body">
+          <a href="https://buy.stripe.com/00w5kC1BjaKreaQ6Qmbsc06" target="_blank" rel="noopener noreferrer">
+            <img src="https://i.postimg.cc/Z4HmKJCw/Miro-Talk-Web-RTC-Ultra-Init.png" alt="MiroTalk Ultimate Bundle" width="1414" height="2000" decoding="async" fetchpriority="high" />
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+   STATS BAR
+══════════════════════════════════════════ -->
+<div class="stats-bar">
+  <div class="stat"><div class="stat__num">8,000+</div><div class="stat__label">GitHub Stars</div></div>
+  <div class="stat"><div class="stat__num">6</div><div class="stat__label">Production Apps</div></div>
+  <div class="stat"><div class="stat__num">$0/mo</div><div class="stat__label">Recurring Fees</div></div>
+  <div class="stat"><div class="stat__num">1×</div><div class="stat__label">One-Time Payment</div></div>
+  <div class="stat"><div class="stat__num">∞</div><div class="stat__label">Lifetime Updates</div></div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+   ROI
+══════════════════════════════════════════ -->
+<section class="section container">
+
+  <div class="text-center" style="margin-bottom: 52px;">
+    <p class="label" style="margin-bottom: 12px;">The Math Is Simple</p>
+    <h2 class="h2">Stop Paying $23,400 for<br>What Costs <span class="green-text">$299</span></h2>
+    <p class="lead" style="max-width: 500px; margin: 18px auto 0;">
+      Illustrative comparison: 50 paid seats × $13/month × 36 months = $23,400. MiroTalk Ultimate = $299, once.
+    </p>
+  </div>
+
+  <div class="mockup" style="max-width: 860px; margin-inline: auto; margin-bottom: 32px;">
+    <div class="mockup__bar">
+      <div class="mockup__dots">
+        <div class="mockup__dot"></div><div class="mockup__dot"></div><div class="mockup__dot"></div>
+      </div>
+      <div class="mockup__url">Cost Comparison — MiroTalk vs Zoom vs Teams vs Google Meet</div>
+    </div>
+    <div class="mockup__body">
+      <img src="https://i.postimg.cc/SxRpf0WL/banner-cost-comparison-mirotalk.png"
+         alt="MiroTalk vs Zoom vs Teams vs Google Meet cost comparison" width="800" height="441" loading="lazy" decoding="async" />
+    </div>
+  </div>
+
+  <div class="comparison-box" style="max-width: 540px; margin-inline: auto;">
+    <p class="label" style="margin-bottom: 10px;">MiroTalk Ultimate</p>
+    <div class="price-big">$299</div>
+    <p style="font-size: 15px; color: var(--text-2); margin: 14px 0 6px;">
+      vs <span class="price-cross">$23,400+</span> in recurring SaaS fees
+    </p>
+    <p style="font-size: 12px; color: var(--text-3); margin-bottom: 28px;">
+      SaaS prices and features change. Verify current terms on the
+      <a href="https://www.zoom.com/en/products/collaboration-tools/zoom-workplace-pro/" target="_blank" rel="noopener noreferrer" class="app-card__link">provider pricing page ↗</a>.
+    </p>
+    <a href="https://buy.stripe.com/00w5kC1BjaKreaQ6Qmbsc06"
+       target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+      Get Lifetime Access →
+    </a>
+  </div>
+
+</section>
+
+<div class="divider container"></div>
+
+
+<!-- ══════════════════════════════════════════
+   7 APPS
+══════════════════════════════════════════ -->
+<section id="products" class="section container">
+
+  <div class="text-center" style="margin-bottom: 60px;">
+    <p class="label" style="margin-bottom: 12px;">Everything Included</p>
+    <h2 class="h2">7 Apps. One Platform.<br>Total Ownership.</h2>
+    <p class="lead" style="max-width: 480px; margin: 18px auto 0;">
+      Each app runs standalone or together as a single unified communication platform.
+    </p>
+  </div>
+
+  <div class="apps-grid">
+
+    <!-- SFU -->
+    <div class="app-card">
+      <div class="app-card__mockup">
+        <div class="mockup">
+          <div class="mockup__bar">
+            <div class="mockup__dots"><div class="mockup__dot"></div><div class="mockup__dot"></div><div class="mockup__dot"></div></div>
+            <div class="mockup__url">sfu.mirotalk.com</div>
+          </div>
+          <div class="mockup__body"><img src="https://i.postimg.cc/Yk7wT3DR/mirotalk-sfu.png" alt="MiroTalk SFU conference interface" width="1366" height="612" loading="lazy" decoding="async" /></div>
+        </div>
+      </div>
+      <div class="app-card__content">
+        <span class="app-card__tag">Scalable Conferencing</span>
+        <h3 class="app-card__name">MiroTalk SFU</h3>
+        <p class="app-card__desc">Mediasoup-powered SFU architecture for high-quality multi-user meetings at scale.</p>
+        <div class="app-card__actions">
+          <a href="https://sfu.mirotalk.com" target="_blank" rel="noopener noreferrer" class="app-card__link">Live Demo ↗</a>
+          <a href="../mirotalk-sfu/" class="app-card__link">About →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- P2P -->
+    <div class="app-card">
+      <div class="app-card__mockup">
+        <div class="mockup">
+          <div class="mockup__bar">
+            <div class="mockup__dots"><div class="mockup__dot"></div><div class="mockup__dot"></div><div class="mockup__dot"></div></div>
+            <div class="mockup__url">p2p.mirotalk.com</div>
+          </div>
+          <div class="mockup__body"><img src="https://i.postimg.cc/8Dg1NDch/mirotalk-p2p.png" alt="MiroTalk P2P conference interface" width="1366" height="612" loading="lazy" decoding="async" /></div>
+        </div>
+      </div>
+      <div class="app-card__content">
+        <span class="app-card__tag">Peer-to-Peer</span>
+        <h3 class="app-card__name">MiroTalk P2P</h3>
+        <p class="app-card__desc">Low-latency calls with built-in collaboration, screen sharing, and file transfer.</p>
+        <div class="app-card__actions">
+          <a href="https://p2p.mirotalk.com" target="_blank" rel="noopener noreferrer" class="app-card__link">Live Demo ↗</a>
+          <a href="../mirotalk-p2p/" class="app-card__link">About →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- C2C -->
+    <div class="app-card">
+      <div class="app-card__mockup">
+        <div class="mockup">
+          <div class="mockup__bar">
+            <div class="mockup__dots"><div class="mockup__dot"></div><div class="mockup__dot"></div><div class="mockup__dot"></div></div>
+            <div class="mockup__url">c2c.mirotalk.com</div>
+          </div>
+          <div class="mockup__body"><img src="https://i.postimg.cc/33qT6Qz0/mirotalk-c2c.png" alt="MiroTalk C2C video call interface" width="1366" height="612" loading="lazy" decoding="async" /></div>
+        </div>
+      </div>
+      <div class="app-card__content">
+        <span class="app-card__tag">Private 1-to-1</span>
+        <h3 class="app-card__name">MiroTalk C2C</h3>
+        <p class="app-card__desc">Ideal for support, telehealth, and consulting. Secure and private by design.</p>
+        <div class="app-card__actions">
+          <a href="https://c2c.mirotalk.com" target="_blank" rel="noopener noreferrer" class="app-card__link">Live Demo ↗</a>
+          <a href="../mirotalk-c2c/" class="app-card__link">About →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CME -->
+    <div class="app-card">
+      <div class="app-card__mockup">
+        <div class="mockup">
+          <div class="mockup__bar">
+            <div class="mockup__dots"><div class="mockup__dot"></div><div class="mockup__dot"></div><div class="mockup__dot"></div></div>
+            <div class="mockup__url">cme.mirotalk.com</div>
+          </div>
+          <div class="mockup__body"><img src="https://i.postimg.cc/mZdCkw45/call-me.png" alt="MiroTalk CME click-to-call interface" loading="lazy" decoding="async" /></div>
+        </div>
+      </div>
+      <div class="app-card__content">
+        <span class="app-card__tag">Click-to-Call</span>
+        <h3 class="app-card__name">MiroTalk CME</h3>
+        <p class="app-card__desc">One click to call anyone in the room. Unlimited rooms and users, with no installs or signups.</p>
+        <div class="app-card__actions">
+          <a href="https://cme.mirotalk.com" target="_blank" rel="noopener noreferrer" class="app-card__link">Live Demo ↗</a>
+          <a href="../mirotalk-cme/" class="app-card__link">About →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- BRO -->
+    <div class="app-card">
+      <div class="app-card__mockup">
+        <div class="mockup">
+          <div class="mockup__bar">
+            <div class="mockup__dots"><div class="mockup__dot"></div><div class="mockup__dot"></div><div class="mockup__dot"></div></div>
+            <div class="mockup__url">bro.mirotalk.com</div>
+          </div>
+          <div class="mockup__body"><img src="https://i.postimg.cc/nnrx0hSt/mirotalk-bro.png" alt="MiroTalk BRO broadcasting interface" width="1362" height="612" loading="lazy" decoding="async" /></div>
+        </div>
+      </div>
+      <div class="app-card__content">
+        <span class="app-card__tag">Live Broadcasting</span>
+        <h3 class="app-card__name">MiroTalk BRO</h3>
+        <p class="app-card__desc">Sub-second WebRTC broadcasting for webinars, live events, and announcements.</p>
+        <div class="app-card__actions">
+          <a href="https://bro.mirotalk.com" target="_blank" rel="noopener noreferrer" class="app-card__link">Live Demo ↗</a>
+          <a href="../mirotalk-bro/" class="app-card__link">About →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- WEB -->
+    <div class="app-card">
+      <div class="app-card__mockup">
+        <div class="mockup">
+          <div class="mockup__bar">
+            <div class="mockup__dots"><div class="mockup__dot"></div><div class="mockup__dot"></div><div class="mockup__dot"></div></div>
+            <div class="mockup__url">webrtc.mirotalk.com</div>
+          </div>
+          <div class="mockup__body"><img src="https://i.postimg.cc/PfHh4b96/mirotalk-web.png" alt="MiroTalk WEB scheduling dashboard" width="1362" height="612" loading="lazy" decoding="async" /></div>
+        </div>
+      </div>
+      <div class="app-card__content">
+        <span class="app-card__tag">Scheduling + Workspace</span>
+        <h3 class="app-card__name">MiroTalk WEB</h3>
+        <p class="app-card__desc">Accounts, dashboards, scheduling, and unified module access in one portal.</p>
+        <p style="font-size: 12px; color: var(--text-3); margin-bottom: 14px;">Demo: demo@gmail.com &nbsp;/&nbsp; Demo@123</p>
+        <div class="app-card__actions">
+          <a href="https://webrtc.mirotalk.com" target="_blank" rel="noopener noreferrer" class="app-card__link">Live Demo ↗</a>
+          <a href="../mirotalk-web/" class="app-card__link">About →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ADMIN -->
+    <div class="app-card">
+      <div class="app-card__mockup">
+        <div class="mockup">
+          <div class="mockup__bar">
+            <div class="mockup__dots"><div class="mockup__dot"></div><div class="mockup__dot"></div><div class="mockup__dot"></div></div>
+            <div class="mockup__url">admin.mirotalk.com</div>
+          </div>
+          <div class="mockup__body"><img src="https://i.postimg.cc/jRNgtVB1/mirotalk-admin.png" alt="MiroTalk Admin management dashboard" width="1358" height="550" loading="lazy" decoding="async" /></div>
+        </div>
+      </div>
+      <div class="app-card__content">
+        <span class="app-card__tag">Platform Management</span>
+        <h3 class="app-card__name">MiroTalk Admin</h3>
+        <p class="app-card__desc">Manage instances, health checks, updates, and settings from one central panel.</p>
+        <div class="app-card__actions">
+          <a href="../mirotalk-admin/" class="app-card__link">About →</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider container"></div>
+
+
+<!-- ══════════════════════════════════════════
+   FEATURES
+══════════════════════════════════════════ -->
+<section class="section container">
+
+  <div class="text-center" style="margin-bottom: 52px;">
+    <p class="label" style="margin-bottom: 12px;">Full-Stack Capability</p>
+    <h2 class="h2">Everything You Need,<br>Nothing You Don't.</h2>
+  </div>
+
+  <div class="mockup" style="max-width: 860px; margin-inline: auto; margin-bottom: 48px;">
+    <div class="mockup__bar">
+      <div class="mockup__dots"><div class="mockup__dot"></div><div class="mockup__dot"></div><div class="mockup__dot"></div></div>
+      <div class="mockup__url">Feature Overview — MiroTalk Ultimate</div>
+    </div>
+    <div class="mockup__body">
+      <img src="https://i.postimg.cc/Bs6Z6Nsg/mirotak-ultimate-features.png" alt="MiroTalk Ultimate feature overview" width="1414" height="2000" loading="lazy" decoding="async" />
+    </div>
+  </div>
+
+  <div class="feature-grid">
+    <div class="feature-card">
+      <div class="feature-card__icon"><i class="fa-solid fa-video" aria-hidden="true"></i></div>
+      <div class="feature-card__title">HD Video &amp; Audio</div>
+      <p class="feature-card__desc">Crystal-clear calls with noise suppression and adaptive bitrate quality.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-card__icon"><i class="fa-solid fa-display" aria-hidden="true"></i></div>
+      <div class="feature-card__title">Screen &amp; File Sharing</div>
+      <p class="feature-card__desc">Share your screen or transfer files without leaving the call.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-card__icon"><i class="fa-solid fa-palette" aria-hidden="true"></i></div>
+      <div class="feature-card__title">Interactive Whiteboard</div>
+      <p class="feature-card__desc">Collaborative real-time drawing, annotation, and shared text editor.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-card__icon"><i class="fa-solid fa-robot" aria-hidden="true"></i></div>
+      <div class="feature-card__title">AI Avatars + ChatGPT</div>
+      <p class="feature-card__desc">AI avatars, ChatGPT, and DeepSeek integration built into meetings.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-card__icon"><i class="fa-solid fa-video" aria-hidden="true"></i></div>
+      <div class="feature-card__title">Recording + Transcription</div>
+      <p class="feature-card__desc">Record sessions and auto-generate live transcriptions in real time.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-card__icon"><i class="fa-solid fa-circle" aria-hidden="true"></i></div>
+      <div class="feature-card__title">RTMP Streaming</div>
+      <p class="feature-card__desc">Stream directly to YouTube, Twitch, or any RTMP destination.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-card__icon"><i class="fa-solid fa-lock" aria-hidden="true"></i></div>
+      <div class="feature-card__title">Auth + Access Control</div>
+      <p class="feature-card__desc">Host protection, RBAC, and granular room-level permissions.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-card__icon"><i class="fa-solid fa-plug" aria-hidden="true"></i></div>
+      <div class="feature-card__title">REST APIs + Webhooks</div>
+      <p class="feature-card__desc">Swagger-documented APIs. Slack, Discord, and Mattermost webhooks.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-card__icon"><i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i></div>
+      <div class="feature-card__title">PWA + Cross-Browser</div>
+      <p class="feature-card__desc">Chrome, Firefox, Safari, Edge, Opera — desktop and mobile ready.</p>
+    </div>
+  </div>
+
+</section>
+
+<div class="divider container"></div>
+
+
+<!-- ══════════════════════════════════════════
+   DEPLOY
+══════════════════════════════════════════ -->
+<section id="deployment" class="section container">
+
+  <div class="deploy-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 52px; align-items: center;">
+
+    <div>
+      <p class="label" style="margin-bottom: 12px;">Zero-Friction Setup</p>
+      <h2 class="h2" style="margin-bottom: 20px;">Live in Minutes,<br>Not Days.</h2>
+      <p class="lead" style="margin-bottom: 36px;">
+        One script per app. Auto-SSL, Nginx reverse proxy, and subdomain routing — handled automatically. Docker path included.
+      </p>
+      <ul class="checklist">
+        <li class="check-item"><span class="ck">✓</span> Bash install script per app</li>
+        <li class="check-item"><span class="ck">✓</span> Subdomain + Nginx auto-config</li>
+        <li class="check-item"><span class="ck">✓</span> Let's Encrypt SSL included</li>
+        <li class="check-item"><span class="ck">✓</span> Docker Compose alternative path</li>
+        <li class="check-item"><span class="ck">✓</span> Ubuntu 22.04 · 2+ vCPU · 2+ GB RAM</li>
+        <li class="check-item"><span class="ck">✓</span> Node.js + optional Docker only</li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="mockup" style="margin-bottom: 16px;">
+        <div class="mockup__bar">
+          <div class="mockup__dots"><div class="mockup__dot"></div><div class="mockup__dot"></div><div class="mockup__dot"></div></div>
+          <div class="mockup__url">Deployment — Bash + Docker</div>
+        </div>
+        <div class="mockup__body">
+          <img src="https://i.postimg.cc/YC1ByyK6/mirotalk-ultimate-bash.png" alt="MiroTalk deployment scripts" width="800" height="437" loading="lazy" decoding="async" />
+        </div>
+      </div>
+      <div class="terminal">
+        <div class="terminal__bar">
+          <div class="mockup__dots">
+            <div class="mockup__dot"></div><div class="mockup__dot"></div><div class="mockup__dot"></div>
+          </div>
+          <span class="terminal__title">bash — deploy.sh</span>
+        </div>
+        <div class="terminal__body">
+          <span class="t-line"><span class="t-comment"># Install MiroTalk SFU</span></span>
+          <span class="t-line"><span class="t-prompt">$</span> <span class="t-cmd">bash sfu/install.sh</span></span>
+          <span class="t-line">&nbsp;</span>
+          <span class="t-line"><span class="t-comment"># Or use Docker Compose</span></span>
+          <span class="t-line"><span class="t-prompt">$</span> <span class="t-cmd">docker compose up -d</span></span>
+          <span class="t-line">&nbsp;</span>
+          <span class="t-line t-ok">✓ SSL certificate configured</span>
+          <span class="t-line t-ok">✓ Nginx reverse proxy ready</span>
+          <span class="t-line t-ok">✓ MiroTalk SFU running on :3010</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider container"></div>
+
+
+<!-- ══════════════════════════════════════════
+   INTEGRATION
+══════════════════════════════════════════ -->
+<section id="integrations" class="section container">
+
+  <div class="text-center" style="margin-bottom: 52px;">
+    <p class="label" style="margin-bottom: 12px;">Embed Anywhere</p>
+    <h2 class="h2">Iframe. Widget. API.<br>Your Call.</h2>
+    <p class="lead" style="max-width: 460px; margin: 18px auto 0;">
+      Drop MiroTalk into any product. React, plain HTML, or any stack — it just works.
+    </p>
+  </div>
+
+  <div class="mockup" style="max-width: 860px; margin-inline: auto; margin-bottom: 40px;">
+    <div class="mockup__bar">
+      <div class="mockup__dots"><div class="mockup__dot"></div><div class="mockup__dot"></div><div class="mockup__dot"></div></div>
+      <div class="mockup__url">Integration — Iframe / Widget / REST API</div>
+    </div>
+    <div class="mockup__body">
+      <img src="https://i.postimg.cc/Xnzy8ZCG/mirotalk-fsi.png" alt="MiroTalk integration options" width="1234" height="280" loading="lazy" decoding="async" />
+    </div>
+  </div>
+
+  <div class="integration-grid">
+    <a href="https://codepen.io/Miroslav-Pejic/pen/LYXRbmE" target="_blank" rel="noopener noreferrer" class="int-link">SFU — Iframe Demo<span class="arrow">↗</span></a>
+    <a href="https://codepen.io/Miroslav-Pejic/pen/jOQMVzx" target="_blank" rel="noopener noreferrer" class="int-link">P2P — Iframe Demo<span class="arrow">↗</span></a>
+    <a href="https://codepen.io/Miroslav-Pejic/pen/ExOgNbJ" target="_blank" rel="noopener noreferrer" class="int-link">C2C — Iframe Demo<span class="arrow">↗</span></a>
+    <a href="https://codepen.io/Miroslav-Pejic/pen/OJaRbZg" target="_blank" rel="noopener noreferrer" class="int-link">BRO — Iframe Demo<span class="arrow">↗</span></a>
+    <a href="https://codepen.io/Miroslav-Pejic/pen/jOQMVxx" target="_blank" rel="noopener noreferrer" class="int-link">WEB — Iframe Demo<span class="arrow">↗</span></a>
+    <a href="https://codepen.io/Miroslav-Pejic/pen/QWzmGaZ" target="_blank" rel="noopener noreferrer" class="int-link">React — Integration Demo<span class="arrow">↗</span></a>
+    <a href="https://codepen.io/Miroslav-Pejic/pen/LEpzGXO" target="_blank" rel="noopener noreferrer" class="int-link">SFU — Widget Demo<span class="arrow">↗</span></a>
+    <a href="https://codepen.io/Miroslav-Pejic/pen/Byowjvb" target="_blank" rel="noopener noreferrer" class="int-link">P2P — Widget Demo<span class="arrow">↗</span></a>
+  </div>
+
+</section>
+
+<div class="divider container"></div>
+
+
+<!-- ══════════════════════════════════════════
+   TRUST + SPONSOR
+══════════════════════════════════════════ -->
+<section class="section container text-center">
+
+  <p class="label" style="margin-bottom: 12px;">Built to Last</p>
+  <h2 class="h2" style="margin-bottom: 20px;">Trusted by Developers,<br>Startups &amp; Enterprises</h2>
+
+  <div class="mockup" style="max-width: 760px; margin: 44px auto 52px;">
+    <div class="mockup__bar">
+      <div class="mockup__dots"><div class="mockup__dot"></div><div class="mockup__dot"></div><div class="mockup__dot"></div></div>
+      <div class="mockup__url">mirotalk.com — Open Source + Production Verified</div>
+    </div>
+    <div class="mockup__body">
+      <img src="https://i.postimg.cc/SxXLdWW4/mirotalk_sponsor.png" alt="MiroTalk trust and ecosystem" width="1280" height="946" loading="lazy" decoding="async" />
+    </div>
+  </div>
+
+  <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-bottom: 56px;">
+    <div class="feature-card" style="max-width: 230px; text-align: left;">
+      <div class="feature-card__icon"><i class="fa-solid fa-star" aria-hidden="true"></i></div>
+      <div class="feature-card__title">8,000+ GitHub Stars</div>
+      <p class="feature-card__desc">Active global developer community with continuous updates and improvements.</p>
+    </div>
+    <div class="feature-card" style="max-width: 230px; text-align: left;">
+      <div class="feature-card__icon"><i class="fa-solid fa-building" aria-hidden="true"></i></div>
+      <div class="feature-card__title">Enterprise Proven</div>
+      <p class="feature-card__desc">Deployed in production by startups, enterprise teams, and public sector orgs.</p>
+    </div>
+    <div class="feature-card" style="max-width: 230px; text-align: left;">
+      <div class="feature-card__icon"><i class="fa-solid fa-arrows-rotate" aria-hidden="true"></i></div>
+      <div class="feature-card__title">Lifetime Updates</div>
+      <p class="feature-card__desc">Pay once and receive every future improvement and feature release.</p>
+    </div>
+  </div>
+
+  <div class="sponsor-row">
+    <p class="label">Sponsored By</p>
+    <a class="sponsor-link" href="https://recall.ai/?utm_source=mirotalksfu&utm_medium=sponsorship" target="_blank" rel="noopener noreferrer">
+      <img src="https://i.postimg.cc/5xBwLy8g/mirotalk-recall.png" alt="Recall.ai sponsor" width="1572" height="134" loading="lazy" decoding="async" />
+    </a>
+  </div>
+
+  <div style="margin-top: 44px;">
+    <a href="https://discord.gg/rgGYfeYW3N" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">
+      Join the MiroTalk Community on Discord →
+    </a>
+  </div>
+
+</section>
+
+<div class="divider container"></div>
+
+
+<!-- ══════════════════════════════════════════
+   FAQ
+══════════════════════════════════════════ -->
+<section id="faq" class="section container">
+
+  <div class="text-center" style="margin-bottom: 52px;">
+    <p class="label" style="margin-bottom: 12px;">Common Questions</p>
+    <h2 class="h2">Everything You Need to Know</h2>
+  </div>
+
+  <div class="faq">
+    <details>
+      <summary>Is this subscription-based?</summary>
+      <div class="faq-answer">No. It is a one-time purchase. No recurring fees, no per-user charges, ever.</div>
+    </details>
+    <details>
+      <summary>Can I white-label and customize it?</summary>
+      <div class="faq-answer">Yes. Full source code is included. You can rename, restyle, and modify every part of every app freely.</div>
+    </details>
+    <details>
+      <summary>Can all 7 apps run on a single server?</summary>
+      <div class="faq-answer">Yes. Subdomain deployment on one server is the recommended and documented path. Scripts handle all routing automatically.</div>
+    </details>
+    <details>
+      <summary>Can I charge end users for my final product?</summary>
+      <div class="faq-answer">Yes, with the Extended License ($1,499). The Regular License ($299) covers products where end users are not charged directly.</div>
+    </details>
+  </div>
+
+</section>
+
+<div class="divider container"></div>
+
+
+<!-- ══════════════════════════════════════════
+   PRICING + FINAL CTA
+══════════════════════════════════════════ -->
+<section id="pricing" class="section container text-center">
+
+  <p class="label" style="margin-bottom: 12px;">Simple, Honest Pricing</p>
+  <h2 class="h2" style="margin-bottom: 12px;">Choose Your License</h2>
+  <p class="lead" style="max-width: 460px; margin: 0 auto 52px;">
+    Both include full source code, lifetime updates, and 6-month support.
+    <a href="../license/licensing-options/" class="app-card__link" style="display: flex; justify-content: center; margin-top: 12px;">Review full licensing terms →</a>
+  </p>
+
+  <div class="pricing-grid">
+
+    <div class="pricing-card">
+      <p class="pricing-card__label">Regular License</p>
+      <div class="pricing-card__price">$299</div>
+      <p class="pricing-card__note">one-time · no subscription</p>
+      <p class="pricing-card__fit"><strong>Best for internal and client projects</strong>Use the complete suite in one end product without charging end users.</p>
+      <ul class="pricing-card__features">
+        <li class="pricing-feat"><span class="ck">✓</span> Full source code, all 7 apps</li>
+        <li class="pricing-feat"><span class="ck">✓</span> Lifetime updates</li>
+        <li class="pricing-feat"><span class="ck">✓</span> 6-month support</li>
+        <li class="pricing-feat"><span class="ck">✓</span> One end product (no end-user charging)</li>
+      </ul>
+      <a href="https://buy.stripe.com/00w5kC1BjaKreaQ6Qmbsc06"
+        target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-full">Buy Now →</a>
+      <p class="checkout-note"><i class="fa-solid fa-lock" aria-hidden="true"></i> Secure payment powered by Stripe</p>
+    </div>
+
+    <div class="pricing-card pricing-card--featured">
+      <p class="pricing-card__label">Extended License</p>
+      <div class="pricing-card__price">$1,499</div>
+      <p class="pricing-card__note">one-time · no subscription</p>
+      <p class="pricing-card__fit"><strong>Best for paid SaaS products</strong>Build an end product and charge your customers for access.</p>
+      <ul class="pricing-card__features">
+        <li class="pricing-feat"><span class="ck">✓</span> Full source code, all 7 apps</li>
+        <li class="pricing-feat"><span class="ck">✓</span> Lifetime updates</li>
+        <li class="pricing-feat"><span class="ck">✓</span> 6-month support</li>
+        <li class="pricing-feat"><span class="ck">✓</span> Charge end users for your product</li>
+      </ul>
+      <a href="https://buy.stripe.com/7sYcN493L7yf5EkcaGbsc07"
+        target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-full">Buy Extended →</a>
+      <p class="checkout-note"><i class="fa-solid fa-lock" aria-hidden="true"></i> Secure payment powered by Stripe</p>
+    </div>
+
+  </div>
+
+  <div class="cta-final">
+    <h2 class="h2" style="margin-bottom: 16px;">Stop Renting. Start Owning.</h2>
+    <p class="lead" style="max-width: 420px; margin: 0 auto 36px;">Buy once. Deploy fast. Scale on your infrastructure.</p>
+    <a href="https://buy.stripe.com/00w5kC1BjaKreaQ6Qmbsc06"
+       target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">
+      Buy MiroTalk Ultimate — $299 →
+    </a>
+    <div>
+      <img src="https://i.postimg.cc/13DK8qJm/mirotalk-ultimate-purchase-now.png"
+           alt="Buy MiroTalk Ultimate"
+         class="cta-final__image" width="1514" height="944" loading="lazy" decoding="async" />
+    </div>
+  </div>
+
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner container">
+    <p class="site-footer__brand">
+      <strong>MiroTalk Ultimate</strong>
+      © 2026 MiroTalk. All rights reserved.
+    </p>
+    <nav class="site-footer__links" aria-label="Footer navigation">
+      <a href="../">Documentation</a>
+      <a href="../license/licensing-options/">Licensing</a>
+      <a href="../faq/">FAQ</a>
+      <a href="https://discord.gg/rgGYfeYW3N" target="_blank" rel="noopener noreferrer">Community ↗</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>

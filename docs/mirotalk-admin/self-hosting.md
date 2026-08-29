@@ -1,6 +1,6 @@
 # MiroTalk Admin Self-Hosting Guide
 
-![mirotalk-admin](../images/mirotalk/adm.png)
+![mirotalk-admin](../images/mirotalk/admin.png)
 
 ## Description
 
