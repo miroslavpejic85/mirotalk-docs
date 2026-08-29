@@ -8,8 +8,8 @@ description: How a 2020 side project grew into an open-source family of WebRTC c
 	<h1>The story behind MiroTalk</h1>
 	<p>MiroTalk began in 2020 with a simple question: could real-time communication be open, inspectable, and deployable on infrastructure chosen by its users?</p>
 	<div class="editorial-actions">
-		<a class="md-button md-button--primary" href="/about/">Explore the suite</a>
-		<a class="md-button" href="https://github.com/miroslavpejic85">View the projects on GitHub</a>
+		<a class="md-button md-button--primary" href="/license/">View products and prices</a>
+		<a class="md-button" href="/about/">Explore the suite</a>
 	</div>
 	<img class="editorial-hero-image" src="/images/mirotalk/mirotalk.png" alt="MiroTalk running across desktop and laptop screens" loading="eager">
 </header>

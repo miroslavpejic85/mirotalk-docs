@@ -144,6 +144,6 @@ Deploy MiroTalk for control over your infrastructure, domain, and configuration.
 
 - [Read the frequently asked questions](./faq/index.md).
 - [Join the MiroTalk Discord community](https://discord.gg/rgGYfeYW3N).
-- [View MiroTalk projects on GitHub](https://github.com/miroslavpejic85).
+- [View products, prices, and licensing options](./license/index.md).
 - [Read the MiroTalk story](./story/index.md).
 - [Contact MiroTalk](mailto:miroslav.pejic.85@gmail.com) about enterprise requirements.
