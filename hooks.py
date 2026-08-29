@@ -9,6 +9,12 @@ import xml.etree.ElementTree as ElementTree
 SITEMAP_NAMESPACE = "http://www.sitemaps.org/schemas/sitemap/0.9"
 SOCIAL_IMAGE_PATH = "images/mirotalk-preview.png"
 PRODUCT_LANDING_PAGES = {
+    "admin": {
+        "name": "MiroTalk Admin",
+        "title": "MiroTalk Admin - Self-Hosted Infrastructure Management",
+        "description": "Manage self-hosted MiroTalk services from one dashboard with centralized configuration, updates, monitoring, and process control.",
+        "previous_url": "mirotalk-admin/",
+    },
     "bro": {
         "name": "MiroTalk BRO",
         "title": "MiroTalk BRO - Self-Hosted WebRTC Live Broadcasting",
