@@ -1,6 +1,6 @@
 ---
-title: MiroTalk Documentation
-description: Use MiroTalk Cloud, integrate video with APIs, or self-host an open-source MiroTalk video communication product.
+title: "MiroTalk Docs: Self-Hosted WebRTC Platform"
+description: "Learn how to deploy, configure and customize MiroTalk for self-hosted WebRTC video conferencing, calls, broadcasting and video SaaS. Explore APIs, integrations and Docker guides."
 ---
 
 <header class="home-hero">
