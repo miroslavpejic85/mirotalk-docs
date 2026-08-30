@@ -2,11 +2,18 @@
     <a href="https://docs.mirotalk.com"><img src="docs/images/mirotalk-preview.png" alt="MiroTalk WebRTC documentation"></a>
 </p>
 
-<h1 align="center">MiroTalk DOCS</h1>
+<h1 align="center">MiroTalk Documentation - Open Source Self-Hosted WebRTC Platform</h1>
+
+<h3 align="center">
+Complete documentation for MiroTalk WebRTC video conferencing, peer-to-peer calling, live broadcasting, click-to-call, video SaaS, APIs, integrations, deployment, and administration.
+</h3>
 
 <br />
 
-<p align="center">MiroTalk WebRTC is a real-time communication technology that enables audio and video communication over the internet through web browsers without the need for additional plugins or software installations. It stands out as a core component of many web-based video conferencing and communication platforms. Here you will find all the necessary documentations.</p>
+<p align="center">
+MiroTalk is an open-source, self-hosted WebRTC ecosystem for real-time audio and video communication directly in web browsers.
+This documentation covers setup, configuration, APIs, integrations, customization, deployment, and administration for all MiroTalk applications.
+</p>
 
 <hr />
 
