@@ -6,8 +6,8 @@ description: Use an RTMP publisher such as an ATEM, OSEE switcher, or OBS as the
 # RTMP upstream source
 
 <video controls autoplay loop muted playsinline preload="metadata" aria-label="MiroTalk BRO RTMP streaming demonstration" style="width: 100%; height: auto;">
-    <source src="../images/bro/bro-rtmp-streaming.mp4" type="video/mp4">
-    Your browser does not support embedded video. <a href="../images/bro/bro-rtmp-streaming.mp4">Download the RTMP streaming demonstration</a>.
+    <source src="../../images/bro/bro-rtmp-streaming.mp4" type="video/mp4">
+    Your browser does not support embedded video. <a href="../../images/bro/bro-rtmp-streaming.mp4">Download the RTMP streaming demonstration</a>.
 </video>
 
 MiroTalk BRO can use an RTMP publisher such as a Blackmagic ATEM, OSEE switcher, or OBS as the broadcaster for an SFU room. MediaMTX receives RTMP, FFmpeg converts H.264/AAC into VP8/Opus RTP, and mediasoup distributes the result to WebRTC viewers.
