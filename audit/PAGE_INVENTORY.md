@@ -65,6 +65,7 @@ Generated titles for many Markdown pages currently use generic navigation labels
 | `/mirotalk-bro/integration/` | integration; BRO iframe embedding | Developers / H | Keep; retitle; add security and expected result | Build > Embedding > BRO |
 | `/mirotalk-bro/join-room/` | join-room; broadcast/viewer URL parameters | Developers, users / M | Keep; retitle; document parameter contracts | Build > Direct join > BRO |
 | `/mirotalk-bro/ngrok/` | ngrok; local BRO tunnel | Developers / L | Keep URL; merge content toward shared ngrok guide | Build > Local development |
+| `/mirotalk-bro/rtmp/` | rtmp; RTMP upstream source for SFU rooms | Broadcasters, operators / H | New; documents MediaMTX ingest, publish URLs, RTMPS, and tuning | Self-host > Streaming > BRO |
 | `/mirotalk-bro/self-hosting/` | self-hosting; BRO production deployment | DevOps, broadcasters / H | Keep; retitle; normalize and add managed CTA | Self-host > BRO |
 
 ## MiroTalk C2C

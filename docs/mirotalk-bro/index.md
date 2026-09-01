@@ -47,6 +47,7 @@ The appropriate mode depends on media quality, audience concurrency, presenter c
 | --- | --- |
 | Install | [Self-hosting guide](self-hosting.md) |
 | Configure P2P or SFU behavior | [Configuration reference](configurations.md) |
+| Broadcast from a hardware encoder or OBS | [RTMP upstream source](rtmp.md) |
 | Develop locally | [Ngrok guide](ngrok.md) |
 
 !!! warning "Distribution changes infrastructure demand"
