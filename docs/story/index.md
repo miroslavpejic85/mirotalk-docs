@@ -10,6 +10,7 @@ description: How a 2020 side project grew into an open-source family of WebRTC c
 	<div class="editorial-actions">
 		<a class="md-button md-button--primary" href="/license/">View products and prices</a>
 		<a class="md-button" href="/about/">Explore the suite</a>
+		<a class="md-button" href="../sites/story.html">Open the visual story</a>
 	</div>
 	<img class="editorial-hero-image" src="/images/mirotalk/mirotalk.png" alt="MiroTalk running across desktop and laptop screens" loading="eager">
 </header>

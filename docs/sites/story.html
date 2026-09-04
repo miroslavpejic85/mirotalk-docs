@@ -1,0 +1,1870 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Explore the visual story of how MiroTalk grew from a 2020 side project into an open-source WebRTC product family." />
+    <meta name="theme-color" content="#0b1117" />
+
+    <script src="../javascripts/product-theme.js"></script>
+
+    <!-- og -->
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="MiroTalk Docs" />
+    <meta property="og:title" content="The Story Behind MiroTalk" />
+    <meta property="og:description" content="How a pandemic side-project became a global open-source WebRTC movement" />
+    <meta property="og:image" content="https://docs.mirotalk.com/images/mirotalk-preview.png" />
+    <meta property="og:image:alt" content="MiroTalk video communication products" />
+    <meta property="og:url" content="https://docs.mirotalk.com/sites/story.html" />
+
+    <!-- Twitter Card -->
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="The Story Behind MiroTalk" />
+    <meta name="twitter:description" content="How a pandemic side-project became a global open-source WebRTC movement" />
+    <meta name="twitter:image" content="https://docs.mirotalk.com/images/mirotalk-preview.png" />
+
+    <link rel="canonical" href="https://docs.mirotalk.com/sites/story.html" />
+
+    <!-- favicon -->
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/icon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/icon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/icon/favicon-16x16.png" />
+    <link rel="shortcut icon" href="../images/icon/favicon.ico" />
+
+    <title>The Story Behind MiroTalk</title>
+
+    <!-- Preconnect -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+
+    <!-- Google Fonts: Manrope -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome CDN -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "AboutPage",
+        "name": "The Story Behind MiroTalk",
+        "description": "Explore the visual story of how MiroTalk grew from a 2020 side project into an open-source WebRTC product family.",
+        "url": "https://docs.mirotalk.com/sites/story.html",
+        "image": "https://docs.mirotalk.com/images/mirotalk-preview.png",
+        "about": {
+            "@type": "SoftwareApplication",
+            "name": "MiroTalk",
+            "applicationCategory": "CommunicationApplication",
+            "operatingSystem": "Web, Linux",
+            "url": "https://mirotalk.com/"
+        },
+        "dateModified": "2026-09-05"
+    }
+    </script>
+
+    <style>
+        :root {
+            --primary: #2196f3;
+            --primary-dark: #1565c0;
+            --accent: #00bcd4;
+            --warm: #ffb545;
+            --danger: #ff6b6b;
+            --bg: #0b1117;
+            --surface: #101923;
+            --card-bg: rgba(17, 27, 38, 0.84);
+            --text: #edf6ff;
+            --muted: #9cafc6;
+            --line: rgba(120, 191, 255, 0.16);
+            --shadow: 0 18px 54px rgba(0, 0, 0, 0.28);
+            --radius: 8px;
+            --glow: 0 0 28px rgba(33, 150, 243, 0.18);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background:
+                linear-gradient(180deg, rgba(12, 24, 36, 0.25), transparent 34rem),
+                radial-gradient(circle at 8% 18%, rgba(0, 188, 212, 0.12), transparent 18rem),
+                radial-gradient(circle at 88% 8%, rgba(255, 181, 69, 0.1), transparent 20rem),
+                var(--bg);
+            color: var(--text);
+            font-family: 'Manrope', sans-serif;
+            margin: 0;
+            line-height: 1.72;
+            font-size: 1.04rem;
+        }
+
+        main {
+            min-height: 100vh;
+            position: relative;
+            padding: 1.5rem 1rem 0;
+        }
+
+        main::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: calc(50% - 450px);
+            width: 1px;
+            background: linear-gradient(180deg, transparent, var(--line), var(--line), transparent);
+            pointer-events: none;
+        }
+
+        /* ───── Reading Progress Bar ───── */
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent), #7c4dff);
+            width: 0%;
+            z-index: 9999;
+            transition: width 0.1s linear;
+            box-shadow: 0 0 8px var(--primary);
+        }
+
+        /* ───── Chapter Number Badge ───── */
+
+        .chapter-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: #fff;
+            font-weight: 700;
+            font-size: 0.95rem;
+            flex-shrink: 0;
+            box-shadow: 0 2px 12px rgba(33, 150, 243, 0.3);
+        }
+
+        /* ───── Site Navigation ───── */
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            min-height: 64px;
+            border-bottom: 1px solid rgba(120, 191, 255, 0.14);
+            background: rgba(11, 17, 23, 0.9);
+            backdrop-filter: blur(16px);
+        }
+
+        .site-nav {
+            width: min(1120px, calc(100% - 2rem));
+            min-height: 64px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .brand {
+            color: var(--text);
+            font-weight: 800;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .brand span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 1.35rem;
+            margin-left: auto;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            font-size: 0.84rem;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+        }
+
+        .nav-theme-btn {
+            width: 40px;
+            height: 40px;
+            padding: 0;
+            display: inline-grid;
+            place-items: center;
+            flex: 0 0 auto;
+            border: 1px solid rgba(120, 191, 255, 0.2);
+            border-radius: 7px;
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--text);
+            cursor: pointer;
+        }
+
+        .nav-theme-btn:hover {
+            border-color: var(--accent);
+            background: rgba(0, 188, 212, 0.1);
+        }
+
+        /* ───── Header ───── */
+
+        header {
+            background:
+                linear-gradient(135deg, rgba(7, 13, 21, 0.7), rgba(7, 18, 29, 0.28)),
+                linear-gradient(120deg, #0b345f, #0b7285 52%, #1d5c8f);
+            background-size: 100% 100%, 180% 180%;
+            animation: gradientShift 12s ease infinite;
+            color: #fff;
+            padding: 5rem 1.25rem 3.25rem;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(0,188,212,0.1) 0%, transparent 40%),
+                        radial-gradient(circle at 50% 80%, rgba(33,150,243,0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-inner {
+            max-width: 1120px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(320px, 0.92fr);
+            gap: 2.2rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-copy {
+            max-width: 650px;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        header h1 {
+            font-size: clamp(2.35rem, 5vw, 4.65rem);
+            line-height: 1.03;
+            margin: 0 0 1rem;
+            font-weight: 700;
+            letter-spacing: 0;
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+            position: relative;
+        }
+
+        header .subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.42rem);
+            line-height: 1.55;
+            margin: 0 0 0.65rem;
+            color: #b3e5fc;
+            font-weight: 500;
+            position: relative;
+        }
+
+        header .subtitle-small {
+            font-size: 1rem;
+            margin: 0 0 1.7rem;
+            color: rgba(232, 248, 255, 0.76);
+            font-weight: 400;
+            position: relative;
+        }
+
+        .hero-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1.1rem;
+            color: #e8fbff;
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .hero-kicker::before {
+            content: '';
+            width: 2rem;
+            height: 2px;
+            background: var(--warm);
+        }
+
+        .hero-media {
+            position: relative;
+        }
+
+        .hero-media::before {
+            content: '';
+            position: absolute;
+            inset: 1.1rem -0.8rem -1.1rem 0.8rem;
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            border-radius: 8px;
+        }
+
+        .header-img {
+            display: block;
+            max-width: 100%;
+            width: 100%;
+            border-radius: var(--radius);
+            box-shadow: 0 28px 70px rgba(0, 0, 0, 0.42);
+            margin: 0;
+            position: relative;
+            transition: transform 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.16);
+        }
+
+        .header-img:hover {
+            transform: scale(1.02);
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: flex-start;
+            gap: 1rem;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        .cta-buttons a,
+        .cta-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(24, 29, 35, 0.85);
+            backdrop-filter: blur(8px);
+            color: var(--primary);
+            padding: 0.85rem 2rem;
+            margin: 0.5rem 0;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.08rem;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(33, 150, 243, 0.2);
+            cursor: pointer;
+            transition: transform 0.25s, box-shadow 0.25s, background 0.25s, color 0.25s, border-color 0.25s;
+        }
+
+        .cta-buttons a:hover,
+        .cta-link:hover {
+            background: #10141a;
+            color: #fff !important;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(33, 150, 243, 0.25);
+            border-color: var(--primary);
+        }
+
+        .cta-buttons .cta-primary {
+            border-color: var(--accent);
+            background: var(--accent);
+            color: #07151a;
+        }
+
+        .title-icon {
+            display: inline-block;
+            margin-right: 0.5rem;
+            color: #fff;
+            font-size: 0.7em;
+            filter: drop-shadow(0 2px 8px rgba(0, 51, 102, 0.2));
+        }
+
+        /* ───── Scroll Reveal ───── */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.7s cubic-bezier(0.23, 1, 0.32, 1),
+                        transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+
+        /* ───── Sections ───── */
+
+        section {
+            max-width: 900px;
+            margin: 2.5rem auto;
+            padding: 2.25rem 2.1rem 2.1rem 2.45rem;
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            backdrop-filter: blur(16px);
+            position: relative;
+        }
+
+        section::before {
+            content: '';
+            position: absolute;
+            top: 2.25rem;
+            left: -0.45rem;
+            width: 0.9rem;
+            height: 0.9rem;
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 0 6px rgba(0, 188, 212, 0.1), 0 0 20px rgba(0, 188, 212, 0.42);
+        }
+
+        section:not(:last-of-type) {
+            margin-bottom: 0;
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: clamp(1.45rem, 3vw, 1.9rem);
+            line-height: 1.25;
+            font-weight: 700;
+            letter-spacing: 0;
+            margin-top: 0;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        h2 i {
+            font-size: 1.5rem;
+            opacity: 0.85;
+        }
+
+        p {
+            margin: 0 0 1rem 0;
+        }
+
+        /* ───── Lead Paragraph ───── */
+
+        .lead {
+            font-size: clamp(1.08rem, 2vw, 1.24rem);
+            font-weight: 500;
+            line-height: 1.75;
+            color: var(--text);
+        }
+
+        strong {
+            color: var(--primary);
+        }
+
+        /* ───── Gradient Text ───── */
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* ───── Divider ───── */
+
+        .section-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0.5rem 0;
+        }
+
+        .section-divider::before,
+        .section-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(33, 150, 243, 0.3), transparent);
+        }
+
+        .section-divider i {
+            color: var(--primary);
+            font-size: 0.8rem;
+            margin: 0 1rem;
+            opacity: 0.5;
+        }
+
+        /* ───── Blockquote ───── */
+
+        blockquote {
+            border-left: 4px solid var(--warm);
+            background: rgba(255, 181, 69, 0.07);
+            margin: 1.5rem 0;
+            padding: 1.4rem 1.5rem;
+            border-radius: 0 var(--radius) var(--radius) 0;
+            font-style: italic;
+            color: var(--text);
+            font-size: 1.15rem;
+            position: relative;
+        }
+
+        blockquote::before {
+            content: '\201C';
+            position: absolute;
+            top: -0.2rem;
+            left: 0.8rem;
+            font-size: 3rem;
+            color: var(--warm);
+            opacity: 0.15;
+            font-family: Georgia, serif;
+        }
+
+        blockquote p {
+            margin: 0;
+        }
+
+        blockquote i.fa-lightbulb {
+            color: #ffc107;
+            margin-right: 0.5rem;
+            filter: drop-shadow(0 0 4px rgba(255, 193, 7, 0.4));
+        }
+
+        /* ───── Pain Points List ───── */
+
+        .pain-points {
+            list-style: none;
+            padding: 0;
+            margin: 1.2rem 0;
+        }
+
+        .pain-points li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+            padding: 0.8rem 1rem;
+            background: rgba(255, 107, 107, 0.06);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 107, 107, 0.12);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .pain-points li:hover {
+            transform: translateX(6px);
+            box-shadow: -4px 0 12px rgba(255, 107, 107, 0.12);
+        }
+
+        .pain-points li i {
+            color: var(--danger);
+            margin-top: 0.25rem;
+            flex-shrink: 0;
+            font-size: 1.1rem;
+        }
+
+        /* ───── Principles Cards ───── */
+
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.2rem;
+            margin: 1.5rem 0;
+        }
+
+        @media (max-width: 700px) {
+            .principles-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .principle-card {
+            background: rgba(12, 20, 29, 0.72);
+            border-radius: 8px;
+            padding: 1.5rem 1.2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+            border: 1px solid rgba(130, 170, 210, 0.12);
+            text-align: center;
+            transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.3s, border-color 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .principle-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 8px;
+            background: radial-gradient(circle at 50% 0%, rgba(33, 150, 243, 0.08), transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+
+        .principle-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 32px rgba(33, 150, 243, 0.2), var(--glow);
+            border-color: rgba(33, 150, 243, 0.3);
+        }
+
+        .principle-card:hover::after {
+            opacity: 1;
+        }
+
+        .principle-card i {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+            display: block;
+            filter: drop-shadow(0 2px 6px rgba(33, 150, 243, 0.3));
+        }
+
+        .principle-card strong {
+            font-size: 1.12rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .principle-card span {
+            color: var(--muted);
+            font-size: 0.98rem;
+        }
+
+        /* ───── Name Box ───── */
+
+        .name-reveal {
+            text-align: center;
+            padding: 2.5rem 1.5rem;
+            margin: 1.5rem 0;
+            background: linear-gradient(135deg, rgba(33, 150, 243, 0.09), rgba(255, 181, 69, 0.08));
+            border-radius: var(--radius);
+            border: 1px solid rgba(33, 150, 243, 0.25);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .name-reveal::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(33, 150, 243, 0.05), transparent, rgba(0, 188, 212, 0.05), transparent);
+            animation: shimmerRotate 10s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes shimmerRotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .name-reveal .equation {
+            font-size: clamp(1.55rem, 4vw, 2.2rem);
+            font-weight: 700;
+            margin-bottom: 0.6rem;
+            position: relative;
+        }
+
+        .name-reveal .equation strong {
+            background: linear-gradient(135deg, var(--primary), var(--warm));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: clamp(1.75rem, 5vw, 2.5rem);
+        }
+
+        .name-reveal .sparkle {
+            color: var(--warm);
+            font-size: 0.8em;
+            filter: drop-shadow(0 0 6px rgba(255, 181, 69, 0.3));
+        }
+
+        .name-reveal .heart {
+            color: #ef5350;
+            font-size: 1.5rem;
+            display: inline-block;
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            15% { transform: scale(1.15); }
+            30% { transform: scale(1); }
+            45% { transform: scale(1.1); }
+            60% { transform: scale(1); }
+        }
+
+        .name-reveal p {
+            color: var(--muted);
+            font-size: 1.08rem;
+            margin: 0;
+            position: relative;
+        }
+
+        /* ───── Users Grid ───── */
+
+        .users-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.2rem;
+            margin: 1.5rem 0;
+        }
+
+        @media (max-width: 700px) {
+            .users-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .user-card {
+            background: rgba(12, 20, 29, 0.72);
+            border-radius: 8px;
+            padding: 1.4rem 1.2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+            border: 1px solid rgba(130, 170, 210, 0.12);
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.3s, border-color 0.3s;
+        }
+
+        .user-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 32px rgba(33, 150, 243, 0.2), var(--glow);
+            border-color: rgba(33, 150, 243, 0.3);
+        }
+
+        .user-card i {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-top: 0.15rem;
+            flex-shrink: 0;
+            filter: drop-shadow(0 2px 6px rgba(33, 150, 243, 0.3));
+        }
+
+        .user-card strong {
+            display: block;
+            margin-bottom: 0.2rem;
+            font-size: 1.08rem;
+        }
+
+        .user-card span {
+            color: var(--muted);
+            font-size: 0.98rem;
+        }
+
+        /* ───── CTA Section ───── */
+
+        .cta-section {
+            text-align: center;
+            background: linear-gradient(135deg, rgba(33, 150, 243, 0.12), rgba(255, 181, 69, 0.09));
+            border: 1px solid rgba(33, 150, 243, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 50% 100%, rgba(33, 150, 243, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .cta-section h2 {
+            justify-content: center;
+            position: relative;
+        }
+
+        .cta-section .cta-buttons {
+            justify-content: center;
+        }
+
+        .cta-text {
+            font-size: 1.18rem;
+            color: var(--text);
+            margin-bottom: 1.5rem;
+            line-height: 1.9;
+            position: relative;
+        }
+
+        .cta-text strong {
+            color: #fff;
+        }
+
+        .cta-emoji {
+            font-size: 1.5rem;
+            margin: 0 0.2rem;
+            display: inline-block;
+        }
+
+        .cta-emoji.rocket {
+            color: var(--warm);
+            animation: rocketBounce 2s ease-in-out infinite;
+        }
+
+        .cta-emoji.heart {
+            color: #ef5350;
+        }
+
+        @keyframes rocketBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+
+        /* ───── Fade-in Animation ───── */
+
+        .fadeInUp {
+            animation: fadeInUp 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translate3d(0, 40px, 0);
+            }
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        /* ───── Footer ───── */
+
+        footer {
+            background: #0e1720;
+            padding: 2.2rem 0 1.2rem 0;
+            margin-top: 2.5rem;
+            border-top: 1px solid rgba(130, 170, 210, 0.14);
+        }
+
+        .footer-topline {
+            text-align: center;
+            color: var(--muted);
+            font-size: 1.05rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 0.7rem;
+        }
+
+        .footer-social a {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4em;
+            transition: color 0.18s, transform 0.18s;
+        }
+
+        .footer-social a:hover {
+            color: #fff !important;
+            transform: translateY(-2px);
+        }
+
+        .footer-social-margin {
+            margin-top: 0.5rem;
+        }
+
+        .footer-social-label {
+            font-size: 0.98em;
+        }
+
+        @media (max-width: 600px) {
+            .footer-social {
+                gap: 0.3rem;
+                flex-wrap: wrap;
+            }
+            .footer-social a {
+                font-size: 0.95rem;
+                padding: 0.2em 0.5em;
+            }
+            .footer-social-label {
+                display: none;
+            }
+        }
+
+        .mr-05 {
+            margin-right: 0.5em;
+        }
+
+        /* ───── Responsive ───── */
+
+        @media (max-width: 700px) {
+            main {
+                padding-inline: 0.85rem;
+            }
+
+            main::before {
+                display: none;
+            }
+
+            .hero-inner {
+                grid-template-columns: 1fr;
+                gap: 1.8rem;
+            }
+
+            header {
+                padding: 3.75rem 1rem 2.4rem;
+                text-align: center;
+            }
+
+            .hero-kicker {
+                justify-content: center;
+            }
+
+            header h1 {
+                font-size: 2.2rem;
+            }
+            h2 {
+                font-size: 1.3rem;
+            }
+            section {
+                padding: 1.45rem 1rem;
+                margin: 1.35rem auto;
+            }
+
+            section::before {
+                display: none;
+            }
+            .chapter-num {
+                width: 30px;
+                height: 30px;
+                font-size: 0.85rem;
+            }
+            .cta-buttons {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+            .cta-buttons a {
+                padding: 0.65rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* ───── Light Mode ───── */
+
+        body.light-mode {
+            --primary: #2196f3;
+            --primary-dark: #1565c0;
+            --accent: #00bcd4;
+            --warm: #c77800;
+            --danger: #c62828;
+            --bg: #f6f8fa;
+            --surface: #eef5fb;
+            --card-bg: rgba(255, 255, 255, 0.86);
+            --text: #1a2332;
+            --muted: #6b7a90;
+            --line: rgba(33, 150, 243, 0.18);
+            --shadow: 0 4px 16px rgba(33, 150, 243, 0.08);
+            --glow: 0 0 20px rgba(33, 150, 243, 0.08);
+        }
+
+        body.light-mode header {
+            background: linear-gradient(120deg, #0d47a1, var(--primary), var(--accent));
+            background-size: 300% 300%;
+            animation: gradientShift 8s ease infinite;
+            color: #fff;
+        }
+
+        body.light-mode .progress-bar {
+            box-shadow: 0 0 8px rgba(33, 150, 243, 0.3);
+        }
+
+        body.light-mode section {
+            background: var(--card-bg);
+            color: var(--text);
+            box-shadow: var(--shadow);
+            border-color: #e0e7ef;
+        }
+
+        body.light-mode .principle-card,
+        body.light-mode .user-card {
+            background: rgba(240, 244, 250, 0.86);
+            border-color: #e0e7ef;
+            color: var(--text);
+            box-shadow: var(--shadow);
+        }
+
+        body.light-mode .principle-card:hover,
+        body.light-mode .user-card:hover {
+            border-color: rgba(33, 150, 243, 0.3);
+            box-shadow: 0 12px 32px rgba(33, 150, 243, 0.12);
+        }
+
+        body.light-mode h2,
+        body.light-mode .principle-card strong,
+        body.light-mode .user-card strong {
+            color: var(--primary);
+        }
+
+        body.light-mode .principle-card span,
+        body.light-mode .user-card span {
+            color: var(--muted);
+        }
+
+        body.light-mode strong {
+            color: var(--primary-dark);
+        }
+
+        body.light-mode blockquote {
+            background: rgba(33, 150, 243, 0.04);
+            border-left-color: var(--primary);
+        }
+
+        body.light-mode .name-reveal {
+            background: linear-gradient(135deg, rgba(33, 150, 243, 0.06), rgba(0, 188, 212, 0.06));
+            border-color: rgba(33, 150, 243, 0.18);
+        }
+
+        body.light-mode .cta-section {
+            background: linear-gradient(135deg, rgba(33, 150, 243, 0.06), rgba(0, 188, 212, 0.06));
+            border-color: rgba(33, 150, 243, 0.18);
+        }
+
+        body.light-mode .cta-text strong {
+            color: var(--primary-dark);
+        }
+
+        body.light-mode .pain-points li {
+            background: rgba(198, 40, 40, 0.03);
+            border-color: rgba(198, 40, 40, 0.08);
+        }
+
+        body.light-mode .pain-points li i {
+            color: #c62828;
+        }
+
+        body.light-mode .section-divider::before,
+        body.light-mode .section-divider::after {
+            background: linear-gradient(90deg, transparent, rgba(33, 150, 243, 0.2), transparent);
+        }
+
+        body.light-mode footer {
+            background: #f0f4fa;
+            border-top: 1px solid #e0e7ef;
+            color: var(--muted);
+        }
+
+        body.light-mode .footer-social a {
+            color: var(--primary);
+        }
+
+        body.light-mode .footer-social a:hover {
+            color: #10141a !important;
+        }
+
+        body.light-mode .cta-buttons a,
+        body.light-mode .cta-link {
+            background: rgba(255, 255, 255, 0.9);
+            border-color: rgba(33, 150, 243, 0.2);
+        }
+
+        body.light-mode .cta-buttons a:hover,
+        body.light-mode .cta-link:hover {
+            background: #10141a !important;
+            color: #fff !important;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(33, 150, 243, 0.2);
+        }
+
+        body.light-mode .cta-buttons .cta-primary {
+            border-color: var(--accent);
+            background: var(--accent);
+            color: #07151a;
+        }
+
+        body.light-mode .cta-buttons .cta-primary:hover {
+            border-color: #10141a;
+        }
+
+        body.light-mode .site-header {
+            border-bottom-color: #dce7ef;
+            background: rgba(246, 248, 250, 0.92);
+        }
+
+        body.light-mode .nav-theme-btn {
+            border-color: #d5e2eb;
+            background: #fff;
+            color: var(--text);
+        }
+
+        body.light-mode .chapter-nav a .nav-tooltip {
+            background: #fff;
+            border-color: #e0e7ef;
+        }
+
+        body.light-mode .back-to-top {
+            box-shadow: 0 4px 16px rgba(33, 150, 243, 0.15);
+        }
+
+        body.light-mode .stats-section {
+            background: linear-gradient(135deg, rgba(33, 150, 243, 0.04), rgba(0, 188, 212, 0.04));
+            border-color: rgba(33, 150, 243, 0.15);
+        }
+
+        /* ───── Skip to Content ───── */
+
+        .skip-to-content {
+            position: fixed;
+            top: -100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: #fff;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0 0 var(--radius) var(--radius);
+            font-weight: 600;
+            z-index: 10000;
+            text-decoration: none;
+            transition: top 0.3s;
+        }
+
+        .skip-to-content:focus {
+            top: 0;
+        }
+
+        /* ───── Focus Visible ───── */
+
+        *:focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+        }
+
+        /* ───── Chapter Nav ───── */
+
+        .chapter-nav {
+            position: fixed;
+            right: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.25s, visibility 0.25s;
+        }
+
+        .chapter-nav.visible {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+        .chapter-nav a {
+            width: 36px;
+            height: 36px;
+            display: grid;
+            place-items: center;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .chapter-nav a::before {
+            content: '';
+            width: 12px;
+            height: 12px;
+            border: 2px solid transparent;
+            border-radius: 50%;
+            background: rgba(33, 150, 243, 0.25);
+            transition: transform 0.3s, background 0.3s, border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .chapter-nav a.active::before {
+            background: var(--primary);
+            border-color: var(--accent);
+            box-shadow: 0 0 10px rgba(33, 150, 243, 0.5);
+            transform: scale(1.3);
+        }
+
+        .chapter-nav a:hover::before {
+            background: var(--primary);
+            transform: scale(1.3);
+        }
+
+        .chapter-nav a .nav-tooltip {
+            position: absolute;
+            right: 100%;
+            top: 50%;
+            transform: translateY(-50%);
+            margin-right: 0.8rem;
+            background: var(--card-bg);
+            color: var(--text);
+            padding: 0.35rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .chapter-nav a:hover .nav-tooltip {
+            opacity: 1;
+        }
+
+        @media (max-width: 1100px) {
+            .chapter-nav {
+                display: none;
+            }
+        }
+
+        /* ───── Back to Top ───── */
+
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            box-shadow: 0 4px 16px rgba(33, 150, 243, 0.3);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all 0.3s;
+            z-index: 100;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(0, 188, 212, 0.4);
+        }
+
+        /* ───── Stats Section ───── */
+
+        .stats-section {
+            text-align: center;
+            background: linear-gradient(135deg, rgba(33, 150, 243, 0.08), rgba(0, 188, 212, 0.08));
+            border: 1px solid rgba(33, 150, 243, 0.2);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.2rem;
+            margin-top: 1.5rem;
+        }
+
+        @media (max-width: 700px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .stat-card {
+            padding: 1.5rem 1rem;
+        }
+
+        .stat-number {
+            font-size: 2.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        .stat-label {
+            color: var(--muted);
+            font-size: 0.95rem;
+            margin-top: 0.4rem;
+            font-weight: 500;
+        }
+
+        /* ───── Header Spotlight ───── */
+
+        header::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(600px circle at var(--spotlight-x, 50%) var(--spotlight-y, 50%), rgba(255, 255, 255, 0.06), transparent 40%);
+            pointer-events: none;
+        }
+
+        /* ───── Reduced Motion ───── */
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            .reveal {
+                opacity: 1;
+                transform: none;
+            }
+
+            .header-img:hover {
+                transform: none;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .site-nav {
+                width: min(100% - 1.4rem, 1120px);
+                min-height: 58px;
+            }
+
+            .site-header {
+                min-height: 58px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .nav-theme-btn {
+                margin-left: auto;
+            }
+
+            header {
+                padding: 2.4rem 1rem 1.7rem;
+            }
+
+            .hero-inner {
+                gap: 1.2rem;
+            }
+
+            header .subtitle-small {
+                margin-bottom: 1rem;
+            }
+
+            .header-img {
+                max-height: 180px;
+                object-fit: contain;
+            }
+
+            .hero-media::before {
+                inset: 0.6rem 0 -0.45rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        document.body.classList.toggle('light-mode', document.documentElement.dataset.theme === 'light');
+    </script>
+
+    <a href="#main" class="skip-to-content">Skip to content</a>
+
+    <div class="progress-bar" id="progressBar"></div>
+
+    <nav class="site-header" aria-label="Primary navigation">
+        <div class="site-nav">
+            <a class="brand" href="../">MiroTalk <span>Story</span></a>
+            <div class="nav-links">
+                <a href="#ch1">The beginning</a>
+                <a href="#ch5">The community</a>
+                <a href="../projects/">Products</a>
+                <a href="../story/">Documentation</a>
+            </div>
+            <button id="themeToggle" type="button" aria-label="Toggle dark/light mode" class="nav-theme-btn">
+                <i class="fa-solid fa-sun" aria-hidden="true"></i>
+            </button>
+        </div>
+    </nav>
+
+    <nav class="chapter-nav" id="chapterNav" aria-label="Chapter navigation">
+        <a href="#ch1" aria-label="Chapter 1"><span class="nav-tooltip">The Pandemic</span></a>
+        <a href="#ch2" aria-label="Chapter 2"><span class="nav-tooltip">The Problem</span></a>
+        <a href="#ch3" aria-label="Chapter 3"><span class="nav-tooltip">Bold Idea</span></a>
+        <a href="#ch4" aria-label="Chapter 4"><span class="nav-tooltip">The Name</span></a>
+        <a href="#ch5" aria-label="Chapter 5"><span class="nav-tooltip">Global Movement</span></a>
+        <a href="#ch6" aria-label="Chapter 6"><span class="nav-tooltip">Shaped by Users</span></a>
+        <a href="#ch7" aria-label="Chapter 7"><span class="nav-tooltip">The Beginning</span></a>
+    </nav>
+
+    <header>
+        <div class="hero-inner">
+            <div class="hero-copy">
+                <div class="hero-kicker">Open-source WebRTC since 2020</div>
+                <h1>
+                    <i class="fa-solid fa-video title-icon" aria-hidden="true"></i>The Story Behind MiroTalk
+                </h1>
+                <p class="subtitle">How a pandemic side project became a global open-source WebRTC movement</p>
+                <p class="subtitle-small">A journey of privacy, passion, and purpose</p>
+                <div class="cta-buttons">
+                    <a class="cta-primary" href="../projects/">
+                        Explore the products <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://github.com/miroslavpejic85" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                </div>
+            </div>
+            <div class="hero-media">
+                <img src="../images/mirotalk/preview.png" alt="MiroTalk video meetings running across desktop and laptop screens" class="header-img" loading="eager" fetchpriority="high" />
+            </div>
+        </div>
+    </header>
+
+    <main id="main">
+
+        <!-- ───── Chapter 1: The Pandemic ───── -->
+
+        <section id="ch1" class="reveal">
+            <h2><span class="chapter-num">1</span><i class="fa-solid fa-virus"></i> It Started With a Pandemic</h2>
+            <p class="lead">
+                In <strong>2020</strong>, the world stopped. But communication couldn't.
+            </p>
+            <p>
+                Overnight, video calls became our classrooms, our offices, our lifelines. Like millions of others, I
+                found myself living through a screen, desperately trying to stay connected with friends, family, and
+                collaborators.
+            </p>
+            <p>
+                But the more I used these platforms, the more something gnawed at me. The tools we depended on every
+                single day were convenient, sure. But they came with a cost nobody was talking about:
+                <strong>our privacy</strong>.
+            </p>
+        </section>
+
+        <div class="section-divider"><i class="fa-solid fa-diamond"></i></div>
+
+        <!-- ───── Chapter 2: The Problem ───── -->
+
+        <section id="ch2" class="reveal">
+            <h2><span class="chapter-num">2</span><i class="fa-solid fa-triangle-exclamation"></i> The Problem Hiding in Plain Sight</h2>
+            <p>
+                Most widely used video platforms were controlled by their operators. Closed ecosystems. Black boxes.
+                Users had <strong>little control</strong> over where the application ran or how its infrastructure and
+                policies were managed.
+            </p>
+            <p>Think about that for a moment:</p>
+            <ul class="pain-points">
+                <li class="reveal reveal-delay-1">
+                    <i class="fa-solid fa-circle-xmark"></i>
+                    <span><strong>Privacy?</strong> An afterthought, buried in 50-page terms of service nobody reads.</span>
+                </li>
+                <li class="reveal reveal-delay-2">
+                    <i class="fa-solid fa-circle-xmark"></i>
+                    <span><strong>Vendor lock-in?</strong> By design. Switching costs kept everyone trapped.</span>
+                </li>
+                <li class="reveal reveal-delay-3">
+                    <i class="fa-solid fa-circle-xmark"></i>
+                    <span><strong>Data collection?</strong> Not a bug. <strong>The business model itself.</strong></span>
+                </li>
+            </ul>
+            <p>
+                Your face. Your voice. Your conversations. Your meetings. All flowing through servers you don't own,
+                governed by policies you didn't write, stored in databases you'll never see.
+            </p>
+            <blockquote class="reveal">
+                <p>
+                    <i class="fa-solid fa-lightbulb"></i>
+                    "Why should we hand over our most private conversations to companies that treat our data as a product?"
+                </p>
+            </blockquote>
+            <p>
+                That question haunted me. It kept me up at night. And eventually, it pushed me to do something about it.
+            </p>
+        </section>
+
+        <div class="section-divider"><i class="fa-solid fa-diamond"></i></div>
+
+        <!-- ───── Chapter 3: Bold Idea ───── -->
+
+        <section id="ch3" class="reveal">
+            <h2><span class="chapter-num">3</span><i class="fa-solid fa-rocket"></i> A Bold Idea Takes Shape</h2>
+            <p class="lead">
+                I didn't just want to complain. I wanted to <strong>build the alternative</strong>.
+            </p>
+            <p>
+                The idea was deceptively simple: an <strong>open-source WebRTC platform</strong> that anyone,
+                anywhere in the world, could deploy on their own server, in minutes.
+            </p>
+            <p>
+                No required hosted provider. No closed implementation deciding the only way to run it.
+                <strong>Communication software you can inspect and operate</strong>, whether peer-to-peer or through
+                infrastructure you choose.
+            </p>
+            <p>The mission came down to four non-negotiable principles:</p>
+
+            <div class="principles-grid">
+                <div class="principle-card reveal reveal-delay-1">
+                    <i class="fa-solid fa-lock-open"></i>
+                    <strong>No Vendor Lock-in</strong>
+                    <span>Your platform, your rules, forever</span>
+                </div>
+                <div class="principle-card reveal reveal-delay-2">
+                    <i class="fa-solid fa-database"></i>
+                    <strong>Full Data Control</strong>
+                    <span>Choose where application data is processed and stored</span>
+                </div>
+                <div class="principle-card reveal reveal-delay-3">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <strong>Privacy by Design</strong>
+                    <span>Architecture, deployment, and operations work together</span>
+                </div>
+                <div class="principle-card reveal reveal-delay-4">
+                    <i class="fa-solid fa-code"></i>
+                    <strong>Open Source for All</strong>
+                    <span>Every line of code, visible to everyone</span>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"><i class="fa-solid fa-diamond"></i></div>
+
+        <!-- ───── Chapter 4: The Name ───── -->
+
+        <section id="ch4" class="reveal">
+            <h2><span class="chapter-num">4</span><i class="fa-solid fa-signature"></i> How It Got Its Name</h2>
+            <p>
+                Friends and colleagues have always called me <strong>"Miro"</strong>
+            </p>
+            <p>
+                And since this whole project was born from one person's belief that people deserve to communicate
+                <strong>freely and fearlessly</strong>, the name wrote itself:
+            </p>
+            <div class="name-reveal reveal">
+                <div class="equation">
+                    <i class="fa-solid fa-wand-magic-sparkles sparkle" aria-hidden="true"></i>
+                    Miro + Talk = <strong>MiroTalk</strong>
+                </div>
+                <p>A simple name with a powerful promise: open communication built with a personal touch and a whole lot
+                    of heart <i class="fa-solid fa-heart heart" aria-hidden="true"></i></p>
+            </div>
+        </section>
+
+        <div class="section-divider"><i class="fa-solid fa-diamond"></i></div>
+
+        <!-- ───── Chapter 5: Global Movement ───── -->
+
+        <section id="ch5" class="reveal">
+            <h2><span class="chapter-num">5</span><i class="fa-solid fa-earth-americas"></i> From Side Project to Global Movement</h2>
+            <p class="lead">
+                Here's what I never expected. What started as a <strong>solo experiment during lockdown</strong> took on a
+                life of its own.
+            </p>
+            <p>Developers found it. Then educators. Then entire organizations.</p>
+            <p>Today, MiroTalk is trusted by people <strong>across the globe</strong>:</p>
+
+            <div class="users-grid">
+                <div class="user-card reveal reveal-delay-1">
+                    <i class="fa-solid fa-laptop-code"></i>
+                    <div>
+                        <strong>Developers</strong>
+                        <span>Because they read the code and trust what they see</span>
+                    </div>
+                </div>
+                <div class="user-card reveal reveal-delay-2">
+                    <i class="fa-solid fa-chalkboard-user"></i>
+                    <div>
+                        <strong>Educators</strong>
+                        <span>Because students deserve privacy, not surveillance</span>
+                    </div>
+                </div>
+                <div class="user-card reveal reveal-delay-3">
+                    <i class="fa-solid fa-people-group"></i>
+                    <div>
+                        <strong>Teams</strong>
+                        <span>Because private conversations should actually be private</span>
+                    </div>
+                </div>
+                <div class="user-card reveal reveal-delay-4">
+                    <i class="fa-solid fa-hand-holding-heart"></i>
+                    <div>
+                        <strong>Communities</strong>
+                        <span>Because communication tools should empower people, not exploit them</span>
+                    </div>
+                </div>
+            </div>
+
+            <p>
+                Not because of a marketing budget. Not because of a sales team.
+                <strong>Because the code speaks for itself.</strong>
+            </p>
+        </section>
+
+        <div class="section-divider"><i class="fa-solid fa-diamond"></i></div>
+
+        <!-- ───── Impact Stats ───── -->
+
+        <section class="stats-section reveal" id="stats">
+            <h2 style="justify-content:center"><i class="fa-solid fa-chart-line"></i> The Impact in Numbers</h2>
+            <div class="stats-grid">
+                <div class="stat-card reveal reveal-delay-1">
+                    <div class="stat-number" id="yearsStat" data-target="6">0</div>
+                    <div class="stat-label">Years of Development</div>
+                </div>
+                <div class="stat-card reveal reveal-delay-2">
+                    <div class="stat-number" data-target="7">0</div>
+                    <div class="stat-label">Product Editions</div>
+                </div>
+                <div class="stat-card reveal reveal-delay-3">
+                    <div class="stat-number" data-target="190" data-suffix="+">0</div>
+                    <div class="stat-label">Countries Reached</div>
+                </div>
+                <div class="stat-card reveal reveal-delay-4">
+                    <div class="stat-number" data-target="100" data-suffix="%">0</div>
+                    <div class="stat-label">Open Source</div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"><i class="fa-solid fa-diamond"></i></div>
+
+        <!-- ───── Chapter 6: Shaped by Users ───── -->
+
+        <section id="ch6" class="reveal">
+            <h2><span class="chapter-num">6</span><i class="fa-solid fa-users-gear"></i> Shaped by the People Who Use It</h2>
+            <p>
+                Once people started using MiroTalk, something unexpected happened: they didn't just use it, they
+                <strong>shaped it</strong>. Every feature request, every bug report, every conversation became a reason
+                to make it better.
+            </p>
+            <p>
+                No boardroom decided the roadmap. <strong>Real users did.</strong> Teachers, developers, teams, they
+                told me what they needed, and I built it.
+            </p>
+            <blockquote class="reveal">
+                <p>
+                    <i class="fa-solid fa-lightbulb"></i>
+                    "The best software isn't built in isolation. It's shaped by the people who depend on it every day."
+                </p>
+            </blockquote>
+            <p>
+                That's the secret no corporation can replicate: <strong>when you build in the open, your users become
+                your co-creators.</strong>
+            </p>
+        </section>
+
+        <div class="section-divider"><i class="fa-solid fa-diamond"></i></div>
+
+        <!-- ───── Chapter 7: CTA ───── -->
+
+        <section id="ch7" class="cta-section reveal">
+            <h2><span class="chapter-num">7</span><i class="fa-solid fa-flag-checkered"></i> This Is Just the Beginning</h2>
+            <p class="cta-text">
+                MiroTalk is more than software. It's a statement.<br><br>
+                A statement that <strong>privacy is not a luxury</strong>. That <strong>open source is not a
+                compromise</strong>. That the tools we use to connect with each other should belong to
+                <strong>us</strong>, not to corporations.<br><br>
+                <strong class="gradient-text">This is a movement toward a more open, private, and decentralized web.</strong><br>
+                One call at a time. One server at a time. One person at a time.<br><br>
+                And if you're reading this, you're already part of it.
+                <i class="fa-solid fa-rocket cta-emoji rocket" aria-hidden="true"></i><br><br>
+                <strong>Thank you for believing in this journey.</strong>
+                <i class="fa-solid fa-heart cta-emoji heart" aria-hidden="true"></i>
+            </p>
+            <div class="cta-buttons">
+                <a class="cta-primary" href="../projects/">
+                    Choose a MiroTalk product <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                </a>
+                <a href="../story/">Read the documentation</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-topline">
+            <span class="mr-05"><i class="fa-regular fa-copyright"></i></span>2026 MiroTalk –
+            <span class="mr-05"><i class="fa-solid fa-user-shield" aria-label="Privacy"></i></span>Privacy
+            <span class="mr-05"><i class="fa-solid fa-arrows-spin" aria-label="Scalability"></i></span>Scalability
+            <span class="mr-05"><i class="fa-solid fa-plug" aria-label="Integration"></i></span>Integration
+        </div>
+        <div class="footer-social footer-social-margin">
+            <a href="https://github.com/miroslavpejic85" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <i class="fab fa-github" aria-hidden="true"></i> <span class="footer-social-label">GitHub</span>
+            </a>
+            <a href="https://www.youtube.com/watch?v=uoiQqCalO4Q" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                <i class="fab fa-youtube" aria-hidden="true"></i> <span class="footer-social-label">YouTube</span>
+            </a>
+            <a href="https://discord.gg/rgGYfeYW3N" target="_blank" rel="noopener noreferrer" aria-label="Community Forum">
+                <i class="fab fa-discord" aria-hidden="true"></i> <span class="footer-social-label">Community</span>
+            </a>
+            <a href="mailto:miroslav.pejic.85@gmail.com" aria-label="Email">
+                <i class="fa-solid fa-envelope" aria-hidden="true"></i> <span class="footer-social-label">Email</span>
+            </a>
+            <a href="https://codecanyon.net/user/miroslavpejic85/portfolio" target="_blank" rel="noopener noreferrer" aria-label="CodeCanyon">
+                <i class="fa-solid fa-store" aria-hidden="true"></i> <span class="footer-social-label">CodeCanyon</span>
+            </a>
+        </div>
+    </footer>
+
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+    </button>
+
+    <script>
+        // ───── Theme Toggle ─────
+        const themeToggle = document.getElementById('themeToggle');
+
+        function updateThemeControl(theme) {
+            document.body.classList.toggle('light-mode', theme === 'light');
+            themeToggle.setAttribute('aria-label', theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode');
+            themeToggle.innerHTML = theme === 'light'
+                ? '<i class="fa-solid fa-moon" aria-hidden="true"></i>'
+                : '<i class="fa-solid fa-sun" aria-hidden="true"></i>';
+        }
+
+        themeToggle.addEventListener('click', function () {
+            window.MiroTalkTheme.toggle();
+        });
+
+        window.addEventListener('mirotalk-theme-change', function (event) {
+            updateThemeControl(event.detail.theme);
+        });
+        updateThemeControl(window.MiroTalkTheme.get());
+
+        // ───── Reading Progress Bar + Back to Top + Chapter Nav ─────
+        const progressBar = document.getElementById('progressBar');
+        const backToTop = document.getElementById('backToTop');
+        const chapterNav = document.getElementById('chapterNav');
+        const chapterSections = document.querySelectorAll('section[id^="ch"]');
+        const chapterNavLinks = document.querySelectorAll('.chapter-nav a');
+
+        window.addEventListener('scroll', function () {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+            progressBar.style.width = progress + '%';
+            chapterNav.classList.toggle('visible', scrollTop > 240);
+
+            // Back to top visibility
+            if (scrollTop > 400) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+
+            // Active chapter in nav
+            let currentChapter = '';
+            chapterSections.forEach(function (section) {
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= window.innerHeight / 3) {
+                    currentChapter = section.id;
+                }
+            });
+            chapterNavLinks.forEach(function (link) {
+                link.classList.toggle('active', link.getAttribute('href') === '#' + currentChapter);
+            });
+        }, { passive: true });
+
+        backToTop.addEventListener('click', function () {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // ───── Scroll Reveal (IntersectionObserver) ─────
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.12,
+            rootMargin: '0px 0px -40px 0px'
+        });
+        revealElements.forEach(function (el) {
+            revealObserver.observe(el);
+        });
+
+        // ───── Dynamic Years Calculation ─────
+        const yearsStat = document.getElementById('yearsStat');
+        if (yearsStat) {
+            yearsStat.setAttribute('data-target', new Date().getFullYear() - 2020);
+        }
+
+        // ───── Stats Counter Animation ─────
+        const statNumbers = document.querySelectorAll('.stat-number');
+        const statsObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const target = parseInt(el.getAttribute('data-target'));
+                    const suffix = el.getAttribute('data-suffix') || '';
+                    const duration = 1500;
+                    const start = performance.now();
+                    function animate(now) {
+                        const elapsed = now - start;
+                        const progress = Math.min(elapsed / duration, 1);
+                        const eased = 1 - Math.pow(1 - progress, 3);
+                        el.textContent = Math.floor(eased * target) + suffix;
+                        if (progress < 1) {
+                            requestAnimationFrame(animate);
+                        }
+                    }
+                    requestAnimationFrame(animate);
+                    statsObserver.unobserve(el);
+                }
+            });
+        }, { threshold: 0.5 });
+        statNumbers.forEach(function (el) {
+            statsObserver.observe(el);
+        });
+
+        const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        // ───── Header Mouse Spotlight ─────
+        const headerEl = document.querySelector('header');
+        if (headerEl && !prefersReduced) {
+            headerEl.addEventListener('mousemove', function (e) {
+                const rect = headerEl.getBoundingClientRect();
+                headerEl.style.setProperty('--spotlight-x', (e.clientX - rect.left) + 'px');
+                headerEl.style.setProperty('--spotlight-y', (e.clientY - rect.top) + 'px');
+            });
+        }
+    </script>
+</body>
+
+</html>

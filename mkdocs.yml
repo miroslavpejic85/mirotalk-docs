@@ -151,6 +151,7 @@ nav:
     - White-label SFU: mirotalk-sfu/rebranding.md
     - White-label P2P: mirotalk-p2p/rebranding.md
     - MiroTalk story: story/index.md
+    - Visual MiroTalk story: sites/story.html
   - Resources:
     - Frequently asked questions: faq/index.md
     - Changelogs: changelogs/changelogs.md
@@ -191,15 +192,15 @@ theme:
 
 # Custom styles
 extra_css:
-  - stylesheets/extra.css?v=1.5.25
-  - stylesheets/editorial.css?v=1.5.25
+  - stylesheets/extra.css?v=1.5.26
+  - stylesheets/editorial.css?v=1.5.26
 extra_javascript:
   - javascripts/accessibility.js
   - javascripts/analytics-events.js
 
 # Social / preview card metadata
 extra:
-  docs_version: v1.5.25
+  docs_version: v1.5.26
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/miroslavpejic85
