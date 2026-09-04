@@ -20,7 +20,7 @@ description: Explore MiroTalk business solutions, enterprise services, commercia
 | Open source | Review the applicable AGPLv3 terms and operate MiroTalk yourself. |
 | Managed service | Use [MiroTalk Cloud](../cloud/index.md) without managing the infrastructure. |
 | Build a business | Explore solution patterns for SaaS, education, consultations, support, agencies, events, and private platforms. |
-| Evaluate the platform | Compare the engineering surface MiroTalk provides with building WebRTC workflows from zero. |
+| Evaluate the platform | [Compare MiroTalk with Zoom, Google Meet, Teams, Whereby, and Jitsi](../sites/compare.html), or compare its engineering surface with building WebRTC workflows from zero. |
 | Commercial licensing | Review official open-source, Regular, and Extended licensing paths. |
 | Enterprise deployment | Plan licensing, infrastructure, integration, security, scale, support, and procurement. |
 | Partner | Propose agency, integration, hosting, consulting, or technology collaboration. |
@@ -34,6 +34,7 @@ See how focused MiroTalk applications can support a video SaaS, classes and cons
 
 [Explore business solutions](../business/index.md){ .md-button .md-button--primary }
 [Understand why MiroTalk](../why-mirotalk/index.md){ .md-button }
+[Compare video platforms](../sites/compare.html){ .md-button }
 
 ## License and deploy
 
