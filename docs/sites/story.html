@@ -1333,6 +1333,20 @@
             pointer-events: none;
         }
 
+        /* ───── Typing Cursor ───── */
+
+        .typing-cursor::after {
+            content: '|';
+            animation: blink 0.7s step-end infinite;
+            color: #b3e5fc;
+            font-weight: 300;
+            margin-left: 2px;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
         /* ───── Reduced Motion ───── */
 
         @media (prefers-reduced-motion: reduce) {
@@ -1437,7 +1451,7 @@
                 <h1>
                     <i class="fa-solid fa-video title-icon" aria-hidden="true"></i>The Story Behind MiroTalk
                 </h1>
-                <p class="subtitle">How a pandemic side project became a global open-source WebRTC movement</p>
+                <p class="subtitle" id="typingSubtitle">How a pandemic side project became a global open-source WebRTC movement</p>
                 <p class="subtitle-small">A journey of privacy, passion, and purpose</p>
                 <div class="cta-buttons">
                     <a class="cta-primary" href="../projects/">
@@ -1854,6 +1868,27 @@
         });
 
         const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        // ───── Typing Animation ─────
+        const subtitleEl = document.getElementById('typingSubtitle');
+        if (subtitleEl && !prefersReduced) {
+            const fullText = subtitleEl.textContent;
+            subtitleEl.textContent = '';
+            subtitleEl.classList.add('typing-cursor');
+            let charIndex = 0;
+            function typeChar() {
+                if (charIndex < fullText.length) {
+                    subtitleEl.textContent += fullText.charAt(charIndex);
+                    charIndex++;
+                    setTimeout(typeChar, 35);
+                } else {
+                    setTimeout(function () {
+                        subtitleEl.classList.remove('typing-cursor');
+                    }, 1500);
+                }
+            }
+            setTimeout(typeChar, 500);
+        }
 
         // ───── Header Mouse Spotlight ─────
         const headerEl = document.querySelector('header');
