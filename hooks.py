@@ -2,12 +2,17 @@ from datetime import datetime, timezone
 from html import escape
 import json
 from pathlib import Path
-from urllib.parse import urljoin
+import re
+from urllib.parse import urljoin, urlsplit, urlunsplit
 import xml.etree.ElementTree as ElementTree
 
 
 SITEMAP_NAMESPACE = "http://www.sitemaps.org/schemas/sitemap/0.9"
 SOCIAL_IMAGE_PATH = "images/mirotalk-preview.png"
+URL_ATTRIBUTE_PATTERN = re.compile(
+    r'(?P<prefix>\b(?:href|src)\s*=\s*["\'])(?P<url>[^"\']+)(?P<suffix>["\'])',
+    re.IGNORECASE,
+)
 PRODUCT_LANDING_PAGES = {
     "admin": {
         "name": "MiroTalk Admin",
@@ -74,7 +79,7 @@ def add_landing_page_metadata(site_dir, site_url):
         if not page_path.exists():
             continue
 
-        page_url = urljoin(site_url, f"sites/{slug}.html")
+        page_url = urljoin(site_url, f"sites/{slug}/")
         previous_url = urljoin(site_url, metadata["previous_url"])
         contents = page_path.read_text(encoding="utf-8").replace(
             previous_url, page_url
@@ -125,6 +130,69 @@ def add_landing_page_metadata(site_dir, site_url):
         page_path.write_text(contents, encoding="utf-8")
 
 
+def publish_clean_site_urls(site_dir, site_url):
+    sites_dir = site_dir / "sites"
+    standalone_pages = sorted(sites_dir.glob("*.html"))
+    clean_routes = {
+        page.stem: f"/sites/{page.stem}/" for page in standalone_pages
+    }
+
+    def clean_page_reference(match, source_url):
+        reference = match.group("url")
+        parsed = urlsplit(reference)
+        if (
+            reference.startswith(("#", "/"))
+            or parsed.scheme
+            or parsed.netloc
+        ):
+            return match.group(0)
+
+        resolved = urlsplit(urljoin(source_url, reference))
+        path = resolved.path
+        if path.startswith("/sites/") and path.endswith(".html"):
+            slug = Path(path).stem
+            path = clean_routes.get(slug, path)
+
+        clean_reference = urlunsplit(
+            (resolved.scheme, resolved.netloc, path, resolved.query, resolved.fragment)
+        )
+        return (
+            f'{match.group("prefix")}{clean_reference}'
+            f'{match.group("suffix")}'
+        )
+
+    for page_path in standalone_pages:
+        slug = page_path.stem
+        page_url = urljoin(site_url, f"sites/{slug}/")
+        contents = page_path.read_text(encoding="utf-8")
+        contents = contents.replace(
+            urljoin(site_url, f"sites/{slug}.html"), page_url
+        )
+        contents = URL_ATTRIBUTE_PATTERN.sub(
+            lambda match: clean_page_reference(
+                match, f"/sites/{page_path.name}"
+            ),
+            contents,
+        )
+
+        destination = sites_dir / slug / "index.html"
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        destination.write_text(contents, encoding="utf-8")
+        page_path.unlink()
+
+    replacements = {
+        f"/sites/{slug}.html": route for slug, route in clean_routes.items()
+    }
+    for page_path in site_dir.rglob("*.html"):
+        contents = page_path.read_text(encoding="utf-8")
+        updated = contents
+        for old_path, new_path in replacements.items():
+            updated = updated.replace(old_path, new_path)
+            updated = updated.replace(old_path.lstrip("/"), new_path.lstrip("/"))
+        if updated != contents:
+            page_path.write_text(updated, encoding="utf-8")
+
+
 def on_page_markdown(markdown, page, **kwargs):
     if not page.meta.get("description"):
         page.meta["description"] = (
@@ -138,6 +206,7 @@ def on_post_build(config, **kwargs):
     site_dir = Path(config["site_dir"])
     site_url = config["site_url"].rstrip("/") + "/"
     add_landing_page_metadata(site_dir, site_url)
+    publish_clean_site_urls(site_dir, site_url)
 
     sitemap_path = site_dir / "sitemap.xml"
     if not sitemap_path.exists():
@@ -156,6 +225,8 @@ def on_post_build(config, **kwargs):
         relative_path = source_path.relative_to(docs_dir)
         if relative_path.name == "index.html":
             route = relative_path.parent.as_posix().strip("/") + "/"
+        elif relative_path.parent == Path("sites"):
+            route = f"sites/{relative_path.stem}/"
         else:
             route = relative_path.as_posix()
 

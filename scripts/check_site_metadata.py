@@ -79,7 +79,6 @@ def main() -> int:
     checked = 0
 
     pages = set(SITE_DIR.rglob("index.html"))
-    pages.update((SITE_DIR / "sites").glob("*.html"))
 
     for page in sorted(pages):
         relative_path = page.relative_to(SITE_DIR)
@@ -111,8 +110,13 @@ def main() -> int:
         if parser.h1_count != 1:
             failures.append(f"{relative_path}: expected 1 H1, found {parser.h1_count}")
 
-        if relative_path.parent == Path("sites"):
-            expected_canonical = f"{SITE_URL}{relative_path.as_posix()}"
+        if (
+            len(relative_path.parts) == 3
+            and relative_path.parts[0] == "sites"
+        ):
+            expected_canonical = (
+                f"{SITE_URL}sites/{relative_path.parent.name}/"
+            )
             if parser.canonical != [expected_canonical]:
                 failures.append(
                     f"{relative_path}: canonical must be {expected_canonical}"
