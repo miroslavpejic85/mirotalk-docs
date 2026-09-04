@@ -36,6 +36,8 @@ See how focused MiroTalk applications can support a video SaaS, classes and cons
 [Understand why MiroTalk](../why-mirotalk/index.md){ .md-button }
 [Compare video platforms](../sites/compare.html){ .md-button }
 
+Detailed comparisons are available for teams evaluating [MiroTalk vs Zoom](../sites/mirotalk-vs-zoom.html), [MiroTalk vs Whereby Embedded](../sites/mirotalk-vs-whereby.html), and [MiroTalk vs Jitsi Meet](../sites/mirotalk-vs-jitsi.html).
+
 ## License and deploy
 
 Compare the published licensing paths, then define who owns infrastructure, security, capacity, operations, integrations, and end-user support.

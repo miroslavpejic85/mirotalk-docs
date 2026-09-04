@@ -138,7 +138,11 @@ nav:
     - Overview: commercial/index.md
     - Business solutions: business/index.md
     - Why MiroTalk: why-mirotalk/index.md
-    - Compare alternatives: sites/compare.html
+    - Compare alternatives:
+      - Comparison overview: sites/compare.html
+      - MiroTalk vs Zoom: sites/mirotalk-vs-zoom.html
+      - MiroTalk vs Whereby: sites/mirotalk-vs-whereby.html
+      - MiroTalk vs Jitsi: sites/mirotalk-vs-jitsi.html
     - Enterprise services: enterprise/index.md
     - Partners: partners/index.md
     - Sponsors: sponsors/index.md
@@ -187,15 +191,15 @@ theme:
 
 # Custom styles
 extra_css:
-  - stylesheets/extra.css?v=1.5.24
-  - stylesheets/editorial.css?v=1.5.24
+  - stylesheets/extra.css?v=1.5.25
+  - stylesheets/editorial.css?v=1.5.25
 extra_javascript:
   - javascripts/accessibility.js
   - javascripts/analytics-events.js
 
 # Social / preview card metadata
 extra:
-  docs_version: v1.5.24
+  docs_version: v1.5.25
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/miroslavpejic85
