@@ -189,6 +189,21 @@
   width: min(48rem, 96%);
 }
 
+.story-hero .editorial-actions {
+  width: min(100%, 42rem);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.story-hero .editorial-actions .md-button {
+  width: 100%;
+  text-align: center;
+}
+
+.story-hero .story-visual-button {
+  grid-column: 1;
+}
+
 .story-marker {
   display: none;
 }
@@ -449,6 +464,7 @@
     font-size: 2.25rem;
   }
 
+  .story-hero .editorial-actions,
   .editorial-actions,
   .suite-grid,
   .principle-grid,
