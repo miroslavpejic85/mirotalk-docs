@@ -101,5 +101,5 @@ You can take part by trying a project, reviewing its source, reporting an issue,
 - [GitHub](https://github.com/miroslavpejic85)
 - [YouTube](https://www.youtube.com/watch?v=uoiQqCalO4Q)
 - [Discord](https://discord.gg/rgGYfeYW3N)
-- [MiroTalk product pages](/sites/projects/)
+- [MiroTalk product pages](../sites/projects.html)
 - [Email](mailto:miroslav.pejic.85@gmail.com)

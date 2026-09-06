@@ -57,5 +57,5 @@ CME separates availability and call initiation from the private media session. A
 Use the official licensing page as the source of truth for commercial requirements.
 
 [Compare licensing options](../license/index.md){ .md-button .md-button--primary }
-[View CME commercial options](/sites/cme/){ .md-button }
+[View CME commercial options](../sites/cme.html){ .md-button }
 [Contact MiroTalk Enterprise](../enterprise/index.md){ .md-button }

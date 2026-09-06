@@ -61,5 +61,5 @@ The two participants establish an encrypted WebRTC media path directly when poss
 Use the official licensing page as the source of truth for commercial requirements.
 
 [Compare licensing options](../license/index.md){ .md-button .md-button--primary }
-[View C2C commercial options](/sites/c2c/){ .md-button }
+[View C2C commercial options](../sites/c2c.html){ .md-button }
 [Contact MiroTalk Enterprise](../enterprise/index.md){ .md-button }

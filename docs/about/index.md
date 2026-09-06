@@ -79,5 +79,5 @@ Licensing requirements depend on the applicable terms. Treat the official licens
 - [MiroTalk on GitHub](https://github.com/miroslavpejic85)
 - [MiroTalk on YouTube](https://www.youtube.com/watch?v=uoiQqCalO4Q)
 - [MiroTalk community on Discord](https://discord.gg/rgGYfeYW3N)
-- [MiroTalk product pages](/sites/projects/)
+- [MiroTalk product pages](../sites/projects.html)
 - [Contact the author](mailto:miroslav.pejic.85@gmail.com)

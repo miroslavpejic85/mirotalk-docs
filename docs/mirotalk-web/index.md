@@ -61,5 +61,5 @@ MiroTalk Cloud is the managed service powered by MiroTalk WEB. Choose Cloud when
 Use the official licensing page as the source of truth for commercial requirements.
 
 [Compare licensing options](../license/index.md){ .md-button .md-button--primary }
-[View WEB commercial options](/sites/web/){ .md-button }
+[View WEB commercial options](../sites/web.html){ .md-button }
 [Contact MiroTalk Enterprise](../enterprise/index.md){ .md-button }

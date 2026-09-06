@@ -66,15 +66,15 @@ Each listed purchase covers one end product under the selected license. Prices c
 
 | Product | Regular | Extended |
 | --- | ---: | ---: |
-| [MiroTalk ULTIMATE](/sites/ultimate/) | [$299](https://buy.stripe.com/00w5kC1BjaKreaQ6Qmbsc06) | [$1,499](https://buy.stripe.com/7sYcN493L7yf5EkcaGbsc07) |
-| [MiroTalk SFU](/sites/sfu/) | [$99](https://buy.stripe.com/eVq9ASdk15q76Io0rYbsc0a) | [$499](https://buy.stripe.com/aFa3cucfX2dV3wc3Eabsc0b) |
-| [MiroTalk P2P](/sites/p2p/) | [$79](https://buy.stripe.com/3cI9AS93L8Cj8QwfmSbsc0c) | [$499](https://buy.stripe.com/4gM14mgwd3hZ8Qw2A6bsc0d) |
-| [MiroTalk C2C](/sites/c2c/) | [$69](https://buy.stripe.com/8x29ASdk15q71o44Iebsc0e) | [$249](https://buy.stripe.com/5kQaEWfs919R4AgfmSbsc0f) |
-| [MiroTalk BRO](/sites/bro/) | [$59](https://buy.stripe.com/28EfZgfs99GngiYgqWbsc0g) | [$249](https://buy.stripe.com/28E28q6VD05N3wcgqWbsc0h) |
-| [MiroTalk CME](/sites/cme/) | [$39](https://buy.stripe.com/14AfZg1Bj2dV2s82A6bsc0i) | [$199](https://buy.stripe.com/7sYaEWcfXaKr6Io3Eabsc0j) |
-| [MiroTalk WEB](/sites/web/) | [$39](https://buy.stripe.com/dRm5kC5RzaKrc2I4Iebsc0k) | [$199](https://buy.stripe.com/bJecN493Lg4L3wcfmSbsc0l) |
+| [MiroTalk ULTIMATE](../sites/ultimate.html) | [$299](https://buy.stripe.com/00w5kC1BjaKreaQ6Qmbsc06) | [$1,499](https://buy.stripe.com/7sYcN493L7yf5EkcaGbsc07) |
+| [MiroTalk SFU](../sites/sfu.html) | [$99](https://buy.stripe.com/eVq9ASdk15q76Io0rYbsc0a) | [$499](https://buy.stripe.com/aFa3cucfX2dV3wc3Eabsc0b) |
+| [MiroTalk P2P](../sites/p2p.html) | [$79](https://buy.stripe.com/3cI9AS93L8Cj8QwfmSbsc0c) | [$499](https://buy.stripe.com/4gM14mgwd3hZ8Qw2A6bsc0d) |
+| [MiroTalk C2C](../sites/c2c.html) | [$69](https://buy.stripe.com/8x29ASdk15q71o44Iebsc0e) | [$249](https://buy.stripe.com/5kQaEWfs919R4AgfmSbsc0f) |
+| [MiroTalk BRO](../sites/bro.html) | [$59](https://buy.stripe.com/28EfZgfs99GngiYgqWbsc0g) | [$249](https://buy.stripe.com/28E28q6VD05N3wcgqWbsc0h) |
+| [MiroTalk CME](../sites/cme.html) | [$39](https://buy.stripe.com/14AfZg1Bj2dV2s82A6bsc0i) | [$199](https://buy.stripe.com/7sYaEWcfXaKr6Io3Eabsc0j) |
+| [MiroTalk WEB](../sites/web.html) | [$39](https://buy.stripe.com/dRm5kC5RzaKrc2I4Iebsc0k) | [$199](https://buy.stripe.com/bJecN493Lg4L3wcfmSbsc0l) |
 
-[Browse all MiroTalk products](/sites/projects/){ .md-button .md-button--primary }
+[Browse all MiroTalk products](../sites/projects.html){ .md-button .md-button--primary }
 [Contact enterprise services](../enterprise/index.md){ .md-button }
 
 ## Verified customer reviews
