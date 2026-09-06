@@ -57,5 +57,5 @@ CME separates availability and call initiation from the private media session. A
 Use the official licensing page as the source of truth for commercial requirements.
 
 [Compare licensing options](../license/index.md){ .md-button .md-button--primary }
-[Review the CME commercial package](https://codecanyon.net/item/callme-easy-webrtc-video-call-app/55342915){ .md-button }
+[View CME commercial options](/sites/cme/){ .md-button }
 [Contact MiroTalk Enterprise](../enterprise/index.md){ .md-button }

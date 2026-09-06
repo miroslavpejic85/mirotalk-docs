@@ -1,6 +1,6 @@
 ---
 title: MiroTalk Licensing Options
-description: Compare MiroTalk open-source, Regular, and Extended licensing paths and review current product listings on CodeCanyon.
+description: Compare MiroTalk open-source, Regular, and Extended licensing paths, product prices, and purchase options.
 ---
 
 <header class="editorial-hero license-hero">
@@ -14,7 +14,7 @@ description: Compare MiroTalk open-source, Regular, and Extended licensing paths
 </header>
 
 !!! warning "Review the complete terms"
-    This page is a practical summary, not legal advice or a replacement for the applicable license. Review the [AGPLv3 text](https://www.gnu.org/licenses/agpl-3.0.html) or the license terms shown on CodeCanyon before using or purchasing a product. The applicable license and marketplace listing control if this summary differs from them.
+    This page is a practical summary, not legal advice or a replacement for the applicable license. Review the [AGPLv3 text](https://www.gnu.org/licenses/agpl-3.0.html) or the applicable commercial license terms before using or purchasing a product. The applicable license and checkout terms control if this summary differs from them.
 
 ## Compare licensing paths
 
@@ -39,7 +39,7 @@ description: Compare MiroTalk open-source, Regular, and Extended licensing paths
             <li>Private source code</li>
             <li>Product name, logo, and description rebranding</li>
             <li>Use in one end product</li>
-            <li>Item-specific CodeCanyon support terms</li>
+            <li>Product-specific support terms</li>
         </ul>
         <a href="#product-listings-and-prices">Compare product prices</a>
     </section>
@@ -51,7 +51,7 @@ description: Compare MiroTalk open-source, Regular, and Extended licensing paths
             <li>Private source code</li>
             <li>Product name, logo, and description rebranding</li>
             <li>Monetization of one end product</li>
-            <li>Item-specific CodeCanyon support terms</li>
+            <li>Product-specific support terms</li>
         </ul>
         <a href="#product-listings-and-prices">Compare product prices</a>
     </section>
@@ -62,19 +62,19 @@ description: Compare MiroTalk open-source, Regular, and Extended licensing paths
 
 ## Product listings and prices
 
-Each listed purchase covers one end product under the license selected on CodeCanyon. Prices can change; the item page displays the current price and complete purchase terms.
+Each listed purchase covers one end product under the selected license. Prices can change; Stripe Checkout displays the current price and purchase details.
 
 | Product | Regular | Extended |
 | --- | ---: | ---: |
-| [MiroTalk ULTIMATE](https://codecanyon.net/item/mirotalk-webrtc-ultimate-bundle-for-seamless-live-smart-communication/47976343) | $299 | $1,499 |
-| [MiroTalk SFU](https://codecanyon.net/item/mirotalk-sfu-webrtc-realtime-video-conferences/40769970) | $99 | $499 |
-| [MiroTalk P2P](https://codecanyon.net/item/mirotalk-p2p-webrtc-realtime-video-conferences/38376661) | $79 | $499 |
-| [MiroTalk C2C](https://codecanyon.net/item/mirotalk-c2c-webrtc-real-time-cam-2-cam-video-conferences-and-screen-sharing/43383005) | $69 | $249 |
-| [MiroTalk BRO](https://codecanyon.net/item/mirotalk-bro-webrtc-p2p-live-broadcast/45887113) | $59 | $249 |
-| [MiroTalk CME](https://codecanyon.net/item/callme-easy-webrtc-video-call-app/55342915) | $39 | $199 |
-| [MiroTalk WEB](https://codecanyon.net/item/a-selfhosted-mirotalks-webrtc-rooms-scheduler-server/42643313) | $39 | $199 |
+| [MiroTalk ULTIMATE](/sites/ultimate/) | [$299](https://buy.stripe.com/00w5kC1BjaKreaQ6Qmbsc06) | [$1,499](https://buy.stripe.com/7sYcN493L7yf5EkcaGbsc07) |
+| [MiroTalk SFU](/sites/sfu/) | [$99](https://buy.stripe.com/eVq9ASdk15q76Io0rYbsc0a) | [$499](https://buy.stripe.com/aFa3cucfX2dV3wc3Eabsc0b) |
+| [MiroTalk P2P](/sites/p2p/) | [$79](https://buy.stripe.com/3cI9AS93L8Cj8QwfmSbsc0c) | [$499](https://buy.stripe.com/4gM14mgwd3hZ8Qw2A6bsc0d) |
+| [MiroTalk C2C](/sites/c2c/) | [$69](https://buy.stripe.com/8x29ASdk15q71o44Iebsc0e) | [$249](https://buy.stripe.com/5kQaEWfs919R4AgfmSbsc0f) |
+| [MiroTalk BRO](/sites/bro/) | [$59](https://buy.stripe.com/28EfZgfs99GngiYgqWbsc0g) | [$249](https://buy.stripe.com/28E28q6VD05N3wcgqWbsc0h) |
+| [MiroTalk CME](/sites/cme/) | [$39](https://buy.stripe.com/14AfZg1Bj2dV2s82A6bsc0i) | [$199](https://buy.stripe.com/7sYaEWcfXaKr6Io3Eabsc0j) |
+| [MiroTalk WEB](/sites/web/) | [$39](https://buy.stripe.com/dRm5kC5RzaKrc2I4Iebsc0k) | [$199](https://buy.stripe.com/bJecN493Lg4L3wcfmSbsc0l) |
 
-[Browse all MiroTalk listings](https://codecanyon.net/user/miroslavpejic85/portfolio){ .md-button .md-button--primary }
+[Browse all MiroTalk products](/sites/projects/){ .md-button .md-button--primary }
 [Contact enterprise services](../enterprise/index.md){ .md-button }
 
 ## Verified customer reviews
@@ -89,4 +89,4 @@ Customer reviews are published independently on each CodeCanyon item page:
 - [MiroTalk CME reviews](https://codecanyon.net/item/callme-easy-webrtc-video-call-app/reviews/55342915)
 - [MiroTalk WEB reviews](https://codecanyon.net/item/a-selfhosted-mirotalks-webrtc-rooms-scheduler-server/reviews/42643313)
 
-Purchasing a license supports ongoing maintenance. For questions about deployment, customization, or a use case not covered clearly by the marketplace terms, [contact MiroTalk](mailto:miroslav.pejic.85@gmail.com).
+Purchasing a license supports ongoing maintenance. For questions about deployment, customization, or a use case not covered clearly by the purchase terms, [contact MiroTalk](mailto:miroslav.pejic.85@gmail.com).

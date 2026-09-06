@@ -53,7 +53,8 @@ const cases = [
   ["/mirotalk-p2p/api/", "https://webrtc.mirotalk.com", "developer_api_to_cloud", "cloud"],
   ["/", "/license/", "cta_commercial_license", "licensing"],
   ["/story/", "https://github.com/miroslavpejic85", "cta_github_view", "source"],
-  ["/mirotalk-ultimate/", "https://buy.stripe.com/example", "cta_codecanyon", "purchase"],
+  ["/mirotalk-ultimate/", "https://buy.stripe.com/example", "cta_purchase", "purchase"],
+  ["/sites/sfu/", "https://codecanyon.net/item/example/reviews/123", "cta_customer_reviews", "reviews"],
   ["/mirotalk-sfu/", "https://sfu.mirotalk.com", "cta_demo_open", "demo"],
   ["/enterprise/", "mailto:miroslav.pejic.85@gmail.com", "cta_enterprise_contact", "email"],
 ];

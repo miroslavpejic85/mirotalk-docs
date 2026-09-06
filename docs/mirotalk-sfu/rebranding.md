@@ -2,7 +2,7 @@
 
 !!! warning "License Required"
 
-Rebranding requires at least a 👉 **[Regular License](https://codecanyon.net/item/mirotalk-sfu-webrtc-realtime-video-conferences/40769970)**, available on CodeCanyon.
+Rebranding requires at least a 👉 **[Regular License](https://buy.stripe.com/eVq9ASdk15q76Io0rYbsc0a)**.
 
 ---
 

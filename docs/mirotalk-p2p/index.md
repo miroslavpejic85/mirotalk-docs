@@ -68,5 +68,5 @@ Feature availability can depend on configuration and release. Follow the linked 
 Use the official licensing page as the source of truth for commercial requirements.
 
 [Compare licensing options](../license/index.md){ .md-button .md-button--primary }
-[Review the P2P commercial package](https://codecanyon.net/item/mirotalk-p2p-webrtc-realtime-video-conferences/38376661){ .md-button }
+[View P2P commercial options](/sites/p2p/){ .md-button }
 [Contact MiroTalk Enterprise](../enterprise/index.md){ .md-button }

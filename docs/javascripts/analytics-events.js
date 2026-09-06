@@ -44,8 +44,11 @@
     if (url.hostname === "github.com") {
       return { event_name: "cta_github_view", destination_type: "source" };
     }
-    if (url.hostname === "codecanyon.net" || url.hostname === "buy.stripe.com") {
-      return { event_name: "cta_codecanyon", destination_type: "purchase" };
+    if (url.hostname === "codecanyon.net") {
+      return { event_name: "cta_customer_reviews", destination_type: "reviews" };
+    }
+    if (url.hostname === "buy.stripe.com") {
+      return { event_name: "cta_purchase", destination_type: "purchase" };
     }
     if (url.hostname.endsWith(".mirotalk.com") && url.hostname !== "docs.mirotalk.com") {
       return { event_name: "cta_demo_open", destination_type: "demo" };

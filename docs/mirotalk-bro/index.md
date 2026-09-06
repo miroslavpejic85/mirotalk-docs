@@ -59,5 +59,5 @@ The appropriate mode depends on media quality, audience concurrency, presenter c
 Use the official licensing page as the source of truth for commercial requirements.
 
 [Compare licensing options](../license/index.md){ .md-button .md-button--primary }
-[Review the BRO commercial package](https://codecanyon.net/item/mirotalk-bro-webrtc-p2p-live-broadcast/45887113){ .md-button }
+[View BRO commercial options](/sites/bro/){ .md-button }
 [Contact MiroTalk Enterprise](../enterprise/index.md){ .md-button }

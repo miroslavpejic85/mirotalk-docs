@@ -2,7 +2,7 @@
 
 !!! warning "License Required"
 
-Rebranding requires at least a 👉 **[Regular License](https://codecanyon.net/item/mirotalk-p2p-webrtc-realtime-video-conferences/38376661)**, available on CodeCanyon.
+Rebranding requires at least a 👉 **[Regular License](https://buy.stripe.com/3cI9AS93L8Cj8QwfmSbsc0c)**.
 
 ---
 

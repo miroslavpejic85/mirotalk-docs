@@ -102,6 +102,6 @@ Use MiroTalk Cloud when you want a managed service instead of operating SFU infr
 
 [Start MiroTalk Cloud](https://webrtc.mirotalk.com){ .md-button }
 [Compare licensing options](../license/index.md){ .md-button .md-button--primary }
-[Review the SFU commercial package](https://codecanyon.net/item/mirotalk-sfu-webrtc-realtime-video-conferences/40769970){ .md-button }
+[View SFU commercial options](/sites/sfu/){ .md-button }
 
 Need deployment assistance, customization, or dedicated infrastructure? [Contact MiroTalk Enterprise](../enterprise/index.md).
