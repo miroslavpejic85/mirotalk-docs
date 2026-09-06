@@ -52,11 +52,6 @@
   margin: 0;
 }
 
-.md-typeset .editorial-text-link {
-  padding: 0.6rem 0.3rem;
-  font-weight: 700;
-}
-
 .editorial-hero-image {
   display: block;
   width: min(42rem, 92%);
@@ -473,7 +468,7 @@
     grid-template-columns: 1fr;
   }
 
-  .editorial-actions :is(.md-button, .editorial-text-link) {
+  .editorial-actions .md-button {
     width: 100%;
     text-align: center;
   }

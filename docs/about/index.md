@@ -10,7 +10,7 @@ description: Explore the MiroTalk suite for meetings, private calls, broadcastin
 	<div class="editorial-actions">
 		<a class="md-button md-button--primary" href="/projects/">Choose a product</a>
 		<a class="md-button" href="/overview/">Compare architectures</a>
-		<a class="editorial-text-link" href="/build/">Build with MiroTalk</a>
+		<a class="md-button" href="/build/">Build with MiroTalk</a>
 	</div>
 	<img class="editorial-hero-image" src="/images/mirotalk/preview.png" alt="MiroTalk communication products running across desktop and laptop screens" width="590" height="242" loading="eager">
 </header>

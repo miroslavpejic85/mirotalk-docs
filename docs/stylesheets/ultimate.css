@@ -53,11 +53,6 @@
   margin: 0;
 }
 
-.md-typeset .ultimate-text-link {
-  padding: 0.6rem 0.3rem;
-  font-weight: 700;
-}
-
 .ultimate-hero-image {
   display: block;
   width: min(36rem, 88%);
@@ -327,7 +322,7 @@
     grid-template-columns: 1fr;
   }
 
-  .ultimate-actions :is(.md-button, .ultimate-text-link) {
+  .ultimate-actions .md-button {
     width: 100%;
     text-align: center;
   }
