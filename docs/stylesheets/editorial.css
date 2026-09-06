@@ -41,15 +41,17 @@
 }
 
 .editorial-actions {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.65rem;
-  align-items: center;
+  width: min(100%, 42rem);
   margin-top: 1.35rem;
 }
 
 .editorial-actions .md-button {
+  width: 100%;
   margin: 0;
+  text-align: center;
 }
 
 .editorial-hero-image {
