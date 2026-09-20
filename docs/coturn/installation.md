@@ -6,7 +6,7 @@
 
 | Requirement | Details |
 | :--- | :--- |
-| **Server** | [Hetzner](https://www.hetzner.com/cloud) (CX11 — [get €20 credit](https://hetzner.cloud/?ref=XdRifCzCK3bn)), [Hostinger](https://hostinger.com/?REFERRALCODE=MIROTALK) (KVM 2), or [Contabo](https://www.dpbolvw.net/click-101027391-14462707) (VPS-1) |
+| **Server** | [Hetzner](https://www.hetzner.com/cloud) (CX11), [Hostinger](https://hostinger.com/?REFERRALCODE=MIROTALK) (KVM 2), or [Contabo](https://www.dpbolvw.net/click-101027391-14462707) (VPS-1) |
 | **OS** | Ubuntu 22.04 LTS |
 | **Domain** | A domain or subdomain (e.g., `YOUR.DOMAIN.NAME`) with a DNS **A record** pointing to your server's IPv4 address |
 | **SSL** | [Certbot](https://certbot.eff.org/) to generate the certificate and private key for `/etc/turnserver.conf` |

@@ -13,7 +13,7 @@ It runs the [`fedirz/faster-whisper-server`](https://github.com/fedirz/faster-wh
 ## Requirements
 
 - Server Selection:
-    - [Hetzner](https://www.hetzner.com/cloud) - Use [this link](https://hetzner.cloud/?ref=XdRifCzCK3bn) to receive `€⁠20 in cloud credits`
+    - [Hetzner](https://www.hetzner.com/cloud)
     - [Netcup](https://www.netcup.com/en/?ref=309627)
     - [Hostinger](https://hostinger.com/?REFERRALCODE=MIROTALK)
     - [Contabo](https://www.dpbolvw.net/click-101027391-14462707)
