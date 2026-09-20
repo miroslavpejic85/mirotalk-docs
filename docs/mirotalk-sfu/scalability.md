@@ -216,7 +216,7 @@ sudo systemctl restart nginx
 
 | Provider | Plan | CPU | RAM | Storage | Traffic | Price/Month |
 |----------|------|-----|-----|---------|---------|-------------|
-| **[Hetzner](https://hetzner.cloud/?ref=XdRifCzCK3bn)** | CPX41 | 8 vCPU | 16 GB | 320 GB SSD | 20 TB | **€19.99** |
+| **[Hetzner](https://hetzner.cloud/)** | CPX41 | 8 vCPU | 16 GB | 320 GB SSD | 20 TB | **€19.99** |
 | **[Netcup](https://www.netcup.com/en/?ref=309627)** | RS 2000 G11 | 8 vCores | 16 GB | 512 GB SSD | Unlimited | **€17.99** |
 | **[Contabo](https://www.dpbolvw.net/click-101027391-14462707)** | VPS 20 | 8 vCores | 24 GB | 200 GB SSD | Unlimited | **€14.00** |
 
@@ -233,7 +233,7 @@ sudo systemctl restart nginx
 
 ![hetzner](../images/providers/hetzner.png)
 
-**Premium Setup [Hetzner](https://hetzner.cloud/?ref=XdRifCzCK3bn):**
+**Premium Setup [Hetzner](https://hetzner.cloud/):**
 
 -  3× Hetzner CPX41 (€19.99) = €60
 -  1× Hetzner LB = €5.39

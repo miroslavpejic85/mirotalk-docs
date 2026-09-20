@@ -4,17 +4,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Compare MiroTalk projects by purpose, audience size, running cost, and trade-offs.">
+  <meta name="description" content="Compare MiroTalk projects or choose MiroTalk Cloud for a fully managed service with no infrastructure to operate.">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="MiroTalk">
   <meta property="og:title" content="MiroTalk Projects — Which One Should I Choose?">
-  <meta property="og:description" content="A plain-language guide to choosing the right MiroTalk project.">
+  <meta property="og:description" content="Choose a MiroTalk project to self-host or use MiroTalk Cloud as a fully managed service.">
   <meta property="og:image" content="https://docs.mirotalk.com/images/mirotalk-preview.png">
   <meta property="og:image:alt" content="MiroTalk video communication projects">
   <meta property="og:url" content="https://docs.mirotalk.com/projects/">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="MiroTalk Projects — Which One Should I Choose?">
-  <meta name="twitter:description" content="A plain-language guide to choosing the right MiroTalk project.">
+  <meta name="twitter:description" content="Choose a MiroTalk project to self-host or use MiroTalk Cloud as a fully managed service.">
   <meta name="twitter:image" content="https://docs.mirotalk.com/images/mirotalk-preview.png">
   <link rel="canonical" href="https://docs.mirotalk.com/projects/">
   <link rel="icon" href="../images/icon/favicon.ico">
@@ -253,6 +253,21 @@
       flex-wrap: wrap;
       gap: 10px;
       margin-top: 30px
+    }
+
+    .hero .actions {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr))
+    }
+
+    .hero .actions .button:last-child {
+      grid-column: 1/-1
+    }
+
+    .hero .button {
+      padding-inline: 14px;
+      font-size: .92rem;
+      white-space: nowrap
     }
 
     .button {
@@ -1186,6 +1201,14 @@
         width: 100%
       }
 
+      .hero .actions {
+        grid-template-columns: 1fr
+      }
+
+      .hero .actions .button:last-child {
+        grid-column: auto
+      }
+
       .hero-visual {
         min-height: 290px;
         overflow: hidden
@@ -1324,9 +1347,11 @@
         <h1>Which MiroTalk should you choose?</h1>
         <p>Start with what you want to do, how many people you need to connect, and what you want to spend on
           infrastructure. You do not need to understand WebRTC to make the right choice.</p>
-        <div class="actions"><a class="button primary" href="#choose">Find my project <i
-              data-lucide="arrow-down"></i></a><a class="button" href="#costs">Compare running costs</a></div>
-        <div class="note"><i data-lucide="shield-check"></i>Open source, self-hosted, and browser based</div>
+          <div class="actions"><a class="button primary" href="#choose">Find my project <i
+            data-lucide="arrow-down"></i></a><a class="button" href="https://webrtc.mirotalk.com">Use MiroTalk Cloud
+            <i data-lucide="external-link"></i></a><a class="button" href="#costs">Compare running costs</a></div>
+          <div class="note"><i data-lucide="shield-check"></i>Self-host the open-source projects or choose our fully
+            managed cloud service</div>
       </div>
       <div class="hero-visual reveal"><img src="../images/mirotalk/preview.png"
           alt="MiroTalk video meetings on desktop and laptop">
@@ -1391,9 +1416,9 @@
           <button class="need" aria-pressed="false" data-project="ADMIN" data-title="A central admin dashboard"
             data-copy="Monitor, configure, update, start, and stop your MiroTalk deployments from one place."
             data-link="../mirotalk-admin/"><i data-lucide="settings"></i><span>Manage installations</span></button>
-          <button class="need" aria-pressed="false" data-project="SFU" data-title="Start with MiroTalk SFU"
-            data-copy="When you are unsure, SFU offers the most complete meeting experience and room to scale."
-            data-link="../mirotalk-sfu/"><i data-lucide="circle-help"></i><span>I am still not sure</span></button>
+          <button class="need" aria-pressed="false" data-project="CLOUD" data-title="A fully managed MiroTalk service"
+            data-copy="Pay a subscription and use MiroTalk without self-hosting. We take care of updates and infrastructure."
+            data-link="https://webrtc.mirotalk.com"><i data-lucide="cloud"></i><span>I do not want to self-host</span></button>
         </div>
         <div class="result reveal" aria-live="polite">
           <div class="result-mark" id="result-project">SFU</div>
