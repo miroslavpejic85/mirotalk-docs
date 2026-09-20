@@ -10,6 +10,7 @@ description: Compare MiroTalk open-source, Regular, and Extended licensing paths
     <div class="editorial-actions">
         <a class="md-button md-button--primary" href="#compare-licensing-paths">Compare licensing paths</a>
         <a class="md-button" href="#product-listings-and-prices">View products and prices</a>
+        <a class="md-button" href="../sites/license.html">Open visual license guide</a>
     </div>
 </header>
 

@@ -14,6 +14,7 @@ ALLOWED_UNLISTED = {
     "sites/bro.html",
     "sites/c2c.html",
     "sites/cme.html",
+    "sites/license.html",
     "sites/p2p.html",
     "sites/projects.html",
     "sites/sfu.html",

@@ -26,6 +26,7 @@ Generated titles for many Markdown pages currently use generic navigation labels
 | `/changelogs/changelogs/` | changelogs; links to product commit histories | Existing users / L | Keep; improve label and update model | Support > Changelogs |
 | `/faq/` | faq; broad troubleshooting and product questions | All users / H | Keep; retitle; split/link answers to owning guides over time | Support > FAQ |
 | `/license/` | MiroTalk Licensing Options; licensing paths, pricing, and CodeCanyon terms | Commercial evaluators / H | Migrated to shared shell; marketplace links and URL preserved | Commercial & Enterprise > Licensing |
+| `/sites/license/` | Visual MiroTalk licensing comparison and product checkout links | Commercial evaluators / H | Standalone product-theme landing page; links to canonical licensing guidance | Linked from licensing, product chooser, comparison, and Ultimate pages |
 | `/license/licensing-options/` | Redirecting to MiroTalk Licensing Options | Legacy traffic / L | Keep redirect; implement HTTP 301; no index | Redirect to `/license/` |
 | `/mirotalk-ultimate/` | MiroTalk Ultimate; seven-application bundle, deployment, integration, and pricing | Commercial buyers / H | Migrated to shared shell; claims normalized; URL and checkout paths preserved | Commercial & Enterprise > Ultimate |
 | `/cloudron/cloudron/` | cloudron; Cloudron deployment option | Self-hosters / M | Keep; retitle and add prerequisites/result/troubleshooting | Self-host > Deployment options |

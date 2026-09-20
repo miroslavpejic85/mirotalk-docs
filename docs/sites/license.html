@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MiroTalk Licensing - Open Source and Commercial Options</title>
+  <meta name="description" content="Compare MiroTalk AGPLv3, Regular, and Extended licenses, then choose the right license for your product.">
+  <meta name="theme-color" content="#07080f">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="MiroTalk">
+  <meta property="og:title" content="MiroTalk Licensing - Open Source and Commercial Options">
+  <meta property="og:description" content="Compare open-source and commercial MiroTalk licensing options and current product prices.">
+  <meta property="og:url" content="https://docs.mirotalk.com/sites/license/">
+  <meta property="og:image" content="https://docs.mirotalk.com/images/mirotalk-preview.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="MiroTalk Licensing - Open Source and Commercial Options">
+  <meta name="twitter:description" content="Compare open-source and commercial MiroTalk licensing options and current product prices.">
+  <meta name="twitter:image" content="https://docs.mirotalk.com/images/mirotalk-preview.png">
+  <link rel="canonical" href="https://docs.mirotalk.com/sites/license/">
+  <link rel="icon" href="../images/icon/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+  <script src="../javascripts/product-theme.js"></script>
+  <link href="site.css" rel="stylesheet">
+  <style>
+    .theme-toggle { width: 42px; height: 42px; padding: 0; cursor: pointer; }
+    .license-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .license-card { position: relative; display: flex; min-height: 100%; flex-direction: column; padding: 30px; }
+    .license-card.featured { border-color: rgba(34, 211, 238, .45); box-shadow: 0 16px 50px rgba(34, 211, 238, .08); }
+    .license-card .card-icon { margin-bottom: 22px; }
+    .license-card h3 { font-size: 25px; }
+    .license-card .fit { min-height: 72px; margin: 10px 0 18px; font-size: 14px; }
+    .license-card ul { margin-bottom: 26px; }
+    .license-card .btn { width: 100%; margin-top: auto; }
+    .license-label { position: absolute; top: 18px; right: 18px; color: var(--cyan); font: 600 10px var(--mono); text-transform: uppercase; }
+    .notice { display: flex; gap: 14px; max-width: 900px; margin: 0 auto 34px; padding: 18px 20px; border: 1px solid rgba(245, 158, 11, .3); border-radius: 8px; background: rgba(245, 158, 11, .07); color: var(--text-2); font-size: 13px; }
+    .notice i { margin-top: 4px; color: #f59e0b; }
+    .notice a, .table-link { color: var(--indigo-pale); font-weight: 700; }
+    .table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 8px; background: color-mix(in srgb, var(--bg-2) 84%, transparent); }
+    .price-table { width: 100%; min-width: 620px; border-collapse: collapse; }
+    .price-table th, .price-table td { padding: 17px 20px; border-bottom: 1px solid var(--border); text-align: left; }
+    .price-table th { color: var(--text-3); font: 600 11px var(--mono); text-transform: uppercase; }
+    .price-table td { color: var(--text-2); font-size: 14px; }
+    .price-table tr:last-child td { border-bottom: 0; }
+    .price-table td:first-child { color: var(--text-1); font-weight: 700; }
+    .price-link { display: inline-flex; align-items: center; gap: 7px; color: var(--indigo-pale); font-weight: 800; }
+    .price-link:hover { color: var(--cyan); }
+    .purchase-note { margin-top: 18px; color: var(--text-3); font-size: 12px; text-align: center; }
+    .review-links { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; margin-top: 28px; }
+    @media (max-width: 840px) { .license-grid { grid-template-columns: 1fr; } .license-card .fit { min-height: 0; } }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "MiroTalk Licensing",
+    "description": "Compare MiroTalk AGPLv3, Regular, and Extended licenses, then choose the right license for your product.",
+    "url": "https://docs.mirotalk.com/sites/license/"
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="site-nav container" aria-label="Primary navigation">
+      <a class="brand" href="../">MiroTalk <span>LICENSES</span></a>
+      <div class="nav-links">
+        <a href="#compare">Compare</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <button id="theme" class="btn btn-ghost theme-toggle" type="button" aria-label="Switch color theme" title="Switch color theme"><i class="fa-solid fa-circle-half-stroke"></i></button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-glow"></div>
+      <div class="container hero-content">
+        <span class="badge"><span class="pulse"></span>Open source or commercial</span>
+        <h1 class="display">Choose the license<br><span class="grad-text">that fits your product.</span></h1>
+        <p class="lead">Keep your MiroTalk-based source open with AGPLv3, or choose a commercial license for an eligible closed-source end product.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary btn-lg" href="#compare">Compare licenses</a>
+          <a class="btn btn-ghost btn-lg" href="#pricing">View prices</a>
+        </div>
+        <div class="proof">
+          <span><i class="fa-solid fa-code"></i> Open-source path</span>
+          <span><i class="fa-solid fa-lock"></i> Closed-source options</span>
+          <span><i class="fa-solid fa-credit-card"></i> Secure Stripe checkout</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="stats">
+      <div class="stat"><div class="stat-number">AGPLv3</div><div class="stat-label">Open-source license</div></div>
+      <div class="stat"><div class="stat-number">7</div><div class="stat-label">Commercial products</div></div>
+      <div class="stat"><div class="stat-number">1</div><div class="stat-label">End product per purchase</div></div>
+      <div class="stat"><div class="stat-number">$0/mo</div><div class="stat-label">License subscription</div></div>
+    </div>
+
+    <section id="compare" class="section container">
+      <div class="section-head">
+        <p class="eyebrow">Three licensing paths</p>
+        <h2 class="h2">Start with how you distribute</h2>
+        <p class="lead">Your source-code model and whether users pay to access the end product determine the path to review.</p>
+      </div>
+      <div class="notice"><i class="fa-solid fa-triangle-exclamation"></i><p>This page is a practical summary, not legal advice or a replacement for the applicable license. Review the <a href="https://www.gnu.org/licenses/agpl-3.0.html" target="_blank" rel="noopener noreferrer">complete AGPLv3 text</a> or the applicable commercial terms before using or purchasing a product.</p></div>
+      <div class="license-grid">
+        <article class="card license-card">
+          <div class="card-icon"><i class="fa-solid fa-code-branch"></i></div>
+          <h3>AGPLv3</h3>
+          <p class="fit"><strong>Best for:</strong> projects that keep their MiroTalk-based source code open under compatible terms.</p>
+          <ul>
+            <li class="check"><i class="fa-solid fa-check"></i> Free and open-source use</li>
+            <li class="check"><i class="fa-solid fa-check"></i> Modification and forking allowed</li>
+            <li class="check"><i class="fa-solid fa-check"></i> Network source-sharing obligations</li>
+            <li class="check"><i class="fa-solid fa-check"></i> Notices and changes preserved</li>
+          </ul>
+          <a class="btn btn-ghost" href="https://www.gnu.org/licenses/agpl-3.0.html" target="_blank" rel="noopener noreferrer">Read AGPLv3 <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </article>
+        <article class="card license-card featured">
+          <span class="license-label">Closed source</span>
+          <div class="card-icon"><i class="fa-solid fa-briefcase"></i></div>
+          <h3>Regular</h3>
+          <p class="fit"><strong>Best for:</strong> one eligible closed-source end product where end users are not charged for access.</p>
+          <ul>
+            <li class="check"><i class="fa-solid fa-check"></i> Private source code</li>
+            <li class="check"><i class="fa-solid fa-check"></i> Product rebranding</li>
+            <li class="check"><i class="fa-solid fa-check"></i> Use in one end product</li>
+            <li class="check"><i class="fa-solid fa-check"></i> Product-specific support terms</li>
+          </ul>
+          <a class="btn btn-primary" href="#pricing">Compare Regular prices</a>
+        </article>
+        <article class="card license-card">
+          <span class="license-label">Monetized</span>
+          <div class="card-icon"><i class="fa-solid fa-chart-line"></i></div>
+          <h3>Extended</h3>
+          <p class="fit"><strong>Best for:</strong> one eligible closed-source end product where end users can be charged for access.</p>
+          <ul>
+            <li class="check"><i class="fa-solid fa-check"></i> Private source code</li>
+            <li class="check"><i class="fa-solid fa-check"></i> Product rebranding</li>
+            <li class="check"><i class="fa-solid fa-check"></i> Monetization of one end product</li>
+            <li class="check"><i class="fa-solid fa-check"></i> Product-specific support terms</li>
+          </ul>
+          <a class="btn btn-ghost" href="#pricing">Compare Extended prices</a>
+        </article>
+      </div>
+    </section>
+
+    <div class="divider container"></div>
+
+    <section id="pricing" class="section container">
+      <div class="section-head">
+        <p class="eyebrow">Products and prices</p>
+        <h2 class="h2">Select your MiroTalk product</h2>
+        <p class="lead">Each purchase covers one end product under the selected license. Stripe Checkout shows the current price and purchase details.</p>
+      </div>
+      <div class="table-wrap">
+        <table class="price-table">
+          <thead><tr><th>Product</th><th>Regular</th><th>Extended</th><th>Details</th></tr></thead>
+          <tbody>
+            <tr><td>MiroTalk ULTIMATE</td><td><a class="price-link" href="https://buy.stripe.com/00w5kC1BjaKreaQ6Qmbsc06">$299 <i class="fa-solid fa-arrow-right"></i></a></td><td><a class="price-link" href="https://buy.stripe.com/7sYcN493L7yf5EkcaGbsc07">$1,499 <i class="fa-solid fa-arrow-right"></i></a></td><td><a class="table-link" href="ultimate.html">View product</a></td></tr>
+            <tr><td>MiroTalk SFU</td><td><a class="price-link" href="https://buy.stripe.com/eVq9ASdk15q76Io0rYbsc0a">$99 <i class="fa-solid fa-arrow-right"></i></a></td><td><a class="price-link" href="https://buy.stripe.com/aFa3cucfX2dV3wc3Eabsc0b">$499 <i class="fa-solid fa-arrow-right"></i></a></td><td><a class="table-link" href="sfu.html">View product</a></td></tr>
+            <tr><td>MiroTalk P2P</td><td><a class="price-link" href="https://buy.stripe.com/3cI9AS93L8Cj8QwfmSbsc0c">$79 <i class="fa-solid fa-arrow-right"></i></a></td><td><a class="price-link" href="https://buy.stripe.com/4gM14mgwd3hZ8Qw2A6bsc0d">$499 <i class="fa-solid fa-arrow-right"></i></a></td><td><a class="table-link" href="p2p.html">View product</a></td></tr>
+            <tr><td>MiroTalk C2C</td><td><a class="price-link" href="https://buy.stripe.com/8x29ASdk15q71o44Iebsc0e">$69 <i class="fa-solid fa-arrow-right"></i></a></td><td><a class="price-link" href="https://buy.stripe.com/5kQaEWfs919R4AgfmSbsc0f">$249 <i class="fa-solid fa-arrow-right"></i></a></td><td><a class="table-link" href="c2c.html">View product</a></td></tr>
+            <tr><td>MiroTalk BRO</td><td><a class="price-link" href="https://buy.stripe.com/28EfZgfs99GngiYgqWbsc0g">$59 <i class="fa-solid fa-arrow-right"></i></a></td><td><a class="price-link" href="https://buy.stripe.com/28E28q6VD05N3wcgqWbsc0h">$249 <i class="fa-solid fa-arrow-right"></i></a></td><td><a class="table-link" href="bro.html">View product</a></td></tr>
+            <tr><td>MiroTalk CME</td><td><a class="price-link" href="https://buy.stripe.com/14AfZg1Bj2dV2s82A6bsc0i">$39 <i class="fa-solid fa-arrow-right"></i></a></td><td><a class="price-link" href="https://buy.stripe.com/7sYaEWcfXaKr6Io3Eabsc0j">$199 <i class="fa-solid fa-arrow-right"></i></a></td><td><a class="table-link" href="cme.html">View product</a></td></tr>
+            <tr><td>MiroTalk WEB</td><td><a class="price-link" href="https://buy.stripe.com/dRm5kC5RzaKrc2I4Iebsc0k">$39 <i class="fa-solid fa-arrow-right"></i></a></td><td><a class="price-link" href="https://buy.stripe.com/bJecN493Lg4L3wcfmSbsc0l">$199 <i class="fa-solid fa-arrow-right"></i></a></td><td><a class="table-link" href="web.html">View product</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="purchase-note"><i class="fa-solid fa-lock"></i> Payments are processed securely by Stripe. Prices may change.</p>
+    </section>
+
+    <div class="divider container"></div>
+
+    <section id="faq" class="section container">
+      <div class="section-head">
+        <p class="eyebrow">Common questions</p>
+        <h2 class="h2">Choose with confidence</h2>
+      </div>
+      <div class="faq">
+        <details><summary>Can I keep my source code private?</summary><div class="answer">Review a commercial Regular or Extended license. AGPLv3 includes source-sharing obligations, including when modified software is used over a network.</div></details>
+        <details><summary>Which license allows me to charge users?</summary><div class="answer">The Extended license is intended for an eligible closed-source end product where end users can be charged for access. Confirm your exact use case against the complete terms.</div></details>
+        <details><summary>Does one purchase cover multiple products?</summary><div class="answer">No. Each listed purchase covers one end product under the selected license.</div></details>
+        <details><summary>Can I rebrand MiroTalk?</summary><div class="answer">Commercial options support product name, logo, and description rebranding, subject to the applicable product and license terms.</div></details>
+        <details><summary>Where can I read verified customer reviews?</summary><div class="answer">Reviews are published independently on each product's CodeCanyon item page. Use the links below to open the relevant review page.</div></details>
+      </div>
+      <div class="review-links">
+        <a class="int-link" href="https://codecanyon.net/item/mirotalk-webrtc-ultimate-bundle-for-seamless-live-smart-communication/reviews/47976343">ULTIMATE reviews <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        <a class="int-link" href="https://codecanyon.net/item/mirotalk-sfu-webrtc-realtime-video-conferences/reviews/40769970">SFU reviews <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        <a class="int-link" href="https://codecanyon.net/item/mirotalk-p2p-webrtc-realtime-video-conferences/reviews/38376661">P2P reviews <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        <a class="int-link" href="https://codecanyon.net/item/mirotalk-c2c-webrtc-real-time-cam-2-cam-video-conferences-and-screen-sharing/reviews/43383005">C2C reviews <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        <a class="int-link" href="https://codecanyon.net/item/mirotalk-bro-webrtc-p2p-live-broadcast/reviews/45887113">BRO reviews <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        <a class="int-link" href="https://codecanyon.net/item/callme-easy-webrtc-video-call-app/reviews/55342915">CME reviews <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        <a class="int-link" href="https://codecanyon.net/item/a-selfhosted-mirotalks-webrtc-rooms-scheduler-server/reviews/42643313">WEB reviews <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+      </div>
+    </section>
+
+    <section class="section container">
+      <div class="cta">
+        <p class="eyebrow">Need help deciding?</p>
+        <h2 class="h2">Talk through your use case</h2>
+        <p class="lead">For questions about deployment, customization, or commercial eligibility, contact MiroTalk before purchasing.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary btn-lg" href="mailto:miroslav.pejic.85@gmail.com">Contact MiroTalk</a>
+          <a class="btn btn-ghost btn-lg" href="../license/">Read complete licensing guidance</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner container">
+      <p><strong>MiroTalk Licensing</strong><span style="color:var(--text-2);font-size:13px">&copy; 2026 MiroTalk. All rights reserved.</span></p>
+      <div class="footer-links"><a href="../">Documentation</a><a href="projects.html">Products</a><a href="../enterprise/">Enterprise</a><a href="mailto:miroslav.pejic.85@gmail.com">Contact</a></div>
+    </div>
+  </footer>
+  <script>
+    document.querySelector('#theme').addEventListener('click', () => window.MiroTalkTheme.toggle());
+  </script>
+</body>
+</html>
