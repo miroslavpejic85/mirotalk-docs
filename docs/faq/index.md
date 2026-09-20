@@ -278,6 +278,14 @@
 
 ## Licensing
 
+??? question "Can I keep my source code private?"
+
+    Yes. Both the **Regular** and **Extended** licenses allow you to keep your source code private.
+
+??? question "Does one purchase cover multiple products?"
+
+    Yes, when purchasing [MiroTalk ULTIMATE](../sites/ultimate.html), which includes all MiroTalk projects. Purchases of individual products cover only that product.
+
 ??? question "What are the licensing options for MiroTalk?"
 
     MiroTalk offers **three licensing tiers**:

@@ -63,7 +63,7 @@ description: Compare MiroTalk open-source, Regular, and Extended licensing paths
 
 ## Product listings and prices
 
-Each listed purchase covers one end product under the selected license. Prices can change; Stripe Checkout displays the current price and purchase details.
+Each individual product purchase covers that product under the selected license. [MiroTalk ULTIMATE](../sites/ultimate.html) includes all MiroTalk projects in one bundle. Prices can change; Stripe Checkout displays the current price and purchase details.
 
 | Product | Regular | Extended |
 | --- | ---: | ---: |
