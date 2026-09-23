@@ -8,8 +8,8 @@ description: Get seven self-hosted WebRTC applications, source code, deployment 
     <h1>MiroTalk Ultimate</h1>
     <p class="ultimate-lead">Own the complete MiroTalk real-time communication stack. Deploy it on your infrastructure, adapt it to your brand, and choose the application that fits each conversation.</p>
     <div class="ultimate-actions">
-        <a class="md-button md-button--primary" href="https://buy.stripe.com/00w5kC1BjaKreaQ6Qmbsc06">Buy Regular · $299</a>
-        <a class="md-button" href="https://buy.stripe.com/7sYcN493L7yf5EkcaGbsc07">Buy Extended · $1,499</a>
+        <a class="md-button md-button--primary" href="{{ pricing.ultimate.regular.url }}">Buy Regular · {{ pricing.ultimate.regular.price }}</a>
+        <a class="md-button" href="{{ pricing.ultimate.extended.url }}">Buy Extended · {{ pricing.ultimate.extended.price }}</a>
         <a class="md-button" href="../sites/ultimate.html">View product page</a>
         <a class="md-button" href="/license/">Compare licenses</a>
     </div>
@@ -158,25 +158,25 @@ Both published purchase paths include source code for the seven applications and
 <div class="ultimate-pricing">
     <section class="ultimate-price-card">
         <span class="ultimate-kicker">Regular license</span>
-        <p class="ultimate-price"><strong>$299</strong><span>one-time purchase</span></p>
+        <p class="ultimate-price"><strong>{{ pricing.ultimate.regular.price }}</strong><span>one-time purchase</span></p>
         <p>Start here for one eligible end product where end users are not charged to access it.</p>
         <ul>
             <li>Source code for all seven applications</li>
             <li>Six months of included support</li>
             <li>Self-hosted deployment</li>
         </ul>
-        <a class="md-button md-button--primary" href="https://buy.stripe.com/00w5kC1BjaKreaQ6Qmbsc06">Buy Regular</a>
+        <a class="md-button md-button--primary" href="{{ pricing.ultimate.regular.url }}">Buy Regular</a>
     </section>
     <section class="ultimate-price-card ultimate-price-featured">
         <span class="ultimate-kicker">Extended license</span>
-        <p class="ultimate-price"><strong>$1,499</strong><span>one-time purchase</span></p>
+        <p class="ultimate-price"><strong>{{ pricing.ultimate.extended.price }}</strong><span>one-time purchase</span></p>
         <p>Start here for one eligible end product where end users can be charged to access it.</p>
         <ul>
             <li>Source code for all seven applications</li>
             <li>Six months of included support</li>
             <li>Eligible paid end-user access</li>
         </ul>
-        <a class="md-button md-button--primary" href="https://buy.stripe.com/7sYcN493L7yf5EkcaGbsc07">Buy Extended</a>
+        <a class="md-button md-button--primary" href="{{ pricing.ultimate.extended.url }}">Buy Extended</a>
     </section>
 </div>
 

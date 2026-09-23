@@ -9,6 +9,11 @@ import xml.etree.ElementTree as ElementTree
 
 SITEMAP_NAMESPACE = "http://www.sitemaps.org/schemas/sitemap/0.9"
 SOCIAL_IMAGE_PATH = "images/mirotalk-preview.png"
+PRICING_PATH = Path(__file__).with_name("pricing.json")
+PRICING_PLACEHOLDER_PATTERN = re.compile(
+    r"\{\{\s*pricing\.(?P<product>[a-z0-9]+)\."
+    r"(?P<license>regular|extended)\.(?P<field>price|url)\s*\}\}"
+)
 URL_ATTRIBUTE_PATTERN = re.compile(
     r'(?P<prefix>\b(?:href|src)\s*=\s*["\'])(?P<url>[^"\']+)(?P<suffix>["\'])',
     re.IGNORECASE,
@@ -69,6 +74,24 @@ PRODUCT_LANDING_PAGES = {
         "previous_url": "mirotalk-web/",
     },
 }
+
+
+def load_pricing():
+    return json.loads(PRICING_PATH.read_text(encoding="utf-8"))
+
+
+def resolve_pricing_links(contents, pricing):
+    def replace_placeholder(match):
+        product = match.group("product")
+        license_type = match.group("license")
+        field = match.group("field")
+        try:
+            return pricing[product][license_type][field]
+        except KeyError as error:
+            placeholder = match.group(0)
+            raise ValueError(f"Unknown pricing placeholder: {placeholder}") from error
+
+    return PRICING_PLACEHOLDER_PATTERN.sub(replace_placeholder, contents)
 
 
 def add_landing_page_metadata(site_dir, site_url):
@@ -194,6 +217,7 @@ def publish_clean_site_urls(site_dir, site_url):
 
 
 def on_page_markdown(markdown, page, **kwargs):
+    markdown = resolve_pricing_links(markdown, load_pricing())
     if not page.meta.get("description"):
         page.meta["description"] = (
             f"Learn how to use {page.title} with MiroTalk, including setup, "
@@ -205,6 +229,13 @@ def on_page_markdown(markdown, page, **kwargs):
 def on_post_build(config, **kwargs):
     site_dir = Path(config["site_dir"])
     site_url = config["site_url"].rstrip("/") + "/"
+    pricing = load_pricing()
+    for page_path in site_dir.rglob("*.html"):
+        contents = page_path.read_text(encoding="utf-8")
+        resolved = resolve_pricing_links(contents, pricing)
+        if resolved != contents:
+            page_path.write_text(resolved, encoding="utf-8")
+
     add_landing_page_metadata(site_dir, site_url)
     publish_clean_site_urls(site_dir, site_url)
 

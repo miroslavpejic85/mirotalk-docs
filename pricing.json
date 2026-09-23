@@ -1,0 +1,72 @@
+{
+  "ultimate": {
+    "regular": {
+      "price": "$299",
+      "url": "https://buy.stripe.com/00w5kC1BjaKreaQ6Qmbsc06"
+    },
+    "extended": {
+      "price": "$1,499",
+      "url": "https://buy.stripe.com/7sYcN493L7yf5EkcaGbsc07"
+    }
+  },
+  "sfu": {
+    "regular": {
+      "price": "$99",
+      "url": "https://buy.stripe.com/eVq9ASdk15q76Io0rYbsc0a"
+    },
+    "extended": {
+      "price": "$499",
+      "url": "https://buy.stripe.com/aFa3cucfX2dV3wc3Eabsc0b"
+    }
+  },
+  "p2p": {
+    "regular": {
+      "price": "$79",
+      "url": "https://buy.stripe.com/3cI9AS93L8Cj8QwfmSbsc0c"
+    },
+    "extended": {
+      "price": "$499",
+      "url": "https://buy.stripe.com/4gM14mgwd3hZ8Qw2A6bsc0d"
+    }
+  },
+  "c2c": {
+    "regular": {
+      "price": "$69",
+      "url": "https://buy.stripe.com/8x29ASdk15q71o44Iebsc0e"
+    },
+    "extended": {
+      "price": "$249",
+      "url": "https://buy.stripe.com/5kQaEWfs919R4AgfmSbsc0f"
+    }
+  },
+  "bro": {
+    "regular": {
+      "price": "$59",
+      "url": "https://buy.stripe.com/28EfZgfs99GngiYgqWbsc0g"
+    },
+    "extended": {
+      "price": "$249",
+      "url": "https://buy.stripe.com/28E28q6VD05N3wcgqWbsc0h"
+    }
+  },
+  "cme": {
+    "regular": {
+      "price": "$39",
+      "url": "https://buy.stripe.com/14AfZg1Bj2dV2s82A6bsc0i"
+    },
+    "extended": {
+      "price": "$199",
+      "url": "https://buy.stripe.com/7sYaEWcfXaKr6Io3Eabsc0j"
+    }
+  },
+  "web": {
+    "regular": {
+      "price": "$39",
+      "url": "https://buy.stripe.com/dRm5kC5RzaKrc2I4Iebsc0k"
+    },
+    "extended": {
+      "price": "$199",
+      "url": "https://buy.stripe.com/bJecN493Lg4L3wcfmSbsc0l"
+    }
+  }
+}

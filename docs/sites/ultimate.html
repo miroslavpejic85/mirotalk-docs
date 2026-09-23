@@ -40,14 +40,14 @@
       "name": "Regular License",
       "price": "299",
       "priceCurrency": "USD",
-      "url": "https://buy.stripe.com/00w5kC1BjaKreaQ6Qmbsc06"
+      "url": "{{ pricing.ultimate.regular.url }}"
     },
     {
       "@type": "Offer",
       "name": "Extended License",
       "price": "1499",
       "priceCurrency": "USD",
-      "url": "https://buy.stripe.com/7sYcN493L7yf5EkcaGbsc07"
+      "url": "{{ pricing.ultimate.extended.url }}"
     }
   ]
 }
@@ -1041,8 +1041,8 @@ details[open] summary::after { transform: rotate(45deg); }
       <a href="#faq">FAQ</a>
       <a href="#pricing">Pricing</a>
     </div>
-    <a href="https://buy.stripe.com/00w5kC1BjaKreaQ6Qmbsc06"
-       target="_blank" rel="noopener noreferrer" class="btn btn-primary">Buy — $299</a>
+    <a href="{{ pricing.ultimate.regular.url }}"
+       target="_blank" rel="noopener noreferrer" class="btn btn-primary">Buy — {{ pricing.ultimate.regular.price }}</a>
   </nav>
 </header>
 
@@ -1076,9 +1076,9 @@ details[open] summary::after { transform: rotate(45deg); }
       </p>
 
       <div class="hero__ctas">
-        <a href="https://buy.stripe.com/00w5kC1BjaKreaQ6Qmbsc06"
+        <a href="{{ pricing.ultimate.regular.url }}"
             target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">
-          Buy Now — $299 once
+          Buy Now — {{ pricing.ultimate.regular.price }} once
         </a>
         <a href="https://webrtc.mirotalk.com" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-lg">
           ▶&nbsp; View Live Demo
@@ -1107,7 +1107,7 @@ details[open] summary::after { transform: rotate(45deg); }
           <div class="mockup__url">mirotalk.com — Ultimate WebRTC Bundle</div>
         </div>
         <div class="mockup__body">
-          <a href="https://buy.stripe.com/00w5kC1BjaKreaQ6Qmbsc06" target="_blank" rel="noopener noreferrer">
+          <a href="{{ pricing.ultimate.regular.url }}" target="_blank" rel="noopener noreferrer">
             <img src="../images/sites/ultimate-bundle.webp" alt="MiroTalk Ultimate Bundle" width="1414" height="2000" decoding="async" fetchpriority="high" />
           </a>
         </div>
@@ -1137,9 +1137,9 @@ details[open] summary::after { transform: rotate(45deg); }
 
   <div class="text-center" style="margin-bottom: 52px;">
     <p class="label" style="margin-bottom: 12px;">The Math Is Simple</p>
-    <h2 class="h2">Stop Paying $23,400 for<br>What Costs <span class="green-text">$299</span></h2>
+    <h2 class="h2">Stop Paying $23,400 for<br>What Costs <span class="green-text">{{ pricing.ultimate.regular.price }}</span></h2>
     <p class="lead" style="max-width: 500px; margin: 18px auto 0;">
-      Illustrative comparison: 50 paid seats × $13/month × 36 months = $23,400. MiroTalk Ultimate = $299, once.
+      Illustrative comparison: 50 paid seats × $13/month × 36 months = $23,400. MiroTalk Ultimate = {{ pricing.ultimate.regular.price }}, once.
     </p>
   </div>
 
@@ -1158,7 +1158,7 @@ details[open] summary::after { transform: rotate(45deg); }
 
   <div class="comparison-box" style="max-width: 540px; margin-inline: auto;">
     <p class="label" style="margin-bottom: 10px;">MiroTalk Ultimate</p>
-    <div class="price-big">$299</div>
+    <div class="price-big">{{ pricing.ultimate.regular.price }}</div>
     <p style="font-size: 15px; color: var(--text-2); margin: 14px 0 6px;">
       vs <span class="price-cross">$23,400+</span> in recurring SaaS fees
     </p>
@@ -1166,7 +1166,7 @@ details[open] summary::after { transform: rotate(45deg); }
       SaaS prices and features change. Verify current terms on the
       <a href="https://www.zoom.com/en/products/collaboration-tools/zoom-workplace-pro/" target="_blank" rel="noopener noreferrer" class="app-card__link">provider pricing page ↗</a>.
     </p>
-    <a href="https://buy.stripe.com/00w5kC1BjaKreaQ6Qmbsc06"
+    <a href="{{ pricing.ultimate.regular.url }}"
        target="_blank" rel="noopener noreferrer" class="btn btn-primary">
       Get MiroTalk Ultimate →
     </a>
@@ -1654,7 +1654,7 @@ details[open] summary::after { transform: rotate(45deg); }
     </details>
     <details>
       <summary>Can I charge end users for my final product?</summary>
-      <div class="faq-answer">Yes, with the Extended License ($1,499). The Regular License ($299) covers products where end users are not charged directly.</div>
+      <div class="faq-answer">Yes, with the Extended License ({{ pricing.ultimate.extended.price }}). The Regular License ({{ pricing.ultimate.regular.price }}) covers products where end users are not charged directly.</div>
     </details>
   </div>
 
@@ -1679,7 +1679,7 @@ details[open] summary::after { transform: rotate(45deg); }
 
     <div class="pricing-card">
       <p class="pricing-card__label">Regular License</p>
-      <div class="pricing-card__price">$299</div>
+      <div class="pricing-card__price">{{ pricing.ultimate.regular.price }}</div>
       <p class="pricing-card__note">one-time · no subscription</p>
       <p class="pricing-card__fit"><strong>Best for internal and client projects</strong>Use the complete suite in one end product without charging end users.</p>
       <ul class="pricing-card__features">
@@ -1688,14 +1688,14 @@ details[open] summary::after { transform: rotate(45deg); }
         <li class="pricing-feat"><span class="ck">✓</span> 6-month support</li>
         <li class="pricing-feat"><span class="ck">✓</span> One end product (no end-user charging)</li>
       </ul>
-      <a href="https://buy.stripe.com/00w5kC1BjaKreaQ6Qmbsc06"
+      <a href="{{ pricing.ultimate.regular.url }}"
         target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-full">Buy Now →</a>
       <p class="checkout-note"><i class="fa-solid fa-lock" aria-hidden="true"></i> Secure payment powered by Stripe</p>
     </div>
 
     <div class="pricing-card pricing-card--featured">
       <p class="pricing-card__label">Extended License</p>
-      <div class="pricing-card__price">$1,499</div>
+      <div class="pricing-card__price">{{ pricing.ultimate.extended.price }}</div>
       <p class="pricing-card__note">one-time · no subscription</p>
       <p class="pricing-card__fit"><strong>Best for paid SaaS products</strong>Build an end product and charge your customers for access.</p>
       <ul class="pricing-card__features">
@@ -1704,7 +1704,7 @@ details[open] summary::after { transform: rotate(45deg); }
         <li class="pricing-feat"><span class="ck">✓</span> 6-month support</li>
         <li class="pricing-feat"><span class="ck">✓</span> Charge end users for your product</li>
       </ul>
-      <a href="https://buy.stripe.com/7sYcN493L7yf5EkcaGbsc07"
+      <a href="{{ pricing.ultimate.extended.url }}"
         target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-full">Buy Extended →</a>
       <p class="checkout-note"><i class="fa-solid fa-lock" aria-hidden="true"></i> Secure payment powered by Stripe</p>
     </div>
@@ -1714,9 +1714,9 @@ details[open] summary::after { transform: rotate(45deg); }
   <div class="cta-final">
     <h2 class="h2" style="margin-bottom: 16px;">Stop Renting. Start Owning.</h2>
     <p class="lead" style="max-width: 420px; margin: 0 auto 36px;">Buy once. Deploy fast. Scale on your infrastructure.</p>
-    <a href="https://buy.stripe.com/00w5kC1BjaKreaQ6Qmbsc06"
+    <a href="{{ pricing.ultimate.regular.url }}"
        target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">
-      Buy MiroTalk Ultimate — $299 →
+      Buy MiroTalk Ultimate — {{ pricing.ultimate.regular.price }} →
     </a>
     <div>
       <img src="../images/sites/ultimate-purchase.webp"

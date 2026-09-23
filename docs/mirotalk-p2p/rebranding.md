@@ -2,7 +2,7 @@
 
 !!! warning "License Required"
 
-Rebranding requires at least a 👉 **[Regular License](https://buy.stripe.com/3cI9AS93L8Cj8QwfmSbsc0c)**.
+Rebranding requires at least a 👉 **[Regular License]({{ pricing.p2p.regular.url }})**.
 
 ---
 
