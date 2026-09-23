@@ -47,10 +47,10 @@ function classify(pathname, href) {
 }
 
 const cases = [
-  ["/", "https://webrtc.mirotalk.com", "cta_cloud_start", "cloud"],
-  ["/self-host/", "https://webrtc.mirotalk.com", "cta_cloud_from_self_host", "cloud"],
+  ["/", "https://cloud.mirotalk.com", "cta_cloud_start", "cloud"],
+  ["/self-host/", "https://cloud.mirotalk.com", "cta_cloud_from_self_host", "cloud"],
   ["/mirotalk-sfu/api/", "/license/", "developer_api_to_license", "licensing"],
-  ["/mirotalk-p2p/api/", "https://webrtc.mirotalk.com", "developer_api_to_cloud", "cloud"],
+  ["/mirotalk-p2p/api/", "https://cloud.mirotalk.com", "developer_api_to_cloud", "cloud"],
   ["/", "/license/", "cta_commercial_license", "licensing"],
   ["/story/", "https://github.com/miroslavpejic85", "cta_github_view", "source"],
   ["/mirotalk-ultimate/", "https://buy.stripe.com/example", "cta_purchase", "purchase"],

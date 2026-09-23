@@ -144,7 +144,7 @@ WEB provides a user-facing workspace for accounts, rooms, schedules, and invitat
 
 [Learn about WEB](../mirotalk-web/index.md){ .md-button }
 [View the WEB product page](../sites/web.html){ .md-button }
-[Use the managed service](https://webrtc.mirotalk.com){ .md-button .md-button--primary }
+[Use the managed service](https://cloud.mirotalk.com){ .md-button .md-button--primary }
 
 ### MiroTalk ADMIN manages infrastructure
 
@@ -203,7 +203,7 @@ The broadcaster sends to viewers directly in P2P mode or through an SFU. The bes
 Start with MiroTalk SFU when you need a complete group meeting experience and room to grow. Choose MiroTalk Cloud when you do not want to manage the infrastructure.
 
 [Explore MiroTalk SFU](../mirotalk-sfu/index.md){ .md-button .project-action }
-[Start MiroTalk Cloud](https://webrtc.mirotalk.com){ .md-button .md-button--primary .project-action }
+[Start MiroTalk Cloud](https://cloud.mirotalk.com){ .md-button .md-button--primary .project-action }
 
 ## Choose how to use MiroTalk
 

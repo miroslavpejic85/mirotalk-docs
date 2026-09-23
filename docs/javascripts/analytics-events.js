@@ -26,7 +26,7 @@
     const apiPage = sourcePath.endsWith("/api/");
     const selfHostPage = sourcePath.startsWith("/self-host/") || sourcePath.endsWith("/self-hosting/");
 
-    if (url.hostname === "webrtc.mirotalk.com") {
+    if (url.hostname === "cloud.mirotalk.com") {
       return {
         event_name: apiPage ? "developer_api_to_cloud" : selfHostPage ? "cta_cloud_from_self_host" : "cta_cloud_start",
         destination_type: "cloud",

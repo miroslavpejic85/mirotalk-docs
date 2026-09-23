@@ -11,7 +11,7 @@ Choose a managed service when you want to start immediately, or select a MiroTal
 
 MiroTalk Cloud is the managed service powered by MiroTalk WEB. Create and manage meeting rooms, schedule sessions, and join from a browser while MiroTalk operates the infrastructure, maintenance, and updates.
 
-[Start MiroTalk Cloud](https://webrtc.mirotalk.com){ .md-button .md-button--primary }
+[Start MiroTalk Cloud](https://cloud.mirotalk.com){ .md-button .md-button--primary }
 [Learn about MiroTalk WEB](../mirotalk-web/index.md){ .md-button }
 
 ## Choose by goal

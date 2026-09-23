@@ -100,7 +100,7 @@ Capabilities can require additional services or configuration. Use the linked gu
 
 Use MiroTalk Cloud when you want a managed service instead of operating SFU infrastructure. For private or commercial licensing requirements, use the official licensing page as the source of truth.
 
-[Start MiroTalk Cloud](https://webrtc.mirotalk.com){ .md-button }
+[Start MiroTalk Cloud](https://cloud.mirotalk.com){ .md-button }
 [Compare licensing options](../license/index.md){ .md-button .md-button--primary }
 [View SFU commercial options](../sites/sfu.html){ .md-button }
 

@@ -84,7 +84,7 @@ MiroTalk Cloud is the managed service powered by MiroTalk WEB. Create and manage
     <h3>You use MiroTalk. We run the infrastructure.</h3>
     <p>Start in the browser without configuring a VPS, Docker, Node.js, SSL, or WebRTC services.</p>
   </div>
-  <a class="md-button md-button--primary" href="https://webrtc.mirotalk.com">Start MiroTalk Cloud</a>
+  <a class="md-button md-button--primary" href="https://cloud.mirotalk.com">Start MiroTalk Cloud</a>
 </div>
 
 [Learn how Cloud differs from self-hosting](./cloud/index.md)
@@ -130,7 +130,7 @@ Deploy MiroTalk for control over your infrastructure, domain, and configuration.
     <span class="journey-label">MiroTalk Cloud</span>
     <h3>Use the managed service</h3>
     <p>Use MiroTalk without operating the application and WebRTC infrastructure.</p>
-    <a href="https://webrtc.mirotalk.com">Start MiroTalk Cloud</a>
+    <a href="https://cloud.mirotalk.com">Start MiroTalk Cloud</a>
   </section>
   <section class="path-option">
     <span class="journey-label">Commercial</span>

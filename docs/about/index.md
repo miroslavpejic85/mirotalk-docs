@@ -65,7 +65,7 @@ The products provide deployment guides for Node.js, PM2, Docker, HTTPS, networki
 
 | Path | Start here |
 | --- | --- |
-| Use a managed service | [Start MiroTalk Cloud](https://webrtc.mirotalk.com) |
+| Use a managed service | [Start MiroTalk Cloud](https://cloud.mirotalk.com) |
 | Self-host the projects | [Choose a product](../projects/index.md) |
 | Integrate APIs and iframes | [Build with MiroTalk](../build/index.md) |
 | Review licensing | [Official licensing options](../license/index.md) |
