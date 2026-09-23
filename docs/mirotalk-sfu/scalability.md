@@ -273,6 +273,6 @@ sudo systemctl restart nginx
 
 ---
 
-**Need help?** 
+**Need help?**
 
-Join our [community forum](https://discord.gg/rgGYfeYW3N) and **Happy Scaling!** 🚀 
+Join our [community forum]({{ links.discord }}) and **Happy Scaling!** 🚀

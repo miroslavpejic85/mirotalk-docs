@@ -41,5 +41,5 @@ Run MiroTalk on infrastructure you control. Choose the product architecture firs
 
 MiroTalk Cloud is powered by MiroTalk WEB and removes the need to deploy, update, monitor, and scale the service yourself.
 
-[Start MiroTalk Cloud](https://cloud.mirotalk.com){ .md-button .md-button--primary }
+[Start MiroTalk Cloud]({{ links.cloud }}){ .md-button .md-button--primary }
 [Compare Cloud and self-hosting](../cloud/index.md){ .md-button }

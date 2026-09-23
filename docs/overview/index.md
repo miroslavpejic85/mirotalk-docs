@@ -151,7 +151,7 @@ Do not treat a CPU, RAM, storage, or participant figure as a universal minimum o
 | Goal | Destination |
 | --- | --- |
 | Decide which workflow fits | [Choose a MiroTalk product](../projects/index.md) |
-| Avoid operating infrastructure | [Start MiroTalk Cloud](https://cloud.mirotalk.com) |
+| Avoid operating infrastructure | [Start MiroTalk Cloud]({{ links.cloud }}) |
 | Deploy open-source MiroTalk | [Open the self-hosting path](../self-host/index.md) |
 | Integrate an API or iframe | [Open the developer path](../build/index.md) |
 | Review commercial use | [Compare licensing options](../license/index.md) |

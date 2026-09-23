@@ -20,7 +20,7 @@ With MiroTalk Cloud, you do not need to manage:
 - infrastructure monitoring and scaling;
 - application backups.
 
-[Start MiroTalk Cloud](https://cloud.mirotalk.com){ .md-button .md-button--primary }
+[Start MiroTalk Cloud]({{ links.cloud }}){ .md-button .md-button--primary }
 
 ## Cloud or self-hosted?
 

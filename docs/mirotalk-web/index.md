@@ -7,7 +7,7 @@ description: Explore MiroTalk WEB for accounts, room scheduling, invitations, ca
 
 A browser workspace for accounts, rooms, schedules, invitations, and meeting administration. WEB organizes communication workflows and launches the appropriate MiroTalk experience; the selected communication product determines how meeting media travels.
 
-[Use MiroTalk Cloud](https://cloud.mirotalk.com){ .md-button .md-button--primary }
+[Use MiroTalk Cloud]({{ links.cloud }}){ .md-button .md-button--primary }
 [Self-host MiroTalk WEB](self-hosting.md){ .md-button }
 [View product page](../sites/web.html){ .md-button }
 

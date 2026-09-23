@@ -65,7 +65,7 @@ The products provide deployment guides for Node.js, PM2, Docker, HTTPS, networki
 
 | Path | Start here |
 | --- | --- |
-| Use a managed service | [Start MiroTalk Cloud](https://cloud.mirotalk.com) |
+| Use a managed service | [Start MiroTalk Cloud]({{ links.cloud }}) |
 | Self-host the projects | [Choose a product](../projects/index.md) |
 | Integrate APIs and iframes | [Build with MiroTalk](../build/index.md) |
 | Review licensing | [Official licensing options](../license/index.md) |
@@ -78,6 +78,6 @@ Licensing requirements depend on the applicable terms. Treat the official licens
 
 - [MiroTalk on GitHub](https://github.com/miroslavpejic85)
 - [MiroTalk on YouTube](https://www.youtube.com/watch?v=uoiQqCalO4Q)
-- [MiroTalk community on Discord](https://discord.gg/rgGYfeYW3N)
+- [MiroTalk community on Discord]({{ links.discord }})
 - [MiroTalk product pages](../sites/projects.html)
 - [Contact the author](mailto:miroslav.pejic.85@gmail.com)

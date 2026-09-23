@@ -94,12 +94,12 @@ MiroTalk continues to pursue a more open and operator-controlled approach to rea
 You can take part by trying a project, reviewing its source, reporting an issue, improving the documentation, or sharing how you deploy it.
 
 [Choose a MiroTalk product](../projects/index.md){ .md-button .md-button--primary }
-[Join the Discord community](https://discord.gg/rgGYfeYW3N){ .md-button }
+[Join the Discord community]({{ links.discord }}){ .md-button }
 
 ## Community links
 
 - [GitHub](https://github.com/miroslavpejic85)
 - [YouTube](https://www.youtube.com/watch?v=uoiQqCalO4Q)
-- [Discord](https://discord.gg/rgGYfeYW3N)
+- [Discord]({{ links.discord }})
 - [MiroTalk product pages](../sites/projects.html)
 - [Email](mailto:miroslav.pejic.85@gmail.com)

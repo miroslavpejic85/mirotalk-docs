@@ -14,6 +14,9 @@ PRICING_PLACEHOLDER_PATTERN = re.compile(
     r"\{\{\s*pricing\.(?P<product>[a-z0-9]+)\."
     r"(?P<license>regular|extended)\.(?P<field>price|url)\s*\}\}"
 )
+LINK_PLACEHOLDER_PATTERN = re.compile(
+    r"\{\{\s*links\.(?P<name>[a-z0-9_]+)\s*\}\}"
+)
 URL_ATTRIBUTE_PATTERN = re.compile(
     r'(?P<prefix>\b(?:href|src)\s*=\s*["\'])(?P<url>[^"\']+)(?P<suffix>["\'])',
     re.IGNORECASE,
@@ -92,6 +95,18 @@ def resolve_pricing_links(contents, pricing):
             raise ValueError(f"Unknown pricing placeholder: {placeholder}") from error
 
     return PRICING_PLACEHOLDER_PATTERN.sub(replace_placeholder, contents)
+
+
+def resolve_global_links(contents, links):
+    def replace_placeholder(match):
+        name = match.group("name")
+        try:
+            return links[name]
+        except KeyError as error:
+            placeholder = match.group(0)
+            raise ValueError(f"Unknown link placeholder: {placeholder}") from error
+
+    return LINK_PLACEHOLDER_PATTERN.sub(replace_placeholder, contents)
 
 
 def add_landing_page_metadata(site_dir, site_url):
@@ -218,6 +233,7 @@ def publish_clean_site_urls(site_dir, site_url):
 
 def on_page_markdown(markdown, page, **kwargs):
     markdown = resolve_pricing_links(markdown, load_pricing())
+    markdown = resolve_global_links(markdown, kwargs["config"]["extra"]["links"])
     if not page.meta.get("description"):
         page.meta["description"] = (
             f"Learn how to use {page.title} with MiroTalk, including setup, "
@@ -230,9 +246,11 @@ def on_post_build(config, **kwargs):
     site_dir = Path(config["site_dir"])
     site_url = config["site_url"].rstrip("/") + "/"
     pricing = load_pricing()
+    links = config["extra"]["links"]
     for page_path in site_dir.rglob("*.html"):
         contents = page_path.read_text(encoding="utf-8")
         resolved = resolve_pricing_links(contents, pricing)
+        resolved = resolve_global_links(resolved, links)
         if resolved != contents:
             page_path.write_text(resolved, encoding="utf-8")
 
