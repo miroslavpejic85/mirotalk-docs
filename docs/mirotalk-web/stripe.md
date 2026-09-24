@@ -63,9 +63,14 @@ STRIPE_WEBHOOK_SECRET=whsec_...    # Signing secret of your webhook endpoint
 STRIPE_MONTHLY_PRICE_ID=price_...  # Price ID of the $9/month recurring price
 STRIPE_YEARLY_PRICE_ID=price_...   # Price ID of the $79/year recurring price
 STRIPE_LIFETIME_PRICE_ID=price_... # Price ID of the $199 one-time price
+STRIPE_PROMO_ACTIVE=false          # Show a promotion badge on the pricing page
+STRIPE_PROMO_TEXT=Save 20%         # Text displayed inside the promotion badge
 ```
 
-> ⚠️ Only `STRIPE_PUBLISHABLE_KEY` and the price IDs are exposed to the frontend (via `GET /config`). The **secret key** and **webhook secret** are read server-side only and are never sent to the browser.
+The regular comparison prices are configured in `SAAS.promo.regularPrices` in `backend/config.js`. They are display
+only; the active Stripe Price IDs remain the source of truth for the promotional amounts charged at checkout.
+
+> ⚠️ Only `STRIPE_PUBLISHABLE_KEY`, the price IDs, and promotion settings are exposed to the frontend. The **secret key** and **webhook secret** are read server-side only and are never sent to the browser.
 
 | Variable                   | Where to find it in Stripe                               |
 | -------------------------- | -------------------------------------------------------- |
