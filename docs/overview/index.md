@@ -9,6 +9,7 @@ description: Compare MiroTalk media architectures, security boundaries, capabili
     <p>Understand where media travels, what each service operates, and which capabilities, integrations, and deployment responsibilities fit your workflow.</p>
     <div class="editorial-actions">
         <a class="md-button md-button--primary" href="#compare-media-architectures">Compare architectures</a>
+        <a class="md-button" href="/sites/overview/">Visual overview</a>
         <a class="md-button" href="/projects/">Choose by workflow</a>
     </div>
 </header>

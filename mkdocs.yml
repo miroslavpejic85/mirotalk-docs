@@ -17,6 +17,7 @@ nav:
     - MiroTalk Cloud: cloud/index.md
     - Choose a product: projects/index.md
     - Compare architectures: overview/index.md
+    - Visual overview: sites/overview.html
     - Explore the suite: about/index.md
     - Products:
       - MiroTalk SFU: mirotalk-sfu/index.md
@@ -192,15 +193,15 @@ theme:
 
 # Custom styles
 extra_css:
-  - stylesheets/extra.css?v=1.5.44
-  - stylesheets/editorial.css?v=1.5.44
+  - stylesheets/extra.css?v=1.5.45
+  - stylesheets/editorial.css?v=1.5.45
 extra_javascript:
   - javascripts/accessibility.js
   - javascripts/analytics-events.js
 
 # Social / preview card metadata
 extra:
-  docs_version: v1.5.44
+  docs_version: v1.5.45
   links:
     cloud: https://cloud.mirotalk.com
     discord: &discord_url https://discord.gg/rgGYfeYW3N

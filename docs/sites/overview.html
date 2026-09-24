@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Compare MiroTalk products, WebRTC architectures, capabilities, and deployment roles to choose the right video communication platform.">
+  <meta name="theme-color" content="#f5f8f5">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="MiroTalk">
+  <meta property="og:title" content="MiroTalk Ecosystem Overview">
+  <meta property="og:description" content="See how seven focused MiroTalk products fit together across calls, meetings, broadcasts, workflows, and infrastructure.">
+  <meta property="og:url" content="https://docs.mirotalk.com/sites/overview/">
+  <meta property="og:image" content="https://docs.mirotalk.com/images/mirotalk-preview.png">
+  <meta property="og:image:alt" content="MiroTalk video communication products">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="MiroTalk Ecosystem Overview">
+  <meta name="twitter:description" content="Choose the right MiroTalk product and WebRTC architecture for your workflow.">
+  <meta name="twitter:image" content="https://docs.mirotalk.com/images/mirotalk-preview.png">
+  <link rel="canonical" href="https://docs.mirotalk.com/sites/overview/">
+  <link rel="icon" href="../images/icon/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" defer></script>
+  <script src="../javascripts/product-theme.js"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "MiroTalk Ecosystem Overview",
+    "description": "Compare MiroTalk products, WebRTC architectures, capabilities, and deployment roles.",
+    "url": "https://docs.mirotalk.com/sites/overview/",
+    "image": "https://docs.mirotalk.com/images/mirotalk-preview.png",
+    "about": { "@type": "SoftwareApplication", "name": "MiroTalk", "applicationCategory": "CommunicationApplication", "operatingSystem": "Web, Linux" },
+    "dateModified": "2026-09-24"
+  }
+  </script>
+  <title>MiroTalk Ecosystem Overview</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #17231f; --muted: #5e6f67; --paper: #f5f8f5; --surface: #fff;
+      --soft: #eaf1ed; --line: #d5e0da; --green: #087f5b; --green-dark: #056347;
+      --mint: #dff5eb; --blue: #1769aa; --blue-soft: #e5f2fb; --coral: #c84b3d;
+      --coral-soft: #fae8e4; --gold: #9a650f; --gold-soft: #fff1d4;
+      --cta-bg: #056347; --cta-fg: #fff; --cta-button-bg: #fff; --cta-button-fg: #123326;
+      --shadow: 0 18px 48px rgba(23,35,31,.12)
+    }
+    [data-theme="dark"] {
+      color-scheme: dark;
+      --ink: #edf5f1; --muted: #a9b9b1; --paper: #101714; --surface: #17201c;
+      --soft: #202b26; --line: #34443c; --green: #61d6aa; --green-dark: #8ce5c3;
+      --mint: #173c2f; --blue: #79b9e8; --blue-soft: #173247; --coral: #ff8b7c;
+      --coral-soft: #45251f; --gold: #efbd67; --gold-soft: #3d311d;
+      --cta-bg: #8ce5c3; --cta-fg: #101714; --cta-button-bg: #17201c; --cta-button-fg: #edf5f1;
+      --shadow: 0 18px 48px rgba(0,0,0,.32)
+    }
+    * { box-sizing: border-box }
+    html { scroll-behavior: smooth }
+    body { margin: 0; color: var(--ink); font: 16px/1.65 'DM Sans', sans-serif; background: linear-gradient(90deg,color-mix(in srgb,var(--line) 34%,transparent) 1px,transparent 1px) 0 0/44px 44px,linear-gradient(color-mix(in srgb,var(--line) 34%,transparent) 1px,transparent 1px) 0 0/44px 44px,var(--paper) }
+    body:before { position: fixed; inset: 0; z-index: -1; background: linear-gradient(180deg,transparent,var(--paper) 58rem); content: ''; pointer-events: none }
+    a { color: inherit } button { color: inherit; font: inherit } img { display: block; max-width: 100% }
+    :focus-visible { outline: 3px solid var(--green); outline-offset: 3px }
+    .shell { width: min(1160px,calc(100% - 40px)); margin-inline: auto }
+    .site-header { position: sticky; top: 0; z-index: 20; border-bottom: 1px solid var(--line); background: color-mix(in srgb,var(--paper) 90%,transparent); backdrop-filter: blur(16px) }
+    nav { display: flex; min-height: 68px; gap: 28px; align-items: center }
+    .brand { display: flex; gap: 10px; align-items: center; font: 800 1rem Manrope; text-decoration: none }
+    .mark { display: grid; width: 34px; height: 34px; place-items: center; border-radius: 50%; background: var(--green-dark); color: var(--paper) }
+    .mark svg,.theme svg,.button svg,.icon svg { width: 19px; height: 19px }
+    .links { display: flex; gap: 24px; margin-left: auto }
+    .links a { color: var(--muted); font-size: .9rem; font-weight: 600; text-decoration: none }
+    .links a:hover { color: var(--ink) }
+    .theme { display: grid; width: 40px; height: 40px; padding: 0; place-items: center; border: 1px solid var(--line); border-radius: 7px; background: var(--surface); cursor: pointer }
+    h1,h2,h3 { margin-top: 0; font-family: Manrope,sans-serif; letter-spacing: 0 }
+    .hero { overflow: hidden; padding: 74px 0 54px }
+    .hero-grid { display: grid; grid-template-columns: minmax(0,.92fr) minmax(470px,1.08fr); gap: 64px; align-items: center }
+    .eyebrow { display: flex; gap: 9px; align-items: center; color: var(--green); font-size: .72rem; font-weight: 800; text-transform: uppercase }
+    .eyebrow:before { width: 22px; height: 2px; background: currentColor; content: '' }
+    h1 { max-width: 690px; margin: 16px 0 22px; font-size: clamp(2.8rem,5.5vw,5.2rem); line-height: .98 }
+    h1 span { color: var(--green) }
+    .lead { margin: 0; color: var(--muted); font-size: 1.1rem }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px }
+    .button { display: inline-flex; min-height: 46px; padding: 11px 18px; gap: 8px; align-items: center; justify-content: center; border: 1px solid var(--line); border-radius: 7px; background: var(--surface); font-weight: 700; text-decoration: none }
+    .button:hover { border-color: var(--green); transform: translateY(-1px) }
+    .button.primary { border-color: var(--green-dark); background: var(--green-dark); color: var(--paper) }
+    .ecosystem { position: relative; min-height: 465px; padding: 30px; border: 1px solid var(--line); border-radius: 8px; background: color-mix(in srgb,var(--surface) 84%,transparent); box-shadow: var(--shadow) }
+    .ecosystem:before,.ecosystem:after { position: absolute; content: ''; border: 1px dashed var(--line); border-radius: 50%; inset: 12% }
+    .ecosystem:after { inset: 29% }
+    .core { position: absolute; inset: 50% auto auto 50%; z-index: 2; display: grid; width: 140px; height: 140px; padding: 18px; place-items: center; border-radius: 50%; background: var(--green-dark); color: var(--paper); text-align: center; transform: translate(-50%,-50%); box-shadow: 0 16px 32px rgba(8,127,91,.25) }
+    .core strong { font: 800 1.15rem Manrope }.core span { display: block; font-size: .7rem; opacity: .8 }
+    .node { position: absolute; z-index: 3; display: flex; min-width: 112px; padding: 10px 12px; gap: 8px; align-items: center; border: 1px solid var(--line); border-radius: 7px; background: var(--surface); box-shadow: 0 8px 20px rgba(23,35,31,.08); font-size: .78rem; font-weight: 700 }
+    .node svg { width: 17px; color: var(--green) }.n1 { top: 8%; left: 9% }.n2 { top: 8%; right: 9% }.n3 { top: 42%; left: 1% }.n4 { top: 42%; right: 1% }.n5 { bottom: 8%; left: 8% }.n6 { bottom: 8%; left: 50%; transform: translateX(-50%) }.n7 { right: 8%; bottom: 8% }
+    .proof { border-block: 1px solid var(--line); background: color-mix(in srgb,var(--surface) 72%,transparent) }
+    .proof-grid { display: grid; grid-template-columns: repeat(4,1fr) }.proof-grid div { padding: 23px; text-align: center }.proof-grid div+div { border-left: 1px solid var(--line) }
+    .proof strong { display: block; color: var(--green); font: 800 1.28rem Manrope }.proof span { color: var(--muted); font-size: .78rem }
+    section { padding: 86px 0 } section[id] { scroll-margin-top: 80px }
+    .section-head { max-width: 730px; margin-bottom: 40px }.section-head h2 { margin: 13px 0 14px; font-size: clamp(2rem,4vw,3.35rem); line-height: 1.08 }.section-head p { margin: 0; color: var(--muted) }
+    .product-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px }
+    .product { display: flex; min-height: 230px; padding: 23px; border: 1px solid var(--line); border-top: 4px solid var(--green); border-radius: 7px; background: var(--surface); flex-direction: column }
+    .product.workflow { border-top-color: var(--blue) }.product.ops { border-top-color: var(--coral) }
+    .product-head { display: flex; gap: 12px; align-items: center }.icon { display: grid; width: 40px; height: 40px; flex: 0 0 auto; place-items: center; border-radius: 6px; background: var(--mint); color: var(--green) }
+    .workflow .icon { background: var(--blue-soft); color: var(--blue) }.ops .icon { background: var(--coral-soft); color: var(--coral) }
+    .product h3 { margin: 0; font-size: 1.05rem }.role { color: var(--muted); font-size: .72rem; font-weight: 600 }
+    .product p { margin: 16px 0; color: var(--muted); font-size: .88rem }.product a { margin-top: auto; color: var(--green); font-size: .83rem; font-weight: 700 }
+    .architecture { background: color-mix(in srgb,var(--soft) 76%,transparent) }
+    .arch-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px }
+    .arch { overflow: hidden; border: 1px solid var(--line); border-radius: 7px; background: var(--surface) }.arch img { width: 100%; aspect-ratio: 16/8; object-fit: contain; padding: 22px; background: transparent }.arch-body { padding: 24px }.arch h3 { margin-bottom: 8px }.arch p { margin: 0; color: var(--muted); font-size: .9rem }
+    .arch-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 16px }.tag { padding: 5px 9px; border-radius: 5px; background: var(--soft); color: var(--muted); font-size: .72rem; font-weight: 700 }
+    .chooser { display: grid; grid-template-columns: .8fr 1.2fr; gap: 60px; align-items: start }.chooser h2 { margin: 13px 0 16px; font-size: clamp(2rem,4vw,3.2rem); line-height: 1.08 }.chooser-copy p { color: var(--muted) }
+    .routes { border-top: 1px solid var(--line) }.route { display: grid; grid-template-columns: 38px 1fr auto; gap: 14px; align-items: center; padding: 18px 4px; border-bottom: 1px solid var(--line); text-decoration: none }.route:hover strong { color: var(--green) }.route .icon { width: 38px; height: 38px }.route strong { display: block; font: 700 .95rem Manrope }.route span { color: var(--muted); font-size: .8rem }.route>svg { width: 18px; color: var(--muted) }
+    .cta { padding-top: 0 }.cta-panel { display: grid; grid-template-columns: 1fr auto; gap: 30px; align-items: center; padding: 40px; border-radius: 8px; background: var(--cta-bg); color: var(--cta-fg) }.cta h2 { margin: 0 0 8px; font-size: clamp(1.8rem,4vw,3rem); line-height: 1.1 }.cta p { max-width: 650px; margin: 0; opacity: .78 }.cta .button { border-color: color-mix(in srgb,var(--cta-button-fg) 22%,transparent); background: var(--cta-button-bg); color: var(--cta-button-fg); white-space: nowrap }
+    footer { border-top: 1px solid var(--line); background: var(--surface) }.footer { display: flex; min-height: 110px; gap: 24px; align-items: center; justify-content: space-between; color: var(--muted); font-size: .82rem }.footer div { display: flex; flex-wrap: wrap; gap: 18px }
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity .5s ease,transform .5s ease }.reveal.visible { opacity: 1; transform: none }
+    @media (max-width:900px) { .hero-grid,.chooser { grid-template-columns: 1fr }.hero-grid { gap: 42px }.ecosystem { width: min(650px,100%); margin-inline: auto }.product-grid { grid-template-columns: 1fr 1fr }.proof-grid { grid-template-columns: 1fr 1fr }.proof-grid div:nth-child(3) { border-left: 0; border-top: 1px solid var(--line) }.proof-grid div:nth-child(4) { border-top: 1px solid var(--line) } }
+    @media (max-width:680px) { .shell { width: min(100% - 28px,1160px) }.links { display: none }.theme { margin-left: auto }.hero { padding: 28px 0 20px }.hero-grid { gap: 22px } h1 { margin: 12px 0 15px; font-size: 2.35rem; line-height: 1.01 }.lead { font-size: .95rem; line-height: 1.5 }.actions { gap: 8px; margin-top: 20px }.button { min-height: 42px; padding-block: 8px }.ecosystem { display: grid; min-height: 0; padding: 10px; grid-template-columns: repeat(4,1fr); gap: 8px }.ecosystem:before,.ecosystem:after { display: none }.core { position: static; width: auto; height: auto; min-height: 48px; padding: 7px; border-radius: 6px; grid-column: span 2; transform: none }.core strong { font-size: .9rem }.core span { display: none }.node { position: static; min-width: 0; padding: 9px; justify-content: center; transform: none }.node span { display: none } section { padding: 64px 0 }.product-grid,.arch-grid { grid-template-columns: 1fr }.actions .button { width: 100% }.cta-panel { grid-template-columns: 1fr; padding: 30px 24px }.cta .button { width: 100%; white-space: normal }.footer { align-items: flex-start; flex-direction: column; justify-content: center } }
+    @media (prefers-reduced-motion:reduce) { html { scroll-behavior: auto }.reveal { opacity: 1; transform: none; transition: none }.button:hover { transform: none } }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="shell" aria-label="Main navigation">
+      <a class="brand" href="../"><span class="mark"><i data-lucide="video"></i></span>MiroTalk</a>
+      <div class="links"><a href="#products">Products</a><a href="#architectures">Architectures</a><a href="#choose">Choose</a><a href="../self-host/">Deploy</a></div>
+      <button class="theme" id="theme" type="button" aria-label="Toggle color theme"><i data-lucide="sun-moon"></i></button>
+    </nav>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="shell hero-grid">
+        <div class="reveal">
+          <span class="eyebrow">Ecosystem overview</span>
+          <h1>One platform family. <span>Seven focused products.</span></h1>
+          <p class="lead">MiroTalk covers private calls, group meetings, broadcasting, scheduling, and infrastructure operations. Choose only the architecture and workflow your team needs.</p>
+          <div class="actions"><a class="button primary" href="#products">Explore the products <i data-lucide="arrow-down"></i></a><a class="button" href="../projects/">Open the product chooser <i data-lucide="arrow-right"></i></a></div>
+        </div>
+        <div class="ecosystem reveal" aria-label="MiroTalk ecosystem with seven connected products">
+          <div class="core"><div><strong>MiroTalk</strong><span>Video communication ecosystem</span></div></div>
+          <div class="node n1"><i data-lucide="phone-call"></i><span>Call-Me</span></div><div class="node n2"><i data-lucide="users"></i><span>SFU</span></div><div class="node n3"><i data-lucide="user-round"></i><span>C2C</span></div><div class="node n4"><i data-lucide="radio"></i><span>BRO</span></div><div class="node n5"><i data-lucide="network"></i><span>P2P</span></div><div class="node n6"><i data-lucide="calendar-days"></i><span>WEB</span></div><div class="node n7"><i data-lucide="settings"></i><span>ADMIN</span></div>
+        </div>
+      </div>
+    </section>
+    <div class="proof"><div class="shell proof-grid"><div><strong>7 products</strong><span>Purpose-built roles</span></div><div><strong>2 media models</strong><span>P2P and SFU</span></div><div><strong>Self-hosted</strong><span>Your infrastructure</span></div><div><strong>API ready</strong><span>Integrate and extend</span></div></div></div>
+    <section id="products">
+      <div class="shell">
+        <div class="section-head reveal"><span class="eyebrow">Product map</span><h2>Start with the communication job.</h2><p>Each product has a clear role. The communication layer carries calls and broadcasts, WEB organizes meeting workflows, and ADMIN operates your deployed services.</p></div>
+        <div class="product-grid">
+          <article class="product reveal"><div class="product-head"><span class="icon"><i data-lucide="phone-call"></i></span><div><h3>Call-Me</h3><span class="role">Click-to-call</span></div></div><p>Connect a visitor with an available person through a direct, guest-friendly call flow.</p><a href="../mirotalk-cme/">Explore Call-Me</a></article>
+          <article class="product reveal"><div class="product-head"><span class="icon"><i data-lucide="user-round"></i></span><div><h3>C2C</h3><span class="role">One-to-one rooms</span></div></div><p>Focused camera-to-camera communication for two participants in a private room.</p><a href="../mirotalk-c2c/">Explore C2C</a></article>
+          <article class="product reveal"><div class="product-head"><span class="icon"><i data-lucide="network"></i></span><div><h3>P2P</h3><span class="role">Small-group meetings</span></div></div><p>Mesh meetings where participant devices exchange media directly whenever networks allow.</p><a href="../mirotalk-p2p/">Explore P2P</a></article>
+          <article class="product reveal"><div class="product-head"><span class="icon"><i data-lucide="users"></i></span><div><h3>SFU</h3><span class="role">Scalable group rooms</span></div></div><p>Server-forwarded meetings, classes, and webinars with richer moderation and media controls.</p><a href="../mirotalk-sfu/">Explore SFU</a></article>
+          <article class="product reveal"><div class="product-head"><span class="icon"><i data-lucide="radio"></i></span><div><h3>BRO</h3><span class="role">Live broadcasting</span></div></div><p>One presenter reaches many viewers through P2P or SFU distribution modes.</p><a href="../mirotalk-bro/">Explore BRO</a></article>
+          <article class="product workflow reveal"><div class="product-head"><span class="icon"><i data-lucide="calendar-days"></i></span><div><h3>WEB</h3><span class="role">Meeting workspace</span></div></div><p>Add accounts, scheduling, rooms, invitations, and launch flows around communication products.</p><a href="../mirotalk-web/">Explore WEB</a></article>
+          <article class="product ops reveal"><div class="product-head"><span class="icon"><i data-lucide="settings"></i></span><div><h3>ADMIN</h3><span class="role">Infrastructure operations</span></div></div><p>Configure, update, monitor, and manage MiroTalk services running on your servers.</p><a href="../mirotalk-admin/">Explore ADMIN</a></article>
+        </div>
+      </div>
+    </section>
+    <section class="architecture" id="architectures">
+      <div class="shell">
+        <div class="section-head reveal"><span class="eyebrow">Media architecture</span><h2>Decide where the media work happens.</h2><p>The architecture changes bandwidth, device load, infrastructure needs, and scale. Neither model is universally better; each solves a different operating problem.</p></div>
+        <div class="arch-grid">
+          <article class="arch reveal"><img src="../images/p2p.png" alt="Peer-to-peer mesh media connections" loading="lazy"><div class="arch-body"><h3>Peer-to-peer mesh</h3><p>Participants exchange media directly when possible. This keeps routine media off the application server, while each additional peer adds work to participant devices and networks.</p><div class="arch-tags"><span class="tag">CME</span><span class="tag">C2C</span><span class="tag">P2P</span><span class="tag">BRO option</span></div></div></article>
+          <article class="arch reveal"><img src="../images/sfu.png" alt="Media paths through a selective forwarding unit" loading="lazy"><div class="arch-body"><h3>Selective forwarding unit</h3><p>Each participant uploads to a media server, which forwards selected streams. Devices do less distribution work, while server CPU and bandwidth become part of the capacity model.</p><div class="arch-tags"><span class="tag">SFU</span><span class="tag">BRO option</span><span class="tag">Group scale</span><span class="tag">Server managed</span></div></div></article>
+        </div>
+      </div>
+    </section>
+    <section id="choose">
+      <div class="shell chooser">
+        <div class="chooser-copy reveal"><span class="eyebrow">Choose your path</span><h2>Move from need to product.</h2><p>Start with the participant model, then account for infrastructure ownership and workflow. Detailed guides cover features, integration, security boundaries, and deployment.</p><a class="button primary" href="../projects/">Use the full product chooser <i data-lucide="arrow-right"></i></a></div>
+        <div class="routes reveal">
+          <a class="route" href="../mirotalk-c2c/"><span class="icon"><i data-lucide="user-round"></i></span><div><strong>I need a private two-person room</strong><span>Choose C2C, or Call-Me for availability-based calling.</span></div><i data-lucide="arrow-right"></i></a>
+          <a class="route" href="../mirotalk-p2p/"><span class="icon"><i data-lucide="network"></i></span><div><strong>I need lightweight small-group meetings</strong><span>Choose P2P when client-side mesh is the right trade-off.</span></div><i data-lucide="arrow-right"></i></a>
+          <a class="route" href="../mirotalk-sfu/"><span class="icon"><i data-lucide="users"></i></span><div><strong>I need group scale and moderation</strong><span>Choose SFU for server-forwarded rooms and webinars.</span></div><i data-lucide="arrow-right"></i></a>
+          <a class="route" href="../mirotalk-bro/"><span class="icon"><i data-lucide="radio"></i></span><div><strong>I need one-to-many broadcasting</strong><span>Choose BRO for a presenter and viewer audience.</span></div><i data-lucide="arrow-right"></i></a>
+          <a class="route" href="../mirotalk-web/"><span class="icon"><i data-lucide="calendar-days"></i></span><div><strong>I need accounts, scheduling, and invitations</strong><span>Add WEB as the workspace around meeting experiences.</span></div><i data-lucide="arrow-right"></i></a>
+        </div>
+      </div>
+    </section>
+    <section class="cta"><div class="shell cta-panel reveal"><div><h2>Ready to go deeper?</h2><p>Compare capabilities and integrations in the technical guide, or move directly into self-hosting.</p></div><div class="actions"><a class="button" href="../projects/">Compare products</a><a class="button" href="../self-host/">Self-host MiroTalk</a></div></div></section>
+  </main>
+  <footer><div class="shell footer"><p><strong>MiroTalk</strong><br>Open video communication, on your terms.</p><div><a href="../">Documentation</a><a href="../license/">Licensing</a><a href="{{ links.discord }}" target="_blank" rel="noopener noreferrer">Community</a></div></div></footer>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+      document.getElementById('theme').addEventListener('click', () => window.MiroTalkTheme.toggle());
+      const observer = new IntersectionObserver(entries => entries.forEach(entry => {
+        if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+      }), { threshold: .08 });
+      document.querySelectorAll('.reveal').forEach(element => observer.observe(element));
+    });
+  </script>
+</body>
+</html>

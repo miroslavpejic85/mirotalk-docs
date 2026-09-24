@@ -201,7 +201,8 @@ def publish_clean_site_urls(site_dir, site_url):
 
     for page_path in standalone_pages:
         slug = page_path.stem
-        page_url = urljoin(site_url, f"sites/{slug}/")
+        route = clean_routes[slug]
+        page_url = urljoin(site_url, route.lstrip("/"))
         contents = page_path.read_text(encoding="utf-8")
         contents = contents.replace(
             urljoin(site_url, f"sites/{slug}.html"), page_url
@@ -213,7 +214,7 @@ def publish_clean_site_urls(site_dir, site_url):
             contents,
         )
 
-        destination = sites_dir / slug / "index.html"
+        destination = site_dir / route.lstrip("/") / "index.html"
         destination.parent.mkdir(parents=True, exist_ok=True)
         destination.write_text(contents, encoding="utf-8")
         page_path.unlink()
