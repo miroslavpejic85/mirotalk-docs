@@ -88,7 +88,8 @@
     .ecosystem:after { inset: 29% }
     .core { position: absolute; inset: 50% auto auto 50%; z-index: 2; display: grid; width: 140px; height: 140px; padding: 18px; place-items: center; border-radius: 50%; background: var(--green-dark); color: var(--paper); text-align: center; transform: translate(-50%,-50%); box-shadow: 0 16px 32px rgba(8,127,91,.25) }
     .core strong { font: 800 1.15rem Manrope }.core span { display: block; font-size: .7rem; opacity: .8 }
-    .node { position: absolute; z-index: 3; display: flex; min-width: 112px; padding: 10px 12px; gap: 8px; align-items: center; border: 1px solid var(--line); border-radius: 7px; background: var(--surface); box-shadow: 0 8px 20px rgba(23,35,31,.08); font-size: .78rem; font-weight: 700 }
+    .node { position: absolute; z-index: 3; display: flex; min-width: 112px; padding: 10px 12px; gap: 8px; align-items: center; border: 1px solid var(--line); border-radius: 7px; background: var(--surface); box-shadow: 0 8px 20px rgba(23,35,31,.08); font-size: .78rem; font-weight: 700; text-decoration: none }
+    .node:hover { border-color: var(--green) }
     .node svg { width: 17px; color: var(--green) }.n1 { top: 8%; left: 9% }.n2 { top: 8%; right: 9% }.n3 { top: 42%; left: 1% }.n4 { top: 42%; right: 1% }.n5 { bottom: 8%; left: 8% }.n6 { bottom: 8%; left: 50%; transform: translateX(-50%) }.n7 { right: 8%; bottom: 8% }
     .proof { border-block: 1px solid var(--line); background: color-mix(in srgb,var(--surface) 72%,transparent) }
     .proof-grid { display: grid; grid-template-columns: repeat(4,1fr) }.proof-grid div { padding: 23px; text-align: center }.proof-grid div+div { border-left: 1px solid var(--line) }
@@ -131,11 +132,11 @@
           <span class="eyebrow">Ecosystem overview</span>
           <h1>One platform family. <span>Seven focused products.</span></h1>
           <p class="lead">MiroTalk covers private calls, group meetings, broadcasting, scheduling, and infrastructure operations. Choose only the architecture and workflow your team needs.</p>
-          <div class="actions"><a class="button primary" href="#products">Explore the products <i data-lucide="arrow-down"></i></a><a class="button" href="../projects/">Open the product chooser <i data-lucide="arrow-right"></i></a></div>
+          <div class="actions"><a class="button primary" href="#products">Explore the products <i data-lucide="arrow-down"></i></a><a class="button" href="projects.html">Open the product chooser <i data-lucide="arrow-right"></i></a></div>
         </div>
         <div class="ecosystem reveal" aria-label="MiroTalk ecosystem with seven connected products">
           <div class="core"><div><strong>MiroTalk</strong><span>Video communication ecosystem</span></div></div>
-          <div class="node n1"><i data-lucide="phone-call"></i><span>Call-Me</span></div><div class="node n2"><i data-lucide="users"></i><span>SFU</span></div><div class="node n3"><i data-lucide="user-round"></i><span>C2C</span></div><div class="node n4"><i data-lucide="radio"></i><span>BRO</span></div><div class="node n5"><i data-lucide="network"></i><span>P2P</span></div><div class="node n6"><i data-lucide="calendar-days"></i><span>WEB</span></div><div class="node n7"><i data-lucide="settings"></i><span>ADMIN</span></div>
+          <a class="node n1" href="cme.html"><i data-lucide="phone-call"></i><span>Call-Me</span></a><a class="node n2" href="sfu.html"><i data-lucide="users"></i><span>SFU</span></a><a class="node n3" href="c2c.html"><i data-lucide="user-round"></i><span>C2C</span></a><a class="node n4" href="bro.html"><i data-lucide="radio"></i><span>BRO</span></a><a class="node n5" href="p2p.html"><i data-lucide="network"></i><span>P2P</span></a><a class="node n6" href="web.html"><i data-lucide="calendar-days"></i><span>WEB</span></a><a class="node n7" href="admin.html"><i data-lucide="settings"></i><span>ADMIN</span></a>
         </div>
       </div>
     </section>
@@ -144,13 +145,13 @@
       <div class="shell">
         <div class="section-head reveal"><span class="eyebrow">Product map</span><h2>Start with the communication job.</h2><p>Each product has a clear role. The communication layer carries calls and broadcasts, WEB organizes meeting workflows, and ADMIN operates your deployed services.</p></div>
         <div class="product-grid">
-          <article class="product reveal"><div class="product-head"><span class="icon"><i data-lucide="phone-call"></i></span><div><h3>Call-Me</h3><span class="role">Click-to-call</span></div></div><p>Connect a visitor with an available person through a direct, guest-friendly call flow.</p><a href="../mirotalk-cme/">Explore Call-Me</a></article>
-          <article class="product reveal"><div class="product-head"><span class="icon"><i data-lucide="user-round"></i></span><div><h3>C2C</h3><span class="role">One-to-one rooms</span></div></div><p>Focused camera-to-camera communication for two participants in a private room.</p><a href="../mirotalk-c2c/">Explore C2C</a></article>
-          <article class="product reveal"><div class="product-head"><span class="icon"><i data-lucide="network"></i></span><div><h3>P2P</h3><span class="role">Small-group meetings</span></div></div><p>Mesh meetings where participant devices exchange media directly whenever networks allow.</p><a href="../mirotalk-p2p/">Explore P2P</a></article>
-          <article class="product reveal"><div class="product-head"><span class="icon"><i data-lucide="users"></i></span><div><h3>SFU</h3><span class="role">Scalable group rooms</span></div></div><p>Server-forwarded meetings, classes, and webinars with richer moderation and media controls.</p><a href="../mirotalk-sfu/">Explore SFU</a></article>
-          <article class="product reveal"><div class="product-head"><span class="icon"><i data-lucide="radio"></i></span><div><h3>BRO</h3><span class="role">Live broadcasting</span></div></div><p>One presenter reaches many viewers through P2P or SFU distribution modes.</p><a href="../mirotalk-bro/">Explore BRO</a></article>
-          <article class="product workflow reveal"><div class="product-head"><span class="icon"><i data-lucide="calendar-days"></i></span><div><h3>WEB</h3><span class="role">Meeting workspace</span></div></div><p>Add accounts, scheduling, rooms, invitations, and launch flows around communication products.</p><a href="../mirotalk-web/">Explore WEB</a></article>
-          <article class="product ops reveal"><div class="product-head"><span class="icon"><i data-lucide="settings"></i></span><div><h3>ADMIN</h3><span class="role">Infrastructure operations</span></div></div><p>Configure, update, monitor, and manage MiroTalk services running on your servers.</p><a href="../mirotalk-admin/">Explore ADMIN</a></article>
+          <article class="product reveal"><div class="product-head"><span class="icon"><i data-lucide="phone-call"></i></span><div><h3>Call-Me</h3><span class="role">Click-to-call</span></div></div><p>Connect a visitor with an available person through a direct, guest-friendly call flow.</p><a href="cme.html">Explore Call-Me</a></article>
+          <article class="product reveal"><div class="product-head"><span class="icon"><i data-lucide="user-round"></i></span><div><h3>C2C</h3><span class="role">One-to-one rooms</span></div></div><p>Focused camera-to-camera communication for two participants in a private room.</p><a href="c2c.html">Explore C2C</a></article>
+          <article class="product reveal"><div class="product-head"><span class="icon"><i data-lucide="network"></i></span><div><h3>P2P</h3><span class="role">Small-group meetings</span></div></div><p>Mesh meetings where participant devices exchange media directly whenever networks allow.</p><a href="p2p.html">Explore P2P</a></article>
+          <article class="product reveal"><div class="product-head"><span class="icon"><i data-lucide="users"></i></span><div><h3>SFU</h3><span class="role">Scalable group rooms</span></div></div><p>Server-forwarded meetings, classes, and webinars with richer moderation and media controls.</p><a href="sfu.html">Explore SFU</a></article>
+          <article class="product reveal"><div class="product-head"><span class="icon"><i data-lucide="radio"></i></span><div><h3>BRO</h3><span class="role">Live broadcasting</span></div></div><p>One presenter reaches many viewers through P2P or SFU distribution modes.</p><a href="bro.html">Explore BRO</a></article>
+          <article class="product workflow reveal"><div class="product-head"><span class="icon"><i data-lucide="calendar-days"></i></span><div><h3>WEB</h3><span class="role">Meeting workspace</span></div></div><p>Add accounts, scheduling, rooms, invitations, and launch flows around communication products.</p><a href="web.html">Explore WEB</a></article>
+          <article class="product ops reveal"><div class="product-head"><span class="icon"><i data-lucide="settings"></i></span><div><h3>ADMIN</h3><span class="role">Infrastructure operations</span></div></div><p>Configure, update, monitor, and manage MiroTalk services running on your servers.</p><a href="admin.html">Explore ADMIN</a></article>
         </div>
       </div>
     </section>
@@ -165,17 +166,17 @@
     </section>
     <section id="choose">
       <div class="shell chooser">
-        <div class="chooser-copy reveal"><span class="eyebrow">Choose your path</span><h2>Move from need to product.</h2><p>Start with the participant model, then account for infrastructure ownership and workflow. Detailed guides cover features, integration, security boundaries, and deployment.</p><a class="button primary" href="../projects/">Use the full product chooser <i data-lucide="arrow-right"></i></a></div>
+        <div class="chooser-copy reveal"><span class="eyebrow">Choose your path</span><h2>Move from need to product.</h2><p>Start with the participant model, then account for infrastructure ownership and workflow. Detailed guides cover features, integration, security boundaries, and deployment.</p><a class="button primary" href="projects.html">Use the full product chooser <i data-lucide="arrow-right"></i></a></div>
         <div class="routes reveal">
-          <a class="route" href="../mirotalk-c2c/"><span class="icon"><i data-lucide="user-round"></i></span><div><strong>I need a private two-person room</strong><span>Choose C2C, or Call-Me for availability-based calling.</span></div><i data-lucide="arrow-right"></i></a>
-          <a class="route" href="../mirotalk-p2p/"><span class="icon"><i data-lucide="network"></i></span><div><strong>I need lightweight small-group meetings</strong><span>Choose P2P when client-side mesh is the right trade-off.</span></div><i data-lucide="arrow-right"></i></a>
-          <a class="route" href="../mirotalk-sfu/"><span class="icon"><i data-lucide="users"></i></span><div><strong>I need group scale and moderation</strong><span>Choose SFU for server-forwarded rooms and webinars.</span></div><i data-lucide="arrow-right"></i></a>
-          <a class="route" href="../mirotalk-bro/"><span class="icon"><i data-lucide="radio"></i></span><div><strong>I need one-to-many broadcasting</strong><span>Choose BRO for a presenter and viewer audience.</span></div><i data-lucide="arrow-right"></i></a>
-          <a class="route" href="../mirotalk-web/"><span class="icon"><i data-lucide="calendar-days"></i></span><div><strong>I need accounts, scheduling, and invitations</strong><span>Add WEB as the workspace around meeting experiences.</span></div><i data-lucide="arrow-right"></i></a>
+          <a class="route" href="c2c.html"><span class="icon"><i data-lucide="user-round"></i></span><div><strong>I need a private two-person room</strong><span>Choose C2C, or Call-Me for availability-based calling.</span></div><i data-lucide="arrow-right"></i></a>
+          <a class="route" href="p2p.html"><span class="icon"><i data-lucide="network"></i></span><div><strong>I need lightweight small-group meetings</strong><span>Choose P2P when client-side mesh is the right trade-off.</span></div><i data-lucide="arrow-right"></i></a>
+          <a class="route" href="sfu.html"><span class="icon"><i data-lucide="users"></i></span><div><strong>I need group scale and moderation</strong><span>Choose SFU for server-forwarded rooms and webinars.</span></div><i data-lucide="arrow-right"></i></a>
+          <a class="route" href="bro.html"><span class="icon"><i data-lucide="radio"></i></span><div><strong>I need one-to-many broadcasting</strong><span>Choose BRO for a presenter and viewer audience.</span></div><i data-lucide="arrow-right"></i></a>
+          <a class="route" href="web.html"><span class="icon"><i data-lucide="calendar-days"></i></span><div><strong>I need accounts, scheduling, and invitations</strong><span>Add WEB as the workspace around meeting experiences.</span></div><i data-lucide="arrow-right"></i></a>
         </div>
       </div>
     </section>
-    <section class="cta"><div class="shell cta-panel reveal"><div><h2>Ready to go deeper?</h2><p>Compare capabilities and integrations in the technical guide, or move directly into self-hosting.</p></div><div class="actions"><a class="button" href="../projects/">Compare products</a><a class="button" href="../self-host/">Self-host MiroTalk</a></div></div></section>
+    <section class="cta"><div class="shell cta-panel reveal"><div><h2>Ready to go deeper?</h2><p>Compare capabilities and integrations in the technical guide, or move directly into self-hosting.</p></div><div class="actions"><a class="button" href="projects.html">Compare products</a><a class="button" href="../self-host/">Self-host MiroTalk</a></div></div></section>
   </main>
   <footer><div class="shell footer"><p><strong>MiroTalk</strong><br>Open video communication, on your terms.</p><div><a href="../">Documentation</a><a href="../license/">Licensing</a><a href="{{ links.discord }}" target="_blank" rel="noopener noreferrer">Community</a></div></div></footer>
   <script>
