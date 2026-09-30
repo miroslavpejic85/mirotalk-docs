@@ -123,7 +123,7 @@ info "Server Public IP $SERVER_IP"
 #---------------------------------------------
 
 apt update
-apt install -y dnsutils
+apt install -y dnsutils openssl
 
 DOMAIN_IP=$(dig +short "$DOMAIN" | tail -n1)
 
@@ -174,6 +174,10 @@ cp backend/config.template.js backend/config.js
 # Set environment
 #---------------------------------------------
 
+info "Generating secrets..."
+JWT_KEY="$(openssl rand -hex 32)"
+API_KEY_SECRET="$(openssl rand -hex 32)"
+
 MONGO_USERNAME="root"
 MONGO_PASSWORD=$(openssl rand -hex 16)
 MONGO_DATABASE="mirotalk"
@@ -181,6 +185,8 @@ MONGO_PORT="27017"
 
 sed -i "s|NODE_ENV=.*|NODE_ENV=production|" .env
 sed -i "s|PORT=.*|PORT=$SERVER_PORT|" .env
+sed -i "s|JWT_KEY=.*|JWT_KEY=$JWT_KEY|" .env
+sed -i "s|API_KEY_SECRET=.*|API_KEY_SECRET=$API_KEY_SECRET|" .env
 sed -i "s|MONGO_USERNAME=.*|MONGO_USERNAME=$MONGO_USERNAME|" .env
 sed -i "s|MONGO_PASSWORD=.*|MONGO_PASSWORD=$MONGO_PASSWORD|" .env
 sed -i "s|MONGO_DATABASE=.*|MONGO_DATABASE=$MONGO_DATABASE|" .env
@@ -323,10 +329,14 @@ certbot renew --dry-run --cert-name $DOMAIN
 info "MiroTalk WEB installation complete!"
 info "Access your instance at \e[32mhttps://$DOMAIN\e[0m"
 echo ""
+info "Application Secrets:"
+echo -e "  JWT_KEY:        \e[33m$JWT_KEY\e[0m"
+echo -e "  API_KEY_SECRET: \e[33m$API_KEY_SECRET\e[0m"
+echo ""
 info "MongoDB Credentials:"
 echo -e "  MONGO_USERNAME: \e[33m$MONGO_USERNAME\e[0m"
 echo -e "  MONGO_PASSWORD: \e[33m$MONGO_PASSWORD\e[0m"
 echo -e "  MONGO_DATABASE: \e[33m$MONGO_DATABASE\e[0m"
 echo -e "  MONGO_PORT:     \e[33m$MONGO_PORT\e[0m"
 echo ""
-warning "Save these credentials securely. They are stored in $PROJECT_DIR/.env"
+warning "Save these secrets and credentials securely. They are stored in $PROJECT_DIR/.env"

@@ -123,7 +123,7 @@ info "Server Public IP $SERVER_IP"
 #---------------------------------------------
 
 apt update
-apt install -y dnsutils
+apt install -y dnsutils openssl
 
 DOMAIN_IP=$(dig +short "$DOMAIN" | tail -n1)
 
@@ -174,8 +174,12 @@ cp public/config.template.js public/config.js
 # Set environment
 #---------------------------------------------
 
+info "Generating secrets..."
+API_KEY_SECRET="$(openssl rand -hex 32)"
+
 sed -i "s|NODE_ENV=.*|NODE_ENV=production|" .env
 sed -i "s|PORT=.*|PORT=$SERVER_PORT|" .env
+sed -i "s|API_KEY_SECRET=.*|API_KEY_SECRET=$API_KEY_SECRET|" .env
 
 #---------------------------------------------
 # Customize docker-compose.yml network and volumes
@@ -291,3 +295,8 @@ certbot renew --dry-run --cert-name $DOMAIN
 
 info "MiroTalk CME installation complete!"
 info "Access your instance at \e[32mhttps://$DOMAIN\e[0m"
+echo ""
+info "Application Secret:"
+echo -e "  API_KEY_SECRET: \e[33m$API_KEY_SECRET\e[0m"
+echo ""
+warning "Save this secret securely. It is stored in $PROJECT_DIR/.env"

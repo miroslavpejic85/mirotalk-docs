@@ -91,13 +91,12 @@ fi
 
 read -p $'⚠️ \e[33m[READ] Enter your domain or sub.domain: \e[0m' DOMAIN
 read -p $'⚠️ \e[33m[READ] Enter your stun/turn username: \e[0m' USERNAME
-read -p $'⚠️ \e[33m[READ] Enter your stun/turn strong password: \e[0m' PASSWORD
 
 #---------------------------------------------
 # Check for empty variables
 #---------------------------------------------
 
-if [[ -z "$DOMAIN" || -z "$USERNAME" || -z "$PASSWORD" ]]; then
+if [[ -z "$DOMAIN" || -z "$USERNAME" ]]; then
     error "All fields are required. Exiting..."
 fi
 
@@ -122,7 +121,10 @@ info "Server Public IP $SERVER_IP"
 #---------------------------------------------
 
 apt update
-apt install -y dnsutils
+apt install -y dnsutils openssl
+
+info "Generating STUN/TURN password..."
+PASSWORD="$(openssl rand -hex 32)"
 
 DOMAIN_IP=$(dig +short "$DOMAIN" | tail -n1)
 
@@ -274,4 +276,10 @@ info "Setting up SSL auto-renewal..."
 certbot renew --dry-run --cert-name $DOMAIN
 
 info "MiroTalk Coturn installation complete!"
-echo "Check: \e[32mhttps://p2p.mirotalk.com/icetest?iceServers=[{\"urls\":"\stun:$DOMAIN:3478\"},{\"urls\":\"turn:$DOMAIN:3478\",\"username\":"\$USERNAME\",\"credential\":\"$PASSWORD\"}]\e[0m"
+echo ""
+info "STUN/TURN Credentials:"
+echo -e "  USERNAME: \e[33m$USERNAME\e[0m"
+echo -e "  PASSWORD: \e[33m$PASSWORD\e[0m"
+echo ""
+warning "Save these credentials securely. They are stored in $PROJECT_DIR/turnserver.conf"
+echo -e "Check: \e[32mhttps://p2p.mirotalk.com/icetest?iceServers=[{\"urls\":\"stun:$DOMAIN:3478\"},{\"urls\":\"turn:$DOMAIN:3478\",\"username\":\"$USERNAME\",\"credential\":\"$PASSWORD\"}]\e[0m"

@@ -169,6 +169,7 @@ apt-get install -y \
     git \
     curl \
     wget \
+    openssl \
     unzip \
     tzdata \
     software-properties-common \
@@ -215,9 +216,15 @@ cp .env.template .env
 # Set environment
 #---------------------------------------------
 
+info "Generating secrets..."
+JWT_SECRET="$(openssl rand -hex 32)"
+API_KEY_SECRET="$(openssl rand -hex 32)"
+
 sed -i "s|NODE_ENV=.*|NODE_ENV=production|" .env
 sed -i "s|SFU_ANNOUNCED_IP=.*|SFU_ANNOUNCED_IP=$SERVER_IP|" .env
 sed -i "s|SERVER_LISTEN_PORT=.*|SERVER_LISTEN_PORT=$SERVER_PORT|" .env
+sed -i "s|JWT_SECRET=.*|JWT_SECRET=$JWT_SECRET|" .env
+sed -i "s|API_KEY_SECRET=.*|API_KEY_SECRET=$API_KEY_SECRET|" .env
 
 #---------------------------------------------
 # Customize docker-compose.yml network and volumes
@@ -332,3 +339,9 @@ certbot renew --dry-run --cert-name $DOMAIN
 
 info "MiroTalk SFU installation complete!"
 info "Access your instance at \e[32mhttps://$DOMAIN\e[0m"
+echo ""
+info "Application Secrets:"
+echo -e "  JWT_SECRET:     \e[33m$JWT_SECRET\e[0m"
+echo -e "  API_KEY_SECRET: \e[33m$API_KEY_SECRET\e[0m"
+echo ""
+warning "Save these secrets securely. They are stored in $PROJECT_DIR/.env"
