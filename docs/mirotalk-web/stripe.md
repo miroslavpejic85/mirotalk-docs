@@ -49,6 +49,21 @@ recurring charges for Lifetime) with a link to the dashboard. Stripe remains res
 notifications. The Checkout Session or subscription ID prevents the verification fallback and webhook from sending the
 same activation message twice.
 
+### Administrator subscription notifications
+
+Set `SAAS_ADMIN_EMAIL_NOTIFICATIONS=true`, `ADMIN_EMAIL`, and SMTP settings (`EMAIL_HOST`, `EMAIL_PORT`,
+`EMAIL_USERNAME`, `EMAIL_PASSWORD`, `EMAIL_FROM`) in `.env`, then restart. Notifications are off by default.
+
+- `customer.subscription.created`: new Monthly/Annual subscription (may be `incomplete`, not paid).
+- `customer.subscription.deleted`: subscription ended, not merely scheduled for cancellation.
+- Monthly-to-Annual upgrade: emailed by the app; the webhook also detects this specific change. Routine updates
+  don't trigger upgrade emails.
+
+Emails include customer, plan, dates, and a Stripe link; test-mode messages are labeled. Lifetime purchases and
+customer cancellation emails aren't included; the existing activation email is unchanged. Duplicate webhook events
+are suppressed, and SMTP failures can be retried by Stripe. Delivery isn't exactly-once if the app crashes while
+sending.
+
 ---
 
 ## ⚙️ Environment variables
