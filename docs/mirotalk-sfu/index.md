@@ -69,6 +69,7 @@ Capabilities can require additional services or configuration. Use the linked gu
 | Embed a meeting experience | [Iframe and widget integration](integration.md) | Iframe API, configuration options, and widget setup |
 | Construct direct meeting links | [Room join options](join-room.md) | Query parameters and room-entry behavior |
 | React to meeting events | [Webhooks](webhook.md) | Configuration and meeting lifecycle events |
+| Add in-room SIP calling (experimental) | [SIP phone](sip.md) | Kamailio demo stack, SIP UI fields, WSS compatibility, and troubleshooting |
 | Stream to RTMP services | [RTMP streaming](rtmp.md) | FFmpeg, Node Media Server, and Nginx RTMP options |
 
 ## Self-host and operate
