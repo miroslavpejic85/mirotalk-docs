@@ -73,6 +73,18 @@ Error reporting with [Sentry](https://sentry.io) is optional and disabled by def
 
 PII, request headers and bodies, and user data are stripped before events are sent.
 
+## Umami analytics
+
+Umami analytics is optional and disabled by default. When enabled, the privacy policy is updated automatically. See [`.env.template`](https://github.com/miroslavpejic85/mirotalkrnd/blob/main/.env.template) for the complete configuration.
+
+| Variable | Purpose | Default |
+| --- | --- | --- |
+| `UMAMI_ENABLED` | Enable Umami analytics | `false` |
+| `UMAMI_SCRIPT_URL` | URL of the Umami tracking script | `https://analytics.example.com/script.js` |
+| `UMAMI_WEBSITE_ID` | Umami website identifier | *(empty)* |
+| `UMAMI_DOMAINS` | Optional comma-separated hostnames to track | *(all hostnames)* |
+| `UMAMI_DO_NOT_TRACK` | Honor the browser's Do Not Track setting | `true` |
+
 !!! note "Apply changes"
 
     Restart the process after updating `.env` so new values are loaded.
