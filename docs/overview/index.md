@@ -32,6 +32,7 @@ MiroTalk has three layers. The communication products carry calls or broadcasts;
 | --- | --- | --- | --- |
 | [CME](../mirotalk-cme/index.md) | Communication | Click-to-call availability and private calls | A caller connects to an available user |
 | [C2C](../mirotalk-c2c/index.md) | Communication | Focused camera-to-camera rooms | Two participants per room |
+| [RND](../mirotalk-rnd/index.md) | Communication | Random one-to-one matching | Two matched participants per session |
 | [P2P](../mirotalk-p2p/index.md) | Communication | Private small-group meetings | Participants connect in a mesh |
 | [SFU](../mirotalk-sfu/index.md) | Communication | Group meetings, classes, and webinars | A media server forwards participant streams |
 | [BRO](../mirotalk-bro/index.md) | Communication | One-to-many live broadcasting | One presenter and multiple viewers |
@@ -44,6 +45,7 @@ MiroTalk has three layers. The communication products carry calls or broadcasts;
 | --- | --- | --- | --- | --- |
 | **CME** | Direct P2P when possible; TURN relay when required | Signaling, availability, authentication, and optional relay | Send and receive one call stream | Network reachability and TURN bandwidth |
 | **C2C** | Direct P2P when possible; TURN relay when required | Signaling, room coordination, and optional relay | Send and receive one peer stream | Network reachability and TURN bandwidth |
+| **RND** | Direct P2P when possible; TURN relay when required | Signaling, matchmaking queue, and optional relay | Send and receive one peer stream | Matchmaking throughput plus network reachability and TURN bandwidth |
 | **P2P** | Mesh between participants; TURN relay when required | Signaling, room coordination, and optional relay | Send to and receive from every participant | Participant uplink, downlink, and device CPU |
 | **SFU** | Every participant sends to the SFU; the SFU forwards selected streams | Receive, route, and transmit media | Upload one stream and receive selected streams | Server CPU, network throughput, and media quality |
 | **BRO** | P2P distribution or SFU distribution, depending on configuration | Signaling plus optional relay or media forwarding | Broadcaster uploads; viewers receive | Broadcaster uplink in P2P mode or server resources in SFU mode |
@@ -84,6 +86,7 @@ WebRTC transport is encrypted in every architecture, but “encrypted in transit
 | --- | --- | --- | --- |
 | **CME** | P2P media is encrypted between callers, including when relayed by TURN | Host protection and JWT | Availability and room metadata still pass through application services |
 | **C2C** | P2P media is encrypted between the two participants | OIDC and JWT | TURN can relay encrypted packets when a direct path fails |
+| **RND** | P2P media is encrypted between matched participants | Matchmaking and runtime protections documented by the project | Matching logic and metadata pass through application services |
 | **P2P** | Mesh media is encrypted between participants | OIDC, host protection, and JWT | Every participant is a media endpoint |
 | **SFU** | DTLS-SRTP protects media between each client and the SFU | OIDC, host protection, and JWT | The self-hosted SFU is inside the media trust boundary so it can forward streams |
 | **BRO** | P2P mode encrypts presenter-viewer paths; SFU mode uses encrypted client-server transports | OIDC and JWT | The trust boundary changes with distribution mode |
@@ -101,31 +104,31 @@ WebRTC transport is encrypted in every architecture, but “encrypted in transit
 
 “Available” means the project documents the capability. Exact behavior and configuration can vary by release.
 
-| Capability | CME | C2C | P2P | SFU | BRO | WEB | ADMIN |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| One-to-one video | Available | Core workflow | Available | Available | Presenter/viewer | Launches meetings | Not applicable |
-| Group meetings | Not its role | Not available | Core workflow | Core workflow | Not its role | Organizes meetings | Not applicable |
-| One-to-many broadcast | Not its role | Not available | Not its role | Available | Core workflow | Launches broadcasts | Not applicable |
-| Screen sharing | Available | Available | Available | Available | Broadcaster | Determined by meeting type | Not applicable |
-| Text messaging | Available | Available | Group and private chat | Group and private chat | Viewer messaging | Workspace and meeting dependent | Not applicable |
-| File sharing | Available | Available | Available | Available | Not documented here | Meeting dependent | Not applicable |
-| Recording | Not documented here | Local recording | Local recording | Local and server-side options | Available | Meeting dependent | Not applicable |
-| Moderation and webinar tools | Host controls | Minimal | Host controls | Lobby, room lock, roles, polls, and breakout rooms | Presenter controls | Organizes access | Not applicable |
-| Scheduling and invitations | Not its role | Not its role | Not its role | Not its role | Not its role | Core workflow | Not applicable |
-| Service operations | Not its role | Not its role | Not its role | Not its role | Not its role | User administration | Core workflow |
+| Capability | CME | C2C | RND | P2P | SFU | BRO | WEB | ADMIN |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| One-to-one video | Available | Core workflow | Core workflow | Available | Available | Presenter/viewer | Launches meetings | Not applicable |
+| Group meetings | Not its role | Not available | Not available | Core workflow | Core workflow | Not its role | Organizes meetings | Not applicable |
+| One-to-many broadcast | Not its role | Not available | Not available | Not its role | Available | Core workflow | Launches broadcasts | Not applicable |
+| Screen sharing | Available | Available | Not documented here | Available | Available | Broadcaster | Determined by meeting type | Not applicable |
+| Text messaging | Available | Available | Not documented here | Group and private chat | Group and private chat | Viewer messaging | Workspace and meeting dependent | Not applicable |
+| File sharing | Available | Available | Not documented here | Available | Available | Not documented here | Meeting dependent | Not applicable |
+| Recording | Not documented here | Local recording | Not documented here | Local recording | Local and server-side options | Available | Meeting dependent | Not applicable |
+| Moderation and webinar tools | Host controls | Minimal | Match flow controls | Host controls | Lobby, room lock, roles, polls, and breakout rooms | Presenter controls | Organizes access | Not applicable |
+| Scheduling and invitations | Not its role | Not its role | Not its role | Not its role | Not its role | Not its role | Core workflow | Not applicable |
+| Service operations | Not its role | Not its role | Not its role | Not its role | Not its role | Not its role | User administration | Core workflow |
 
 ## Integration matrix
 
-| Integration | CME | C2C | P2P | SFU | BRO | WEB | ADMIN |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| REST API | Available | Available | Available | Available | Available | Available | Available |
-| Iframe | Available | Available | Available | Available | Available | Available | Not applicable |
-| Widget | Available | Not documented here | Available | Available | Not documented here | Not documented here | Not applicable |
-| Webhooks | Available | Not documented here | Available | Available | Not documented here | Not documented here | Not documented here |
-| Calendar | Not its role | Not its role | Not its role | Not its role | Not its role | Google and Outlook | Not applicable |
-| Observability | Not documented here | Sentry | Sentry | Sentry | Sentry | Sentry | Process monitoring |
-| Collaboration platforms | Not documented here | Mattermost | Slack and Mattermost | Slack, Mattermost, and Discord | Not documented here | Not documented here | Not applicable |
-| Storage and recording services | Not documented here | Local browser storage | Local browser storage | S3-compatible storage and server recording options | Local recording | Meeting dependent | Not applicable |
+| Integration | CME | C2C | RND | P2P | SFU | BRO | WEB | ADMIN |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| REST API | Available | Available | Not documented here | Available | Available | Available | Available | Available |
+| Iframe | Available | Available | Not documented here | Available | Available | Available | Available | Not applicable |
+| Widget | Available | Not documented here | Not documented here | Available | Available | Not documented here | Not documented here | Not applicable |
+| Webhooks | Available | Not documented here | Not documented here | Available | Available | Not documented here | Not documented here | Not documented here |
+| Calendar | Not its role | Not its role | Not its role | Not its role | Not its role | Not its role | Google and Outlook | Not applicable |
+| Observability | Not documented here | Sentry | Not documented here | Sentry | Sentry | Sentry | Sentry | Process monitoring |
+| Collaboration platforms | Not documented here | Mattermost | Not documented here | Slack and Mattermost | Slack, Mattermost, and Discord | Not documented here | Not documented here | Not applicable |
+| Storage and recording services | Not documented here | Local browser storage | Not documented here | Local browser storage | S3-compatible storage and server recording options | Local recording | Meeting dependent | Not applicable |
 
 [Browse REST APIs](../build/index.md#rest-apis){ .md-button }
 [Browse embedding guides](../build/index.md#embedding){ .md-button }
@@ -136,6 +139,7 @@ WebRTC transport is encrypted in every architecture, but “encrypted in transit
 | --- | --- | --- | --- |
 | **CME** | Node.js; PM2 or Docker | HTTPS, signaling, STUN, and TURN | Availability, authentication, and call routing |
 | **C2C** | Node.js; PM2 or Docker | HTTPS, signaling, STUN, and TURN | Small application footprint and reliable NAT traversal |
+| **RND** | Node.js; PM2 or Docker | HTTPS, signaling, matchmaking, STUN, and TURN | Matchmaking throughput, protections, and relay capacity |
 | **P2P** | Node.js; PM2 or Docker | HTTPS, signaling, STUN, and TURN | Client bandwidth plus relay capacity |
 | **SFU** | Node.js; PM2 or Docker with media services | Public media ports, HTTPS, and sufficient network throughput | Media-server CPU, bandwidth, recording, and scaling |
 | **BRO** | Node.js; PM2 or Docker | Requirements depend on P2P or SFU mode | Presenter uplink or server-side distribution capacity |

@@ -119,7 +119,8 @@ Use RND for random one-to-one conversations where users should be matched quickl
 **Main trade-off:** intentionally focused workflow and no room-based API surface.
 
 [Learn about RND](../mirotalk-rnd/index.md){ .md-button .md-button--primary }
-[View RND on GitHub](https://github.com/miroslavpejic85/mirotalkrnd){ .md-button }
+[View the RND product page](../sites/rnd.html){ .md-button }
+[Try the RND demo](https://rnd.mirotalk.com){ .md-button }
 
 ### MiroTalk CME
 

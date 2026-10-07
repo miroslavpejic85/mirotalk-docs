@@ -1372,7 +1372,7 @@
             <div class="icon"><i data-lucide="messages-square"></i></div>
             <h3>Communication products</h3>
             <p>Where people actually meet, call, or broadcast.</p>
-            <div class="pills"><span>SFU</span><span>P2P</span><span>C2C</span><span>CME</span><span>BRO</span></div>
+            <div class="pills"><span>SFU</span><span>P2P</span><span>C2C</span><span>RND</span><span>CME</span><span>BRO</span></div>
           </article>
           <article class="layer portal">
             <div class="icon"><i data-lucide="calendar-days"></i></div>
@@ -1404,6 +1404,9 @@
           <button class="need" aria-pressed="false" data-project="C2C" data-title="A focused one-to-one call"
             data-copy="A minimal camera-to-camera experience that is easy to embed and customize."
             data-link="../mirotalk-c2c/"><i data-lucide="user-round"></i><span>Simple 1-to-1 video</span></button>
+          <button class="need" aria-pressed="false" data-project="RND" data-title="Random one-to-one matching"
+            data-copy="Pair users quickly for direct conversations without room setup."
+            data-link="../mirotalk-rnd/"><i data-lucide="shuffle"></i><span>Random 1-to-1 matching</span></button>
           <button class="need" aria-pressed="false" data-project="CME" data-title="Call a specific person"
             data-copy="Use a familiar incoming-call workflow with user targeting and push notifications."
             data-link="../mirotalk-cme/"><i data-lucide="phone-call"></i><span>Click to call a user</span></button>
@@ -1446,7 +1449,9 @@
                 participant connections</span></span><span class="project-code">P2P</span></a><a href="#c2c"><span
               class="icon"><i data-lucide="user-round"></i></span><span><strong>Simple
                 camera-to-camera</strong><span>Exactly two participants</span></span><span
-              class="project-code">C2C</span></a><a href="#cme"><span class="icon"><i
+              class="project-code">C2C</span></a><a href="#rnd"><span class="icon"><i
+                data-lucide="shuffle"></i></span><span><strong>Random one-to-one matching</strong><span>Queue, match,
+                and continue</span></span><span class="project-code">RND</span></a><a href="#cme"><span class="icon"><i
                 data-lucide="phone-call"></i></span><span><strong>Call a specific user</strong><span>Incoming calls and
                 notifications</span></span><span class="project-code">CME</span></a><a href="#bro"><span class="icon"><i
                 data-lucide="radio-tower"></i></span><span><strong>Broadcast to an audience</strong><span>One presenter,
@@ -1528,6 +1533,27 @@
                   intended for group meetings or broadcasts.</span></div>
               <div class="actions"><a class="button primary" href="../mirotalk-c2c/">Learn about C2C</a><a
                   class="button" href="https://c2c.mirotalk.com">Live demo</a></div>
+            </div>
+          </article>
+          <article class="card reveal" id="rnd">
+            <div class="product-image"><img src="../images/mirotalk/preview.png" alt="MiroTalk RND random matching"
+                loading="lazy"></div>
+            <div class="content">
+              <div class="topline">
+                <div class="name"><strong>RND</strong><span>Random matching</span></div><span class="badge">Fast
+                  pairing</span>
+              </div>
+              <h3>Random one-to-one video chat</h3>
+              <p>Match participants automatically for direct conversations. Users can queue, connect, and move to the
+                next match quickly.</p>
+              <div class="facts">
+                <div class="fact"><small>Room size</small><strong>Matched 2</strong></div>
+                <div class="fact"><small>Server cost</small><strong>Low <span class="cost">●○○</span></strong></div>
+              </div>
+              <div class="tradeoff"><i data-lucide="scale"></i><span><strong>Trade-off:</strong> Optimized for random
+                  matching rather than room-based group workflows.</span></div>
+              <div class="actions"><a class="button primary" href="../mirotalk-rnd/">Learn about RND</a><a
+                  class="button" href="https://rnd.mirotalk.com">Live demo</a></div>
             </div>
           </article>
           <article class="card reveal" id="cme">
@@ -1646,6 +1672,14 @@
                 <td>Between users</td>
                 <td>Low</td>
                 <td>Only two participants</td>
+              </tr>
+              <tr>
+                <td>RND</td>
+                <td>Random matching</td>
+                <td>Matched 2 people</td>
+                <td>Between users</td>
+                <td>Low</td>
+                <td>Queue-based flow, not room-oriented</td>
               </tr>
               <tr>
                 <td>CME</td>
