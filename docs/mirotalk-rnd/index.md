@@ -7,7 +7,7 @@ description: Explore MiroTalk RND for self-hosted random peer matching with one-
 
 Random 1-on-1 video chat built with Node.js, Socket.IO, and WebRTC.
 
-[Live dmeo](https://rnd.mirotalk.com){ .md-button .md-button--primary }
+[Live demo](https://rnd.mirotalk.com){ .md-button .md-button--primary }
 [Self-host MiroTalk RND](self-hosting.md){ .md-button }
 [Review runtime sizing](metrics.md){ .md-button }
 
