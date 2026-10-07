@@ -33,6 +33,7 @@ API behavior differs by product. Use the guide and deployed Swagger documentatio
 - [SFU integration](../mirotalk-sfu/integration.md)
 - [P2P integration](../mirotalk-p2p/integration.md)
 - [C2C integration](../mirotalk-c2c/integration.md)
+- [RND integration](../mirotalk-rnd/integration.md)
 - [BRO integration](../mirotalk-bro/integration.md)
 - [CME integration](../mirotalk-cme/integration.md)
 - [WEB integration](../mirotalk-web/integration.md)

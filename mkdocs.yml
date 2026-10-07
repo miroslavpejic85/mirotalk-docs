@@ -42,6 +42,7 @@ nav:
       - SFU integration: mirotalk-sfu/integration.md
       - P2P integration: mirotalk-p2p/integration.md
       - C2C integration: mirotalk-c2c/integration.md
+      - RND integration: mirotalk-rnd/integration.md
       - BRO integration: mirotalk-bro/integration.md
       - CME integration: mirotalk-cme/integration.md
       - WEB integration: mirotalk-web/integration.md
@@ -203,15 +204,15 @@ theme:
 
 # Custom styles
 extra_css:
-  - stylesheets/extra.css?v=1.5.57
-  - stylesheets/editorial.css?v=1.5.57
+  - stylesheets/extra.css?v=1.5.58
+  - stylesheets/editorial.css?v=1.5.58
 extra_javascript:
   - javascripts/accessibility.js
   - javascripts/analytics-events.js
 
 # Social / preview card metadata
 extra:
-  docs_version: v1.5.57
+  docs_version: v1.5.58
   links:
     cloud: https://cloud.mirotalk.com
     discord: &discord_url https://discord.gg/rgGYfeYW3N
