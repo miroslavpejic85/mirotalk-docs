@@ -59,7 +59,20 @@ Reference: [`.env.template` in mirotalkrnd](https://github.com/miroslavpejic85/m
 | `TURN_USERNAME` | TURN username |
 | `TURN_PASSWORD` | TURN password |
 
+## Sentry error reporting
+
+Error reporting with [Sentry](https://sentry.io) is optional and disabled by default. Set `SENTRY_ENABLED=true` and provide `SENTRY_DSN` to enable it. See [`.env.template`](https://github.com/miroslavpejic85/mirotalkrnd/blob/main/.env.template) for the complete configuration.
+
+| Variable | Purpose | Default |
+| --- | --- | --- |
+| `SENTRY_ENABLED` | Enable Sentry error reporting | `false` |
+| `SENTRY_DSN` | Sentry project data source name | *(empty)* |
+| `SENTRY_ENVIRONMENT` | Environment name reported to Sentry | `NODE_ENV` |
+| `SENTRY_RELEASE` | Release identifier reported to Sentry | *(empty)* |
+| `SENTRY_TRACES_SAMPLE_RATE` | Performance tracing sample rate, from `0` to `1` | `0` |
+
+PII, request headers and bodies, and user data are stripped before events are sent.
+
 !!! note "Apply changes"
 
     Restart the process after updating `.env` so new values are loaded.
-
