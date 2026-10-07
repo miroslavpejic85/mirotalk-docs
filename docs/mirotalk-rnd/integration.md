@@ -16,7 +16,7 @@ Easily integrate MiroTalk RND into your website by embedding it with a simple `i
     <body>
         <iframe
             id="mirotalkRND"
-            allow="camera; microphone; display-capture; fullscreen; autoplay; picture-in-picture"
+            allow="camera; microphone; fullscreen; autoplay; picture-in-picture"
             src="https://YOUR-DOMAIN-NAME"
             style="height: 100vh; width: 100vw; border: 0px;"
         ></iframe>
