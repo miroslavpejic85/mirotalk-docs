@@ -85,6 +85,29 @@ wget -qO c2c-update.sh https://docs.mirotalk.com/scripts/c2c/c2c-update.sh \
 
 ---
 
+## **MiroTalk RND**
+
+```bash
+# Install MiroTalk RND
+wget -qO rnd-install.sh https://docs.mirotalk.com/scripts/rnd/rnd-install.sh \
+  && chmod +x rnd-install.sh \
+  && ./rnd-install.sh
+```
+```bash
+# Uninstall MiroTalk RND
+wget -qO rnd-uninstall.sh https://docs.mirotalk.com/scripts/rnd/rnd-uninstall.sh \
+  && chmod +x rnd-uninstall.sh \
+  && ./rnd-uninstall.sh
+```
+```bash
+# Update MiroTalk RND
+wget -qO rnd-update.sh https://docs.mirotalk.com/scripts/rnd/rnd-update.sh \
+  && chmod +x rnd-update.sh \
+  && ./rnd-update.sh
+```
+
+---
+
 ## **MiroTalk BRO**
 
 ```bash

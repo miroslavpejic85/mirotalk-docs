@@ -116,6 +116,10 @@ nav:
         - Install C2C: scripts/c2c/c2c-install.sh
         - Uninstall C2C: scripts/c2c/c2c-uninstall.sh
         - Update C2C: scripts/c2c/c2c-update.sh
+      - RND scripts:
+        - Install RND: scripts/rnd/rnd-install.sh
+        - Uninstall RND: scripts/rnd/rnd-uninstall.sh
+        - Update RND: scripts/rnd/rnd-update.sh
       - BRO scripts:
         - Install BRO: scripts/bro/bro-install.sh
         - Uninstall BRO: scripts/bro/bro-uninstall.sh

@@ -75,7 +75,17 @@ docker compose up -d
 
 By default, RND listens on port `4010` (mapped from `PORT` in `.env`).
 
-## Automated installer (Ubuntu)
+## Automated setup (clean Ubuntu server)
+
+Install Node.js, Docker, Nginx, and a Let's Encrypt certificate in one step on a clean Ubuntu 22.04 or 24.04 LTS server. Run as root, with a domain pointing to the server's public IPv4. See the [MiroTalk RND setup script](../scripts/about.md#mirotalk-rnd) for install, uninstall, and update commands.
+
+```bash
+wget -qO rnd-install.sh https://docs.mirotalk.com/scripts/rnd/rnd-install.sh \
+  && chmod +x rnd-install.sh \
+  && ./rnd-install.sh
+```
+
+## Repository installer (Ubuntu)
 
 From the repository root:
 

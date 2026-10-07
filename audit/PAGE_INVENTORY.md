@@ -156,6 +156,9 @@ These are downloadable/executable resources rather than prose pages. All have hi
 | `/scripts/c2c/c2c-install.sh` | Install C2C | Operators / L | Keep exact URL; security/version test | Self-host > Scripts > C2C |
 | `/scripts/c2c/c2c-uninstall.sh` | Uninstall C2C | Operators / L | Keep exact URL; destructive-action warning | Self-host > Scripts > C2C |
 | `/scripts/c2c/c2c-update.sh` | Update C2C | Operators / L | Keep exact URL; backup/rollback test | Self-host > Scripts > C2C |
+| `/scripts/rnd/rnd-install.sh` | Install RND | Operators / L | Keep exact URL; security/version test | Self-host > Scripts > RND |
+| `/scripts/rnd/rnd-uninstall.sh` | Uninstall RND | Operators / L | Keep exact URL; destructive-action warning | Self-host > Scripts > RND |
+| `/scripts/rnd/rnd-update.sh` | Update RND | Operators / L | Keep exact URL; backup/rollback test | Self-host > Scripts > RND |
 | `/scripts/bro/bro-install.sh` | Install BRO | Operators / L | Keep exact URL; security/version test | Self-host > Scripts > BRO |
 | `/scripts/bro/bro-uninstall.sh` | Uninstall BRO | Operators / L | Keep exact URL; destructive-action warning | Self-host > Scripts > BRO |
 | `/scripts/bro/bro-update.sh` | Update BRO | Operators / L | Keep exact URL; backup/rollback test | Self-host > Scripts > BRO |
