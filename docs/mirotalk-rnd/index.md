@@ -40,6 +40,7 @@ MiroTalk RND matches participants in a random one-to-one flow. The application s
 | Stage | Documentation |
 | --- | --- |
 | Install with Node.js or Docker | [Self-hosting guide](self-hosting.md) |
+| Automate install, update, and uninstall on Ubuntu | [RND setup scripts](../scripts/about.md#mirotalk-rnd) |
 | Configure runtime and limits | [Configuration reference](configurations.md) |
 | Expose local development securely | [Ngrok guide](ngrok.md) |
 | Plan infrastructure sizing | [Metrics and capacity notes](metrics.md) |

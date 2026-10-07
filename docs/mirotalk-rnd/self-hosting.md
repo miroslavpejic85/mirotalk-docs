@@ -16,6 +16,12 @@ Repository: [miroslavpejic85/mirotalkrnd](https://github.com/miroslavpejic85/mir
 - Domain or subdomain with DNS `A` record to your server (recommended for HTTPS)
 - TURN server for restrictive networks ([STUN/TURN overview](../coturn/stun-turn.md))
 
+## Automated setup
+
+!!! tip "Quick Automated Installation"
+
+    You can automate the entire setup (Node.js, Nginx, SSL, Docker) using our installation scripts on a clean Ubuntu server. Check out the [MiroTalk RND Setup Script](../scripts/about.md#mirotalk-rnd) for details.
+
 ## Quick start (Node.js)
 
 ![Node.js](../images/nodejs.png)
@@ -75,17 +81,7 @@ docker compose up -d
 
 By default, RND listens on port `4010` (mapped from `PORT` in `.env`).
 
-## Automated setup (clean Ubuntu server)
-
-Install Node.js, Docker, Nginx, and a Let's Encrypt certificate in one step on a clean Ubuntu 22.04 or 24.04 LTS server. Run as root, with a domain pointing to the server's public IPv4. See the [MiroTalk RND setup script](../scripts/about.md#mirotalk-rnd) for install, uninstall, and update commands.
-
-```bash
-wget -qO rnd-install.sh https://docs.mirotalk.com/scripts/rnd/rnd-install.sh \
-  && chmod +x rnd-install.sh \
-  && ./rnd-install.sh
-```
-
-## Repository installer (Ubuntu)
+## Automated installer (Ubuntu)
 
 From the repository root:
 
