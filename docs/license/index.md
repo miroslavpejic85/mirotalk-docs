@@ -73,6 +73,7 @@ Each individual product purchase covers that product under the selected license.
 | [MiroTalk C2C](../sites/c2c.html) | [{{ pricing.c2c.regular.price }}]({{ pricing.c2c.regular.url }}) | [{{ pricing.c2c.extended.price }}]({{ pricing.c2c.extended.url }}) |
 | [MiroTalk BRO](../sites/bro.html) | [{{ pricing.bro.regular.price }}]({{ pricing.bro.regular.url }}) | [{{ pricing.bro.extended.price }}]({{ pricing.bro.extended.url }}) |
 | [MiroTalk CME](../sites/cme.html) | [{{ pricing.cme.regular.price }}]({{ pricing.cme.regular.url }}) | [{{ pricing.cme.extended.price }}]({{ pricing.cme.extended.url }}) |
+| [MiroTalk RND](../sites/rnd.html) | [{{ pricing.rnd.regular.price }}]({{ pricing.rnd.regular.url }}) | [{{ pricing.rnd.extended.price }}]({{ pricing.rnd.extended.url }}) |
 | [MiroTalk WEB](../sites/web.html) | [{{ pricing.web.regular.price }}]({{ pricing.web.regular.url }}) | [{{ pricing.web.extended.price }}]({{ pricing.web.extended.url }}) |
 
 [Browse all MiroTalk products](../sites/projects.html){ .md-button .md-button--primary }

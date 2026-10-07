@@ -68,5 +68,15 @@
       "price": "$199",
       "url": "https://buy.stripe.com/bJecN493Lg4L3wcfmSbsc0l"
     }
+  },
+  "rnd": {
+    "regular": {
+      "price": "$29",
+      "url": "https://buy.stripe.com/cNi14mgwd05NfeUb6Cbsc0m"
+    },
+    "extended": {
+      "price": "$149",
+      "url": "https://buy.stripe.com/bJe6oGeo52dVaYEfmSbsc0n"
+    }
   }
 }

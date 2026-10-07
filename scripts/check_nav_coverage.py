@@ -17,6 +17,7 @@ ALLOWED_UNLISTED = {
     "sites/license.html",
     "sites/p2p.html",
     "sites/projects.html",
+    "sites/rnd.html",
     "sites/sfu.html",
     "sites/ultimate.html",
     "sites/web.html",

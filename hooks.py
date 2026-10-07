@@ -58,6 +58,12 @@ PRODUCT_LANDING_PAGES = {
         "description": "Compare MiroTalk projects by purpose, audience size, running cost, and trade-offs.",
         "previous_url": "projects/",
     },
+    "rnd": {
+        "name": "MiroTalk RND",
+        "title": "MiroTalk RND - Self-Hosted Random One-to-One Video Chat",
+        "description": "Launch self-hosted random one-to-one WebRTC matching with full source code, queue control, and Docker deployment.",
+        "previous_url": "mirotalk-rnd/",
+    },
     "sfu": {
         "name": "MiroTalk SFU",
         "title": "MiroTalk SFU - Self-Hosted WebRTC Video Conferencing",
