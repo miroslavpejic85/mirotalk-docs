@@ -1,5 +1,7 @@
 # MiroTalk RND Self-Hosting Guide
 
+![MiroTalk RND random matching](../images/mirotalk/rnd.png)
+
 ## Description
 
 MiroTalk RND is a self-hosted random peer-matching app for one-to-one WebRTC video chat.
