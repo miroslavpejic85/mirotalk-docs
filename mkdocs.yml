@@ -23,6 +23,7 @@ nav:
       - MiroTalk SFU: mirotalk-sfu/index.md
       - MiroTalk P2P: mirotalk-p2p/index.md
       - MiroTalk C2C: mirotalk-c2c/index.md
+      - MiroTalk RND: mirotalk-rnd/index.md
       - MiroTalk BRO: mirotalk-bro/index.md
       - MiroTalk CME: mirotalk-cme/index.md
       - MiroTalk WEB: mirotalk-web/index.md
@@ -63,6 +64,7 @@ nav:
       - MiroTalk SFU: mirotalk-sfu/self-hosting.md
       - MiroTalk P2P: mirotalk-p2p/self-hosting.md
       - MiroTalk C2C: mirotalk-c2c/self-hosting.md
+      - MiroTalk RND: mirotalk-rnd/self-hosting.md
       - MiroTalk BRO: mirotalk-bro/self-hosting.md
       - MiroTalk CME: mirotalk-cme/self-hosting.md
       - MiroTalk WEB: mirotalk-web/self-hosting.md
@@ -73,9 +75,11 @@ nav:
       - SFU configuration: mirotalk-sfu/configurations.md
       - P2P configuration: mirotalk-p2p/configurations.md
       - C2C configuration: mirotalk-c2c/configurations.md
+      - RND configuration: mirotalk-rnd/configurations.md
       - BRO configuration: mirotalk-bro/configurations.md
       - CME configuration: mirotalk-cme/configurations.md
       - WEB configuration: mirotalk-web/configurations.md
+      - RND metrics: mirotalk-rnd/metrics.md
     - Security and operations:
       - SFU host protection: mirotalk-sfu/host-protection.md
       - P2P host protection: mirotalk-p2p/host-protection.md
@@ -94,6 +98,7 @@ nav:
       - SFU with ngrok: mirotalk-sfu/ngrok.md
       - P2P with ngrok: mirotalk-p2p/ngrok.md
       - C2C with ngrok: mirotalk-c2c/ngrok.md
+      - RND with ngrok: mirotalk-rnd/ngrok.md
       - BRO with ngrok: mirotalk-bro/ngrok.md
       - CME with ngrok: mirotalk-cme/ngrok.md
       - WEB with ngrok: mirotalk-web/ngrok.md
@@ -194,15 +199,15 @@ theme:
 
 # Custom styles
 extra_css:
-  - stylesheets/extra.css?v=1.5.52
-  - stylesheets/editorial.css?v=1.5.52
+  - stylesheets/extra.css?v=1.5.53
+  - stylesheets/editorial.css?v=1.5.53
 extra_javascript:
   - javascripts/accessibility.js
   - javascripts/analytics-events.js
 
 # Social / preview card metadata
 extra:
-  docs_version: v1.5.52
+  docs_version: v1.5.53
   links:
     cloud: https://cloud.mirotalk.com
     discord: &discord_url https://discord.gg/rgGYfeYW3N

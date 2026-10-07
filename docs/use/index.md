@@ -21,6 +21,7 @@ MiroTalk Cloud is the managed service powered by MiroTalk WEB. Create and manage
 | Run scalable meetings, classes, or webinars | [MiroTalk SFU](../mirotalk-sfu/index.md) |
 | Make private calls or hold small group meetings | [MiroTalk P2P](../mirotalk-p2p/index.md) |
 | Provide focused one-to-one video calls | [MiroTalk C2C](../mirotalk-c2c/index.md) |
+| Run random one-to-one matching chat | [MiroTalk RND](../mirotalk-rnd/index.md) |
 | Broadcast to an audience | [MiroTalk BRO](../mirotalk-bro/index.md) |
 | Add click-to-call customer support | [MiroTalk CME](../mirotalk-cme/index.md) |
 | Schedule meetings and manage rooms | [MiroTalk WEB](../mirotalk-web/index.md) |

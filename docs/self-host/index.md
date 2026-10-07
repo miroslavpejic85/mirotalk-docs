@@ -14,6 +14,7 @@ Run MiroTalk on infrastructure you control. Choose the product architecture firs
 | Scalable meetings, classes, and webinars | MiroTalk SFU | [Self-host SFU](../mirotalk-sfu/self-hosting.md) |
 | Private calls and small group meetings | MiroTalk P2P | [Self-host P2P](../mirotalk-p2p/self-hosting.md) |
 | Focused one-to-one video calls | MiroTalk C2C | [Self-host C2C](../mirotalk-c2c/self-hosting.md) |
+| Random one-to-one video matching | MiroTalk RND | [Self-host RND](../mirotalk-rnd/self-hosting.md) |
 | One-to-many broadcasting | MiroTalk BRO | [Self-host BRO](../mirotalk-bro/self-hosting.md) |
 | Click-to-call support | MiroTalk CME | [Self-host CME](../mirotalk-cme/self-hosting.md) |
 | Scheduling, invitations, and room management | MiroTalk WEB | [Self-host WEB](../mirotalk-web/self-hosting.md) |

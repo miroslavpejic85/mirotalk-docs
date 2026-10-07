@@ -11,6 +11,7 @@
     - 🏆 **MiroTalk SFU** — Group video conferencing (large meetings, webinars)
     - 🚀 **MiroTalk P2P** — Peer-to-peer video calls (small groups)
     - ✨ **MiroTalk C2C** — Client-to-client cam-2-cam communication
+    - 🎲 **MiroTalk RND** — Random one-to-one video matching
     - 📡 **MiroTalk BRO** — One-to-many live broadcasting
     - 🟢 **MiroTalk CME** — Instant click-to-call video calls
     - 🛠 **MiroTalk WEB** — Meeting room scheduler and manager

@@ -66,6 +66,7 @@ Choose by workflow rather than technical terminology. The [product chooser](./pr
 | Scalable meetings, classes, or webinars | [MiroTalk SFU](./mirotalk-sfu/index.md) | [Live demo](https://sfu.mirotalk.com) |
 | Private calls and small group meetings | [MiroTalk P2P](./mirotalk-p2p/index.md) | [Live demo](https://p2p.mirotalk.com) |
 | Focused one-to-one video calls | [MiroTalk C2C](./mirotalk-c2c/index.md) | [Live demo](https://c2c.mirotalk.com) |
+| Random one-to-one matching | [MiroTalk RND](./mirotalk-rnd/index.md) | [View on GitHub](https://github.com/miroslavpejic85/mirotalkrnd) |
 | One-to-many broadcasting | [MiroTalk BRO](./mirotalk-bro/index.md) | [Live demo](https://bro.mirotalk.com) |
 | Click-to-call customer support | [MiroTalk CME](./mirotalk-cme/index.md) | [Live demo](https://cme.mirotalk.com) |
 | Scheduling, invitations, and room management | [MiroTalk WEB](./mirotalk-web/index.md) | [Live demo](https://webrtc.mirotalk.com) |

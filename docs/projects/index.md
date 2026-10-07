@@ -28,6 +28,10 @@ Start with what you want to do, how people participate, and how much infrastruct
         <span class="chooser-code">C2C</span>
         <span class="chooser-copy"><strong>Simple two-person video</strong><small>A focused camera-to-camera experience</small></span>
     </a>
+    <a class="chooser-choice choice-rnd" href="/mirotalk-rnd/">
+        <span class="chooser-code">RND</span>
+        <span class="chooser-copy"><strong>Random one-to-one matching</strong><small>Pair users instantly for direct conversations</small></span>
+    </a>
     <a class="chooser-choice choice-cme" href="/mirotalk-cme/">
         <span class="chooser-code">CME</span>
         <span class="chooser-copy"><strong>Click to call a user</strong><small>Incoming calls for support and direct communication</small></span>
@@ -52,11 +56,11 @@ Do not want to operate the service yourself? [Start with MiroTalk Cloud](../clou
 
 ## Understand the three product layers
 
-MiroTalk products solve related problems, but they are not seven competing versions of the same application.
+MiroTalk products solve related problems, but they are not eight competing versions of the same application.
 
 | Layer | Products | Purpose |
 | --- | --- | --- |
-| **Communication** | SFU, P2P, C2C, CME, BRO | Where people meet, call, or broadcast |
+| **Communication** | SFU, P2P, C2C, RND, CME, BRO | Where people meet, call, or broadcast |
 | **User workspace** | WEB | Accounts, rooms, schedules, and invitations |
 | **Infrastructure administration** | ADMIN | Management of services running on your servers |
 
@@ -105,6 +109,17 @@ Use C2C when the experience should remain a focused camera-to-camera call betwee
 [Learn about C2C](../mirotalk-c2c/index.md){ .md-button .md-button--primary }
 [View the C2C product page](../sites/c2c.html){ .md-button }
 [Try the C2C demo](https://c2c.mirotalk.com){ .md-button }
+
+### MiroTalk RND
+
+Use RND for random one-to-one conversations where users should be matched quickly without selecting rooms. It keeps the experience intentionally simple: queue, match, chat, then continue to the next peer.
+
+**Best fit:** random social matching and lightweight chat platforms.  
+**Infrastructure:** signaling and matchmaking on the server, media between participants when direct paths succeed.  
+**Main trade-off:** intentionally focused workflow and no room-based API surface.
+
+[Learn about RND](../mirotalk-rnd/index.md){ .md-button .md-button--primary }
+[View RND on GitHub](https://github.com/miroslavpejic85/mirotalkrnd){ .md-button }
 
 ### MiroTalk CME
 
@@ -164,6 +179,7 @@ This is relative guidance, not a capacity promise or hosting quote. Actual infra
 | **SFU** | Meetings and webinars | Small to larger groups | Through a media server | Higher | More infrastructure to operate |
 | **P2P** | Private and small meetings | Small groups | Between participants, or TURN when required | Lower | More participants increase device and network load |
 | **C2C** | Camera-to-camera calls | Two people | Between participants, or TURN when required | Lower | Limited to two participants |
+| **RND** | Random one-to-one matching | Two matched people | Between participants, or TURN when required | Lower | Matchmaking flow is not room-oriented |
 | **CME** | Direct click-to-call | Caller and user | Between participants, or TURN when required | Lower | Specialized calling workflow |
 | **BRO** | One-to-many broadcast | Presenter and viewers | P2P or SFU | Variable | Audience size changes infrastructure needs |
 | **WEB** | Meeting workspace | Any supported workflow | Not a media engine | Additional application services | Requires a communication product |
