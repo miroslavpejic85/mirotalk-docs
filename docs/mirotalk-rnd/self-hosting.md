@@ -16,6 +16,8 @@ Repository: [miroslavpejic85/mirotalkrnd](https://github.com/miroslavpejic85/mir
 
 ## Quick start (Node.js)
 
+![Node.js](../images/nodejs.png)
+
 ```bash
 # Clone the repository
 git clone https://github.com/miroslavpejic85/mirotalkrnd.git
@@ -37,6 +39,8 @@ Open: [http://YOUR.DOMAIN.NAME:4010](http://YOUR.DOMAIN.NAME:4010)
 
 ## Run with PM2
 
+![PM2](../images/pm2.png)
+
 ```bash
 # Install PM2 globally
 npm install -g pm2
@@ -50,6 +54,8 @@ pm2 startup
 ```
 
 ## Run with Docker
+
+![Docker](../images/docker.png)
 
 ```bash
 # Clone repository
@@ -82,6 +88,8 @@ The installer supports:
 
 ## HTTPS reverse proxy (Nginx)
 
+![Nginx](../images/nginx.png)
+
 WebRTC camera/microphone permissions are most reliable on HTTPS in production.
 
 ```bash
@@ -95,4 +103,3 @@ Set your reverse proxy to forward traffic to `http://localhost:4010` and termina
 - Review [configuration options](configurations.md)
 - Expose local development safely with [ngrok](ngrok.md)
 - Estimate infrastructure with [metrics guidance](metrics.md)
-
