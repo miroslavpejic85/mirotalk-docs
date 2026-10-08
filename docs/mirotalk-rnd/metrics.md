@@ -34,5 +34,3 @@ These values are directional estimates. Validate with load tests that match your
 
 Monitor: CPU, RAM, event-loop lag, disconnect spikes, and TURN throughput.
 
-Source: [README-METRICS.md](https://github.com/miroslavpejic85/mirotalkrnd/blob/main/docs/README-METRICS.md)
-
