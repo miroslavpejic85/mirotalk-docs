@@ -50,6 +50,24 @@ Reference: [`.env.template` in mirotalkrnd](https://github.com/miroslavpejic85/m
 | `API_RATE_LIMIT_WINDOW_MS` | API rate-limit window duration | `60000` |
 | `API_RATE_LIMIT_MAX_REQUESTS` | Max requests per rate-limit window | `120` |
 
+## Reports and bans (community moderation)
+
+Users can report their partner. When `REPORT_BAN_THRESHOLD` different IPs report the same IP within `REPORT_WINDOW_HOURS`, that IP is banned for `BAN_DURATION_HOURS`. Repeat bans double in length (max 30 days). Set `REPORT_BAN_THRESHOLD=0` to disable reporting.
+
+| Variable | Purpose | Default |
+| --- | --- | --- |
+| `REPORT_BAN_THRESHOLD` | Number of different IPs that must report the same IP to trigger a ban; `0` disables reporting | `3` |
+| `REPORT_WINDOW_HOURS` | Time window in which reports are counted | `24` |
+| `BAN_DURATION_HOURS` | Length of the first ban; repeat bans double in length (max 30 days) | `24` |
+
+!!! note "Ban storage"
+
+    Bans live in memory unless `REDIS_URL` is set, so a single instance without Redis forgets them on restart.
+
+!!! warning "Behind a reverse proxy"
+
+    IP detection follows `X-Forwarded-For` only for proxies trusted via `TRUST_PROXY`. Set `TRUST_PROXY` correctly when behind a reverse proxy, or every user appears to have the proxy's IP.
+
 ## Multi-instance matchmaking
 
 Multi-instance matchmaking is optional and disabled by default. Set the same `REDIS_URL` on every instance to match users across instances. `MAX_ACTIVE_USERS` and `MAX_CONNECTIONS_PER_IP` remain per instance, while `MAX_QUEUE_USERS` becomes global. When running behind a load balancer, enable sticky sessions if Socket.IO long-polling is enabled.
