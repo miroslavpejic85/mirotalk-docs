@@ -6,7 +6,7 @@
 
 MiroTalk RND is a self-hosted random peer-matching app for one-to-one WebRTC video chat.
 
-Repository: [miroslavpejic85/mirotalkrnd](https://github.com/miroslavpejic85/mirotalkrnd)
+Live demo: [https://rnd.mirotalk.com](https://rnd.mirotalk.com)
 
 ## Requirements
 
