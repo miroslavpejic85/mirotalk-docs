@@ -50,6 +50,16 @@ Reference: [`.env.template` in mirotalkrnd](https://github.com/miroslavpejic85/m
 | `API_RATE_LIMIT_WINDOW_MS` | API rate-limit window duration | `60000` |
 | `API_RATE_LIMIT_MAX_REQUESTS` | Max requests per rate-limit window | `120` |
 
+## Multi-instance matchmaking
+
+Multi-instance matchmaking is optional and disabled by default. Set the same `REDIS_URL` on every instance to match users across instances. `MAX_ACTIVE_USERS` and `MAX_CONNECTIONS_PER_IP` remain per instance, while `MAX_QUEUE_USERS` becomes global. When running behind a load balancer, enable sticky sessions if Socket.IO long-polling is enabled.
+
+| Variable | Purpose | Default |
+| --- | --- | --- |
+| `REDIS_URL` | Redis connection URL shared by all instances for cross-instance matchmaking | *(empty; disabled)* |
+| `SOCKET_WEBSOCKET_ONLY` | Use WebSocket transport only, avoiding the need for sticky sessions; users on networks that block WebSockets cannot connect | `false` |
+| `SKIP_AVOID_SAME_PARTNER` | Prevent users from being immediately re-matched with each other after a skip; when `false`, they may be paired again if nobody else is waiting | `false` |
+
 ## STUN and TURN
 
 | Variable | Purpose |
