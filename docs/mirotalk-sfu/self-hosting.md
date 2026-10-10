@@ -246,12 +246,21 @@ services:
         hostname: mirotalksfu
         user: '1000:1000'
         restart: unless-stopped
+        # Linux: expose all ports directly
         network_mode: 'host'
+        # Docker Desktop (Mac/Windows) or custom Docker networks:
+        # remove network_mode above and use this instead
+        # ports:
+        #     - '3010:3010/tcp'
+        #     - '40000-40100:40000-40100/tcp'
+        #     - '40000-40100:40000-40100/udp'
         volumes:
             - ./.env:/src/.env:ro
             - ./app/:/src/app/:ro
             - ./public/:/src/public/:ro
 ```
+
+The published port range must match `SFU_MIN_PORT` / `SFU_MAX_PORT` in `.env`.
 
 ```bash
 # Pull the official Docker image
@@ -269,30 +278,9 @@ Verify the installation: [http://YOUR.DOMAIN.NAME:3010](http://YOUR.DOMAIN.NAME:
 
     - Set `SFU_ANNOUNCED_IP` to the server **public IPv4**, never a Docker or LAN address (`172.x.x.x`, `192.168.x.x`).
     - Open `40000-40100` TCP + UDP in the host firewall, cloud security group, and router.
-    - Use `network_mode: 'host'` (Linux only) **or** the `ports:` mapping below.
+    - Use `network_mode: 'host'` (Linux only) **or** the `ports:` mapping from the compose example above.
 
     Still seeing one side or no video? See the [FAQ troubleshooting](../faq/index.md#troubleshooting).
-
-Alternative to `network_mode: 'host'` (for example Docker Desktop, or when other containers need Docker networks):
-
-```yaml
-services:
-    mirotalksfu:
-        image: mirotalk/sfu:latest
-        container_name: mirotalksfu
-        hostname: mirotalksfu
-        user: '1000:1000'
-        restart: unless-stopped
-        ports:
-            - '3010:3010/tcp'
-            - '40000-40100:40000-40100/tcp'
-            - '40000-40100:40000-40100/udp'
-        volumes:
-            - ./app/src/config.js:/src/app/src/config.js:ro
-            - ./.env:/src/.env:ro
-```
-
-The published port range must match `SFU_MIN_PORT` / `SFU_MAX_PORT` in `.env`.
 
 ### Docker behind a reverse proxy (Nginx Proxy Manager, Traefik, Caddy...)
 
