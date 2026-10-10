@@ -263,6 +263,54 @@ docker-compose up
 
 Verify the installation: [http://YOUR.DOMAIN.NAME:3010](http://YOUR.DOMAIN.NAME:3010)
 
+!!! warning "Media ports must be reachable (one-way or missing video)"
+
+    SFU media (audio/video) does **not** pass through Nginx, Nginx Proxy Manager, Traefik, or Cloudflare. Those only carry the HTTPS/WebSocket signaling to port `3010`. Clients connect **directly** to `SFU_ANNOUNCED_IP` on ports `SFU_MIN_PORT`-`SFU_MAX_PORT` (TCP + UDP). If they can't, you will see only one side of the call, or no video at all.
+
+    Make sure that:
+
+    - `SFU_ANNOUNCED_IP` in `.env` is your server **public IPv4** (or a domain that resolves to it **without** a proxy/CDN), never a Docker or LAN address such as `172.x.x.x` or `192.168.x.x`.
+    - Ports `40000-40100` TCP + UDP are open in the host firewall, cloud security group, and router (port forwarding).
+    - The container publishes those ports: use `network_mode: 'host'` (Linux only) **or** the `ports:` mapping below. With neither, media will not work.
+
+Alternative to `network_mode: 'host'` (for example Docker Desktop, or when other containers need Docker networks):
+
+```yaml
+services:
+    mirotalksfu:
+        image: mirotalk/sfu:latest
+        container_name: mirotalksfu
+        hostname: mirotalksfu
+        user: '1000:1000'
+        restart: unless-stopped
+        ports:
+            - '3010:3010/tcp'
+            - '40000-40100:40000-40100/tcp'
+            - '40000-40100:40000-40100/udp'
+        volumes:
+            - ./app/src/config.js:/src/app/src/config.js:ro
+            - ./.env:/src/.env:ro
+```
+
+The published port range must match `SFU_MIN_PORT` / `SFU_MAX_PORT` in `.env`.
+
+### Docker behind a reverse proxy (Nginx Proxy Manager, Traefik, Caddy...)
+
+Terminate SSL at the reverse proxy and forward to MiroTalk over plain HTTP, so you don't need to mount certificates in the container:
+
+- **Forward to** `http://<docker-host-ip>:3010` (scheme `http`, not `https`).
+- Enable **WebSockets Support** (Nginx Proxy Manager) or the equivalent, because signaling needs it.
+- Set in `.env`:
+
+```bash
+SFU_ANNOUNCED_IP=Your-Server-Public-IPv4
+SERVER_HOST_URL=https://your.domain.name
+TRUST_PROXY=true
+```
+
+- Keep the media ports (`40000-40100` TCP + UDP) open and **not** proxied.
+- A TURN server is **not** required for SFU to work. It is only recommended for clients behind restrictive firewalls, see [STUN & TURN](../coturn/stun-turn.md).
+
 ---
 
 ## Configuring Nginx & Certbot

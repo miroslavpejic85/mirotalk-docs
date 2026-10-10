@@ -588,6 +588,19 @@
     4. **Firewall rules:** Ensure the required ports are open (signaling port + media port range for SFU).
     5. **Browser compatibility:** Use a modern browser (Chrome, Firefox, Edge, Safari).
 
+??? question "In MiroTalk SFU I see only one side of the video call (or no video) when running with Docker or a reverse proxy. How do I fix it?"
+
+    This almost always means the **media ports** are unreachable. In SFU, the reverse proxy (Nginx, Nginx Proxy Manager, Traefik, Cloudflare) only carries signaling on port `3010`. Audio/video goes **directly** between the browser and the SFU on the `SFU_MIN_PORT`-`SFU_MAX_PORT` range.
+
+    1. **`SFU_ANNOUNCED_IP`:** Set it to the server **public IPv4** (or a non-proxied domain), not a Docker/LAN IP.
+    2. **Open the ports:** `40000-40100` TCP **and** UDP in the host firewall, cloud security group, and router.
+    3. **Docker networking:** Use `network_mode: 'host'` (Linux) **or** publish `3010/tcp` and `40000-40100/tcp+udp` with `ports:`. The range must match `.env`.
+    4. **Reverse proxy:** Terminate SSL at the proxy and forward to `http://<host>:3010` with **WebSockets enabled**. Set `TRUST_PROXY=true` and `SERVER_HOST_URL=https://your.domain`. Don't proxy the media ports.
+    5. **Cloudflare:** Don't proxy the `SFU_ANNOUNCED_IP` domain (use DNS-only), because Cloudflare doesn't forward WebRTC media.
+    6. **TURN:** Not required for SFU to work. Add [coturn](../coturn/installation.md) only for users behind restrictive firewalls.
+
+    See the [SFU self-hosting](../mirotalk-sfu/self-hosting.md#using-docker) guide for full Docker examples.
+
 ??? question "How do I update MiroTalk to the latest version?"
 
     **Manual installation:**
