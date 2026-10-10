@@ -265,13 +265,13 @@ Verify the installation: [http://YOUR.DOMAIN.NAME:3010](http://YOUR.DOMAIN.NAME:
 
 !!! warning "Media ports must be reachable (one-way or missing video)"
 
-    SFU media (audio/video) does **not** pass through Nginx, Nginx Proxy Manager, Traefik, or Cloudflare. Those only carry the HTTPS/WebSocket signaling to port `3010`. Clients connect **directly** to `SFU_ANNOUNCED_IP` on ports `SFU_MIN_PORT`-`SFU_MAX_PORT` (TCP + UDP). If they can't, you will see only one side of the call, or no video at all.
+    Media (audio/video) does **not** pass through Nginx, Traefik, or Cloudflare. They only carry signaling to port `3010`. Clients connect **directly** to `SFU_ANNOUNCED_IP` on ports `SFU_MIN_PORT`-`SFU_MAX_PORT` (TCP + UDP).
 
-    Make sure that:
+    - Set `SFU_ANNOUNCED_IP` to the server **public IPv4**, never a Docker or LAN address (`172.x.x.x`, `192.168.x.x`).
+    - Open `40000-40100` TCP + UDP in the host firewall, cloud security group, and router.
+    - Use `network_mode: 'host'` (Linux only) **or** the `ports:` mapping below.
 
-    - `SFU_ANNOUNCED_IP` in `.env` is your server **public IPv4** (or a domain that resolves to it **without** a proxy/CDN), never a Docker or LAN address such as `172.x.x.x` or `192.168.x.x`.
-    - Ports `40000-40100` TCP + UDP are open in the host firewall, cloud security group, and router (port forwarding).
-    - The container publishes those ports: use `network_mode: 'host'` (Linux only) **or** the `ports:` mapping below. With neither, media will not work.
+    Still seeing one side or no video? See the [FAQ troubleshooting](../faq/index.md#troubleshooting).
 
 Alternative to `network_mode: 'host'` (for example Docker Desktop, or when other containers need Docker networks):
 
