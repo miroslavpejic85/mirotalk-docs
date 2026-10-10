@@ -209,15 +209,15 @@ theme:
 
 # Custom styles
 extra_css:
-  - stylesheets/extra.css?v=1.5.66
-  - stylesheets/editorial.css?v=1.5.66
+  - stylesheets/extra.css?v=1.5.67
+  - stylesheets/editorial.css?v=1.5.67
 extra_javascript:
   - javascripts/accessibility.js
   - javascripts/analytics-events.js
 
 # Social / preview card metadata
 extra:
-  docs_version: v1.5.66
+  docs_version: v1.5.67
   links:
     cloud: https://cloud.mirotalk.com
     discord: &discord_url https://discord.gg/rgGYfeYW3N

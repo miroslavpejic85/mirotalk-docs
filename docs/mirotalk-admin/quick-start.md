@@ -113,6 +113,12 @@ A secure, modern web dashboard to manage **[MiroTalk](../overview/index.md)** up
         node backend/scripts/hashPassword.js
         ```
 
+        Keep the generated hash wrapped in **single quotes** when adding it to `.env`
+        (for example, `ADMIN_PASSWORD_HASH='$2b$10$...'`). The `$` characters can be
+        expanded if the value is pasted unquoted into a shell, PM2 ecosystem file,
+        systemd unit, or `docker-compose.yml`, which corrupts the hash. Restart the
+        admin service after changing `.env`.
+
     - `ADMIN_JWT_SECRET` 
   
         👉 generate it by running:
