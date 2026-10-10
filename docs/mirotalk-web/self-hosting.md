@@ -99,6 +99,12 @@ module.exports = {
         Room: 'https://CME-DOMAIN-NAME/?room=',
         //...
     },
+    RND: {
+        Visible: true,
+        Label: 'MiroTalk RND',
+        Home: 'https://RND-DOMAIN-NAME',
+        //...
+    },
   },
   //...
 };
