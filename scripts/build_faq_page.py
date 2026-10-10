@@ -120,7 +120,6 @@ POPULAR_QUESTIONS = [
 ]
 
 
-TONES = ("green", "blue", "coral", "gold")
 DEEPER_SECTION = re.compile(r"^## Go deeper\s*$(?P<body>.*?)(?=^## |\Z)", re.MULTILINE | re.DOTALL)
 DEEPER_CARD = re.compile(
     r'<a class="chooser-choice[^"]*" href="(?P<href>[^"]+)">\s*'
@@ -138,24 +137,6 @@ def parse_deeper(text: str) -> list[dict]:
         if href != urlsplit(PAGE_URL).path:
             cards.append({**match.groupdict(), "href": href})
     return cards
-
-
-def render_squares(sections: list[dict]) -> str:
-    squares = [
-        '<button class="need active" type="button" data-section="all" aria-pressed="true">'
-        '<i data-lucide="layout-grid"></i><span class="name">All topics</span>'
-        '<span class="num"></span></button>'
-    ]
-    for index, section in enumerate(sections):
-        section_id = slugify(section["title"])
-        squares.append(
-            f'<button class="need tone-{TONES[index % len(TONES)]}" type="button" '
-            f'data-section="{section_id}" aria-pressed="false">'
-            f'<i data-lucide="{SECTION_ICONS.get(section_id, "circle-help")}"></i>'
-            f'<span class="name">{escape(section["title"])}</span>'
-            f'<span class="num">{len(section["questions"])}</span></button>'
-        )
-    return "\n".join(squares)
 
 
 def render_deeper(cards: list[dict]) -> str:
@@ -238,8 +219,7 @@ STYLE = """
       --soft: #edf2ef; --line: #d8e2dc; --green: #087f5b; --green2: #056347;
       --mint: #dff5eb; --blue: #1769aa; --bluebg: #e5f2fb; --coral: #d9503f;
       --coralbg: #fbe9e5; --gold: #a76808; --goldbg: #fff1d4; --mark: #fff0a8;
-      --shadow: 0 18px 50px #18231f17; --accent-bg: var(--green2); --accent-fg: #fff;
-      --tone-green: #64d8ad; --tone-blue: #79b9e8; --tone-coral: #ff8b7c; --tone-gold: #efbd67
+      --shadow: 0 18px 50px #18231f17; --accent-bg: var(--green2); --accent-fg: #fff
     }
     [data-theme="dark"] {
       color-scheme: dark;
@@ -247,8 +227,7 @@ STYLE = """
       --soft: #202b26; --line: #33423b; --green: #61d6aa; --green2: #8ce5c3;
       --mint: #173c2f; --blue: #79b9e8; --bluebg: #173247; --coral: #ff8b7c;
       --coralbg: #45251f; --gold: #efbd67; --goldbg: #3d311d; --mark: #5c4b12;
-      --shadow: 0 18px 50px #0004; --accent-fg: #102119;
-      --tone-green: #087f5b; --tone-blue: #1769aa; --tone-coral: #d9503f; --tone-gold: #a76808
+      --shadow: 0 18px 50px #0004; --accent-fg: #102119
     }
     * { box-sizing: border-box }
     html { scroll-behavior: smooth; scroll-padding-top: 140px }
@@ -307,22 +286,6 @@ STYLE = """
     .popular a { padding: 4px 12px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--ink); font-weight: 600; text-decoration: none }
     .popular a:hover { border-color: var(--green); color: var(--green) }
 
-    .chooser { padding: 64px 0; background: var(--ink); color: var(--paper) }
-    [data-theme="dark"] .chooser { background: #eaf2ee; color: #16211c }
-    .chooser .eyebrow { color: var(--tone-green) }
-    .chooser h2 { margin: 12px 0 10px; font-size: clamp(1.8rem, 3.5vw, 2.6rem) }
-    .chooser .intro { max-width: 700px; margin-bottom: 30px }
-    .chooser .intro p { margin: 0; color: color-mix(in srgb, currentColor 70%, transparent); font-size: 1.05rem }
-    .needs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px }
-    .need { --tone: var(--tone-green); position: relative; display: flex; min-height: 112px; flex-direction: column; gap: 4px; padding: 16px; border: 1px solid color-mix(in srgb, currentColor 24%, transparent); border-radius: 7px; background: transparent; color: inherit; text-align: left; cursor: pointer }
-    .need.tone-blue { --tone: var(--tone-blue) }
-    .need.tone-coral { --tone: var(--tone-coral) }
-    .need.tone-gold { --tone: var(--tone-gold) }
-    .need svg { width: 22px; height: 22px; margin-bottom: 6px; color: var(--tone) }
-    .need .name { font-weight: 700; line-height: 1.35 }
-    .need .num { position: absolute; top: 12px; right: 12px; min-width: 24px; padding: 0 7px; border-radius: 999px; background: color-mix(in srgb, currentColor 14%, transparent); font-size: .75rem; font-weight: 700; text-align: center }
-    .need:hover, .need.active { border-color: var(--tone); background: color-mix(in srgb, var(--tone) 14%, transparent) }
-    .need.zero:not(.active) { opacity: .45 }
 
     .layout { display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: 40px; align-items: start; padding: 48px 0 72px }
     .sidebar { position: sticky; top: 140px; max-height: calc(100vh - 160px); overflow-y: auto }
@@ -418,7 +381,6 @@ STYLE = """
     kbd { padding: 1px 6px; border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 4px; background: var(--surface); font: .8em monospace }
 
     @media (max-width: 900px) {
-      .needs { grid-template-columns: repeat(3, minmax(0, 1fr)) }
       .layout { grid-template-columns: 1fr; gap: 12px; padding-top: 20px }
       .sidebar { position: static; max-height: none; overflow: visible }
       .sidebar h2, .topics { display: none }
@@ -435,9 +397,6 @@ STYLE = """
       .stickybar { top: 64px; padding: 6px 0 }
       .stickybar .search { min-height: 44px; padding: 10px 78px 10px 42px; font-size: .92rem }
       .sticky-count { display: none }
-      .needs { grid-template-columns: repeat(2, minmax(0, 1fr)) }
-      .need { min-height: 106px; padding: 14px }
-      .need .name { font-size: .95rem }
       .topic-select { font-size: .92rem }
       .status { gap: 10px; align-items: flex-start }
       .status .actions { width: 100%; justify-content: flex-start }
@@ -452,7 +411,6 @@ STYLE = """
       .to-top { right: 14px; bottom: calc(14px + env(safe-area-inset-bottom)); width: 48px; height: 48px }
       .kbd-hint { display: none }
     }
-    @media (max-width: 520px) { .needs { grid-template-columns: 1fr } }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto } .qa { transition: none } }
 """
 
@@ -469,7 +427,7 @@ SCRIPT = """
       const results = document.getElementById('results');
       const sections = [...document.querySelectorAll('.faq-section')];
       const items = [...document.querySelectorAll('.qa')];
-      const topics = [...document.querySelectorAll('.topic, .need')];
+      const topics = [...document.querySelectorAll('.topic')];
       const topicSelect = document.getElementById('topic-select');
       const status = document.getElementById('count');
       const activeFilters = document.getElementById('active-filters');
@@ -636,10 +594,7 @@ SCRIPT = """
         input.addEventListener('keydown', (event) => { if (event.key === 'Escape') setQuery(''); });
       });
       clear.addEventListener('click', () => { setQuery('', false); heroInput.focus(); });
-      topics.forEach((topic) => topic.addEventListener('click', () => {
-        setSection(topic.dataset.section);
-        if (topic.classList.contains('need')) results.scrollIntoView();
-      }));
+      topics.forEach((topic) => topic.addEventListener('click', () => setSection(topic.dataset.section)));
       topicSelect.addEventListener('change', () => {
         setSection(topicSelect.value);
         if (window.matchMedia('(max-width: 900px)').matches) results.scrollIntoView();
@@ -686,7 +641,7 @@ SCRIPT = """
 
 
 def build_page(
-    title: str, topics: str, body: str, popular: str, options: str, total: int, squares: str, deeper: str
+    title: str, topics: str, body: str, popular: str, options: str, total: int, deeper: str
 ) -> str:
     safe_title = escape(TITLE, quote=True)
     safe_description = escape(DESCRIPTION, quote=True)
@@ -731,7 +686,7 @@ def build_page(
   </script>
   <title>{safe_title}</title>
   <style>{STYLE}  </style>
-  <noscript><style>.searchbox, .popular, .chooser, .sidebar, .status .actions, .copy, .to-top, .theme {{ display: none }} .layout {{ grid-template-columns: 1fr }}</style></noscript>
+  <noscript><style>.searchbox, .popular, .sidebar, .status .actions, .copy, .to-top, .theme {{ display: none }} .layout {{ grid-template-columns: 1fr }}</style></noscript>
 </head>
 <body>
   <a class="skip-link" href="#results">Skip to FAQ results</a>
@@ -763,17 +718,6 @@ def build_page(
       </div>
       <p class="kbd-hint">Tip: press <kbd>/</kbd> to jump to search and <kbd>Esc</kbd> to clear it quickly.</p>
       <div class="popular"><span>Popular searches:</span>{popular}</div>
-    </div>
-  </section>
-  <section class="chooser" aria-labelledby="topics-title">
-    <div class="shell">
-      <div class="intro"><span class="eyebrow">Browse by topic</span>
-        <h2 id="topics-title">What do you need help with?</h2>
-        <p>Pick a topic to filter the answers below, or search across everything.</p>
-      </div>
-      <div class="needs" role="group" aria-label="Filter questions by topic">
-{squares}
-      </div>
     </div>
   </section>
   <div class="shell layout" id="results">
@@ -815,7 +759,7 @@ def generate() -> str:
     title, sections = parse_faq(text)
     topics, body, popular, options, total = render_body(sections)
     return build_page(
-        title, topics, body, popular, options, total, render_squares(sections),
+        title, topics, body, popular, options, total,
         render_deeper(parse_deeper(text)),
     )
 
