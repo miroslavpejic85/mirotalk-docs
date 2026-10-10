@@ -128,7 +128,7 @@ To quickly add a support widget to your site, include the script in your `<head>
       id="support-widget"
       data-mirotalk-auto
       data-domain="YOUR-DOMAIN-NAME"
-      data-room="support-room"
+      data-room="random"
       data-theme="dark"
       data-widget-type="support"
       data-widget-state="normal"
