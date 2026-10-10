@@ -96,7 +96,7 @@ Embed a hosted or self-hosted MiroTalk instance with an iframe. This minimal SFU
 
 ```html
 <iframe
-  allow="camera; microphone; speaker-selection; display-capture; fullscreen; clipboard-read; clipboard-write; web-share; autoplay; picture-in-picture"
+  allow="camera; microphone; speaker-selection; display-capture; fullscreen; clipboard-read; clipboard-write; web-share; autoplay; picture-in-picture; screen-wake-lock"
   src="https://sfu.mirotalk.com/newroom"
   style="width: 100vw; height: 100vh; border: 0;"
 ></iframe>

@@ -16,7 +16,7 @@ Easily integrate MiroTalk P2P into your website by embedding it with a simple `i
     <body>
         <iframe
             id="mirotalkIframe"
-            allow="camera; microphone; speaker-selection; display-capture; fullscreen; clipboard-read; clipboard-write; web-share; autoplay; picture-in-picture"
+            allow="camera; microphone; speaker-selection; display-capture; fullscreen; clipboard-read; clipboard-write; web-share; autoplay; picture-in-picture; screen-wake-lock"
             src="https://YOUR-DOMAIN-NAME/newcall"
             style="height: 100vh; width: 100vw; border: 0px"
         ></iframe>

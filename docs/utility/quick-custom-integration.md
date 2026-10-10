@@ -75,7 +75,7 @@ For a server-rendered page, the same behavior can be expressed without JavaScrip
   </head>
   <body>
     <iframe
-      allow="camera; microphone; speaker-selection; display-capture; fullscreen; clipboard-read; clipboard-write; web-share; autoplay; picture-in-picture"
+      allow="camera; microphone; speaker-selection; display-capture; fullscreen; clipboard-read; clipboard-write; web-share; autoplay; picture-in-picture; screen-wake-lock"
       src="https://sfu.mirotalk.com/newroom"
       title="MiroTalk video conference"
     ></iframe>
@@ -94,7 +94,7 @@ Place the iframe directly in an existing page when users should remain inside yo
 
 <iframe
   id="mirotalkIframe"
-  allow="camera; microphone; speaker-selection; display-capture; fullscreen; clipboard-read; clipboard-write; web-share; autoplay; picture-in-picture"
+  allow="camera; microphone; speaker-selection; display-capture; fullscreen; clipboard-read; clipboard-write; web-share; autoplay; picture-in-picture; screen-wake-lock"
   src="https://sfu.mirotalk.com/newroom"
   title="MiroTalk video conference"
   style="display: none; width: 100%; height: 80vh; border: 0;"

@@ -220,7 +220,7 @@
 
     ```html
     <iframe
-      allow="camera; microphone; display-capture; autoplay; clipboard-write"
+      allow="camera; microphone; display-capture; autoplay; clipboard-write; screen-wake-lock"
       src="https://your-domain.com/newroom"
       style="width: 100vw; height: 100vh; border: 0px;">
     </iframe>
