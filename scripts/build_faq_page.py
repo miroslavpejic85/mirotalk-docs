@@ -118,12 +118,13 @@ POPULAR_QUESTIONS = [
 ]
 
 
-def render_body(sections: list[dict]) -> tuple[str, str, str, int]:
+def render_body(sections: list[dict]) -> tuple[str, str, str, str, int]:
     topics = [
         '<button class="topic active" type="button" data-section="all" aria-pressed="true">'
         '<i data-lucide="layout-grid"></i><span class="name">All topics</span>'
         '<span class="num"></span></button>'
     ]
+    options = ['<option value="all">All topics</option>']
     blocks = []
     total = 0
     ids: dict[str, str] = {}
@@ -138,6 +139,10 @@ def render_body(sections: list[dict]) -> tuple[str, str, str, int]:
             f'<i data-lucide="{icon}"></i><span class="name">{escape(section["title"])}</span>'
             f'<span class="num">{count}</span></button>'
         )
+        options.append(
+            f'<option value="{section_id}" data-name="{escape(section["title"], quote=True)}">'
+            f'{escape(section["title"])} ({count})</option>'
+        )
         items = []
         for question in section["questions"]:
             question_id = slugify(question["question"])
@@ -147,7 +152,8 @@ def render_body(sections: list[dict]) -> tuple[str, str, str, int]:
             text = escape(question["question"])
             items.append(
                 f'<details class="qa" id="{question_id}">\n'
-                f'<summary><span class="q" data-text="{text}">{text}</span></summary>\n'
+                f'<summary><span class="qwrap"><span class="q" data-text="{text}">{text}</span>'
+                '<span class="snippet" hidden></span></span></summary>\n'
                 f'<div class="answer">\n{render_answer(question["lines"])}\n'
                 f'<div class="answer-foot"><button class="copy" type="button" data-id="{question_id}">'
                 '<i data-lucide="link"></i><span>Copy link</span></button></div></div>\n'
@@ -166,7 +172,7 @@ def render_body(sections: list[dict]) -> tuple[str, str, str, int]:
             raise ValueError(f"Popular question not found in the FAQ: {question}")
         popular.append(f'<a href="#{ids[question]}">{escape(label)}</a>')
 
-    return "\n".join(topics), "\n".join(blocks), "\n".join(popular), total
+    return "\n".join(topics), "\n".join(blocks), "\n".join(popular), "\n".join(options), total
 
 
 STYLE = """
@@ -185,7 +191,7 @@ STYLE = """
       --blue: #7dbcf0; --blue-soft: #173247; --accent-bg: #7dbcf0; --accent-fg: #0d1a24
     }
     * { box-sizing: border-box }
-    html { scroll-behavior: smooth; scroll-padding-top: 88px }
+    html { scroll-behavior: smooth; scroll-padding-top: 132px }
     body { margin: 0; color: var(--ink); font: 16px/1.65 'DM Sans', sans-serif; background: var(--paper) }
     a { color: var(--blue) } button, input { color: inherit; font: inherit }
     :focus-visible { outline: 3px solid var(--blue); outline-offset: 2px }
@@ -205,7 +211,7 @@ STYLE = """
 
     .hero { padding: 44px 0 28px; border-bottom: 1px solid var(--line); background: linear-gradient(180deg, var(--mint), transparent) }
     .hero .shell { max-width: 760px; text-align: center }
-    .eyebrow { margin: 0 0 8px; color: var(--green); font-size: .8rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase }
+    .eyebrow { margin: 0 0 8px; color: var(--green-dark); font-size: .8rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase }
     h1 { margin-bottom: 10px; font-size: clamp(2rem, 5vw, 2.75rem); line-height: 1.1 }
     .lead { margin: 0 auto 22px; max-width: 54ch; color: var(--muted); font-size: 1.05rem }
     .searchbox { position: relative }
@@ -221,10 +227,10 @@ STYLE = """
     .popular a:hover { border-color: var(--blue); color: var(--blue) }
 
     .layout { display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: 40px; align-items: start; padding: 32px 0 64px }
-    .sidebar { position: sticky; top: 88px; max-height: calc(100vh - 108px); overflow-y: auto }
+    .sidebar { position: sticky; top: 132px; max-height: calc(100vh - 152px); overflow-y: auto }
     .sidebar h2 { margin: 0 0 8px 10px; color: var(--muted); font: 700 .75rem 'DM Sans', sans-serif; letter-spacing: .08em; text-transform: uppercase }
     .topics { display: flex; flex-direction: column; gap: 2px }
-    .topic { display: flex; gap: 10px; align-items: center; padding: 8px 10px; border: 0; border-radius: 8px; background: none; font-size: .92rem; font-weight: 500; text-align: left; cursor: pointer }
+    .topic { display: flex; gap: 10px; align-items: center; padding: 6px 10px; border: 0; border-radius: 8px; background: none; font-size: .92rem; font-weight: 500; text-align: left; cursor: pointer }
     .topic svg { width: 17px; height: 17px; color: var(--muted) }
     .topic .name { flex: 1 }
     .topic .num { min-width: 22px; padding: 0 6px; border-radius: 999px; background: var(--soft); color: var(--muted); font-size: .75rem; text-align: center }
@@ -239,8 +245,9 @@ STYLE = """
     .status .actions { display: flex; gap: 6px }
     .link-button { padding: 4px 10px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); font-size: .82rem; font-weight: 600; cursor: pointer }
     .link-button:hover { border-color: var(--blue); color: var(--blue) }
-    .faq-section { margin-top: 28px }
-    .faq-section h2 { display: flex; gap: 12px; align-items: center; margin-bottom: 14px; font-size: 1.3rem }
+    .sections { display: flex; flex-direction: column }
+    .faq-section { display: flex; flex-direction: column; margin-top: 28px }
+    .faq-section h2 { order: -1; display: flex; gap: 12px; align-items: center; margin-bottom: 14px; font-size: 1.3rem }
     .faq-section h2 .icon { display: grid; width: 34px; height: 34px; place-items: center; border-radius: 9px; background: var(--blue-soft); color: var(--blue) }
     .faq-section h2 svg { width: 18px; height: 18px }
     .qa { margin-bottom: 10px; border: 1px solid var(--line); border-left: 4px solid var(--line); border-radius: 10px; background: var(--surface); transition: border-color .15s }
@@ -252,7 +259,15 @@ STYLE = """
     .qa[open] summary::after { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231565c0' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M6 12h12'/%3E%3C/svg%3E") }
     [data-theme="dark"] .qa summary::after { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%237dbcf0' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M12 6v12M6 12h12'/%3E%3C/svg%3E") }
     [data-theme="dark"] .qa[open] summary::after { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%237dbcf0' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M6 12h12'/%3E%3C/svg%3E") }
-    .qa:target { scroll-margin-top: 88px }
+    .qwrap { display: flex; flex-direction: column; gap: 4px; min-width: 0 }
+    .snippet { color: var(--muted); font-size: .86rem; font-weight: 400; line-height: 1.5 }
+    .qa[open] .snippet { display: none }
+    .stickybar { position: fixed; top: 65px; right: 0; left: 0; z-index: 19; padding: 8px 0; border-bottom: 1px solid var(--line); background: color-mix(in srgb, var(--paper) 94%, transparent); backdrop-filter: blur(14px) }
+    .stickybar .search { padding: 9px 90px 9px 44px; border-width: 1px; border-radius: 10px; font-size: .95rem; box-shadow: none }
+    .stickybar .searchbox > svg { left: 15px; width: 18px; height: 18px }
+    .sticky-count { position: absolute; top: 50%; right: 14px; color: var(--muted); font-size: .8rem; transform: translateY(-50%); pointer-events: none }
+    .topic-select { display: none; gap: 10px; align-items: center; font-size: .88rem; font-weight: 600 }
+    .topic-select select { flex: 1; min-width: 0; padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); font: inherit; font-size: 1rem }
     mark { padding: 0 2px; border-radius: 3px; background: var(--mark); color: inherit }
     .answer { padding: 4px 20px 18px; border-top: 1px solid var(--line); line-height: 1.75 }
     .answer > :first-child { margin-top: 16px }
@@ -290,12 +305,9 @@ STYLE = """
 
     @media (max-width: 900px) {
       .layout { grid-template-columns: 1fr; gap: 12px; padding-top: 20px }
-      .sidebar { position: static; max-height: none; margin-inline: -14px; padding: 0 14px 6px; overflow-x: auto }
-      .sidebar h2 { display: none }
-      .sidebar { scrollbar-width: none }
-      .topics { flex-direction: row; gap: 8px; width: max-content }
-      .topic { padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); white-space: nowrap }
-      .topic .num:empty { display: none }
+      .sidebar { position: static; max-height: none; overflow: visible }
+      .sidebar h2, .topics { display: none }
+      .topic-select { display: flex }
     }
     @media (max-width: 680px) {
       .shell { width: calc(100% - 28px) }
@@ -311,49 +323,86 @@ STYLE = """
 
 SCRIPT = """
     document.addEventListener('DOMContentLoaded', () => {
-      const refreshIcons = () => window.lucide && lucide.createIcons();
-      refreshIcons();
+      if (window.lucide) lucide.createIcons();
       document.getElementById('theme').addEventListener('click', () => window.MiroTalkTheme.toggle());
 
-      const input = document.getElementById('search');
+      const heroInput = document.getElementById('search');
+      const stickyInput = document.getElementById('search-sticky');
+      const stickyBar = document.getElementById('stickybar');
+      const stickyCount = document.getElementById('sticky-count');
       const clear = document.getElementById('clear');
+      const sectionsBox = document.getElementById('sections');
       const sections = [...document.querySelectorAll('.faq-section')];
       const items = [...document.querySelectorAll('.qa')];
       const topics = [...document.querySelectorAll('.topic')];
+      const topicSelect = document.getElementById('topic-select');
       const status = document.getElementById('count');
       const empty = document.getElementById('empty');
       const emptyQuery = document.getElementById('empty-query');
       const toTop = document.getElementById('to-top');
-      const index = new Map(items.map((item) => [item, item.textContent.toLowerCase()]));
-      const escapeHtml = (text) => text.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-      const escapePattern = (text) => text.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&');
       let activeSection = 'all';
 
-      const highlight = (item, terms) => {
-        const label = item.querySelector('.q');
-        const text = label.dataset.text;
-        const unescaped = new DOMParser().parseFromString(text, 'text/html').body.textContent;
-        if (!terms.length) { label.textContent = unescaped; return; }
+      const escapeHtml = (text) => text.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+      const escapePattern = (text) => text.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&');
+      const highlightHtml = (text, terms) => {
+        if (!terms.length) return escapeHtml(text);
         const pattern = new RegExp(`(${terms.map(escapePattern).join('|')})`, 'gi');
-        label.innerHTML = unescaped.split(pattern).map((part, i) => (i % 2 ? `<mark>${escapeHtml(part)}</mark>` : escapeHtml(part))).join('');
+        return text.split(pattern).map((part, i) => (i % 2 ? `<mark>${escapeHtml(part)}</mark>` : escapeHtml(part))).join('');
+      };
+
+      const data = new Map(items.map((item, position) => {
+        const title = item.querySelector('.q').dataset.text;
+        const body = [...item.querySelector('.answer').children]
+          .filter((element) => !element.classList.contains('answer-foot'))
+          .map((element) => element.textContent).join(' ').replace(/\\s+/g, ' ').trim();
+        return [item, { title, titleLower: title.toLowerCase(), body, bodyLower: body.toLowerCase(), position }];
+      }));
+
+      const snippetFor = (entry, terms) => {
+        const hit = terms.map((term) => entry.bodyLower.indexOf(term)).filter((i) => i >= 0).sort((a, b) => a - b)[0];
+        if (hit === undefined) return '';
+        let start = Math.max(0, hit - 50);
+        let end = Math.min(entry.body.length, hit + 110);
+        // Snap to word boundaries so the excerpt does not start or end mid-word.
+        if (start > 0) start = Math.min(entry.body.indexOf(' ', start) + 1 || start, hit);
+        if (end < entry.body.length) end = Math.max(entry.body.lastIndexOf(' ', end) || end, hit + 1);
+        return `${start > 0 ? '… ' : ''}${highlightHtml(entry.body.slice(start, end), terms)}${end < entry.body.length ? ' …' : ''}`;
       };
 
       const apply = (searchChanged = false) => {
-        const raw = input.value.trim();
+        const raw = heroInput.value.trim();
         const terms = raw.toLowerCase().split(/\\s+/).filter(Boolean);
         const perSection = new Map(sections.map((section) => [section.dataset.section, 0]));
+        const scores = new Map();
         let visible = 0;
 
         items.forEach((item) => {
+          const entry = data.get(item);
           const section = item.closest('.faq-section').dataset.section;
-          const matches = terms.every((term) => index.get(item).includes(term));
-          if (matches) perSection.set(section, perSection.get(section) + 1);
+          const matches = terms.every((term) => entry.titleLower.includes(term) || entry.bodyLower.includes(term));
+          if (matches) {
+            perSection.set(section, perSection.get(section) + 1);
+            scores.set(item, terms.reduce((sum, term) => sum + (entry.titleLower.includes(term) ? 10 : 0) + (entry.bodyLower.includes(term) ? 1 : 0), 0));
+          }
           const shown = matches && (activeSection === 'all' || section === activeSection);
           item.hidden = !shown;
-          if (shown) { visible += 1; highlight(item, terms); }
+          if (!shown) return;
+          visible += 1;
+          item.querySelector('.q').innerHTML = highlightHtml(entry.title, terms);
+          const snippet = item.querySelector('.snippet');
+          const bodyOnly = terms.length && !terms.every((term) => entry.titleLower.includes(term));
+          snippet.innerHTML = bodyOnly ? snippetFor(entry, terms) : '';
+          snippet.hidden = !snippet.innerHTML;
         });
 
-        sections.forEach((section) => { section.hidden = !section.querySelector('.qa:not([hidden])'); });
+        // Best matches first, without moving DOM nodes (CSS order on flex columns).
+        const ranked = items.filter((item) => !item.hidden).sort((a, b) => (scores.get(b) || 0) - (scores.get(a) || 0) || data.get(a).position - data.get(b).position);
+        items.forEach((item) => { item.style.order = terms.length ? String(ranked.indexOf(item)) : ''; });
+        sections.forEach((section) => {
+          const visibleItems = [...section.querySelectorAll('.qa:not([hidden])')];
+          section.hidden = visibleItems.length === 0;
+          section.style.order = terms.length && visibleItems.length ? String(Math.min(...visibleItems.map((item) => ranked.indexOf(item)))) : '';
+        });
 
         const matchTotal = [...perSection.values()].reduce((sum, n) => sum + n, 0);
         topics.forEach((topic) => {
@@ -361,6 +410,10 @@ SCRIPT = """
           topic.querySelector('.num').textContent = topic.dataset.section === 'all' ? '' : count;
           topic.classList.toggle('zero', count === 0);
         });
+        [...topicSelect.options].forEach((option) => {
+          option.textContent = option.value === 'all' ? `All topics (${matchTotal})` : `${option.dataset.name} (${perSection.get(option.value)})`;
+        });
+        topicSelect.value = activeSection;
 
         if (searchChanged && terms.length && visible > 0 && visible <= 3) {
           items.forEach((item) => { if (!item.hidden) item.open = true; });
@@ -368,6 +421,7 @@ SCRIPT = """
 
         const noun = visible === 1 ? 'question' : 'questions';
         status.textContent = raw ? `${visible} ${noun} found for “${raw}”` : `Showing ${visible} ${noun}`;
+        stickyCount.textContent = raw ? `${visible} found` : '';
         emptyQuery.textContent = raw ? `No answers match “${raw}”` : 'No questions in this topic';
         empty.classList.toggle('visible', visible === 0);
         clear.classList.toggle('visible', raw.length > 0);
@@ -375,6 +429,12 @@ SCRIPT = """
         const url = new URL(window.location.href);
         if (raw) url.searchParams.set('q', raw); else url.searchParams.delete('q');
         history.replaceState(null, '', url);
+      };
+
+      const setQuery = (value, searchChanged = true) => {
+        heroInput.value = value;
+        stickyInput.value = value;
+        apply(searchChanged);
       };
 
       const setSection = (name) => {
@@ -391,17 +451,21 @@ SCRIPT = """
         const id = decodeURIComponent(location.hash.slice(1));
         const item = id && document.getElementById(id);
         if (!item || !item.classList.contains('qa')) return;
-        if (item.hidden) { input.value = ''; activeSection = 'all'; setSection('all'); }
+        if (item.hidden) { setQuery('', false); setSection('all'); }
         item.open = true;
         item.scrollIntoView();
       };
 
-      input.addEventListener('input', () => apply(true));
-      clear.addEventListener('click', () => { input.value = ''; apply(); input.focus(); });
+      [heroInput, stickyInput].forEach((input) => {
+        input.addEventListener('input', () => setQuery(input.value));
+        input.addEventListener('keydown', (event) => { if (event.key === 'Escape') setQuery(''); });
+      });
+      clear.addEventListener('click', () => { setQuery('', false); heroInput.focus(); });
       topics.forEach((topic) => topic.addEventListener('click', () => setSection(topic.dataset.section)));
+      topicSelect.addEventListener('change', () => setSection(topicSelect.value));
       document.getElementById('expand').addEventListener('click', () => items.forEach((item) => { item.open = !item.hidden; }));
       document.getElementById('collapse').addEventListener('click', () => items.forEach((item) => { item.open = false; }));
-      document.getElementById('reset').addEventListener('click', () => { input.value = ''; setSection('all'); input.focus(); });
+      document.getElementById('reset').addEventListener('click', () => { setQuery('', false); setSection('all'); heroInput.focus(); });
       window.addEventListener('hashchange', openFromHash);
 
       document.querySelectorAll('.copy').forEach((button) => button.addEventListener('click', async () => {
@@ -411,22 +475,27 @@ SCRIPT = """
         setTimeout(() => { label.textContent = 'Copy link'; }, 1800);
       }));
 
+      // Show a compact search bar once the main search box has scrolled out of view.
+      new IntersectionObserver(([entry]) => { stickyBar.hidden = entry.isIntersecting; }, { rootMargin: '-65px 0px 0px 0px' })
+        .observe(document.querySelector('.hero .searchbox'));
+
       window.addEventListener('scroll', () => toTop.classList.toggle('visible', window.scrollY > 900), { passive: true });
       toTop.addEventListener('click', () => window.scrollTo({ top: 0 }));
       document.addEventListener('keydown', (event) => {
-        const typing = ['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName);
-        if (event.key === '/' && !typing && !event.metaKey && !event.ctrlKey) { event.preventDefault(); input.focus(); }
-        if (event.key === 'Escape' && document.activeElement === input) { input.value = ''; apply(); }
+        const typing = ['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement.tagName);
+        if (event.key === '/' && !typing && !event.metaKey && !event.ctrlKey) {
+          event.preventDefault();
+          (stickyBar.hidden ? heroInput : stickyInput).focus();
+        }
       });
 
-      input.value = new URLSearchParams(location.search).get('q') || '';
-      apply(true);
+      setQuery(new URLSearchParams(location.search).get('q') || '');
       openFromHash();
     });
 """
 
 
-def build_page(title: str, topics: str, body: str, popular: str, total: int) -> str:
+def build_page(title: str, topics: str, body: str, popular: str, options: str, total: int) -> str:
     safe_title = escape(TITLE, quote=True)
     safe_description = escape(DESCRIPTION, quote=True)
     heading = escape(title)
@@ -470,6 +539,7 @@ def build_page(title: str, topics: str, body: str, popular: str, total: int) -> 
   </script>
   <title>{safe_title}</title>
   <style>{STYLE}  </style>
+  <noscript><style>.searchbox, .popular, .sidebar, .status .actions, .copy, .to-top, .theme {{ display: none }} .layout {{ grid-template-columns: 1fr }}</style></noscript>
 </head>
 <body>
   <header class="site-header">
@@ -479,10 +549,19 @@ def build_page(title: str, topics: str, body: str, popular: str, total: int) -> 
       <button class="theme" id="theme" type="button" aria-label="Toggle color theme"><i data-lucide="sun-moon"></i></button>
     </nav>
   </header>
-  <section class="hero">
+  <div class="stickybar" id="stickybar" role="search" aria-label="Search the FAQ" hidden>
+    <div class="shell">
+      <div class="searchbox">
+        <i data-lucide="search"></i>
+        <input class="search" id="search-sticky" type="search" placeholder="Search questions..." aria-label="Search questions" autocomplete="off">
+        <span class="sticky-count" aria-hidden="true" id="sticky-count"></span>
+      </div>
+    </div>
+  </div>
+  <section class="hero" aria-labelledby="faq-title">
     <div class="shell">
       <p class="eyebrow">Help center</p>
-      <h1>{heading}</h1>
+      <h1 id="faq-title">{heading}</h1>
       <p class="lead">Quick answers about MiroTalk products, self-hosting, licensing, and troubleshooting.</p>
       <div class="searchbox">
         <i data-lucide="search"></i>
@@ -496,13 +575,16 @@ def build_page(title: str, topics: str, body: str, popular: str, total: int) -> 
     <aside class="sidebar" aria-label="Browse by topic">
       <h2>Browse by topic</h2>
       <div class="topics">{topics}</div>
+      <label class="topic-select"><span>Topic</span><select id="topic-select" aria-label="Filter by topic">{options}</select></label>
     </aside>
     <main class="content">
       <div class="status">
         <span id="count" role="status" aria-live="polite">Showing {total} questions</span>
         <span class="actions"><button class="link-button" id="expand" type="button">Expand all</button><button class="link-button" id="collapse" type="button">Collapse all</button></span>
       </div>
+<div class="sections" id="sections">
 {body}
+      </div>
       <div class="empty" id="empty"><strong id="empty-query">No answers found</strong>Try a shorter keyword or browse all topics.<br><button id="reset" type="button" class="link-button">Clear search and filters</button></div>
       <aside class="help">
         <div><h2>Can't find your answer?</h2><p>Ask the MiroTalk community or browse the full documentation.</p></div>
@@ -520,8 +602,8 @@ def build_page(title: str, topics: str, body: str, popular: str, total: int) -> 
 
 def generate() -> str:
     title, sections = parse_faq(SOURCE.read_text(encoding="utf-8"))
-    topics, body, popular, total = render_body(sections)
-    return build_page(title, topics, body, popular, total)
+    topics, body, popular, options, total = render_body(sections)
+    return build_page(title, topics, body, popular, options, total)
 
 
 def write_page() -> bool:

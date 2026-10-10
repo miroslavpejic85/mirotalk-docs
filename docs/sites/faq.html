@@ -53,7 +53,7 @@
       --blue: #7dbcf0; --blue-soft: #173247; --accent-bg: #7dbcf0; --accent-fg: #0d1a24
     }
     * { box-sizing: border-box }
-    html { scroll-behavior: smooth; scroll-padding-top: 88px }
+    html { scroll-behavior: smooth; scroll-padding-top: 132px }
     body { margin: 0; color: var(--ink); font: 16px/1.65 'DM Sans', sans-serif; background: var(--paper) }
     a { color: var(--blue) } button, input { color: inherit; font: inherit }
     :focus-visible { outline: 3px solid var(--blue); outline-offset: 2px }
@@ -73,7 +73,7 @@
 
     .hero { padding: 44px 0 28px; border-bottom: 1px solid var(--line); background: linear-gradient(180deg, var(--mint), transparent) }
     .hero .shell { max-width: 760px; text-align: center }
-    .eyebrow { margin: 0 0 8px; color: var(--green); font-size: .8rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase }
+    .eyebrow { margin: 0 0 8px; color: var(--green-dark); font-size: .8rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase }
     h1 { margin-bottom: 10px; font-size: clamp(2rem, 5vw, 2.75rem); line-height: 1.1 }
     .lead { margin: 0 auto 22px; max-width: 54ch; color: var(--muted); font-size: 1.05rem }
     .searchbox { position: relative }
@@ -89,10 +89,10 @@
     .popular a:hover { border-color: var(--blue); color: var(--blue) }
 
     .layout { display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: 40px; align-items: start; padding: 32px 0 64px }
-    .sidebar { position: sticky; top: 88px; max-height: calc(100vh - 108px); overflow-y: auto }
+    .sidebar { position: sticky; top: 132px; max-height: calc(100vh - 152px); overflow-y: auto }
     .sidebar h2 { margin: 0 0 8px 10px; color: var(--muted); font: 700 .75rem 'DM Sans', sans-serif; letter-spacing: .08em; text-transform: uppercase }
     .topics { display: flex; flex-direction: column; gap: 2px }
-    .topic { display: flex; gap: 10px; align-items: center; padding: 8px 10px; border: 0; border-radius: 8px; background: none; font-size: .92rem; font-weight: 500; text-align: left; cursor: pointer }
+    .topic { display: flex; gap: 10px; align-items: center; padding: 6px 10px; border: 0; border-radius: 8px; background: none; font-size: .92rem; font-weight: 500; text-align: left; cursor: pointer }
     .topic svg { width: 17px; height: 17px; color: var(--muted) }
     .topic .name { flex: 1 }
     .topic .num { min-width: 22px; padding: 0 6px; border-radius: 999px; background: var(--soft); color: var(--muted); font-size: .75rem; text-align: center }
@@ -107,8 +107,9 @@
     .status .actions { display: flex; gap: 6px }
     .link-button { padding: 4px 10px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); font-size: .82rem; font-weight: 600; cursor: pointer }
     .link-button:hover { border-color: var(--blue); color: var(--blue) }
-    .faq-section { margin-top: 28px }
-    .faq-section h2 { display: flex; gap: 12px; align-items: center; margin-bottom: 14px; font-size: 1.3rem }
+    .sections { display: flex; flex-direction: column }
+    .faq-section { display: flex; flex-direction: column; margin-top: 28px }
+    .faq-section h2 { order: -1; display: flex; gap: 12px; align-items: center; margin-bottom: 14px; font-size: 1.3rem }
     .faq-section h2 .icon { display: grid; width: 34px; height: 34px; place-items: center; border-radius: 9px; background: var(--blue-soft); color: var(--blue) }
     .faq-section h2 svg { width: 18px; height: 18px }
     .qa { margin-bottom: 10px; border: 1px solid var(--line); border-left: 4px solid var(--line); border-radius: 10px; background: var(--surface); transition: border-color .15s }
@@ -120,7 +121,15 @@
     .qa[open] summary::after { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231565c0' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M6 12h12'/%3E%3C/svg%3E") }
     [data-theme="dark"] .qa summary::after { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%237dbcf0' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M12 6v12M6 12h12'/%3E%3C/svg%3E") }
     [data-theme="dark"] .qa[open] summary::after { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%237dbcf0' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M6 12h12'/%3E%3C/svg%3E") }
-    .qa:target { scroll-margin-top: 88px }
+    .qwrap { display: flex; flex-direction: column; gap: 4px; min-width: 0 }
+    .snippet { color: var(--muted); font-size: .86rem; font-weight: 400; line-height: 1.5 }
+    .qa[open] .snippet { display: none }
+    .stickybar { position: fixed; top: 65px; right: 0; left: 0; z-index: 19; padding: 8px 0; border-bottom: 1px solid var(--line); background: color-mix(in srgb, var(--paper) 94%, transparent); backdrop-filter: blur(14px) }
+    .stickybar .search { padding: 9px 90px 9px 44px; border-width: 1px; border-radius: 10px; font-size: .95rem; box-shadow: none }
+    .stickybar .searchbox > svg { left: 15px; width: 18px; height: 18px }
+    .sticky-count { position: absolute; top: 50%; right: 14px; color: var(--muted); font-size: .8rem; transform: translateY(-50%); pointer-events: none }
+    .topic-select { display: none; gap: 10px; align-items: center; font-size: .88rem; font-weight: 600 }
+    .topic-select select { flex: 1; min-width: 0; padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); font: inherit; font-size: 1rem }
     mark { padding: 0 2px; border-radius: 3px; background: var(--mark); color: inherit }
     .answer { padding: 4px 20px 18px; border-top: 1px solid var(--line); line-height: 1.75 }
     .answer > :first-child { margin-top: 16px }
@@ -158,12 +167,9 @@
 
     @media (max-width: 900px) {
       .layout { grid-template-columns: 1fr; gap: 12px; padding-top: 20px }
-      .sidebar { position: static; max-height: none; margin-inline: -14px; padding: 0 14px 6px; overflow-x: auto }
-      .sidebar h2 { display: none }
-      .sidebar { scrollbar-width: none }
-      .topics { flex-direction: row; gap: 8px; width: max-content }
-      .topic { padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); white-space: nowrap }
-      .topic .num:empty { display: none }
+      .sidebar { position: static; max-height: none; overflow: visible }
+      .sidebar h2, .topics { display: none }
+      .topic-select { display: flex }
     }
     @media (max-width: 680px) {
       .shell { width: calc(100% - 28px) }
@@ -176,6 +182,7 @@
     }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto } .qa { transition: none } }
   </style>
+  <noscript><style>.searchbox, .popular, .sidebar, .status .actions, .copy, .to-top, .theme { display: none } .layout { grid-template-columns: 1fr }</style></noscript>
 </head>
 <body>
   <header class="site-header">
@@ -185,14 +192,23 @@
       <button class="theme" id="theme" type="button" aria-label="Toggle color theme"><i data-lucide="sun-moon"></i></button>
     </nav>
   </header>
-  <section class="hero">
+  <div class="stickybar" id="stickybar" role="search" aria-label="Search the FAQ" hidden>
+    <div class="shell">
+      <div class="searchbox">
+        <i data-lucide="search"></i>
+        <input class="search" id="search-sticky" type="search" placeholder="Search questions..." aria-label="Search questions" autocomplete="off">
+        <span class="sticky-count" aria-hidden="true" id="sticky-count"></span>
+      </div>
+    </div>
+  </div>
+  <section class="hero" aria-labelledby="faq-title">
     <div class="shell">
       <p class="eyebrow">Help center</p>
-      <h1>Frequently Asked Questions</h1>
+      <h1 id="faq-title">Frequently Asked Questions</h1>
       <p class="lead">Quick answers about MiroTalk products, self-hosting, licensing, and troubleshooting.</p>
       <div class="searchbox">
         <i data-lucide="search"></i>
-        <input class="search" id="search" type="search" placeholder="Search 44 questions..." aria-label="Search questions" autocomplete="off">
+        <input class="search" id="search" type="search" placeholder="Search 45 questions..." aria-label="Search questions" autocomplete="off">
         <button class="clear" id="clear" type="button" aria-label="Clear search"><i data-lucide="x"></i></button>
       </div>
       <div class="popular"><span>Popular:</span><a href="#which-mirotalk-product-should-i-choose">Choose a product</a>
@@ -207,7 +223,7 @@
     <aside class="sidebar" aria-label="Browse by topic">
       <h2>Browse by topic</h2>
       <div class="topics"><button class="topic active" type="button" data-section="all" aria-pressed="true"><i data-lucide="layout-grid"></i><span class="name">All topics</span><span class="num"></span></button>
-<button class="topic" type="button" data-section="general" aria-pressed="false"><i data-lucide="info"></i><span class="name">General</span><span class="num">3</span></button>
+<button class="topic" type="button" data-section="general" aria-pressed="false"><i data-lucide="info"></i><span class="name">General</span><span class="num">4</span></button>
 <button class="topic" type="button" data-section="products" aria-pressed="false"><i data-lucide="layers"></i><span class="name">Products</span><span class="num">5</span></button>
 <button class="topic" type="button" data-section="self-hosting-deployment" aria-pressed="false"><i data-lucide="server"></i><span class="name">Self-Hosting &amp; Deployment</span><span class="num">6</span></button>
 <button class="topic" type="button" data-section="stun-turn-servers" aria-pressed="false"><i data-lucide="network"></i><span class="name">STUN &amp; TURN Servers</span><span class="num">2</span></button>
@@ -222,16 +238,33 @@
 <button class="topic" type="button" data-section="database-email" aria-pressed="false"><i data-lucide="database"></i><span class="name">Database &amp; Email</span><span class="num">2</span></button>
 <button class="topic" type="button" data-section="security" aria-pressed="false"><i data-lucide="shield-check"></i><span class="name">Security</span><span class="num">1</span></button>
 <button class="topic" type="button" data-section="troubleshooting" aria-pressed="false"><i data-lucide="life-buoy"></i><span class="name">Troubleshooting</span><span class="num">4</span></button></div>
+      <label class="topic-select"><span>Topic</span><select id="topic-select" aria-label="Filter by topic"><option value="all">All topics</option>
+<option value="general" data-name="General">General (4)</option>
+<option value="products" data-name="Products">Products (5)</option>
+<option value="self-hosting-deployment" data-name="Self-Hosting &amp; Deployment">Self-Hosting &amp; Deployment (6)</option>
+<option value="stun-turn-servers" data-name="STUN &amp; TURN Servers">STUN &amp; TURN Servers (2)</option>
+<option value="configuration" data-name="Configuration">Configuration (2)</option>
+<option value="api-integration" data-name="API &amp; Integration">API &amp; Integration (2)</option>
+<option value="features" data-name="Features">Features (6)</option>
+<option value="licensing" data-name="Licensing">Licensing (3)</option>
+<option value="room-customization" data-name="Room Customization">Room Customization (3)</option>
+<option value="scaling-architecture" data-name="Scaling &amp; Architecture">Scaling &amp; Architecture (2)</option>
+<option value="updates-maintenance" data-name="Updates &amp; Maintenance">Updates &amp; Maintenance (2)</option>
+<option value="internationalization" data-name="Internationalization">Internationalization (1)</option>
+<option value="database-email" data-name="Database &amp; Email">Database &amp; Email (2)</option>
+<option value="security" data-name="Security">Security (1)</option>
+<option value="troubleshooting" data-name="Troubleshooting">Troubleshooting (4)</option></select></label>
     </aside>
     <main class="content">
       <div class="status">
-        <span id="count" role="status" aria-live="polite">Showing 44 questions</span>
+        <span id="count" role="status" aria-live="polite">Showing 45 questions</span>
         <span class="actions"><button class="link-button" id="expand" type="button">Expand all</button><button class="link-button" id="collapse" type="button">Collapse all</button></span>
       </div>
+<div class="sections" id="sections">
 <section class="faq-section" id="general" data-section="general">
 <h2><span class="icon"><i data-lucide="info"></i></span>General</h2>
 <details class="qa" id="what-is-mirotalk">
-<summary><span class="q" data-text="What is MiroTalk?">What is MiroTalk?</span></summary>
+<summary><span class="qwrap"><span class="q" data-text="What is MiroTalk?">What is MiroTalk?</span><span class="snippet" hidden></span></span></summary>
 <div class="answer">
 <p>MiroTalk is an open-source, self-hosted suite of <strong>WebRTC-based</strong> applications for real-time video conferencing, live broadcasting, and communication. It includes multiple products designed for different use cases — from one-on-one calls to large-scale meetings and live streaming.</p>
 <ul>
@@ -244,29 +277,43 @@
 <li>🛠 <strong>MiroTalk WEB</strong> — Meeting room scheduler and manager</li>
 <li>⚙️ <strong>MiroTalk ADMIN</strong> — Centralized dashboard to manage all instances</li>
 </ul>
+<p>See the <a href="/sites/overview/">ecosystem overview</a> for how the products fit together, or the <a href="/sites/story/">story behind MiroTalk</a>.</p>
 <div class="answer-foot"><button class="copy" type="button" data-id="what-is-mirotalk"><i data-lucide="link"></i><span>Copy link</span></button></div></div>
 </details>
 <details class="qa" id="what-is-webrtc">
-<summary><span class="q" data-text="What is WebRTC?">What is WebRTC?</span></summary>
+<summary><span class="qwrap"><span class="q" data-text="What is WebRTC?">What is WebRTC?</span><span class="snippet" hidden></span></span></summary>
 <div class="answer">
 <p><strong>WebRTC</strong> (Web Real-Time Communication) is an open-source technology that enables real-time audio, video, and data communication directly in web browsers without requiring plugins or additional software. MiroTalk is built entirely on top of WebRTC.</p>
 <div class="answer-foot"><button class="copy" type="button" data-id="what-is-webrtc"><i data-lucide="link"></i><span>Copy link</span></button></div></div>
 </details>
 <details class="qa" id="what-are-the-differences-between-mesh-sfu-and-mcu-architectures">
-<summary><span class="q" data-text="What are the differences between Mesh, SFU, and MCU architectures?">What are the differences between Mesh, SFU, and MCU architectures?</span></summary>
+<summary><span class="qwrap"><span class="q" data-text="What are the differences between Mesh, SFU, and MCU architectures?">What are the differences between Mesh, SFU, and MCU architectures?</span><span class="snippet" hidden></span></span></summary>
 <div class="answer">
 <ul>
 <li><strong>Mesh (P2P):</strong> Each participant connects directly to every other participant. Low latency but bandwidth and CPU usage grow with more participants. Best for 2–4 users.</li>
 <li><strong>SFU (Selective Forwarding Unit):</strong> A central server receives all streams and selectively forwards them to participants. Reduced bandwidth per participant, ideal for 5+ users.</li>
 <li><strong>MCU (Multipoint Control Unit):</strong> The server mixes all streams into a single composite stream. Most resource-intensive on the server side.</li>
 </ul>
+<p>See <a href="/overview/">Compare architectures</a> for a detailed side-by-side comparison.</p>
 <div class="answer-foot"><button class="copy" type="button" data-id="what-are-the-differences-between-mesh-sfu-and-mcu-architectures"><i data-lucide="link"></i><span>Copy link</span></button></div></div>
+</details>
+<details class="qa" id="how-does-mirotalk-compare-to-zoom-google-meet-jitsi-or-whereby">
+<summary><span class="qwrap"><span class="q" data-text="How does MiroTalk compare to Zoom, Google Meet, Jitsi, or Whereby?">How does MiroTalk compare to Zoom, Google Meet, Jitsi, or Whereby?</span><span class="snippet" hidden></span></span></summary>
+<div class="answer">
+<p>MiroTalk is <strong>open source and self-hosted</strong>, so you control your servers, data, branding, and costs. Hosted services such as Zoom, Google Meet, and Whereby run on the provider's infrastructure.</p>
+<ul>
+<li><a href="/sites/compare/">MiroTalk vs Zoom, Google Meet, Teams, Whereby &amp; Jitsi</a>: overview of all alternatives</li>
+<li><a href="/sites/mirotalk-vs-zoom/">MiroTalk vs Zoom</a></li>
+<li><a href="/sites/mirotalk-vs-jitsi/">MiroTalk vs Jitsi Meet</a></li>
+<li><a href="/sites/mirotalk-vs-whereby/">MiroTalk vs Whereby Embedded</a></li>
+</ul>
+<div class="answer-foot"><button class="copy" type="button" data-id="how-does-mirotalk-compare-to-zoom-google-meet-jitsi-or-whereby"><i data-lucide="link"></i><span>Copy link</span></button></div></div>
 </details>
 </section>
 <section class="faq-section" id="products" data-section="products">
 <h2><span class="icon"><i data-lucide="layers"></i></span>Products</h2>
 <details class="qa" id="which-mirotalk-product-should-i-choose">
-<summary><span class="q" data-text="Which MiroTalk product should I choose?">Which MiroTalk product should I choose?</span></summary>
+<summary><span class="qwrap"><span class="q" data-text="Which MiroTalk product should I choose?">Which MiroTalk product should I choose?</span><span class="snippet" hidden></span></span></summary>
 <div class="answer">
 <div class="table-wrap"><table>
 <thead>
@@ -323,10 +370,12 @@
 </tbody>
 </table></div>
 <p>For large group calls and scalability, choose <strong>SFU</strong>. For lightweight, low-latency small calls, choose <strong>P2P</strong>. For random one-to-one matching, choose <strong>RND</strong>.</p>
+<p>Not sure yet? Use the <a href="/sites/projects/">interactive product chooser</a> or see the <a href="/sites/overview/">ecosystem overview</a>.</p>
+<p>Product pages: <a href="/sites/sfu/">SFU</a>, <a href="/sites/p2p/">P2P</a>, <a href="/sites/c2c/">C2C</a>, <a href="/sites/rnd/">RND</a>, <a href="/sites/bro/">BRO</a>, <a href="/sites/cme/">CME</a>, <a href="/sites/web/">WEB</a>, <a href="/sites/admin/">ADMIN</a>.</p>
 <div class="answer-foot"><button class="copy" type="button" data-id="which-mirotalk-product-should-i-choose"><i data-lucide="link"></i><span>Copy link</span></button></div></div>
 </details>
 <details class="qa" id="how-many-users-can-mirotalk-sfu-handle">
-<summary><span class="q" data-text="How many users can MiroTalk SFU handle?">How many users can MiroTalk SFU handle?</span></summary>
+<summary><span class="qwrap"><span class="q" data-text="How many users can MiroTalk SFU handle?">How many users can MiroTalk SFU handle?</span><span class="snippet" hidden></span></span></summary>
 <div class="answer">
 <p>MiroTalk SFU supports both <strong>vertical</strong> and <strong>horizontal</strong> scaling:</p>
 <p><strong>Vertical Scaling (Single Server):</strong></p>
@@ -345,24 +394,24 @@
 <div class="answer-foot"><button class="copy" type="button" data-id="how-many-users-can-mirotalk-sfu-handle"><i data-lucide="link"></i><span>Copy link</span></button></div></div>
 </details>
 <details class="qa" id="can-mirotalk-bro-handle-large-scale-broadcasts">
-<summary><span class="q" data-text="Can MiroTalk BRO handle large-scale broadcasts?">Can MiroTalk BRO handle large-scale broadcasts?</span></summary>
+<summary><span class="qwrap"><span class="q" data-text="Can MiroTalk BRO handle large-scale broadcasts?">Can MiroTalk BRO handle large-scale broadcasts?</span><span class="snippet" hidden></span></span></summary>
 <div class="answer">
 <p>Yes. MiroTalk BRO supports both <strong>P2P</strong> and <strong>SFU</strong> broadcasting modes.</p>
 <ul>
 <li><strong>P2P</strong> (default) uses direct peer-to-peer WebRTC connections and works best for <strong>small audiences</strong>.</li>
 <li><strong>SFU</strong> routes media through a built-in <strong>mediasoup</strong> server and is better suited for <strong>larger broadcasts</strong> and <strong>100+ viewers</strong>, depending on server capacity and network setup.</li>
 </ul>
-<p>For large-scale broadcasts, use <strong>MiroTalk BRO in SFU mode</strong>.</p>
+<p>For large-scale broadcasts, use <strong>MiroTalk BRO in SFU mode</strong>. See the <a href="/sites/bro/">MiroTalk BRO</a> page for details.</p>
 <div class="answer-foot"><button class="copy" type="button" data-id="can-mirotalk-bro-handle-large-scale-broadcasts"><i data-lucide="link"></i><span>Copy link</span></button></div></div>
 </details>
 <details class="qa" id="what-is-mirotalk-web">
-<summary><span class="q" data-text="What is MiroTalk WEB?">What is MiroTalk WEB?</span></summary>
+<summary><span class="qwrap"><span class="q" data-text="What is MiroTalk WEB?">What is MiroTalk WEB?</span><span class="snippet" hidden></span></span></summary>
 <div class="answer">
-<p>MiroTalk WEB is a browser-based <strong>meeting room scheduler</strong> that lets you organize and manage meetings. It integrates links to all MiroTalk products, uses a MongoDB backend for storing meeting/room data, and optionally supports email verification. Default port: <code>9000</code>.</p>
+<p>MiroTalk WEB is a browser-based <strong>meeting room scheduler</strong> that lets you organize and manage meetings. It integrates links to all MiroTalk products, uses a MongoDB backend for storing meeting/room data, and optionally supports email verification. Default port: <code>9000</code>. See the <a href="/sites/web/">MiroTalk WEB</a> page for details.</p>
 <div class="answer-foot"><button class="copy" type="button" data-id="what-is-mirotalk-web"><i data-lucide="link"></i><span>Copy link</span></button></div></div>
 </details>
 <details class="qa" id="what-is-mirotalk-admin">
-<summary><span class="q" data-text="What is MiroTalk ADMIN?">What is MiroTalk ADMIN?</span></summary>
+<summary><span class="qwrap"><span class="q" data-text="What is MiroTalk ADMIN?">What is MiroTalk ADMIN?</span><span class="snippet" hidden></span></span></summary>
 <div class="answer">
 <p>MiroTalk ADMIN is a centralized dashboard for managing all your MiroTalk instances. It supports:</p>
 <ul>
@@ -371,13 +420,14 @@
 <li>Editing configurations</li>
 <li>Managing via <strong>SSH</strong>, <strong>Docker</strong>, or <strong>PM2</strong></li>
 </ul>
+<p>See the <a href="/sites/admin/">MiroTalk ADMIN</a> page for details.</p>
 <div class="answer-foot"><button class="copy" type="button" data-id="what-is-mirotalk-admin"><i data-lucide="link"></i><span>Copy link</span></button></div></div>
 </details>
 </section>
 <section class="faq-section" id="self-hosting-deployment" data-section="self-hosting-deployment">
 <h2><span class="icon"><i data-lucide="server"></i></span>Self-Hosting &amp; Deployment</h2>
 <details class="qa" id="how-can-i-self-host-mirotalk">
-<summary><span class="q" data-text="How can I self-host MiroTalk?">How can I self-host MiroTalk?</span></summary>
+<summary><span class="qwrap"><span class="q" data-text="How can I self-host MiroTalk?">How can I self-host MiroTalk?</span><span class="snippet" hidden></span></span></summary>
 <div class="answer">
 <p>MiroTalk supports multiple deployment methods:</p>
 <ol>
@@ -390,7 +440,7 @@
 <div class="answer-foot"><button class="copy" type="button" data-id="how-can-i-self-host-mirotalk"><i data-lucide="link"></i><span>Copy link</span></button></div></div>
 </details>
 <details class="qa" id="are-there-automated-install-scripts-for-mirotalk">
-<summary><span class="q" data-text="Are there automated install scripts for MiroTalk?">Are there automated install scripts for MiroTalk?</span></summary>
+<summary><span class="qwrap"><span class="q" data-text="Are there automated install scripts for MiroTalk?">Are there automated install scripts for MiroTalk?</span><span class="snippet" hidden></span></span></summary>
 <div class="answer">
 <p>Yes. For a clean <strong>Ubuntu 22.04 / 24.04 LTS</strong> server with root access and a domain pointing to its public IPv4, ready-made <strong>install, update and uninstall</strong> scripts are available for:</p>
 <ul>
@@ -406,7 +456,7 @@
 <div class="answer-foot"><button class="copy" type="button" data-id="are-there-automated-install-scripts-for-mirotalk"><i data-lucide="link"></i><span>Copy link</span></button></div></div>
 </details>
 <details class="qa" id="what-are-the-server-requirements">
-<summary><span class="q" data-text="What are the server requirements?">What are the server requirements?</span></summary>
+<summary><span class="qwrap"><span class="q" data-text="What are the server requirements?">What are the server requirements?</span><span class="snippet" hidden></span></span></summary>
 <div class="answer">
 <ul>
 <li><strong>OS:</strong> Ubuntu 22.04 LTS (recommended)</li>
@@ -457,7 +507,7 @@
 <div class="answer-foot"><button class="copy" type="button" data-id="what-are-the-server-requirements"><i data-lucide="link"></i><span>Copy link</span></button></div></div>
 </details>
 <details class="qa" id="how-do-i-deploy-mirotalk-with-docker-compose">
-<summary><span class="q" data-text="How do I deploy MiroTalk with Docker Compose?">How do I deploy MiroTalk with Docker Compose?</span></summary>
+<summary><span class="qwrap"><span class="q" data-text="How do I deploy MiroTalk with Docker Compose?">How do I deploy MiroTalk with Docker Compose?</span><span class="snippet" hidden></span></span></summary>
 <div class="answer">
 <p>Each MiroTalk product provides a <code>docker-compose.yml</code> template. For SFU, note that <code>network_mode: 'host'</code> is required for optimal WebRTC performance. Pull the pre-built images from Docker Hub, configure your <code>.env</code> file, and run:</p>
 <pre><code class="language-bash">docker-compose up -d
@@ -466,13 +516,13 @@
 <div class="answer-foot"><button class="copy" type="button" data-id="how-do-i-deploy-mirotalk-with-docker-compose"><i data-lucide="link"></i><span>Copy link</span></button></div></div>
 </details>
 <details class="qa" id="can-i-deploy-mirotalk-on-cloudron">
-<summary><span class="q" data-text="Can I deploy MiroTalk on Cloudron?">Can I deploy MiroTalk on Cloudron?</span></summary>
+<summary><span class="qwrap"><span class="q" data-text="Can I deploy MiroTalk on Cloudron?">Can I deploy MiroTalk on Cloudron?</span><span class="snippet" hidden></span></span></summary>
 <div class="answer">
 <p>Yes. MiroTalk supports <strong>Cloudron</strong> for one-click deployment with automatic updates, backups, and integrated user management. See the <a href="/cloudron/cloudron/">Cloudron</a> guide for setup instructions.</p>
 <div class="answer-foot"><button class="copy" type="button" data-id="can-i-deploy-mirotalk-on-cloudron"><i data-lucide="link"></i><span>Copy link</span></button></div></div>
 </details>
 <details class="qa" id="how-do-i-use-a-reverse-proxy-nginx-apache-with-mirotalk">
-<summary><span class="q" data-text="How do I use a reverse proxy (Nginx/Apache) with MiroTalk?">How do I use a reverse proxy (Nginx/Apache) with MiroTalk?</span></summary>
+<summary><span class="qwrap"><span class="q" data-text="How do I use a reverse proxy (Nginx/Apache) with MiroTalk?">How do I use a reverse proxy (Nginx/Apache) with MiroTalk?</span><span class="snippet" hidden></span></span></summary>
 <div class="answer">
 <p>Configure Nginx or Apache as a reverse proxy to:</p>
 <ul>
@@ -488,7 +538,7 @@
 <section class="faq-section" id="stun-turn-servers" data-section="stun-turn-servers">
 <h2><span class="icon"><i data-lucide="network"></i></span>STUN &amp; TURN Servers</h2>
 <details class="qa" id="what-are-stun-and-turn-servers-and-why-do-i-need-them">
-<summary><span class="q" data-text="What are STUN and TURN servers, and why do I need them?">What are STUN and TURN servers, and why do I need them?</span></summary>
+<summary><span class="qwrap"><span class="q" data-text="What are STUN and TURN servers, and why do I need them?">What are STUN and TURN servers, and why do I need them?</span><span class="snippet" hidden></span></span></summary>
 <div class="answer">
 <ul>
 <li><strong>STUN</strong> (Session Traversal Utilities for NAT): Discovers your public IP and port to help establish direct peer-to-peer connections. It does <strong>not</strong> relay media traffic.</li>
@@ -498,7 +548,7 @@
 <div class="answer-foot"><button class="copy" type="button" data-id="what-are-stun-and-turn-servers-and-why-do-i-need-them"><i data-lucide="link"></i><span>Copy link</span></button></div></div>
 </details>
 <details class="qa" id="how-do-i-set-up-a-turn-server-with-coturn">
-<summary><span class="q" data-text="How do I set up a TURN server with coturn?">How do I set up a TURN server with coturn?</span></summary>
+<summary><span class="qwrap"><span class="q" data-text="How do I set up a TURN server with coturn?">How do I set up a TURN server with coturn?</span><span class="snippet" hidden></span></span></summary>
 <div class="answer">
 <p><a href="/coturn/installation/">Coturn</a> is the recommended open-source STUN/TURN server:</p>
 <ol>
@@ -518,7 +568,7 @@
 <section class="faq-section" id="configuration" data-section="configuration">
 <h2><span class="icon"><i data-lucide="settings"></i></span>Configuration</h2>
 <details class="qa" id="what-configuration-files-does-mirotalk-use">
-<summary><span class="q" data-text="What configuration files does MiroTalk use?">What configuration files does MiroTalk use?</span></summary>
+<summary><span class="qwrap"><span class="q" data-text="What configuration files does MiroTalk use?">What configuration files does MiroTalk use?</span><span class="snippet" hidden></span></span></summary>
 <div class="answer">
 <p>All MiroTalk products use two main configuration files:</p>
 <ol>
@@ -529,7 +579,7 @@
 <div class="answer-foot"><button class="copy" type="button" data-id="what-configuration-files-does-mirotalk-use"><i data-lucide="link"></i><span>Copy link</span></button></div></div>
 </details>
 <details class="qa" id="what-are-the-critical-sfu-configuration-settings">
-<summary><span class="q" data-text="What are the critical SFU configuration settings?">What are the critical SFU configuration settings?</span></summary>
+<summary><span class="qwrap"><span class="q" data-text="What are the critical SFU configuration settings?">What are the critical SFU configuration settings?</span><span class="snippet" hidden></span></span></summary>
 <div class="answer">
 <p>Key <code>.env</code> settings for MiroTalk SFU:</p>
 <pre><code class="language-bash">ENVIRONMENT=production
@@ -551,7 +601,7 @@ API_KEY_SECRET=your_secret
 <section class="faq-section" id="api-integration" data-section="api-integration">
 <h2><span class="icon"><i data-lucide="plug"></i></span>API &amp; Integration</h2>
 <details class="qa" id="does-mirotalk-have-a-rest-api">
-<summary><span class="q" data-text="Does MiroTalk have a REST API?">Does MiroTalk have a REST API?</span></summary>
+<summary><span class="qwrap"><span class="q" data-text="Does MiroTalk have a REST API?">Does MiroTalk have a REST API?</span><span class="snippet" hidden></span></span></summary>
 <div class="answer">
 <p>Yes. All MiroTalk products expose a <strong>REST API</strong> with endpoints such as:</p>
 <ul>
@@ -563,7 +613,7 @@ API_KEY_SECRET=your_secret
 <div class="answer-foot"><button class="copy" type="button" data-id="does-mirotalk-have-a-rest-api"><i data-lucide="link"></i><span>Copy link</span></button></div></div>
 </details>
 <details class="qa" id="how-can-i-embed-mirotalk-in-my-website">
-<summary><span class="q" data-text="How can I embed MiroTalk in my website?">How can I embed MiroTalk in my website?</span></summary>
+<summary><span class="qwrap"><span class="q" data-text="How can I embed MiroTalk in my website?">How can I embed MiroTalk in my website?</span><span class="snippet" hidden></span></span></summary>
 <div class="answer">
 <p>MiroTalk supports multiple integration methods:</p>
 <p><strong>Simple iframe:</strong></p>
@@ -583,7 +633,7 @@ API_KEY_SECRET=your_secret
 <section class="faq-section" id="features" data-section="features">
 <h2><span class="icon"><i data-lucide="sparkles"></i></span>Features</h2>
 <details class="qa" id="can-i-live-stream-to-youtube-or-twitch-with-mirotalk">
-<summary><span class="q" data-text="Can I live stream to YouTube or Twitch with MiroTalk?">Can I live stream to YouTube or Twitch with MiroTalk?</span></summary>
+<summary><span class="qwrap"><span class="q" data-text="Can I live stream to YouTube or Twitch with MiroTalk?">Can I live stream to YouTube or Twitch with MiroTalk?</span><span class="snippet" hidden></span></span></summary>
 <div class="answer">
 <p>Yes, <strong>MiroTalk SFU</strong> supports <strong>RTMP streaming</strong> to platforms like YouTube, Twitch, and others. Two server options are available:</p>
 <ol>
@@ -594,7 +644,7 @@ API_KEY_SECRET=your_secret
 <div class="answer-foot"><button class="copy" type="button" data-id="can-i-live-stream-to-youtube-or-twitch-with-mirotalk"><i data-lucide="link"></i><span>Copy link</span></button></div></div>
 </details>
 <details class="qa" id="can-a-presenter-remotely-control-a-participant-s-computer-in-mirotalk-sfu">
-<summary><span class="q" data-text="Can a presenter remotely control a participant&#x27;s computer in MiroTalk SFU?">Can a presenter remotely control a participant&#x27;s computer in MiroTalk SFU?</span></summary>
+<summary><span class="qwrap"><span class="q" data-text="Can a presenter remotely control a participant&#x27;s computer in MiroTalk SFU?">Can a presenter remotely control a participant&#x27;s computer in MiroTalk SFU?</span><span class="snippet" hidden></span></span></summary>
 <div class="answer">
 <p>Yes. <strong>MiroTalk SFU</strong> supports consent-based <strong>remote control</strong> powered by <a href="https://rustdesk.com" target="_blank" rel="noopener noreferrer">RustDesk</a>. MiroTalk only brokers the handshake (RustDesk ID + one-time password); the remote session itself runs through the RustDesk clients and <strong>your own self-hosted RustDesk server</strong>. No MiroTalk code changes are needed.</p>
 <p><strong>Setup overview:</strong></p>
@@ -612,13 +662,13 @@ REMOTE_CONTROL_DOWNLOAD_URL=https://your-domain/rustdesk-download
 <div class="answer-foot"><button class="copy" type="button" data-id="can-a-presenter-remotely-control-a-participant-s-computer-in-mirotalk-sfu"><i data-lucide="link"></i><span>Copy link</span></button></div></div>
 </details>
 <details class="qa" id="does-mirotalk-sfu-support-sip-phone-calls">
-<summary><span class="q" data-text="Does MiroTalk SFU support SIP phone calls?">Does MiroTalk SFU support SIP phone calls?</span></summary>
+<summary><span class="qwrap"><span class="q" data-text="Does MiroTalk SFU support SIP phone calls?">Does MiroTalk SFU support SIP phone calls?</span><span class="snippet" hidden></span></span></summary>
 <div class="answer">
 <p>Yes, as an <strong>experimental</strong> feature. The built-in <strong>SIP phone</strong> panel (<strong>Settings → SIP phone</strong>) lets you register SIP users inside a room and place extension-to-extension calls. It is compatible with most SIP servers exposing <strong>WSS (WebSocket Secure)</strong> transport, such as Kamailio, Asterisk, FreeSWITCH, and OpenSIPS. A Docker-based Kamailio demo is included in the SFU repository. See the <a href="/mirotalk-sfu/sip/">SIP phone</a> guide.</p>
 <div class="answer-foot"><button class="copy" type="button" data-id="does-mirotalk-sfu-support-sip-phone-calls"><i data-lucide="link"></i><span>Copy link</span></button></div></div>
 </details>
 <details class="qa" id="what-is-host-protection">
-<summary><span class="q" data-text="What is Host Protection?">What is Host Protection?</span></summary>
+<summary><span class="qwrap"><span class="q" data-text="What is Host Protection?">What is Host Protection?</span><span class="snippet" hidden></span></span></summary>
 <div class="answer">
 <p>Host Protection adds authentication to your MiroTalk rooms:</p>
 <ul>
@@ -630,7 +680,7 @@ REMOTE_CONTROL_DOWNLOAD_URL=https://your-domain/rustdesk-download
 <div class="answer-foot"><button class="copy" type="button" data-id="what-is-host-protection"><i data-lucide="link"></i><span>Copy link</span></button></div></div>
 </details>
 <details class="qa" id="does-mirotalk-support-webhooks">
-<summary><span class="q" data-text="Does MiroTalk support Webhooks?">Does MiroTalk support Webhooks?</span></summary>
+<summary><span class="qwrap"><span class="q" data-text="Does MiroTalk support Webhooks?">Does MiroTalk support Webhooks?</span><span class="snippet" hidden></span></span></summary>
 <div class="answer">
 <p>Yes. MiroTalk can send HTTP POST notifications to a configured endpoint on events such as:</p>
 <ul>
@@ -641,7 +691,7 @@ REMOTE_CONTROL_DOWNLOAD_URL=https://your-domain/rustdesk-download
 <div class="answer-foot"><button class="copy" type="button" data-id="does-mirotalk-support-webhooks"><i data-lucide="link"></i><span>Copy link</span></button></div></div>
 </details>
 <details class="qa" id="can-i-rebrand-mirotalk-with-my-own-logo-and-colors">
-<summary><span class="q" data-text="Can I rebrand MiroTalk with my own logo and colors?">Can I rebrand MiroTalk with my own logo and colors?</span></summary>
+<summary><span class="qwrap"><span class="q" data-text="Can I rebrand MiroTalk with my own logo and colors?">Can I rebrand MiroTalk with my own logo and colors?</span><span class="snippet" hidden></span></span></summary>
 <div class="answer">
 <p>Yes, rebranding is available with a <strong>Regular</strong> or <strong>Extended</strong> license:</p>
 <ul>
@@ -655,19 +705,19 @@ REMOTE_CONTROL_DOWNLOAD_URL=https://your-domain/rustdesk-download
 <section class="faq-section" id="licensing" data-section="licensing">
 <h2><span class="icon"><i data-lucide="key-round"></i></span>Licensing</h2>
 <details class="qa" id="can-i-keep-my-source-code-private">
-<summary><span class="q" data-text="Can I keep my source code private?">Can I keep my source code private?</span></summary>
+<summary><span class="qwrap"><span class="q" data-text="Can I keep my source code private?">Can I keep my source code private?</span><span class="snippet" hidden></span></span></summary>
 <div class="answer">
 <p>Yes. Both the <strong>Regular</strong> and <strong>Extended</strong> licenses allow you to keep your source code private.</p>
 <div class="answer-foot"><button class="copy" type="button" data-id="can-i-keep-my-source-code-private"><i data-lucide="link"></i><span>Copy link</span></button></div></div>
 </details>
 <details class="qa" id="does-one-purchase-cover-multiple-products">
-<summary><span class="q" data-text="Does one purchase cover multiple products?">Does one purchase cover multiple products?</span></summary>
+<summary><span class="qwrap"><span class="q" data-text="Does one purchase cover multiple products?">Does one purchase cover multiple products?</span><span class="snippet" hidden></span></span></summary>
 <div class="answer">
 <p>Yes, when purchasing <a href="/sites/ultimate/">MiroTalk ULTIMATE</a>, which includes all MiroTalk projects. Purchases of individual products cover only that product.</p>
 <div class="answer-foot"><button class="copy" type="button" data-id="does-one-purchase-cover-multiple-products"><i data-lucide="link"></i><span>Copy link</span></button></div></div>
 </details>
 <details class="qa" id="what-are-the-licensing-options-for-mirotalk">
-<summary><span class="q" data-text="What are the licensing options for MiroTalk?">What are the licensing options for MiroTalk?</span></summary>
+<summary><span class="qwrap"><span class="q" data-text="What are the licensing options for MiroTalk?">What are the licensing options for MiroTalk?</span><span class="snippet" hidden></span></span></summary>
 <div class="answer">
 <p>MiroTalk offers <strong>three licensing tiers</strong>:</p>
 <div class="table-wrap"><table>
@@ -759,7 +809,7 @@ REMOTE_CONTROL_DOWNLOAD_URL=https://your-domain/rustdesk-download
 <section class="faq-section" id="room-customization" data-section="room-customization">
 <h2><span class="icon"><i data-lucide="sliders-horizontal"></i></span>Room Customization</h2>
 <details class="qa" id="how-do-i-protect-a-room-with-a-password">
-<summary><span class="q" data-text="How do I protect a room with a password?">How do I protect a room with a password?</span></summary>
+<summary><span class="qwrap"><span class="q" data-text="How do I protect a room with a password?">How do I protect a room with a password?</span><span class="snippet" hidden></span></span></summary>
 <div class="answer">
 <p>MiroTalk SFU supports room passwords via the <code>roomPassword</code> URL parameter:</p>
 <pre><code>https://YOUR-DOMAIN-NAME/join?room=test&amp;roomPassword=MySecret123
@@ -769,7 +819,7 @@ REMOTE_CONTROL_DOWNLOAD_URL=https://your-domain/rustdesk-download
 <div class="answer-foot"><button class="copy" type="button" data-id="how-do-i-protect-a-room-with-a-password"><i data-lucide="link"></i><span>Copy link</span></button></div></div>
 </details>
 <details class="qa" id="can-i-set-a-session-duration-limit-for-rooms">
-<summary><span class="q" data-text="Can I set a session duration limit for rooms?">Can I set a session duration limit for rooms?</span></summary>
+<summary><span class="qwrap"><span class="q" data-text="Can I set a session duration limit for rooms?">Can I set a session duration limit for rooms?</span><span class="snippet" hidden></span></span></summary>
 <div class="answer">
 <p>Yes. Use the <code>duration</code> URL parameter when joining a room:</p>
 <pre><code>https://YOUR-DOMAIN-NAME/join?room=test&amp;duration=01:00:00
@@ -782,7 +832,7 @@ REMOTE_CONTROL_DOWNLOAD_URL=https://your-domain/rustdesk-download
 <div class="answer-foot"><button class="copy" type="button" data-id="can-i-set-a-session-duration-limit-for-rooms"><i data-lucide="link"></i><span>Copy link</span></button></div></div>
 </details>
 <details class="qa" id="what-url-parameters-can-i-use-to-customize-room-join-links">
-<summary><span class="q" data-text="What URL parameters can I use to customize room join links?">What URL parameters can I use to customize room join links?</span></summary>
+<summary><span class="qwrap"><span class="q" data-text="What URL parameters can I use to customize room join links?">What URL parameters can I use to customize room join links?</span><span class="snippet" hidden></span></span></summary>
 <div class="answer">
 <p>Both SFU and P2P support a full set of URL parameters for customizing the join experience:</p>
 <div class="table-wrap"><table>
@@ -863,7 +913,7 @@ REMOTE_CONTROL_DOWNLOAD_URL=https://your-domain/rustdesk-download
 <section class="faq-section" id="scaling-architecture" data-section="scaling-architecture">
 <h2><span class="icon"><i data-lucide="trending-up"></i></span>Scaling &amp; Architecture</h2>
 <details class="qa" id="how-does-horizontal-scaling-work-with-a-load-balancer">
-<summary><span class="q" data-text="How does horizontal scaling work with a load balancer?">How does horizontal scaling work with a load balancer?</span></summary>
+<summary><span class="qwrap"><span class="q" data-text="How does horizontal scaling work with a load balancer?">How does horizontal scaling work with a load balancer?</span><span class="snippet" hidden></span></span></summary>
 <div class="answer">
 <p>MiroTalk SFU supports horizontal scaling using multiple servers behind a load balancer (Nginx or HAProxy) with <strong>consistent hashing</strong> on the room parameter for sticky sessions.</p>
 <p><strong>Architecture:</strong></p>
@@ -891,7 +941,7 @@ REMOTE_CONTROL_DOWNLOAD_URL=https://your-domain/rustdesk-download
 <div class="answer-foot"><button class="copy" type="button" data-id="how-does-horizontal-scaling-work-with-a-load-balancer"><i data-lucide="link"></i><span>Copy link</span></button></div></div>
 </details>
 <details class="qa" id="how-many-ports-does-mirotalk-sfu-need-per-participant">
-<summary><span class="q" data-text="How many ports does MiroTalk SFU need per participant?">How many ports does MiroTalk SFU need per participant?</span></summary>
+<summary><span class="qwrap"><span class="q" data-text="How many ports does MiroTalk SFU need per participant?">How many ports does MiroTalk SFU need per participant?</span><span class="snippet" hidden></span></span></summary>
 <div class="answer">
 <p>Each participant requires <strong>2 ports</strong> (one for audio, one for video). The default port range <code>40000-40100</code> provides ~50 ports, supporting approximately <strong>50 concurrent participants</strong> across all rooms on that server.</p>
 <p>For larger deployments, expand the range:</p>
@@ -905,7 +955,7 @@ SFU_MAX_PORT=49999
 <section class="faq-section" id="updates-maintenance" data-section="updates-maintenance">
 <h2><span class="icon"><i data-lucide="refresh-cw"></i></span>Updates &amp; Maintenance</h2>
 <details class="qa" id="how-do-i-preserve-custom-branding-during-updates">
-<summary><span class="q" data-text="How do I preserve custom branding during updates?">How do I preserve custom branding during updates?</span></summary>
+<summary><span class="qwrap"><span class="q" data-text="How do I preserve custom branding during updates?">How do I preserve custom branding during updates?</span><span class="snippet" hidden></span></span></summary>
 <div class="answer">
 <p>When updating MiroTalk, custom files (branding, views) may be overwritten. Three strategies to preserve your changes:</p>
 <p><strong>Option 1: <code>git stash</code> (small edits)</strong></p>
@@ -927,7 +977,7 @@ git checkout custom-branding &amp;&amp; git merge main
 <div class="answer-foot"><button class="copy" type="button" data-id="how-do-i-preserve-custom-branding-during-updates"><i data-lucide="link"></i><span>Copy link</span></button></div></div>
 </details>
 <details class="qa" id="how-do-i-keep-mirotalk-running-after-a-server-reboot">
-<summary><span class="q" data-text="How do I keep MiroTalk running after a server reboot?">How do I keep MiroTalk running after a server reboot?</span></summary>
+<summary><span class="qwrap"><span class="q" data-text="How do I keep MiroTalk running after a server reboot?">How do I keep MiroTalk running after a server reboot?</span><span class="snippet" hidden></span></span></summary>
 <div class="answer">
 <p>Use <strong>PM2</strong> (Process Manager) with auto-startup:</p>
 <pre><code class="language-bash">npm install -g pm2
@@ -942,7 +992,7 @@ pm2 save
 <section class="faq-section" id="internationalization" data-section="internationalization">
 <h2><span class="icon"><i data-lucide="languages"></i></span>Internationalization</h2>
 <details class="qa" id="does-mirotalk-support-multiple-languages">
-<summary><span class="q" data-text="Does MiroTalk support multiple languages?">Does MiroTalk support multiple languages?</span></summary>
+<summary><span class="qwrap"><span class="q" data-text="Does MiroTalk support multiple languages?">Does MiroTalk support multiple languages?</span><span class="snippet" hidden></span></span></summary>
 <div class="answer">
 <p>Yes. The in-room UI of <strong>MiroTalk SFU</strong> and <strong>MiroTalk P2P</strong> can be shown in many languages, and <strong>MiroTalk CME</strong> has its own built-in translations.</p>
 <div class="table-wrap"><table>
@@ -993,7 +1043,7 @@ pm2 save
 <section class="faq-section" id="database-email" data-section="database-email">
 <h2><span class="icon"><i data-lucide="database"></i></span>Database &amp; Email</h2>
 <details class="qa" id="does-mirotalk-web-require-a-database">
-<summary><span class="q" data-text="Does MiroTalk WEB require a database?">Does MiroTalk WEB require a database?</span></summary>
+<summary><span class="qwrap"><span class="q" data-text="Does MiroTalk WEB require a database?">Does MiroTalk WEB require a database?</span><span class="snippet" hidden></span></span></summary>
 <div class="answer">
 <p>Yes. MiroTalk WEB uses <strong>MongoDB</strong> to store meeting and room data. Two deployment options:</p>
 <p><strong>Local (Docker):</strong></p>
@@ -1009,7 +1059,7 @@ MONGO_DATABASE=mirotalk
 <div class="answer-foot"><button class="copy" type="button" data-id="does-mirotalk-web-require-a-database"><i data-lucide="link"></i><span>Copy link</span></button></div></div>
 </details>
 <details class="qa" id="does-mirotalk-web-support-email-verification">
-<summary><span class="q" data-text="Does MiroTalk WEB support email verification?">Does MiroTalk WEB support email verification?</span></summary>
+<summary><span class="qwrap"><span class="q" data-text="Does MiroTalk WEB support email verification?">Does MiroTalk WEB support email verification?</span><span class="snippet" hidden></span></span></summary>
 <div class="answer">
 <p>Yes. Email verification is <strong>disabled by default</strong>. To enable it, set <code>EMAIL_VERIFICATION=true</code> in <code>.env</code> and configure SMTP settings:</p>
 <pre><code class="language-bash">EMAIL_VERIFICATION=true
@@ -1026,7 +1076,7 @@ EMAIL_FROM=yourEmailFrom
 <section class="faq-section" id="security" data-section="security">
 <h2><span class="icon"><i data-lucide="shield-check"></i></span>Security</h2>
 <details class="qa" id="how-do-i-secure-my-coturn-turn-server">
-<summary><span class="q" data-text="How do I secure my coturn TURN server?">How do I secure my coturn TURN server?</span></summary>
+<summary><span class="qwrap"><span class="q" data-text="How do I secure my coturn TURN server?">How do I secure my coturn TURN server?</span><span class="snippet" hidden></span></span></summary>
 <div class="answer">
 <p>Key hardening recommendations for your <a href="/coturn/installation/">coturn</a> server:</p>
 <ul>
@@ -1044,7 +1094,7 @@ EMAIL_FROM=yourEmailFrom
 <section class="faq-section" id="troubleshooting" data-section="troubleshooting">
 <h2><span class="icon"><i data-lucide="life-buoy"></i></span>Troubleshooting</h2>
 <details class="qa" id="my-video-audio-is-not-working-what-should-i-check">
-<summary><span class="q" data-text="My video/audio is not working. What should I check?">My video/audio is not working. What should I check?</span></summary>
+<summary><span class="qwrap"><span class="q" data-text="My video/audio is not working. What should I check?">My video/audio is not working. What should I check?</span><span class="snippet" hidden></span></span></summary>
 <div class="answer">
 <ol>
 <li><strong>Browser permissions:</strong> Ensure the browser has granted camera and microphone access.</li>
@@ -1056,7 +1106,7 @@ EMAIL_FROM=yourEmailFrom
 <div class="answer-foot"><button class="copy" type="button" data-id="my-video-audio-is-not-working-what-should-i-check"><i data-lucide="link"></i><span>Copy link</span></button></div></div>
 </details>
 <details class="qa" id="in-mirotalk-sfu-i-see-only-one-side-of-the-video-call-or-no-video-when-running-with-docker-or-a-reverse-proxy-how-do-i-fix-it">
-<summary><span class="q" data-text="In MiroTalk SFU I see only one side of the video call (or no video) when running with Docker or a reverse proxy. How do I fix it?">In MiroTalk SFU I see only one side of the video call (or no video) when running with Docker or a reverse proxy. How do I fix it?</span></summary>
+<summary><span class="qwrap"><span class="q" data-text="In MiroTalk SFU I see only one side of the video call (or no video) when running with Docker or a reverse proxy. How do I fix it?">In MiroTalk SFU I see only one side of the video call (or no video) when running with Docker or a reverse proxy. How do I fix it?</span><span class="snippet" hidden></span></span></summary>
 <div class="answer">
 <p>This almost always means the <strong>media ports</strong> are unreachable. In SFU, the reverse proxy (Nginx, Nginx Proxy Manager, Traefik, Cloudflare) only carries signaling on port <code>3010</code>. Audio/video goes <strong>directly</strong> between the browser and the SFU on the <code>SFU_MIN_PORT</code>-<code>SFU_MAX_PORT</code> range.</p>
 <ol>
@@ -1071,7 +1121,7 @@ EMAIL_FROM=yourEmailFrom
 <div class="answer-foot"><button class="copy" type="button" data-id="in-mirotalk-sfu-i-see-only-one-side-of-the-video-call-or-no-video-when-running-with-docker-or-a-reverse-proxy-how-do-i-fix-it"><i data-lucide="link"></i><span>Copy link</span></button></div></div>
 </details>
 <details class="qa" id="how-do-i-update-mirotalk-to-the-latest-version">
-<summary><span class="q" data-text="How do I update MiroTalk to the latest version?">How do I update MiroTalk to the latest version?</span></summary>
+<summary><span class="qwrap"><span class="q" data-text="How do I update MiroTalk to the latest version?">How do I update MiroTalk to the latest version?</span><span class="snippet" hidden></span></span></summary>
 <div class="answer">
 <p><strong>Manual installation:</strong></p>
 <pre><code class="language-bash">git pull
@@ -1086,7 +1136,7 @@ docker-compose up -d
 <div class="answer-foot"><button class="copy" type="button" data-id="how-do-i-update-mirotalk-to-the-latest-version"><i data-lucide="link"></i><span>Copy link</span></button></div></div>
 </details>
 <details class="qa" id="how-do-i-test-mirotalk-locally-without-a-domain-or-ssl">
-<summary><span class="q" data-text="How do I test MiroTalk locally without a domain or SSL?">How do I test MiroTalk locally without a domain or SSL?</span></summary>
+<summary><span class="qwrap"><span class="q" data-text="How do I test MiroTalk locally without a domain or SSL?">How do I test MiroTalk locally without a domain or SSL?</span><span class="snippet" hidden></span></span></summary>
 <div class="answer">
 <p>Use <strong>ngrok</strong> to create a secure tunnel from your local machine to a public HTTPS URL:</p>
 <pre><code class="language-bash">ngrok http 3000
@@ -1095,6 +1145,7 @@ docker-compose up -d
 <div class="answer-foot"><button class="copy" type="button" data-id="how-do-i-test-mirotalk-locally-without-a-domain-or-ssl"><i data-lucide="link"></i><span>Copy link</span></button></div></div>
 </details>
 </section>
+      </div>
       <div class="empty" id="empty"><strong id="empty-query">No answers found</strong>Try a shorter keyword or browse all topics.<br><button id="reset" type="button" class="link-button">Clear search and filters</button></div>
       <aside class="help">
         <div><h2>Can't find your answer?</h2><p>Ask the MiroTalk community or browse the full documentation.</p></div>
@@ -1106,49 +1157,86 @@ docker-compose up -d
   <footer><div class="shell footer"><p><strong>MiroTalk</strong><br>Open video communication, on your terms.</p><div><a href="../">Documentation</a><a href="../faq/">Classic FAQ</a><a href="../license/">Licensing</a></div></div></footer>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const refreshIcons = () => window.lucide && lucide.createIcons();
-      refreshIcons();
+      if (window.lucide) lucide.createIcons();
       document.getElementById('theme').addEventListener('click', () => window.MiroTalkTheme.toggle());
 
-      const input = document.getElementById('search');
+      const heroInput = document.getElementById('search');
+      const stickyInput = document.getElementById('search-sticky');
+      const stickyBar = document.getElementById('stickybar');
+      const stickyCount = document.getElementById('sticky-count');
       const clear = document.getElementById('clear');
+      const sectionsBox = document.getElementById('sections');
       const sections = [...document.querySelectorAll('.faq-section')];
       const items = [...document.querySelectorAll('.qa')];
       const topics = [...document.querySelectorAll('.topic')];
+      const topicSelect = document.getElementById('topic-select');
       const status = document.getElementById('count');
       const empty = document.getElementById('empty');
       const emptyQuery = document.getElementById('empty-query');
       const toTop = document.getElementById('to-top');
-      const index = new Map(items.map((item) => [item, item.textContent.toLowerCase()]));
-      const escapeHtml = (text) => text.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-      const escapePattern = (text) => text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
       let activeSection = 'all';
 
-      const highlight = (item, terms) => {
-        const label = item.querySelector('.q');
-        const text = label.dataset.text;
-        const unescaped = new DOMParser().parseFromString(text, 'text/html').body.textContent;
-        if (!terms.length) { label.textContent = unescaped; return; }
+      const escapeHtml = (text) => text.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+      const escapePattern = (text) => text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const highlightHtml = (text, terms) => {
+        if (!terms.length) return escapeHtml(text);
         const pattern = new RegExp(`(${terms.map(escapePattern).join('|')})`, 'gi');
-        label.innerHTML = unescaped.split(pattern).map((part, i) => (i % 2 ? `<mark>${escapeHtml(part)}</mark>` : escapeHtml(part))).join('');
+        return text.split(pattern).map((part, i) => (i % 2 ? `<mark>${escapeHtml(part)}</mark>` : escapeHtml(part))).join('');
+      };
+
+      const data = new Map(items.map((item, position) => {
+        const title = item.querySelector('.q').dataset.text;
+        const body = [...item.querySelector('.answer').children]
+          .filter((element) => !element.classList.contains('answer-foot'))
+          .map((element) => element.textContent).join(' ').replace(/\s+/g, ' ').trim();
+        return [item, { title, titleLower: title.toLowerCase(), body, bodyLower: body.toLowerCase(), position }];
+      }));
+
+      const snippetFor = (entry, terms) => {
+        const hit = terms.map((term) => entry.bodyLower.indexOf(term)).filter((i) => i >= 0).sort((a, b) => a - b)[0];
+        if (hit === undefined) return '';
+        let start = Math.max(0, hit - 50);
+        let end = Math.min(entry.body.length, hit + 110);
+        // Snap to word boundaries so the excerpt does not start or end mid-word.
+        if (start > 0) start = Math.min(entry.body.indexOf(' ', start) + 1 || start, hit);
+        if (end < entry.body.length) end = Math.max(entry.body.lastIndexOf(' ', end) || end, hit + 1);
+        return `${start > 0 ? '… ' : ''}${highlightHtml(entry.body.slice(start, end), terms)}${end < entry.body.length ? ' …' : ''}`;
       };
 
       const apply = (searchChanged = false) => {
-        const raw = input.value.trim();
+        const raw = heroInput.value.trim();
         const terms = raw.toLowerCase().split(/\s+/).filter(Boolean);
         const perSection = new Map(sections.map((section) => [section.dataset.section, 0]));
+        const scores = new Map();
         let visible = 0;
 
         items.forEach((item) => {
+          const entry = data.get(item);
           const section = item.closest('.faq-section').dataset.section;
-          const matches = terms.every((term) => index.get(item).includes(term));
-          if (matches) perSection.set(section, perSection.get(section) + 1);
+          const matches = terms.every((term) => entry.titleLower.includes(term) || entry.bodyLower.includes(term));
+          if (matches) {
+            perSection.set(section, perSection.get(section) + 1);
+            scores.set(item, terms.reduce((sum, term) => sum + (entry.titleLower.includes(term) ? 10 : 0) + (entry.bodyLower.includes(term) ? 1 : 0), 0));
+          }
           const shown = matches && (activeSection === 'all' || section === activeSection);
           item.hidden = !shown;
-          if (shown) { visible += 1; highlight(item, terms); }
+          if (!shown) return;
+          visible += 1;
+          item.querySelector('.q').innerHTML = highlightHtml(entry.title, terms);
+          const snippet = item.querySelector('.snippet');
+          const bodyOnly = terms.length && !terms.every((term) => entry.titleLower.includes(term));
+          snippet.innerHTML = bodyOnly ? snippetFor(entry, terms) : '';
+          snippet.hidden = !snippet.innerHTML;
         });
 
-        sections.forEach((section) => { section.hidden = !section.querySelector('.qa:not([hidden])'); });
+        // Best matches first, without moving DOM nodes (CSS order on flex columns).
+        const ranked = items.filter((item) => !item.hidden).sort((a, b) => (scores.get(b) || 0) - (scores.get(a) || 0) || data.get(a).position - data.get(b).position);
+        items.forEach((item) => { item.style.order = terms.length ? String(ranked.indexOf(item)) : ''; });
+        sections.forEach((section) => {
+          const visibleItems = [...section.querySelectorAll('.qa:not([hidden])')];
+          section.hidden = visibleItems.length === 0;
+          section.style.order = terms.length && visibleItems.length ? String(Math.min(...visibleItems.map((item) => ranked.indexOf(item)))) : '';
+        });
 
         const matchTotal = [...perSection.values()].reduce((sum, n) => sum + n, 0);
         topics.forEach((topic) => {
@@ -1156,6 +1244,10 @@ docker-compose up -d
           topic.querySelector('.num').textContent = topic.dataset.section === 'all' ? '' : count;
           topic.classList.toggle('zero', count === 0);
         });
+        [...topicSelect.options].forEach((option) => {
+          option.textContent = option.value === 'all' ? `All topics (${matchTotal})` : `${option.dataset.name} (${perSection.get(option.value)})`;
+        });
+        topicSelect.value = activeSection;
 
         if (searchChanged && terms.length && visible > 0 && visible <= 3) {
           items.forEach((item) => { if (!item.hidden) item.open = true; });
@@ -1163,6 +1255,7 @@ docker-compose up -d
 
         const noun = visible === 1 ? 'question' : 'questions';
         status.textContent = raw ? `${visible} ${noun} found for “${raw}”` : `Showing ${visible} ${noun}`;
+        stickyCount.textContent = raw ? `${visible} found` : '';
         emptyQuery.textContent = raw ? `No answers match “${raw}”` : 'No questions in this topic';
         empty.classList.toggle('visible', visible === 0);
         clear.classList.toggle('visible', raw.length > 0);
@@ -1170,6 +1263,12 @@ docker-compose up -d
         const url = new URL(window.location.href);
         if (raw) url.searchParams.set('q', raw); else url.searchParams.delete('q');
         history.replaceState(null, '', url);
+      };
+
+      const setQuery = (value, searchChanged = true) => {
+        heroInput.value = value;
+        stickyInput.value = value;
+        apply(searchChanged);
       };
 
       const setSection = (name) => {
@@ -1186,17 +1285,21 @@ docker-compose up -d
         const id = decodeURIComponent(location.hash.slice(1));
         const item = id && document.getElementById(id);
         if (!item || !item.classList.contains('qa')) return;
-        if (item.hidden) { input.value = ''; activeSection = 'all'; setSection('all'); }
+        if (item.hidden) { setQuery('', false); setSection('all'); }
         item.open = true;
         item.scrollIntoView();
       };
 
-      input.addEventListener('input', () => apply(true));
-      clear.addEventListener('click', () => { input.value = ''; apply(); input.focus(); });
+      [heroInput, stickyInput].forEach((input) => {
+        input.addEventListener('input', () => setQuery(input.value));
+        input.addEventListener('keydown', (event) => { if (event.key === 'Escape') setQuery(''); });
+      });
+      clear.addEventListener('click', () => { setQuery('', false); heroInput.focus(); });
       topics.forEach((topic) => topic.addEventListener('click', () => setSection(topic.dataset.section)));
+      topicSelect.addEventListener('change', () => setSection(topicSelect.value));
       document.getElementById('expand').addEventListener('click', () => items.forEach((item) => { item.open = !item.hidden; }));
       document.getElementById('collapse').addEventListener('click', () => items.forEach((item) => { item.open = false; }));
-      document.getElementById('reset').addEventListener('click', () => { input.value = ''; setSection('all'); input.focus(); });
+      document.getElementById('reset').addEventListener('click', () => { setQuery('', false); setSection('all'); heroInput.focus(); });
       window.addEventListener('hashchange', openFromHash);
 
       document.querySelectorAll('.copy').forEach((button) => button.addEventListener('click', async () => {
@@ -1206,16 +1309,21 @@ docker-compose up -d
         setTimeout(() => { label.textContent = 'Copy link'; }, 1800);
       }));
 
+      // Show a compact search bar once the main search box has scrolled out of view.
+      new IntersectionObserver(([entry]) => { stickyBar.hidden = entry.isIntersecting; }, { rootMargin: '-65px 0px 0px 0px' })
+        .observe(document.querySelector('.hero .searchbox'));
+
       window.addEventListener('scroll', () => toTop.classList.toggle('visible', window.scrollY > 900), { passive: true });
       toTop.addEventListener('click', () => window.scrollTo({ top: 0 }));
       document.addEventListener('keydown', (event) => {
-        const typing = ['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName);
-        if (event.key === '/' && !typing && !event.metaKey && !event.ctrlKey) { event.preventDefault(); input.focus(); }
-        if (event.key === 'Escape' && document.activeElement === input) { input.value = ''; apply(); }
+        const typing = ['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement.tagName);
+        if (event.key === '/' && !typing && !event.metaKey && !event.ctrlKey) {
+          event.preventDefault();
+          (stickyBar.hidden ? heroInput : stickyInput).focus();
+        }
       });
 
-      input.value = new URLSearchParams(location.search).get('q') || '';
-      apply(true);
+      setQuery(new URLSearchParams(location.search).get('q') || '');
       openFromHash();
     });
   </script>

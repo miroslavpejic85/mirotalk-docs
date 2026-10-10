@@ -17,6 +17,8 @@
     - 🛠 **MiroTalk WEB** — Meeting room scheduler and manager
     - ⚙️ **MiroTalk ADMIN** — Centralized dashboard to manage all instances
 
+    See the [ecosystem overview](../sites/overview.html) for how the products fit together, or the [story behind MiroTalk](../sites/story.html).
+
 ??? question "What is WebRTC?"
 
     **WebRTC** (Web Real-Time Communication) is an open-source technology that enables real-time audio, video, and data communication directly in web browsers without requiring plugins or additional software. MiroTalk is built entirely on top of WebRTC.
@@ -26,6 +28,17 @@
     - **Mesh (P2P):** Each participant connects directly to every other participant. Low latency but bandwidth and CPU usage grow with more participants. Best for 2–4 users.
     - **SFU (Selective Forwarding Unit):** A central server receives all streams and selectively forwards them to participants. Reduced bandwidth per participant, ideal for 5+ users.
     - **MCU (Multipoint Control Unit):** The server mixes all streams into a single composite stream. Most resource-intensive on the server side.
+
+    See [Compare architectures](../overview/index.md) for a detailed side-by-side comparison.
+
+??? question "How does MiroTalk compare to Zoom, Google Meet, Jitsi, or Whereby?"
+
+    MiroTalk is **open source and self-hosted**, so you control your servers, data, branding, and costs. Hosted services such as Zoom, Google Meet, and Whereby run on the provider's infrastructure.
+
+    - [MiroTalk vs Zoom, Google Meet, Teams, Whereby & Jitsi](../sites/compare.html): overview of all alternatives
+    - [MiroTalk vs Zoom](../sites/mirotalk-vs-zoom.html)
+    - [MiroTalk vs Jitsi Meet](../sites/mirotalk-vs-jitsi.html)
+    - [MiroTalk vs Whereby Embedded](../sites/mirotalk-vs-whereby.html)
 
 ---
 
@@ -44,6 +57,10 @@
     | **WEB** | Meeting scheduling and management | N/A (scheduler) | Web-based |
 
     For large group calls and scalability, choose **SFU**. For lightweight, low-latency small calls, choose **P2P**. For random one-to-one matching, choose **RND**.
+
+    Not sure yet? Use the [interactive product chooser](../sites/projects.html) or see the [ecosystem overview](../sites/overview.html).
+
+    Product pages: [SFU](../sites/sfu.html), [P2P](../sites/p2p.html), [C2C](../sites/c2c.html), [RND](../sites/rnd.html), [BRO](../sites/bro.html), [CME](../sites/cme.html), [WEB](../sites/web.html), [ADMIN](../sites/admin.html).
 
 ??? question "How many users can MiroTalk SFU handle?"
 
@@ -69,11 +86,11 @@
     - **P2P** (default) uses direct peer-to-peer WebRTC connections and works best for **small audiences**.
     - **SFU** routes media through a built-in **mediasoup** server and is better suited for **larger broadcasts** and **100+ viewers**, depending on server capacity and network setup.
 
-    For large-scale broadcasts, use **MiroTalk BRO in SFU mode**.
+    For large-scale broadcasts, use **MiroTalk BRO in SFU mode**. See the [MiroTalk BRO](../sites/bro.html) page for details.
 
 ??? question "What is MiroTalk WEB?"
 
-    MiroTalk WEB is a browser-based **meeting room scheduler** that lets you organize and manage meetings. It integrates links to all MiroTalk products, uses a MongoDB backend for storing meeting/room data, and optionally supports email verification. Default port: `9000`.
+    MiroTalk WEB is a browser-based **meeting room scheduler** that lets you organize and manage meetings. It integrates links to all MiroTalk products, uses a MongoDB backend for storing meeting/room data, and optionally supports email verification. Default port: `9000`. See the [MiroTalk WEB](../sites/web.html) page for details.
 
 ??? question "What is MiroTalk ADMIN?"
 
@@ -83,6 +100,8 @@
     - Updating all products
     - Editing configurations
     - Managing via **SSH**, **Docker**, or **PM2**
+
+    See the [MiroTalk ADMIN](../sites/admin.html) page for details.
 
 ---
 
