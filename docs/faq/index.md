@@ -1,5 +1,108 @@
 # Frequently Asked Questions
 
+<div class="faq-chooser-marker" aria-hidden="true"></div>
+
+Find short, practical answers about MiroTalk products, self-hosting, WebRTC, licensing, and troubleshooting. Pick a topic below or scroll through the sections.
+
+[Browse by topic](#browse-by-topic){ .md-button .md-button--primary }
+[Open the interactive FAQ](../sites/faq.html){ .md-button }
+
+## Browse by topic
+
+<div class="chooser-grid">
+    <a class="chooser-choice choice-sfu" href="#general">
+        <span class="chooser-code">GEN</span>
+        <span class="chooser-copy"><strong>General</strong><small>What MiroTalk and WebRTC are, and how they compare</small></span>
+    </a>
+    <a class="chooser-choice choice-p2p" href="#products">
+        <span class="chooser-code">PROD</span>
+        <span class="chooser-copy"><strong>Products</strong><small>Which product fits your use case</small></span>
+    </a>
+    <a class="chooser-choice choice-c2c" href="#self-hosting-deployment">
+        <span class="chooser-code">HOST</span>
+        <span class="chooser-copy"><strong>Self-hosting & deployment</strong><small>Install with Docker, Node.js, proxies, and SSL</small></span>
+    </a>
+    <a class="chooser-choice choice-bro" href="#stun-turn-servers">
+        <span class="chooser-code">TURN</span>
+        <span class="chooser-copy"><strong>STUN & TURN servers</strong><small>Connectivity behind firewalls and NAT</small></span>
+    </a>
+    <a class="chooser-choice choice-admin" href="#configuration">
+        <span class="chooser-code">CFG</span>
+        <span class="chooser-copy"><strong>Configuration</strong><small>Environment settings and server options</small></span>
+    </a>
+    <a class="chooser-choice choice-sfu" href="#api-integration">
+        <span class="chooser-code">API</span>
+        <span class="chooser-copy"><strong>API & integration</strong><small>REST APIs, webhooks, and iframe embedding</small></span>
+    </a>
+    <a class="chooser-choice choice-p2p" href="#features">
+        <span class="chooser-code">FEAT</span>
+        <span class="chooser-copy"><strong>Features</strong><small>Recording, chat, screen sharing, and more</small></span>
+    </a>
+    <a class="chooser-choice choice-c2c" href="#licensing">
+        <span class="chooser-code">LIC</span>
+        <span class="chooser-copy"><strong>Licensing</strong><small>AGPLv3 and commercial options</small></span>
+    </a>
+    <a class="chooser-choice choice-bro" href="#room-customization">
+        <span class="chooser-code">ROOM</span>
+        <span class="chooser-copy"><strong>Room customization</strong><small>Branding, UI, and room behavior</small></span>
+    </a>
+    <a class="chooser-choice choice-admin" href="#scaling-architecture">
+        <span class="chooser-code">SCALE</span>
+        <span class="chooser-copy"><strong>Scaling & architecture</strong><small>Capacity, workers, and large meetings</small></span>
+    </a>
+    <a class="chooser-choice choice-sfu" href="#updates-maintenance">
+        <span class="chooser-code">UPD</span>
+        <span class="chooser-copy"><strong>Updates & maintenance</strong><small>Upgrade and keep deployments healthy</small></span>
+    </a>
+    <a class="chooser-choice choice-p2p" href="#internationalization">
+        <span class="chooser-code">I18N</span>
+        <span class="chooser-copy"><strong>Internationalization</strong><small>Languages and localization</small></span>
+    </a>
+    <a class="chooser-choice choice-c2c" href="#database-email">
+        <span class="chooser-code">DB</span>
+        <span class="chooser-copy"><strong>Database & email</strong><small>Storage, SMTP, and notifications</small></span>
+    </a>
+    <a class="chooser-choice choice-bro" href="#security">
+        <span class="chooser-code">SEC</span>
+        <span class="chooser-copy"><strong>Security</strong><small>Hardening and safe deployments</small></span>
+    </a>
+    <a class="chooser-choice choice-admin" href="#troubleshooting">
+        <span class="chooser-code">FIX</span>
+        <span class="chooser-copy"><strong>Troubleshooting</strong><small>Fix video, audio, and connection problems</small></span>
+    </a>
+</div>
+
+## Go deeper
+
+Need more than a quick answer? These guides cover the details.
+
+<div class="chooser-grid">
+    <a class="chooser-choice choice-sfu" href="../sites/faq.html">
+        <span class="chooser-code">FAQ</span>
+        <span class="chooser-copy"><strong>Interactive FAQ</strong><small>Search and filter every answer in the visual view</small></span>
+    </a>
+    <a class="chooser-choice choice-p2p" href="../projects/">
+        <span class="chooser-code">PICK</span>
+        <span class="chooser-copy"><strong>Choose a product</strong><small>Match a goal to the right MiroTalk product</small></span>
+    </a>
+    <a class="chooser-choice choice-c2c" href="../overview/">
+        <span class="chooser-code">ARCH</span>
+        <span class="chooser-copy"><strong>Compare architectures</strong><small>Mesh, SFU, and MCU side by side</small></span>
+    </a>
+    <a class="chooser-choice choice-bro" href="../self-host/">
+        <span class="chooser-code">DEPLOY</span>
+        <span class="chooser-copy"><strong>Self-hosting guide</strong><small>Step-by-step installation for every product</small></span>
+    </a>
+    <a class="chooser-choice choice-admin" href="../sites/compare.html">
+        <span class="chooser-code">VS</span>
+        <span class="chooser-copy"><strong>Compare alternatives</strong><small>MiroTalk vs Zoom, Meet, Jitsi, and Whereby</small></span>
+    </a>
+    <a class="chooser-choice choice-web" href="../cloud/">
+        <span class="chooser-code">CLOUD</span>
+        <span class="chooser-copy"><strong>MiroTalk Cloud</strong><small>Skip the infrastructure with the managed service</small></span>
+    </a>
+</div>
+
 ---
 
 ## General

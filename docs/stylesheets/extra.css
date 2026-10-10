@@ -596,11 +596,12 @@
 
 /* Product chooser */
 
-.product-chooser-marker {
+.product-chooser-marker,
+.faq-chooser-marker {
   display: none;
 }
 
-.md-content:has(.product-chooser-marker) h1 {
+.md-content:has(.product-chooser-marker, .faq-chooser-marker) h1 {
   max-width: 42rem;
   margin-bottom: 0.9rem;
 }

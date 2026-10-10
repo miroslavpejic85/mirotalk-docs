@@ -40,59 +40,86 @@
   <style>
     :root {
       color-scheme: light;
-      --ink: #17231f; --muted: #52635b; --paper: #f5f8f5; --surface: #fff;
-      --soft: #eaf1ed; --line: #d5e0da; --green: #087f5b; --green-dark: #056347;
-      --mint: #dff5eb; --mark: #fff0a8; --shadow: 0 12px 32px rgba(23,35,31,.1);
-      --blue: #1565c0; --blue-soft: #e3f0fb; --accent-bg: #1565c0; --accent-fg: #fff
+      --ink: #18231f; --muted: #607069; --paper: #f7f9f7; --surface: #fff;
+      --soft: #edf2ef; --line: #d8e2dc; --green: #087f5b; --green2: #056347;
+      --mint: #dff5eb; --blue: #1769aa; --bluebg: #e5f2fb; --coral: #d9503f;
+      --coralbg: #fbe9e5; --gold: #a76808; --goldbg: #fff1d4; --mark: #fff0a8;
+      --shadow: 0 18px 50px #18231f17; --accent-bg: var(--green2); --accent-fg: #fff;
+      --tone-green: #64d8ad; --tone-blue: #79b9e8; --tone-coral: #ff8b7c; --tone-gold: #efbd67
     }
     [data-theme="dark"] {
       color-scheme: dark;
-      --ink: #edf5f1; --muted: #a9b9b1; --paper: #101714; --surface: #17201c;
-      --soft: #202b26; --line: #34443c; --green: #61d6aa; --green-dark: #8ce5c3;
-      --mint: #173c2f; --mark: #5c4b12; --shadow: 0 12px 32px rgba(0,0,0,.35);
-      --blue: #7dbcf0; --blue-soft: #173247; --accent-bg: #7dbcf0; --accent-fg: #0d1a24
+      --ink: #edf5f1; --muted: #a7b7af; --paper: #101714; --surface: #17201c;
+      --soft: #202b26; --line: #33423b; --green: #61d6aa; --green2: #8ce5c3;
+      --mint: #173c2f; --blue: #79b9e8; --bluebg: #173247; --coral: #ff8b7c;
+      --coralbg: #45251f; --gold: #efbd67; --goldbg: #3d311d; --mark: #5c4b12;
+      --shadow: 0 18px 50px #0004; --accent-fg: #102119;
+      --tone-green: #087f5b; --tone-blue: #1769aa; --tone-coral: #d9503f; --tone-gold: #a76808
     }
     * { box-sizing: border-box }
-    html { scroll-behavior: smooth; scroll-padding-top: 132px }
-    body { margin: 0; color: var(--ink); font: 16px/1.65 'DM Sans', sans-serif; background: var(--paper) }
+    html { scroll-behavior: smooth; scroll-padding-top: 140px }
+    body { margin: 0; color: var(--ink); font: 16px/1.65 'DM Sans', sans-serif; background: linear-gradient(90deg, color-mix(in srgb, var(--line) 38%, transparent) 1px, transparent 1px) 0 0/42px 42px, linear-gradient(color-mix(in srgb, var(--line) 38%, transparent) 1px, transparent 1px) 0 0/42px 42px, var(--paper) }
+    body:before { content: ''; position: fixed; inset: 0; z-index: -1; background: linear-gradient(180deg, transparent, var(--paper) 65rem); pointer-events: none }
     a { color: var(--blue) } button, input { color: inherit; font: inherit }
-    :focus-visible { outline: 3px solid var(--blue); outline-offset: 2px }
+    :focus-visible { outline: 3px solid var(--green); outline-offset: 3px }
     [hidden] { display: none !important }
     svg { flex: none }
-    .shell { width: min(1120px, calc(100% - 40px)); margin-inline: auto }
-    .site-header { position: sticky; top: 0; z-index: 20; border-bottom: 1px solid var(--line); background: color-mix(in srgb, var(--paper) 92%, transparent); backdrop-filter: blur(16px) }
-    nav { display: flex; min-height: 64px; gap: 24px; align-items: center }
+    .shell { width: min(1160px, calc(100% - 40px)); margin-inline: auto }
+    .site-header { position: sticky; top: 0; z-index: 20; border-bottom: 1px solid var(--line); background: color-mix(in srgb, var(--paper) 88%, transparent); backdrop-filter: blur(16px) }
+    nav { display: flex; min-height: 68px; gap: 28px; align-items: center }
     .brand { display: flex; gap: 10px; align-items: center; color: var(--ink); font: 800 1rem Manrope, sans-serif; text-decoration: none }
-    .mark { display: grid; width: 34px; height: 34px; place-items: center; border-radius: 50%; background: var(--green-dark); color: var(--paper) }
+    .mark { display: grid; width: 34px; height: 34px; place-items: center; border-radius: 50%; background: var(--green2); color: #fff }
+    [data-theme="dark"] .mark { color: #102119 }
     .mark svg, .theme svg { width: 19px; height: 19px }
-    .links { display: flex; gap: 22px; margin-left: auto }
+    .links { display: flex; gap: 24px; margin-left: auto }
     .links a { color: var(--muted); font-size: .9rem; font-weight: 600; text-decoration: none }
     .links a:hover { color: var(--ink) }
-    .theme { display: grid; width: 40px; height: 40px; padding: 0; place-items: center; border: 1px solid var(--line); border-radius: 7px; background: var(--surface); cursor: pointer }
-    h1, h2 { margin-top: 0; font-family: Manrope, sans-serif; letter-spacing: 0 }
+    .theme { display: grid; width: 40px; height: 40px; padding: 0; place-items: center; border: 1px solid var(--line); border-radius: 7px; background: var(--surface); color: var(--ink); cursor: pointer }
+    .theme .sun { display: none }
+    [data-theme="dark"] .theme .moon { display: none }
+    [data-theme="dark"] .theme .sun { display: block }
+    h1, h2, h3 { margin-top: 0; font-family: Manrope, sans-serif; line-height: 1.12; letter-spacing: 0 }
 
-    .hero { padding: 44px 0 28px; border-bottom: 1px solid var(--line); background: linear-gradient(180deg, var(--mint), transparent) }
-    .hero .shell { max-width: 760px; text-align: center }
-    .eyebrow { margin: 0 0 8px; color: var(--green-dark); font-size: .8rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase }
-    h1 { margin-bottom: 10px; font-size: clamp(2rem, 5vw, 2.75rem); line-height: 1.1 }
-    .lead { margin: 0 auto 22px; max-width: 54ch; color: var(--muted); font-size: 1.05rem }
+    .hero { padding: 64px 0 48px; border-bottom: 1px solid var(--line); background: linear-gradient(180deg, var(--mint), transparent) }
+    .hero .shell { max-width: 800px; text-align: center }
+    .eyebrow { display: inline-flex; gap: 8px; align-items: center; margin: 0; color: var(--green); font-size: .77rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase }
+    .eyebrow:before { content: ''; width: 28px; height: 2px; background: currentColor }
+    h1 { margin: 16px 0 14px; font-size: clamp(2.4rem, 5.5vw, 4rem) }
+    .lead { margin: 0 auto 26px; max-width: 54ch; color: var(--muted); font-size: 1.16rem }
     .searchbox { position: relative }
     .searchbox > svg { position: absolute; top: 50%; left: 18px; width: 20px; height: 20px; color: var(--muted); transform: translateY(-50%); pointer-events: none }
-    .search { width: 100%; padding: 16px 48px 16px 50px; border: 2px solid var(--line); border-radius: 14px; background: var(--surface); font-size: 1.05rem; box-shadow: var(--shadow) }
-    .search:focus { border-color: var(--blue); outline: none }
+    .search { width: 100%; padding: 16px 48px 16px 50px; border: 2px solid var(--line); border-radius: 8px; background: var(--surface); font-size: 1.05rem; box-shadow: var(--shadow) }
+    .search:focus { border-color: var(--green); outline: none }
     .search::-webkit-search-cancel-button { display: none }
     .clear { position: absolute; top: 50%; right: 10px; display: none; width: 34px; height: 34px; padding: 0; place-items: center; border: 0; border-radius: 50%; background: var(--soft); cursor: pointer; transform: translateY(-50%) }
     .clear.visible { display: grid }
     .clear svg { width: 16px; height: 16px }
-    .popular { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: center; margin-top: 16px; color: var(--muted); font-size: .88rem }
+    .popular { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: center; margin-top: 18px; color: var(--muted); font-size: .88rem }
     .popular a { padding: 4px 12px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--ink); font-weight: 600; text-decoration: none }
-    .popular a:hover { border-color: var(--blue); color: var(--blue) }
+    .popular a:hover { border-color: var(--green); color: var(--green) }
 
-    .layout { display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: 40px; align-items: start; padding: 32px 0 64px }
-    .sidebar { position: sticky; top: 132px; max-height: calc(100vh - 152px); overflow-y: auto }
+    .chooser { padding: 64px 0; background: var(--ink); color: var(--paper) }
+    [data-theme="dark"] .chooser { background: #eaf2ee; color: #16211c }
+    .chooser .eyebrow { color: var(--tone-green) }
+    .chooser h2 { margin: 12px 0 10px; font-size: clamp(1.8rem, 3.5vw, 2.6rem) }
+    .chooser .intro { max-width: 700px; margin-bottom: 30px }
+    .chooser .intro p { margin: 0; color: color-mix(in srgb, currentColor 70%, transparent); font-size: 1.05rem }
+    .needs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px }
+    .need { --tone: var(--tone-green); position: relative; display: flex; min-height: 112px; flex-direction: column; gap: 4px; padding: 16px; border: 1px solid color-mix(in srgb, currentColor 24%, transparent); border-radius: 7px; background: transparent; color: inherit; text-align: left; cursor: pointer }
+    .need.tone-blue { --tone: var(--tone-blue) }
+    .need.tone-coral { --tone: var(--tone-coral) }
+    .need.tone-gold { --tone: var(--tone-gold) }
+    .need svg { width: 22px; height: 22px; margin-bottom: 6px; color: var(--tone) }
+    .need .name { font-weight: 700; line-height: 1.35 }
+    .need .num { position: absolute; top: 12px; right: 12px; min-width: 24px; padding: 0 7px; border-radius: 999px; background: color-mix(in srgb, currentColor 14%, transparent); font-size: .75rem; font-weight: 700; text-align: center }
+    .need:hover, .need.active { border-color: var(--tone); background: color-mix(in srgb, var(--tone) 14%, transparent) }
+    .need.zero:not(.active) { opacity: .45 }
+
+    .layout { display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: 40px; align-items: start; padding: 48px 0 72px }
+    .sidebar { position: sticky; top: 140px; max-height: calc(100vh - 160px); overflow-y: auto }
     .sidebar h2 { margin: 0 0 8px 10px; color: var(--muted); font: 700 .75rem 'DM Sans', sans-serif; letter-spacing: .08em; text-transform: uppercase }
     .topics { display: flex; flex-direction: column; gap: 2px }
-    .topic { display: flex; gap: 10px; align-items: center; padding: 6px 10px; border: 0; border-radius: 8px; background: none; font-size: .92rem; font-weight: 500; text-align: left; cursor: pointer }
+    .topic { display: flex; gap: 10px; align-items: center; padding: 6px 10px; border: 0; border-radius: 7px; background: none; font-size: .92rem; font-weight: 500; text-align: left; cursor: pointer }
     .topic svg { width: 17px; height: 17px; color: var(--muted) }
     .topic .name { flex: 1 }
     .topic .num { min-width: 22px; padding: 0 6px; border-radius: 999px; background: var(--soft); color: var(--muted); font-size: .75rem; text-align: center }
@@ -106,25 +133,25 @@
     .status { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; margin-bottom: 4px; color: var(--muted); font-size: .88rem }
     .status .actions { display: flex; gap: 6px }
     .link-button { padding: 4px 10px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); font-size: .82rem; font-weight: 600; cursor: pointer }
-    .link-button:hover { border-color: var(--blue); color: var(--blue) }
+    .link-button:hover { border-color: var(--green); color: var(--green) }
     .sections { display: flex; flex-direction: column }
     .faq-section { display: flex; flex-direction: column; margin-top: 28px }
     .faq-section h2 { order: -1; display: flex; gap: 12px; align-items: center; margin-bottom: 14px; font-size: 1.3rem }
-    .faq-section h2 .icon { display: grid; width: 34px; height: 34px; place-items: center; border-radius: 9px; background: var(--blue-soft); color: var(--blue) }
+    .faq-section h2 .icon { display: grid; width: 38px; height: 38px; place-items: center; border-radius: 7px; background: var(--soft); color: var(--green) }
     .faq-section h2 svg { width: 18px; height: 18px }
-    .qa { margin-bottom: 10px; border: 1px solid var(--line); border-left: 4px solid var(--line); border-radius: 10px; background: var(--surface); transition: border-color .15s }
-    .qa:hover { border-left-color: var(--blue) }
-    .qa[open] { border-left-color: var(--blue); box-shadow: var(--shadow) }
+    .qa { margin-bottom: 10px; border: 1px solid var(--line); border-left: 4px solid var(--line); border-radius: 8px; background: var(--surface); transition: border-color .15s }
+    .qa:hover { border-left-color: var(--green) }
+    .qa[open] { border-left-color: var(--green); box-shadow: var(--shadow) }
     .qa summary { display: flex; gap: 16px; align-items: center; justify-content: space-between; padding: 16px 18px; font-size: 1.04rem; font-weight: 600; line-height: 1.4; cursor: pointer; list-style: none }
     .qa summary::-webkit-details-marker { display: none }
-    .qa summary::after { flex: none; width: 24px; height: 24px; border-radius: 50%; background: var(--soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231565c0' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M12 6v12M6 12h12'/%3E%3C/svg%3E") center/14px no-repeat; content: '' }
-    .qa[open] summary::after { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231565c0' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M6 12h12'/%3E%3C/svg%3E") }
-    [data-theme="dark"] .qa summary::after { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%237dbcf0' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M12 6v12M6 12h12'/%3E%3C/svg%3E") }
-    [data-theme="dark"] .qa[open] summary::after { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%237dbcf0' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M6 12h12'/%3E%3C/svg%3E") }
+    .qa summary::after { flex: none; width: 24px; height: 24px; border-radius: 50%; background: var(--soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23056347' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M12 6v12M6 12h12'/%3E%3C/svg%3E") center/14px no-repeat; content: '' }
+    .qa[open] summary::after { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23056347' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M6 12h12'/%3E%3C/svg%3E") }
+    [data-theme="dark"] .qa summary::after { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238ce5c3' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M12 6v12M6 12h12'/%3E%3C/svg%3E") }
+    [data-theme="dark"] .qa[open] summary::after { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238ce5c3' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M6 12h12'/%3E%3C/svg%3E") }
     .qwrap { display: flex; flex-direction: column; gap: 4px; min-width: 0 }
     .snippet { color: var(--muted); font-size: .86rem; font-weight: 400; line-height: 1.5 }
     .qa[open] .snippet { display: none }
-    .stickybar { position: fixed; top: 65px; right: 0; left: 0; z-index: 19; padding: 8px 0; border-bottom: 1px solid var(--line); background: color-mix(in srgb, var(--paper) 94%, transparent); backdrop-filter: blur(14px) }
+    .stickybar { position: fixed; top: 68px; right: 0; left: 0; z-index: 19; padding: 8px 0; border-bottom: 1px solid var(--line); background: color-mix(in srgb, var(--paper) 94%, transparent); backdrop-filter: blur(14px) }
     .stickybar .search { padding: 9px 90px 9px 44px; border-width: 1px; border-radius: 10px; font-size: .95rem; box-shadow: none }
     .stickybar .searchbox > svg { left: 15px; width: 18px; height: 18px }
     .sticky-count { position: absolute; top: 50%; right: 14px; color: var(--muted); font-size: .8rem; transform: translateY(-50%); pointer-events: none }
@@ -150,11 +177,11 @@
     .empty.visible { display: block }
     .empty strong { display: block; margin-bottom: 6px; color: var(--ink); font-size: 1.1rem }
     .empty .link-button { margin-top: 12px }
-    .help { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between; margin-top: 44px; padding: 24px; border-radius: 12px; background: var(--blue-soft) }
+    .help { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between; margin-top: 28px; padding: 24px; border: 1px solid var(--line); border-radius: 8px; background: var(--mint) }
     .help h2 { margin-bottom: 4px; font-size: 1.2rem }
     .help p { margin: 0; color: var(--muted) }
-    .button { display: inline-block; padding: 10px 18px; border-radius: 8px; background: var(--accent-bg); color: var(--accent-fg); font-weight: 700; text-decoration: none }
-    .button:hover { opacity: .9 }
+    .button { display: inline-flex; min-height: 46px; gap: 8px; align-items: center; justify-content: center; padding: 0 18px; border-radius: 7px; background: var(--accent-bg); color: var(--accent-fg); font-weight: 700; text-decoration: none; transition: transform .16s }
+    .button:hover { transform: translateY(-2px) }
     .to-top { position: fixed; right: 20px; bottom: 20px; z-index: 15; display: none; width: 44px; height: 44px; padding: 0; place-items: center; border: 1px solid var(--line); border-radius: 50%; background: var(--surface); box-shadow: var(--shadow); cursor: pointer }
     .to-top.visible { display: grid }
     .to-top svg { width: 20px; height: 20px }
@@ -163,9 +190,20 @@
     .footer p { margin: 0 }
     .footer div { display: flex; flex-wrap: wrap; gap: 18px }
     .footer a { color: var(--muted) }
+    .deeper { margin-top: 44px }
+    .deeper h2 { margin-bottom: 6px; font-size: 1.3rem }
+    .deeper > p { margin: 0 0 16px; color: var(--muted) }
+    .quick { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; overflow: hidden; border: 1px solid var(--line); border-radius: 8px; background: var(--line) }
+    .quick a { display: grid; min-height: 96px; grid-template-columns: 52px 1fr; gap: 15px; align-items: center; padding: 16px 20px; background: var(--surface); color: var(--ink); text-decoration: none }
+    .quick a:last-child:nth-child(odd) { grid-column: 1 / -1 }
+    .quick a:hover { background: var(--soft) }
+    .quick .code { display: grid; width: 52px; height: 44px; place-items: center; border-radius: 7px; background: var(--mint); color: var(--green2); font: 800 .7rem Manrope, sans-serif }
+    .quick strong { display: block; font-family: Manrope, sans-serif }
+    .quick small { display: block; color: var(--muted); font-size: .86rem; line-height: 1.45 }
     kbd { padding: 1px 6px; border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 4px; background: var(--surface); font: .8em monospace }
 
     @media (max-width: 900px) {
+      .needs { grid-template-columns: repeat(3, minmax(0, 1fr)) }
       .layout { grid-template-columns: 1fr; gap: 12px; padding-top: 20px }
       .sidebar { position: static; max-height: none; overflow: visible }
       .sidebar h2, .topics { display: none }
@@ -175,21 +213,24 @@
       .shell { width: calc(100% - 28px) }
       .links { display: none }
       .theme { margin-left: auto }
-      .hero { padding: 28px 0 22px }
+      .hero { padding: 36px 0 28px }
+      .needs { grid-template-columns: repeat(2, minmax(0, 1fr)) }
+      .need { min-height: 96px; padding: 14px }
+      .quick { grid-template-columns: 1fr }
       .qa summary { padding: 14px; font-size: 1rem }
       .answer { padding-inline: 14px }
       .kbd-hint { display: none }
     }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto } .qa { transition: none } }
   </style>
-  <noscript><style>.searchbox, .popular, .sidebar, .status .actions, .copy, .to-top, .theme { display: none } .layout { grid-template-columns: 1fr }</style></noscript>
+  <noscript><style>.searchbox, .popular, .chooser, .sidebar, .status .actions, .copy, .to-top, .theme { display: none } .layout { grid-template-columns: 1fr }</style></noscript>
 </head>
 <body>
   <header class="site-header">
     <nav class="shell" aria-label="Main navigation">
       <a class="brand" href="../"><span class="mark"><i data-lucide="video"></i></span>MiroTalk</a>
       <div class="links"><a href="../">Documentation</a><a href="../self-host/">Self-host</a><a href="../license/">Licensing</a><a href="../faq/">Classic FAQ</a></div>
-      <button class="theme" id="theme" type="button" aria-label="Toggle color theme"><i data-lucide="sun-moon"></i></button>
+      <button class="theme" id="theme" type="button" aria-label="Switch color theme" title="Switch color theme"><i class="moon" data-lucide="moon"></i><i class="sun" data-lucide="sun"></i></button>
     </nav>
   </header>
   <div class="stickybar" id="stickybar" role="search" aria-label="Search the FAQ" hidden>
@@ -203,7 +244,7 @@
   </div>
   <section class="hero" aria-labelledby="faq-title">
     <div class="shell">
-      <p class="eyebrow">Help center</p>
+      <span class="eyebrow">Help center</span>
       <h1 id="faq-title">Frequently Asked Questions</h1>
       <p class="lead">Quick answers about MiroTalk products, self-hosting, licensing, and troubleshooting.</p>
       <div class="searchbox">
@@ -219,7 +260,33 @@
 <a href="#my-video-audio-is-not-working-what-should-i-check">Video or audio not working</a></div>
     </div>
   </section>
-  <div class="shell layout">
+  <section class="chooser" aria-labelledby="topics-title">
+    <div class="shell">
+      <div class="intro"><span class="eyebrow">Browse by topic</span>
+        <h2 id="topics-title">What do you need help with?</h2>
+        <p>Pick a topic to filter the answers below, or search across everything.</p>
+      </div>
+      <div class="needs" role="group" aria-label="Filter questions by topic">
+<button class="need active" type="button" data-section="all" aria-pressed="true"><i data-lucide="layout-grid"></i><span class="name">All topics</span><span class="num"></span></button>
+<button class="need tone-green" type="button" data-section="general" aria-pressed="false"><i data-lucide="info"></i><span class="name">General</span><span class="num">4</span></button>
+<button class="need tone-blue" type="button" data-section="products" aria-pressed="false"><i data-lucide="layers"></i><span class="name">Products</span><span class="num">5</span></button>
+<button class="need tone-coral" type="button" data-section="self-hosting-deployment" aria-pressed="false"><i data-lucide="server"></i><span class="name">Self-Hosting &amp; Deployment</span><span class="num">6</span></button>
+<button class="need tone-gold" type="button" data-section="stun-turn-servers" aria-pressed="false"><i data-lucide="network"></i><span class="name">STUN &amp; TURN Servers</span><span class="num">2</span></button>
+<button class="need tone-green" type="button" data-section="configuration" aria-pressed="false"><i data-lucide="settings"></i><span class="name">Configuration</span><span class="num">2</span></button>
+<button class="need tone-blue" type="button" data-section="api-integration" aria-pressed="false"><i data-lucide="plug"></i><span class="name">API &amp; Integration</span><span class="num">2</span></button>
+<button class="need tone-coral" type="button" data-section="features" aria-pressed="false"><i data-lucide="sparkles"></i><span class="name">Features</span><span class="num">6</span></button>
+<button class="need tone-gold" type="button" data-section="licensing" aria-pressed="false"><i data-lucide="key-round"></i><span class="name">Licensing</span><span class="num">3</span></button>
+<button class="need tone-green" type="button" data-section="room-customization" aria-pressed="false"><i data-lucide="sliders-horizontal"></i><span class="name">Room Customization</span><span class="num">3</span></button>
+<button class="need tone-blue" type="button" data-section="scaling-architecture" aria-pressed="false"><i data-lucide="trending-up"></i><span class="name">Scaling &amp; Architecture</span><span class="num">2</span></button>
+<button class="need tone-coral" type="button" data-section="updates-maintenance" aria-pressed="false"><i data-lucide="refresh-cw"></i><span class="name">Updates &amp; Maintenance</span><span class="num">2</span></button>
+<button class="need tone-gold" type="button" data-section="internationalization" aria-pressed="false"><i data-lucide="languages"></i><span class="name">Internationalization</span><span class="num">1</span></button>
+<button class="need tone-green" type="button" data-section="database-email" aria-pressed="false"><i data-lucide="database"></i><span class="name">Database &amp; Email</span><span class="num">2</span></button>
+<button class="need tone-blue" type="button" data-section="security" aria-pressed="false"><i data-lucide="shield-check"></i><span class="name">Security</span><span class="num">1</span></button>
+<button class="need tone-coral" type="button" data-section="troubleshooting" aria-pressed="false"><i data-lucide="life-buoy"></i><span class="name">Troubleshooting</span><span class="num">4</span></button>
+      </div>
+    </div>
+  </section>
+  <div class="shell layout" id="results">
     <aside class="sidebar" aria-label="Browse by topic">
       <h2>Browse by topic</h2>
       <div class="topics"><button class="topic active" type="button" data-section="all" aria-pressed="true"><i data-lucide="layout-grid"></i><span class="name">All topics</span><span class="num"></span></button>
@@ -1147,6 +1214,17 @@ docker-compose up -d
 </section>
       </div>
       <div class="empty" id="empty"><strong id="empty-query">No answers found</strong>Try a shorter keyword or browse all topics.<br><button id="reset" type="button" class="link-button">Clear search and filters</button></div>
+<section class="deeper" aria-labelledby="deeper-title">
+<h2 id="deeper-title">Go deeper</h2>
+<p>Need more than a quick answer? These guides cover the details.</p>
+<div class="quick">
+<a href="/projects/"><span class="code">PICK</span><span><strong>Choose a product</strong><small>Match a goal to the right MiroTalk product</small></span></a>
+<a href="/overview/"><span class="code">ARCH</span><span><strong>Compare architectures</strong><small>Mesh, SFU, and MCU side by side</small></span></a>
+<a href="/self-host/"><span class="code">DEPLOY</span><span><strong>Self-hosting guide</strong><small>Step-by-step installation for every product</small></span></a>
+<a href="/sites/compare/"><span class="code">VS</span><span><strong>Compare alternatives</strong><small>MiroTalk vs Zoom, Meet, Jitsi, and Whereby</small></span></a>
+<a href="/cloud/"><span class="code">CLOUD</span><span><strong>MiroTalk Cloud</strong><small>Skip the infrastructure with the managed service</small></span></a>
+</div>
+</section>
       <aside class="help">
         <div><h2>Can't find your answer?</h2><p>Ask the MiroTalk community or browse the full documentation.</p></div>
         <a class="button" href="{{ links.discord }}" target="_blank" rel="noopener noreferrer">Ask on Discord</a>
@@ -1168,7 +1246,7 @@ docker-compose up -d
       const sectionsBox = document.getElementById('sections');
       const sections = [...document.querySelectorAll('.faq-section')];
       const items = [...document.querySelectorAll('.qa')];
-      const topics = [...document.querySelectorAll('.topic')];
+      const topics = [...document.querySelectorAll('.topic, .need')];
       const topicSelect = document.getElementById('topic-select');
       const status = document.getElementById('count');
       const empty = document.getElementById('empty');
@@ -1295,7 +1373,10 @@ docker-compose up -d
         input.addEventListener('keydown', (event) => { if (event.key === 'Escape') setQuery(''); });
       });
       clear.addEventListener('click', () => { setQuery('', false); heroInput.focus(); });
-      topics.forEach((topic) => topic.addEventListener('click', () => setSection(topic.dataset.section)));
+      topics.forEach((topic) => topic.addEventListener('click', () => {
+        setSection(topic.dataset.section);
+        if (topic.classList.contains('need')) document.getElementById('results').scrollIntoView();
+      }));
       topicSelect.addEventListener('change', () => setSection(topicSelect.value));
       document.getElementById('expand').addEventListener('click', () => items.forEach((item) => { item.open = !item.hidden; }));
       document.getElementById('collapse').addEventListener('click', () => items.forEach((item) => { item.open = false; }));
@@ -1310,7 +1391,7 @@ docker-compose up -d
       }));
 
       // Show a compact search bar once the main search box has scrolled out of view.
-      new IntersectionObserver(([entry]) => { stickyBar.hidden = entry.isIntersecting; }, { rootMargin: '-65px 0px 0px 0px' })
+      new IntersectionObserver(([entry]) => { stickyBar.hidden = entry.isIntersecting; }, { rootMargin: '-68px 0px 0px 0px' })
         .observe(document.querySelector('.hero .searchbox'));
 
       window.addEventListener('scroll', () => toTop.classList.toggle('visible', window.scrollY > 900), { passive: true });
