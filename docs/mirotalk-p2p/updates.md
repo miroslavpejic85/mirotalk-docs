@@ -1,10 +1,40 @@
 # Updates (self-hosted)
 
-When you update to the newest version of MiroTalk P2P using the `./p2pUpdate.sh` script, any customized files (such as your branding in public/views) get overwritten. This happens because the update process replaces the entire base code and can't automatically preserve client-specific modifications.
+## ✅ Recommended: rebrand via `config.js` and use the default update script
 
-After each update, you'll need to reapply your branding unless it's separated from the tracked source code. Additionally, if there are changes in the `.env` or `config.js` files, update them accordingly.
+Rebrand MiroTalk P2P through `app/src/config.js` with [HTML injection](rebranding.md) (`brand.htmlInjection: true`) and keep the frontend files untouched. `config.js` and `.env` are not tracked by Git, so the default update script never overwrites your branding or settings.
 
-Here are a few recommended options to handle this more smoothly:
+For `Docker`:
+
+```bash
+#!/bin/bash
+
+cd mirotalk
+git pull
+docker-compose down
+docker-compose pull
+docker image prune -f
+docker-compose up -d
+```
+
+For `PM2`:
+
+```bash
+#!/bin/bash
+
+cd mirotalk
+git pull
+sudo npm ci
+pm2 restart app/src/server.js
+```
+
+Save it as `p2pUpdate.sh`, make it executable with `chmod +x p2pUpdate.sh`, and run `./p2pUpdate.sh` (see the [Self-Hosting Guide](self-hosting.md) for the full setup).
+
+After each update, compare your `.env` and `config.js` with the latest [`.env.template`](https://github.com/miroslavpejic85/mirotalk/blob/master/.env.template) and [`config.template.js`](https://github.com/miroslavpejic85/mirotalk/blob/master/app/src/config.template.js) and add any new variables.
+
+## Customized frontend files
+
+If you edit the frontend files directly (`brand.htmlInjection: false`, files in `public/views`), the update replaces the base code and overwrites those edits. In that case, preserve your edits with one of these options:
 
 ## ✅ Option 1: Use `git stash` before updating
 
@@ -56,6 +86,7 @@ This way, updates won’t touch your custom files, they’ll stay completely sep
 
 In short:
 
+* `Rebranding via config.js`: use the default update script, nothing to reapply.
 * `Small edits`: use git stash.
 * `Ongoing customizations`: use a custom-branding branch.
 * `Docker deployment`: mount your branding as volumes.

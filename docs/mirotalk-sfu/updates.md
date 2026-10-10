@@ -1,10 +1,40 @@
 # Updates (self-hosted)
 
-When you update to the newest version of MiroTalk SFU using the `./sfuUpdate.sh` script, any customized files (such as your branding in public/views) get overwritten. This happens because the update process replaces the entire base code and can’t automatically preserve client-specific modifications.
+## ✅ Recommended: rebrand via `.env` and use the default update script
 
-After each update, you'll need to reapply your branding unless it's separated from the tracked source code. Additionally, if there are changes in the `.env` or `config.js` files, update them accordingly.
+Rebrand MiroTalk SFU through the `.env` file with [HTML injection](rebranding.md) (`BRAND_HTML_INJECTION=true`) and keep the source code untouched. `.env` is not tracked by Git, so the default update script never overwrites your branding or settings.
 
-Here are a few recommended options to handle this more smoothly:
+For `Docker`:
+
+```bash
+#!/bin/bash
+
+cd mirotalksfu
+git pull
+docker-compose down
+docker-compose pull
+docker image prune -f
+docker-compose up -d
+```
+
+For `PM2`:
+
+```bash
+#!/bin/bash
+
+cd mirotalksfu
+git pull
+sudo npm ci
+pm2 restart app/src/Server.js
+```
+
+Save it as `sfuUpdate.sh`, make it executable with `chmod +x sfuUpdate.sh`, and run `./sfuUpdate.sh` (see the [Self-Hosting Guide](self-hosting.md) for the full setup).
+
+After each update, compare your `.env` with the latest [`.env.template`](https://github.com/miroslavpejic85/mirotalksfu/blob/main/.env.template) and add any new variables.
+
+## Customized frontend files
+
+If you edit the frontend files directly (`BRAND_HTML_INJECTION=false`, files in `public/views`), the update replaces the base code and overwrites those edits. In that case, preserve your edits with one of these options:
 
 ## ✅ Option 1: Use `git stash` before updating
 
@@ -56,6 +86,7 @@ This way, updates won’t touch your custom files, they’ll stay completely sep
 
 In short:
 
+* `Rebranding via .env`: use the default update script, nothing to reapply.
 * `Small edits`: use git stash.
 * `Ongoing customizations`: use a custom-branding branch.
 * `Docker deployment`: mount your branding as volumes.
