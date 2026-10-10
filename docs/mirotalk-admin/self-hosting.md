@@ -182,6 +182,9 @@ sudo certbot certonly --nginx
 sudo vim /etc/nginx/sites-enabled/default
 ```
 
+!!! note
+    When running behind a reverse proxy, set `TRUST_PROXY=true` in your `.env` so the `X-Forwarded-Proto` and `X-Forwarded-For` headers are honored. In production, requests that do not arrive as HTTPS are redirected or rejected.
+
 Add the following:
 
 ```bash
@@ -198,6 +201,7 @@ server {
 
     location / {
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
         proxy_set_header Host $host;
         proxy_pass https://localhost:9999/;
         proxy_ssl_verify off;

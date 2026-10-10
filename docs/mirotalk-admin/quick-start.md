@@ -113,6 +113,8 @@ A secure, modern web dashboard to manage **[MiroTalk](../overview/index.md)** up
         node backend/scripts/hashPassword.js
         ```
 
+        If you install with `sudo ./install.sh`, it auto-generates this value when the template default hash is still present.
+
         Keep the generated hash wrapped in **single quotes** when adding it to `.env`
         (for example, `ADMIN_PASSWORD_HASH='$2b$10$...'`). The `$` characters can be
         expanded if the value is pasted unquoted into a shell, PM2 ecosystem file,
@@ -127,6 +129,8 @@ A secure, modern web dashboard to manage **[MiroTalk](../overview/index.md)** up
         node backend/scripts/generateJwtSecret.js
         ```
 
+        If you install with `sudo ./install.sh`, it auto-generates this value when the template default (`supersecret`) is still present.
+
 ### 🛠️ Management Mode (`APP_MANAGE_MODE`)
 
 Choose how you want to manage your MiroTalk instance:
@@ -137,8 +141,8 @@ Choose how you want to manage your MiroTalk instance:
     - Configure:
         - `SSH_HOST`
         - `SSH_PORT`
-        - `SSH_USERNAME`
-        - `SSH_PASSWORD` or `SSH_PRIVATE_KEY`
+        - `SSH_USER` (defaults to `root` if unset)
+        - `SSH_PASSWORD` or `SSH_PRIVATE_KEY_PATH` (absolute path to the private key file)
         - `SSH_HOST_FINGERPRINT_SHA256` — **required**. Pinned SHA-256 host-key fingerprint to prevent MITM.
 
             Obtain it with:
@@ -146,6 +150,14 @@ Choose how you want to manage your MiroTalk instance:
             ```bash
             ssh-keyscan -t ed25519 <host> | ssh-keygen -lf - -E sha256
             ```
+
+            Or use the helper script:
+
+            ```bash
+            bash backend/scripts/getSshHostFingerprint.sh <host> [port] [key_type]
+            ```
+
+            If you install with `sudo ./install.sh` and `APP_MANAGE_MODE=ssh`, the installer tries to auto-generate this value from `SSH_HOST` and `SSH_PORT`.
 
             Paste the resulting `SHA256:…` value (or raw base64 / 64-char hex) into `.env`.
 
@@ -159,9 +171,10 @@ Choose how you want to manage your MiroTalk instance:
 Specify which MiroTalk applications you want to manage by listing their names (comma-separated), and provide the absolute paths to the application and supporting-service directories:
 
 ```bash
-APP_NAME=mirotalksfu,mirotalk,mirotalkc2c,mirotalkbro,mirotalkwebrtc,callme,mirotalkadmin
+APP_NAME=mirotalksfu,mirotalk,mirotalkrnd,mirotalkc2c,mirotalkbro,mirotalkwebrtc,callme,mirotalkadmin
 MIROTALK_SFU_DIR=/root/mirotalksfu
 MIROTALK_P2P_DIR=/root/mirotalk
+MIROTALK_RND_DIR=/root/mirotalkrnd
 MIROTALK_BRO_DIR=/root/mirotalkbro
 MIROTALK_C2C_DIR=/root/mirotalkc2c
 MIROTALK_WEB_DIR=/root/mirotalkwebrtc
@@ -170,6 +183,9 @@ MIROTALK_ADMIN_DIR=/root/mirotalk-admin
 COTURN_DIR=/root/coturn
 WHISPER_DIR=/root/whisper
 ```
+
+!!! note "Running as a non-root user?"
+    The `*_DIR` defaults point to `/root/...`, so set each `*_DIR` to the real location of your apps (e.g. `/home/<user>/mirotalksfu`) and set `SSH_USER` to that user. The dashboard's **Install / Update / Uninstall** scripts require root (`id -u` must be `0`), and the server update/reboot actions use `sudo` (passwordless sudo is needed over SSH).
 
 `COTURN_DIR` and `WHISPER_DIR` configure supporting-service locations and should not be added to `APP_NAME`.
 
