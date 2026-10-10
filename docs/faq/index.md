@@ -97,6 +97,23 @@
     4. **Cloudron:** One-click deployment with automatic updates and backups.
     5. **Bash Scripts:** Automated install/uninstall/update scripts available for each product.
 
+??? question "Are there automated install scripts for MiroTalk?"
+
+    Yes. For a clean **Ubuntu 22.04 / 24.04 LTS** server with root access and a domain pointing to its public IPv4, ready-made **install, update and uninstall** scripts are available for:
+
+    - **MiroTalk:** SFU, P2P, C2C, RND, BRO, WEB, CME
+    - **Extras:** Coturn, Whisper, RustDesk
+
+    Example (MiroTalk SFU):
+
+    ```bash
+    wget -qO sfu-install.sh https://docs.mirotalk.com/scripts/sfu/sfu-install.sh \
+      && chmod +x sfu-install.sh \
+      && ./sfu-install.sh
+    ```
+
+    When prompted, enter your domain or subdomain and wait for the installation to finish. RustDesk is the exception: no domain is needed, since the server public IP is detected automatically. See the [Setup Guide](../scripts/about.md) for all scripts.
+
 ??? question "What are the server requirements?"
 
     - **OS:** Ubuntu 22.04 LTS (recommended)
@@ -246,6 +263,30 @@
     2. **Nginx RTMP** — Lightweight option
 
     Both require **FFmpeg**. See the [RTMP](../mirotalk-sfu/rtmp.md) guide for setup.
+
+??? question "Can a presenter remotely control a participant's computer in MiroTalk SFU?"
+
+    Yes. **MiroTalk SFU** supports consent-based **remote control** powered by [RustDesk](https://rustdesk.com). MiroTalk only brokers the handshake (RustDesk ID + one-time password); the remote session itself runs through the RustDesk clients and **your own self-hosted RustDesk server**. No MiroTalk code changes are needed.
+
+    **Setup overview:**
+
+    1. Deploy the RustDesk server (`hbbs` + `hbbr`) with Docker, or use the automated `rustdesk-install.sh` script (no domain required).
+    2. Open the firewall ports: `21115-21119/tcp` and `21116/udp` (plus `21114/tcp` for Pro).
+    3. Configure **every** RustDesk client (presenter and participant) with the same ID/Relay server and public key (`id_ed25519.pub`).
+    4. Enable it in the SFU `.env` and restart MiroTalk:
+
+    ```env
+    REMOTE_CONTROL_ENABLED=true
+    REMOTE_CONTROL_DOWNLOAD_URL=https://your-domain/rustdesk-download
+    ```
+
+    **Usage:** the presenter opens the participants menu and selects **Remote control**, the participant accepts and shares their RustDesk ID + one-time password, then the presenter clicks **Open RustDesk** and enters the password.
+
+    Keep the RustDesk data volume, because deleting it changes the key and breaks all configured clients. See the [RustDesk + SFU Remote Control](../mirotalk-sfu/rustdesk.md) guide.
+
+??? question "Does MiroTalk SFU support SIP phone calls?"
+
+    Yes, as an **experimental** feature. The built-in **SIP phone** panel (**Settings → SIP phone**) lets you register SIP users inside a room and place extension-to-extension calls. It is compatible with most SIP servers exposing **WSS (WebSocket Secure)** transport, such as Kamailio, Asterisk, FreeSWITCH, and OpenSIPS. A Docker-based Kamailio demo is included in the SFU repository. See the [SIP phone](../mirotalk-sfu/sip.md) guide.
 
 ??? question "What is Host Protection?"
 
