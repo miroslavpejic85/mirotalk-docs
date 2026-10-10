@@ -142,6 +142,10 @@ nav:
         - Install Whisper: scripts/whisper/whisper-install.sh
         - Uninstall Whisper: scripts/whisper/whisper-uninstall.sh
         - Update Whisper: scripts/whisper/whisper-update.sh
+      - RustDesk scripts:
+        - Install RustDesk: scripts/rustdesk/rustdesk-install.sh
+        - Uninstall RustDesk: scripts/rustdesk/rustdesk-uninstall.sh
+        - Update RustDesk: scripts/rustdesk/rustdesk-update.sh
     - Utilities:
       - Docker Compose: utility/docker-compose.md
       - Node.js with NVM: utility/nvm.md
@@ -205,15 +209,15 @@ theme:
 
 # Custom styles
 extra_css:
-  - stylesheets/extra.css?v=1.5.65
-  - stylesheets/editorial.css?v=1.5.65
+  - stylesheets/extra.css?v=1.5.66
+  - stylesheets/editorial.css?v=1.5.66
 extra_javascript:
   - javascripts/accessibility.js
   - javascripts/analytics-events.js
 
 # Social / preview card metadata
 extra:
-  docs_version: v1.5.65
+  docs_version: v1.5.66
   links:
     cloud: https://cloud.mirotalk.com
     discord: &discord_url https://discord.gg/rgGYfeYW3N

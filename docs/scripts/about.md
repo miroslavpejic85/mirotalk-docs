@@ -220,3 +220,28 @@ wget -qO whisper-update.sh https://docs.mirotalk.com/scripts/whisper/whisper-upd
   && chmod +x whisper-update.sh \
   && ./whisper-update.sh
 ```
+
+---
+
+## **RustDesk**
+
+Self-hosted RustDesk server (`hbbs` + `hbbr`) for [MiroTalk SFU remote control](../mirotalk-sfu/rustdesk.md). No domain is required, the server public IP is detected automatically.
+
+```bash
+# Install RustDesk
+wget -qO rustdesk-install.sh https://docs.mirotalk.com/scripts/rustdesk/rustdesk-install.sh \
+  && chmod +x rustdesk-install.sh \
+  && ./rustdesk-install.sh
+```
+```bash
+# Uninstall RustDesk
+wget -qO rustdesk-uninstall.sh https://docs.mirotalk.com/scripts/rustdesk/rustdesk-uninstall.sh \
+  && chmod +x rustdesk-uninstall.sh \
+  && ./rustdesk-uninstall.sh
+```
+```bash
+# Update RustDesk
+wget -qO rustdesk-update.sh https://docs.mirotalk.com/scripts/rustdesk/rustdesk-update.sh \
+  && chmod +x rustdesk-update.sh \
+  && ./rustdesk-update.sh
+```

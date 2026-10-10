@@ -2,6 +2,18 @@
 
 MiroTalk only brokers the consent handshake (ID + one-time password). The actual remote session runs through the RustDesk clients and your own RustDesk server. No MiroTalk code changes are needed.
 
+## Automated setup (optional)
+
+On a clean **Ubuntu 22.04 / 24.04** server, as root, the [install, update and uninstall scripts](../scripts/about.md#rustdesk) automate steps 1-3 (deploy the server, open the ufw ports and print the public key):
+
+```bash
+wget -qO rustdesk-install.sh https://docs.mirotalk.com/scripts/rustdesk/rustdesk-install.sh \
+  && chmod +x rustdesk-install.sh \
+  && ./rustdesk-install.sh
+```
+
+Or follow the manual steps below.
+
 ## 1. Deploy the RustDesk server
 
 On your server:
