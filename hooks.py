@@ -1,5 +1,6 @@
 from datetime import datetime, timezone
 from html import escape
+import importlib.util
 import json
 from pathlib import Path
 import re
@@ -238,6 +239,16 @@ def publish_clean_site_urls(site_dir, site_url):
             page_path.write_text(updated, encoding="utf-8")
 
 
+def on_pre_build(config, **kwargs):
+    # Regenerate the interactive FAQ from docs/faq/index.md. The file is only
+    # rewritten when it changes so `mkdocs serve` does not reload in a loop.
+    script_path = Path(__file__).with_name("scripts") / "build_faq_page.py"
+    spec = importlib.util.spec_from_file_location("build_faq_page", script_path)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    module.write_page()
+
+
 def on_page_markdown(markdown, page, **kwargs):
     markdown = resolve_pricing_links(markdown, load_pricing())
     markdown = resolve_global_links(markdown, kwargs["config"]["extra"]["links"])
@@ -278,6 +289,9 @@ def on_post_build(config, **kwargs):
     docs_dir = Path(config["docs_dir"])
 
     for source_path in sorted(docs_dir.rglob("*.html")):
+        if 'content="noindex' in source_path.read_text(encoding="utf-8"):
+            continue
+
         relative_path = source_path.relative_to(docs_dir)
         if relative_path.name == "index.html":
             route = relative_path.parent.as_posix().strip("/") + "/"

@@ -57,6 +57,8 @@ nav:
       - P2P webhooks: mirotalk-p2p/webhook.md
       - CME webhooks: mirotalk-cme/webhook.md
     - SaaS billing with Stripe: mirotalk-web/stripe.md
+    - SFU localization: mirotalk-sfu/i18n.md
+    - P2P localization: mirotalk-p2p/i18n.md
     - CME localization: mirotalk-cme/I18n.md
   - Self-host MiroTalk:
     - Self-hosting overview: self-host/index.md
@@ -171,6 +173,7 @@ nav:
     - Visual MiroTalk story: sites/story.html
   - Resources:
     - Frequently asked questions: faq/index.md
+    - Interactive FAQ: sites/faq.html
     - Changelogs: changelogs/changelogs.md
     - Host these docs: mirotalk-docs/self-hosting.md
 
@@ -209,15 +212,15 @@ theme:
 
 # Custom styles
 extra_css:
-  - stylesheets/extra.css?v=1.5.67
-  - stylesheets/editorial.css?v=1.5.67
+  - stylesheets/extra.css?v=1.5.68
+  - stylesheets/editorial.css?v=1.5.68
 extra_javascript:
   - javascripts/accessibility.js
   - javascripts/analytics-events.js
 
 # Social / preview card metadata
 extra:
-  docs_version: v1.5.67
+  docs_version: v1.5.68
   links:
     cloud: https://cloud.mirotalk.com
     discord: &discord_url https://discord.gg/rgGYfeYW3N

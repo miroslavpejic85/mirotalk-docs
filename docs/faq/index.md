@@ -38,11 +38,12 @@
     | **SFU** | Large meetings, webinars, conferences | 50–1000+ (with scaling) | Selective Forwarding Unit |
     | **P2P** | Small group calls, embedded apps | 2–4 participants | Peer-to-Peer (Mesh) |
     | **C2C** | Private cam-2-cam, direct messaging | 2 participants | Peer-to-Peer (Mesh) |
+    | **RND** | Random one-to-one video chat with new people | 2 participants x Match | Peer-to-Peer (Mesh) |
     | **BRO** | Live broadcasting, one-to-many streaming | 1 broadcaster + viewers | P2P (Mesh) or SFU |
     | **CME** | Instant 1:1 video calls, support, consultations | 2 participants x Call | Peer-to-Peer (Mesh) |
     | **WEB** | Meeting scheduling and management | N/A (scheduler) | Web-based |
 
-    For large group calls and scalability, choose **SFU**. For lightweight, low-latency small calls, choose **P2P**.
+    For large group calls and scalability, choose **SFU**. For lightweight, low-latency small calls, choose **P2P**. For random one-to-one matching, choose **RND**.
 
 ??? question "How many users can MiroTalk SFU handle?"
 
@@ -130,6 +131,7 @@
     | SFU     | 3010 |
     | BRO     | 3016 |
     | C2C     | 8080 |
+    | RND     | 4010 |
     | CME     | 8000 |
     | WEB     | 9000 |
 
@@ -237,7 +239,7 @@
 
     ```html
     <iframe
-      allow="camera; microphone; display-capture; autoplay; clipboard-write; screen-wake-lock"
+      allow="camera; microphone; speaker-selection; display-capture; fullscreen; clipboard-read; clipboard-write; web-share; autoplay; picture-in-picture; screen-wake-lock"
       src="https://your-domain.com/newroom"
       style="width: 100vw; height: 100vh; border: 0px;">
     </iframe>
@@ -335,8 +337,8 @@
     | License | Price | Use Case | Source Code |
     |---------|-------|----------|-------------|
     | **AGPLv3** | Free | Open-source, modifications must be shared publicly | Public |
-    | **Regular** | $39–$299 | Personal or closed-source (non-commercial) | Private |
-    | **Extended** | $199–$1499 | Commercial / revenue-generating use | Private |
+    | **Regular** | $29–$299 | Personal or closed-source (non-commercial) | Private |
+    | **Extended** | $149–$1499 | Commercial / revenue-generating use | Private |
 
     **Pricing by product:**
 
@@ -346,6 +348,7 @@
     | SFU | $99 | $499 |
     | P2P | $79 | $499 |
     | C2C | $69 | $249 |
+    | RND | $29 | $149 |
     | BRO | $59 | $249 |
     | CME | $39 | $199 |
     | WEB | $39 | $199 |
@@ -505,18 +508,34 @@
 
 ??? question "Does MiroTalk support multiple languages?"
 
-    Yes. **MiroTalk CME** supports **13 languages** with automatic browser detection:
+    Yes. The in-room UI of **MiroTalk SFU** and **MiroTalk P2P** can be shown in many languages, and **MiroTalk CME** has its own built-in translations.
 
-    🇬🇧 English, 🇪🇸 Spanish, 🇫🇷 French, 🇮🇹 Italian, 🇩🇪 German, 🇧🇷 Portuguese, 🇷🇺 Russian, 🇸🇦 Arabic, 🇮🇳 Hindi, 🇨🇳 Chinese, 🇯🇵 Japanese, 🇭🇷 Croatian, 🇷🇸 Serbian
+    | Product | Native languages | Where translations live |
+    |---------|------------------|-------------------------|
+    | **SFU** | 28 | `public/lang/` |
+    | **P2P** | 27 | `public/lang/` |
+    | **CME** | 13 | `app/locales/` |
 
-    Features:
+    **SFU and P2P** include English, Spanish, French, German, Italian, Portuguese, Russian, Ukrainian, Polish, Chinese, Japanese, Korean, Arabic, Hindi, Turkish, Vietnamese, Thai, Indonesian, Hungarian, Serbian, and more. **P2P** switches Arabic, Urdu, and Persian to right-to-left automatically.
 
-    - Automatic language detection from browser settings
-    - Language persistence via `localStorage`
-    - Real-time language switching from the settings panel
-    - JSON-based translations in `app/locales/`
+    Choose how translations are applied with the **translation mode**:
 
-    See the [i18n](../mirotalk-cme/I18n.md) guide for details.
+    - **`google`** (default): uses Google Translate and ignores the native files.
+    - **`auto`**: uses the native language file when available, otherwise Google Translate.
+    - **`native`**: uses native files only. Missing translations stay in English.
+
+    Set the default language and mode as follows:
+
+    - **SFU:** `UI_LANGUAGE` and `UI_TRANSLATION_MODE` in `.env`.
+    - **P2P:** `brand.app.language` and `brand.app.translationMode` in `app/src/config.js`.
+
+    Users can also change the language and the mode in a room from **Settings > Language**. The choice is saved in the browser.
+
+    To add a language, copy `en.json` to `<code>.json`, translate the values, and register it in `LANG_DISPLAY`. Run `npm run lang` to keep the files in sync after UI changes.
+
+    **MiroTalk CME** detects the browser language automatically, remembers it in `localStorage`, and lets users switch language from the settings panel.
+
+    See the [SFU](../mirotalk-sfu/i18n.md), [P2P](../mirotalk-p2p/i18n.md), and [CME](../mirotalk-cme/I18n.md) i18n guides for details.
 
 ---
 
