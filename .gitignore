@@ -10,7 +10,7 @@ __pycache__/
 # mac
 .DS_Store
 
-# personal handouts (copy/paste docs for customers)
+# personal handouts
 handouts/
 
 # python
