@@ -11,6 +11,8 @@ Random 1-on-1 video chat built with Node.js, Socket.IO, and WebRTC.
 [Self-host MiroTalk RND](self-hosting.md){ .md-button }
 [Review runtime sizing](metrics.md){ .md-button }
 
+![MiroTalk RND random matching](../images/mirotalk/rnd.png)
+
 ## How RND works
 
 MiroTalk RND matches participants in a random one-to-one flow. The application server handles signaling, matching queue, and protections. Media is sent over WebRTC between peers when possible, with TURN fallback for restrictive networks.
