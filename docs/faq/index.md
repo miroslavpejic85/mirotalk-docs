@@ -401,8 +401,11 @@ Need more than a quick answer? These guides cover the details.
 
     ```env
     REMOTE_CONTROL_ENABLED=true
-    REMOTE_CONTROL_DOWNLOAD_URL=https://your-domain/rustdesk-download
+    REMOTE_CONTROL_SERVER_HOST=rustdesk.yourdomain.com   # ID server (or IP), shown on /remote-control/setup
+    REMOTE_CONTROL_SERVER_KEY=<contents of id_ed25519.pub>  # PUBLIC key only
     ```
+
+    Optional: `REMOTE_CONTROL_SERVER_RELAY`, `REMOTE_CONTROL_SERVER_API`, `REMOTE_CONTROL_DOWNLOAD_URL`, `REMOTE_CONTROL_DOWNLOAD_URL_PUBLIC`.
 
     **Usage:** the presenter opens the participants menu and selects **Remote control**, the participant accepts and shares their RustDesk ID + one-time password, then the presenter clicks **Open RustDesk** and enters the password.
 

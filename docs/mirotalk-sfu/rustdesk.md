@@ -1,6 +1,6 @@
 # Self-hosted RustDesk + MiroTalk SFU Remote Control
 
-MiroTalk only brokers the consent handshake (ID + one-time password). The actual remote session runs through the RustDesk clients and your own RustDesk server. No MiroTalk code changes are needed.
+MiroTalk only brokers the consent handshake (ID + one-time password). The actual remote session runs through the RustDesk clients and your own RustDesk server. No MiroTalk code changes are needed, only `.env` settings (requires MiroTalk SFU v2.6.14 or newer for the built-in setup page).
 
 ## Automated setup (optional)
 
@@ -67,6 +67,7 @@ RustDesk → Settings → Network → ID/Relay Server:
 - **Key:** contents of `id_ed25519.pub`
 
 Both sides must use the same server, otherwise the ID will not resolve.
+Participants can also get these values from the MiroTalk setup page (see step 5), so they don't need to type them by hand.
 Optional: build or distribute a preconfigured client so participants don't need to enter anything (the Pro option, or a self-compiled OSS client).
 
 ## 5. Configure MiroTalk SFU
@@ -75,8 +76,21 @@ In `.env`:
 
 ```env
 REMOTE_CONTROL_ENABLED=true
-REMOTE_CONTROL_DOWNLOAD_URL=https://your-domain/rustdesk-download  # page with your preconfigured client / instructions (http/https only)
+
+# Self-hosted RustDesk server, shown to participants on the built-in setup page (/remote-control/setup)
+REMOTE_CONTROL_SERVER_HOST=rustdesk.yourdomain.com   # ID server (or server IP)
+REMOTE_CONTROL_SERVER_RELAY=                         # Relay server (optional, empty = same host)
+REMOTE_CONTROL_SERVER_API=                           # API server (optional, Pro only, http(s) URL)
+REMOTE_CONTROL_SERVER_KEY=<contents of id_ed25519.pub>  # PUBLIC key only, never the private key
+
+# Optional
+REMOTE_CONTROL_DOWNLOAD_URL=                         # Custom link shown to participants (must start with http(s):// or /)
+REMOTE_CONTROL_DOWNLOAD_URL_PUBLIC=false             # true = setup page open to anyone, false = only via the room request link (token)
 ```
+
+When `REMOTE_CONTROL_SERVER_HOST` is set and `REMOTE_CONTROL_DOWNLOAD_URL` is empty, participants get a link to the built-in setup page (`/remote-control/setup`) with the server details and key to copy into their RustDesk client. By default the page requires the short-lived token sent with the remote control request, set `REMOTE_CONTROL_DOWNLOAD_URL_PUBLIC=true` to make it open to anyone with the URL.
+
+If `REMOTE_CONTROL_SERVER_HOST` is empty, `REMOTE_CONTROL_DOWNLOAD_URL` defaults to `https://rustdesk.com/`. You can also point it at your own page with a preconfigured client / instructions.
 
 Restart MiroTalk:
 

@@ -717,8 +717,10 @@ API_KEY_SECRET=your_secret
 <li>Enable it in the SFU <code>.env</code> and restart MiroTalk:</li>
 </ol>
 <pre><code class="language-env">REMOTE_CONTROL_ENABLED=true
-REMOTE_CONTROL_DOWNLOAD_URL=https://your-domain/rustdesk-download
+REMOTE_CONTROL_SERVER_HOST=rustdesk.yourdomain.com   # ID server (or IP), shown on /remote-control/setup
+REMOTE_CONTROL_SERVER_KEY=&lt;contents of id_ed25519.pub&gt;  # PUBLIC key only
 </code></pre>
+<p>Optional: <code>REMOTE_CONTROL_SERVER_RELAY</code>, <code>REMOTE_CONTROL_SERVER_API</code>, <code>REMOTE_CONTROL_DOWNLOAD_URL</code>, <code>REMOTE_CONTROL_DOWNLOAD_URL_PUBLIC</code>.</p>
 <p><strong>Usage:</strong> the presenter opens the participants menu and selects <strong>Remote control</strong>, the participant accepts and shares their RustDesk ID + one-time password, then the presenter clicks <strong>Open RustDesk</strong> and enters the password.</p>
 <p>Keep the RustDesk data volume, because deleting it changes the key and breaks all configured clients. See the <a href="/mirotalk-sfu/rustdesk/">RustDesk + SFU Remote Control</a> guide.</p>
 <div class="answer-foot"><button class="copy" type="button" data-id="can-a-presenter-remotely-control-a-participant-s-computer-in-mirotalk-sfu"><i data-lucide="link"></i><span>Copy link</span></button></div></div>

@@ -69,4 +69,5 @@ info "RustDesk update complete!"
 
 if [ -s "$KEY_FILE" ]; then
     echo -e "Key: \e[32m$(cat "$KEY_FILE")\e[0m"
+    echo -e "MiroTalk SFU .env: REMOTE_CONTROL_SERVER_KEY=<the key above>"
 fi
