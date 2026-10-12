@@ -19,7 +19,7 @@ LINK_PLACEHOLDER_PATTERN = re.compile(
     r"\{\{\s*links\.(?P<name>[a-z0-9_]+)\s*\}\}"
 )
 URL_ATTRIBUTE_PATTERN = re.compile(
-    r'(?P<prefix>\b(?:href|src)\s*=\s*["\'])(?P<url>[^"\']+)(?P<suffix>["\'])',
+    r'(?P<prefix>\b(?:href|src|data-link)\s*=\s*["\'])(?P<url>[^"\']+)(?P<suffix>["\'])',
     re.IGNORECASE,
 )
 PRODUCT_LANDING_PAGES = {
