@@ -19,8 +19,31 @@ Set these parameters in your `.env` file:
 ```bash
 HOST_PROTECTED=true
 HOST_USER_AUTH=false
-HOST_USERS="user1:pass1:user-1:*|user2@mail.com:pass2:user-2:*|user3:pass3:user-3:*"
+HOST_USERS="alice:<strong-password>:Alice:*|bob:<another-strong-password>:Bob:room1,room2"
 ```
+
+### `HOST_USERS` format
+
+`HOST_USERS` uses the same format as [MiroTalk P2P](../mirotalk-p2p/host-protection.md). Separate users with `|`, fields with `:`, and rooms with `,`.
+
+| Field | Required | Description |
+| :--- | :--- | :--- |
+| `username` | Yes | Login username |
+| `password` | Yes | Login password (1–36 characters) |
+| `displayName` | No | Name used in the room. Users cannot change it. If omitted, `HOST_PROTECTED` uses the login username; otherwise users choose their own name |
+| `allowedRooms` | No | Rooms this login can open or join, comma-separated. `*` (default) allows all rooms |
+
+If a value contains `:`, `|` or `,`, use the JSON format instead:
+
+```bash
+HOST_USERS='[{"username":"alice","password":"<strong-password>","displayname":"Alice","allowed_rooms":["*"]},{"username":"bob","password":"<another-strong-password>","displayname":"Bob","allowed_rooms":["room1","room2"]}]'
+```
+
+!!! warning "Use strong credentials"
+    Use your own unique, strong credentials. The server refuses to start with well-known defaults such as `admin/admin`, `guest/guest` or `username/password`.
+
+!!! note
+    `HOST_USERS` is required when `HOST_PROTECTED` or `HOST_USER_AUTH` is `true`, unless OIDC or `HOST_USERS_FROM_DB=true` is used.
 
 ---
 
@@ -90,5 +113,35 @@ Or with additional participant settings:
 ```
 https://YOUR-DOMAIN-NAME/join/?room=test&name=mirotalk&audio=0&video=0&screen=0&notify=0&token=TOKEN
 ```
+
+---
+
+## Presenters
+
+Set these parameters in your `.env` file:
+
+| Variable | Default | Description |
+| :--- | :--- | :--- |
+| `PRESENTERS` | — | Presenter login usernames, or OIDC verified emails / `sub` values (comma-separated) |
+| `PRESENTER_JOIN_FIRST` | `true` | The first participant to join the room becomes presenter |
+
+**Example:**
+
+```bash
+PRESENTERS=alice,presenter@example.com
+PRESENTER_JOIN_FIRST=true
+```
+
+`PRESENTERS` only matches identities the server can verify. It **never** matches the name someone types in the join form. Otherwise, anyone could type a listed name and become presenter.
+
+| Setup | How to make someone presenter |
+| :--- | :--- |
+| **No authentication** | `PRESENTERS` has no effect. Use `PRESENTER_JOIN_FIRST=true`, so the first participant to join the room becomes presenter |
+| **Host login** (`HOST_PROTECTED` or `HOST_USER_AUTH`) | Add the **login username** to `PRESENTERS`, not the display name. In `HOST_USERS="alice:<pass>:Alice:*"`, the login username is `alice` |
+| **OIDC** | Add the verified **email** or the **`sub`** claim to `PRESENTERS` |
+| **JWT token** | Join with a token created with `presenter: true` (see the [REST API](./api.md)) |
+
+!!! tip
+    To make a specific person presenter every time, use host login, OIDC or a token. For open rooms without login, `PRESENTER_JOIN_FIRST=true` is the simplest choice.
 
 ---
