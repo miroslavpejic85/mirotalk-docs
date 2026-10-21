@@ -144,4 +144,35 @@ PRESENTER_JOIN_FIRST=true
 !!! tip
     To make a specific person presenter every time, use host login, OIDC or a token. For open rooms without login, `PRESENTER_JOIN_FIRST=true` is the simplest choice.
 
+### Moderator in open rooms
+
+To keep rooms open to everyone and still have a fixed moderator, use a presenter token. Guests join without logging in. The server checks the moderator's token before granting presenter rights.
+
+```bash
+HOST_PROTECTED=false
+HOST_USER_AUTH=false
+HOST_USERS="mod:<strong-password>:Moderator:*"
+PRESENTER_JOIN_FIRST=false
+API_KEY_SECRET=<your-secret>
+API_ALLOW_TOKEN=true
+```
+
+Generate the token with the [REST API](./api.md):
+
+```bash
+curl -X POST "https://YOUR-DOMAIN-NAME/api/v1/token" \
+  -H "authorization: <your-secret>" \
+  -H "Content-Type: application/json" \
+  -d '{"username":"mod","password":"<strong-password>","presenter":true,"expire":"8h"}'
+```
+
+Then the moderator joins with:
+
+```
+https://YOUR-DOMAIN-NAME/join/?room=myroom&name=Moderator&token=TOKEN
+```
+
+!!! warning
+    Keep the token link private, because anyone who has it becomes presenter until the token expires. If the moderator is already in the room as a guest, they must leave and rejoin with the token link.
+
 ---

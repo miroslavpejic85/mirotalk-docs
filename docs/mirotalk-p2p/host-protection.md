@@ -136,4 +136,37 @@ PRESENTERS='["alice", "presenter@example.com"]'
 !!! tip
     To make a specific person presenter every time, use host login, OIDC or a token. In open rooms without login, the first participant to join becomes presenter.
 
+### Moderator in open rooms
+
+To keep rooms open to everyone and still have a fixed moderator, use a presenter token. Guests join without logging in. The server checks the moderator's token before granting presenter rights.
+
+```bash
+HOST_PROTECTED=false
+HOST_USER_AUTH=false
+HOST_USERS="mod:<strong-password>:Moderator:*"
+API_KEY_SECRET=<your-secret>
+API_DISABLED='["meetings"]'
+```
+
+The `/token` endpoint is disabled by default, so remove `token` from `API_DISABLED`. Generate the token with the [REST API](./api.md):
+
+```bash
+curl -X POST "https://YOUR-DOMAIN-NAME/api/v1/token" \
+  -H "authorization: <your-secret>" \
+  -H "Content-Type: application/json" \
+  -d '{"username":"mod","password":"<strong-password>","presenter":true,"expire":"8h"}'
+```
+
+Then the moderator joins with:
+
+```
+https://YOUR-DOMAIN-NAME/join/?room=myroom&name=Moderator&token=TOKEN
+```
+
+!!! note
+    MiroTalk P2P has no `PRESENTER_JOIN_FIRST` option. The first participant to join a room always becomes presenter, so the moderator should open the room before guests join.
+
+!!! warning
+    Keep the token link private, because anyone who has it becomes presenter until the token expires. If the moderator is already in the room as a guest, they must leave and rejoin with the token link.
+
 ---
