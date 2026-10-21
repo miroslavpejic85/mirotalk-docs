@@ -4,7 +4,7 @@ Use the built-in **SIP phone** panel in MiroTalk SFU to register a SIP account f
 
 This feature is currently marked as **experimental** and is intended as a practical MVP for SIP interop testing.
 
-![MiroTalk SFU SIP phone panel](../images/mirotalk-sip-phone.png)
+![MiroTalk SFU SIP phone panel](../images/mirotalk-sip-phone-v2.png)
 
 ---
 
