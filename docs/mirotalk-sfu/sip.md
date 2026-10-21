@@ -1,6 +1,6 @@
 # 📞 SIP phone (Experimental)
 
-Use the built-in **SIP phone** panel in MiroTalk SFU to register SIP users from inside a room and place extension-to-extension calls.
+Use the built-in **SIP phone** panel in MiroTalk SFU to register a SIP account from inside a room, then call an **extension**, a **phone number** or a **SIP address**.
 
 This feature is currently marked as **experimental** and is intended as a practical MVP for SIP interop testing.
 
@@ -32,6 +32,12 @@ You can also test the in-room SIP phone MVP directly in MiroTalk SFU:
 3. Join a room with two browsers/users.
 4. Open **Settings → SIP phone**, register random users, and call each other.
 
+The in-room SIP phone uses this demo server by default (`ws://<host>:5066`, SIP domain `<host>`).
+
+!!! info "WebSocket contact aliasing"
+
+    The demo Kamailio config aliases WebSocket contacts (`add_contact_alias` / `handle_ruri_alias`) so in-dialog `ACK`/`BYE`/re-`INVITE` requests reach browser clients, which advertise unroutable Contacts (e.g. `*.invalid` / `192.0.2.x`). Apply the same approach on your own Kamailio/OpenSIPS setup if calls connect but hang-up or media renegotiation fails.
+
 ---
 
 ## Compatibility
@@ -44,6 +50,7 @@ For non-demo deployments, ensure your SIP server provides:
 - Correct SIP domain/realm for registration
 - WebRTC-compatible SIP profile/transports
 - DTLS-SRTP / ICE / NAT handling suitable for browser endpoints
+- A PSTN trunk (SIP provider or PBX gateway) if you want to call real phone numbers
 
 !!! warning "Experimental scope"
 
@@ -51,25 +58,72 @@ For non-demo deployments, ensure your SIP server provides:
 
 ---
 
-## In-room SIP phone fields
+## SIP phone panel
 
-The SIP phone panel includes the following common parameters:
+The panel is organized in a few sections:
+
+- **Status bar**: shows the current state (idle, registering, registered, incoming, in call, error) with a color indicator and a live **call timer** during active calls.
+- **Incoming call banner**: shows the caller with **Accept** / **Reject** buttons (a toast notification is also shown).
+- **Account**: SIP registration settings. The card collapses automatically after a successful registration and shows the registered identity (`sip:user@domain`); fields are locked while registered.
+- **Dialer**: call target input, keypad, call controls and recent numbers.
+
+### Account fields
 
 | Field | Description | Example |
 | --- | --- | --- |
 | WS server | SIP WebSocket endpoint used by the browser SIP stack. | `ws://127.0.0.1:5066` or `wss://sip.example.com:7443` |
 | SIP domain | SIP realm/domain sent in SIP registration and INVITE flows. | `127.0.0.1` |
-| SIP username | SIP account/extension to register. | `user8165` |
-| Auth username | Authentication username (can match or differ from SIP username). | `user8165` |
+| SIP username | SIP account/extension to register. Use the inline buttons to generate a **random user** or **copy** the current one. | `user8165` |
+| Auth username | Authentication username (optional, defaults to SIP username). | `user8165` |
 | SIP password | Optional in open/local test setups, required when server auth is enabled. | `••••••••` |
-| Call target | Destination extension or SIP user to call. | `user6449` |
+| Contact IP compatibility hack | Toggles SIP.js `hackIpInContact` for better interoperability across SIP servers. | on/off |
 
-Buttons:
+**Advanced compatibility** (collapsible):
 
-- **Random user**: generates test users quickly
-- **Copy user**: copies current user details for easier second-browser tests
-- **Register / Unregister**: controls SIP registration lifecycle
-- **Call / Hang up**: starts and ends active SIP calls
+| Field | Description | Example |
+| --- | --- | --- |
+| Display name | Optional caller display name. | `Alice` |
+| Outbound proxy / route set | Optional outbound proxy or route set. | `sip:proxy.example.com;lr` |
+| Phone number gateway | Domain used for phone-number calls (defaults to SIP domain). Extensions keep using the SIP domain. | `pstn.provider.com` |
+| Register expires (s) | Registration expiry in seconds. | `600` |
+
+Use **Register / Unregister** to control the SIP registration lifecycle.
+
+### Dialer
+
+The **call target** input accepts an extension, a phone number or a SIP address. The detected type and the resulting SIP URI are previewed under the input:
+
+| You type | Detected as | Called URI |
+| --- | --- | --- |
+| `1001`, `alice` | Extension | `sip:1001@<SIP domain>` |
+| `+1 (555) 123-4567`, `0039 06 1234 5678` | Phone number | `sip:+15551234567@<phone number gateway or SIP domain>` |
+| `tel:+15551234567` | Phone number | same as above |
+| `bob@example.org`, `sip:bob@example.org` | SIP address | used as-is |
+
+- Phone-number formatting (spaces, dashes, dots, parentheses) is stripped.
+- Values starting with `+` or with **7+ digits** are treated as phone numbers; shorter ones as extensions.
+- Invalid targets (e.g. `12+34`) are rejected.
+
+Dialer controls:
+
+- **Keypad**: tap digits, `*` and `#`; **hold `0`** to insert `+`.
+- **Backspace**: delete the last character; **hold** to clear the input.
+- **Enter** in the target input places the call.
+- **Call / Mute / Hang up**: start a call, mute/unmute your microphone, and end the call.
+- **DTMF**: during an active call, the keypad (or keyboard keys `0-9`, `*`, `#`) sends DTMF tones (RTP, with SIP `INFO` fallback).
+- **Recent**: the last 6 dialed targets are shown as quick-dial chips.
+
+!!! note "Calling real phone numbers"
+
+    Calling a real phone number requires a SIP provider or PBX with a PSTN trunk. Set **Advanced compatibility → Phone number gateway** to the provider's domain to route phone numbers there, while extensions keep using the SIP domain.
+
+    With the Kamailio demo (no PSTN trunk), a phone number only rings if a user registered with that number, e.g. register as `5551234567` and dial `(555) 123-4567`.
+
+### Saved settings
+
+- Server settings (WS server, SIP domain, display name, outbound proxy, phone number gateway, register expires, contact hack) are remembered in the browser (`localStorage`).
+- The SIP username and auth username are kept **per tab** (`sessionStorage`), so two tabs never register the same user.
+- The **SIP password is never stored**.
 
 ---
 
@@ -78,10 +132,13 @@ Buttons:
 1. Launch SFU and SIP demo stack.
 2. Open room in Browser A and Browser B.
 3. In both browsers, open **Settings → SIP phone**.
-4. Click **Random user**, then **Register** on both sides.
-5. Copy Browser B user and paste into Browser A **Call target**.
+4. Click **Random user** (if needed), then **Register** on both sides.
+5. Copy Browser B user and paste into Browser A **Call target** (or type it on the keypad).
 6. Press **Call** in Browser A.
-7. Verify two-way audio and call teardown with **Hang up**.
+7. In Browser B, click **Accept** on the incoming call banner.
+8. Verify two-way audio, **Mute**, DTMF and the call timer, then end the call with **Hang up**.
+
+To test phone-number dialing with the demo, register Browser B as `5551234567` and dial `(555) 123-4567` from Browser A.
 
 ---
 
@@ -97,13 +154,23 @@ Buttons:
 
 - Confirm both users are successfully registered first.
 - Verify target extension exists and is reachable.
+- Check the detected target type and URI preview under the call target input.
+- For phone numbers, verify the **Phone number gateway** and your provider's PSTN trunk / dial plan.
 - Check SIP routing rules (`INVITE` path) in your SIP server.
+
+### Call connects but hang-up / ACK fails
+
+- Browser clients advertise unroutable Contacts; make sure your proxy aliases WebSocket contacts (see the Kamailio note above) so in-dialog requests reach the browser.
 
 ### No media / one-way audio
 
 - Review NAT traversal and ICE candidate reachability.
 - Validate DTLS-SRTP and RTP profile compatibility.
 - Confirm UDP/TCP media ports and firewall policies allow media traffic.
+
+### DTMF not received
+
+- Ensure your SIP server/IVR accepts RFC 4733 RTP events or SIP `INFO` (`application/dtmf-relay`).
 
 ### WSS errors in browser
 
