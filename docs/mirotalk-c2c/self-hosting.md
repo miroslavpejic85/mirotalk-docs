@@ -50,6 +50,9 @@ cd mirotalkc2c
 # Copy and customize the environment template
 cp .env.template .env
 
+# Copy and customize the UI configuration template
+cp frontend/js/config.template.js frontend/js/config.js
+
 # Install dependencies
 npm ci
 
@@ -58,6 +61,12 @@ npm start
 ```
 
 Verify the installation: [http://YOUR.DOMAIN.NAME:8080](http://YOUR.DOMAIN.NAME:8080)
+
+!!! note
+
+    - Edit `.env` for server settings and `frontend/js/config.js` to customize the UI (app name, copyright, about link).
+    - `frontend/js/config.js` is sent to the browser, so never put secrets in it.
+    - `frontend/js/config.js` is git-ignored, so your changes are preserved on `git pull`. If it is missing, `frontend/js/config.template.js` is served instead.
 
 ---
 
@@ -101,6 +110,9 @@ cp .env.template .env
 
 # Copy and customize the Docker Compose template
 cp docker-compose.template.yml docker-compose.yml
+
+# Copy and customize the UI configuration template
+cp frontend/js/config.template.js frontend/js/config.js
 ```
 
 Example of `docker-compose.yml`:
@@ -117,9 +129,17 @@ services:
             - '${PORT}:${PORT}'
         volumes:
             - .env:/src/.env:ro
-            - ./frontend/:/src/frontend/:ro
-            - ./backend/:/src/backend/:ro
+            - ./frontend/js/config.js:/src/frontend/js/config.js:ro
+            # Optional volumes for real-time updates:
+            # - ./frontend/:/src/frontend/:ro
+            # - ./backend/:/src/backend/:ro
 ```
+
+!!! note
+
+    - Make sure `frontend/js/config.js` exists before running `docker-compose up`, otherwise Docker will create an empty directory in its place.
+    - Edit `.env`, `docker-compose.yml` and `frontend/js/config.js` to customize your setup.
+    - `frontend/js/config.js` is sent to the browser, so never put secrets in it.
 
 ```bash
 # Pull the official Docker image
@@ -321,6 +341,7 @@ For `PM2`:
 
 cd mirotalkc2c
 git pull
+[ -f frontend/js/config.js ] || cp frontend/js/config.template.js frontend/js/config.js
 sudo npm ci
 pm2 restart backend/server.js
 ```
@@ -334,6 +355,7 @@ For `Docker`:
 
 cd mirotalkc2c
 git pull
+[ -f frontend/js/config.js ] || cp frontend/js/config.template.js frontend/js/config.js
 docker-compose down
 docker-compose pull
 docker image prune -f

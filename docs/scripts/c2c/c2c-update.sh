@@ -19,6 +19,13 @@ PROJECT_DIR="/root/mirotalkc2c"
 cd "$PROJECT_DIR" || error "Project directory not found!"
 
 git pull
+
+# Create the user-editable UI config if missing (introduced in v1.4.83)
+if [[ ! -f frontend/js/config.js ]]; then
+    info "Creating frontend/js/config.js from template..."
+    cp frontend/js/config.template.js frontend/js/config.js
+fi
+
 docker-compose down
 docker-compose pull
 docker image prune -f
