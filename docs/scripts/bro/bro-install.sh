@@ -168,6 +168,7 @@ cd $PROJECT_DIR
 
 info "Setting up configuration files..."
 cp .env.template .env
+cp public/js/config.template.js public/js/config.js
 
 #---------------------------------------------
 # Set environment
@@ -196,6 +197,7 @@ services:
             - '${SERVER_PORT}:${SERVER_PORT}'
         volumes:
             - $PROJECT_DIR/.env:/src/.env:ro
+            - $PROJECT_DIR/public/js/config.js:/src/public/js/config.js:ro
             - $PROJECT_DIR/app/:/src/app/:ro
             - $PROJECT_DIR/public/:/src/public/:ro
 EOF
@@ -299,3 +301,4 @@ info "Application Secret:"
 echo -e "  API_KEY_SECRET: \e[33m$API_KEY_SECRET\e[0m"
 echo ""
 warning "Save this secret securely. It is stored in $PROJECT_DIR/.env"
+info "Customize the UI in $PROJECT_DIR/public/js/config.js, then run: docker-compose restart"

@@ -5,15 +5,17 @@
 This system relies on two primary configuration files for customization:  
 
 !!! warning "Configuration Required"
-    **Before proceeding, ensure you've copied this critical file:**  
+    **Before proceeding, ensure you've copied these critical files:**  
  
     - 🔧 `.env.template` → `.env`  
+    - 🔧 `public/js/config.template.js` → `public/js/config.js`  
 
     **Failure to do this will cause application errors.** 
 
-1. **[`config.js`](https://github.com/miroslavpejic85/mirotalkbro/blob/main/public/js/config.js)**  
+1. **[`config.js`](https://github.com/miroslavpejic85/mirotalkbro/blob/main/public/js/config.template.js)**  
       - Contains all non-sensitive application settings with detailed, in-line documentation.  
       - Ideal for configuring general application behavior and features.  
+      - Git-ignored, so your customizations survive updates. If missing, `config.template.js` is served instead.  
 
 2. **[`.env`](https://github.com/miroslavpejic85/mirotalkbro/blob/main/.env.template)**  
       - Stores sensitive credentials and environment-specific variables.  

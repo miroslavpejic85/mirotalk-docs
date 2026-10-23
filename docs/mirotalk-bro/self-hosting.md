@@ -55,6 +55,9 @@ cd mirotalkbro
 # Copy and customize the environment template
 cp .env.template .env
 
+# Copy and customize the UI configuration template
+cp public/js/config.template.js public/js/config.js
+
 # Install dependencies
 npm ci
 
@@ -63,6 +66,11 @@ npm start
 ```
 
 Verify the installation: [http://YOUR.DOMAIN.NAME:3016](http://YOUR.DOMAIN.NAME:3016)
+
+!!! note
+
+    - Edit `.env` for server settings and `public/js/config.js` to customize the UI (buttons, options, simulcast, SFU tuning).
+    - `public/js/config.js` is git-ignored, so your changes are preserved on `git pull`. If it is missing, `public/js/config.template.js` is served instead.
 
 ---
 
@@ -134,6 +142,9 @@ cp .env.template .env
 
 # Copy and customize the Docker Compose template
 cp docker-compose.template.yml docker-compose.yml
+
+# Copy and customize the UI configuration template
+cp public/js/config.template.js public/js/config.js
 ```
 
 Example of `docker-compose.yml`:
@@ -152,13 +163,17 @@ services:
             - '${MEDIASOUP_RTC_MIN_PORT}-${MEDIASOUP_RTC_MAX_PORT}:${MEDIASOUP_RTC_MIN_PORT}-${MEDIASOUP_RTC_MAX_PORT}/tcp'
         volumes:
             - .env:/src/.env:ro
-            - ./app/:/src/app/:ro
-            - ./public/:/src/public/:ro
+            - ./public/js/config.js:/src/public/js/config.js:ro
+            # Optional volumes for real-time updates:
+            # - ./app/:/src/app/:ro
+            # - ./public/:/src/public/:ro
 ```
 
 !!! note
 
-    The mediasoup RTC port range is only needed when using SFU mode (`BROADCASTING=sfu`).
+    - The mediasoup RTC port range is only needed when using SFU mode (`BROADCASTING=sfu`).
+    - Make sure `public/js/config.js` exists before running `docker-compose up`, otherwise Docker will create an empty directory in its place.
+    - Edit `.env`, `docker-compose.yml` and `public/js/config.js` to customize your setup.
 
 ```bash
 # Pull the official Docker image
@@ -360,6 +375,7 @@ For `PM2`:
 
 cd mirotalkbro
 git pull
+[ -f public/js/config.js ] || cp public/js/config.template.js public/js/config.js
 sudo npm ci
 pm2 restart app/server.js
 ```
@@ -373,6 +389,7 @@ For `Docker`:
 
 cd mirotalkbro
 git pull
+[ -f public/js/config.js ] || cp public/js/config.template.js public/js/config.js
 docker-compose down
 docker-compose pull
 docker image prune -f
