@@ -1,6 +1,6 @@
 ---
 title: MiroTalk SFU REST API
-description: Query meetings and create, join, end, or authorize meetings with the MiroTalk SFU REST API.
+description: Query meetings, create, join, end, or authorize meetings, and issue WHIP ingest tokens with the MiroTalk SFU REST API.
 ---
 
 # MiroTalk SFU REST API
@@ -17,6 +17,7 @@ The deployed [SFU Swagger specification](https://sfu.mirotalk.com/api/v1/docs) i
 | `DELETE` | `/meeting/{room}` | `Authorization: YOUR_API_KEY_SECRET` | End an active meeting. |
 | `POST` | `/join` | `Authorization: YOUR_API_KEY_SECRET` | Create a direct meeting join URL. |
 | `POST` | `/token` | `Authorization: YOUR_API_KEY_SECRET` | Create a meeting token. |
+| `POST` | `/whip` | `Authorization: YOUR_API_KEY_SECRET` | Create a WHIP ingest URL and per-room token. |
 
 !!! warning "Protect the API secret"
   Replace `YOUR_API_KEY_SECRET` with the value configured in `.env`. Keep it on a trusted backend and never ship it in public browser code.
@@ -861,6 +862,166 @@ curl $MIROTALK_URL \
 
 ---
 
+## `POST /whip`
+
+Upon a successful request, the API response will provide the WHIP endpoint URL and a per-room Bearer token, ready to use in OBS Studio, FFmpeg, GStreamer, or any other WHIP client. WHIP must be enabled (`WHIP_ENABLED=true`). The authorization for this request is determined by the `api.keySecret` configuration specified in your `config.js` file. See [WHIP Ingest](whip.md) for details.
+
+| Field    | Required | Description                                         |
+| -------- | -------- | --------------------------------------------------- |
+| `room`   | yes      | Room to publish into                                |
+| `name`   | no       | Display name of the WHIP participant (max 32 chars) |
+| `expire` | no       | Token lifetime (default `WHIP_TOKEN_EXPIRE`)        |
+
+### JavaScript WHIP example
+
+```javascript
+"use strict";
+
+// npm i node-fetch
+
+try {
+  // Use dynamic import with await
+  const { default: fetch } = await import("node-fetch");
+
+  const API_KEY_SECRET = "YOUR_API_KEY_SECRET";
+  const MIROTALK_URL = "https://sfu.mirotalk.com/api/v1/whip";
+
+  const response = await fetch(MIROTALK_URL, {
+    method: "POST",
+    headers: {
+      authorization: API_KEY_SECRET,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      room: "myroom",
+      name: "OBS",
+      expire: "4h",
+    }),
+  });
+  const data = await response.json();
+  if (data.error) {
+    console.log("Error:", data.error);
+  } else {
+    // OBS Studio -> Settings -> Stream -> Service: WHIP (Server: whip, Bearer Token: token)
+    console.log("whip:", data.whip);
+    console.log("token:", data.token);
+  }
+} catch (error) {
+  console.error("Error fetching data:", error);
+}
+```
+
+---
+
+### PHP WHIP example
+
+```php
+<?php
+
+$API_KEY_SECRET = "YOUR_API_KEY_SECRET";
+$MIROTALK_URL = "https://sfu.mirotalk.com/api/v1/whip";
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $MIROTALK_URL);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_POST, 1);
+
+$headers = [
+    'authorization:' . $API_KEY_SECRET,
+    'Content-Type: application/json'
+];
+
+curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+$data = array(
+    "room"      => "myroom",
+    "name"      => "OBS",
+    "expire"    => "4h",
+);
+
+$data_string = json_encode($data);
+
+curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
+
+$response = curl_exec($ch);
+$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+curl_close($ch);
+
+echo "Status code: $httpcode \n";
+$data = json_decode($response);
+// OBS Studio -> Settings -> Stream -> Service: WHIP (Server: whip, Bearer Token: token)
+echo "whip: ", $data->{'whip'}, "\n";
+echo "token: ", $data->{'token'}, "\n";
+```
+
+---
+
+### Python WHIP example
+
+```py
+# pip3 install requests
+
+import requests
+import json
+
+API_KEY_SECRET = "YOUR_API_KEY_SECRET"
+MIROTALK_URL = "https://sfu.mirotalk.com/api/v1/whip"
+
+headers = {
+    "authorization": API_KEY_SECRET,
+    "Content-Type": "application/json",
+}
+
+data = {
+    "room": "myroom",
+    "name": "OBS",
+    "expire": "4h"
+}
+
+response = requests.post(
+    MIROTALK_URL, 
+    headers=headers, 
+    json=data
+)
+
+print("Status code:", response.status_code)
+data = json.loads(response.text)
+# OBS Studio -> Settings -> Stream -> Service: WHIP (Server: whip, Bearer Token: token)
+print("whip:", data["whip"])
+print("token:", data["token"])
+```
+
+---
+
+### Bash WHIP example
+
+```bash
+#!/bin/bash
+
+API_KEY_SECRET="YOUR_API_KEY_SECRET"
+MIROTALK_URL="https://sfu.mirotalk.com/api/v1/whip"
+
+# Returns { whip, token }: use them in OBS Studio -> Settings -> Stream -> Service: WHIP
+# (Server: whip, Bearer Token: token) or with any other WHIP client.
+curl $MIROTALK_URL \
+    --header "authorization: $API_KEY_SECRET" \
+    --header "Content-Type: application/json" \
+    --data '{"room":"myroom","name":"OBS","expire":"4h"}' \
+    --request POST
+```
+
+Response:
+
+```json
+{
+    "whip": "https://sfu.mirotalk.com/whip/myroom",
+    "token": "YOUR_WHIP_TOKEN"
+}
+```
+
+---
+
 !!! note
 
     - Replace `sfu.mirotalk.com` in the code snippets with `YOUR-DOMAIN-NAME`.
@@ -876,6 +1037,7 @@ curl $MIROTALK_URL \
             meeting: true,
             join: true,
             token: true,
+            whip: true,
             // Add more endpoints here as needed
         },
     },
