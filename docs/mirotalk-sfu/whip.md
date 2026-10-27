@@ -2,6 +2,8 @@
 
 ![WHIP](https://img.shields.io/badge/WHIP-RFC%209725-blue)
 
+![WHIP ingest into MiroTalk SFU from OBS, FFmpeg, GStreamer, Larix and vMix](../images/sfu/whip.png)
+
 MiroTalk SFU supports **WHIP** ([WebRTC-HTTP Ingestion Protocol, RFC 9725](https://www.rfc-editor.org/rfc/rfc9725.html)): publish audio and video from **OBS Studio**, **FFmpeg**, **GStreamer**, and other WHIP encoders straight into a meeting room.
 
 The stream appears in the room as a regular participant tile. Everyone in the room sees and hears it with **sub-second latency**, with no RTMP server and no transcoding: the SFU only forwards the media.
