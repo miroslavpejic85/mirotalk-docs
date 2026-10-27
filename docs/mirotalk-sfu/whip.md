@@ -196,12 +196,14 @@ Bans are kept in memory and cleared when the server restarts.
 
 ## HTTP API reference
 
-| Method   | Path                                | Description                                                      |
-| -------- | ----------------------------------- | ---------------------------------------------------------------- |
-| `POST`   | `/whip/{roomId}[?name=DisplayName]` | Body: SDP offer (`application/sdp`). Returns `201` + SDP answer  |
-| `DELETE` | `/whip/{roomId}/{sessionId}`        | Ends the session (URL from the `Location` header)                |
-| `PATCH`  | `/whip/{roomId}/{sessionId}`        | `405`: trickle ICE / ICE restart not supported (ICE-lite server) |
-| `POST`   | `/api/v1/whip`                      | Returns `{ whip, token }` for a room (auth: `API_KEY_SECRET`)    |
+| Method    | Path                                | Description                                                      |
+| --------- | ----------------------------------- | ---------------------------------------------------------------- |
+| `POST`    | `/whip/{roomId}[?name=DisplayName]` | Body: SDP offer (`application/sdp`). Returns `201` + SDP answer  |
+| `DELETE`  | `/whip/{roomId}/{sessionId}`        | Ends the session (URL from the `Location` header), see below     |
+| `GET`     | `/whip/{roomId}[/{sessionId}]`      | `204`: WHIP resources have no representation                     |
+| `OPTIONS` | `/whip/{roomId}[/{sessionId}]`      | CORS preflight, advertises `Accept-Post: application/sdp`        |
+| `PATCH`   | `/whip/{roomId}/{sessionId}`        | `405`: trickle ICE / ICE restart not supported (ICE-lite server) |
+| `POST`    | `/api/v1/whip`                      | Returns `{ whip, token }` for a room (auth: `API_KEY_SECRET`)    |
 
 Every WHIP request needs `Authorization: Bearer <token>`.
 
@@ -210,15 +212,31 @@ Every WHIP request needs `Authorization: Bearer <token>`.
 | Code  | Meaning                                                                                        |
 | ----- | ---------------------------------------------------------------------------------------------- |
 | `201` | Session created (`Location` header = session URL)                                              |
-| `400` | Invalid room name or SDP (only one audio and/or one video `sendonly` section, BUNDLE required) |
+| `400` | Invalid room name or SDP (see [SDP requirements](#sdp-requirements))                           |
 | `401` | Missing or invalid Bearer token                                                                |
-| `403` | Room join-locked, full, or token banned in this room                                           |
+| `403` | Room join-locked, full, token banned in this room, or `DELETE` by a token that does not own it |
 | `404` | Room not found / not active, or unknown session                                                |
 | `405` | Method not allowed                                                                             |
-| `406` | No supported codec in the offer                                                                |
 | `415` | `Content-Type` is not `application/sdp`                                                        |
+| `422` | No supported codec in the offer                                                                |
 | `429` | Rate limit exceeded                                                                            |
 | `503` | Session limit reached (`Retry-After` header)                                                   |
+
+**Ending a session:** only the token that created the session, or the server-wide `WHIP_API_SECRET`, can `DELETE` it. Any other valid token gets `403 Forbidden`.
+
+**Trailing slash:** non-`GET` requests to a URL ending in `/` are redirected with `308`, which keeps the method and body (RFC 9725 §4.6).
+
+### SDP requirements
+
+The SDP offer is rejected with `400` unless:
+
+- It has at most one `audio` and one `video` section, both `sendonly` (or `sendrecv`).
+- It uses **max-bundle** (RFC 9725 §4.4.1): exactly one `a=group:BUNDLE` that lists every media section. A single section may omit the group.
+- Sections with port `0` must be `a=bundle-only`, and at least one section must not be bundle-only.
+- Every non-bundle-only section uses `a=rtcp-mux`.
+- All `a=msid` lines use the same MediaStream id (RFC 9725 §4.4.2).
+
+OBS, FFmpeg, GStreamer and browser WHIP clients already send offers like this.
 
 ---
 
@@ -251,7 +269,7 @@ H.264 streams labelled _Baseline_ (e.g. FFmpeg/x264 `profile-level-id=42001f`) a
 | ------------------------------------- | -------------------------------------------------------------------------------------- |
 | `404 Room not found or not active`    | Join the room from a browser first                                                     |
 | `401 Unauthorized`                    | Check the token, its room, and its expiry. `WHIP_API_SECRET` must be at least 16 chars |
-| `406 No supported video codec`        | Use H.264, VP8 or VP9 video and Opus audio                                             |
+| `422 No supported video codec`        | Use H.264, VP8 or VP9 video and Opus audio                                             |
 | `503 Maximum number of WHIP sessions` | Raise `WHIP_MAX_SESSIONS` / `WHIP_MAX_SESSIONS_PER_ROOM` or stop another stream        |
 | Connects, but no video                | Open the WebRTC UDP/TCP ports and set `SFU_ANNOUNCED_IP` to the public IP              |
 | OBS: no audio                         | Set the audio encoder to **Opus**                                                      |
