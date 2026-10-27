@@ -91,6 +91,7 @@ nav:
       - Update P2P: mirotalk-p2p/updates.md
       - Scale SFU: mirotalk-sfu/scalability.md
       - Stream with RTMP: mirotalk-sfu/rtmp.md
+      - SFU WHIP ingest: mirotalk-sfu/whip.md
       - SFU remote control with RustDesk: mirotalk-sfu/rustdesk.md
       - BRO RTMP upstream source: mirotalk-bro/rtmp.md
       - Self-host Whisper: utility/whisper.md
@@ -212,15 +213,15 @@ theme:
 
 # Custom styles
 extra_css:
-  - stylesheets/extra.css?v=1.5.80
-  - stylesheets/editorial.css?v=1.5.80
+  - stylesheets/extra.css?v=1.5.81
+  - stylesheets/editorial.css?v=1.5.81
 extra_javascript:
   - javascripts/accessibility.js
   - javascripts/analytics-events.js
 
 # Social / preview card metadata
 extra:
-  docs_version: v1.5.80
+  docs_version: v1.5.81
   links:
     cloud: https://cloud.mirotalk.com
     discord: &discord_url https://discord.gg/rgGYfeYW3N

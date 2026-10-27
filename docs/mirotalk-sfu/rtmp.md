@@ -13,6 +13,9 @@ MiroTalk SFU supports live RTMP streaming through two server options:
 
 Both are available under [`rtmpServers/`](https://github.com/miroslavpejic85/mirotalksfu/tree/main/rtmpServers) and integrate seamlessly with MiroTalk SFU.
 
+!!! tip "Publishing into a room instead?"
+    To send OBS, FFmpeg, or GStreamer **into** a meeting room with sub-second latency, use [WHIP ingest](whip.md).
+
 ---
 
 ## Prerequisites
