@@ -146,6 +146,8 @@ Use `WHIP_API_SECRET` as the Bearer token for any room. Simple, but it gives acc
 5. **Settings → Output**: video encoder `x264` or `NVENC H.264`, audio encoder **Opus**. Recommended: keyframe interval `1s`, no B-frames.
 6. **Start Streaming**
 
+See also the official [OBS WHIP Streaming Guide](https://obsproject.com/kb/whip-streaming-guide).
+
 ### FFmpeg (8+)
 
 ```bash
