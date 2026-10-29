@@ -265,7 +265,7 @@
       <p class="lead">Quick answers about MiroTalk products, self-hosting, licensing, and troubleshooting.</p>
       <div class="searchbox">
         <i data-lucide="search"></i>
-        <input class="search" id="search" type="search" placeholder="Search 48 questions..." aria-label="Search questions" autocomplete="off">
+        <input class="search" id="search" type="search" placeholder="Search 49 questions..." aria-label="Search questions" autocomplete="off">
         <button class="clear" id="clear" type="button" aria-label="Clear search"><i data-lucide="x"></i></button>
       </div>
       <p class="kbd-hint">Tip: press <kbd>/</kbd> to jump to search and <kbd>Esc</kbd> to clear it quickly.</p>
@@ -295,7 +295,7 @@
 <button class="topic" type="button" data-section="internationalization" aria-pressed="false"><i data-lucide="languages"></i><span class="name">Internationalization</span><span class="num">1</span></button>
 <button class="topic" type="button" data-section="database-email" aria-pressed="false"><i data-lucide="database"></i><span class="name">Database &amp; Email</span><span class="num">2</span></button>
 <button class="topic" type="button" data-section="security" aria-pressed="false"><i data-lucide="shield-check"></i><span class="name">Security</span><span class="num">1</span></button>
-<button class="topic" type="button" data-section="troubleshooting" aria-pressed="false"><i data-lucide="life-buoy"></i><span class="name">Troubleshooting</span><span class="num">5</span></button></div>
+<button class="topic" type="button" data-section="troubleshooting" aria-pressed="false"><i data-lucide="life-buoy"></i><span class="name">Troubleshooting</span><span class="num">6</span></button></div>
       <label class="topic-select"><span>Topic</span><select id="topic-select" aria-label="Filter by topic"><option value="all">All topics</option>
 <option value="general" data-name="General">General (4)</option>
 <option value="products" data-name="Products">Products (5)</option>
@@ -311,11 +311,11 @@
 <option value="internationalization" data-name="Internationalization">Internationalization (1)</option>
 <option value="database-email" data-name="Database &amp; Email">Database &amp; Email (2)</option>
 <option value="security" data-name="Security">Security (1)</option>
-<option value="troubleshooting" data-name="Troubleshooting">Troubleshooting (5)</option></select></label>
+<option value="troubleshooting" data-name="Troubleshooting">Troubleshooting (6)</option></select></label>
     </aside>
     <main class="content">
       <div class="status">
-        <span id="count" role="status" aria-live="polite">Showing 48 results</span>
+        <span id="count" role="status" aria-live="polite">Showing 49 results</span>
         <span class="actions"><button class="link-button" id="expand" type="button">Expand visible</button><button class="link-button" id="collapse" type="button">Collapse visible</button></span>
       </div>
       <div class="active-filters" id="active-filters" aria-live="polite" hidden>
@@ -1213,6 +1213,28 @@ EMAIL_FROM=yourEmailFrom
 <p>See the <a href="/mirotalk-sfu/self-hosting/#using-docker">SFU self-hosting</a> guide for full Docker examples.</p>
 <div class="answer-foot"><button class="copy" type="button" data-id="in-mirotalk-sfu-i-see-only-one-side-of-the-video-call-or-no-video-when-running-with-docker-or-a-reverse-proxy-how-do-i-fix-it"><i data-lucide="link"></i><span>Copy link</span></button></div></div>
 </details>
+<details class="qa" id="why-do-i-see-a-connection-lost-message-during-a-meeting-and-will-it-reconnect">
+<summary><span class="qwrap"><span class="q" data-text="Why do I see a Connection lost message during a meeting, and will it reconnect?">Why do I see a Connection lost message during a meeting, and will it reconnect?</span><span class="snippet" hidden></span></span></summary>
+<div class="answer">
+<p>Short drops are normal, and MiroTalk <strong>reconnects automatically</strong>. The two most common causes are:</p>
+<ol>
+<li><strong>Network change:</strong> switching between Wi-Fi and mobile data, turning a VPN on or off, waking a laptop from sleep, or a weak signal.</li>
+<li><strong>Server update or restart:</strong> MiroTalk is actively developed and updated often. Restarting the server (manual update, <code>docker compose up -d</code>, update scripts, or MiroTalk ADMIN) briefly disconnects everyone in the meeting.</li>
+</ol>
+<p><strong>What happens next:</strong></p>
+<ul>
+<li><strong>SFU:</strong> it first tries to restore only the media (<strong>Media connection lost, reconnecting...</strong> → <strong>Media reconnected</strong>) without leaving the room. If the server connection drops too, a <strong>Connection lost / Reconnecting</strong> banner shows the attempt count (up to 10 attempts, at most 15 s apart). When the server is back, <strong>Back online</strong> appears and the page reloads into the same room. An active recording is saved as soon as the connection drops. If all attempts fail, click <strong>Join Room</strong> to rejoin.</li>
+<li><strong>P2P:</strong> a <strong>Connection lost, reconnecting to signaling server...</strong> banner appears, and the client keeps retrying until the server is reachable. It then rejoins the same room automatically, keeping your camera and microphone, and reconnects to the other participants.</li>
+</ul>
+<p>Usually the meeting resumes within a few seconds, with no action needed.</p>
+<p><strong>Tips for administrators:</strong></p>
+<ul>
+<li>Run updates outside meeting hours, or tell users first. With Docker, <code>docker compose pull</code> while the server is running, then <code>docker compose up -d</code> to keep the restart short.</li>
+<li>With several instances behind a load balancer, update them one at a time.</li>
+<li>If connections drop often <strong>without</strong> a network change or update, check that the reverse proxy forwards <strong>WebSockets</strong>, the media ports are open, and a <a href="/coturn/installation/">TURN server</a> is available for restrictive networks.</li>
+</ul>
+<div class="answer-foot"><button class="copy" type="button" data-id="why-do-i-see-a-connection-lost-message-during-a-meeting-and-will-it-reconnect"><i data-lucide="link"></i><span>Copy link</span></button></div></div>
+</details>
 <details class="qa" id="my-whip-stream-from-obs-or-ffmpeg-does-not-show-up-in-the-mirotalk-sfu-room-what-should-i-check">
 <summary><span class="qwrap"><span class="q" data-text="My WHIP stream from OBS or FFmpeg does not show up in the MiroTalk SFU room. What should I check?">My WHIP stream from OBS or FFmpeg does not show up in the MiroTalk SFU room. What should I check?</span><span class="snippet" hidden></span></span></summary>
 <div class="answer">
@@ -1242,6 +1264,7 @@ docker-compose up -d
 </code></pre>
 <p><strong>Scripts:</strong> Use the provided update scripts (e.g., <code>sfu-update.sh</code>, <code>p2p-update.sh</code>).</p>
 <p><strong>MiroTalk ADMIN:</strong> Use the centralized dashboard to update all instances at once.</p>
+<p>Updating restarts the server, so participants in active meetings are briefly disconnected and then reconnect automatically. Update outside meeting hours when possible.</p>
 <div class="answer-foot"><button class="copy" type="button" data-id="how-do-i-update-mirotalk-to-the-latest-version"><i data-lucide="link"></i><span>Copy link</span></button></div></div>
 </details>
 <details class="qa" id="how-do-i-test-mirotalk-locally-without-a-domain-or-ssl">

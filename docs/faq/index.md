@@ -776,6 +776,26 @@ Need more than a quick answer? These guides cover the details.
 
     See the [SFU self-hosting](../mirotalk-sfu/self-hosting.md#using-docker) guide for full Docker examples.
 
+??? question "Why do I see a Connection lost message during a meeting, and will it reconnect?"
+
+    Short drops are normal, and MiroTalk **reconnects automatically**. The two most common causes are:
+
+    1. **Network change:** switching between Wi-Fi and mobile data, turning a VPN on or off, waking a laptop from sleep, or a weak signal.
+    2. **Server update or restart:** MiroTalk is actively developed and updated often. Restarting the server (manual update, `docker compose up -d`, update scripts, or MiroTalk ADMIN) briefly disconnects everyone in the meeting.
+
+    **What happens next:**
+
+    - **SFU:** it first tries to restore only the media (**Media connection lost, reconnecting...** → **Media reconnected**) without leaving the room. If the server connection drops too, a **Connection lost / Reconnecting** banner shows the attempt count (up to 10 attempts, at most 15 s apart). When the server is back, **Back online** appears and the page reloads into the same room. An active recording is saved as soon as the connection drops. If all attempts fail, click **Join Room** to rejoin.
+    - **P2P:** a **Connection lost, reconnecting to signaling server...** banner appears, and the client keeps retrying until the server is reachable. It then rejoins the same room automatically, keeping your camera and microphone, and reconnects to the other participants.
+
+    Usually the meeting resumes within a few seconds, with no action needed.
+
+    **Tips for administrators:**
+
+    - Run updates outside meeting hours, or tell users first. With Docker, `docker compose pull` while the server is running, then `docker compose up -d` to keep the restart short.
+    - With several instances behind a load balancer, update them one at a time.
+    - If connections drop often **without** a network change or update, check that the reverse proxy forwards **WebSockets**, the media ports are open, and a [TURN server](../coturn/installation.md) is available for restrictive networks.
+
 ??? question "My WHIP stream from OBS or FFmpeg does not show up in the MiroTalk SFU room. What should I check?"
 
     Check the HTTP status returned by the encoder:
@@ -809,6 +829,8 @@ Need more than a quick answer? These guides cover the details.
     **Scripts:** Use the provided update scripts (e.g., `sfu-update.sh`, `p2p-update.sh`).
 
     **MiroTalk ADMIN:** Use the centralized dashboard to update all instances at once.
+
+    Updating restarts the server, so participants in active meetings are briefly disconnected and then reconnect automatically. Update outside meeting hours when possible.
 
 ??? question "How do I test MiroTalk locally without a domain or SSL?"
 
