@@ -265,7 +265,7 @@
       <p class="lead">Quick answers about MiroTalk products, self-hosting, licensing, and troubleshooting.</p>
       <div class="searchbox">
         <i data-lucide="search"></i>
-        <input class="search" id="search" type="search" placeholder="Search 45 questions..." aria-label="Search questions" autocomplete="off">
+        <input class="search" id="search" type="search" placeholder="Search 48 questions..." aria-label="Search questions" autocomplete="off">
         <button class="clear" id="clear" type="button" aria-label="Clear search"><i data-lucide="x"></i></button>
       </div>
       <p class="kbd-hint">Tip: press <kbd>/</kbd> to jump to search and <kbd>Esc</kbd> to clear it quickly.</p>
@@ -287,7 +287,7 @@
 <button class="topic" type="button" data-section="stun-turn-servers" aria-pressed="false"><i data-lucide="network"></i><span class="name">STUN &amp; TURN Servers</span><span class="num">2</span></button>
 <button class="topic" type="button" data-section="configuration" aria-pressed="false"><i data-lucide="settings"></i><span class="name">Configuration</span><span class="num">2</span></button>
 <button class="topic" type="button" data-section="api-integration" aria-pressed="false"><i data-lucide="plug"></i><span class="name">API &amp; Integration</span><span class="num">2</span></button>
-<button class="topic" type="button" data-section="features" aria-pressed="false"><i data-lucide="sparkles"></i><span class="name">Features</span><span class="num">6</span></button>
+<button class="topic" type="button" data-section="features" aria-pressed="false"><i data-lucide="sparkles"></i><span class="name">Features</span><span class="num">8</span></button>
 <button class="topic" type="button" data-section="licensing" aria-pressed="false"><i data-lucide="key-round"></i><span class="name">Licensing</span><span class="num">3</span></button>
 <button class="topic" type="button" data-section="room-customization" aria-pressed="false"><i data-lucide="sliders-horizontal"></i><span class="name">Room Customization</span><span class="num">3</span></button>
 <button class="topic" type="button" data-section="scaling-architecture" aria-pressed="false"><i data-lucide="trending-up"></i><span class="name">Scaling &amp; Architecture</span><span class="num">2</span></button>
@@ -295,7 +295,7 @@
 <button class="topic" type="button" data-section="internationalization" aria-pressed="false"><i data-lucide="languages"></i><span class="name">Internationalization</span><span class="num">1</span></button>
 <button class="topic" type="button" data-section="database-email" aria-pressed="false"><i data-lucide="database"></i><span class="name">Database &amp; Email</span><span class="num">2</span></button>
 <button class="topic" type="button" data-section="security" aria-pressed="false"><i data-lucide="shield-check"></i><span class="name">Security</span><span class="num">1</span></button>
-<button class="topic" type="button" data-section="troubleshooting" aria-pressed="false"><i data-lucide="life-buoy"></i><span class="name">Troubleshooting</span><span class="num">4</span></button></div>
+<button class="topic" type="button" data-section="troubleshooting" aria-pressed="false"><i data-lucide="life-buoy"></i><span class="name">Troubleshooting</span><span class="num">5</span></button></div>
       <label class="topic-select"><span>Topic</span><select id="topic-select" aria-label="Filter by topic"><option value="all">All topics</option>
 <option value="general" data-name="General">General (4)</option>
 <option value="products" data-name="Products">Products (5)</option>
@@ -303,7 +303,7 @@
 <option value="stun-turn-servers" data-name="STUN &amp; TURN Servers">STUN &amp; TURN Servers (2)</option>
 <option value="configuration" data-name="Configuration">Configuration (2)</option>
 <option value="api-integration" data-name="API &amp; Integration">API &amp; Integration (2)</option>
-<option value="features" data-name="Features">Features (6)</option>
+<option value="features" data-name="Features">Features (8)</option>
 <option value="licensing" data-name="Licensing">Licensing (3)</option>
 <option value="room-customization" data-name="Room Customization">Room Customization (3)</option>
 <option value="scaling-architecture" data-name="Scaling &amp; Architecture">Scaling &amp; Architecture (2)</option>
@@ -311,11 +311,11 @@
 <option value="internationalization" data-name="Internationalization">Internationalization (1)</option>
 <option value="database-email" data-name="Database &amp; Email">Database &amp; Email (2)</option>
 <option value="security" data-name="Security">Security (1)</option>
-<option value="troubleshooting" data-name="Troubleshooting">Troubleshooting (4)</option></select></label>
+<option value="troubleshooting" data-name="Troubleshooting">Troubleshooting (5)</option></select></label>
     </aside>
     <main class="content">
       <div class="status">
-        <span id="count" role="status" aria-live="polite">Showing 45 results</span>
+        <span id="count" role="status" aria-live="polite">Showing 48 results</span>
         <span class="actions"><button class="link-button" id="expand" type="button">Expand visible</button><button class="link-button" id="collapse" type="button">Collapse visible</button></span>
       </div>
       <div class="active-filters" id="active-filters" aria-live="polite" hidden>
@@ -669,6 +669,7 @@ API_KEY_SECRET=your_secret
 <ul>
 <li><code>/api/v1/stats</code> — Get active rooms and user count</li>
 <li><code>/api/v1/meetings</code> — List active meetings</li>
+<li><code>/api/v1/whip</code> — Create a WHIP endpoint and token for a room (SFU)</li>
 <li>Swagger docs at <code>/api/v1/docs</code></li>
 </ul>
 <p>Authentication uses an <code>API_KEY_SECRET</code> header. Code examples are provided in JavaScript, PHP, Python, and Bash.</p>
@@ -703,7 +704,35 @@ API_KEY_SECRET=your_secret
 <li><strong>Nginx RTMP</strong> — Lightweight option</li>
 </ol>
 <p>Both require <strong>FFmpeg</strong>. See the <a href="/mirotalk-sfu/rtmp/">RTMP</a> guide for setup.</p>
+<p>For sub-second latency to WHIP-ready platforms and media servers, use <a href="/mirotalk-sfu/whip-publish/">WHIP publish</a> instead: it needs no RTMP server and no FFmpeg.</p>
 <div class="answer-foot"><button class="copy" type="button" data-id="can-i-live-stream-to-youtube-or-twitch-with-mirotalk"><i data-lucide="link"></i><span>Copy link</span></button></div></div>
+</details>
+<details class="qa" id="can-i-stream-obs-ffmpeg-or-gstreamer-into-a-mirotalk-sfu-room">
+<summary><span class="qwrap"><span class="q" data-text="Can I stream OBS, FFmpeg, or GStreamer into a MiroTalk SFU room?">Can I stream OBS, FFmpeg, or GStreamer into a MiroTalk SFU room?</span><span class="snippet" hidden></span></span></summary>
+<div class="answer">
+<p>Yes. <strong>MiroTalk SFU</strong> supports <strong>WHIP ingest</strong> (<a href="https://www.rfc-editor.org/rfc/rfc9725.html" target="_blank" rel="noopener noreferrer">RFC 9725</a>). The stream shows up in the room as a regular participant tile with <strong>sub-second latency</strong>, with no RTMP server and no transcoding.</p>
+<p><strong>Compatible clients:</strong> OBS Studio 30+, FFmpeg 8+ (<code>-f whip</code>), GStreamer (<code>whipclientsink</code>), Larix Broadcaster, vMix, browser WHIP libraries, and another MiroTalk SFU room.</p>
+<p><strong>Setup overview:</strong></p>
+<ol>
+<li>Enable it in the SFU <code>.env</code> and restart MiroTalk:</li>
+</ol>
+<pre><code class="language-env">WHIP_ENABLED=true
+API_ALLOW_WHIP=true
+</code></pre>
+<ol>
+<li>Get the endpoint and a token: call <code>POST /api/v1/whip</code> with your <code>API_KEY_SECRET</code>, or have a presenter open <strong>Settings → WHIP publish → Receive in this room</strong> and click <strong>Create token</strong>.</li>
+<li>In the encoder, set the server to <code>https://your.domain/whip/room-name</code> and paste the token. In OBS, choose <strong>Service: WHIP</strong> and the <strong>Opus</strong> audio encoder.</li>
+</ol>
+<p>The room must be <strong>active</strong> (at least one participant joined): WHIP never creates rooms. A token is always required, while the room password and lobby do not apply. Presenters can <strong>eject</strong> or <strong>ban</strong> a WHIP stream like any participant. Supported codecs are Opus audio and H.264, VP8, or VP9 video. See the <a href="/mirotalk-sfu/whip/">WHIP ingest</a> guide.</p>
+<div class="answer-foot"><button class="copy" type="button" data-id="can-i-stream-obs-ffmpeg-or-gstreamer-into-a-mirotalk-sfu-room"><i data-lucide="link"></i><span>Copy link</span></button></div></div>
+</details>
+<details class="qa" id="can-i-publish-from-a-mirotalk-sfu-room-to-another-room-or-a-media-server">
+<summary><span class="qwrap"><span class="q" data-text="Can I publish from a MiroTalk SFU room to another room or a media server?">Can I publish from a MiroTalk SFU room to another room or a media server?</span><span class="snippet" hidden></span></span></summary>
+<div class="answer">
+<p>Yes. Presenters can use <strong>Settings → WHIP publish</strong> to send their <strong>camera</strong> or <strong>screen</strong> and <strong>microphone</strong> to any WHIP endpoint, straight from the browser: <strong>another MiroTalk room</strong>, a <strong>media server</strong> (MediaMTX, LiveKit, Janus), or a <strong>streaming platform</strong> (Cloudflare Stream, Dolby.io).</p>
+<p>The stream runs on its own send-only WebRTC connection, separate from the meeting, with no extra software. Publishing to an external endpoint needs no server setup. Authentication can be <strong>None</strong>, a <strong>Bearer token</strong>, or <strong>Username and password</strong>, and credentials are never saved in the browser.</p>
+<p>To publish into another MiroTalk room, create a token in the destination room (<strong>Receive in this room → Create token</strong>) and paste the endpoint and token in the source room. The destination server needs WHIP ingest enabled and must allow your origin in <code>CORS_ORIGIN</code> when the rooms are on different domains. <strong>Test with this room</strong> checks the setup without a second server. See the <a href="/mirotalk-sfu/whip-publish/">WHIP publish</a> guide.</p>
+<div class="answer-foot"><button class="copy" type="button" data-id="can-i-publish-from-a-mirotalk-sfu-room-to-another-room-or-a-media-server"><i data-lucide="link"></i><span>Copy link</span></button></div></div>
 </details>
 <details class="qa" id="can-a-presenter-remotely-control-a-participant-s-computer-in-mirotalk-sfu">
 <summary><span class="qwrap"><span class="q" data-text="Can a presenter remotely control a participant&#x27;s computer in MiroTalk SFU?">Can a presenter remotely control a participant&#x27;s computer in MiroTalk SFU?</span><span class="snippet" hidden></span></span></summary>
@@ -1183,6 +1212,22 @@ EMAIL_FROM=yourEmailFrom
 </ol>
 <p>See the <a href="/mirotalk-sfu/self-hosting/#using-docker">SFU self-hosting</a> guide for full Docker examples.</p>
 <div class="answer-foot"><button class="copy" type="button" data-id="in-mirotalk-sfu-i-see-only-one-side-of-the-video-call-or-no-video-when-running-with-docker-or-a-reverse-proxy-how-do-i-fix-it"><i data-lucide="link"></i><span>Copy link</span></button></div></div>
+</details>
+<details class="qa" id="my-whip-stream-from-obs-or-ffmpeg-does-not-show-up-in-the-mirotalk-sfu-room-what-should-i-check">
+<summary><span class="qwrap"><span class="q" data-text="My WHIP stream from OBS or FFmpeg does not show up in the MiroTalk SFU room. What should I check?">My WHIP stream from OBS or FFmpeg does not show up in the MiroTalk SFU room. What should I check?</span><span class="snippet" hidden></span></span></summary>
+<div class="answer">
+<p>Check the HTTP status returned by the encoder:</p>
+<ul>
+<li><strong><code>404 Room not found or not active</code>:</strong> Join the room from a browser first. WHIP never creates rooms.</li>
+<li><strong><code>401 Unauthorized</code>:</strong> Check the token, its room, and its expiry. <code>WHIP_API_SECRET</code> must be at least 16 characters.</li>
+<li><strong><code>403 Forbidden</code>:</strong> The room is join-locked or full, or the token was banned in that room.</li>
+<li><strong><code>422 No supported video codec</code>:</strong> Use H.264, VP8, or VP9 video and Opus audio.</li>
+<li><strong><code>503</code> / <code>429</code>:</strong> Raise <code>WHIP_MAX_SESSIONS</code>, <code>WHIP_MAX_SESSIONS_PER_ROOM</code>, or <code>WHIP_RATE_LIMIT_MAX</code>, or stop another stream.</li>
+<li><strong>Connects, but no video:</strong> Open the WebRTC UDP/TCP ports and set <code>SFU_ANNOUNCED_IP</code> to the public IP, exactly as for browser participants.</li>
+<li><strong>OBS has no audio:</strong> Set the audio encoder to <strong>Opus</strong>.</li>
+</ul>
+<p>When publishing from the browser with <strong>WHIP publish</strong>, a <strong>network or CORS error</strong> means the destination must allow your origin (<code>CORS_ORIGIN</code> on MiroTalk), and the endpoint must use <code>https://</code>. See the <a href="/mirotalk-sfu/whip/#troubleshooting">WHIP ingest</a> and <a href="/mirotalk-sfu/whip-publish/#troubleshooting">WHIP publish</a> troubleshooting tables.</p>
+<div class="answer-foot"><button class="copy" type="button" data-id="my-whip-stream-from-obs-or-ffmpeg-does-not-show-up-in-the-mirotalk-sfu-room-what-should-i-check"><i data-lucide="link"></i><span>Copy link</span></button></div></div>
 </details>
 <details class="qa" id="how-do-i-update-mirotalk-to-the-latest-version">
 <summary><span class="qwrap"><span class="q" data-text="How do I update MiroTalk to the latest version?">How do I update MiroTalk to the latest version?</span><span class="snippet" hidden></span></span></summary>

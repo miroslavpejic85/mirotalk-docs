@@ -36,7 +36,7 @@ Find short, practical answers about MiroTalk products, self-hosting, WebRTC, lic
     </a>
     <a class="chooser-choice choice-p2p" href="#features">
         <span class="chooser-code">FEAT</span>
-        <span class="chooser-copy"><strong>Features</strong><small>Recording, chat, screen sharing, and more</small></span>
+        <span class="chooser-copy"><strong>Features</strong><small>Streaming, WHIP, SIP, remote control, and more</small></span>
     </a>
     <a class="chooser-choice choice-c2c" href="#licensing">
         <span class="chooser-code">LIC</span>
@@ -349,6 +349,7 @@ Need more than a quick answer? These guides cover the details.
 
     - `/api/v1/stats` — Get active rooms and user count
     - `/api/v1/meetings` — List active meetings
+    - `/api/v1/whip` — Create a WHIP endpoint and token for a room (SFU)
     - Swagger docs at `/api/v1/docs`
 
     Authentication uses an `API_KEY_SECRET` header. Code examples are provided in JavaScript, PHP, Python, and Bash.
@@ -387,6 +388,36 @@ Need more than a quick answer? These guides cover the details.
     2. **Nginx RTMP** — Lightweight option
 
     Both require **FFmpeg**. See the [RTMP](../mirotalk-sfu/rtmp.md) guide for setup.
+
+    For sub-second latency to WHIP-ready platforms and media servers, use [WHIP publish](../mirotalk-sfu/whip-publish.md) instead: it needs no RTMP server and no FFmpeg.
+
+??? question "Can I stream OBS, FFmpeg, or GStreamer into a MiroTalk SFU room?"
+
+    Yes. **MiroTalk SFU** supports **WHIP ingest** ([RFC 9725](https://www.rfc-editor.org/rfc/rfc9725.html)). The stream shows up in the room as a regular participant tile with **sub-second latency**, with no RTMP server and no transcoding.
+
+    **Compatible clients:** OBS Studio 30+, FFmpeg 8+ (`-f whip`), GStreamer (`whipclientsink`), Larix Broadcaster, vMix, browser WHIP libraries, and another MiroTalk SFU room.
+
+    **Setup overview:**
+
+    1. Enable it in the SFU `.env` and restart MiroTalk:
+
+    ```env
+    WHIP_ENABLED=true
+    API_ALLOW_WHIP=true
+    ```
+
+    2. Get the endpoint and a token: call `POST /api/v1/whip` with your `API_KEY_SECRET`, or have a presenter open **Settings → WHIP publish → Receive in this room** and click **Create token**.
+    3. In the encoder, set the server to `https://your.domain/whip/room-name` and paste the token. In OBS, choose **Service: WHIP** and the **Opus** audio encoder.
+
+    The room must be **active** (at least one participant joined): WHIP never creates rooms. A token is always required, while the room password and lobby do not apply. Presenters can **eject** or **ban** a WHIP stream like any participant. Supported codecs are Opus audio and H.264, VP8, or VP9 video. See the [WHIP ingest](../mirotalk-sfu/whip.md) guide.
+
+??? question "Can I publish from a MiroTalk SFU room to another room or a media server?"
+
+    Yes. Presenters can use **Settings → WHIP publish** to send their **camera** or **screen** and **microphone** to any WHIP endpoint, straight from the browser: **another MiroTalk room**, a **media server** (MediaMTX, LiveKit, Janus), or a **streaming platform** (Cloudflare Stream, Dolby.io).
+
+    The stream runs on its own send-only WebRTC connection, separate from the meeting, with no extra software. Publishing to an external endpoint needs no server setup. Authentication can be **None**, a **Bearer token**, or **Username and password**, and credentials are never saved in the browser.
+
+    To publish into another MiroTalk room, create a token in the destination room (**Receive in this room → Create token**) and paste the endpoint and token in the source room. The destination server needs WHIP ingest enabled and must allow your origin in `CORS_ORIGIN` when the rooms are on different domains. **Test with this room** checks the setup without a second server. See the [WHIP publish](../mirotalk-sfu/whip-publish.md) guide.
 
 ??? question "Can a presenter remotely control a participant's computer in MiroTalk SFU?"
 
@@ -744,6 +775,20 @@ Need more than a quick answer? These guides cover the details.
     6. **TURN:** Not required for SFU to work. Add [coturn](../coturn/installation.md) only for users behind restrictive firewalls.
 
     See the [SFU self-hosting](../mirotalk-sfu/self-hosting.md#using-docker) guide for full Docker examples.
+
+??? question "My WHIP stream from OBS or FFmpeg does not show up in the MiroTalk SFU room. What should I check?"
+
+    Check the HTTP status returned by the encoder:
+
+    - **`404 Room not found or not active`:** Join the room from a browser first. WHIP never creates rooms.
+    - **`401 Unauthorized`:** Check the token, its room, and its expiry. `WHIP_API_SECRET` must be at least 16 characters.
+    - **`403 Forbidden`:** The room is join-locked or full, or the token was banned in that room.
+    - **`422 No supported video codec`:** Use H.264, VP8, or VP9 video and Opus audio.
+    - **`503` / `429`:** Raise `WHIP_MAX_SESSIONS`, `WHIP_MAX_SESSIONS_PER_ROOM`, or `WHIP_RATE_LIMIT_MAX`, or stop another stream.
+    - **Connects, but no video:** Open the WebRTC UDP/TCP ports and set `SFU_ANNOUNCED_IP` to the public IP, exactly as for browser participants.
+    - **OBS has no audio:** Set the audio encoder to **Opus**.
+
+    When publishing from the browser with **WHIP publish**, a **network or CORS error** means the destination must allow your origin (`CORS_ORIGIN` on MiroTalk), and the endpoint must use `https://`. See the [WHIP ingest](../mirotalk-sfu/whip.md#troubleshooting) and [WHIP publish](../mirotalk-sfu/whip-publish.md#troubleshooting) troubleshooting tables.
 
 ??? question "How do I update MiroTalk to the latest version?"
 
