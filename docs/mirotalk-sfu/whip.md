@@ -8,6 +8,9 @@ MiroTalk SFU supports **WHIP** ([WebRTC-HTTP Ingestion Protocol, RFC 9725](https
 
 The stream appears in the room as a regular participant tile. Everyone in the room sees and hears it with **sub-second latency**, with no RTMP server and no transcoding: the SFU only forwards the media.
 
+!!! tip "Publishing from a room instead?"
+    Presenters can also publish their camera, screen, and microphone **from** a room to another MiroTalk room, a media server, or a streaming platform. See [WHIP publish](whip-publish.md).
+
 ---
 
 ## Why WHIP?
@@ -31,6 +34,7 @@ The stream appears in the room as a regular participant tile. Everyone in the ro
 | **GStreamer**                   | `whipclientsink` (gst-plugins-rs)                     |
 | **Larix Broadcaster**, **vMix** | WHIP output                                           |
 | **Browser**                     | Any WHIP JS library (e.g. `@eyevinn/whip-web-client`) |
+| **Another MiroTalk SFU room**   | Settings → [WHIP publish](whip-publish.md)            |
 
 ---
 
@@ -130,6 +134,10 @@ Ready-made examples (JS, PHP, Python, Bash) are in [`app/api/whip/`](https://git
 ### b) Server-wide secret
 
 Use `WHIP_API_SECRET` as the Bearer token for any room. Simple, but it gives access to every room, so keep it private.
+
+### c) From the room (no API key)
+
+A presenter opens **Settings → WHIP publish → Receive in this room**, clicks **Create token**, and copies the **Endpoint** and **Token**. It is a per-room token, exactly like a), lasting `WHIP_TOKEN_EXPIRE`. See [WHIP publish](whip-publish.md#receive-in-this-room).
 
 ---
 

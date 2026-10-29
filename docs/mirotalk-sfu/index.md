@@ -72,6 +72,7 @@ Capabilities can require additional services or configuration. Use the linked gu
 | Add in-room SIP calling (experimental) | [SIP phone](sip.md) | Kamailio demo stack, SIP UI fields, WSS compatibility, and troubleshooting |
 | Stream to RTMP services | [RTMP streaming](rtmp.md) | FFmpeg, Node Media Server, and Nginx RTMP options |
 | Publish OBS, FFmpeg, or GStreamer into a room | [WHIP ingest](whip.md) | Sub-second WebRTC ingest (RFC 9725), tokens, encoder setup, and troubleshooting |
+| Publish from a room to any WHIP endpoint | [WHIP publish](whip-publish.md) | In-room WHIP client: camera, screen, and microphone to another room, a media server, or a streaming platform |
 | Enable remote control | [RustDesk remote control](rustdesk.md) | Self-hosted RustDesk server, client setup, and SFU `.env` options |
 
 ## Self-host and operate

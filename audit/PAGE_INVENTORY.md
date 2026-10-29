@@ -125,6 +125,7 @@ Generated titles for many Markdown pages currently use generic navigation labels
 | `/mirotalk-sfu/rebranding/` | rebranding; SFU white-label changes and license CTA | Commercial developers / H | Keep; legal review; connect commercial licensing | Commercial > White-label |
 | `/mirotalk-sfu/rtmp/` | rtmp; live-streaming integration | Broadcasters, operators / H | Keep; retitle; clarify supported topology/result | Self-host > Streaming > SFU |
 | `/mirotalk-sfu/whip/` | whip; WHIP (RFC 9725) WebRTC ingest from OBS, FFmpeg, GStreamer | Broadcasters, operators / H | New; documents tokens, encoder setup, limits, and troubleshooting | Self-host > Streaming > SFU |
+| `/mirotalk-sfu/whip-publish/` | whip-publish; in-room WHIP (RFC 9725) publish client | Presenters, broadcasters / H | New; documents the Settings → WHIP publish tab, auth, room tokens, and troubleshooting | Self-host > Streaming > SFU |
 | `/mirotalk-sfu/scalability/` | scalability; architecture, capacity, and provider examples | Infrastructure teams / H | Keep; verify benchmarks/prices; add dated methodology | Self-host > Scale > SFU |
 | `/mirotalk-sfu/self-hosting/` | self-hosting; SFU production deployment | DevOps / H | Keep; retitle; normalize and add managed CTA | Self-host > SFU |
 | `/mirotalk-sfu/updates/` | updates; update SFU deployment | Operators / M | Keep; retitle; add backup/rollback/version notes | Self-host > Operate > SFU |
