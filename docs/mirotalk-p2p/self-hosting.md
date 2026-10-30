@@ -119,6 +119,10 @@ services:
         hostname: mirotalk
         user: '1000:1000'
         restart: unless-stopped
+        # Forward signals and reap child processes
+        init: true
+        # Allow the graceful shutdown (notify clients, close connections) to finish before SIGKILL
+        stop_grace_period: 15s
         ports:
             - '3000:3000'
         volumes:

@@ -246,6 +246,10 @@ services:
         hostname: mirotalksfu
         user: '1000:1000'
         restart: unless-stopped
+        # Forward signals and reap child processes (e.g. ffmpeg)
+        init: true
+        # Allow the graceful shutdown (notify clients, close rooms/workers) to finish before SIGKILL
+        stop_grace_period: 35s
         # Linux: expose all ports directly
         network_mode: 'host'
         # Docker Desktop (Mac/Windows) or custom Docker networks:

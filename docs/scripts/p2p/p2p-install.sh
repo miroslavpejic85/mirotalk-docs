@@ -195,6 +195,8 @@ services:
         hostname: $PROJECT_NAME
         user: '$APP_UID:$APP_GID'
         restart: unless-stopped
+        init: true
+        stop_grace_period: 15s
         ports:
             - '$SERVER_PORT:$SERVER_PORT'
         volumes:
