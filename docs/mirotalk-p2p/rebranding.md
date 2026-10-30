@@ -6,109 +6,57 @@ Rebranding requires at least a 👉 **[Regular License]({{ pricing.p2p.regular.u
 
 ---
 
-There are two approaches to rebrand MiroTalk P2P, both configured in `app/src/config.js`.
+P2P branding and UI customization are configured in `.env`. The latest `app/src/config.template.js` reads these environment variables and provides the defaults. If you already have a self-hosted installation, see the [update guide](updates.md) before migrating existing customizations.
 
 ---
 
 ## Approach 1 — HTML Injection (Recommended)
 
-Enable brand injection to customize text and labels without modifying frontend files:
+Set `BRAND_HTML_INJECTION=true` to customize the landing page and labels without editing frontend files:
 
-```js
-brand: {
-    htmlInjection: true,
-    //...
-}
+```bash
+BRAND_HTML_INJECTION=true
+APP_NAME="Acme Meetings"
+APP_TITLE="<h1>Acme Meetings</h1>Private browser-based video calls.<br />Simple, secure, fast."
+APP_DESCRIPTION="Start a video call with one click. No download or login required."
+JOIN_DESCRIPTION="Choose a room name.<br />Invite your guests."
+JOIN_BUTTON_LABEL=JOIN
+CUSTOMIZE_BUTTON_LABEL="CUSTOMIZE ROOM"
+JOIN_LAST_LABEL="Your recent room:"
 ```
 
----
-
-### Landing Page
-
-Customize the main landing page text:
-
-```js
-brand: {
-    app: {
-        title: '<h1>MiroTalk</h1>Free browser based Real-time video calls.<br />Simple, Secure, Fast.',
-        description:
-            'Start your next video call with a single click. No download, plug-in, or login is required. Just get straight to talking, messaging, and sharing your screen.',
-        joinDescription: 'Pick a room name.<br />How about this one?',
-        joinButtonLabel: 'JOIN ROOM',
-        joinLastLabel: 'Your recent room:',
-    },
-    //...
-}
-```
+`APP_TITLE` is the landing-page heading; `SITE_TITLE` controls the page's browser title. Leave a text variable empty to use its built-in default.
 
 ![p2p-landing](../images/p2p/landing.png)
 
-Toggle optional landing page sections:
+### Landing page sections
 
-| Property | Section |
+Set a variable to `false` to hide its section. These options default to `true` when unset:
+
+| Variable | Section |
 | :--- | :--- |
-| `topSponsors` | Top sponsors banner |
-| `features` | Features overview |
-| `browsers` | Supported browsers |
-| `teams` | Teams section |
-| `tryEasier` | "Try easier" callout |
-| `poweredBy` | Powered-by badge |
-| `sponsors` | Sponsors section |
-| `advertisers` | Advertisers section |
-| `supportUs` | Support-us section |
-| `footer` | Page footer |
+| `SHOW_TOP_SPONSORS` | Top sponsors banner |
+| `SHOW_FEATURES` | Features overview |
+| `SHOW_TEAMS` | Teams section |
+| `SHOW_TRY_EASIER` | "Try easier" callout |
+| `SHOW_POWERED_BY` | Powered-by badge |
+| `SHOW_SPONSORS` | Sponsors section |
+| `SHOW_PAST_SPONSORS` | Past sponsors section |
+| `SHOW_ADVERTISERS` | Advertisers section |
+| `SHOW_SUPPORT_US` | Support-us section |
+| `SHOW_FOOTER` | Page footer |
+| `SHOW_VERSION` | App version in the footer |
 
-```js
-brand: {
-    //...
-    html: {
-        topSponsors: false,
-        features: false,
-        browsers: false,
-        teams: false,
-        tryEasier: false,
-        poweredBy: false,
-        sponsors: false,
-        advertisers: false,
-        supportUs: false,
-        footer: false,
-    },
-    //...
-}
-```
-
----
-
-### New Room Page
+### New room page
 
 ![p2p-new](../images/p2p/newcall.png)
 
-```js
-brand: {
-    //...
-    site: {
-        newCallRoomTitle: 'Pick name. <br />Share URL. <br />Start conference.',
-        newCallRoomDescription:
-            "Each room has its disposable URL. Just pick a room name and share your custom URL. It's that easy.",
-    },
-    //...
-}
+```bash
+NEW_ROOM_TITLE="Pick a name.<br />Share the link.<br />Start your call."
+NEW_ROOM_DESC="Choose a room name and share its URL with your guests."
 ```
 
----
-
-## Approach 2 — Full Customization
-
-Disable brand injection to get full control over the frontend files:
-
-```js
-brand: {
-    htmlInjection: false,
-    //...
-}
-```
-
-Frontend views are located in `app/public/views` — edit them directly to match your brand.
+Other page text and titles, including the join, login, and waiting-room pages, can also be customized in `.env`. See the **UI Customization (Branding)** section of the [environment template](https://github.com/miroslavpejic85/mirotalk/blob/master/.env.template) for the complete variable list.
 
 ---
 
@@ -118,23 +66,30 @@ Control how your pages appear when shared on social media:
 
 ![p2p-og](../images/p2p/og.png)
 
-```js
-brand: {
-    //...
-    og: {
-        siteName: 'MiroTalk P2P',
-        title: 'Click the link to make a call.',
-        description: 'MiroTalk P2P calling provides real-time HD quality and latency simply not available with traditional technology.',
-        image: 'https://p2p.mirotalk.com/images/preview.png',
-        url: 'https://p2p.mirotalk.com',
-    },
-    //...
-}
+```bash
+OG_TYPE=app-webrtc
+OG_SITE_NAME="Acme Meetings"
+OG_TITLE="Private browser-based video calls"
+OG_DESCRIPTION="Secure, self-hosted video calls for your team."
+OG_IMAGE_URL=https://meet.example.com/images/preview.png
+OG_URL=https://meet.example.com
 ```
+
+---
+
+## Approach 2 — Full Customization
+
+Set `BRAND_HTML_INJECTION=false` to use the static frontend views instead:
+
+```bash
+BRAND_HTML_INJECTION=false
+```
+
+Frontend views are located in `public/views`. Edit them directly for full control over the markup and design. These source-file changes can be overwritten by updates; see the [update guide](updates.md) for ways to preserve them.
 
 ---
 
 ## Reference
 
-- Full config: [`config.template.js`](https://github.com/miroslavpejic85/mirotalk/blob/master/app/src/config.template.js)
-- Full environment config: [`.env.template`](https://github.com/miroslavpejic85/mirotalk/blob/master/.env.template)
+- Full environment configuration: [`.env.template`](https://github.com/miroslavpejic85/mirotalk/blob/master/.env.template)
+- Config template that reads the environment variables: [`config.template.js`](https://github.com/miroslavpejic85/mirotalk/blob/master/app/src/config.template.js)

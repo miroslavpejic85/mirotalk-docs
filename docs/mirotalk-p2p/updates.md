@@ -1,8 +1,14 @@
 # Updates (self-hosted)
 
-## ✅ Recommended: rebrand via `config.js` and use the default update script
+## ✅ Recommended: rebrand via `.env` and use the default update script
 
-Rebrand MiroTalk P2P through `app/src/config.js` with [HTML injection](rebranding.md) (`brand.htmlInjection: true`) and keep the frontend files untouched. `config.js` and `.env` are not tracked by Git, so the default update script never overwrites your branding or settings.
+Configure branding and UI options in `.env` with [HTML injection](rebranding.md) (`BRAND_HTML_INJECTION=true`) and keep the frontend files untouched. Your local `.env` and `config.js` are not tracked by Git, so the default update script does not overwrite these files.
+
+### Migrating existing branding
+
+The P2P configuration update makes UI settings environment-driven. If you previously customized the `brand` object in `app/src/config.js`, move those values to the matching variables in `.env` (for example, `brand.htmlInjection` → `BRAND_HTML_INJECTION`, `brand.app.language` → `UI_LANGUAGE`, and `brand.app.translationMode` → `UI_TRANSLATION_MODE`). Review the new [environment template](https://github.com/miroslavpejic85/mirotalk/blob/master/.env.template) for the full list.
+
+Update your local `config.js` from the latest [`config.template.js`](https://github.com/miroslavpejic85/mirotalk/blob/master/app/src/config.template.js), merging any other local application changes rather than overwriting them blindly. The current template maps the branding environment variables into the `brand` configuration.
 
 For `Docker`:
 
@@ -34,7 +40,7 @@ After each update, compare your `.env` and `config.js` with the latest [`.env.te
 
 ## Customized frontend files
 
-If you edit the frontend files directly (`brand.htmlInjection: false`, files in `public/views`), the update replaces the base code and overwrites those edits. In that case, preserve your edits with one of these options:
+If you edit the frontend files directly (`BRAND_HTML_INJECTION=false`, files in `public/views`), the update replaces the base code and overwrites those edits. In that case, preserve your edits with one of these options:
 
 ## ✅ Option 1: Use `git stash` before updating
 
@@ -86,7 +92,7 @@ This way, updates won’t touch your custom files, they’ll stay completely sep
 
 In short:
 
-* `Rebranding via config.js`: use the default update script, nothing to reapply.
+* `Rebranding via .env`: use the default update script, nothing to reapply.
 * `Small edits`: use git stash.
 * `Ongoing customizations`: use a custom-branding branch.
 * `Docker deployment`: mount your branding as volumes.
