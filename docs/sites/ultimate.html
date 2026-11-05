@@ -575,6 +575,7 @@ summary:focus-visible {
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 20px;
 }
+.feature-grid--4 { grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); }
 .feature-card {
   background: color-mix(in srgb, var(--bg-2) 78%, transparent);
   border: 1px solid var(--border);
@@ -1621,11 +1622,16 @@ details[open] summary::after { transform: rotate(45deg); }
     </div>
   </div>
 
-  <div class="feature-grid">
+  <div class="feature-grid feature-grid--4">
     <div class="feature-card">
       <div class="feature-card__icon"><i class="fa-solid fa-video" aria-hidden="true"></i></div>
       <div class="feature-card__title">HD Video &amp; Audio</div>
-      <p class="feature-card__desc">Crystal-clear calls with noise suppression and adaptive bitrate quality.</p>
+      <p class="feature-card__desc">Up to 8K at 60 fps with echo cancellation and AI noise suppression (RNNoise).</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-card__icon"><i class="fa-solid fa-image-portrait" aria-hidden="true"></i></div>
+      <div class="feature-card__title">Virtual Backgrounds</div>
+      <p class="feature-card__desc">Blur your surroundings or replace them with an image to keep focus and privacy.</p>
     </div>
     <div class="feature-card">
       <div class="feature-card__icon"><i class="fa-solid fa-display" aria-hidden="true"></i></div>
@@ -1633,9 +1639,24 @@ details[open] summary::after { transform: rotate(45deg); }
       <p class="feature-card__desc">Share your screen or transfer files without leaving the call.</p>
     </div>
     <div class="feature-card">
+      <div class="feature-card__icon"><i class="fa-solid fa-computer-mouse" aria-hidden="true"></i></div>
+      <div class="feature-card__title">Remote Control</div>
+      <p class="feature-card__desc">Let a participant control your shared desktop, with your permission, powered by RustDesk.</p>
+    </div>
+    <div class="feature-card">
       <div class="feature-card__icon"><i class="fa-solid fa-palette" aria-hidden="true"></i></div>
       <div class="feature-card__title">Interactive Whiteboard</div>
-      <p class="feature-card__desc">Collaborative real-time drawing, annotation, and shared text editor.</p>
+      <p class="feature-card__desc">Collaborative real-time drawing and annotation to explain ideas visually.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-card__icon"><i class="fa-solid fa-square-poll-vertical" aria-hidden="true"></i></div>
+      <div class="feature-card__title">Polls + Shared Notes</div>
+      <p class="feature-card__desc">Run live polls with instant results and write notes together in a real-time editor.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-card__icon"><i class="fa-solid fa-people-group" aria-hidden="true"></i></div>
+      <div class="feature-card__title">Breakout Rooms</div>
+      <p class="feature-card__desc">Split participants into timed groups with auto-assign and broadcast messages, then regroup.</p>
     </div>
     <div class="feature-card">
       <div class="feature-card__icon"><i class="fa-solid fa-robot" aria-hidden="true"></i></div>
@@ -1643,24 +1664,39 @@ details[open] summary::after { transform: rotate(45deg); }
       <p class="feature-card__desc">AI avatars, ChatGPT, and DeepSeek integration built into meetings.</p>
     </div>
     <div class="feature-card">
-      <div class="feature-card__icon"><i class="fa-solid fa-video" aria-hidden="true"></i></div>
+      <div class="feature-card__icon"><i class="fa-solid fa-circle-dot" aria-hidden="true"></i></div>
       <div class="feature-card__title">Recording + Transcription</div>
-      <p class="feature-card__desc">Record sessions and auto-generate live transcriptions in real time.</p>
+      <p class="feature-card__desc">Record sessions and get live captions via browser speech recognition or self-hosted Whisper, with translation.</p>
     </div>
     <div class="feature-card">
-      <div class="feature-card__icon"><i class="fa-solid fa-circle" aria-hidden="true"></i></div>
+      <div class="feature-card__icon"><i class="fa-solid fa-tower-broadcast" aria-hidden="true"></i></div>
       <div class="feature-card__title">RTMP Streaming</div>
-      <p class="feature-card__desc">Stream directly to YouTube, Twitch, or any RTMP destination.</p>
+      <p class="feature-card__desc">Stream your webcam, screen, or external URLs to YouTube, Twitch, or any RTMP destination.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-card__icon"><i class="fa-solid fa-satellite-dish" aria-hidden="true"></i></div>
+      <div class="feature-card__title">WHIP Ingest</div>
+      <p class="feature-card__desc">Publish from OBS Studio, FFmpeg, or GStreamer into any room with sub-second latency.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-card__icon"><i class="fa-solid fa-phone" aria-hidden="true"></i></div>
+      <div class="feature-card__title">SIP Phone</div>
+      <p class="feature-card__desc">Dial phone numbers and SIP extensions from the room, bridging telephony with video meetings.</p>
     </div>
     <div class="feature-card">
       <div class="feature-card__icon"><i class="fa-solid fa-lock" aria-hidden="true"></i></div>
       <div class="feature-card__title">Auth + Access Control</div>
-      <p class="feature-card__desc">Host protection, RBAC, and granular room-level permissions.</p>
+      <p class="feature-card__desc">Host protection, OIDC login, JWT credentials, and room passwords.</p>
     </div>
     <div class="feature-card">
       <div class="feature-card__icon"><i class="fa-solid fa-plug" aria-hidden="true"></i></div>
       <div class="feature-card__title">REST APIs + Webhooks</div>
-      <p class="feature-card__desc">Swagger-documented APIs. Slack, Discord, and Mattermost webhooks.</p>
+      <p class="feature-card__desc">Swagger-documented APIs, webhooks, Slack, Discord, and Mattermost integrations, plus iframe and widget embeds.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-card__icon"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i></div>
+      <div class="feature-card__title">Privacy + Security</div>
+      <p class="feature-card__desc">Media encrypted with SRTP and DTLS, on a self-hosted server where your data stays yours.</p>
     </div>
     <div class="feature-card">
       <div class="feature-card__icon"><i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i></div>
@@ -1668,6 +1704,10 @@ details[open] summary::after { transform: rotate(45deg); }
       <p class="feature-card__desc">Chrome, Firefox, Safari, Edge, Opera — desktop and mobile ready.</p>
     </div>
   </div>
+
+  <p class="text-center" style="font-size: 13px; color: var(--text-3); max-width: 560px; margin: 28px auto 0;">
+    Capabilities vary by app. See each product page or the <a href="../overview/" class="app-card__link">technical comparison</a> for exact availability.
+  </p>
 
 </section>
 
