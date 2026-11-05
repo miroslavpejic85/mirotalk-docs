@@ -434,6 +434,94 @@ summary:focus-visible {
 .mockup__body img { width: 100%; display: block; }
 
 /* ─────────────────────────────────────────
+   COST COMPARISON TABLE (inside dark mockup)
+───────────────────────────────────────── */
+.cmp-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.cmp {
+  width: 100%;
+  min-width: 680px;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 14px;
+  color: #E2E8F0;
+  font-variant-numeric: tabular-nums;
+  background: #111318;
+}
+.cmp th, .cmp td {
+  padding: 13px 14px;
+  text-align: center;
+  white-space: nowrap;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.cmp thead th {
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #94A3B8;
+  background: #161922;
+}
+.cmp tbody th, .cmp tfoot th {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  text-align: left;
+  font-weight: 600;
+  color: #B4BFD0;
+  background: #111318;
+}
+.cmp thead th:first-child { position: sticky; left: 0; z-index: 2; text-align: left; }
+.cmp tbody tr:hover td, .cmp tbody tr:hover th { background-color: #161922; }
+.cmp .cmp__us {
+  color: #fff;
+  font-weight: 700;
+  background: #112221;
+  border-inline: 1px solid rgba(16,185,129,0.28);
+}
+.cmp thead .cmp__us {
+  background: linear-gradient(135deg, #10B981 0%, #047857 100%);
+  border-color: transparent;
+}
+.cmp tbody tr:hover .cmp__us { background-color: #112a27; }
+.cmp tfoot .cmp__us { border-bottom: 0; }
+.cmp tfoot th, .cmp tfoot td { border-bottom: 0; border-top: 1px solid rgba(16,185,129,0.35); }
+.cmp .cmp__bad  { color: #F87171; }
+.cmp .cmp__muted { color: #94A3B8; }
+.cmp .cmp__good { color: #34D399; }
+.cmp i.cmp__bad, .cmp i.cmp__good { margin-right: 6px; font-size: 12px; }
+.cmp__save {
+  display: inline-block;
+  padding: 5px 14px;
+  border-radius: 8px;
+  background: #059669;
+  color: #fff;
+}
+@media (max-width: 600px) {
+  .cmp { min-width: 560px; font-size: 13px; }
+  .cmp th, .cmp td { padding: 11px 10px; }
+  .cmp tbody th, .cmp tfoot th, .cmp thead th:first-child {
+    width: 92px;
+    min-width: 92px;
+    max-width: 92px;
+    white-space: normal;
+  }
+  .cmp .cmp__us { position: sticky; right: 0; z-index: 1; width: 124px; min-width: 124px; }
+  .cmp thead .cmp__us { z-index: 2; white-space: normal; }
+  .cmp__save { white-space: normal; font-size: 12px; padding: 5px 10px; }
+}
+
+/* ─────────────────────────────────────────
    DIVIDER
 ───────────────────────────────────────── */
 .divider {
@@ -941,12 +1029,29 @@ details[open] summary::after { transform: rotate(45deg); }
   pointer-events: none;
 }
 .cta-final > * { position: relative; z-index: 1; }
-.cta-final__image {
-  width: min(100%, 400px);
-  margin-inline: auto;
-  margin-top: 32px;
-  opacity: 0.9;
+.cta-final__perks {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 12px;
+  margin: 32px auto 0;
+  padding: 0;
+  max-width: 820px;
+  list-style: none;
 }
+.cta-final__perks li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border: 1px solid var(--border-hi);
+  border-radius: 999px;
+  background: var(--surface);
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--text-1);
+}
+.cta-final__perks i { color: var(--green); font-size: 13px; }
 
 /* ─────────────────────────────────────────
    FOOTER
@@ -1108,7 +1213,7 @@ details[open] summary::after { transform: rotate(45deg); }
         </div>
         <div class="mockup__body">
           <a href="{{ pricing.ultimate.regular.url }}" target="_blank" rel="noopener noreferrer">
-            <img src="../images/sites/ultimate-bundle.webp" alt="MiroTalk Ultimate Bundle" width="1414" height="2000" decoding="async" fetchpriority="high" />
+            <img src="../images/sites/ultimate-bundle.webp" alt="MiroTalk Ultimate Bundle" width="1365" height="768" decoding="async" fetchpriority="high" />
           </a>
         </div>
       </div>
@@ -1151,8 +1256,79 @@ details[open] summary::after { transform: rotate(45deg); }
       <div class="mockup__url">Cost Comparison — MiroTalk vs Zoom vs Teams vs Google Meet</div>
     </div>
     <div class="mockup__body">
-      <img src="../images/sites/ultimate-cost-comparison.webp"
-         alt="MiroTalk vs Zoom vs Teams vs Google Meet cost comparison" width="800" height="441" loading="lazy" decoding="async" />
+      <div class="cmp-wrap" tabindex="0" role="region" aria-label="Cost comparison table, scrollable">
+        <table class="cmp">
+          <caption class="sr-only">MiroTalk Ultimate vs Zoom Business, Microsoft Teams and Google Meet: illustrative cost and ownership comparison</caption>
+          <thead>
+            <tr>
+              <th scope="col">Feature</th>
+              <th scope="col">Zoom Business</th>
+              <th scope="col">MS Teams</th>
+              <th scope="col">Google Meet</th>
+              <th scope="col" class="cmp__us">MiroTalk Ultimate</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Price</th>
+              <td class="cmp__bad">~$13/user/mo</td><td class="cmp__bad">~$12/user/mo</td><td class="cmp__bad">~$12/user/mo</td>
+              <td class="cmp__us cmp__good">One-time payment</td>
+            </tr>
+            <tr>
+              <th scope="row">50 users / 1 year</th>
+              <td class="cmp__bad">~$7,800</td><td class="cmp__bad">~$7,200</td><td class="cmp__bad">~$7,200</td>
+              <td class="cmp__us cmp__good">{{ pricing.ultimate.regular.price }}</td>
+            </tr>
+            <tr>
+              <th scope="row">50 users / 3 years</th>
+              <td class="cmp__bad">~$23,400</td><td class="cmp__bad">~$21,600</td><td class="cmp__bad">~$21,600</td>
+              <td class="cmp__us cmp__good">{{ pricing.ultimate.regular.price }}</td>
+            </tr>
+            <tr>
+              <th scope="row">Source code</th>
+              <td class="cmp__muted"><i class="fa-solid fa-xmark cmp__bad" aria-hidden="true"></i>No</td>
+              <td class="cmp__muted"><i class="fa-solid fa-xmark cmp__bad" aria-hidden="true"></i>No</td>
+              <td class="cmp__muted"><i class="fa-solid fa-xmark cmp__bad" aria-hidden="true"></i>No</td>
+              <td class="cmp__us"><i class="fa-solid fa-check cmp__good" aria-hidden="true"></i>Full access</td>
+            </tr>
+            <tr>
+              <th scope="row">White-label</th>
+              <td class="cmp__muted"><i class="fa-solid fa-xmark cmp__bad" aria-hidden="true"></i>No</td>
+              <td class="cmp__muted"><i class="fa-solid fa-xmark cmp__bad" aria-hidden="true"></i>No</td>
+              <td class="cmp__muted"><i class="fa-solid fa-xmark cmp__bad" aria-hidden="true"></i>No</td>
+              <td class="cmp__us"><i class="fa-solid fa-check cmp__good" aria-hidden="true"></i>Your brand</td>
+            </tr>
+            <tr>
+              <th scope="row">Self-hosted</th>
+              <td class="cmp__muted"><i class="fa-solid fa-xmark cmp__bad" aria-hidden="true"></i>No</td>
+              <td class="cmp__muted"><i class="fa-solid fa-xmark cmp__bad" aria-hidden="true"></i>No</td>
+              <td class="cmp__muted"><i class="fa-solid fa-xmark cmp__bad" aria-hidden="true"></i>No</td>
+              <td class="cmp__us"><i class="fa-solid fa-check cmp__good" aria-hidden="true"></i>Your server</td>
+            </tr>
+            <tr>
+              <th scope="row">Data privacy</th>
+              <td class="cmp__muted"><i class="fa-solid fa-xmark cmp__bad" aria-hidden="true"></i>Third-party</td>
+              <td class="cmp__muted"><i class="fa-solid fa-xmark cmp__bad" aria-hidden="true"></i>Third-party</td>
+              <td class="cmp__muted"><i class="fa-solid fa-xmark cmp__bad" aria-hidden="true"></i>Third-party</td>
+              <td class="cmp__us"><i class="fa-solid fa-check cmp__good" aria-hidden="true"></i>100% yours</td>
+            </tr>
+            <tr>
+              <th scope="row">Vendor lock-in</th>
+              <td class="cmp__muted"><i class="fa-solid fa-xmark cmp__bad" aria-hidden="true"></i>Yes</td>
+              <td class="cmp__muted"><i class="fa-solid fa-xmark cmp__bad" aria-hidden="true"></i>Yes</td>
+              <td class="cmp__muted"><i class="fa-solid fa-xmark cmp__bad" aria-hidden="true"></i>Yes</td>
+              <td class="cmp__us"><i class="fa-solid fa-check cmp__good" aria-hidden="true"></i>None</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th scope="row">3-year savings</th>
+              <td class="cmp__muted">—</td><td class="cmp__muted">—</td><td class="cmp__muted">—</td>
+              <td class="cmp__us"><span class="cmp__save">Save up to $23,100</span></td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
     </div>
   </div>
 
@@ -1266,7 +1442,7 @@ details[open] summary::after { transform: rotate(45deg); }
             <div class="mockup__dots"><div class="mockup__dot"></div><div class="mockup__dot"></div><div class="mockup__dot"></div></div>
             <div class="mockup__url">rnd.mirotalk.com</div>
           </div>
-          <div class="mockup__body"><img src="../images/sites/ultimate-rnd.png" alt="MiroTalk RND random one-to-one matching interface" width="1456" height="632" loading="lazy" decoding="async" /></div>
+          <div class="mockup__body"><img src="../images/sites/ultimate-rnd.webp" alt="MiroTalk RND random one-to-one matching interface" width="1456" height="632" loading="lazy" decoding="async" /></div>
         </div>
       </div>
       <div class="app-card__content">
@@ -1441,7 +1617,7 @@ details[open] summary::after { transform: rotate(45deg); }
       <div class="mockup__url">Feature Overview — MiroTalk Ultimate</div>
     </div>
     <div class="mockup__body">
-      <img src="../images/sites/ultimate-features.webp" alt="MiroTalk Ultimate feature overview" width="1414" height="2000" loading="lazy" decoding="async" />
+      <img src="../images/sites/ultimate-features.webp" alt="MiroTalk Ultimate feature overview" width="1365" height="910" loading="lazy" decoding="async" />
     </div>
   </div>
 
@@ -1612,7 +1788,7 @@ details[open] summary::after { transform: rotate(45deg); }
       <div class="mockup__url">mirotalk.com — Open Source + Production Verified</div>
     </div>
     <div class="mockup__body">
-      <img src="../images/sites/ultimate-sponsors.webp" alt="MiroTalk trust and ecosystem" width="1280" height="946" loading="lazy" decoding="async" />
+      <img src="../images/sites/ultimate-sponsors.webp" alt="MiroTalk current sponsors: EvoPlat, Cloudron, EffectsSDK, LiveAvatar by HeyGen, QuestionPro, TestMu AI, BrowserStack, CrystalSound, netcup and ApiSmart" width="1180" height="528" loading="lazy" decoding="async" />
     </div>
   </div>
 
@@ -1741,11 +1917,12 @@ details[open] summary::after { transform: rotate(45deg); }
        target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">
       Buy MiroTalk Ultimate — {{ pricing.ultimate.regular.price }} →
     </a>
-    <div>
-      <img src="../images/sites/ultimate-purchase.webp"
-           alt="Buy MiroTalk Ultimate"
-         class="cta-final__image" width="1514" height="944" loading="lazy" decoding="async" />
-    </div>
+    <ul class="cta-final__perks">
+      <li><i class="fa-solid fa-code" aria-hidden="true"></i> Full source code, all 8 apps</li>
+      <li><i class="fa-solid fa-infinity" aria-hidden="true"></i> One-time payment</li>
+      <li><i class="fa-solid fa-headset" aria-hidden="true"></i> 6 months of support</li>
+      <li><i class="fa-solid fa-lock" aria-hidden="true"></i> Secure checkout by Stripe</li>
+    </ul>
   </div>
 
 </section>
