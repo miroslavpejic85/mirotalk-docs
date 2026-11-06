@@ -1,10 +1,10 @@
 ---
 title: MiroTalk Ultimate
-description: Get seven self-hosted WebRTC applications, source code, deployment tooling, integrations, and commercial licensing in the MiroTalk Ultimate bundle.
+description: Get eight self-hosted WebRTC applications, source code, deployment tooling, integrations, and commercial licensing in the MiroTalk Ultimate bundle.
 ---
 
 <header class="ultimate-hero">
-    <span class="ultimate-kicker">Seven applications. One self-hosted suite.</span>
+    <span class="ultimate-kicker">Eight applications. One self-hosted suite.</span>
     <h1>MiroTalk Ultimate</h1>
     <p class="ultimate-lead">Own the complete MiroTalk real-time communication stack. Deploy it on your infrastructure, adapt it to your brand, and choose the application that fits each conversation.</p>
     <div class="ultimate-actions">
@@ -17,7 +17,7 @@ description: Get seven self-hosted WebRTC applications, source code, deployment 
 </header>
 
 <div class="ultimate-proof" aria-label="Bundle highlights">
-    <div><strong>7</strong><span>self-hosted applications</span></div>
+    <div><strong>8</strong><span>self-hosted applications</span></div>
     <div><strong>Source</strong><span>code included</span></div>
     <div><strong>6 months</strong><span>of included support</span></div>
 </div>
@@ -25,7 +25,7 @@ description: Get seven self-hosted WebRTC applications, source code, deployment 
 !!! warning "Confirm purchase terms"
     Prices and included services can change. The checkout and applicable license terms control the purchase. Review the [licensing options](../license/index.md) before buying, especially if end users will pay to access your product.
 
-## One suite, seven focused applications
+## One suite, eight focused applications
 
 Use only what your product needs or combine applications behind a shared domain and operating model. Each application remains independently deployable.
 
@@ -41,6 +41,10 @@ Use only what your product needs or combine applications behind a shared domain 
     <a class="ultimate-app ultimate-app-c2c" href="/mirotalk-c2c/">
         <img src="/images/mirotalk/c2c.png" alt="MiroTalk C2C one-to-one call interface" width="1280" height="720" loading="lazy">
         <span class="ultimate-app-copy"><strong>MiroTalk C2C</strong><small>Focused one-to-one camera calls</small><span>Explore C2C</span></span>
+    </a>
+    <a class="ultimate-app ultimate-app-rnd" href="/mirotalk-rnd/">
+        <img src="/images/mirotalk/rnd.png" alt="MiroTalk RND random one-to-one matching interface" width="1280" height="720" loading="lazy">
+        <span class="ultimate-app-copy"><strong>MiroTalk RND</strong><small>Random one-to-one video matching</small><span>Explore RND</span></span>
     </a>
     <a class="ultimate-app ultimate-app-bro" href="/mirotalk-bro/">
         <img src="/images/mirotalk/bro.png" alt="MiroTalk BRO live broadcasting interface" width="1280" height="720" loading="lazy">
@@ -153,7 +157,7 @@ Do not use a single universal server-size estimate for every deployment. Test th
 
 ## Choose the license for your end product
 
-Both published purchase paths include source code for the seven applications and six months of support. The difference starts with how the resulting end product is offered to its users.
+Both published purchase paths include source code for the eight applications and six months of support. The difference starts with how the resulting end product is offered to its users.
 
 <div class="ultimate-pricing">
     <section class="ultimate-price-card">
@@ -161,7 +165,7 @@ Both published purchase paths include source code for the seven applications and
         <p class="ultimate-price"><strong>{{ pricing.ultimate.regular.price }}</strong><span>one-time purchase</span></p>
         <p>Start here for one eligible end product where end users are not charged to access it.</p>
         <ul>
-            <li>Source code for all seven applications</li>
+            <li>Source code for all eight applications</li>
             <li>Six months of included support</li>
             <li>Self-hosted deployment</li>
         </ul>
@@ -172,7 +176,7 @@ Both published purchase paths include source code for the seven applications and
         <p class="ultimate-price"><strong>{{ pricing.ultimate.extended.price }}</strong><span>one-time purchase</span></p>
         <p>Start here for one eligible end product where end users can be charged to access it.</p>
         <ul>
-            <li>Source code for all seven applications</li>
+            <li>Source code for all eight applications</li>
             <li>Six months of included support</li>
             <li>Eligible paid end-user access</li>
         </ul>
@@ -195,7 +199,7 @@ The published Regular and Extended purchase paths are one-time license purchases
 
 The current offer includes source code and describes customization and rebranding rights. Confirm the permitted use, distribution, and number of end products in the applicable license before purchase.
 
-### Can all seven applications run on one server?
+### Can all eight applications run on one server?
 
 They can share infrastructure in some deployments, commonly using separate subdomains and reverse-proxy routes. Whether one server is appropriate depends on load, media architecture, resilience, storage, and enabled services.
 

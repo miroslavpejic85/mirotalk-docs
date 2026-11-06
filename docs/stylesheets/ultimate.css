@@ -181,6 +181,10 @@
   --ultimate-accent: #a34834;
 }
 
+.ultimate-app-rnd {
+  --ultimate-accent: #1f7a8c;
+}
+
 .ultimate-app-admin {
   --ultimate-accent: #7559a8;
 }
@@ -199,6 +203,10 @@
 
 [data-md-color-scheme="slate"] .ultimate-app-bro {
   --ultimate-accent: #f08b74;
+}
+
+[data-md-color-scheme="slate"] .ultimate-app-rnd {
+  --ultimate-accent: #7fd1e0;
 }
 
 [data-md-color-scheme="slate"] .ultimate-app-admin {

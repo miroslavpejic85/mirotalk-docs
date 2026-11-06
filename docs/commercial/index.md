@@ -47,7 +47,7 @@ Compare the published licensing paths, then define who owns infrastructure, secu
 
 ## Own the complete platform
 
-MiroTalk Ultimate packages seven independently deployable applications as a commercial distribution for customers evaluating the complete suite.
+MiroTalk Ultimate packages eight independently deployable applications as a commercial distribution for customers evaluating the complete suite.
 
 [Explore MiroTalk Ultimate](../mirotalk-ultimate/index.md){ .md-button .md-button--primary }
 [Compare product architectures](../overview/index.md){ .md-button }

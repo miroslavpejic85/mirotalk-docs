@@ -23,7 +23,7 @@ description: Explore MiroTalk solutions for video SaaS, education, consultations
 | Run webinars or events | Moderated group meetings or one-to-many broadcasting | [MiroTalk SFU](../mirotalk-sfu/index.md) or [MiroTalk BRO](../mirotalk-bro/index.md) |
 | Deliver client projects | Embedding, direct links, REST APIs, webhooks, and white-label options | [Build with MiroTalk](../build/index.md) |
 | Operate a private platform | Self-hosted applications, deployment guidance, and infrastructure administration | [Self-host MiroTalk](../self-host/index.md) |
-| Deploy the complete suite | Seven independently deployable applications in one commercial bundle | [MiroTalk Ultimate](../mirotalk-ultimate/index.md) |
+| Deploy the complete suite | Eight independently deployable applications in one commercial bundle | [MiroTalk Ultimate](../mirotalk-ultimate/index.md) |
 
 Capabilities vary by application. Confirm the required workflow in the [product comparison](../overview/index.md) before choosing an architecture.
 

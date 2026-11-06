@@ -74,7 +74,7 @@ PRODUCT_LANDING_PAGES = {
     "ultimate": {
         "name": "MiroTalk Ultimate",
         "title": "MiroTalk Ultimate - Complete Self-Hosted WebRTC Platform",
-        "description": "Own seven production-ready MiroTalk WebRTC applications with full source code, self-hosted deployment, lifetime updates, and one-time licensing.",
+        "description": "Own eight production-ready MiroTalk WebRTC applications with full source code, self-hosted deployment, lifetime updates, and one-time licensing.",
         "previous_url": "mirotalk-ultimate/",
     },
     "web": {
