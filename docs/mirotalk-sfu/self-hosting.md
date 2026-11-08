@@ -303,6 +303,10 @@ TRUST_PROXY=true
 - Keep the media ports (`40000-40100` TCP + UDP) open and **not** proxied.
 - A TURN server is **not** required for SFU to work. It is only recommended for clients behind restrictive firewalls, see [STUN & TURN](../coturn/stun-turn.md).
 
+!!! tip "Kubernetes"
+
+    To run on several bare-metal / VDS servers with k3s and cluster mode, see [MiroTalk SFU on Kubernetes (k3s)](kubernetes.md).
+
 ---
 
 ## Configuring Nginx & Certbot

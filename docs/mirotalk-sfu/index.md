@@ -83,6 +83,7 @@ Capabilities can require additional services or configuration. Use the linked gu
 | Configure | [Configuration reference](configurations.md) | Set server and client behavior |
 | Protect hosts | [Host protection](host-protection.md) | Restrict host capabilities and room creation |
 | Scale | [Scalability guide](scalability.md) | Plan vertical or multi-server deployment |
+| Kubernetes | [Kubernetes (k3s) guide](kubernetes.md) | Run cluster mode on bare-metal / VDS servers with k3s |
 | Update | [Update guide](updates.md) | Maintain a customized installation |
 | Develop locally | [Ngrok guide](ngrok.md) | Expose a development instance over HTTPS |
 

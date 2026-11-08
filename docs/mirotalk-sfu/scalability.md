@@ -296,6 +296,10 @@ Compared to Option 2 (room hash on the load balancer), SFU nodes coordinate thro
 - The REST API (`/stats`, `/meetings`, `/activeRooms`, `DELETE /meeting`) works **cluster-wide** from any node.
 - A host login (host protection) on one node is valid on every node.
 
+!!! tip "Kubernetes"
+
+    Prefer Kubernetes? The [k3s deployment guide](kubernetes.md) runs this cluster mode on bare-metal / VDS servers with ready-made manifests (Traefik, Let's Encrypt, Redis, one SFU pod per node).
+
 ### Architecture
 
 ```text
