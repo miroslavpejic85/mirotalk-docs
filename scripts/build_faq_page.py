@@ -673,6 +673,7 @@ def build_page(
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" defer></script>
   <script src="../javascripts/product-theme.js"></script>
+  <script src="https://partners.mirotalk.com/ref.js" defer></script>
   <script type="application/ld+json">
   {{
     "@context": "https://schema.org",
