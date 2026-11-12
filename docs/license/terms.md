@@ -7,25 +7,37 @@ description: Full terms of the MiroTalk Regular and Extended commercial licenses
 
 Copyright (c) 2026 Miroslav Pejic. All rights reserved.
 
-MiroTalk products ("the Software") are available under the open-source GNU Affero General Public License v3.0 (AGPLv3) or under a commercial license (Regular or Extended):
+MiroTalk products ("the Software") are available under a commercial license (Regular or Extended) for private, closed-source products, or under the open-source GNU Affero General Public License v3.0 (AGPLv3) for projects that publish all of their source code:
 
-| | AGPLv3 | Regular | Extended |
+| | Regular | Extended | AGPLv3 |
 | --- | :---: | :---: | :---: |
-| Price | Free | One-time fee | One-time fee |
+| Best for | Internal tools, free services, client projects | Paid SaaS and monetized platforms | Fully open-source projects |
+| Price | One-time fee | One-time fee | Free |
 | Full source code | ✅ | ✅ | ✅ |
-| Modify and rebrand | ✅ | ✅ | ✅ |
-| Keep your source code private (closed source) | ❌ | ✅ | ✅ |
-| Number of End Products | Unlimited ¹ | 1 | 1 |
-| Charge End Users for access or usage | ✅ ¹ | ❌ | ✅ |
-| Resell or redistribute the source code itself | ✅ ¹ | ❌ | ❌ |
+| Modify and rebrand | ✅ | ✅ | ⚠️ ¹ |
+| Keep your source code and modifications private | ✅ | ✅ | ❌ |
+| No obligation to share your code with users | ✅ | ✅ | ❌ ¹ |
+| Combine with your own proprietary code | ✅ | ✅ | ❌ ² |
+| Charge End Users for access or usage | ❌ | ✅ | ⚠️ ¹ |
+| Number of End Products | 1 | 1 | Unlimited ¹ |
+| Resell or redistribute the source code itself | ❌ | ❌ | ⚠️ ¹ |
+| Payment receipt as proof of license | ✅ | ✅ | ❌ |
 
-¹ Only under AGPLv3 terms: the complete corresponding source code of your version, including modifications, must be made available under AGPLv3 to every user who interacts with it, including over a network.
+¹ Only under AGPLv3 terms: the complete corresponding source code of your version, including all modifications, must be made available under AGPLv3 to every user who interacts with it, including over a network, and original copyright and license notices must be kept.
 
-- **Open source (AGPLv3)**: free use under the [GNU Affero General Public License v3.0](https://www.gnu.org/licenses/agpl-3.0.html).
+² Code that forms a single work with the Software must also be released under AGPLv3.
+
 - **Regular License**: closed source and rebranding for **one** End Product where End Users are **not** charged (e.g. an internal company tool, a free service for your own customers, or a client project).
 - **Extended License**: closed source and rebranding for **one** End Product where End Users **can** be charged (e.g. a paid SaaS, paid video consultations, paid webinars or events, or a paid membership).
+- **Open source (AGPLv3)**: free use under the [GNU Affero General Public License v3.0](https://www.gnu.org/licenses/agpl-3.0.html), as long as you publish the full source code of your version to all of its users.
 
-The terms below apply only to buyers of a Regular or Extended License purchased directly from MiroTalk through the checkout links on the [licensing options](index.md#product-listings-and-prices) page. Licenses purchased on CodeCanyon (Envato Market) are governed by the [Envato Market license terms](https://codecanyon.net/licenses/standard). Everyone else may use the Software under AGPLv3.
+!!! tip "Building a product for your business or clients?"
+    Most companies choose a commercial license so they can keep their code, customizations and integrations private, with no AGPLv3 source-sharing obligations. Pick **Regular** for free or internal use, or **Extended** if End Users pay.
+
+    [Get a Regular or Extended License](index.md#product-listings-and-prices){ .md-button .md-button--primary }
+    [Not sure? Ask before you buy](mailto:miroslav.pejic.85@gmail.com?subject=MiroTalk%20license%20question){ .md-button }
+
+The terms below apply only to buyers of a Regular or Extended License purchased directly from MiroTalk through the checkout links on the [licensing options](index.md#product-listings-and-prices) page. Licenses purchased on CodeCanyon (Envato Market) are governed by the [Envato Market license terms](https://codecanyon.net/licenses/standard). Everyone else may use the Software only under AGPLv3 terms.
 
 !!! warning "Not legal advice"
     The summary table above is for convenience. If it differs from the numbered terms below, the numbered terms control. Contact MiroTalk before purchase if you are unsure which license fits your use case.
