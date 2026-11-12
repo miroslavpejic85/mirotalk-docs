@@ -40,7 +40,7 @@ description: Compare MiroTalk open-source, Regular, and Extended licensing paths
             <li>Private source code</li>
             <li>Product name, logo, and description rebranding</li>
             <li>Use in one end product</li>
-            <li>Product-specific support terms</li>
+            <li>6 months of direct support</li>
         </ul>
         <a href="#product-listings-and-prices">Compare product prices</a>
     </section>
@@ -52,7 +52,7 @@ description: Compare MiroTalk open-source, Regular, and Extended licensing paths
             <li>Private source code</li>
             <li>Product name, logo, and description rebranding</li>
             <li>Monetization of one end product</li>
-            <li>Product-specific support terms</li>
+            <li>6 months of direct support</li>
         </ul>
         <a href="#product-listings-and-prices">Compare product prices</a>
     </section>
@@ -60,17 +60,25 @@ description: Compare MiroTalk open-source, Regular, and Extended licensing paths
 
 ## How Regular and Extended differ from AGPLv3
 
-| | AGPLv3 | Regular | Extended |
+| | Regular | Extended | AGPLv3 |
 | --- | :---: | :---: | :---: |
-| Price | Free | One-time fee | One-time fee |
+| Best for | Internal tools, free services, client projects | Paid SaaS and monetized platforms | Fully open-source projects |
+| Price | One-time fee | One-time fee | Free |
 | Full source code | ✅ | ✅ | ✅ |
-| Modify and rebrand | ✅ | ✅ | ✅ |
-| Keep your source code private (closed source) | ❌ | ✅ | ✅ |
-| Number of end products | Unlimited ¹ | 1 | 1 |
-| Charge end users for access or usage | ✅ ¹ | ❌ | ✅ |
-| Resell or redistribute the source code itself | ✅ ¹ | ❌ | ❌ |
+| Modify and rebrand | ✅ | ✅ | ⚠️ ¹ |
+| Keep your source code and modifications private | ✅ | ✅ | ❌ |
+| No obligation to share your code with users | ✅ | ✅ | ❌ ¹ |
+| Combine with your own proprietary code | ✅ | ✅ | ❌ ² |
+| Charge End Users for access or usage | ❌ | ✅ | ⚠️ ¹ |
+| Number of End Products | 1 | 1 | Unlimited ¹ |
+| Resell or redistribute the source code itself | ❌ | ❌ | ⚠️ ¹ |
+| Payment receipt as proof of license | ✅ | ✅ | ❌ |
+| Direct item support | 6 months | 6 months | Community only |
+| Free lifetime updates | ✅ | ✅ | ✅ |
 
-¹ Only under AGPLv3 terms: the complete corresponding source code of your version, including modifications, must be made available under AGPLv3 to every user who interacts with it, including over a network.
+¹ Only under AGPLv3 terms: the complete corresponding source code of your version, including all modifications, must be made available under AGPLv3 to every user who interacts with it, including over a network, and original copyright and license notices must be kept.
+
+² Code that forms a single work with the Software must also be released under AGPLv3.
 
 !!! info "Quick selection rule"
     If users pay to access your closed-source end product, review the Extended license. If they do not, review the Regular license. Product structure, redistribution, services, and other use cases can affect eligibility, so confirm the complete terms before purchase.

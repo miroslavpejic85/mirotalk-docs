@@ -69,7 +69,8 @@
   letter-spacing: 0;
 }
 
-.md-content:has(.editorial-hero) .md-typeset__table {
+.md-content:has(.editorial-hero) .md-typeset__table,
+.md-content:has(.license-terms-page) .md-typeset__table {
   display: block;
   width: 100%;
   margin: 1.2rem 0;
@@ -78,7 +79,8 @@
   border-radius: 0.35rem;
 }
 
-.md-content:has(.editorial-hero) table:not([class]) {
+.md-content:has(.editorial-hero) table:not([class]),
+.md-content:has(.license-terms-page) table:not([class]) {
   display: table;
   width: 100%;
   margin: 0;
@@ -86,7 +88,8 @@
   font-size: 0.72rem;
 }
 
-.md-content:has(.editorial-hero) table:not([class]) th {
+.md-content:has(.editorial-hero) table:not([class]) th,
+.md-content:has(.license-terms-page) table:not([class]) th {
   background: var(--md-code-bg-color);
   color: var(--md-default-fg-color);
 }
