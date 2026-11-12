@@ -15,7 +15,7 @@ description: Compare MiroTalk open-source, Regular, and Extended licensing paths
 </header>
 
 !!! warning "Review the complete terms"
-    This page is a practical summary, not legal advice or a replacement for the applicable license. Review the [AGPLv3 text](https://www.gnu.org/licenses/agpl-3.0.html) or the applicable commercial license terms before using or purchasing a product. The applicable license and checkout terms control if this summary differs from them.
+    This page is a practical summary, not legal advice or a replacement for the applicable license. Review the [AGPLv3 text](https://www.gnu.org/licenses/agpl-3.0.html) or the [commercial license terms](terms.md) before using or purchasing a product. The applicable license and checkout terms control if this summary differs from them.
 
 ## Compare licensing paths
 
@@ -58,8 +58,24 @@ description: Compare MiroTalk open-source, Regular, and Extended licensing paths
     </section>
 </div>
 
+## How Regular and Extended differ from AGPLv3
+
+| | AGPLv3 | Regular | Extended |
+| --- | :---: | :---: | :---: |
+| Price | Free | One-time fee | One-time fee |
+| Full source code | ✅ | ✅ | ✅ |
+| Modify and rebrand | ✅ | ✅ | ✅ |
+| Keep your source code private (closed source) | ❌ | ✅ | ✅ |
+| Number of end products | Unlimited ¹ | 1 | 1 |
+| Charge end users for access or usage | ✅ ¹ | ❌ | ✅ |
+| Resell or redistribute the source code itself | ✅ ¹ | ❌ | ❌ |
+
+¹ Only under AGPLv3 terms: the complete corresponding source code of your version, including modifications, must be made available under AGPLv3 to every user who interacts with it, including over a network.
+
 !!! info "Quick selection rule"
     If users pay to access your closed-source end product, review the Extended license. If they do not, review the Regular license. Product structure, redistribution, services, and other use cases can affect eligibility, so confirm the complete terms before purchase.
+
+[Read the full commercial license terms](terms.md){ .md-button }
 
 ## Product listings and prices
 

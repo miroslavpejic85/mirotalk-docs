@@ -493,8 +493,8 @@ Need more than a quick answer? These guides cover the details.
     | License | Price | Use Case | Source Code |
     |---------|-------|----------|-------------|
     | **AGPLv3** | Free | Open-source, modifications must be shared publicly | Public |
-    | **Regular** | $29–$299 | Personal or closed-source (non-commercial) | Private |
-    | **Extended** | $149–$1499 | Commercial / revenue-generating use | Private |
+    | **Regular** | $29–$299 | One closed-source end product; end users are not charged | Private |
+    | **Extended** | $149–$1499 | One closed-source end product; end users can be charged | Private |
 
     **Pricing by product:**
 
@@ -509,7 +509,7 @@ Need more than a quick answer? These guides cover the details.
     | CME | $39 | $199 |
     | WEB | $39 | $199 |
 
-    See the [Licensing Options](../license/index.md) page for full details.
+    See the [Licensing Options](../license/index.md) page for full details and the [commercial license terms](../license/terms.md) for the complete Regular and Extended terms.
 
 ---
 

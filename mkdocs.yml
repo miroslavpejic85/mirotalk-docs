@@ -169,6 +169,7 @@ nav:
     - Partners: partners/index.md
     - Sponsors: sponsors/index.md
     - Licensing options: license/index.md
+    - Commercial license terms: license/terms.md
     - MiroTalk Ultimate: mirotalk-ultimate/index.md
     - White-label SFU: mirotalk-sfu/rebranding.md
     - White-label P2P: mirotalk-p2p/rebranding.md
@@ -215,8 +216,8 @@ theme:
 
 # Custom styles
 extra_css:
-  - stylesheets/extra.css?v=1.5.90
-  - stylesheets/editorial.css?v=1.5.90
+  - stylesheets/extra.css?v=1.5.91
+  - stylesheets/editorial.css?v=1.5.91
 extra_javascript:
   - javascripts/accessibility.js
   - javascripts/analytics-events.js
@@ -224,7 +225,7 @@ extra_javascript:
 
 # Social / preview card metadata
 extra:
-  docs_version: v1.5.90
+  docs_version: v1.5.91
   links:
     cloud: https://cloud.mirotalk.com
     discord: &discord_url https://discord.gg/rgGYfeYW3N
