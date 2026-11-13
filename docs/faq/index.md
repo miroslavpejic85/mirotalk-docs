@@ -511,6 +511,10 @@ Need more than a quick answer? These guides cover the details.
 
     See the [Licensing Options](../license/index.md) page for full details and the [commercial license terms](../license/terms.md) for the complete Regular and Extended terms.
 
+??? question "Does MiroTalk have an affiliate or referral program?"
+
+    Yes. The [MiroTalk Partner Program](https://partners.mirotalk.com/) pays a **20% commission** on every MiroTalk Ultimate sale you refer: $59.80 per Regular license and $299.80 per Extended license. It is free to join, includes a 60-day attribution window and optional discount codes, and pays out through Stripe Connect after the 30-day refund window. See [Partner with MiroTalk](../partners/index.md) for details.
+
 ---
 
 ## Room Customization

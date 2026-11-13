@@ -63,7 +63,8 @@ Review the official licensing information before applying commercial branding ch
 
 ## Collaborate with the ecosystem
 
-Agencies, SaaS builders, system integrators, hosting companies, consultants, and technology vendors can propose a delivery or integration partnership. Organizations can also support ongoing project development through GitHub Sponsors or discuss a tailored company sponsorship.
+Agencies, SaaS builders, system integrators, hosting companies, consultants, and technology vendors can propose a delivery or integration partnership. Creators and agencies can also refer customers to MiroTalk Ultimate through the [MiroTalk Partner Program](https://partners.mirotalk.com/) and earn a 20% commission on every sale. Organizations can also support ongoing project development through GitHub Sponsors or discuss a tailored company sponsorship.
 
 [Explore partnerships](../partners/index.md){ .md-button .md-button--primary }
+[Join the referral program](https://partners.mirotalk.com/){ .md-button }
 [Explore sponsorships](../sponsors/index.md){ .md-button }
