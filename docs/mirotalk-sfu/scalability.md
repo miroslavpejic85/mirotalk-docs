@@ -1,17 +1,18 @@
 # MiroTalk SFU - Vertical & Horizontal Scaling
 
-![scalability](../images/scalability.png)
+![MiroTalk SFU scaling options: vertical, load balancer, multi-worker rooms, Redis cluster and Kubernetes](../images/scalability-sfu-options.png)
 
 ## Overview
 
 Scale MiroTalk SFU to **handle 100-1000+ concurrent users** across multiple rooms.
 
-**Four options:**
+**Five options:**
 
 1.  **Vertical Scaling:** Single powerful server (50-100+ users)
 2.  **Horizontal Scaling:** Multiple servers + Load Balancer (100-1000+ users)
 3.  **Multi-Worker Rooms:** One big room spread over several CPU cores (30-200+ users in one room)
 4.  **Built-in Cluster with Redis:** Automatic room placement across many servers (1000+ users)
+5.  **Kubernetes (k3s):** Option 4 deployed on k3s with ready-made manifests (1000+ users)
 
 The following built-in scaling options are **optional and disabled by default**. They are independent: enable one, the other, or both.
 
@@ -26,6 +27,7 @@ The following built-in scaling options are **optional and disabled by default**.
     - **Several servers, simple setup:** Option 2. No Redis, and one hostname for everything.
     - **Several servers, growing or auto-scaling:** Option 4. Rooms go to the least loaded server, and servers can be added or removed without moving rooms.
     - **Large single rooms on several servers:** Option 4 + Option 3.
+    - **Cluster managed with Kubernetes:** Option 5. Same cluster as Option 4, deployed and updated with `kubectl`.
 
     Options 2 and 4 give the **same total capacity** (~800 users per 8-core server). Option 4 places and manages rooms better; it doesn't add capacity.
 
@@ -300,7 +302,7 @@ Compared to Option 2 (room hash on the load balancer), SFU nodes coordinate thro
 
 !!! tip "Kubernetes"
 
-    Prefer Kubernetes? The [k3s deployment guide](kubernetes.md) runs this cluster mode on bare-metal / VDS servers with ready-made manifests (Traefik, Let's Encrypt, Redis, one SFU pod per node).
+    Prefer Kubernetes? See [Option 5](#option-5-kubernetes-k3s): the [k3s deployment guide](kubernetes.md) runs this cluster mode on bare-metal / VDS servers with ready-made manifests (Traefik, Let's Encrypt, Redis, one SFU pod per node).
 
 ### Architecture
 
@@ -519,6 +521,28 @@ curl -s -H "authorization: YOUR_API_KEY_SECRET" https://meet.yourdomain.com/api/
 | `mirotalksfu:room:<room>` | Id of the node hosting or reserved for the room |
 | `mirotalksfu:set:hostauth` | Host protection logins shared by all nodes |
 | `mirotalksfu:rpc:<id>` (pub/sub) | Requests between nodes (meetings list, end meeting) |
+
+---
+
+![MiroTalk SFU on Kubernetes](../images/kubernetes.jpg)
+
+## Option 5: Kubernetes (k3s)
+
+**Best for:** teams that already run Kubernetes, or want a multi-server cluster that is deployed and updated declaratively with `kubectl`.
+
+This is the [Option 4](#option-4-built-in-cluster-with-redis) cluster, packaged as ready-made [k3s](https://k3s.io) manifests for bare-metal / VDS servers:
+
+- **One MiroTalk pod per server** (DaemonSet, host network), so media goes straight to the server's public IP, with no load balancer in the media path.
+- **Few media ports** per server thanks to the WebRTC server mode (`SFU_SERVER=true`), e.g. `40000-40004` for 4 workers.
+- **Per-node settings filled in by Kubernetes** (`SFU_ANNOUNCED_IP`, `SCALING_NODE_ID`, `SCALING_NODE_URL`), with no per-server scripts.
+- **Traefik + Let's Encrypt** on every node, plus a private **Redis / Valkey** for room placement.
+- **Safe restarts:** applying a new config never kills live meetings; each node is restarted when it is quiet.
+
+Combine it with [Option 3](#option-3-multi-worker-rooms) (`SCALING_MULTI_WORKER_ROOMS=true`) for large single rooms.
+
+!!! tip "Full guide"
+
+    DNS, firewall, k3s install, TLS, configuration, deploy and operations: **[MiroTalk SFU - Kubernetes (k3s)](kubernetes.md)**.
 
 ---
 
