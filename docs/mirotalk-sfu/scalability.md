@@ -238,6 +238,8 @@ sudo systemctl restart nginx
 
 ---
 
+![MiroTalk SFU built-in horizontal scaling: multi-worker rooms and Redis cluster](../images/scalability-sfu-horizontal-scaling.png)
+
 ## Option 3: Multi-Worker Rooms
 
 **Best for:** large meetings, webinars and classes (30-200+ participants in the same room) on a single server.
