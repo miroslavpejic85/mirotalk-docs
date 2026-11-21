@@ -247,7 +247,7 @@ Add the following:
 # HTTP — redirect all traffic to HTTPS
 <VirtualHost *:80>
     ServerName YOUR.DOMAIN.NAME
-    Redirect permanent / https://YOUR.DOMAIN.NAME
+    Redirect permanent / https://YOUR.DOMAIN.NAME/
 </VirtualHost>
 
 # MiroTalk Whisper - HTTPS — proxy all requests to the Whisper server
@@ -263,26 +263,25 @@ Add the following:
     # Enable HTTP/2 support
     Protocols h2 http/1.1
 
-    <Location />
-        # Proxy Configuration for the Whisper server
-        ProxyPass http://localhost:8000/
-        ProxyPassReverse http://localhost:8000/
+    ProxyPreserveHost On
+    RequestHeader set X-Forwarded-Proto "https"
 
-        ProxyPreserveHost On
-
-        RequestHeader set X-Forwarded-For "%{REMOTE_ADDR}s"
-        RequestHeader set X-Forwarded-Proto "https"
-        RequestHeader set Host "%{HTTP_HOST}s"
-    </Location>
+    # Proxy all requests to the Whisper server
+    ProxyPass        / http://localhost:8000/
+    ProxyPassReverse / http://localhost:8000/
 </VirtualHost>
 ```
 
 ```bash
+# Enable the required modules
+sudo a2enmod proxy      # core proxy engine
+sudo a2enmod proxy_http # proxy HTTP requests to the Whisper server
+sudo a2enmod headers    # for the RequestHeader line
+sudo a2enmod ssl        # for SSLEngine
+sudo a2enmod http2      # for "Protocols h2 http/1.1"
+
 # Check configuration
 sudo apache2ctl configtest
-
-sudo a2enmod proxy # Enables the `mod_proxy` module, which is essential for proxying HTTP connections.
-sudo a2enmod proxy_http # Enables the `mod_proxy_http` module, which adds support for proxying HTTP connections.
 
 # Restart apache
 sudo systemctl restart apache2

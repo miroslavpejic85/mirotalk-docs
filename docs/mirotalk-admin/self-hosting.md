@@ -277,29 +277,23 @@ Add the following:
     SSLProxyCheckPeerCN off
     SSLProxyCheckPeerExpire off
 
-    <Location />
-        # Proxy Configuration for Node.js App (HTTPS backend)
-        ProxyPass https://localhost:9999/
-        ProxyPassReverse https://localhost:9999/
+    ProxyPreserveHost On
+    RequestHeader set X-Forwarded-Proto "https"
 
-        ProxyPreserveHost On
+    # WebSocket proxy support for Socket.IO (secure, same port as app; must come before ProxyPass)
+    RewriteEngine On
+    RewriteCond %{HTTP:Upgrade} websocket [NC]
+    RewriteCond %{HTTP:Connection} upgrade [NC]
+    RewriteRule ^/?(.*) "wss://localhost:9999/$1" [P,L]
 
-        RequestHeader set X-Forwarded-For "%{REMOTE_ADDR}s"
-        RequestHeader set X-Forwarded-Proto "https"
-        RequestHeader set Host "%{HTTP_HOST}s"
-
-        # Enable WebSocket proxy support for Socket.IO (secure, same port as app)
-        RewriteEngine On
-        RewriteCond %{HTTP:Upgrade} =websocket [NC]
-        RewriteRule /(.*) wss://localhost:9999/$1 [P,L]
-    </Location>
+    # Proxy all other requests to the Node.js app (HTTPS backend)
+    ProxyPass        / https://localhost:9999/
+    ProxyPassReverse / https://localhost:9999/
 </VirtualHost>
 ```
 
 ```bash
-# Check configuration
-sudo apache2ctl configtest
-
+# Enable the required modules
 sudo a2enmod proxy          # core proxy engine
 sudo a2enmod proxy_http     # proxy HTTP/HTTPS backends (handles your https://localhost:9999)
 sudo a2enmod proxy_wstunnel # WebSocket (wss://) tunneling for Socket.IO
@@ -307,6 +301,9 @@ sudo a2enmod ssl            # provides SSLProxyEngine / SSLProxy* directives
 sudo a2enmod rewrite        # for the RewriteRule / RewriteCond WebSocket rules
 sudo a2enmod headers        # for the RequestHeader set ... lines
 sudo a2enmod http2          # for "Protocols h2 http/1.1"
+
+# Check configuration
+sudo apache2ctl configtest
 
 # Restart apache
 sudo systemctl restart apache2
