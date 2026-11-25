@@ -113,6 +113,51 @@ toggleButton.addEventListener("click", function () {
 });
 ```
 
+## Flutter Web
+
+Register the iframe as a platform view and render it with `HtmlElementView`. Add the [`web`](https://pub.dev/packages/web) package first with `flutter pub add web`.
+
+```dart
+import 'dart:ui_web' as ui_web;
+
+import 'package:flutter/material.dart';
+import 'package:web/web.dart' as web;
+
+const mirotalkUrl = 'https://sfu.mirotalk.com/newroom';
+const mirotalkViewType = 'mirotalk-iframe';
+
+void main() {
+  ui_web.platformViewRegistry.registerViewFactory(
+    mirotalkViewType,
+    (int viewId) => web.HTMLIFrameElement()
+      ..src = mirotalkUrl
+      ..title = 'MiroTalk video conference'
+      ..allow =
+          'camera; microphone; speaker-selection; display-capture; fullscreen; clipboard-read; clipboard-write; web-share; autoplay; picture-in-picture; screen-wake-lock'
+      ..style.width = '100%'
+      ..style.height = '100%'
+      ..style.border = 'none',
+  );
+
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      home: Scaffold(
+        body: HtmlElementView(viewType: mirotalkViewType),
+      ),
+    );
+  }
+}
+```
+
+Set `mirotalkUrl` to any URL from [Choose a Source URL](#choose-a-source-url). For Android and iOS builds, load the same URL in a WebView package that supports camera and microphone permissions, and declare those permissions in the native app manifests.
+
 ## Customize the Meeting URL
 
 Use query parameters to prefill room and participant settings. The available parameters depend on the selected project:

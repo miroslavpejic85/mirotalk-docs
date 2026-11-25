@@ -52,7 +52,7 @@ MiroTalk communication products can be embedded with iframes, direct links, and 
 | WEB | [View on CodePen](https://codepen.io/Miroslav-Pejic/pen/jOQMVxx) |
 | CME | [View on CodePen](https://codepen.io/Miroslav-Pejic/pen/empeGYJ) |
 | React | [View on CodePen](https://codepen.io/Miroslav-Pejic/pen/QWzmGaZ) |
-| Flutter | [View example](https://flutlab.io/sandbox/6a0a9565-004d-4ccc-b3a7-5395e7059f43) |
+| Flutter | [View example](../utility/quick-custom-integration.md#flutter-web) |
 
 ## Deploy and operate
 
